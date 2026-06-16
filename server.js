@@ -14,6 +14,9 @@ const minLeadHours = numberFromEnv("BOOKING_MIN_LEAD_HOURS", 24);
 const workdayStart = process.env.BOOKING_WORKDAY_START || "10:00";
 const workdayEnd = process.env.BOOKING_WORKDAY_END || "22:00";
 const slotStepMinutes = numberFromEnv("BOOKING_SLOT_STEP_MINUTES", 30);
+const maxConsecutiveSlots = Math.max(1, numberFromEnv("BOOKING_MAX_CONSECUTIVE_SLOTS", 4));
+const travelRateCentsPerHour = Math.max(0, numberFromEnv("BOOKING_TRAVEL_RATE_CENTS_PER_HOUR", 7500));
+const maxTravelHours = Math.max(0, numberFromEnv("BOOKING_MAX_TRAVEL_HOURS", 24));
 const appBaseUrl = stripTrailingSlash(process.env.APP_BASE_URL || "https://www.marcsmusic.nl");
 const crmSource = process.env.CRM_SOURCE_WEBSITE || "marcsmusic.nl";
 const crmBookingEntity = process.env.CRM_BOOKING_ENTITY || "DJBooking";
@@ -92,8 +95,12 @@ function getPublicConfig() {
     workdayStart,
     workdayEnd,
     slotStepMinutes,
+    maxConsecutiveSlots,
     bookingBufferMinutes,
     minLeadHours,
+    travelRateCentsPerHour,
+    travelRate: formatMoney(travelRateCentsPerHour),
+    pricesExcludeVat: true,
     integrations: {
       calendarConfigured: isCalendarConfigured(),
       crmConfigured: isCrmConfigured(),
@@ -566,7 +573,15 @@ async function createBooking(input) {
     throw Object.assign(new Error("Kies een geldige datum en tijd."), { statusCode: 400 });
   }
 
-  const endUtc = new Date(startUtc.getTime() + type.durationMinutes * 60 * 1000);
+  const slotCount = normalizeSlotCount(input.slotCount);
+  const travelHours = normalizeTravelHours(input.travelHours);
+  const quote = calculateBookingQuote(type, slotCount, travelHours);
+  const endUtc = new Date(startUtc.getTime() + quote.durationMinutes * 60 * 1000);
+  const dayEnd = localDateTimeToUtc(formatLocalInputDate(startUtc), workdayEnd, bookingTimeZone);
+  if (endUtc > dayEnd) {
+    throw Object.assign(new Error("Kies minder aansluitende blokken; deze booking valt buiten de beschikbare dag."), { statusCode: 409 });
+  }
+
   const customer = validateCustomer(input);
   const availability = await getAvailability({
     date: formatLocalInputDate(startUtc),
@@ -576,6 +591,11 @@ async function createBooking(input) {
 
   if (!selectedSlot) {
     throw Object.assign(new Error("Dit tijdslot is niet meer beschikbaar."), { statusCode: 409 });
+  }
+
+  const intervalAvailability = await isBookingWindowAvailable(startUtc, endUtc);
+  if (!intervalAvailability.ok) {
+    throw Object.assign(new Error(intervalAvailability.reason), { statusCode: 409 });
   }
 
   const bookingId = randomUUID();
@@ -601,8 +621,16 @@ async function createBooking(input) {
       startUtc: startUtc.toISOString(),
       endUtc: endUtc.toISOString(),
       timeZone: bookingTimeZone,
-      durationMinutes: type.durationMinutes,
-      priceCents: type.priceCents,
+      slotCount,
+      unitDurationMinutes: type.durationMinutes,
+      durationMinutes: quote.durationMinutes,
+      unitPriceCents: type.priceCents,
+      performancePriceCents: quote.performancePriceCents,
+      travelHours: quote.travelHours,
+      billableTravelHours: quote.billableTravelHours,
+      travelRateCentsPerHour,
+      travelCostCents: quote.travelCostCents,
+      priceCents: quote.totalPriceCents,
       currency: "EUR",
       customer,
       crmContactId: null,
@@ -653,7 +681,7 @@ async function createBooking(input) {
         bookingId,
         molliePaymentId: payment.id,
         status: payment.status || "open",
-        amountCents: type.priceCents,
+        amountCents: created.priceCents,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
       });
@@ -683,7 +711,7 @@ async function createBooking(input) {
 
 function requireBookingIntegrations() {
   if (!isCalendarConfigured()) {
-    throw Object.assign(new Error("CalDAV agenda is nog niet geconfigureerd."), { statusCode: 503 });
+    throw Object.assign(new Error("De agenda is nog niet geconfigureerd."), { statusCode: 503 });
   }
   if (!isCrmConfigured()) {
     throw Object.assign(new Error("EspoCRM is nog niet geconfigureerd."), { statusCode: 503 });
@@ -727,6 +755,44 @@ function cleanText(value, maxLength) {
     .replace(/\s+/g, " ")
     .trim()
     .slice(0, maxLength);
+}
+
+function normalizeSlotCount(value) {
+  const slotCount = Number.parseInt(String(value || "1"), 10);
+  if (!Number.isInteger(slotCount) || slotCount < 1 || slotCount > maxConsecutiveSlots) {
+    throw Object.assign(new Error(`Kies 1 tot ${maxConsecutiveSlots} aansluitende blokken.`), { statusCode: 400 });
+  }
+  return slotCount;
+}
+
+function normalizeTravelHours(value) {
+  const raw = String(value ?? "").replace(",", ".").trim();
+  if (!raw) {
+    return 0;
+  }
+
+  const hours = Number(raw);
+  if (!Number.isFinite(hours) || hours < 0 || hours > maxTravelHours) {
+    throw Object.assign(new Error(`Vul 0 tot ${maxTravelHours} reisuren in.`), { statusCode: 400 });
+  }
+  return Math.round(hours * 100) / 100;
+}
+
+function calculateBookingQuote(type, slotCount, travelHours) {
+  const durationMinutes = type.durationMinutes * slotCount;
+  const performancePriceCents = type.priceCents * slotCount;
+  const billableTravelHours = Math.ceil(travelHours);
+  const travelCostCents = billableTravelHours * travelRateCentsPerHour;
+
+  return {
+    slotCount,
+    durationMinutes,
+    performancePriceCents,
+    travelHours,
+    billableTravelHours,
+    travelCostCents,
+    totalPriceCents: performancePriceCents + travelCostCents
+  };
 }
 
 async function createMolliePayment(booking) {
@@ -951,21 +1017,26 @@ async function confirmPaidBooking(bookingId) {
 async function isSlotStillFreeForConfirmation(booking) {
   const start = new Date(booking.startUtc);
   const end = new Date(booking.endUtc);
-  const calendarResult = await getCalDavBusyIntervals(start, end);
+  return isBookingWindowAvailable(start, end, booking.id);
+}
+
+async function isBookingWindowAvailable(start, end, excludeBookingId = null) {
+  const protectedStart = new Date(start.getTime() - bookingBufferMinutes * 60 * 1000);
+  const protectedEnd = new Date(end.getTime() + bookingBufferMinutes * 60 * 1000);
+  const calendarResult = await getCalDavBusyIntervals(protectedStart, protectedEnd);
   if (calendarResult.status === "error") {
     return { ok: false, reason: calendarResult.message };
   }
 
   const db = await readDb();
-  const localBusy = getReservedIntervals(db, booking.id);
-  const protectedStart = new Date(start.getTime() - bookingBufferMinutes * 60 * 1000);
-  const protectedEnd = new Date(end.getTime() + bookingBufferMinutes * 60 * 1000);
+  expireOldPendingBookings(db);
+  const localBusy = getReservedIntervals(db, excludeBookingId);
   const hasConflict = [...calendarResult.busy, ...localBusy].some((interval) =>
     intervalsOverlap(protectedStart, protectedEnd, interval.start, interval.end)
   );
 
   if (hasConflict) {
-    return { ok: false, reason: "Het tijdslot overlapt met een bestaande CalDAV-agenda-afspraak." };
+    return { ok: false, reason: "Het gekozen tijdsblok overlapt met een bestaande agenda-afspraak." };
   }
 
   return { ok: true };
@@ -1009,7 +1080,7 @@ async function getCalDavBusyIntervals(startUtc, endUtc) {
   if (!isCalendarConfigured()) {
     return {
       status: "not_configured",
-      message: "CalDAV agenda is nog niet gekoppeld; alleen bestaande pending reserveringen worden gecontroleerd.",
+      message: "Agenda is nog niet gekoppeld; alleen bestaande pending reserveringen worden gecontroleerd.",
       busy: []
     };
   }
@@ -1042,14 +1113,14 @@ async function getCalDavBusyIntervals(startUtc, endUtc) {
     if (![200, 207].includes(response.status)) {
       return {
         status: "error",
-        message: `CalDAV availability request mislukt met status ${response.status}.`,
+        message: `Agenda availability request mislukt met status ${response.status}.`,
         busy: []
       };
     }
 
     return {
       status: "connected",
-      message: "CalDAV beschikbaarheid is live gecontroleerd.",
+      message: "Agenda beschikbaarheid is live gecontroleerd.",
       busy: parseCalendarDataFromMultiStatus(text)
         .flatMap(parseIcsEvents)
         .filter((event) => event.status !== "CANCELLED" && event.transp !== "TRANSPARENT")
@@ -1059,7 +1130,7 @@ async function getCalDavBusyIntervals(startUtc, endUtc) {
   } catch (error) {
     return {
       status: "error",
-      message: `CalDAV kon niet worden gecontroleerd: ${publicErrorMessage(error)}`,
+      message: `Agenda kon niet worden gecontroleerd: ${publicErrorMessage(error)}`,
       busy: []
     };
   }
@@ -1067,7 +1138,7 @@ async function getCalDavBusyIntervals(startUtc, endUtc) {
 
 async function createCalDavEvent(booking) {
   if (!isCalendarConfigured()) {
-    throw new Error("CalDAV agenda is nog niet geconfigureerd.");
+    throw new Error("Agenda is nog niet geconfigureerd.");
   }
 
   const uid = booking.caldavEventUid || `marcsmusic-${booking.id}@marcsmusic.nl`;
@@ -1082,7 +1153,7 @@ async function createCalDavEvent(booking) {
 
   if (![200, 201, 204].includes(response.status)) {
     const text = await response.text().catch(() => "");
-    throw new Error(`CalDAV event kon niet worden aangemaakt (${response.status}). ${text}`.trim());
+    throw new Error(`Agenda-event kon niet worden aangemaakt (${response.status}). ${text}`.trim());
   }
 
   return { uid, url };
@@ -1096,7 +1167,7 @@ async function deleteCalDavEvent(eventUid) {
   const url = new URL(`${encodeURIComponent(eventUid)}.ics`, getCalendarUrl()).toString();
   const response = await caldavRequest("DELETE", url);
   if (![200, 202, 204, 404].includes(response.status)) {
-    throw new Error(`CalDAV event kon niet worden verwijderd (${response.status}).`);
+    throw new Error(`Agenda-event kon niet worden verwijderd (${response.status}).`);
   }
 }
 
@@ -1116,10 +1187,15 @@ function buildIcsEvent(booking, uid) {
   const description = [
     `Booking ID: ${booking.id}`,
     `Type: ${booking.bookingTypeLabel}`,
+    `Aaneengesloten blokken: ${booking.slotCount || 1}`,
+    `Duur: ${booking.durationMinutes} minuten`,
     `Naam: ${booking.customer.name}`,
     `Email: ${booking.customer.email}`,
     `Telefoon: ${booking.customer.phone}`,
     `Locatie: ${booking.customer.location}`,
+    `Boeking ex btw: ${formatMoney(booking.performancePriceCents ?? booking.priceCents)}`,
+    `Reiskosten ex btw: ${formatMoney(booking.travelCostCents || 0)} (${booking.billableTravelHours || 0} uur x ${formatMoney(booking.travelRateCentsPerHour || travelRateCentsPerHour)})`,
+    `Totaal ex btw: ${formatMoney(booking.priceCents)}`,
     booking.customer.message ? `Bericht: ${booking.customer.message}` : ""
   ]
     .filter(Boolean)
@@ -1331,6 +1407,15 @@ async function addContactToNewsletterList(contactId) {
 }
 
 function buildCrmBookingPayload(booking, contactId = booking.crmContactId, patch = {}) {
+  const bookingMessage = [
+    booking.customer.message,
+    `Aaneengesloten blokken: ${booking.slotCount || 1}`,
+    `Duur: ${booking.durationMinutes} minuten`,
+    `Boeking ex btw: ${formatMoney(booking.performancePriceCents ?? booking.priceCents)}`,
+    `Reiskosten ex btw: ${formatMoney(booking.travelCostCents || 0)} (${booking.billableTravelHours || 0} uur x ${formatMoney(booking.travelRateCentsPerHour || travelRateCentsPerHour)})`,
+    `Totaal ex btw: ${formatMoney(booking.priceCents)}`
+  ].filter(Boolean).join("\n");
+
   return {
     name: `MarcsMusic Booking - ${booking.customer.name}`,
     bookingId: booking.id,
@@ -1344,7 +1429,7 @@ function buildCrmBookingPayload(booking, contactId = booking.crmContactId, patch
     endUtc: booking.endUtc,
     durationMinutes: booking.durationMinutes,
     location: booking.customer.location,
-    message: booking.customer.message,
+    message: bookingMessage,
     priceCents: booking.priceCents,
     currency: booking.currency,
     status: booking.status,
@@ -1403,6 +1488,8 @@ function publicBookingStatus(booking) {
     endUtc: booking.endUtc,
     dateLabel: formatLocalDate(new Date(booking.startUtc)),
     timeLabel: formatLocalTime(new Date(booking.startUtc)),
+    durationMinutes: booking.durationMinutes,
+    slotCount: booking.slotCount || 1,
     price: formatMoney(booking.priceCents)
   };
 }

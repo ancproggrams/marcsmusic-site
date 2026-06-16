@@ -179,7 +179,7 @@
             <th>Klant</th>
             <th>Locatie</th>
             <th>Payment</th>
-            <th>Calendar</th>
+            <th>Agenda</th>
             <th>Actie</th>
           </tr>
         </thead>
@@ -217,6 +217,13 @@
       }).format(new Date(value));
     }
 
+    function formatMoney(cents) {
+      return new Intl.NumberFormat("nl-NL", {
+        style: "currency",
+        currency: "EUR"
+      }).format((Number(cents) || 0) / 100);
+    }
+
     async function loadBookings() {
       setStatus("Bookings laden...");
       const response = await fetch("/api/admin/bookings", {
@@ -237,14 +244,21 @@
         <tr>
           <td><span class="badge ${escapeHtml(booking.status)}">${escapeHtml(booking.status)}</span></td>
           <td>${escapeHtml(formatDate(booking.startUtc))}</td>
-          <td>${escapeHtml(booking.bookingTypeLabel)}</td>
+          <td>
+            ${escapeHtml(booking.bookingTypeLabel)}<br>
+            ${escapeHtml(booking.durationMinutes || "-")} min / ${escapeHtml(booking.slotCount || 1)} blok
+          </td>
           <td>
             ${escapeHtml(booking.customer.name)}<br>
             ${escapeHtml(booking.customer.email)}<br>
             ${escapeHtml(booking.customer.phone)}
           </td>
           <td>${escapeHtml(booking.customer.location)}</td>
-          <td>${escapeHtml(booking.molliePaymentId || "-")}</td>
+          <td>
+            ${escapeHtml(booking.molliePaymentId || "-")}<br>
+            ${escapeHtml(formatMoney(booking.priceCents || 0))} totaal<br>
+            ${escapeHtml(formatMoney(booking.travelCostCents || 0))} reis
+          </td>
           <td>${escapeHtml(booking.caldavEventUid || booking.calendarUrl || "-")}</td>
           <td><button class="cancel-btn" type="button" data-cancel="${escapeHtml(booking.id)}">Cancel</button></td>
         </tr>

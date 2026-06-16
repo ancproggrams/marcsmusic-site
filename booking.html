@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Booking | MarcsMusic</title>
-  <meta name="description" content="Book MarcsMusic direct met CalDAV availability, CRM opslag en Mollie betaling.">
+  <meta name="description" content="Book MarcsMusic direct met agenda-beschikbaarheid, CRM opslag en Mollie betaling.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2321171d'/%3E%3Cpath d='M6 21V9h3l4 5 4-5h3v12h-3V14l-4 5-4-5v7H6Z' fill='white'/%3E%3C/svg%3E">
   <style>
     :root {
@@ -395,6 +395,39 @@
       font-size: 14px;
     }
 
+    .booking-note {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .invoice-summary {
+      display: grid;
+      gap: 10px;
+      border: 1px solid var(--line);
+      background: var(--panel-soft);
+      padding: 14px;
+    }
+
+    .invoice-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: #d9d3d7;
+      font-size: 14px;
+    }
+
+    .invoice-line strong {
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .invoice-line.total {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      font-weight: 700;
+    }
+
     .booking-submit {
       min-height: 50px;
       border: 0;
@@ -586,7 +619,7 @@
       <div class="booking-copy">
         <p class="booking-kicker">Booking</p>
         <h1 id="booking-title">Book MarcsMusic</h1>
-        <p>Kies eerst een datum in de kalender, selecteer een beschikbare tijd en betaal veilig via Mollie. Na betaling wordt de afspraak bevestigd in de MarcsMusic CalDAV-agenda.</p>
+        <p>Kies een datum, selecteer een beschikbare starttijd en betaal veilig via Mollie. Na betaling ontvang je de bevestiging met de agenda boeking.</p>
         <div class="booking-result" data-booking-result hidden></div>
       </div>
 
@@ -602,7 +635,7 @@
             </select>
           </label>
           <div class="booking-price" aria-live="polite">
-            <span>Prijs</span>
+            <span>Totaal ex. btw</span>
             <strong data-booking-price>...</strong>
           </div>
         </div>
@@ -645,6 +678,12 @@
           <p class="slot-empty" data-slot-empty>Kies eerst een datum.</p>
         </fieldset>
 
+        <label class="booking-field" data-slot-count-field hidden>
+          <span>Aansluitende blokken</span>
+          <select name="slotCount" data-slot-count aria-label="Aantal aansluitende tijdsblokken"></select>
+          <p class="booking-note">Elk blok sluit direct aan op de vorige tijd.</p>
+        </label>
+
         <div class="booking-row">
           <label class="booking-field">
             <span>Naam</span>
@@ -665,6 +704,28 @@
             <span>Locatie/eventadres</span>
             <input name="location" type="text" autocomplete="street-address" required>
           </label>
+        </div>
+
+        <div class="booking-row">
+          <label class="booking-field">
+            <span>Reisuren in NL</span>
+            <input name="travelHours" type="number" min="0" max="24" step="0.25" value="0" inputmode="decimal" data-travel-hours>
+            <p class="booking-note" data-travel-rate>Reiskosten: EUR 75 ex. btw per reisuur, afgerond naar boven.</p>
+          </label>
+          <div class="invoice-summary" aria-live="polite">
+            <div class="invoice-line">
+              <span>Boeking ex. btw</span>
+              <strong data-performance-cost>...</strong>
+            </div>
+            <div class="invoice-line">
+              <span>Reiskosten ex. btw</span>
+              <strong data-travel-cost>...</strong>
+            </div>
+            <div class="invoice-line total">
+              <span>Factuur totaal ex. btw</span>
+              <strong data-invoice-total>...</strong>
+            </div>
+          </div>
         </div>
 
         <label class="booking-field">
@@ -702,13 +763,25 @@
     const bookingResult = document.querySelector("[data-booking-result]");
     const prevMonth = document.querySelector("[data-prev-month]");
     const nextMonth = document.querySelector("[data-next-month]");
+    const slotCountField = document.querySelector("[data-slot-count-field]");
+    const slotCount = document.querySelector("[data-slot-count]");
+    const travelHours = document.querySelector("[data-travel-hours]");
+    const travelRate = document.querySelector("[data-travel-rate]");
+    const performanceCost = document.querySelector("[data-performance-cost]");
+    const travelCost = document.querySelector("[data-travel-cost]");
+    const invoiceTotal = document.querySelector("[data-invoice-total]");
 
     let bookingConfig = null;
     let selectedSlot = null;
     let selectedDate = null;
+    let availableSlots = [];
     const today = stripTime(new Date());
     const minDate = addDays(today, 1);
     let monthCursor = new Date(minDate.getFullYear(), minDate.getMonth(), 1);
+    const moneyFormatter = new Intl.NumberFormat("nl-NL", {
+      style: "currency",
+      currency: "EUR"
+    });
 
     function stripTime(date) {
       return new Date(date.getFullYear(), date.getMonth(), date.getDate());
@@ -743,6 +816,18 @@
       }).format(date);
     }
 
+    function formatClock(date) {
+      return new Intl.DateTimeFormat("nl-NL", {
+        hour: "2-digit",
+        minute: "2-digit",
+        timeZone: bookingConfig?.timeZone || "Europe/Amsterdam"
+      }).format(date);
+    }
+
+    function formatMoneyFromCents(cents) {
+      return moneyFormatter.format((Number(cents) || 0) / 100);
+    }
+
     function sameDate(a, b) {
       return Boolean(a && b) && a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
     }
@@ -756,10 +841,34 @@
       return bookingConfig?.bookingTypes.find((type) => type.id === bookingType.value);
     }
 
+    function getSelectedSlotCount() {
+      return Math.max(1, Number.parseInt(slotCount.value || "1", 10) || 1);
+    }
+
+    function getTravelHours() {
+      const value = Number(String(travelHours.value || "0").replace(",", "."));
+      return Number.isFinite(value) && value > 0 ? value : 0;
+    }
+
     function updatePrice() {
       const type = getSelectedType();
-      bookingPrice.textContent = type?.price || "...";
-      bookingDuration.textContent = type ? `${type.durationMinutes} min` : "...";
+      const count = getSelectedSlotCount();
+      const billableTravelHours = Math.ceil(getTravelHours());
+      const travelRateCents = bookingConfig?.travelRateCentsPerHour || 7500;
+      const performanceCents = type ? type.priceCents * count : 0;
+      const travelCents = billableTravelHours * travelRateCents;
+      const totalCents = performanceCents + travelCents;
+      const durationMinutes = type ? type.durationMinutes * count : 0;
+
+      bookingPrice.textContent = type ? formatMoneyFromCents(totalCents) : "...";
+      bookingDuration.textContent = type ? `${durationMinutes} min` : "...";
+      performanceCost.textContent = type ? formatMoneyFromCents(performanceCents) : "...";
+      travelCost.textContent = formatMoneyFromCents(travelCents);
+      invoiceTotal.textContent = type ? formatMoneyFromCents(totalCents) : "...";
+
+      if (travelRate) {
+        travelRate.textContent = `Reiskosten: ${formatMoneyFromCents(travelRateCents)} ex. btw per reisuur, afgerond naar boven.`;
+      }
     }
 
     function renderCalendar() {
@@ -811,10 +920,59 @@
       }
     }
 
+    function getMaxConsecutiveSlotCount(slot) {
+      const type = getSelectedType();
+      if (!type || !slot) {
+        return 1;
+      }
+
+      const maxSlots = bookingConfig?.maxConsecutiveSlots || 1;
+      const availableStarts = new Set(availableSlots.map((item) => new Date(item.startUtc).getTime()));
+      const firstStart = new Date(slot.startUtc).getTime();
+      let count = 1;
+
+      for (let nextCount = 2; nextCount <= maxSlots; nextCount += 1) {
+        const expectedStart = firstStart + type.durationMinutes * 60 * 1000 * (nextCount - 1);
+        if (!availableStarts.has(expectedStart)) {
+          break;
+        }
+        count = nextCount;
+      }
+
+      return count;
+    }
+
+    function renderSlotCountOptions() {
+      slotCount.innerHTML = "";
+      if (!selectedSlot || !getSelectedType()) {
+        slotCountField.hidden = true;
+        return;
+      }
+
+      const type = getSelectedType();
+      const maxCount = getMaxConsecutiveSlotCount(selectedSlot);
+      const startMs = new Date(selectedSlot.startUtc).getTime();
+
+      for (let count = 1; count <= maxCount; count += 1) {
+        const option = document.createElement("option");
+        const duration = type.durationMinutes * count;
+        const end = new Date(startMs + duration * 60 * 1000);
+        option.value = String(count);
+        option.textContent = `${count} blok${count === 1 ? "" : "ken"} - ${duration} min, tot ${formatClock(end)}`;
+        slotCount.append(option);
+      }
+
+      slotCount.value = "1";
+      slotCountField.hidden = false;
+    }
+
     function renderSlots(slots) {
       selectedSlot = null;
+      availableSlots = slots;
       slotGrid.innerHTML = "";
+      renderSlotCountOptions();
       bookingSubmit.disabled = true;
+      updatePrice();
 
       if (!slots.length) {
         slotEmpty.textContent = selectedDate ? "Geen beschikbare tijden op deze datum." : "Kies eerst een datum.";
@@ -833,6 +991,8 @@
           selectedSlot = slot;
           slotGrid.querySelectorAll(".slot-button").forEach((item) => item.setAttribute("aria-pressed", "false"));
           button.setAttribute("aria-pressed", "true");
+          renderSlotCountOptions();
+          updatePrice();
           bookingSubmit.disabled = false;
         });
         slotGrid.append(button);
@@ -880,7 +1040,7 @@
         }
         updatePrice();
         if (!bookingConfig.integrations.mollieConfigured || !bookingConfig.integrations.calendarConfigured || !bookingConfig.integrations.crmConfigured) {
-          setBookingStatus("CalDAV, EspoCRM en Mollie moeten server-side ingesteld zijn voordat live boekingen volledig werken.");
+          setBookingStatus("Agenda, EspoCRM en Mollie moeten server-side ingesteld zijn voordat live boekingen volledig werken.");
         }
       } catch {
         setBookingStatus("Bookingconfiguratie kon niet worden geladen. Controleer de Railway deployment.", true);
@@ -891,6 +1051,9 @@
       updatePrice();
       loadAvailability();
     });
+
+    slotCount.addEventListener("change", updatePrice);
+    travelHours.addEventListener("input", updatePrice);
 
     prevMonth.addEventListener("click", () => {
       const previous = new Date(monthCursor.getFullYear(), monthCursor.getMonth() - 1, 1);
@@ -915,6 +1078,8 @@
       const formData = new FormData(bookingForm);
       const payload = Object.fromEntries(formData.entries());
       payload.startUtc = selectedSlot.startUtc;
+      payload.slotCount = getSelectedSlotCount();
+      payload.travelHours = getTravelHours();
       bookingSubmit.disabled = true;
       bookingSubmit.textContent = "Redirecting...";
       setBookingStatus("Betaling voorbereiden...");
@@ -949,13 +1114,13 @@
       bookingResult.hidden = false;
       bookingResult.textContent = isCancelled
         ? "De betaling is geannuleerd. Je kunt opnieuw een tijd kiezen."
-        : "Betaling ontvangen. De definitieve CalDAV-agendabevestiging volgt zodra Mollie de betaling heeft bevestigd.";
+        : "Betaling ontvangen. Je ontvangt de bevestiging met de agenda boeking zodra Mollie de betaling heeft bevestigd.";
 
       try {
         const response = await fetch(`/api/booking/status?id=${encodeURIComponent(bookingId)}`);
         const status = await response.json();
         if (response.ok) {
-          bookingResult.textContent = `${status.bookingType} - ${status.dateLabel} om ${status.timeLabel}. Status: ${status.status}.`;
+          bookingResult.textContent = `${status.bookingType} - ${status.dateLabel} om ${status.timeLabel}. Duur: ${status.durationMinutes} min. Status: ${status.status}.`;
         }
       } catch {
         /* De redirectmelding hierboven blijft zichtbaar. */
