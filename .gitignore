@@ -17,8 +17,14 @@
 !deploy/
 !deploy/espocrm/
 !deploy/espocrm/docker-compose.yml
+!deploy/espocrm/Dockerfile
+!deploy/espocrm/railway.json
+!deploy/espocrm/start-railway.sh
 !deploy/radicale/
-!deploy/radicale/Dockerfile
 !deploy/radicale/config
+!deploy/radicale/requirements.txt
+!deploy/radicale/start.py
+!deploy/radicale/railway.json
 !deploy/radicale/users.example
 !deploy/radicale/README.md
+!deploy/radicale/Procfile

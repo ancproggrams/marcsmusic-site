@@ -16,8 +16,8 @@ This project serves the MarcsMusic site and a server-side booking flow with a se
 ## Architecture
 
 - Website/backend: Node.js on Railway
-- CRM: EspoCRM at `https://crm.marcsmusic.nl`
-- Calendar: Radicale CalDAV at `https://calendar.marcsmusic.nl`
+- CRM: EspoCRM on Railway, currently `https://marcsmusic-crm-production.up.railway.app`
+- Calendar: Radicale CalDAV on Railway, currently `https://marcsmusic-calendar-production.up.railway.app`
 - Public site: `https://www.marcsmusic.nl`
 - Payments: Mollie
 
@@ -30,10 +30,10 @@ Set the values from `.env.example` as Railway service variables. Do not commit r
 Important production values:
 
 - `APP_BASE_URL=https://www.marcsmusic.nl`
-- `ESPOCRM_BASE_URL=https://crm.marcsmusic.nl`
+- `ESPOCRM_BASE_URL`
 - `ESPOCRM_API_KEY`
 - `NEWSLETTER_FROM_EMAIL=noreply@marcsmusic.nl`
-- `CALDAV_BASE_URL=https://calendar.marcsmusic.nl`
+- `CALDAV_BASE_URL`
 - `CALDAV_USERNAME`
 - `CALDAV_PASSWORD`
 - `CALDAV_CALENDAR_PATH`
@@ -43,15 +43,16 @@ Important production values:
 
 ## EspoCRM setup
 
-1. Deploy EspoCRM on Railway using `deploy/espocrm/docker-compose.yml` as the service reference.
-2. Open `https://crm.marcsmusic.nl`.
-3. Create an API User in EspoCRM.
-4. Give the API User permissions for:
+1. Deploy EspoCRM on Railway using `deploy/espocrm/`.
+2. Use the Railway MySQL service as the database.
+3. Set the EspoCRM admin and database credentials as Railway variables.
+4. Create an API User in EspoCRM or via the admin API.
+5. Give the API User permissions for:
    - `Contact`
    - `TargetList` if you want CRM mailing-list linking
    - custom entity `DJBooking`
-5. Set `ESPOCRM_API_KEY` in Railway.
-6. Create custom entity `DJBooking` with fields matching:
+6. Set `ESPOCRM_API_KEY` in Railway.
+7. Create custom entity `DJBooking` with fields matching:
    - `bookingId`
    - `contactId`
    - `customerName`
@@ -95,7 +96,7 @@ Make sure `noreply@marcsmusic.nl` exists in your mail provider and that SPF/DKIM
 
 ## Radicale CalDAV setup on Railway
 
-Use `deploy/radicale/` as a Railway or Docker starting point.
+Use `deploy/radicale/` as the Railway service source.
 
 Recommended subdomain:
 
@@ -112,7 +113,7 @@ Example calendar path:
 Set:
 
 ```text
-CALDAV_BASE_URL=https://calendar.marcsmusic.nl
+CALDAV_BASE_URL=https://marcsmusic-calendar-production.up.railway.app
 CALDAV_USERNAME=marcsmusic
 CALDAV_PASSWORD=...
 CALDAV_CALENDAR_PATH=/marcsmusic/bookings/
