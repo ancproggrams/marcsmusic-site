@@ -1,0 +1,9 @@
+*
+!.gitignore
+!index.html
+!package.json
+!server.js
+!assets/
+!assets/marcsmusic-logo-black.png
+!assets/marcsmusic-logo-white.png
+!assets/artist-portrait.jpg
