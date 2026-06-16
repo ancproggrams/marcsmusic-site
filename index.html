@@ -422,6 +422,7 @@
       .footer-inner {
         gap: 48px;
       }
+
     }
 
     @media (max-width: 720px) {
@@ -538,7 +539,7 @@
         <a href="#home" aria-current="page">Home</a>
         <a href="#music">Music</a>
         <a href="#pics">Pics</a>
-        <a href="#booking">Booking &amp; Contact</a>
+        <a href="booking.html">Booking &amp; Contact</a>
       </nav>
     </div>
   </header>
@@ -594,9 +595,10 @@
         </div>
       </div>
     </section>
+
   </main>
 
-  <footer class="page-footer" id="booking">
+  <footer class="page-footer" id="contact">
     <div class="footer-inner">
       <section class="signup" aria-labelledby="signup-title">
         <h2 id="signup-title">Get on the list</h2>
@@ -614,14 +616,36 @@
   <script>
     const signupForm = document.querySelector("[data-signup]");
 
-    signupForm.addEventListener("submit", (event) => {
+    signupForm?.addEventListener("submit", (event) => {
       event.preventDefault();
       const button = signupForm.querySelector("button");
-      button.textContent = "Subscribed";
-      window.setTimeout(() => {
-        button.textContent = "Subscribe Now";
-        signupForm.reset();
-      }, 1800);
+      const email = signupForm.querySelector("input").value;
+      const previous = button.textContent;
+      button.disabled = true;
+      button.textContent = "Saving...";
+
+      fetch("/api/newsletter/subscribe", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ email })
+      })
+        .then(async (response) => {
+          const payload = await response.json();
+          if (!response.ok) {
+            throw new Error(payload.error || "Subscribe failed");
+          }
+          button.textContent = "Subscribed";
+          signupForm.reset();
+        })
+        .catch(() => {
+          button.textContent = "Try Again";
+        })
+        .finally(() => {
+          window.setTimeout(() => {
+            button.disabled = false;
+            button.textContent = previous;
+          }, 1800);
+        });
     });
   </script>
 </body>

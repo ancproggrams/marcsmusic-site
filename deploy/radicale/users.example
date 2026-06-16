@@ -1,0 +1,6 @@
+# Create /data/users with htpasswd bcrypt entries.
+# Example:
+#   apk add apache2-utils
+#   htpasswd -B -c users marcsmusic
+#
+# Do not commit the real users file.
