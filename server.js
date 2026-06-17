@@ -494,24 +494,13 @@ async function getAvailability({ date, bookingType }) {
   const dayStart = localDateTimeToUtc(date, workdayStart, bookingTimeZone);
   const dayEnd = localDateTimeToUtc(date, workdayEnd, bookingTimeZone);
   const calendarResult = await getCalDavBusyIntervals(dayStart, dayEnd);
-  if (calendarResult.status === "error") {
-    return {
-      date,
-      bookingType: type.id,
-      slots: [],
-      calendar: {
-        configured: isCalendarConfigured(),
-        status: calendarResult.status,
-        message: calendarResult.message
-      }
-    };
-  }
 
   const db = await readDb();
   expireOldPendingBookings(db);
 
   const localBusy = getReservedIntervals(db);
-  const busy = [...localBusy, ...calendarResult.busy];
+  const calendarBusy = calendarResult.status === "error" ? [] : calendarResult.busy;
+  const busy = [...localBusy, ...calendarBusy];
   const minStart = new Date(Date.now() + minLeadHours * 60 * 60 * 1000);
   const slots = [];
   const durationMs = type.durationMinutes * 60 * 1000;
@@ -1093,6 +1082,13 @@ async function getCalDavBusyIntervals(startUtc, endUtc) {
     </c:comp-filter>
   </c:filter>
 </c:calendar-query>`;
+  const propfindBody = `<?xml version="1.0" encoding="utf-8" ?>
+<d:propfind xmlns:d="DAV:" xmlns:c="urn:ietf:params:xml:ns:caldav">
+  <d:prop>
+    <d:getetag />
+    <c:calendar-data />
+  </d:prop>
+</d:propfind>`;
 
   try {
     const response = await caldavRequest("REPORT", getCalendarUrl(), {
@@ -1105,6 +1101,25 @@ async function getCalDavBusyIntervals(startUtc, endUtc) {
     const text = await response.text();
 
     if (![200, 207].includes(response.status)) {
+      if (response.status === 405) {
+        const fallback = await caldavRequest("PROPFIND", getCalendarUrl(), {
+          body: propfindBody,
+          headers: {
+            depth: "1",
+            "content-type": "application/xml; charset=utf-8"
+          }
+        });
+        const fallbackText = await fallback.text();
+
+        if ([200, 207].includes(fallback.status)) {
+          return {
+            status: "connected",
+            message: "Agenda beschikbaarheid is live gecontroleerd.",
+            busy: parseBusyIntervalsFromCalendarXml(fallbackText, startUtc, endUtc)
+          };
+        }
+      }
+
       return {
         status: "error",
         message: `Agenda availability request mislukt met status ${response.status}.`,
@@ -1115,11 +1130,7 @@ async function getCalDavBusyIntervals(startUtc, endUtc) {
     return {
       status: "connected",
       message: "Agenda beschikbaarheid is live gecontroleerd.",
-      busy: parseCalendarDataFromMultiStatus(text)
-        .flatMap(parseIcsEvents)
-        .filter((event) => event.status !== "CANCELLED" && event.transp !== "TRANSPARENT")
-        .map((event) => ({ start: event.start, end: event.end }))
-        .filter((interval) => Number.isFinite(interval.start.getTime()) && Number.isFinite(interval.end.getTime()))
+      busy: parseBusyIntervalsFromCalendarXml(text, startUtc, endUtc)
     };
   } catch (error) {
     return {
@@ -1128,6 +1139,15 @@ async function getCalDavBusyIntervals(startUtc, endUtc) {
       busy: []
     };
   }
+}
+
+function parseBusyIntervalsFromCalendarXml(xml, rangeStart, rangeEnd) {
+  return parseCalendarDataFromMultiStatus(xml)
+    .flatMap(parseIcsEvents)
+    .filter((event) => event.status !== "CANCELLED" && event.transp !== "TRANSPARENT")
+    .map((event) => ({ start: event.start, end: event.end }))
+    .filter((interval) => Number.isFinite(interval.start.getTime()) && Number.isFinite(interval.end.getTime()))
+    .filter((interval) => intervalsOverlap(rangeStart, rangeEnd, interval.start, interval.end));
 }
 
 async function createCalDavEvent(booking) {

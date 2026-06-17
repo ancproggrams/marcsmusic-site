@@ -781,6 +781,8 @@
       style: "currency",
       currency: "EUR"
     });
+    const filePreviewMessage = "Open de bookingpagina via http://localhost:3000/booking of https://www.marcsmusic.nl/booking; vanuit een file-preview kunnen tijdsloten niet worden geladen.";
+    const isFilePreview = window.location.protocol === "file:";
 
     function stripTime(date) {
       return new Date(date.getFullYear(), date.getMonth(), date.getDate());
@@ -999,6 +1001,12 @@
     }
 
     async function loadAvailability() {
+      if (isFilePreview) {
+        renderSlots([]);
+        setBookingStatus(filePreviewMessage, true);
+        return;
+      }
+
       if (!bookingDate.value || !bookingType.value) {
         renderSlots([]);
         return;
@@ -1026,6 +1034,11 @@
 
     async function initBooking() {
       renderCalendar();
+
+      if (isFilePreview) {
+        setBookingStatus(filePreviewMessage, true);
+        return;
+      }
 
       try {
         const response = await fetch("/api/booking/config");
