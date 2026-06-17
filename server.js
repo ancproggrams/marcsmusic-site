@@ -539,7 +539,10 @@ async function getAvailability({ date, bookingType }) {
     calendar: {
       configured: isCalendarConfigured(),
       status: calendarResult.status,
-      message: calendarResult.message
+      message:
+        calendarResult.status === "error"
+          ? "Agenda kon niet live worden gecontroleerd; beschikbare tijden worden getoond op basis van website-reserveringen."
+          : calendarResult.message
     }
   };
 }
