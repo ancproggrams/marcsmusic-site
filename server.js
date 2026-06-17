@@ -44,12 +44,6 @@ const contentTypes = {
 
 const bookingTypes = [
   {
-    id: "live",
-    label: "Live optreden",
-    durationMinutes: numberFromEnv("BOOKING_DURATION_LIVE_MINUTES", 120),
-    priceCents: numberFromEnv("BOOKING_PRICE_LIVE_CENTS", 19900)
-  },
-  {
     id: "studio",
     label: "Studio sessie",
     durationMinutes: numberFromEnv("BOOKING_DURATION_STUDIO_MINUTES", 60),
