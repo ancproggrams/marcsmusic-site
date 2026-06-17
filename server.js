@@ -58,8 +58,8 @@ const bookingTypes = [
   {
     id: "dj",
     label: "DJ / muziek event",
-    durationMinutes: numberFromEnv("BOOKING_DURATION_DJ_MINUTES", 180),
-    priceCents: numberFromEnv("BOOKING_PRICE_DJ_CENTS", 29900)
+    durationMinutes: numberFromEnv("BOOKING_DURATION_DJ_MINUTES", 60),
+    priceCents: numberFromEnv("BOOKING_PRICE_DJ_CENTS", 20000)
   },
   {
     id: "other",
