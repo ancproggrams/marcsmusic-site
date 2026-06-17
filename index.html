@@ -154,18 +154,22 @@
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 50%) minmax(0, 50%);
+      align-items: stretch;
+      width: 100%;
       min-height: 1210px;
       background: var(--page);
     }
 
     .hero-visual {
       position: relative;
+      width: 100%;
       min-height: 1210px;
       background-color: var(--paper);
       background-image: url("assets/artist-portrait.jpg");
       background-size: cover;
-      background-position: center top;
+      background-position: right top;
+      background-repeat: no-repeat;
       overflow: hidden;
     }
 
@@ -181,6 +185,7 @@
     }
 
     .release-column {
+      min-width: 0;
       background: var(--page);
       padding: 12px 0 0 20px;
     }
