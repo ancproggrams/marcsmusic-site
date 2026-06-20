@@ -75,6 +75,19 @@ function stripTrailingSlash(value) {
   return String(value || "").replace(/\/$/, "");
 }
 
+function getBookingIntegrationStatus() {
+  const integrations = {
+    calendarConfigured: isCalendarConfigured(),
+    crmConfigured: isCrmConfigured(),
+    mollieConfigured: Boolean(process.env.MOLLIE_API_KEY)
+  };
+
+  return {
+    ...integrations,
+    ready: integrations.calendarConfigured && integrations.crmConfigured && integrations.mollieConfigured
+  };
+}
+
 function getPublicConfig() {
   return {
     bookingTypes: bookingTypes.map((type) => ({
@@ -95,11 +108,7 @@ function getPublicConfig() {
     travelRateCentsPerHour,
     travelRate: formatMoney(travelRateCentsPerHour),
     pricesExcludeVat: true,
-    integrations: {
-      calendarConfigured: isCalendarConfigured(),
-      crmConfigured: isCrmConfigured(),
-      mollieConfigured: Boolean(process.env.MOLLIE_API_KEY)
-    }
+    integrations: getBookingIntegrationStatus()
   };
 }
 
@@ -696,14 +705,12 @@ async function createBooking(input) {
 }
 
 function requireBookingIntegrations() {
-  if (!isCalendarConfigured()) {
-    throw Object.assign(new Error("De agenda is nog niet geconfigureerd."), { statusCode: 503 });
-  }
-  if (!isCrmConfigured()) {
-    throw Object.assign(new Error("EspoCRM is nog niet geconfigureerd."), { statusCode: 503 });
-  }
-  if (!process.env.MOLLIE_API_KEY) {
-    throw Object.assign(new Error("Mollie is nog niet geconfigureerd."), { statusCode: 503 });
+  const integrations = getBookingIntegrationStatus();
+  if (!integrations.ready) {
+    throw Object.assign(new Error("Live boekingen zijn tijdelijk niet beschikbaar. Neem direct contact op."), {
+      statusCode: 503,
+      logAsError: false
+    });
   }
 }
 
@@ -1650,7 +1657,7 @@ const server = createServer(async (request, response) => {
     serveStatic(request, response);
   } catch (error) {
     const statusCode = error.statusCode || 500;
-    if (statusCode >= 500) {
+    if (statusCode >= 500 && error.logAsError !== false) {
       console.error(error);
     }
     sendJson(response, statusCode, { error: publicErrorMessage(error) });
