@@ -2,8 +2,9 @@ import type { Repositories } from '../db/repositories.js';
 import { platformCanonicalKey } from '../utils/ids.js';
 import { seedPlatforms } from './platformSeeds.js';
 import { run5SeedPlatforms } from './run5PlatformSeeds.js';
+import { run6SeedPlatforms } from './run6PlatformSeeds.js';
 
-const allSeedPlatforms = [...seedPlatforms, ...run5SeedPlatforms];
+const allSeedPlatforms = [...seedPlatforms, ...run5SeedPlatforms, ...run6SeedPlatforms];
 
 export function seedDiscoveryPlatforms(repositories: Repositories): { discovered: number; queued: number } {
   let discovered = 0;
