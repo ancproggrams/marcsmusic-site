@@ -1,12 +1,15 @@
 import type { Repositories } from '../db/repositories.js';
 import { platformCanonicalKey } from '../utils/ids.js';
 import { seedPlatforms } from './platformSeeds.js';
+import { run5SeedPlatforms } from './run5PlatformSeeds.js';
+
+const allSeedPlatforms = [...seedPlatforms, ...run5SeedPlatforms];
 
 export function seedDiscoveryPlatforms(repositories: Repositories): { discovered: number; queued: number } {
   let discovered = 0;
   let queued = 0;
 
-  for (const seed of seedPlatforms) {
+  for (const seed of allSeedPlatforms) {
     const platform = repositories.platforms.upsert(seed);
     discovered += 1;
 
@@ -23,7 +26,7 @@ export function seedDiscoveryPlatforms(repositories: Repositories): { discovered
       jobType: 'verify_platform',
       priority: seed.manualReviewRequired ? 40 : 70,
       idempotencyKey: `verify:${platformCanonicalKey(platform.name, platform.websiteUrl, platform.submissionUrl ?? undefined)}`,
-      payload: { source: 'seed' }
+      payload: { source: seed.sourceType ?? 'seed' }
     });
     queued += 1;
   }
