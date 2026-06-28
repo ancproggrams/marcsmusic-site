@@ -4,8 +4,15 @@ import { seedPlatforms } from './platformSeeds.js';
 import { run5SeedPlatforms } from './run5PlatformSeeds.js';
 import { run6SeedPlatforms } from './run6PlatformSeeds.js';
 import { run7SeedPlatforms } from './run7PlatformSeeds.js';
+import { run8SeedPlatforms } from './run8PlatformSeeds.js';
 
-const allSeedPlatforms = [...seedPlatforms, ...run5SeedPlatforms, ...run6SeedPlatforms, ...run7SeedPlatforms];
+const allSeedPlatforms = [
+  ...seedPlatforms,
+  ...run5SeedPlatforms,
+  ...run6SeedPlatforms,
+  ...run7SeedPlatforms,
+  ...run8SeedPlatforms
+];
 
 export function seedDiscoveryPlatforms(repositories: Repositories): { discovered: number; queued: number } {
   let discovered = 0;
