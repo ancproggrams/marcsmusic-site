@@ -19,18 +19,18 @@ npm install
 npm run build
 npm test
 npm run lint
-npm run run:once
-npm start
+DATABASE_PATH=./data/submissions.sqlite EXPORT_DIR=./data/exports npm run run:once
+DATABASE_PATH=./data/submissions.sqlite EXPORT_DIR=./data/exports npm start
 ```
 
-Local defaults write to `./data/submissions.sqlite` and `./data/exports`. Railway/Docker defaults write to `/data/submissions.sqlite` and `/data/exports`.
+Runtime defaults are Railway-first: `/data/submissions.sqlite` and `/data/exports`. Local development should override those paths as shown above.
 
 ## Environment Variables
 
 | Variable                       | Default                        | Purpose                                                                                        |
 | ------------------------------ | ------------------------------ | ---------------------------------------------------------------------------------------------- |
-| `DATABASE_PATH`                | `./data/submissions.sqlite`    | SQLite database path. Use `/data/submissions.sqlite` on Railway persistent storage.            |
-| `EXPORT_DIR`                   | `./data/exports`               | Export output directory.                                                                       |
+| `DATABASE_PATH`                | `/data/submissions.sqlite`     | SQLite database path on Railway persistent storage.                                            |
+| `EXPORT_DIR`                   | `/data/exports`                | Export output directory on Railway persistent storage.                                         |
 | `WORKER_MODE`                  | `all`                          | `all`, `api`, `worker`, `discovery`, `verification`, `submission`, or `exports`.               |
 | `AUTO_SUBMIT_ENABLED`          | `false`                        | Required for automatic submissions. Keep false until browser executor and assets are approved. |
 | `EMAIL_SMTP_VERIFY_ENABLED`    | `false`                        | Enables SMTP checks through AfterShip helper. Catch-all probing remains disabled.              |

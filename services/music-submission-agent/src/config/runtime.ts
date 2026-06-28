@@ -23,8 +23,8 @@ const integerEnv = (defaultValue: number) =>
     });
 
 const envSchema = z.object({
-  DATABASE_PATH: z.string().default('./data/submissions.sqlite'),
-  EXPORT_DIR: z.string().default('./data/exports'),
+  DATABASE_PATH: z.string().default('/data/submissions.sqlite'),
+  EXPORT_DIR: z.string().default('/data/exports'),
   PORT: integerEnv(3000),
   HOST: z.string().default('0.0.0.0'),
   AUTO_SUBMIT_ENABLED: booleanEnv,
