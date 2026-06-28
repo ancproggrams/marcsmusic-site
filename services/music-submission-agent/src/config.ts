@@ -1,20 +1,2 @@
-export const config = {
-  databasePath: process.env.DATABASE_PATH ?? '/data/submissions.sqlite',
-  exportDir: process.env.EXPORT_DIR ?? '/data/exports',
-  workerMode: process.env.WORKER_MODE ?? 'all',
-  discoveryIntervalMs: Number(process.env.DISCOVERY_INTERVAL_MS ?? 1800000),
-  verificationIntervalMs: Number(process.env.VERIFICATION_INTERVAL_MS ?? 3600000),
-  submissionIdleSleepMs: Number(process.env.SUBMISSION_IDLE_SLEEP_MS ?? 15000),
-  maxBrowserConcurrency: Number(process.env.MAX_BROWSER_CONCURRENCY ?? 1),
-  autoSubmitEnabled: process.env.AUTO_SUBMIT_ENABLED === 'true',
-  artistName: process.env.ARTIST_NAME ?? 'MarcsMusic',
-  artistEmail: process.env.ARTIST_EMAIL,
-  artistBio: process.env.ARTIST_BIO,
-  trackTitle: process.env.TRACK_TITLE,
-  trackSpotifyUrl: process.env.TRACK_SPOTIFY_URL,
-  trackSoundcloudUrl: process.env.TRACK_SOUNDCLOUD_URL,
-  trackMp3Url: process.env.TRACK_MP3_URL,
-  trackWavUrl: process.env.TRACK_WAV_URL,
-  artworkUrl: process.env.ARTWORK_URL,
-  epkUrl: process.env.EPK_URL
-};
+export { config, loadConfig } from './config/runtime.js';
+export type { RuntimeConfig } from './config/runtime.js';

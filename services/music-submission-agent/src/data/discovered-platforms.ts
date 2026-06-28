@@ -51,7 +51,8 @@ export const discoveredPlatforms: SubmissionPlatform[] = [
     genreFit: ['Electronic', 'Reggae', 'Dance', 'World', 'Pop'],
     confidenceScore: 95,
     priorityScore: 90,
-    notes: 'Paid curator marketplace with broad genre coverage including electronic and reggae. Account and credits required.',
+    notes:
+      'Paid curator marketplace with broad genre coverage including electronic and reggae. Account and credits required.',
     contacts: []
   },
   {
@@ -73,7 +74,8 @@ export const discoveredPlatforms: SubmissionPlatform[] = [
     genreFit: ['House', 'Bass', 'Garage', 'Festival', 'Electronic'],
     confidenceScore: 92,
     priorityScore: 86,
-    notes: 'Free public playlist submission directory. Browser pass should map per-playlist form fields and enforce relevance/no-spam rules.',
+    notes:
+      'Free public playlist submission directory. Browser pass should map per-playlist form fields and enforce relevance/no-spam rules.',
     contacts: []
   },
   {
@@ -127,7 +129,8 @@ export const discoveredPlatforms: SubmissionPlatform[] = [
     genreFit: ['independent music', 'playlisting', 'radio', 'press'],
     confidenceScore: 90,
     priorityScore: 82,
-    notes: 'Initial upload can be free, but the platform reviews submissions and charges campaign fees after acceptance.',
+    notes:
+      'Initial upload can be free, but the platform reviews submissions and charges campaign fees after acceptance.',
     contacts: []
   },
   {
@@ -163,7 +166,12 @@ export const discoveredPlatforms: SubmissionPlatform[] = [
     activityStatus: 'active',
     verificationStatus: 'verified_public_route',
     queueStatus: 'needs_manual_review',
-    manualReviewReasons: ['login_required', 'admin_or_editor_access_required', 'unreleased_track_required', 'one_song_at_a_time'],
+    manualReviewReasons: [
+      'login_required',
+      'admin_or_editor_access_required',
+      'unreleased_track_required',
+      'one_song_at_a_time'
+    ],
     feeRequired: false,
     loginRequired: true,
     captchaDetected: false,
@@ -171,7 +179,8 @@ export const discoveredPlatforms: SubmissionPlatform[] = [
     genreFit: ['official Spotify editorial', 'Release Radar'],
     confidenceScore: 98,
     priorityScore: 95,
-    notes: 'Official Spotify route. Requires Spotify for Artists access and an unreleased song delivered at least 7 days before release.',
+    notes:
+      'Official Spotify route. Requires Spotify for Artists access and an unreleased song delivered at least 7 days before release.',
     contacts: []
   },
   {
@@ -215,7 +224,8 @@ export const discoveredPlatforms: SubmissionPlatform[] = [
     genreFit: ['Electronic', 'Bass', 'Drum & Bass', 'Dubstep', 'Melodic Dubstep', 'Future Bass'],
     confidenceScore: 93,
     priorityScore: 88,
-    notes: 'NCS official contact page routes demo submissions through LabelRadar. LabelRadar likely requires account workflow.',
+    notes:
+      'NCS official contact page routes demo submissions through LabelRadar. LabelRadar likely requires account workflow.',
     contacts: []
   },
   {
@@ -237,7 +247,8 @@ export const discoveredPlatforms: SubmissionPlatform[] = [
     genreFit: ['emerging artists', 'indie', 'unsigned', 'pop/electronic crossover'],
     confidenceScore: 89,
     priorityScore: 80,
-    notes: 'Daily emerging-artist show with an Artist Submit link. Browser pass should capture external form fields safely.',
+    notes:
+      'Daily emerging-artist show with an Artist Submit link. Browser pass should capture external form fields safely.',
     contacts: []
   },
   {
