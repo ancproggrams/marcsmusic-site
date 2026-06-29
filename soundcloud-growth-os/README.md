@@ -38,10 +38,10 @@ Optional Mailgun outreach settings:
 
 ```bash
 MAILGUN_API_KEY=""
-MAILGUN_DOMAIN="marcsmusic.nl"
+MAILGUN_DOMAIN="mg.marcsmusic.nl"
 MAILGUN_BASE_URL="https://api.eu.mailgun.net"
-OUTREACH_FROM_EMAIL="marc@marcsmusic.nl"
-OUTREACH_FROM_NAME="MarcsMusic"
+OUTREACH_FROM_EMAIL="outreach@mg.marcsmusic.nl"
+OUTREACH_FROM_NAME="Marc Rene"
 OUTREACH_REPLY_TO="marc@marcsmusic.nl"
 OUTREACH_MAIL_TOKEN=""
 OUTREACH_MAX_EMAILS_PER_HOUR="20"
@@ -49,7 +49,7 @@ OUTREACH_MP3_ROOT="outreach-mp3"
 OUTREACH_ALLOWED_RECIPIENT_DOMAINS=""
 ```
 
-Use the verified EU Mailgun sending domain `marcsmusic.nl` for production outreach. The default Mailgun sandbox domain is useful for tests, but it can only send to authorized recipients and is not suitable for real outreach.
+Use the verified EU Mailgun sending subdomain `mg.marcsmusic.nl` for production outreach. Keep MXRoute on `marcsmusic.nl` for normal inbox hosting, and send outreach as `Marc Rene <outreach@mg.marcsmusic.nl>` with `Reply-To: marc@marcsmusic.nl`. The default Mailgun sandbox domain is useful for tests, but it can only send to authorized recipients and is not suitable for real outreach.
 
 4. Generate Prisma and run the migration:
 
@@ -104,10 +104,10 @@ SOUNDCLOUD_CLIENT_ID="..."
 SOUNDCLOUD_CLIENT_SECRET="..."
 SOUNDCLOUD_REDIRECT_URI="https://your-railway-domain.up.railway.app/api/auth/soundcloud/callback"
 MAILGUN_API_KEY="..."
-MAILGUN_DOMAIN="marcsmusic.nl"
+MAILGUN_DOMAIN="mg.marcsmusic.nl"
 MAILGUN_BASE_URL="https://api.eu.mailgun.net"
-OUTREACH_FROM_EMAIL="marc@marcsmusic.nl"
-OUTREACH_FROM_NAME="MarcsMusic"
+OUTREACH_FROM_EMAIL="outreach@mg.marcsmusic.nl"
+OUTREACH_FROM_NAME="Marc Rene"
 OUTREACH_REPLY_TO="marc@marcsmusic.nl"
 OUTREACH_MAIL_TOKEN="generate-a-long-random-token"
 OUTREACH_MAX_EMAILS_PER_HOUR="20"
