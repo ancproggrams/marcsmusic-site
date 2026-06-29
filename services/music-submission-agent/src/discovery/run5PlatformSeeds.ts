@@ -83,8 +83,7 @@ export const run5SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason:
       'Official landing page invites artists to upload music to Amazing Radio, but the upload workflow is app/account based and needs browser/manual mapping.',
-    notes:
-      'AmazingTunes page states artists can upload music to Amazing Radio for airplay and playlist featuring.'
+    notes: 'AmazingTunes page states artists can upload music to Amazing Radio for airplay and playlist featuring.'
   },
   {
     name: 'Radio Airplay by Jango',

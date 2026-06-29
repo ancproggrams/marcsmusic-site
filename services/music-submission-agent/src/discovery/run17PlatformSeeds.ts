@@ -12,7 +12,8 @@ export const run17SeedPlatforms: PlatformInput[] = [
     genres: ['all', 'electronic', 'reggae', 'dubstep', 'playlist-pitching', 'radio-promotion', 'label-discovery'],
     submissionMethod: 'paid-credit-artist-to-curator-marketplace-needs-account-track-and-budget-review',
     feeRequired: true,
-    feeAmount: 'Public pricing states 1 Grooviz = €1 and curator/pro contacts generally start at 2 Grooviz, with some top-tier contacts costing more.',
+    feeAmount:
+      'Public pricing states 1 Grooviz = €1 and curator/pro contacts generally start at 2 Grooviz, with some top-tier contacts costing more.',
     loginRequired: true,
     paymentRequired: true,
     manualReviewRequired: true,
@@ -32,7 +33,8 @@ export const run17SeedPlatforms: PlatformInput[] = [
     genres: ['all', 'electronic', 'house', 'techno', 'synthwave', 'playlisting', 'blogs', 'radio'],
     submissionMethod: 'artist-campaign-submission-with-editorial-review-account-and-campaign-fee-after-approval',
     feeRequired: true,
-    feeAmount: 'Public page states campaign activation starts from £42 after submission review, while initial upload/submission can start without upfront cost.',
+    feeAmount:
+      'Public page states campaign activation starts from £42 after submission review, while initial upload/submission can start without upfront cost.',
     loginRequired: true,
     paymentRequired: true,
     manualReviewRequired: true,
@@ -72,7 +74,8 @@ export const run17SeedPlatforms: PlatformInput[] = [
     genres: ['all', 'spotify-playlists', 'tiktok', 'electronic', 'playlist-pitching', 'creator-campaigns'],
     submissionMethod: 'paid-spotify-playlist-and-tiktok-creator-campaign-route-needs-budget-and-targeting-review',
     feeRequired: true,
-    feeAmount: 'Public FAQ says Spotify campaigns typically start at $280; campaign pricing is flexible and goal-based.',
+    feeAmount:
+      'Public FAQ says Spotify campaigns typically start at $280; campaign pricing is flexible and goal-based.',
     loginRequired: true,
     paymentRequired: true,
     manualReviewRequired: true,
@@ -90,7 +93,8 @@ export const run17SeedPlatforms: PlatformInput[] = [
     country: 'Global',
     language: 'en',
     genres: ['all', 'electronic', 'spotify-playlists', 'tiktok', 'youtube', 'blogs', 'radio', 'record-labels'],
-    submissionMethod: 'paid-independent-curator-campaign-for-playlists-video-blogs-radio-and-labels-needs-account-payment-review',
+    submissionMethod:
+      'paid-independent-curator-campaign-for-playlists-video-blogs-radio-and-labels-needs-account-payment-review',
     feeRequired: true,
     loginRequired: true,
     paymentRequired: true,
@@ -109,7 +113,8 @@ export const run17SeedPlatforms: PlatformInput[] = [
     country: 'Spain / global playlist reach',
     language: 'en',
     genres: ['chill', 'edm', 'indie', 'alternative', 'urban', 'trap', 'rnb', 'latino', 'spotify-playlists'],
-    submissionMethod: 'free-public-spotify-track-url-form-with-consent-and-service-interest-fields-needs-manual-form-review',
+    submissionMethod:
+      'free-public-spotify-track-url-form-with-consent-and-service-interest-fields-needs-manual-form-review',
     feeRequired: false,
     loginRequired: false,
     paymentRequired: false,

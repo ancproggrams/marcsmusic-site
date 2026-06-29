@@ -3,7 +3,7 @@ import { createApiServer } from '../api/server.js';
 import type { AnalyticsService } from '../analytics/analyticsService.js';
 import type { RuntimeConfig } from '../config/runtime.js';
 import type { Repositories } from '../db/repositories.js';
-import type { ExportService } from '../exports/exportService.js';
+import type { ExportService } from '../exporters/exportService.js';
 import type { MonitoringService } from '../monitoring/monitoringService.js';
 import { calculateRetryAt } from '../queue/retryPolicy.js';
 import type { DiscoveryWorker } from '../discovery/seedPlatforms.js';

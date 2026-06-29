@@ -44,7 +44,8 @@ export const run16SeedPlatforms: PlatformInput[] = [
     country: 'United States / global',
     language: 'en',
     genres: ['all', 'electronic', 'dj-promo', 'playlist-pitching', 'radio-promotion', 'blog-pitching'],
-    submissionMethod: 'artist-signup-promotion-and-targeted-industry-submission-route-needs-account-and-campaign-review',
+    submissionMethod:
+      'artist-signup-promotion-and-targeted-industry-submission-route-needs-account-and-campaign-review',
     feeRequired: true,
     loginRequired: true,
     paymentRequired: true,
@@ -104,7 +105,8 @@ export const run16SeedPlatforms: PlatformInput[] = [
     genres: ['all', 'radio-promotion', 'spotify-playlist-placement', 'commercial-radio', 'internet-radio'],
     submissionMethod: 'paid-upload-to-radio-programmer-delivery-route-needs-payment-and-rights-review',
     feeRequired: true,
-    feeAmount: 'Express $249 for 1 song / 1 radio format; Music Industry VIP $498 for 1 song / 2 radio formats plus Spotify placement shown publicly.',
+    feeAmount:
+      'Express $249 for 1 song / 1 radio format; Music Industry VIP $498 for 1 song / 2 radio formats plus Spotify placement shown publicly.',
     loginRequired: true,
     paymentRequired: true,
     manualReviewRequired: true,

@@ -3,6 +3,8 @@ dist
 bin
 coverage
 exports
+data
+reports
 *.sqlite
 *.sqlite-*
 tools/aftership-email-verifier

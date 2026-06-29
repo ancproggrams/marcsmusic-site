@@ -60,7 +60,10 @@ function toCsv(rows: Record<string, unknown>[]): string {
   }
 
   const headers = Object.keys(rows[0] ?? {});
-  return [headers.map(csvEscape).join(','), ...rows.map((row) => headers.map((header) => csvEscape(row[header])).join(','))].join('\n');
+  return [
+    headers.map(csvEscape).join(','),
+    ...rows.map((row) => headers.map((header) => csvEscape(row[header])).join(','))
+  ].join('\n');
 }
 
 function writeSqliteSnapshot(filePath: string, tableName: string, rows: Record<string, unknown>[]): void {
@@ -71,10 +74,16 @@ function writeSqliteSnapshot(filePath: string, tableName: string, rows: Record<s
     const headers = Object.keys(rows[0] ?? { empty: '' });
     database.exec(`CREATE TABLE ${tableName} (${headers.map((header) => `"${header}" TEXT`).join(', ')})`);
     const placeholders = headers.map((header) => `@${header}`).join(', ');
-    const statement = database.prepare(`INSERT INTO ${tableName} (${headers.map((header) => `"${header}"`).join(', ')}) VALUES (${placeholders})`);
+    const statement = database.prepare(
+      `INSERT INTO ${tableName} (${headers.map((header) => `"${header}"`).join(', ')}) VALUES (${placeholders})`
+    );
     const transaction = database.transaction((records: Record<string, unknown>[]) => {
       for (const row of records) {
-        statement.run(Object.fromEntries(headers.map((header) => [header, row[header] === undefined ? null : String(row[header])])) as Record<string, string | null>);
+        statement.run(
+          Object.fromEntries(
+            headers.map((header) => [header, row[header] === undefined ? null : String(row[header])])
+          ) as Record<string, string | null>
+        );
       }
     });
     transaction(rows.length > 0 ? rows : [{ empty: '' }]);
@@ -98,10 +107,17 @@ export class ExportService {
     const platformRows = verifiedPlatforms.map(platformExportRow);
     const queueRows = this.repositories.queue.list(10_000).map(jobExportRow);
 
-    await writeFile(join(this.exportDir, 'verified_submission_platforms.json'), JSON.stringify(verifiedPlatforms, null, 2));
+    await writeFile(
+      join(this.exportDir, 'verified_submission_platforms.json'),
+      JSON.stringify(verifiedPlatforms, null, 2)
+    );
     await writeFile(join(this.exportDir, 'verified_submission_platforms.csv'), toCsv(platformRows));
     await writeMinimalXlsx(join(this.exportDir, 'verified_submission_platforms.xlsx'), platformRows);
-    writeSqliteSnapshot(join(this.exportDir, 'verified_submission_platforms.sqlite'), 'verified_submission_platforms', platformRows);
+    writeSqliteSnapshot(
+      join(this.exportDir, 'verified_submission_platforms.sqlite'),
+      'verified_submission_platforms',
+      platformRows
+    );
     writeSqliteSnapshot(join(this.exportDir, 'submission_queue.sqlite'), 'submission_queue', queueRows);
     await writeFile(join(this.exportDir, 'analytics_dashboard.json'), JSON.stringify(metrics, null, 2));
     await writeFile(

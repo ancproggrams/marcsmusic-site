@@ -231,8 +231,10 @@ export const seedPlatforms: PlatformInput[] = [
     submissionMethod: 'artist-upload',
     loginRequired: true,
     manualReviewRequired: true,
-    manualReviewReason: 'Direct upload and artist services require authenticated artist account and rights/policy review before submission.',
-    notes: 'Active global audio platform suitable for MarcsMusic discovery; keep manual because upload requires account access and asset-rights confirmation.'
+    manualReviewReason:
+      'Direct upload and artist services require authenticated artist account and rights/policy review before submission.',
+    notes:
+      'Active global audio platform suitable for MarcsMusic discovery; keep manual because upload requires account access and asset-rights confirmation.'
   },
   {
     name: 'Audiomack Creator Upload',
@@ -246,8 +248,10 @@ export const seedPlatforms: PlatformInput[] = [
     submissionMethod: 'artist-upload',
     loginRequired: true,
     manualReviewRequired: true,
-    manualReviewReason: 'Creator upload requires authenticated account and rights confirmation; no login or policy bypass is allowed.',
-    notes: 'Free creator upload/discovery route, but not auto-submitted because account access and ownership checks are required.'
+    manualReviewReason:
+      'Creator upload requires authenticated account and rights confirmation; no login or policy bypass is allowed.',
+    notes:
+      'Free creator upload/discovery route, but not auto-submitted because account access and ownership checks are required.'
   },
   {
     name: 'SoundOn by TikTok',
@@ -262,7 +266,8 @@ export const seedPlatforms: PlatformInput[] = [
     loginRequired: true,
     manualReviewRequired: true,
     manualReviewReason: 'Distribution route requires account, rights, market eligibility, and release metadata review.',
-    notes: 'TikTok-owned distribution route relevant for TikTok/Reels-style music discovery; manual review required for territory and rights checks.'
+    notes:
+      'TikTok-owned distribution route relevant for TikTok/Reels-style music discovery; manual review required for territory and rights checks.'
   },
   {
     name: 'ReverbNation Opportunities',
@@ -278,8 +283,10 @@ export const seedPlatforms: PlatformInput[] = [
     loginRequired: true,
     paymentRequired: true,
     manualReviewRequired: true,
-    manualReviewReason: 'Opportunity submissions require account workflow and may require paid promotion or opportunity-specific terms.',
-    notes: 'Active independent-music platform; opportunity matching is useful but must stay manual because campaigns and terms vary.'
+    manualReviewReason:
+      'Opportunity submissions require account workflow and may require paid promotion or opportunity-specific terms.',
+    notes:
+      'Active independent-music platform; opportunity matching is useful but must stay manual because campaigns and terms vary.'
   },
   {
     name: 'Broadjam Opportunities',
@@ -295,8 +302,10 @@ export const seedPlatforms: PlatformInput[] = [
     loginRequired: true,
     paymentRequired: true,
     manualReviewRequired: true,
-    manualReviewReason: 'Submissions for radio, reviews, contests, or licensing opportunities require member account and opportunity-specific fee/rules review.',
-    notes: 'Useful for radio/pro review/sync opportunities, but must remain manual due to account and paid opportunity constraints.'
+    manualReviewReason:
+      'Submissions for radio, reviews, contests, or licensing opportunities require member account and opportunity-specific fee/rules review.',
+    notes:
+      'Useful for radio/pro review/sync opportunities, but must remain manual due to account and paid opportunity constraints.'
   },
   {
     name: 'Bandcamp Artist Upload',
@@ -310,7 +319,9 @@ export const seedPlatforms: PlatformInput[] = [
     submissionMethod: 'artist-upload-storefront',
     loginRequired: true,
     manualReviewRequired: true,
-    manualReviewReason: 'Artist upload requires account setup, release ownership, pricing, and generative-AI policy review before use.',
-    notes: 'Strong independent artist storefront/discovery route; manual review is required because Bandcamp policy around AI-generated music may affect Suno-assisted tracks.'
+    manualReviewReason:
+      'Artist upload requires account setup, release ownership, pricing, and generative-AI policy review before use.',
+    notes:
+      'Strong independent artist storefront/discovery route; manual review is required because Bandcamp policy around AI-generated music may affect Suno-assisted tracks.'
   }
 ];

@@ -10,14 +10,18 @@ export const run18SeedPlatforms: PlatformInput[] = [
     country: 'Global',
     language: 'en',
     genres: ['all', 'electronic', 'edm', 'dubstep', 'reggae', 'blogs', 'spotify-playlists', 'radio', 'record-labels'],
-    submissionMethod: 'artist-to-curator-marketplace-with-standard-or-premium-submission-paths-needs-account-and-targeting-review',
+    submissionMethod:
+      'artist-to-curator-marketplace-with-standard-or-premium-submission-paths-needs-account-and-targeting-review',
     feeRequired: false,
-    feeAmount: 'Free or standard routes may exist depending on curator; premium credit-based submissions are also part of the marketplace.',
+    feeAmount:
+      'Free or standard routes may exist depending on curator; premium credit-based submissions are also part of the marketplace.',
     loginRequired: true,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: 'Requires account access, track metadata, curator selection and possible paid-credit decisions; MarcsMusic targeting, budget and pitch copy should be manually reviewed before submission.',
-    notes: 'Verified as an active route because multiple active publication pages route their submissions through SubmitHub. No signup, account access, curator selection, credit purchase, upload, payment or protected workflow was attempted.'
+    manualReviewReason:
+      'Requires account access, track metadata, curator selection and possible paid-credit decisions; MarcsMusic targeting, budget and pitch copy should be manually reviewed before submission.',
+    notes:
+      'Verified as an active route because multiple active publication pages route their submissions through SubmitHub. No signup, account access, curator selection, credit purchase, upload, payment or protected workflow was attempted.'
   },
   {
     name: 'A&R Factory Submit Demo and Independent Music Blog Route',
@@ -34,8 +38,10 @@ export const run18SeedPlatforms: PlatformInput[] = [
     loginRequired: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: 'The public form requires artist details, track URL, release status/date, socials, artwork/photo, EPK/bio, consent, budget range and package selection; paid options and consent language require human review.',
-    notes: 'Verified active 2026 posting and a public submission form with EDM, drum and bass, electronic, house, reggae, synthwave, techno and trap genre options. No form submission, payment, card action or protected workflow was performed.'
+    manualReviewReason:
+      'The public form requires artist details, track URL, release status/date, socials, artwork/photo, EPK/bio, consent, budget range and package selection; paid options and consent language require human review.',
+    notes:
+      'Verified active 2026 posting and a public submission form with EDM, drum and bass, electronic, house, reggae, synthwave, techno and trap genre options. No form submission, payment, card action or protected workflow was performed.'
   },
   {
     name: 'Neon Music SubmitHub and Bliiink Submission Route',
@@ -51,8 +57,10 @@ export const run18SeedPlatforms: PlatformInput[] = [
     loginRequired: true,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: 'Routes submissions through SubmitHub and Bliiink, which require third-party marketplace/account handling, possible credit/payment choices and pitch/track targeting.',
-    notes: 'Verified active 2026 editorial posts and a public Submit Music page pointing artists to SubmitHub and Bliiink. No marketplace login, account connection, payment, upload or protected submission workflow was accessed.'
+    manualReviewReason:
+      'Routes submissions through SubmitHub and Bliiink, which require third-party marketplace/account handling, possible credit/payment choices and pitch/track targeting.',
+    notes:
+      'Verified active 2026 editorial posts and a public Submit Music page pointing artists to SubmitHub and Bliiink. No marketplace login, account connection, payment, upload or protected submission workflow was accessed.'
   },
   {
     name: 'Elicit Magazine Submit Music Press and Feature Route',
@@ -69,8 +77,10 @@ export const run18SeedPlatforms: PlatformInput[] = [
     paymentRequired: false,
     captchaDetected: true,
     manualReviewRequired: true,
-    manualReviewReason: 'Requires a press release, song URL, post title, file upload sizing rules, human anti-spam question and at least 500 words; manual editorial and rights review is needed.',
-    notes: 'Verified active 2026 content, a public Submit Music Press form and a published feature-contact route. Public contact was syntax-observed only; no deliverability probing, file upload or form submission was performed.'
+    manualReviewReason:
+      'Requires a press release, song URL, post title, file upload sizing rules, human anti-spam question and at least 500 words; manual editorial and rights review is needed.',
+    notes:
+      'Verified active 2026 content, a public Submit Music Press form and a published feature-contact route. Public contact was syntax-observed only; no deliverability probing, file upload or form submission was performed.'
   },
   {
     name: 'Stereo Stickman Independent Artist Review and Interview Route',
@@ -80,15 +90,29 @@ export const run18SeedPlatforms: PlatformInput[] = [
     sourceType: 'automation_run_18_public_research',
     country: 'United Kingdom / global online reach',
     language: 'en',
-    genres: ['all', 'dance', 'edm', 'electronica', 'house', 'trap', 'reggae', 'independent-music', 'interviews', 'reviews'],
+    genres: [
+      'all',
+      'dance',
+      'edm',
+      'electronica',
+      'house',
+      'trap',
+      'reggae',
+      'independent-music',
+      'interviews',
+      'reviews'
+    ],
     submissionMethod: 'paid-review-interview-and-general-enquiry-form-needs-service-selection-and-payment-review',
     feeRequired: true,
-    feeAmount: 'Public contact page lists track review $20, EP review $40, album review $50, premium package $65 and interview options from $20-$30.',
+    feeAmount:
+      'Public contact page lists track review $20, EP review $40, album review $50, premium package $65 and interview options from $20-$30.',
     loginRequired: false,
     paymentRequired: true,
     manualReviewRequired: true,
-    manualReviewReason: 'Exposes service/package choices and paid review/interview options; manual review is required before selecting a service, providing track links, approving spend or authorizing publication.',
-    notes: 'Verified as active independent music magazine with visible genre coverage including Dance, EDM, Electronica, House, Trap and Reggae, plus a public contact/order form. No order, payment, track submission or form submission was performed.'
+    manualReviewReason:
+      'Exposes service/package choices and paid review/interview options; manual review is required before selecting a service, providing track links, approving spend or authorizing publication.',
+    notes:
+      'Verified as active independent music magazine with visible genre coverage including Dance, EDM, Electronica, House, Trap and Reggae, plus a public contact/order form. No order, payment, track submission or form submission was performed.'
   },
   {
     name: 'FLEX Music Blog Independent Music Contact Submission Route',
@@ -104,8 +128,10 @@ export const run18SeedPlatforms: PlatformInput[] = [
     loginRequired: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: 'The page shows an active independent-music publication and a contact submission section, but the full form fields were not safely parseable; manual review is required before entering release data.',
-    notes: 'Verified active June 2026 posts and a visible Contact section with submission confirmation text. No form interaction, hidden-field inference, contact guessing or protected workflow was performed.'
+    manualReviewReason:
+      'The page shows an active independent-music publication and a contact submission section, but the full form fields were not safely parseable; manual review is required before entering release data.',
+    notes:
+      'Verified active June 2026 posts and a visible Contact section with submission confirmation text. No form interaction, hidden-field inference, contact guessing or protected workflow was performed.'
   },
   {
     name: 'Right Chord Music Free Music Blog Submission Route',
@@ -121,8 +147,10 @@ export const run18SeedPlatforms: PlatformInput[] = [
     loginRequired: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: 'Advertises free blog submissions and routes discovery through its RCM Indie Collective or Major Labl flow; manual review is needed before using the external submit flow or sharing release metadata.',
-    notes: 'Verified active June 2026 posts and a public free music blog submissions page stating submissions are shared with 20+ writers and that it is free to submit to Right Chord Music and the RCM Indie Collective. No external form, account, contact database access or submission was used.'
+    manualReviewReason:
+      'Advertises free blog submissions and routes discovery through its RCM Indie Collective or Major Labl flow; manual review is needed before using the external submit flow or sharing release metadata.',
+    notes:
+      'Verified active June 2026 posts and a public free music blog submissions page stating submissions are shared with 20+ writers and that it is free to submit to Right Chord Music and the RCM Indie Collective. No external form, account, contact database access or submission was used.'
   },
   {
     name: 'RDFO Blog Review and Records Demo Submission Route',
@@ -138,7 +166,9 @@ export const run18SeedPlatforms: PlatformInput[] = [
     loginRequired: true,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: 'Uses a SubmitHub blog-review route and publishes demo contact instructions for records activity; manual review is needed for label/demo fit, unreleased rights, pitch copy and whether to use marketplace or contact routing.',
-    notes: 'Verified active 2026 posts, electronic/reggae-relevant coverage, an official Submit to Our Blog link to SubmitHub and public demo contact instructions. Public contact was syntax-observed only; no deliverability probing, message send, SubmitHub login or form submission was performed.'
+    manualReviewReason:
+      'Uses a SubmitHub blog-review route and publishes demo contact instructions for records activity; manual review is needed for label/demo fit, unreleased rights, pitch copy and whether to use marketplace or contact routing.',
+    notes:
+      'Verified active 2026 posts, electronic/reggae-relevant coverage, an official Submit to Our Blog link to SubmitHub and public demo contact instructions. Public contact was syntax-observed only; no deliverability probing, message send, SubmitHub login or form submission was performed.'
   }
 ];

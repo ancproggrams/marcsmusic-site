@@ -46,7 +46,8 @@ export const run15SeedPlatforms: PlatformInput[] = [
     genres: ['all', 'radio-promotion', 'electronic', 'independent', 'dpks'],
     submissionMethod: 'radio-promotion-digital-press-kit-route-needs-account-and-payment-review',
     feeRequired: true,
-    feeAmount: 'Free trial advertised; paid artist accounts shown at $100-$300/year and label accounts contact-for-pricing.',
+    feeAmount:
+      'Free trial advertised; paid artist accounts shown at $100-$300/year and label accounts contact-for-pricing.',
     loginRequired: true,
     paymentRequired: true,
     manualReviewRequired: true,
@@ -138,7 +139,15 @@ export const run15SeedPlatforms: PlatformInput[] = [
     sourceType: 'automation_run_15_public_research',
     country: 'United Kingdom / global',
     language: 'en',
-    genres: ['all', 'independent-labels', 'electronic', 'sync', 'publishing', 'physical-distribution', 'digital-distribution'],
+    genres: [
+      'all',
+      'independent-labels',
+      'electronic',
+      'sync',
+      'publishing',
+      'physical-distribution',
+      'digital-distribution'
+    ],
     submissionMethod: 'distribution-label-services-sync-contact-form-needs-manual-review',
     loginRequired: false,
     manualReviewRequired: true,

@@ -3,7 +3,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
 import { AnalyticsService } from '../src/analytics/analyticsService.js';
-import { ExportService } from '../src/exports/exportService.js';
+import { ExportService } from '../src/exporters/exportService.js';
 import { createTestContext } from './testHarness.js';
 
 test('export service regenerates required artifacts', async () => {

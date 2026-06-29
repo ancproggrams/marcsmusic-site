@@ -15,8 +15,10 @@ export const run19SeedPlatforms: PlatformInput[] = [
     loginRequired: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: 'Strong label and genre fit, but current demo intake fields and any third-party submission widget must be manually confirmed before sharing music, rights metadata or unreleased material.',
-    notes: 'Verified as an active Dutch liquid drum and bass label/promoter with global community relevance. No demo upload, form submission, login, contact guessing or protected workflow was attempted.'
+    manualReviewReason:
+      'Strong label and genre fit, but current demo intake fields and any third-party submission widget must be manually confirmed before sharing music, rights metadata or unreleased material.',
+    notes:
+      'Verified as an active Dutch liquid drum and bass label/promoter with global community relevance. No demo upload, form submission, login, contact guessing or protected workflow was attempted.'
   },
   {
     name: 'Armada Music Demo Drop Electronic Label Route',
@@ -32,8 +34,10 @@ export const run19SeedPlatforms: PlatformInput[] = [
     loginRequired: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: 'Major independent dance label route requires human label-fit, rights, exclusivity, unreleased status and current demo-drop/form field review before submission.',
-    notes: 'Verified active through official site and recent 2026 label activity. No demo drop, protected form interaction, upload, account access or bypass was performed.'
+    manualReviewReason:
+      'Major independent dance label route requires human label-fit, rights, exclusivity, unreleased status and current demo-drop/form field review before submission.',
+    notes:
+      'Verified active through official site and recent 2026 label activity. No demo drop, protected form interaction, upload, account access or bypass was performed.'
   },
   {
     name: 'Monstercat Electronic Label Contact and A&R Route',
@@ -49,8 +53,10 @@ export const run19SeedPlatforms: PlatformInput[] = [
     loginRequired: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: 'Active electronic label, but no safe public self-serve demo form was confirmed; any contact or A&R route requires human fit and rights review.',
-    notes: 'Verified as an active electronic label/discovery destination. No account, message, demo upload, contact scraping or guessed business email was used.'
+    manualReviewReason:
+      'Active electronic label, but no safe public self-serve demo form was confirmed; any contact or A&R route requires human fit and rights review.',
+    notes:
+      'Verified as an active electronic label/discovery destination. No account, message, demo upload, contact scraping or guessed business email was used.'
   },
   {
     name: 'Future House Music Label and Network Demo Route',
@@ -66,8 +72,10 @@ export const run19SeedPlatforms: PlatformInput[] = [
     loginRequired: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: 'Label/network has strong genre fit, but current demo policy and any form/widget fields need manual verification before sharing unreleased music.',
-    notes: 'Verified as an active Dutch future-house label/network. No contact attempt, hidden-form mapping, upload or platform restriction bypass was performed.'
+    manualReviewReason:
+      'Label/network has strong genre fit, but current demo policy and any form/widget fields need manual verification before sharing unreleased music.',
+    notes:
+      'Verified as an active Dutch future-house label/network. No contact attempt, hidden-form mapping, upload or platform restriction bypass was performed.'
   },
   {
     name: 'Hospital Records Drum and Bass Label Route',
@@ -83,8 +91,10 @@ export const run19SeedPlatforms: PlatformInput[] = [
     loginRequired: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: 'Curated DnB label route; current demo policy, sublabel/artist fit, rights, metadata and unreleased-status requirements must be checked manually.',
-    notes: 'Verified as an active independent drum and bass label. No form submission, email send, account access, demo upload or scraped contact workflow was used.'
+    manualReviewReason:
+      'Curated DnB label route; current demo policy, sublabel/artist fit, rights, metadata and unreleased-status requirements must be checked manually.',
+    notes:
+      'Verified as an active independent drum and bass label. No form submission, email send, account access, demo upload or scraped contact workflow was used.'
   },
   {
     name: 'NoCopyrightSounds NCS Electronic Label and Creator-Safe Music Route',
@@ -100,8 +110,10 @@ export const run19SeedPlatforms: PlatformInput[] = [
     loginRequired: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: 'NCS has creator-safe/licensing implications; any submission requires manual review of rights, exclusivity, creator-use terms and current demo policy.',
-    notes: 'Verified as an active electronic label and creator-safe music platform. No terms acceptance, upload, licensing action, protected form submission or account access occurred.'
+    manualReviewReason:
+      'NCS has creator-safe/licensing implications; any submission requires manual review of rights, exclusivity, creator-use terms and current demo policy.',
+    notes:
+      'Verified as an active electronic label and creator-safe music platform. No terms acceptance, upload, licensing action, protected form submission or account access occurred.'
   },
   {
     name: 'Anjunabeats and Anjuna Electronic Label Route',
@@ -117,8 +129,10 @@ export const run19SeedPlatforms: PlatformInput[] = [
     loginRequired: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: 'Curated Anjuna label ecosystem; current demo policy, label fit, release status and rights/exclusivity must be manually reviewed before submission.',
-    notes: 'Verified as an active electronic/trance/progressive label route. No demo delivery, form submission, email send, login or bypass was performed.'
+    manualReviewReason:
+      'Curated Anjuna label ecosystem; current demo policy, label fit, release status and rights/exclusivity must be manually reviewed before submission.',
+    notes:
+      'Verified as an active electronic/trance/progressive label route. No demo delivery, form submission, email send, login or bypass was performed.'
   },
   {
     name: 'TopHit Radio and TV Music Distribution Platform',
@@ -134,7 +148,9 @@ export const run19SeedPlatforms: PlatformInput[] = [
     loginRequired: true,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: 'Requires rightsholder registration, track or video upload, metadata, rights confirmation, territory/radio targeting and possible service terms review.',
-    notes: 'Verified as a music distribution, airplay monitoring and chart platform where rights holders upload content for radio/TV review. No registration, upload, data entry or account workflow was attempted.'
+    manualReviewReason:
+      'Requires rightsholder registration, track or video upload, metadata, rights confirmation, territory/radio targeting and possible service terms review.',
+    notes:
+      'Verified as a music distribution, airplay monitoring and chart platform where rights holders upload content for radio/TV review. No registration, upload, data entry or account workflow was attempted.'
   }
 ];

@@ -4,7 +4,7 @@ import { AnalyticsService } from './analytics/analyticsService.js';
 import { createInitializedDatabase } from './db/database.js';
 import { createRepositories } from './db/repositories.js';
 import { DiscoveryWorker } from './discovery/seedPlatforms.js';
-import { ExportService } from './exports/exportService.js';
+import { ExportService } from './exporters/exportService.js';
 import { MonitoringService } from './monitoring/monitoringService.js';
 import { SubmissionWorker } from './submission/submissionWorker.js';
 import { logger } from './utils/logger.js';
