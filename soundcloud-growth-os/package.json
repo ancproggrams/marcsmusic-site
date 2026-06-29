@@ -1,0 +1,44 @@
+{
+  "name": "soundcloud-growth-os",
+  "version": "0.1.0",
+  "private": true,
+  "description": "White-hat SoundCloud Growth OS for analytics, release planning, metadata optimization, comment CRM, scene research, smartlinks, and experiment tracking.",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p ${PORT:-3000}",
+    "railway:start": "prisma migrate deploy && next start -p ${PORT:-3000}",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "job:daily-snapshot": "tsx src/jobs/dailySnapshot.ts",
+    "job:weekly-report": "tsx src/jobs/weeklyReport.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "next": "^16.2.9",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "^16.2.9",
+    "prisma": "^5.22.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.9"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
+  }
+}

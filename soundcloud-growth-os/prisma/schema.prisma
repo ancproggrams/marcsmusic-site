@@ -1,0 +1,178 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum CommentIntent {
+  PRAISE
+  FEEDBACK
+  COLLAB_REQUEST
+  PLAYLIST_OR_BLOG
+  QUESTION
+  SPAM
+  UNKNOWN
+}
+
+enum Sentiment {
+  POSITIVE
+  NEUTRAL
+  NEGATIVE
+  UNKNOWN
+}
+
+enum ExperimentDecision {
+  WON
+  LOST
+  INCONCLUSIVE
+  CONTINUE
+  NOT_REVIEWED
+}
+
+model Artist {
+  id             String   @id @default(cuid())
+  soundcloudUrn  String   @unique
+  username       String
+  permalinkUrl   String
+  avatarUrl      String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  tokens         SoundCloudToken?
+  tracks         Track[]
+}
+
+model SoundCloudToken {
+  id           String   @id @default(cuid())
+  artistId     String   @unique
+  accessToken  String
+  refreshToken String
+  expiresAt    DateTime
+  scope        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  artist       Artist   @relation(fields: [artistId], references: [id], onDelete: Cascade)
+}
+
+model Track {
+  id             String   @id @default(cuid())
+  artistId       String
+  soundcloudUrn  String   @unique
+  title          String
+  permalinkUrl   String
+  genre          String?
+  tags           String[]
+  durationMs     Int?
+  releaseDate    DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  artist         Artist             @relation(fields: [artistId], references: [id], onDelete: Cascade)
+  dailyMetrics   DailyTrackMetric[]
+  comments       Comment[]
+  experiments    Experiment[]
+  smartlinks     Smartlink[]
+
+  @@index([artistId])
+  @@index([releaseDate])
+}
+
+model DailyTrackMetric {
+  id              String   @id @default(cuid())
+  trackId         String
+  date            DateTime
+  plays           Int      @default(0)
+  likes           Int      @default(0)
+  comments        Int      @default(0)
+  reposts         Int      @default(0)
+  downloads       Int      @default(0)
+  followersDelta  Int      @default(0)
+  engagementScore Float    @default(0)
+  createdAt       DateTime @default(now())
+
+  track           Track    @relation(fields: [trackId], references: [id], onDelete: Cascade)
+
+  @@unique([trackId, date])
+  @@index([date])
+}
+
+model Comment {
+  id                   String        @id @default(cuid())
+  soundcloudCommentId   String        @unique
+  trackId              String
+  authorUrn            String
+  authorUsername       String
+  body                 String
+  timestampMs          Int?
+  sentiment            Sentiment     @default(UNKNOWN)
+  intent               CommentIntent @default(UNKNOWN)
+  needsReply           Boolean       @default(true)
+  replyDraft           String?
+  repliedAt            DateTime?
+  createdAt            DateTime      @default(now())
+  updatedAt            DateTime      @updatedAt
+
+  track                Track         @relation(fields: [trackId], references: [id], onDelete: Cascade)
+
+  @@index([trackId])
+  @@index([authorUrn])
+  @@index([needsReply])
+}
+
+model Fan {
+  id              String   @id @default(cuid())
+  soundcloudUrn   String   @unique
+  username        String
+  profileUrl      String
+  firstSeenAt     DateTime @default(now())
+  lastSeenAt      DateTime @default(now())
+  commentCount    Int      @default(0)
+  likeCount       Int      @default(0)
+  repostCount     Int      @default(0)
+  followerStatus  String?
+  fanScore        Float    @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Experiment {
+  id             String              @id @default(cuid())
+  trackId        String?
+  name           String
+  hypothesis     String
+  startDate      DateTime
+  endDate        DateTime?
+  variantA       String
+  variantB       String?
+  primaryMetric  String
+  result         String?
+  decision       ExperimentDecision  @default(NOT_REVIEWED)
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+
+  track          Track?              @relation(fields: [trackId], references: [id], onDelete: SetNull)
+
+  @@index([startDate])
+  @@index([trackId])
+}
+
+model Smartlink {
+  id             String   @id @default(cuid())
+  trackId        String?
+  slug           String   @unique
+  destinationUrl String
+  source         String?
+  campaign       String?
+  clicks         Int      @default(0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  track          Track?   @relation(fields: [trackId], references: [id], onDelete: SetNull)
+
+  @@index([campaign])
+  @@index([source])
+}
