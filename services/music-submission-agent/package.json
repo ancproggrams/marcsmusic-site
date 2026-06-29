@@ -1,0 +1,39 @@
+{
+  "name": "@marcsmusic/music-submission-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Railway-ready discovery, verification, queue and submission worker service for MarcsMusic music outreach.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc -p tsconfig.json && node scripts/copy-build-assets.mjs",
+    "lint": "eslint . && prettier --check . && tsc -p tsconfig.json --noEmit && tsc -p tsconfig.test.json --noEmit",
+    "format": "prettier --write .",
+    "db:init": "tsx src/db/init.ts",
+    "run:once": "tsx src/index.ts --once",
+    "seed": "tsx src/db/seed.ts",
+    "test": "tsx --test \"test/**/*.test.ts\""
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "cheerio": "^1.0.0",
+    "nanoid": "^5.1.5",
+    "pino": "^9.7.0",
+    "undici": "^7.11.0",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.15.32",
+    "eslint": "^9.29.0",
+    "prettier": "^3.5.3",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.34.1"
+  }
+}

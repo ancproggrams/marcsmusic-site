@@ -1,0 +1,9 @@
+platform,submission_url,job_type,priority,status,manual_review_reason,business_email_count
+Liquicity Records Liquid Drum and Bass Demo Route,https://liquicity.com/,verify_platform,40,needs_manual_review,"Current demo intake fields and any third-party widget must be manually confirmed before sharing music or rights metadata.",0
+Armada Music Demo Drop Electronic Label Route,https://www.armadamusic.com/,verify_platform,40,needs_manual_review,"Label fit, rights, exclusivity, release status and current demo-drop details need human approval.",0
+Monstercat Electronic Label Contact and A&R Route,https://www.monstercat.com/,verify_platform,40,needs_manual_review,"No safe public self-serve demo form was confirmed; contact/A&R routing requires human fit review.",0
+Future House Music Label and Network Demo Route,https://www.futurehousemusic.com/,verify_platform,40,needs_manual_review,"Current demo policy and any form/widget fields need manual verification before sharing unreleased music.",0
+Hospital Records Drum and Bass Label Route,https://www.hospitalrecords.com/,verify_platform,40,needs_manual_review,"Current demo policy, sublabel fit, rights, metadata and unreleased-status requirements must be checked manually.",0
+NoCopyrightSounds NCS Electronic Label and Creator-Safe Music Route,https://ncs.io/,verify_platform,40,needs_manual_review,"Creator-safe licensing terms, exclusivity, rights and current demo policy need manual approval before submission.",0
+Anjunabeats and Anjuna Electronic Label Route,https://anjunabeats.com/,verify_platform,40,needs_manual_review,"Label ecosystem fit, release status, rights and exclusivity must be manually reviewed.",0
+TopHit Radio and TV Music Distribution Platform,https://tophit.com/,verify_platform,40,needs_manual_review,"Registration, upload, metadata, rights confirmation and territory/radio targeting require human review.",0
