@@ -1,5 +1,6 @@
 import type { Repositories } from '../db/repositories.js';
 import { platformCanonicalKey } from '../utils/ids.js';
+import { classifyPricing } from '../utils/pricing.js';
 import { seedPlatforms } from './platformSeeds.js';
 import { run5SeedPlatforms } from './run5PlatformSeeds.js';
 import { run6SeedPlatforms } from './run6PlatformSeeds.js';
@@ -45,23 +46,40 @@ export function seedDiscoveryPlatforms(repositories: Repositories): { discovered
   let queued = 0;
 
   for (const seed of allSeedPlatforms) {
-    const platform = repositories.platforms.upsert(seed);
+    const pricing = classifyPricing(seed);
+    const platform = repositories.platforms.upsert({
+      ...seed,
+      paymentRequired: seed.paymentRequired || pricing.pricingModel === 'paid',
+      manualReviewRequired: seed.manualReviewRequired || pricing.requiresOwnerApproval,
+      notes: [seed.notes, `pricing_model=${pricing.pricingModel}`, `pricing_reason=${pricing.reason}`]
+        .filter(Boolean)
+        .join(' | ')
+    });
     discovered += 1;
 
     repositories.events.record({
       platformId: platform.id,
       eventType: 'platform_discovered',
       message: `Seed platform discovered: ${platform.name}`,
-      data: { sourceType: seed.sourceType ?? 'seed' }
+      data: {
+        sourceType: seed.sourceType ?? 'seed',
+        pricingModel: pricing.pricingModel,
+        freeFirstPriority: pricing.freeFirstPriority
+      }
     });
 
     repositories.queue.enqueue({
       platformId: platform.id,
       submissionUrl: platform.submissionUrl ?? platform.websiteUrl,
       jobType: 'verify_platform',
-      priority: seed.manualReviewRequired ? 40 : 70,
+      priority: pricing.freeFirstPriority,
       idempotencyKey: `verify:${platformCanonicalKey(platform.name, platform.websiteUrl, platform.submissionUrl ?? undefined)}`,
-      payload: { source: seed.sourceType ?? 'seed' }
+      payload: {
+        source: seed.sourceType ?? 'seed',
+        pricingModel: pricing.pricingModel,
+        pricingReason: pricing.reason,
+        freeFirst: pricing.pricingModel === 'free'
+      }
     });
     queued += 1;
   }
