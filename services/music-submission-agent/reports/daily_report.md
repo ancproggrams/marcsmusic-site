@@ -2,22 +2,26 @@
 
 Date: 2026-06-30
 
-## Latest run: Run 23
+## Latest run: Run 24
 
-Run 23 added 6 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 6 as `needs_manual_review`.
+Run 24 added 7 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 7 as `needs_manual_review`.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 172 |
-| New opportunities in latest run | 6 |
-| New manual-review queue rows | 6 |
+| Estimated runtime seed pipeline | 179 |
+| New opportunities in latest run | 7 |
+| New manual-review queue rows | 7 |
 | New auto-submit candidates | 0 |
-| Free-first routes in latest run | 5 |
-| Paid/manual-only routes in latest run | 1 |
-| Public business/submission contacts observed in latest run | 4 |
-| Protected mailto links observed | 2 |
+| Free-first routes in latest run | 7 |
+| Paid/manual-only routes in latest run | 0 |
+| Public business/submission contacts observed in latest run | 6 |
+| Protected/redacted mailto links observed | 2 |
+| Public/external forms observed | 3 |
+| CAPTCHA / anti-bot cases observed | 2 |
+| Login cases observed | 0 |
+| Payment cases observed | 0 |
 | SMTP probes during repo update | 0 |
 | MX probes during repo update | 0 |
 | Guessed/generated contacts | 0 |
@@ -26,28 +30,29 @@ Run 23 added 6 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| KEXP Airplay Consideration Digital Submission Route | needs_manual_review |
-| KALX Berkeley Airplay Physical Music Submission Route | needs_manual_review |
-| WXPN Airplay and Local Show Music Submission Route | needs_manual_review |
-| KJHK 90.7 FM Electronic Music Submission Route | needs_manual_review |
-| Spinnin Records Talent Pool Demo Submission Route | needs_manual_review |
-| International Songwriting Competition 2026 Online Entry Route | needs_manual_review |
+| KUTX On-Air Rotation and Specialty Show Music Submission Route | needs_manual_review |
+| KVRX 91.7 FM Austin Music Submission Route | needs_manual_review |
+| KZSC Santa Cruz Music Director Submission Route | needs_manual_review |
+| WERS Wicked Local Wednesday Music Submission Form Route | needs_manual_review |
+| Triple R 102.7FM Melbourne Submit Music Route | needs_manual_review |
+| CKUA Radio Network Getting Airplay Digital Submission Route | needs_manual_review |
+| CJSW 90.9 FM Calgary Digital Music Submission Route | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes require human review because they involve music-director outreach quality control, postal-only submission rules, Cloudflare-protected mailto links, external/local forms, login-gated demo upload, paid contest entry, rights/originality declarations, AI-use disclosure, category eligibility or platform terms review.
+The latest routes require human review because they involve public music-director email outreach, AI/originality policy checks, protected/redacted mailto links, anti-spam validation fields, reCAPTCHA-protected forms, MP3/file uploads, external Jotform upload, local eligibility restrictions, release-format requirements, clean/radio-edit requirements and human program targeting.
 
 ## Safety summary
 
-No accounts were created, no protected forms were submitted, no payments were attempted, no music or video assets were uploaded, no terms were accepted, no anti-bot protections were bypassed, no contacts were guessed, and no SMTP or MX probing was performed during this repo update.
+No accounts were created, no emails were sent, no protected forms were submitted, no files were uploaded, no payments were attempted, no terms were accepted, no anti-bot protections were bypassed, no contacts were guessed, and no SMTP or MX probing was performed during this repo update.
 
 ## Artifacts produced
 
-- `src/discovery/run23PlatformSeeds.ts`
-- `data/run23-platform-database.json`
-- `data/run23-review-queue.csv`
-- `data/run23-analytics-dashboard.json`
-- `reports/2026-06-30-run-23.md`
+- `src/discovery/run24PlatformSeeds.ts`
+- `data/run24-platform-database.json`
+- `data/run24-review-queue.csv`
+- `data/run24-analytics-dashboard.json`
+- `reports/2026-06-30-run-24.md`
 - `reports/daily_report.md`
 
 ## Runtime note
