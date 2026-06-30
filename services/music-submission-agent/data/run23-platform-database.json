@@ -1,0 +1,105 @@
+{
+  "run": 23,
+  "date": "2026-06-30",
+  "source_type": "automation_run_23_public_research",
+  "dedupe": {
+    "repo_code_search_checked": true,
+    "searched_terms": ["KEXP", "KALX", "WXPN", "KJHK", "Spinnin", "International Songwriting Competition"],
+    "duplicates_found": 0,
+    "canonical_key_strategy": "platformCanonicalKey(name, websiteUrl, submissionUrl)"
+  },
+  "summary": {
+    "new_opportunities": 6,
+    "free_routes": 5,
+    "paid_routes": 1,
+    "login_required": 1,
+    "payment_required": 1,
+    "captcha_detected": 0,
+    "manual_review_required": 6,
+    "auto_submit_candidates": 0,
+    "public_business_or_submission_contacts_observed": 4,
+    "protected_mailto_links_observed": 2,
+    "emails_smtp_checked_in_this_run": 0,
+    "runtime_mailgun_validation_queued": true
+  },
+  "platforms": [
+    {
+      "name": "KEXP Airplay Consideration Digital Submission Route",
+      "websiteUrl": "https://www.kexp.org/",
+      "submissionUrl": "https://www.kexp.org/about/submission-guidelines/",
+      "country": "United States / Seattle / global streaming audience",
+      "pricing_model": "free",
+      "queue_priority": 90,
+      "status": "needs_manual_review",
+      "submission_route": "Public digital email to Music Director",
+      "observed_contacts": ["md@kexp.org"],
+      "activity_verified": "Official page updated February 2025 and active KEXP site navigation observed.",
+      "manual_review_reason": "Human package review required for one-sheet, links, clean edits, genre fit and non-spam follow-up."
+    },
+    {
+      "name": "KALX Berkeley Airplay Physical Music Submission Route",
+      "websiteUrl": "https://kalx.berkeley.edu/",
+      "submissionUrl": "https://kalx.berkeley.edu/about/contact/",
+      "country": "United States / Berkeley / San Francisco Bay Area",
+      "pricing_model": "free",
+      "queue_priority": 90,
+      "status": "needs_manual_review",
+      "submission_route": "Physical professionally pressed CD/LP mail route with public Music Director contact",
+      "observed_contacts": ["music@kalx.berkeley.edu"],
+      "activity_verified": "Official site shows 2026 schedules, playlists and recent KALXtra content.",
+      "manual_review_reason": "Platform currently rejects downloads/links for airplay; postal package decision is manual-only."
+    },
+    {
+      "name": "WXPN Airplay and Local Show Music Submission Route",
+      "websiteUrl": "https://xpn.org/",
+      "submissionUrl": "https://xpn.org/contact/",
+      "country": "United States / Philadelphia / AAA public radio",
+      "pricing_model": "free",
+      "queue_priority": 90,
+      "status": "needs_manual_review",
+      "submission_route": "Official contact page mailto route for Music Director and Local Show",
+      "observed_contacts": ["Cloudflare-protected Music Director mailto", "Cloudflare-protected Local Show Host mailto"],
+      "activity_verified": "Official WXPN contact page is current with copyright 2026.",
+      "manual_review_reason": "Email protection should not be bypassed; manual resolution and EPK review required."
+    },
+    {
+      "name": "KJHK 90.7 FM Electronic Music Submission Route",
+      "websiteUrl": "https://kjhk.org/web/",
+      "submissionUrl": "https://kjhk.org/web/submit-music/",
+      "country": "United States / Lawrence Kansas / college radio",
+      "pricing_model": "free",
+      "queue_priority": 90,
+      "status": "needs_manual_review",
+      "submission_route": "Public email route plus local-music external form option",
+      "observed_contacts": ["submitmusic@kjhk.org", "musicfm@kjhk.org"],
+      "activity_verified": "Official site shows 2026 music articles, in-studios, charts/adds and current staff directory.",
+      "manual_review_reason": "Email must contain links only, no attachments; local form may include external form/manual steps."
+    },
+    {
+      "name": "Spinnin Records Talent Pool Demo Submission Route",
+      "websiteUrl": "https://spinninrecords.com/",
+      "submissionUrl": "https://spinninrecords.com/talentpool/",
+      "country": "Netherlands / global EDM label community",
+      "pricing_model": "free",
+      "queue_priority": 90,
+      "status": "needs_manual_review",
+      "submission_route": "Authenticated Talent Pool demo upload",
+      "observed_contacts": [],
+      "activity_verified": "Official Talent Pool page displays current demo-submit login flow and active track list.",
+      "manual_review_reason": "Login/account and rights/terms review required; no auth action attempted."
+    },
+    {
+      "name": "International Songwriting Competition 2026 Online Entry Route",
+      "websiteUrl": "https://www.songwritingcompetition.com/",
+      "submissionUrl": "https://www.songwritingcompetition.com/rules",
+      "country": "Global / online songwriting competition",
+      "pricing_model": "paid",
+      "queue_priority": 10,
+      "status": "needs_manual_review",
+      "submission_route": "Paid online contest entry with MP3 upload or song link",
+      "observed_contacts": ["info@songwritingcompetition.com"],
+      "activity_verified": "Official 2026 rules list deadlines, fees, categories and AI policy.",
+      "manual_review_reason": "Payment, originality, rights, AI disclosure and category eligibility require owner approval."
+    }
+  ]
+}
