@@ -1,0 +1,8 @@
+job_id,platform_name,pricing_model,priority,status,free_first,manual_review_reason,submission_route,contact_email,source_url
+run26-001,FBi Radio Music Submission Route,free,90,needs_manual_review,true,Prepare tailored pitch email and block paid promotional campaign options,public_email,music@fbiradio.com,https://fbiradio.com/music-submissions/
+run26-002,PBS 106.7FM Melbourne Digital Music Submission Form,free,90,needs_manual_review,true,CAPTCHA anti-spam and human form completion required,public_form,,https://www.pbsfm.org.au/submit-music
+run26-003,2SER 107.3FM Music Airplay Consideration Form,free,90,needs_manual_review,true,Dynamic form loading requires manual handling,public_form,,https://2ser.com/submit-music/
+run26-004,RTRFM 92.1 Perth Music Submission Form and Presenter Servicing Route,free,90,needs_manual_review,true,Protected email links honeypot/validation fields and presenter targeting required,public_form_protected_email,protected_on_official_page,https://rtrfm.com.au/about/submit-your-music/
+run26-005,4ZZZ Brisbane Music Submissions Route,free,90,needs_manual_review,true,Official submission route found but details could not be safely fetched in automation,official_link_needs_manual_validation,reception@4zzz.org.au_general_only,https://4zzz.org.au/
+run26-006,KBOO Community Radio Portland Physical Music Submission Route,free,90,needs_manual_review,true,Physical mail route and submissions become station property,physical_mail,,https://www.kboo.fm/submit-your-music
+run26-007,KZSU Stanford Music Director and Send Music Route,free,90,needs_manual_review,true,Cookie/session protected music system and shortlink failure require manual resolution,public_email_cookie_protected_route,music@kzsu.stanford.edu,https://kzsu.stanford.edu/contact/
