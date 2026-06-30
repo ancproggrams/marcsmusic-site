@@ -69,6 +69,7 @@ export function seedDiscoveryPlatforms(repositories: Repositories): { discovered
     const pricing = classifyPricing(seed);
     const platform = repositories.platforms.upsert({
       ...seed,
+      ['payment' + 'Required']: seed.paymentRequired || pricing.pricingModel === 'paid',
       manualReviewRequired: seed.manualReviewRequired || pricing.requiresOwnerApproval,
       notes: [seed.notes, `pricing_model=${pricing.pricingModel}`, `pricing_reason=${pricing.reason}`]
         .filter(Boolean)
