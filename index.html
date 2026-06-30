@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MarcsMusic | Listen</title>
-  <meta name="description" content="MarcsMusic listening room with full playable tracks, booking access, social links and Instagram photo frame.">
+  <title>MarcsMusic | Muziek &amp; Boekingen</title>
+  <meta name="description" content="Luister naar de officiële MarcsMusic tracks en boek Marc direct voor DJ-sets, events en studio.">
   <link rel="icon" type="image/png" href="assets/marcsmusic-logo-black.png">
   <style>
     :root {
@@ -648,91 +648,6 @@
       margin: 0 auto !important;
     }
 
-    .styleguide-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: clamp(24px, 5vw, 64px);
-      align-items: start;
-    }
-
-    .swatches {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .swatch {
-      min-height: 96px;
-      display: grid;
-      align-content: end;
-      gap: 4px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 10px;
-      background: var(--surface);
-      color: var(--ink);
-      font-family: var(--font-mono);
-      font-size: 11px;
-    }
-
-    .swatch.black {
-      background: var(--ink);
-      color: var(--white);
-      border-color: var(--ink);
-    }
-
-    .swatch.white {
-      background: var(--white);
-    }
-
-    .swatch.blue {
-      background: var(--pastel);
-    }
-
-    .swatch.soft {
-      background: var(--pastel-muted);
-    }
-
-    .swatch.line {
-      background: var(--line);
-    }
-
-    .rules {
-      display: grid;
-      gap: 14px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .rules li {
-      display: grid;
-      grid-template-columns: 96px 1fr;
-      gap: 18px;
-      border-top: 1px solid var(--line);
-      padding-top: 14px;
-    }
-
-    .rules span {
-      color: var(--muted);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    .rules strong {
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .rules p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
     .newsletter {
       border-top: 1px solid var(--line);
       background: var(--panel);
@@ -835,7 +750,6 @@
 
       .hero,
       .grid-two,
-      .styleguide-grid,
       .newsletter-inner {
         grid-template-columns: 1fr;
       }
@@ -914,13 +828,8 @@
       }
 
       .set-item,
-      .rules li,
       .signup-form {
         grid-template-columns: 1fr;
-      }
-
-      .swatches {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
   </style>
@@ -936,12 +845,12 @@
         </span>
         <span class="brand-name">
           <strong>MarcsMusic</strong>
-          <span>Artist and DJ</span>
+          <span>Artiest en DJ</span>
         </span>
       </a>
       <nav class="site-nav" aria-label="Site navigation">
         <a href="#home" aria-current="page">Home</a>
-        <a href="#listen">Listen</a>
+        <a href="#listen">Luister</a>
         <a href="#instagram">Instagram</a>
         <a class="booking-tab" href="booking.html">Bookings</a>
       </nav>
@@ -949,59 +858,59 @@
   </header>
 
   <main id="main">
-    <section class="hero" id="home" aria-label="MarcsMusic listening room">
+    <section class="hero" id="home" aria-label="MarcsMusic muziekspeler">
       <div class="hero-media">
         <img class="hero-logo" src="assets/marcsmusic-logo-black.png" alt="" aria-hidden="true">
         <div class="hero-caption">
-          <p class="eyebrow">MarcsMusic live energy</p>
-          <p>Club-ready sets, private bookings and direct music updates from Marc.</p>
+          <p class="eyebrow">MarcsMusic live</p>
+          <p>Tracks, DJ-sets en boekingen van Marc op één plek.</p>
         </div>
       </div>
 
       <div class="hero-content">
         <div class="hero-copy">
-          <p class="eyebrow">New styleguide · black, white, pastel blue</p>
-          <h1>Listen first.</h1>
-          <p class="lead">A clean MarcsMusic listening room with full-length tracks, booking access and the Instagram photo frame kept in the page.</p>
+          <p class="eyebrow">Officiële MarcsMusic tracks</p>
+          <h1>Luister naar Marc.</h1>
+          <p class="lead">Speel de volledige nummers direct op deze pagina en boek MarcsMusic voor je event, clubavond of studiosessie.</p>
           <div class="hero-actions">
             <a class="button" href="#listen">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.6v12.8L18.2 12 8 5.6Z"/></svg>
-              Play tracks
+              Luister nu
             </a>
             <a class="button secondary" href="booking.html">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 3v3M17 3v3M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></svg>
-              Open bookings
+              Boek MarcsMusic
             </a>
           </div>
         </div>
 
-        <section class="player-card" id="listen" aria-label="Full track player">
+        <section class="player-card" id="listen" aria-label="Volledige MarcsMusic tracks">
           <div class="player-top">
             <div class="cover" aria-hidden="true">
               <img src="assets/marcsmusic-logo-black.png" alt="">
             </div>
             <div class="now-playing">
-              <p class="track-kicker">Now playing</p>
-              <p class="track-title" data-title>Blue Room Intro</p>
-              <p class="track-meta" data-meta>MarcsMusic setlist · full track stream</p>
-              <div class="transport" aria-label="Playback controls">
-                <button class="icon-button" type="button" data-prev aria-label="Previous track">
+              <p class="track-kicker">Nu aan het afspelen</p>
+              <p class="track-title" data-title>Door de Storm</p>
+              <p class="track-meta" data-meta>MarcsMusic · volledige MP3</p>
+              <div class="transport" aria-label="Afspeelknoppen">
+                <button class="icon-button" type="button" data-prev aria-label="Vorige track">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 5h2v14H6V5Zm3 7 9 7V5l-9 7Z"/></svg>
                 </button>
-                <button class="icon-button primary" type="button" data-play aria-label="Play">
+                <button class="icon-button primary" type="button" data-play aria-label="Afspelen">
                   <svg data-play-icon viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.6v12.8L18.2 12 8 5.6Z"/></svg>
                   <svg data-pause-icon viewBox="0 0 24 24" aria-hidden="true" hidden><path fill="currentColor" d="M7 5h4v14H7V5Zm6 0h4v14h-4V5Z"/></svg>
                 </button>
-                <button class="icon-button" type="button" data-next aria-label="Next track">
+                <button class="icon-button" type="button" data-next aria-label="Volgende track">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 5h2v14h-2V5ZM6 19l9-7-9-7v14Z"/></svg>
                 </button>
               </div>
             </div>
           </div>
 
-          <div class="progress-wrap" aria-label="Playback progress">
+          <div class="progress-wrap" aria-label="Afspeelvoortgang">
             <span class="time" data-current>0:00</span>
-            <input class="progress" data-progress type="range" min="0" max="1000" value="0" aria-label="Seek track">
+            <input class="progress" data-progress type="range" min="0" max="1000" value="0" aria-label="Spoel door track">
             <span class="time" data-duration>0:00</span>
           </div>
 
@@ -1010,10 +919,10 @@
             data-audio
             controls
             preload="metadata"
-            src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+            src="/soundcloud-growth-os/outreach-mp3/01%20Door%20de%20Storm/Door%20de%20Storm.mp3">
           </audio>
 
-          <div class="playlist" data-playlist aria-label="Track list"></div>
+          <div class="playlist" data-playlist aria-label="Tracklijst"></div>
         </section>
 
         <div class="social-strip" aria-label="MarcsMusic social links">
@@ -1033,31 +942,31 @@
     <section class="section" aria-labelledby="set-title">
       <div class="container grid-two">
         <div>
-          <p class="eyebrow">Set structure</p>
-          <h2 id="set-title">Built around listening, then booking.</h2>
-          <p class="lead">The page starts with music instead of a generic landing page. Visitors can play complete tracks, check the Instagram frame and move straight into the booking flow.</p>
+          <p class="eyebrow">Muziek eerst</p>
+          <h2 id="set-title">Eerst horen. Daarna boeken.</h2>
+          <p class="lead">De homepage begint met de muziek van Marc. Bezoekers kunnen de nummers afspelen, de laatste updates bekijken en direct doorklikken naar de boekingsflow.</p>
         </div>
         <div class="panel">
           <div class="set-list">
             <div class="set-item">
               <span>01</span>
               <div>
-                <strong>Full streams</strong>
-                <p>Track rows load real MP3 sources into the native audio element, so each listed track can play through to the end.</p>
+                <strong>Volledige nummers</strong>
+                <p>Je hoort de volledige tracks die Marc klaar heeft gezet. Geen previews, geen externe demo-tracks.</p>
               </div>
             </div>
             <div class="set-item">
               <span>02</span>
               <div>
-                <strong>Bookings stay visible</strong>
-                <p>The top navigation keeps a dedicated Bookings tab and the hero includes a direct booking action.</p>
+                <strong>Boeken blijft dichtbij</strong>
+                <p>De Bookings-tab blijft zichtbaar in de navigatie en de hero heeft een directe boekingsknop.</p>
               </div>
             </div>
             <div class="set-item">
               <span>03</span>
               <div>
-                <strong>Instagram frame retained</strong>
-                <p>The photo frame remains in its own section with the official MarcsMusic Instagram profile embed.</p>
+                <strong>Instagram blijft zichtbaar</strong>
+                <p>De Instagram fotoframe staat apart op de pagina, zodat muziek en beeld elkaar versterken.</p>
               </div>
             </div>
           </div>
@@ -1068,70 +977,21 @@
     <section class="section" id="instagram" aria-labelledby="instagram-title">
       <div class="container grid-two">
         <div>
-          <p class="eyebrow">Instagram photo frame</p>
-          <h2 id="instagram-title">Recent visuals stay part of the room.</h2>
-          <p class="lead">The Instagram frame is kept in the page so the music, pictures and booking path live together.</p>
+          <p class="eyebrow">Instagram fotoframe</p>
+          <h2 id="instagram-title">Bekijk wat Marc deelt.</h2>
+          <p class="lead">Foto’s en updates blijven onderdeel van de site, zonder dat bezoekers de muziek of boekingsroute kwijtraken.</p>
         </div>
         <div class="instagram-frame">
           <div class="instagram-frame-header">
             <strong>@marcsmusic_1</strong>
-            <span>Photo frame</span>
+            <span>Fotoframe</span>
           </div>
           <blockquote
             class="instagram-media"
             data-instgrm-permalink="https://www.instagram.com/marcsmusic_1/"
             data-instgrm-version="14">
-            <a href="https://www.instagram.com/marcsmusic_1/" target="_blank" rel="noopener">View @marcsmusic_1 on Instagram</a>
+            <a href="https://www.instagram.com/marcsmusic_1/" target="_blank" rel="noopener">Bekijk @marcsmusic_1 op Instagram</a>
           </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="styleguide" aria-labelledby="styleguide-title">
-      <div class="container styleguide-grid">
-        <div>
-          <p class="eyebrow">Styleguide</p>
-          <h2 id="styleguide-title">Mostly black and white, with pastel blue restraint.</h2>
-          <p class="lead">The system uses hard monochrome contrast for music controls and pastel blue for active, selected and social details.</p>
-          <div class="swatches" aria-label="Color swatches">
-            <div class="swatch black"><strong>Black</strong><span>--ink</span></div>
-            <div class="swatch white"><strong>White</strong><span>--surface</span></div>
-            <div class="swatch blue"><strong>Pastel blue</strong><span>--pastel</span></div>
-            <div class="swatch soft"><strong>Blue wash</strong><span>--pastel-muted</span></div>
-            <div class="swatch line"><strong>Line</strong><span>--line</span></div>
-          </div>
-        </div>
-        <div class="panel">
-          <ul class="rules">
-            <li>
-              <span>Type</span>
-              <div>
-                <strong>Editorial display, system body</strong>
-                <p>Large serif headlines give the brand a music-magazine feel while controls stay compact and readable.</p>
-              </div>
-            </li>
-            <li>
-              <span>Shape</span>
-              <div>
-                <strong>Eight-pixel radius</strong>
-                <p>Buttons, panels, frames and controls share one restrained radius.</p>
-              </div>
-            </li>
-            <li>
-              <span>Accent</span>
-              <div>
-                <strong>Pastel blue only when useful</strong>
-                <p>Blue marks playback state, selected rows and the Instagram frame shadow without turning the page into a blue theme.</p>
-              </div>
-            </li>
-            <li>
-              <span>Motion</span>
-              <div>
-                <strong>Native, quiet interactions</strong>
-                <p>The audio element remains available and custom controls mirror native playback state.</p>
-              </div>
-            </li>
-          </ul>
         </div>
       </div>
     </section>
@@ -1140,13 +1000,13 @@
       <div class="container newsletter-inner">
         <div>
           <p class="eyebrow">MarcsMusic updates</p>
-          <h2 id="newsletter-title">Get on the list.</h2>
-          <p>New music, set notes and booking availability updates direct from MarcsMusic.</p>
+          <h2 id="newsletter-title">Blijf op de hoogte.</h2>
+          <p>Ontvang nieuwe tracks, draaidata en boekingsupdates direct van MarcsMusic.</p>
         </div>
         <form class="signup-form" data-signup>
-          <label class="sr-only" for="email">Email address</label>
-          <input id="email" name="email" type="email" placeholder="Email address" autocomplete="email" required>
-          <button type="submit">Subscribe</button>
+          <label class="sr-only" for="email">E-mailadres</label>
+          <input id="email" name="email" type="email" placeholder="E-mailadres" autocomplete="email" required>
+          <button type="submit">Inschrijven</button>
           <p class="signup-status" data-signup-status aria-live="polite"></p>
         </form>
       </div>
@@ -1156,7 +1016,7 @@
   <footer class="page-footer">
     <div class="container footer-inner">
       <span>MarcsMusic</span>
-      <span>Bookings, music and updates by marcrene.com</span>
+      <span>Muziek, boekingen en updates door marcrene.com</span>
     </div>
   </footer>
 
@@ -1164,22 +1024,40 @@
   <script>
     const tracks = [
       {
-        title: "Blue Room Intro",
-        meta: "MarcsMusic setlist · full track stream",
-        detail: "Opening track",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        title: "Door de Storm",
+        meta: "MarcsMusic · volledige MP3",
+        detail: "Track 01",
+        src: "/soundcloud-growth-os/outreach-mp3/01%20Door%20de%20Storm/Door%20de%20Storm.mp3"
       },
       {
-        title: "Late Night Transit",
-        meta: "MarcsMusic setlist · full track stream",
-        detail: "Main room track",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+        title: "Strijd",
+        meta: "MarcsMusic · volledige MP3",
+        detail: "Track 02",
+        src: "/soundcloud-growth-os/outreach-mp3/02%20Strijd/Strijd.mp3"
       },
       {
-        title: "Pastel Afterhours",
-        meta: "MarcsMusic setlist · full track stream",
-        detail: "Closing track",
-        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+        title: "Geen Afscheid",
+        meta: "MarcsMusic · volledige MP3",
+        detail: "Track 03",
+        src: "/soundcloud-growth-os/outreach-mp3/03%20Geen%20Afscheid/Geen%20Afscheid.mp3"
+      },
+      {
+        title: "Weekend Mode",
+        meta: "MarcsMusic · volledige MP3",
+        detail: "Track 04",
+        src: "/soundcloud-growth-os/outreach-mp3/04%20Weekend%20Mode/Weekend%20Mode.mp3"
+      },
+      {
+        title: "Summer Time",
+        meta: "MarcsMusic · volledige MP3",
+        detail: "Track 05",
+        src: "/soundcloud-growth-os/outreach-mp3/05%20Summer%20Time/Summer%20Time.mp3"
+      },
+      {
+        title: "Carnival",
+        meta: "MarcsMusic · volledige MP3",
+        detail: "Track 06",
+        src: "/soundcloud-growth-os/outreach-mp3/06%20Carnival/Carnival.mp3"
       }
     ];
 
@@ -1215,7 +1093,7 @@
             <span class="track-name">${track.title}</span>
             <span class="track-detail">${track.detail}</span>
           </span>
-          <span class="track-duration" data-row-duration="${index}">Full track</span>
+          <span class="track-duration" data-row-duration="${index}">Volledig nummer</span>
         </button>
       `).join("");
     }
@@ -1246,7 +1124,7 @@
 
     function updatePlayState() {
       const isPlaying = !audio.paused;
-      playButton.setAttribute("aria-label", isPlaying ? "Pause" : "Play");
+      playButton.setAttribute("aria-label", isPlaying ? "Pauzeren" : "Afspelen");
       playIcon.hidden = isPlaying;
       pauseIcon.hidden = !isPlaying;
     }
@@ -1313,7 +1191,7 @@
       const email = signupForm.querySelector("input").value;
       const previous = button.textContent;
       button.disabled = true;
-      button.textContent = "Saving";
+      button.textContent = "Opslaan";
       signupStatus.textContent = "";
 
       fetch("/api/newsletter/subscribe", {
@@ -1324,13 +1202,13 @@
         .then(async (response) => {
           const payload = await response.json();
           if (!response.ok) {
-            throw new Error(payload.error || "Subscribe failed");
+            throw new Error(payload.error || "Inschrijven mislukt");
           }
-          signupStatus.textContent = payload.message || "Subscribed.";
+          signupStatus.textContent = payload.message || "Je staat op de lijst.";
           signupForm.reset();
         })
         .catch(() => {
-          signupStatus.textContent = "Subscription could not be saved. Try again.";
+          signupStatus.textContent = "Inschrijving kon niet worden opgeslagen. Probeer het opnieuw.";
         })
         .finally(() => {
           window.setTimeout(() => {
