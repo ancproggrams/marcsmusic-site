@@ -1,0 +1,41 @@
+{
+  "run": "run-28",
+  "date": "2026-06-30",
+  "estimated_runtime_seed_pipeline": 203,
+  "latest_run": {
+    "new_opportunities": 5,
+    "queue_rows": 5,
+    "auto_submit_candidates": 0,
+    "needs_manual_review": 5,
+    "free_first_routes": 5,
+    "freemium_manual_routes": 0,
+    "unknown_manual_routes": 0,
+    "paid_manual_only_routes": 0,
+    "physical_mail_media_routes_observed": 3,
+    "digital_email_contact_routes_observed": 4,
+    "public_external_forms_observed": 1,
+    "login_cases_observed": 0,
+    "payment_cases_observed": 0,
+    "captcha_or_anti_bot_cases_observed": 0,
+    "protected_contacts_or_routes_observed": 0,
+    "smtp_probes_during_repo_update": 0,
+    "mx_probes_during_repo_update": 0,
+    "guessed_generated_contacts": 0
+  },
+  "safety": {
+    "accounts_created": 0,
+    "emails_sent": 0,
+    "forms_submitted": 0,
+    "files_uploaded": 0,
+    "payments_attempted": 0,
+    "anti_bot_or_auth_bypass_attempted": false,
+    "protected_contacts_decoded": 0
+  },
+  "platform_names": [
+    "WMSE 91.7FM Milwaukee Music Department Submission Route",
+    "KCSB 91.9 FM Artist Inquiry and Music Library Submission Form",
+    "CJSR 88.5 FM Edmonton Music Submission Route",
+    "CFUV 101.9 FM Victoria Music Submissions",
+    "Radio Western 94.9FM Music Submission Email Route"
+  ]
+}
