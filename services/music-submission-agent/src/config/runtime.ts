@@ -5,6 +5,11 @@ const booleanEnv = z
   .optional()
   .transform((value) => value === 'true');
 
+const smtpBooleanEnv = z
+  .string()
+  .optional()
+  .transform((value) => value === undefined || value === 'true');
+
 const integerEnv = (defaultValue: number) =>
   z
     .string()
@@ -28,7 +33,7 @@ const envSchema = z.object({
   PORT: integerEnv(3000),
   HOST: z.string().default('0.0.0.0'),
   AUTO_SUBMIT_ENABLED: booleanEnv,
-  EMAIL_SMTP_VERIFY_ENABLED: booleanEnv,
+  EMAIL_SMTP_VERIFY_ENABLED: smtpBooleanEnv,
   EMAIL_VALIDATION_PROVIDER: z.enum(['mailgun', 'aftership', 'fallback']).default('mailgun'),
   MAILGUN_API_KEY: z.string().optional(),
   MAILGUN_VALIDATION_BASE_URL: z.string().default('https://api.mailgun.net/v4/address/validate'),
