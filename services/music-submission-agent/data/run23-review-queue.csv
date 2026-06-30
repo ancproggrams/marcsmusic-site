@@ -1,0 +1,7 @@
+job_id,platform_name,pricing_model,priority,status,submission_route,login_required,payment_required,captcha_detected,manual_review_reason
+run23-001,KEXP Airplay Consideration Digital Submission Route,free,90,needs_manual_review,public-email-to-music-director,false,false,false,Review release package completeness clean edits genre fit and non-spam follow-up before outreach
+run23-002,KALX Berkeley Airplay Physical Music Submission Route,free,90,needs_manual_review,physical-cd-lp-mail-route,false,false,false,Only physical professionally pressed CD/LP accepted for airplay; postal package decision required
+run23-003,WXPN Airplay and Local Show Music Submission Route,free,90,needs_manual_review,protected-mailto-contact-page,false,false,false,Cloudflare-protected mailto links observed; do not bypass protection; resolve manually and review EPK
+run23-004,KJHK 90.7 FM Electronic Music Submission Route,free,90,needs_manual_review,public-email-plus-local-form,false,false,false,Email route accepts links not attachments; local form may include external/manual steps
+run23-005,Spinnin Records Talent Pool Demo Submission Route,free,90,needs_manual_review,authenticated-demo-upload,true,false,false,Login/account terms and demo rights review required; no protected action attempted
+run23-006,International Songwriting Competition 2026 Online Entry Route,paid,10,needs_manual_review,paid-online-contest-entry,false,true,false,Payment originality rights AI disclosure and category eligibility require owner approval
