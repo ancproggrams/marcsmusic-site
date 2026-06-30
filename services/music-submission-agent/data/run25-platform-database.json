@@ -1,0 +1,81 @@
+{
+  "run": 25,
+  "date": "2026-06-30",
+  "source_type": "automation_run_25_public_research",
+  "summary": {
+    "new_opportunities": 5,
+    "deduplicated_against_existing_seed_names": true,
+    "manual_review_required": 5,
+    "auto_submit_candidates": 0,
+    "free_first_routes": 2,
+    "freemium_manual_routes": 2,
+    "unknown_manual_routes": 1,
+    "public_business_or_submission_contacts_observed": 3,
+    "protected_or_js_guarded_contacts_observed": 1,
+    "third_party_freemium_routes_observed": 2,
+    "public_submission_guideline_pages_observed": 4,
+    "captcha_or_antibot_cases_observed": 0,
+    "login_cases_observed": 2,
+    "payment_cases_observed": 0,
+    "smtp_probes_during_repo_update": 0,
+    "mx_probes_during_repo_update": 0,
+    "guessed_or_generated_contacts": 0
+  },
+  "platforms": [
+    {
+      "name": "EARMILK SubmitHub and Pillargram Music Submission Route",
+      "website_url": "https://earmilk.com/",
+      "submission_url": "https://earmilk.com/submit-music/",
+      "pricing_model": "freemium",
+      "priority": 30,
+      "status": "needs_manual_review",
+      "reason": "Official submission route points to SubmitHub or Pillargram; third-party login, credits, feedback terms or paid options may apply.",
+      "business_email_observed": "david@earmilk.com",
+      "business_email_context": "Listed for brand partnership and event requests only; not a music submission address."
+    },
+    {
+      "name": "Obscure Sound SubmitHub and MusoSoup Indie/Electronic Submission Route",
+      "website_url": "https://www.obscuresound.com/",
+      "submission_url": "https://www.obscuresound.com/",
+      "pricing_model": "freemium",
+      "priority": 30,
+      "status": "needs_manual_review",
+      "reason": "Official page routes submissions through SubmitHub or MusoSoup; both can involve login, credits, campaign terms or paid options.",
+      "business_email_observed": null,
+      "business_email_context": "No direct public submission email used; official submission links only."
+    },
+    {
+      "name": "Variance Magazine Editorial Pitch and Premiere Submission Route",
+      "website_url": "https://variancemagazine.com/",
+      "submission_url": "https://variancemagazine.com/contact",
+      "pricing_model": "free",
+      "priority": 90,
+      "status": "needs_manual_review",
+      "reason": "Editorial/pitch/premiere contact route is public, but email links are JavaScript/spambot protected and must not be decoded or bypassed automatically.",
+      "business_email_observed": "protected_by_javascript",
+      "business_email_context": "Public contact categories observed; actual mailto values are protected and require manual resolution."
+    },
+    {
+      "name": "Radio Milwaukee Music Submission Route",
+      "website_url": "https://radiomilwaukee.org/",
+      "submission_url": "https://radiomilwaukee.org/music-submission",
+      "pricing_model": "free",
+      "priority": 90,
+      "status": "needs_manual_review",
+      "reason": "Free public submission guideline route, but audio package, WAV-preferred files, clean edits and release context require human review before submission.",
+      "business_email_observed": null,
+      "business_email_context": "Official public submission guideline page observed; no direct email extraction needed during repo update."
+    },
+    {
+      "name": "KCRW Airplay Consideration and Contact Route",
+      "website_url": "https://www.kcrw.com/",
+      "submission_url": "https://www.kcrw.com/pages/contact",
+      "pricing_model": "unknown",
+      "priority": 40,
+      "status": "needs_manual_review",
+      "reason": "Public sources indicate airplay consideration is possible, but the current parsed KCRW contact page does not expose a simple auto-submit form or explicit address.",
+      "business_email_observed": null,
+      "business_email_context": "Manual contact resolution and program targeting required; no email guessing."
+    }
+  ]
+}
