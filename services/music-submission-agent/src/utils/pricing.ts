@@ -9,7 +9,18 @@ export interface PricingClassification {
   reason: string;
 }
 
-const paidSignals = ['paid', 'payment', 'fee', 'budget', 'credits', 'subscription', 'package', 'premium', 'campaign', 'checkout'];
+const paidSignals = [
+  'paid',
+  'payment',
+  'fee',
+  'budget',
+  'credits',
+  'subscription',
+  'package',
+  'premium',
+  'campaign',
+  'checkout'
+];
 const freeSignals = ['free', 'no fee', 'free submission', 'free playlist', 'gratis'];
 const freemiumSignals = ['free and paid', 'free/premium', 'free or paid', 'credits', 'standard', 'premium'];
 
