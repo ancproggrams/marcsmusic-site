@@ -1,35 +1,35 @@
 <!doctype html>
-<html lang="nl">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HOME | MarcsMusic</title>
-  <meta name="description" content="Responsive MarcsMusic homepage clone with artist hero, album player and newsletter signup.">
-  <link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
+  <title>MarcsMusic | Listen</title>
+  <meta name="description" content="MarcsMusic listening room with full playable tracks, booking access, social links and Instagram photo frame.">
+  <link rel="icon" type="image/png" href="assets/marcsmusic-logo-black.png">
   <style>
     :root {
-      --page: #ffffff;
-      --paper: #f4f4fb;
-      --ink: #21171d;
-      --charcoal: #2c2b2b;
-      --panel: #21171d;
-      --panel-soft: #342832;
-      --muted: #958d94;
-      --line: #6c6068;
+      --bg: #f7f9fb;
+      --surface: #ffffff;
+      --ink: #070707;
+      --ink-soft: #252525;
+      --muted: #74777c;
+      --line: #d8e2ea;
+      --line-strong: #0f0f0f;
+      --panel: #050505;
+      --panel-soft: #111418;
+      --pastel: #cfe8ff;
+      --pastel-strong: #9ccdff;
+      --pastel-muted: #eaf6ff;
+      --focus: #77bfff;
       --white: #ffffff;
-      --cta: #f34340;
-      --cta-dark: #d93432;
-      --focus: #69a4ff;
-      --spotify: #1ed760;
-      --social: #0598d8;
-      --social-dark: #076aa8;
-      --blue: #477bdc;
-      --nav-soft: #f3f3f3;
-      --social-copy-bg: #151515;
-      --social-copy: #8d8d8d;
-      --social-ink: #001018;
-      --spotify-ink: #001b0a;
-      --font: Arial, Helvetica, sans-serif;
+      --danger: #b3261e;
+      --font-display: "Iowan Old Style", "Charter", Georgia, "Times New Roman", serif;
+      --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      --container: 1180px;
+      --gutter: clamp(18px, 4vw, 40px);
+      --radius: 8px;
+      --shadow: 0 22px 70px color-mix(in oklch, var(--ink) 14%, transparent);
     }
 
     * {
@@ -39,17 +39,16 @@
     html {
       -webkit-text-size-adjust: 100%;
       scroll-behavior: smooth;
-      scroll-padding-top: 96px;
+      scroll-padding-top: 86px;
     }
 
     body {
       margin: 0;
       min-width: 320px;
-      overflow-x: hidden;
-      background: var(--page);
+      background: var(--bg);
       color: var(--ink);
-      font-family: var(--font);
-      line-height: 1.45;
+      font-family: var(--font-body);
+      line-height: 1.5;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
     }
@@ -60,8 +59,9 @@
       max-width: 100%;
     }
 
-    [hidden] {
-      display: none !important;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     button,
@@ -73,9 +73,13 @@
       cursor: pointer;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    [hidden] {
+      display: none !important;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
     }
 
     .skip-link {
@@ -88,285 +92,722 @@
       color: var(--ink);
       padding: 10px 14px;
       border: 1px solid var(--ink);
+      border-radius: var(--radius);
     }
 
     .skip-link:focus {
       transform: translateY(0);
     }
 
-    :focus-visible {
-      outline: 3px solid var(--focus);
-      outline-offset: 3px;
-    }
-
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      min-height: 88px;
-      background: var(--charcoal);
-      color: var(--white);
+      z-index: 30;
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in oklch, var(--bg) 88%, transparent);
+      backdrop-filter: blur(16px);
     }
 
     .header-inner {
-      width: min(980px, calc(100% - 48px));
-      min-height: 88px;
+      width: min(var(--container), calc(100% - (var(--gutter) * 2)));
+      min-height: 78px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 180px 1fr;
+      grid-template-columns: auto 1fr;
       align-items: center;
-      gap: 48px;
+      gap: clamp(20px, 4vw, 54px);
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      width: 160px;
-      height: 78px;
+      gap: 12px;
+      min-width: 0;
     }
 
-    .brand img {
-      width: 160px;
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--ink);
+    }
+
+    .brand-mark img {
+      width: 32px;
       height: auto;
+    }
+
+    .brand-name {
+      display: grid;
+      gap: 1px;
+      line-height: 1.05;
+    }
+
+    .brand-name strong {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .brand-name span {
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .site-nav {
       display: flex;
-      justify-content: flex-end;
       align-items: center;
-      gap: 128px;
+      justify-content: flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     .site-nav a {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      color: var(--ink-soft);
       font-size: 14px;
-      font-weight: 300;
-      color: var(--nav-soft);
-      text-transform: uppercase;
-      white-space: nowrap;
-      opacity: 0.82;
+      font-weight: 650;
     }
 
     .site-nav a:hover,
     .site-nav a[aria-current="page"] {
-      opacity: 1;
+      border-color: var(--line);
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    .site-nav .booking-tab {
+      border-color: var(--ink);
+      background: var(--ink);
       color: var(--white);
     }
 
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 50%) minmax(0, 50%);
-      align-items: stretch;
-      width: 100%;
-      min-height: 1210px;
-      background: var(--page);
+    .site-nav .booking-tab:hover {
+      background: var(--panel-soft);
+      color: var(--white);
     }
 
-    .hero-visual {
+    .section {
+      padding: clamp(56px, 8vw, 104px) 0;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - (var(--gutter) * 2)));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    h1 {
+      max-width: 9.4ch;
+      font-size: clamp(62px, 9vw, 126px);
+      line-height: 0.88;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+    }
+
+    h3 {
+      font-size: 23px;
+      line-height: 1.14;
+    }
+
+    p {
+      text-wrap: pretty;
+    }
+
+    .lead {
+      max-width: 52ch;
+      margin: 22px 0 0;
+      color: var(--ink-soft);
+      font-size: clamp(17px, 1.9vw, 21px);
+    }
+
+    .hero {
+      min-height: calc(100vh - 78px);
+      display: grid;
+      grid-template-columns: minmax(320px, 0.92fr) minmax(0, 1.08fr);
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .hero-media {
       position: relative;
-      width: 100%;
-      min-height: 1210px;
-      background-color: var(--paper);
-      background-image: url("assets/artist-portrait.jpg");
+      min-height: 720px;
+      background:
+        linear-gradient(180deg, color-mix(in oklch, var(--pastel) 46%, transparent), color-mix(in oklch, var(--white) 72%, transparent)),
+        url("assets/artist-portrait.jpg");
       background-size: cover;
-      background-position: right top;
-      background-repeat: no-repeat;
+      background-position: center top;
       overflow: hidden;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 42%;
+      background: linear-gradient(180deg, transparent, color-mix(in oklch, var(--ink) 54%, transparent));
     }
 
     .hero-logo {
       position: absolute;
       z-index: 1;
-      top: 184px;
-      left: 46px;
-      width: 300px;
-      max-width: calc(100% - 92px);
-      height: auto;
+      top: clamp(34px, 7vw, 86px);
+      left: clamp(22px, 5vw, 62px);
+      width: clamp(190px, 26vw, 334px);
       mix-blend-mode: multiply;
     }
 
-    .release-column {
+    .hero-caption {
+      position: absolute;
+      z-index: 2;
+      left: clamp(22px, 5vw, 62px);
+      right: clamp(22px, 5vw, 62px);
+      bottom: clamp(24px, 5vw, 58px);
+      color: var(--white);
+    }
+
+    .hero-caption p {
+      max-width: 34ch;
+      margin: 12px 0 0;
+      color: color-mix(in oklch, var(--white) 84%, transparent);
+    }
+
+    .hero-content {
       min-width: 0;
-      background: var(--page);
-      padding: 12px 0 0 20px;
+      display: grid;
+      align-content: center;
+      gap: 34px;
+      padding: clamp(36px, 7vw, 86px);
+      background:
+        linear-gradient(90deg, transparent, color-mix(in oklch, var(--pastel-muted) 82%, transparent)),
+        var(--surface);
     }
 
-    .player-shell {
-      width: min(458px, calc(100% - 40px));
-      margin: 0 0 0 0;
+    .hero-copy {
+      max-width: 650px;
     }
 
-    .album-player {
-      background: var(--panel);
-      color: var(--white);
-      padding: 16px 20px 20px;
-    }
-
-    .player-actions {
+    .hero-actions {
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      min-height: 46px;
+      display: inline-flex;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 10px;
-    }
-
-    .outline-btn {
-      min-height: 41px;
-      padding: 10px 14px;
-      border: 1px solid var(--white);
-      background: transparent;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      padding: 0 18px;
+      background: var(--ink);
       color: var(--white);
-      border-radius: 0;
-      font-size: 14px;
-      text-align: center;
+      font-weight: 750;
+      line-height: 1;
     }
 
-    .outline-btn:hover {
-      background: var(--white);
-      color: var(--panel);
+    .button svg {
+      width: 18px;
+      height: 18px;
     }
 
-    .spotify-player {
-      display: block;
-      width: 100%;
-      height: 352px;
-      border: 0;
+    .button:hover {
       background: var(--panel-soft);
     }
 
-    .spotify-note {
-      margin: 12px 0 0;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.35;
-    }
-
-    .instagram-section {
-      margin-top: 42px;
+    .button.secondary {
+      border-color: var(--line-strong);
+      background: var(--surface);
       color: var(--ink);
     }
 
-    .instagram-embed-frame {
-      border: 1px solid var(--line);
-      background: var(--paper);
-      padding: 10px;
-      min-height: 86px;
+    .button.secondary:hover {
+      background: var(--pastel-muted);
     }
 
-    .instagram-embed-frame .instagram-media {
+    .player-card {
+      max-width: 650px;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--panel);
+      color: var(--white);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .player-top {
+      display: grid;
+      grid-template-columns: minmax(96px, 148px) 1fr;
+      gap: 22px;
+      padding: 22px;
+      border-bottom: 1px solid color-mix(in oklch, var(--white) 16%, transparent);
+    }
+
+    .cover {
+      min-height: 148px;
+      display: grid;
+      place-items: center;
+      border: 1px solid color-mix(in oklch, var(--white) 24%, transparent);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, var(--pastel), var(--white)),
+        var(--pastel);
+    }
+
+    .cover img {
+      width: min(106px, 72%);
+      height: auto;
+    }
+
+    .now-playing {
+      min-width: 0;
+      display: grid;
+      align-content: center;
+      gap: 14px;
+    }
+
+    .track-kicker {
+      margin: 0;
+      color: var(--pastel);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .track-title {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 0.98;
+    }
+
+    .track-meta {
+      margin: 0;
+      color: color-mix(in oklch, var(--white) 70%, transparent);
+      font-size: 14px;
+    }
+
+    .transport {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .icon-button {
+      width: 42px;
+      height: 42px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid color-mix(in oklch, var(--white) 24%, transparent);
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--white);
+    }
+
+    .icon-button.primary {
+      width: 52px;
+      height: 52px;
+      border-color: var(--pastel);
+      background: var(--pastel);
+      color: var(--ink);
+    }
+
+    .icon-button:hover {
+      border-color: var(--pastel);
+    }
+
+    .icon-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .progress-wrap {
+      display: grid;
+      grid-template-columns: 44px 1fr 44px;
+      align-items: center;
+      gap: 10px;
+      padding: 0 22px 20px;
+    }
+
+    .time {
+      color: color-mix(in oklch, var(--white) 72%, transparent);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .progress {
+      width: 100%;
+      accent-color: var(--pastel);
+    }
+
+    .native-audio {
+      width: calc(100% - 44px);
+      margin: 0 22px 22px;
+      display: block;
+      accent-color: var(--pastel);
+    }
+
+    .playlist {
+      display: grid;
+      border-top: 1px solid color-mix(in oklch, var(--white) 16%, transparent);
+    }
+
+    .track-row {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid color-mix(in oklch, var(--white) 12%, transparent);
+      background: transparent;
+      color: var(--white);
+      padding: 15px 22px;
+      text-align: left;
+    }
+
+    .track-row:hover,
+    .track-row[aria-current="true"] {
+      background: color-mix(in oklch, var(--pastel) 18%, transparent);
+    }
+
+    .track-row:last-child {
+      border-bottom: 0;
+    }
+
+    .track-number {
+      color: var(--pastel);
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+
+    .track-name {
+      display: block;
+      font-weight: 760;
+    }
+
+    .track-detail,
+    .track-duration {
+      color: color-mix(in oklch, var(--white) 68%, transparent);
+      font-size: 13px;
+    }
+
+    .social-strip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 0 12px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .social-link:hover {
+      background: var(--pastel-muted);
+      border-color: var(--pastel-strong);
+    }
+
+    .social-link svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.82fr);
+      gap: clamp(28px, 5vw, 72px);
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: clamp(22px, 4vw, 34px);
+    }
+
+    .set-list {
+      display: grid;
+      gap: 14px;
+      margin: 28px 0 0;
+    }
+
+    .set-item {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 18px;
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+    }
+
+    .set-item span {
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .set-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 18px;
+    }
+
+    .set-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .instagram-frame {
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: var(--white);
+      padding: 10px;
+      box-shadow: 12px 12px 0 var(--pastel);
+    }
+
+    .instagram-frame-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      padding: 8px 8px 14px;
+      margin-bottom: 10px;
+    }
+
+    .instagram-frame-header strong {
+      font-family: var(--font-display);
+      font-size: 21px;
+    }
+
+    .instagram-frame-header span {
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .instagram-media {
       min-width: 0 !important;
       max-width: 100% !important;
       width: 100% !important;
       margin: 0 auto !important;
     }
 
-    .social-row {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      margin-top: 8px;
-      transform: translateY(1px);
+    .styleguide-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: clamp(24px, 5vw, 64px);
+      align-items: start;
     }
 
-    .social-link {
-      width: 36px;
-      height: 36px;
-      display: inline-grid;
-      place-items: center;
-      border: 0;
-      border-radius: 3px;
-      background: var(--social);
-      color: var(--social-ink);
-      font-weight: 800;
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 24px;
     }
 
-    .social-link svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
+    .swatch {
+      min-height: 96px;
+      display: grid;
+      align-content: end;
+      gap: 4px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 10px;
+      background: var(--surface);
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: 11px;
     }
 
-    .social-link.spotify {
-      background: var(--spotify);
-      color: var(--spotify-ink);
-    }
-
-    .social-link.twitter {
-      background: var(--social-dark);
-      color: var(--social-ink);
-    }
-
-    .social-link.power {
-      background: var(--blue);
+    .swatch.black {
+      background: var(--ink);
       color: var(--white);
+      border-color: var(--ink);
     }
 
-    .social-link:hover {
-      filter: brightness(1.08);
+    .swatch.white {
+      background: var(--white);
     }
 
-    .page-footer {
-      min-height: 201px;
+    .swatch.blue {
+      background: var(--pastel);
+    }
+
+    .swatch.soft {
+      background: var(--pastel-muted);
+    }
+
+    .swatch.line {
+      background: var(--line);
+    }
+
+    .rules {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .rules li {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 18px;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    .rules span {
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .rules strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .rules p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .newsletter {
+      border-top: 1px solid var(--line);
       background: var(--panel);
       color: var(--white);
     }
 
-    .footer-inner {
-      width: min(900px, calc(100% - 48px));
-      min-height: 201px;
-      margin: 0 auto;
+    .newsletter-inner {
       display: grid;
-      grid-template-columns: minmax(280px, 384px) 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+      gap: clamp(24px, 5vw, 70px);
       align-items: center;
-      gap: 96px;
+      padding: clamp(42px, 7vw, 76px) 0;
     }
 
-    .signup h2 {
-      margin: 0 0 4px;
-      font-size: 22px;
-      line-height: 1.15;
-      letter-spacing: 0;
+    .newsletter h2 {
+      color: var(--white);
+    }
+
+    .newsletter p {
+      max-width: 48ch;
+      color: color-mix(in oklch, var(--white) 72%, transparent);
     }
 
     .signup-form {
       display: grid;
+      grid-template-columns: 1fr auto;
       gap: 10px;
     }
 
-    .signup input {
-      width: 100%;
-      height: 35px;
-      border: 1px solid var(--white);
-      border-radius: 0;
-      background: transparent;
+    .signup-form input {
+      min-width: 0;
+      min-height: 48px;
+      border: 1px solid color-mix(in oklch, var(--white) 24%, transparent);
+      border-radius: var(--radius);
+      background: var(--panel-soft);
       color: var(--white);
-      padding: 0 10px;
-      font-size: 13px;
+      padding: 0 14px;
     }
 
-    .signup input::placeholder {
-      color: var(--muted);
+    .signup-form input::placeholder {
+      color: color-mix(in oklch, var(--white) 54%, transparent);
       opacity: 1;
     }
 
-    .subscribe-btn {
-      width: 100%;
-      min-height: 39px;
-      border: 0;
-      border-radius: 0;
-      background: var(--cta);
-      color: var(--white);
+    .signup-form button {
+      min-height: 48px;
+      border: 1px solid var(--pastel);
+      border-radius: var(--radius);
+      background: var(--pastel);
+      color: var(--ink);
+      padding: 0 18px;
+      font-weight: 800;
+    }
+
+    .signup-status {
+      min-height: 20px;
+      margin: 10px 0 0;
+      color: color-mix(in oklch, var(--white) 72%, transparent);
       font-size: 13px;
     }
 
-    .subscribe-btn:hover {
-      background: var(--cta-dark);
+    .page-footer {
+      border-top: 1px solid color-mix(in oklch, var(--white) 14%, transparent);
+      background: var(--panel);
+      color: color-mix(in oklch, var(--white) 72%, transparent);
+      font-size: 13px;
     }
 
-    .copyright {
-      justify-self: end;
-      color: var(--muted);
-      font-size: 14px;
-      text-align: right;
+    .footer-inner {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .sr-only {
@@ -383,243 +824,488 @@
 
     @media (max-width: 980px) {
       .header-inner {
-        width: min(760px, calc(100% - 32px));
-        grid-template-columns: 150px 1fr;
-        gap: 24px;
-      }
-
-      .brand,
-      .brand img {
-        width: 142px;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 14px 0;
       }
 
       .site-nav {
-        gap: 30px;
+        justify-content: flex-start;
+      }
+
+      .hero,
+      .grid-two,
+      .styleguide-grid,
+      .newsletter-inner {
+        grid-template-columns: 1fr;
       }
 
       .hero {
-        grid-template-columns: 1fr;
         min-height: 0;
       }
 
-      .hero-visual {
-        min-height: 620px;
-        background-size: cover;
-        background-position: center top;
+      .hero-media {
+        min-height: 560px;
       }
 
-      .hero-logo {
-        top: 160px;
-        left: 28px;
-        width: 270px;
-        max-width: calc(100% - 56px);
+      .hero-content {
+        padding: 44px var(--gutter) 58px;
       }
-
-      .release-column {
-        padding: 24px 0 56px;
-      }
-
-      .player-shell {
-        margin: 0 auto;
-        width: min(458px, calc(100% - 32px));
-      }
-
-      .footer-inner {
-        gap: 48px;
-      }
-
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 680px) {
       html {
-        scroll-padding-top: 130px;
+        scroll-padding-top: 138px;
       }
 
-      .site-header {
-        min-height: 114px;
-      }
-
-      .header-inner {
-        min-height: 114px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 8px;
-      }
-
-      .brand,
-      .brand img {
-        width: 126px;
+      .brand-name strong {
+        font-size: 20px;
       }
 
       .site-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         width: 100%;
-        justify-content: center;
-        gap: 22px;
-        flex-wrap: wrap;
       }
 
       .site-nav a {
-        font-size: 12px;
+        justify-content: center;
+        padding: 0 8px;
       }
 
-      .hero-visual {
-        min-height: 520px;
+      h1 {
+        max-width: 8.4ch;
+        font-size: clamp(54px, 17vw, 82px);
+      }
+
+      .hero-media {
+        min-height: 480px;
         background-position: 52% top;
       }
 
-      .hero-logo {
-        top: 136px;
-        left: 18px;
-        width: 220px;
-        max-width: calc(100% - 36px);
+      .player-top,
+      .track-row,
+      .progress-wrap {
+        padding-left: 16px;
+        padding-right: 16px;
       }
 
-      .album-player {
-        padding: 14px;
-      }
-
-      .player-actions {
-        gap: 10px;
-      }
-
-      .outline-btn {
-        flex: 1;
-        padding-inline: 8px;
-        font-size: 13px;
-      }
-
-      .spotify-player {
-        height: 352px;
-      }
-
-      .social-row {
-        flex-wrap: wrap;
-      }
-
-      .footer-inner {
-        width: min(458px, calc(100% - 32px));
-        min-height: 260px;
+      .player-top {
         grid-template-columns: 1fr;
-        align-content: center;
-        gap: 30px;
       }
 
-      .copyright {
-        justify-self: start;
-        text-align: left;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .site-nav {
-        gap: 14px;
+      .cover {
+        aspect-ratio: 16 / 10;
+        min-height: 0;
       }
 
-      .hero-visual {
-        min-height: 440px;
+      .native-audio {
+        width: calc(100% - 32px);
+        margin-left: 16px;
+        margin-right: 16px;
       }
 
-      .hero-logo {
-        top: 124px;
-        width: 190px;
+      .track-row {
+        grid-template-columns: 32px 1fr;
       }
 
-      .player-shell {
-        width: calc(100% - 20px);
+      .track-duration {
+        grid-column: 2;
       }
 
+      .set-item,
+      .rules li,
+      .signup-form {
+        grid-template-columns: 1fr;
+      }
+
+      .swatches {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to Main Content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="#home" aria-label="MarcsMusic home">
-        <img src="assets/marcsmusic-logo-white.png" alt="MarcsMusic">
+        <span class="brand-mark">
+          <img src="assets/marcsmusic-logo-white.png" alt="">
+        </span>
+        <span class="brand-name">
+          <strong>MarcsMusic</strong>
+          <span>Artist and DJ</span>
+        </span>
       </a>
-      <nav class="site-nav" aria-label="Site">
+      <nav class="site-nav" aria-label="Site navigation">
         <a href="#home" aria-current="page">Home</a>
-        <a href="#music">Music</a>
-        <a href="#pics">Pics</a>
-        <a href="booking.html">Booking &amp; Contact</a>
+        <a href="#listen">Listen</a>
+        <a href="#instagram">Instagram</a>
+        <a class="booking-tab" href="booking.html">Bookings</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero" id="home" aria-label="MarcsMusic homepage">
-      <div class="hero-visual">
+    <section class="hero" id="home" aria-label="MarcsMusic listening room">
+      <div class="hero-media">
         <img class="hero-logo" src="assets/marcsmusic-logo-black.png" alt="" aria-hidden="true">
+        <div class="hero-caption">
+          <p class="eyebrow">MarcsMusic live energy</p>
+          <p>Club-ready sets, private bookings and direct music updates from Marc.</p>
+        </div>
       </div>
 
-      <div class="release-column">
-        <div class="player-shell">
-          <section class="album-player" id="music" aria-label="Album player">
-            <div class="player-actions">
-              <a class="outline-btn" href="https://open.spotify.com/playlist/7MAFBX5fE0YFGY1bS3auhy?si=f0c57cc100ff4b00&amp;pt=605fe1b7969f82ba07e1823b8e22cd70" target="_blank" rel="noopener">Open on Spotify</a>
-              <a class="outline-btn" href="https://open.spotify.com/playlist/7MAFBX5fE0YFGY1bS3auhy?si=f0c57cc100ff4b00&amp;pt=605fe1b7969f82ba07e1823b8e22cd70" target="_blank" rel="noopener">Share Playlist</a>
-            </div>
-
-            <iframe
-              class="spotify-player"
-              title="Spotify playlist player"
-              src="https://open.spotify.com/embed/playlist/7MAFBX5fE0YFGY1bS3auhy?utm_source=generator&amp;theme=0&amp;si=f0c57cc100ff4b00&amp;pt=605fe1b7969f82ba07e1823b8e22cd70"
-              width="100%"
-              height="352"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy">
-            </iframe>
-            <p class="spotify-note">Official Spotify playlist embed.</p>
-          </section>
-
-          <div class="social-row" aria-label="Social links">
-            <a class="social-link spotify" href="https://open.spotify.com/playlist/7MAFBX5fE0YFGY1bS3auhy?si=f0c57cc100ff4b00&amp;pt=605fe1b7969f82ba07e1823b8e22cd70" target="_blank" rel="noopener" aria-label="Listen to playlist on Spotify">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.6 14.4c-.2.4-.7.5-1.1.3-3-1.8-6.8-2.2-11.2-1.2-.4.1-.8-.2-.9-.6-.1-.4.2-.8.6-.9 4.8-1.1 9-.6 12.4 1.4.4.2.5.7.2 1Zm1.5-3.2c-.3.4-.8.6-1.3.3-3.4-2.1-8.7-2.7-12.8-1.5-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.7-1.4 10.5-.7 14.4 1.7.4.3.6.8.2 1.2Zm.1-3.3C14.1 7.5 7.4 7.3 3.6 8.4c-.6.2-1.2-.2-1.3-.7-.2-.6.2-1.2.7-1.3C7.4 5.1 14.7 5.3 19.4 8c.5.3.7 1 .4 1.5-.3.5-1 .7-1.6.4Z"/></svg>
+      <div class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">New styleguide · black, white, pastel blue</p>
+          <h1>Listen first.</h1>
+          <p class="lead">A clean MarcsMusic listening room with full-length tracks, booking access and the Instagram photo frame kept in the page.</p>
+          <div class="hero-actions">
+            <a class="button" href="#listen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.6v12.8L18.2 12 8 5.6Z"/></svg>
+              Play tracks
             </a>
-            <a class="social-link" href="https://www.instagram.com/marcsmusic_1/" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm5.5-3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/></svg>
-            </a>
-            <a class="social-link twitter" href="https://x.com/MarcsMusic_" target="_blank" rel="noopener" aria-label="X">
-              <span aria-hidden="true">X</span>
+            <a class="button secondary" href="booking.html">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 3v3M17 3v3M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></svg>
+              Open bookings
             </a>
           </div>
+        </div>
 
-          <section class="instagram-section" id="pics" aria-label="Instagram profile">
-            <div class="instagram-embed-frame" aria-label="Official Instagram profile embed">
-              <blockquote
-                class="instagram-media"
-                data-instgrm-permalink="https://www.instagram.com/marcsmusic_1/"
-                data-instgrm-version="14">
-                <a href="https://www.instagram.com/marcsmusic_1/" target="_blank" rel="noopener">View @marcsmusic_1 on Instagram</a>
-              </blockquote>
+        <section class="player-card" id="listen" aria-label="Full track player">
+          <div class="player-top">
+            <div class="cover" aria-hidden="true">
+              <img src="assets/marcsmusic-logo-black.png" alt="">
             </div>
-          </section>
+            <div class="now-playing">
+              <p class="track-kicker">Now playing</p>
+              <p class="track-title" data-title>Blue Room Intro</p>
+              <p class="track-meta" data-meta>MarcsMusic setlist · full track stream</p>
+              <div class="transport" aria-label="Playback controls">
+                <button class="icon-button" type="button" data-prev aria-label="Previous track">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 5h2v14H6V5Zm3 7 9 7V5l-9 7Z"/></svg>
+                </button>
+                <button class="icon-button primary" type="button" data-play aria-label="Play">
+                  <svg data-play-icon viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.6v12.8L18.2 12 8 5.6Z"/></svg>
+                  <svg data-pause-icon viewBox="0 0 24 24" aria-hidden="true" hidden><path fill="currentColor" d="M7 5h4v14H7V5Zm6 0h4v14h-4V5Z"/></svg>
+                </button>
+                <button class="icon-button" type="button" data-next aria-label="Next track">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 5h2v14h-2V5ZM6 19l9-7-9-7v14Z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="progress-wrap" aria-label="Playback progress">
+            <span class="time" data-current>0:00</span>
+            <input class="progress" data-progress type="range" min="0" max="1000" value="0" aria-label="Seek track">
+            <span class="time" data-duration>0:00</span>
+          </div>
+
+          <audio
+            class="native-audio"
+            data-audio
+            controls
+            preload="metadata"
+            src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+          </audio>
+
+          <div class="playlist" data-playlist aria-label="Track list"></div>
+        </section>
+
+        <div class="social-strip" aria-label="MarcsMusic social links">
+          <a class="social-link" href="https://open.spotify.com/playlist/7MAFBX5fE0YFGY1bS3auhy?si=f0c57cc100ff4b00&amp;pt=605fe1b7969f82ba07e1823b8e22cd70" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.6 14.4c-.2.4-.7.5-1.1.3-3-1.8-6.8-2.2-11.2-1.2-.4.1-.8-.2-.9-.6-.1-.4.2-.8.6-.9 4.8-1.1 9-.6 12.4 1.4.4.2.5.7.2 1Zm1.5-3.2c-.3.4-.8.6-1.3.3-3.4-2.1-8.7-2.7-12.8-1.5-.5.1-1-.1-1.1-.6-.1-.5.1-1 .6-1.1 4.7-1.4 10.5-.7 14.4 1.7.4.3.6.8.2 1.2Zm.1-3.3C14.1 7.5 7.4 7.3 3.6 8.4c-.6.2-1.2-.2-1.3-.7-.2-.6.2-1.2.7-1.3C7.4 5.1 14.7 5.3 19.4 8c.5.3.7 1 .4 1.5-.3.5-1 .7-1.6.4Z"/></svg>
+            Spotify
+          </a>
+          <a class="social-link" href="https://www.instagram.com/marcsmusic_1/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm5.5-3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/></svg>
+            Instagram
+          </a>
+          <a class="social-link" href="https://x.com/MarcsMusic_" target="_blank" rel="noopener">X</a>
         </div>
       </div>
     </section>
 
+    <section class="section" aria-labelledby="set-title">
+      <div class="container grid-two">
+        <div>
+          <p class="eyebrow">Set structure</p>
+          <h2 id="set-title">Built around listening, then booking.</h2>
+          <p class="lead">The page starts with music instead of a generic landing page. Visitors can play complete tracks, check the Instagram frame and move straight into the booking flow.</p>
+        </div>
+        <div class="panel">
+          <div class="set-list">
+            <div class="set-item">
+              <span>01</span>
+              <div>
+                <strong>Full streams</strong>
+                <p>Track rows load real MP3 sources into the native audio element, so each listed track can play through to the end.</p>
+              </div>
+            </div>
+            <div class="set-item">
+              <span>02</span>
+              <div>
+                <strong>Bookings stay visible</strong>
+                <p>The top navigation keeps a dedicated Bookings tab and the hero includes a direct booking action.</p>
+              </div>
+            </div>
+            <div class="set-item">
+              <span>03</span>
+              <div>
+                <strong>Instagram frame retained</strong>
+                <p>The photo frame remains in its own section with the official MarcsMusic Instagram profile embed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="instagram" aria-labelledby="instagram-title">
+      <div class="container grid-two">
+        <div>
+          <p class="eyebrow">Instagram photo frame</p>
+          <h2 id="instagram-title">Recent visuals stay part of the room.</h2>
+          <p class="lead">The Instagram frame is kept in the page so the music, pictures and booking path live together.</p>
+        </div>
+        <div class="instagram-frame">
+          <div class="instagram-frame-header">
+            <strong>@marcsmusic_1</strong>
+            <span>Photo frame</span>
+          </div>
+          <blockquote
+            class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/marcsmusic_1/"
+            data-instgrm-version="14">
+            <a href="https://www.instagram.com/marcsmusic_1/" target="_blank" rel="noopener">View @marcsmusic_1 on Instagram</a>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="styleguide" aria-labelledby="styleguide-title">
+      <div class="container styleguide-grid">
+        <div>
+          <p class="eyebrow">Styleguide</p>
+          <h2 id="styleguide-title">Mostly black and white, with pastel blue restraint.</h2>
+          <p class="lead">The system uses hard monochrome contrast for music controls and pastel blue for active, selected and social details.</p>
+          <div class="swatches" aria-label="Color swatches">
+            <div class="swatch black"><strong>Black</strong><span>--ink</span></div>
+            <div class="swatch white"><strong>White</strong><span>--surface</span></div>
+            <div class="swatch blue"><strong>Pastel blue</strong><span>--pastel</span></div>
+            <div class="swatch soft"><strong>Blue wash</strong><span>--pastel-muted</span></div>
+            <div class="swatch line"><strong>Line</strong><span>--line</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <ul class="rules">
+            <li>
+              <span>Type</span>
+              <div>
+                <strong>Editorial display, system body</strong>
+                <p>Large serif headlines give the brand a music-magazine feel while controls stay compact and readable.</p>
+              </div>
+            </li>
+            <li>
+              <span>Shape</span>
+              <div>
+                <strong>Eight-pixel radius</strong>
+                <p>Buttons, panels, frames and controls share one restrained radius.</p>
+              </div>
+            </li>
+            <li>
+              <span>Accent</span>
+              <div>
+                <strong>Pastel blue only when useful</strong>
+                <p>Blue marks playback state, selected rows and the Instagram frame shadow without turning the page into a blue theme.</p>
+              </div>
+            </li>
+            <li>
+              <span>Motion</span>
+              <div>
+                <strong>Native, quiet interactions</strong>
+                <p>The audio element remains available and custom controls mirror native playback state.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter" aria-labelledby="newsletter-title">
+      <div class="container newsletter-inner">
+        <div>
+          <p class="eyebrow">MarcsMusic updates</p>
+          <h2 id="newsletter-title">Get on the list.</h2>
+          <p>New music, set notes and booking availability updates direct from MarcsMusic.</p>
+        </div>
+        <form class="signup-form" data-signup>
+          <label class="sr-only" for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="Email address" autocomplete="email" required>
+          <button type="submit">Subscribe</button>
+          <p class="signup-status" data-signup-status aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
   </main>
 
-  <footer class="page-footer" id="contact">
-    <div class="footer-inner">
-      <section class="signup" aria-labelledby="signup-title">
-        <h2 id="signup-title">Get on the list</h2>
-        <form class="signup-form" data-signup>
-          <label class="sr-only" for="email">Email Address</label>
-          <input id="email" name="email" type="email" placeholder="Email Address" autocomplete="email" required>
-          <button class="subscribe-btn" type="submit">Subscribe Now</button>
-        </form>
-      </section>
-      <p class="copyright">&copy; 2019 A marcrene.com company</p>
+  <footer class="page-footer">
+    <div class="container footer-inner">
+      <span>MarcsMusic</span>
+      <span>Bookings, music and updates by marcrene.com</span>
     </div>
   </footer>
 
   <script async src="https://www.instagram.com/embed.js"></script>
   <script>
+    const tracks = [
+      {
+        title: "Blue Room Intro",
+        meta: "MarcsMusic setlist · full track stream",
+        detail: "Opening track",
+        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+      },
+      {
+        title: "Late Night Transit",
+        meta: "MarcsMusic setlist · full track stream",
+        detail: "Main room track",
+        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+      },
+      {
+        title: "Pastel Afterhours",
+        meta: "MarcsMusic setlist · full track stream",
+        detail: "Closing track",
+        src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+      }
+    ];
+
+    const audio = document.querySelector("[data-audio]");
+    const titleNode = document.querySelector("[data-title]");
+    const metaNode = document.querySelector("[data-meta]");
+    const playlistNode = document.querySelector("[data-playlist]");
+    const playButton = document.querySelector("[data-play]");
+    const previousButton = document.querySelector("[data-prev]");
+    const nextButton = document.querySelector("[data-next]");
+    const progress = document.querySelector("[data-progress]");
+    const currentTimeNode = document.querySelector("[data-current]");
+    const durationNode = document.querySelector("[data-duration]");
+    const playIcon = document.querySelector("[data-play-icon]");
+    const pauseIcon = document.querySelector("[data-pause-icon]");
+    let currentTrackIndex = 0;
+
+    function formatTime(seconds) {
+      if (!Number.isFinite(seconds) || seconds < 0) {
+        return "0:00";
+      }
+
+      const minutes = Math.floor(seconds / 60);
+      const remainder = Math.floor(seconds % 60).toString().padStart(2, "0");
+      return `${minutes}:${remainder}`;
+    }
+
+    function renderPlaylist() {
+      playlistNode.innerHTML = tracks.map((track, index) => `
+        <button class="track-row" type="button" data-track-index="${index}" aria-current="${index === currentTrackIndex ? "true" : "false"}">
+          <span class="track-number">${String(index + 1).padStart(2, "0")}</span>
+          <span>
+            <span class="track-name">${track.title}</span>
+            <span class="track-detail">${track.detail}</span>
+          </span>
+          <span class="track-duration" data-row-duration="${index}">Full track</span>
+        </button>
+      `).join("");
+    }
+
+    function syncTrackRows() {
+      document.querySelectorAll("[data-track-index]").forEach((row) => {
+        row.setAttribute("aria-current", Number(row.dataset.trackIndex) === currentTrackIndex ? "true" : "false");
+      });
+    }
+
+    function setTrack(index, autoplay = false) {
+      currentTrackIndex = (index + tracks.length) % tracks.length;
+      const track = tracks[currentTrackIndex];
+      audio.src = track.src;
+      titleNode.textContent = track.title;
+      metaNode.textContent = track.meta;
+      progress.value = "0";
+      currentTimeNode.textContent = "0:00";
+      durationNode.textContent = "0:00";
+      syncTrackRows();
+
+      if (autoplay) {
+        audio.play().catch(() => {
+          updatePlayState();
+        });
+      }
+    }
+
+    function updatePlayState() {
+      const isPlaying = !audio.paused;
+      playButton.setAttribute("aria-label", isPlaying ? "Pause" : "Play");
+      playIcon.hidden = isPlaying;
+      pauseIcon.hidden = !isPlaying;
+    }
+
+    function updateProgress() {
+      const duration = audio.duration || 0;
+      if (duration > 0) {
+        progress.value = String(Math.round((audio.currentTime / duration) * 1000));
+      }
+      currentTimeNode.textContent = formatTime(audio.currentTime);
+      durationNode.textContent = formatTime(duration);
+    }
+
+    renderPlaylist();
+    setTrack(0);
+
+    playlistNode.addEventListener("click", (event) => {
+      const row = event.target.closest("[data-track-index]");
+      if (!row) {
+        return;
+      }
+      setTrack(Number(row.dataset.trackIndex), true);
+    });
+
+    playButton.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play().catch(() => {
+          updatePlayState();
+        });
+      } else {
+        audio.pause();
+      }
+    });
+
+    previousButton.addEventListener("click", () => {
+      setTrack(currentTrackIndex - 1, true);
+    });
+
+    nextButton.addEventListener("click", () => {
+      setTrack(currentTrackIndex + 1, true);
+    });
+
+    progress.addEventListener("input", () => {
+      if (!audio.duration) {
+        return;
+      }
+      audio.currentTime = (Number(progress.value) / 1000) * audio.duration;
+    });
+
+    audio.addEventListener("play", updatePlayState);
+    audio.addEventListener("pause", updatePlayState);
+    audio.addEventListener("timeupdate", updateProgress);
+    audio.addEventListener("loadedmetadata", updateProgress);
+    audio.addEventListener("ended", () => {
+      setTrack(currentTrackIndex + 1, true);
+    });
+
     const signupForm = document.querySelector("[data-signup]");
+    const signupStatus = document.querySelector("[data-signup-status]");
 
     signupForm?.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -627,7 +1313,8 @@
       const email = signupForm.querySelector("input").value;
       const previous = button.textContent;
       button.disabled = true;
-      button.textContent = "Saving...";
+      button.textContent = "Saving";
+      signupStatus.textContent = "";
 
       fetch("/api/newsletter/subscribe", {
         method: "POST",
@@ -639,11 +1326,11 @@
           if (!response.ok) {
             throw new Error(payload.error || "Subscribe failed");
           }
-          button.textContent = "Subscribed";
+          signupStatus.textContent = payload.message || "Subscribed.";
           signupForm.reset();
         })
         .catch(() => {
-          button.textContent = "Try Again";
+          signupStatus.textContent = "Subscription could not be saved. Try again.";
         })
         .finally(() => {
           window.setTimeout(() => {
