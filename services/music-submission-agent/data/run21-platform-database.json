@@ -1,0 +1,93 @@
+{
+  "run": 21,
+  "date": "2026-06-30",
+  "summary": {
+    "new_opportunities": 8,
+    "auto_submit_candidates": 0,
+    "needs_manual_review": 8,
+    "public_business_contacts_observed": 2,
+    "estimated_pipeline_total": 160
+  },
+  "platforms": [
+    {
+      "name": "Groover Global Curator Playlist Radio and Label Pitching Route",
+      "website_url": "https://groover.co/",
+      "submission_url": "https://groover.co/",
+      "route_type": "paid_curator_pitching_marketplace",
+      "status": "needs_manual_review",
+      "genre_fit": ["electronic", "reggae", "world", "dance", "independent"],
+      "public_business_contacts_observed": 0,
+      "manual_review_reason": "Login, credits, payment, curator targeting, rights ownership and campaign setup review required."
+    },
+    {
+      "name": "MusoSoup Global Music PR Curator Campaign Route",
+      "website_url": "https://musosoup.com/",
+      "submission_url": "https://app.musosoup.com/",
+      "route_type": "music_pr_curator_campaign_marketplace",
+      "status": "needs_manual_review",
+      "genre_fit": ["independent", "electronic", "reggae", "world", "afrobeats"],
+      "public_business_contacts_observed": 0,
+      "manual_review_reason": "Submission review, account, campaign fee, upload/link, rights confirmation and paid/free offer triage required."
+    },
+    {
+      "name": "DailyPlaylists Spotify Playlist Submission Marketplace Route",
+      "website_url": "https://dailyplaylists.com/",
+      "submission_url": "https://dailyplaylists.com/",
+      "route_type": "playlist_submission_marketplace",
+      "status": "needs_manual_review",
+      "genre_fit": ["electronic", "dance", "reggae", "world", "pop"],
+      "public_business_contacts_observed": 1,
+      "manual_review_reason": "Sign-in, track-link selection, playlist relevance and curator matching review required."
+    },
+    {
+      "name": "Soundplate Free Spotify and Deezer Playlist Submission Route",
+      "website_url": "https://play.soundplate.com/",
+      "submission_url": "https://play.soundplate.com/",
+      "route_type": "free_playlist_submission_grid",
+      "status": "needs_manual_review",
+      "genre_fit": ["house", "techno", "garage", "bass", "festival", "electronic"],
+      "public_business_contacts_observed": 0,
+      "manual_review_reason": "Playlist relevance and selected-form review required before any manual submission."
+    },
+    {
+      "name": "Jamendo Artists Licensing In-Store and Promotion Route",
+      "website_url": "https://artists.jamendo.com/",
+      "submission_url": "https://artists.jamendo.com/",
+      "route_type": "artist_licensing_instore_content_id",
+      "status": "needs_manual_review",
+      "genre_fit": ["independent", "electronic", "world", "reggae", "cinematic"],
+      "public_business_contacts_observed": 0,
+      "manual_review_reason": "Sign-in, catalog upload, collecting-society compatibility, licensing opt-in and rights review required."
+    },
+    {
+      "name": "TAXI Independent A&R Music Licensing and Label Opportunity Route",
+      "website_url": "https://www.taxi.com/",
+      "submission_url": "https://www.taxi.com/submit-music/",
+      "route_type": "membership_ar_sync_and_label_opportunities",
+      "status": "needs_manual_review",
+      "genre_fit": ["songwriter", "electronic", "reggae", "world", "cinematic", "instrumental"],
+      "public_business_contacts_observed": 0,
+      "manual_review_reason": "Membership, possible fees, listing fit, metadata, rights and opportunity review required."
+    },
+    {
+      "name": "Audiosocket Artist Music Licensing Submission Route",
+      "website_url": "https://www.audiosocket.com/artists",
+      "submission_url": "https://www.audiosocket.com/artists",
+      "route_type": "music_licensing_catalog_submission",
+      "status": "needs_manual_review",
+      "genre_fit": ["independent", "electronic", "world", "reggae", "cinematic"],
+      "public_business_contacts_observed": 0,
+      "manual_review_reason": "Submit-music flow, catalog fit, publishing/master rights and licensing contract review required."
+    },
+    {
+      "name": "Radio Airplay Jango Independent Artist Upload and Airplay Route",
+      "website_url": "https://www.radioairplay.com/",
+      "submission_url": "https://www.radioairplay.com/",
+      "route_type": "artist_upload_and_internet_radio_airplay",
+      "status": "needs_manual_review",
+      "genre_fit": ["independent", "electronic", "dance", "reggae", "world", "pop"],
+      "public_business_contacts_observed": 1,
+      "manual_review_reason": "Account upload, plan selection, rights, targeting and paid-option review required."
+    }
+  ]
+}
