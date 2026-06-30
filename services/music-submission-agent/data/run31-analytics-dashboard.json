@@ -1,0 +1,76 @@
+{
+  "runId": "run31",
+  "date": "2026-06-30",
+  "summary": {
+    "platformsDiscovered": 5,
+    "queueRowsAdded": 5,
+    "autoSubmitCandidates": 0,
+    "manualReviewRequired": 5,
+    "freeFirstRoutes": 5,
+    "paidRoutes": 0,
+    "freemiumRoutes": 0,
+    "unknownRoutes": 0,
+    "estimatedRuntimeSeedOpportunities": 215
+  },
+  "pricingBreakdown": {
+    "free": 5,
+    "freemium": 0,
+    "paid": 0,
+    "unknown": 0
+  },
+  "manualReviewReasons": {
+    "email_outreach_requires_owner_approval": 2,
+    "director_or_presenter_targeting_required": 4,
+    "protected_contacts_not_decoded": 1,
+    "no_safe_static_submit_form_found": 3,
+    "asset_packaging_and_radio_clean_review_required": 4
+  },
+  "safety": {
+    "accountsCreated": 0,
+    "emailsSent": 0,
+    "formsSubmitted": 0,
+    "uploadsPerformed": 0,
+    "paymentsAttempted": 0,
+    "captchaOrAntiBotBypassAttempted": 0,
+    "protectedContactDecodingAttempted": 0,
+    "generatedOrGuessedContactsAdded": 0,
+    "liveSmtpMxProbesPerformedInRepoUpdate": 0
+  },
+  "platforms": [
+    {
+      "name": "WPRK 91.5FM Rollins Music Submissions Route",
+      "pricingModel": "free",
+      "queuePriority": 90,
+      "needsManualReview": true,
+      "reason": "public music-submissions email route; owner-approved email/assets required"
+    },
+    {
+      "name": "Fredonia Radio Systems WCVF Airplay Inquiry Route",
+      "pricingModel": "free",
+      "queuePriority": 90,
+      "needsManualReview": true,
+      "reason": "public airplay inquiry route; WCVF/WDVL targeting and radio-safe assets required"
+    },
+    {
+      "name": "WRFL 88.1 FM Lexington Contact-Gated Music Review Route",
+      "pricingModel": "free",
+      "queuePriority": 90,
+      "needsManualReview": true,
+      "reason": "public contact page with active 2026 schedule; no safe static submit workflow found"
+    },
+    {
+      "name": "WRIR-LP 97.3 Richmond Music Programming Contact Route",
+      "pricingModel": "free",
+      "queuePriority": 90,
+      "needsManualReview": true,
+      "reason": "active music programming and public contact sections; protected links not decoded"
+    },
+    {
+      "name": "WHUS 91.7 FM UConn New Music Committee Route",
+      "pricingModel": "free",
+      "queuePriority": 90,
+      "needsManualReview": true,
+      "reason": "New Music Committee navigation and 2026 activity; complete workflow requires manual review"
+    }
+  ]
+}
