@@ -2,6 +2,8 @@ import { resolveMx } from 'node:dns/promises';
 import { existsSync } from 'node:fs';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
+import { fetch } from 'undici';
+import { config } from '../config.js';
 import type { ContactRepository } from '../db/repositories.js';
 import type { EmailVerificationResult } from '../models/types.js';
 
@@ -32,6 +34,8 @@ const disposableDomains = new Set([
 ]);
 const temporaryDomainSignals = ['temp', 'trash', 'throwaway', 'disposable'];
 
+type Provider = 'mailgun' | 'aftership' | 'fallback';
+
 function domainFromEmail(email: string): string {
   return email.split('@')[1]?.toLowerCase() ?? '';
 }
@@ -42,29 +46,61 @@ function localPartFromEmail(email: string): string {
 
 export class EmailVerifier {
   public constructor(
-    private readonly smtpEnabled = false,
-    private readonly afterShipBinaryPath = process.env.AFTERSHIP_EMAIL_VERIFIER_BIN ?? 'bin/aftership-email-verifier'
+    private readonly smtpEnabled = config.emailSmtpVerifyEnabled,
+    private readonly afterShipBinaryPath = config.afterShipEmailVerifierBin,
+    private readonly provider: Provider = config.emailValidationProvider,
+    private readonly mailgunApiKey = config.mailgunApiKey,
+    private readonly mailgunValidationBaseUrl = config.mailgunValidationBaseUrl
   ) {}
 
   public async verify(email: string): Promise<EmailVerificationResult> {
     const normalized = email.trim().toLowerCase();
-    const afterShipResult = await this.verifyWithAfterShip(normalized);
-    if (afterShipResult) {
-      return afterShipResult;
+
+    if (this.provider === 'mailgun') {
+      const mailgunResult = await this.verifyWithMailgun(normalized);
+      if (mailgunResult) return mailgunResult;
+    }
+
+    if (this.provider === 'aftership' || this.provider === 'mailgun') {
+      const afterShipResult = await this.verifyWithAfterShip(normalized);
+      if (afterShipResult) return afterShipResult;
     }
 
     return this.verifyWithFallback(normalized);
   }
 
-  private async verifyWithAfterShip(email: string): Promise<EmailVerificationResult | null> {
-    if (!existsSync(this.afterShipBinaryPath)) {
+  private async verifyWithMailgun(email: string): Promise<EmailVerificationResult | null> {
+    if (!this.mailgunApiKey) return null;
+
+    const url = new URL(this.mailgunValidationBaseUrl);
+    url.searchParams.set('address', email);
+    url.searchParams.set('mailbox_verification', this.smtpEnabled ? 'true' : 'false');
+
+    const auth = Buffer.from(`api:${this.mailgunApiKey}`).toString('base64');
+
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          authorization: `Basic ${auth}`,
+          accept: 'application/json'
+        },
+        signal: AbortSignal.timeout(this.smtpEnabled ? 30_000 : 15_000)
+      });
+
+      if (!response.ok) return null;
+      const payload = (await response.json()) as MailgunValidationPayload;
+      return mapMailgunResult(email, payload, this.smtpEnabled);
+    } catch {
       return null;
     }
+  }
+
+  private async verifyWithAfterShip(email: string): Promise<EmailVerificationResult | null> {
+    if (!existsSync(this.afterShipBinaryPath)) return null;
 
     const args = ['--email', email];
-    if (this.smtpEnabled) {
-      args.push('--smtp');
-    }
+    if (this.smtpEnabled) args.push('--smtp');
 
     try {
       const { stdout } = await execFileAsync(this.afterShipBinaryPath, args, {
@@ -72,10 +108,7 @@ export class EmailVerifier {
         maxBuffer: 1024 * 1024
       });
       const payload = JSON.parse(stdout) as AfterShipPayload;
-      if (!payload.ok || !payload.result) {
-        return null;
-      }
-
+      if (!payload.ok || !payload.result) return null;
       return mapAfterShipResult(email, payload.result, this.smtpEnabled);
     } catch {
       return null;
@@ -115,8 +148,8 @@ export class EmailVerifier {
       mxValid = false;
     }
 
-    const smtpChecked = this.smtpEnabled;
-    const smtpDeliverable = this.smtpEnabled ? null : null;
+    const smtpChecked = false;
+    const smtpDeliverable = null;
     let riskScore = 0;
     if (!mxValid) riskScore += 60;
     if (roleAccount) riskScore += 10;
@@ -175,6 +208,22 @@ export class EmailVerifier {
   }
 }
 
+interface MailgunValidationPayload {
+  address?: string;
+  is_valid?: boolean;
+  did_you_mean?: string | null;
+  reason?: string[] | string | null;
+  result?: string;
+  risk?: 'low' | 'medium' | 'high' | 'unknown' | string;
+  provider?: string;
+  parts?: {
+    display_name?: string | null;
+    local_part?: string;
+    domain?: string;
+  };
+  mailbox_verification?: string | boolean | null;
+}
+
 interface AfterShipPayload {
   ok: boolean;
   error?: string;
@@ -188,17 +237,49 @@ interface AfterShipResult {
   role_account?: boolean;
   free?: boolean;
   has_mx_records?: boolean;
-  syntax?: {
-    valid?: boolean;
-    username?: string;
-    domain?: string;
-  };
-  smtp?: {
-    deliverable?: boolean;
-    disabled?: boolean;
-    full_inbox?: boolean;
-    host_exists?: boolean;
-    catch_all?: boolean;
+  syntax?: { valid?: boolean; username?: string; domain?: string };
+  smtp?: { deliverable?: boolean; disabled?: boolean; full_inbox?: boolean; host_exists?: boolean; catch_all?: boolean };
+}
+
+function mapMailgunResult(email: string, result: MailgunValidationPayload, smtpEnabled: boolean): EmailVerificationResult {
+  const domain = domainFromEmail(email);
+  const localPart = localPartFromEmail(email);
+  const syntaxValid = emailPattern.test(email) && result.is_valid !== false;
+  const mxValid = result.result !== 'undeliverable';
+  const roleAccount = roleLocalParts.has(result.parts?.local_part?.toLowerCase() ?? localPart);
+  const disposable = Array.isArray(result.reason) ? result.reason.includes('mailbox_is_disposable_address') : false;
+  const temporary = disposable || temporaryDomainSignals.some((signal) => domain.includes(signal));
+  const smtpChecked = smtpEnabled;
+  const mailbox = result.mailbox_verification;
+  const smtpDeliverable = smtpChecked
+    ? mailbox === true || mailbox === 'true' || mailbox === 'deliverable' || result.result === 'deliverable'
+    : null;
+  const risk = result.risk ?? 'unknown';
+
+  let riskScore = risk === 'high' ? 80 : risk === 'medium' ? 45 : risk === 'low' ? 10 : 30;
+  if (!syntaxValid) riskScore += 70;
+  if (!mxValid) riskScore += 50;
+  if (roleAccount) riskScore += 10;
+  if (disposable) riskScore += 40;
+  if (temporary) riskScore += 30;
+  if (smtpChecked && smtpDeliverable === false) riskScore += 50;
+  riskScore = Math.min(100, riskScore);
+
+  const status = syntaxValid && mxValid && !disposable && !temporary && (!smtpChecked || smtpDeliverable !== false) ? 'verified' : 'rejected';
+
+  return {
+    email,
+    syntaxValid,
+    mxValid,
+    roleAccount,
+    disposable,
+    temporary,
+    smtpChecked,
+    smtpDeliverable,
+    status,
+    reason: status === 'verified' ? null : `Mailgun validation rejected or marked address risky: ${String(result.reason ?? result.result ?? 'unknown')}`,
+    deliverabilityScore: Math.max(0, 100 - riskScore),
+    riskScore
   };
 }
 
@@ -225,12 +306,7 @@ function mapAfterShipResult(email: string, result: AfterShipResult, smtpEnabled:
 
   const deliverabilityScore = Math.max(0, 100 - riskScore - (reachable === 'unknown' ? 10 : 0));
   const status =
-    syntaxValid &&
-    mxValid &&
-    !disposable &&
-    !temporary &&
-    reachable !== 'no' &&
-    (!smtpChecked || smtpDeliverable !== false)
+    syntaxValid && mxValid && !disposable && !temporary && reachable !== 'no' && (!smtpChecked || smtpDeliverable !== false)
       ? 'verified'
       : 'rejected';
 
