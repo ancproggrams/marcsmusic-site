@@ -1,0 +1,9 @@
+job_id,platform_name,status,priority,job_type,manual_review_reason,business_email_count
+run20-001,Bandcamp Artist Store Direct-to-Fan Upload Route,needs_manual_review,40,verify_platform,Account upload rights pricing payout and policy review required,0
+run20-002,SoundCloud Creator Upload and Artist Discovery Route,needs_manual_review,40,verify_platform,Account upload rights profile settings and AI terms review required,0
+run20-003,Audiomack Creator Upload and Emerging Artist Route,needs_manual_review,40,verify_platform,Creator account upload ownership monetization and policy review required,0
+run20-004,SoundOn by TikTok Artist Distribution Route,needs_manual_review,40,verify_platform,Account territory copyright distribution conflict and payout review required,0
+run20-005,TIDAL Upload Independent Artist Self-Publishing Route,needs_manual_review,40,verify_platform,Eligibility territory ownership and no royalty terms review required,0
+run20-006,ReverbNation Artist Opportunities and Profile Route,needs_manual_review,40,verify_platform,Account EPK opportunity fees deadlines and rights review required,0
+run20-007,Subvert.fm Cooperative Music Marketplace Artist Route,needs_manual_review,40,verify_platform,Member alpha cooperative marketplace and storefront terms review required,0
+run20-008,Mikseri.net Independent Music Upload Community Route,needs_manual_review,40,verify_platform,Finnish language registration upload licensing and community rules review required,0
