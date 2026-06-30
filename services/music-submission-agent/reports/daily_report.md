@@ -2,53 +2,54 @@
 
 Date: 2026-06-30
 
-## Latest run: Run 21
+## Latest run: Run 23
 
-Run 21 added 8 newly researched public-authorized curator-marketplace, playlist-submission, licensing/sync and internet-radio opportunities for MarcsMusic and classified all 8 as `needs_manual_review`.
+Run 23 added 6 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 6 as `needs_manual_review`.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 160 |
-| New opportunities in latest run | 8 |
-| New manual-review queue rows | 8 |
+| Estimated runtime seed pipeline | 172 |
+| New opportunities in latest run | 6 |
+| New manual-review queue rows | 6 |
 | New auto-submit candidates | 0 |
-| Public business contacts observed in latest run | 2 |
-| SMTP probes | 0 |
-| MX probes | 0 |
+| Free-first routes in latest run | 5 |
+| Paid/manual-only routes in latest run | 1 |
+| Public business/submission contacts observed in latest run | 4 |
+| Protected mailto links observed | 2 |
+| SMTP probes during repo update | 0 |
+| MX probes during repo update | 0 |
 | Guessed/generated contacts | 0 |
 
 ## Latest opportunities
 
 | Platform | Status |
 |---|---:|
-| Groover Global Curator Playlist Radio and Label Pitching Route | needs_manual_review |
-| MusoSoup Global Music PR Curator Campaign Route | needs_manual_review |
-| DailyPlaylists Spotify Playlist Submission Marketplace Route | needs_manual_review |
-| Soundplate Free Spotify and Deezer Playlist Submission Route | needs_manual_review |
-| Jamendo Artists Licensing In-Store and Promotion Route | needs_manual_review |
-| TAXI Independent A&R Music Licensing and Label Opportunity Route | needs_manual_review |
-| Audiosocket Artist Music Licensing Submission Route | needs_manual_review |
-| Radio Airplay Jango Independent Artist Upload and Airplay Route | needs_manual_review |
+| KEXP Airplay Consideration Digital Submission Route | needs_manual_review |
+| KALX Berkeley Airplay Physical Music Submission Route | needs_manual_review |
+| WXPN Airplay and Local Show Music Submission Route | needs_manual_review |
+| KJHK 90.7 FM Electronic Music Submission Route | needs_manual_review |
+| Spinnin Records Talent Pool Demo Submission Route | needs_manual_review |
+| International Songwriting Competition 2026 Online Entry Route | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes require human review because they involve login or account flows, payment or credit decisions, artist-upload actions, rights ownership declarations, publishing/master control, campaign targeting, playlist relevance checks, licensing terms, membership/listing fit or current platform-policy review.
+The latest routes require human review because they involve music-director outreach quality control, postal-only submission rules, Cloudflare-protected mailto links, external/local forms, login-gated demo upload, paid contest entry, rights/originality declarations, AI-use disclosure, category eligibility or platform terms review.
 
 ## Safety summary
 
-No accounts were created, no protected forms were submitted, no payments were attempted, no music or video assets were uploaded, no terms were accepted, no contacts were guessed, and no SMTP or MX probing was performed.
+No accounts were created, no protected forms were submitted, no payments were attempted, no music or video assets were uploaded, no terms were accepted, no anti-bot protections were bypassed, no contacts were guessed, and no SMTP or MX probing was performed during this repo update.
 
 ## Artifacts produced
 
-- `src/discovery/run21PlatformSeeds.ts`
-- `data/run21-platform-database.json`
-- `data/run21-review-queue.csv`
-- `reports/2026-06-30-run-21-dashboard.md`
-- `reports/2026-06-30-run-21.md`
+- `src/discovery/run23PlatformSeeds.ts`
+- `data/run23-platform-database.json`
+- `data/run23-review-queue.csv`
+- `data/run23-analytics-dashboard.json`
+- `reports/2026-06-30-run-23.md`
 - `reports/daily_report.md`
 
 ## Runtime note
 
-The Railway/local worker was not started during this repo update. The committed run artifacts are ready for the next worker execution, which will idempotently upsert platforms, queue verification jobs and regenerate SQLite-backed exports.
+The committed run artifacts are ready for the next worker execution, which will idempotently upsert platforms, queue verification jobs, apply pricing/free-first priority classification and regenerate SQLite-backed exports.
