@@ -1,0 +1,59 @@
+{
+  "runId": "run30",
+  "date": "2026-06-30",
+  "summary": {
+    "platformsDiscovered": 3,
+    "queueRowsAdded": 3,
+    "autoSubmitCandidates": 0,
+    "manualReviewRequired": 3,
+    "freeFirstRoutes": 3,
+    "paidRoutes": 0,
+    "freemiumRoutes": 0,
+    "unknownRoutes": 0,
+    "estimatedRuntimeSeedOpportunities": 210
+  },
+  "pricingBreakdown": {
+    "free": 3,
+    "freemium": 0,
+    "paid": 0,
+    "unknown": 0
+  },
+  "manualReviewReasons": {
+    "physical_or_asset_packaging_required": 1,
+    "genre_or_curator_targeting_required": 1,
+    "high_volume_explicit_metadata_review_required": 1
+  },
+  "safety": {
+    "accountsCreated": 0,
+    "emailsSent": 0,
+    "formsSubmitted": 0,
+    "uploadsPerformed": 0,
+    "paymentsAttempted": 0,
+    "captchaOrAntiBotBypassAttempted": 0,
+    "generatedOrGuessedContactsAdded": 0,
+    "liveSmtpMxProbesPerformedInRepoUpdate": 0
+  },
+  "platforms": [
+    {
+      "name": "WTJU 91.1 FM UVA Submit Music Route",
+      "pricingModel": "free",
+      "queuePriority": 90,
+      "needsManualReview": true,
+      "reason": "public guidelines with genre-specific contacts and digital/physical asset decisions"
+    },
+    {
+      "name": "WUVT-FM 90.7 Blacksburg Physical Music Submission Route",
+      "pricingModel": "free",
+      "queuePriority": 90,
+      "needsManualReview": true,
+      "reason": "physical-only route and current Music Director review required"
+    },
+    {
+      "name": "KXCI 91.3 Tucson Music Department Submission Route",
+      "pricingModel": "free",
+      "queuePriority": 90,
+      "needsManualReview": true,
+      "reason": "explicit-content, metadata and local/regional priority review required"
+    }
+  ]
+}
