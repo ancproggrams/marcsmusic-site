@@ -1,0 +1,41 @@
+{
+  "run": 25,
+  "date": "2026-06-30",
+  "estimated_runtime_seed_pipeline_after_run": 184,
+  "metrics": {
+    "new_opportunities": 5,
+    "queued_verification_jobs": 5,
+    "manual_review_required": 5,
+    "auto_submit_candidates": 0,
+    "free_first_routes": 2,
+    "freemium_manual_routes": 2,
+    "unknown_manual_routes": 1,
+    "paid_manual_routes": 0,
+    "business_or_submission_contacts_observed": 3,
+    "protected_contacts_observed": 1,
+    "public_submission_forms_observed": 0,
+    "third_party_submission_platforms_observed": 2,
+    "captcha_or_antibot_cases_observed": 0,
+    "login_cases_observed": 2,
+    "payment_cases_observed": 0,
+    "emails_sent": 0,
+    "forms_submitted": 0,
+    "uploads_attempted": 0,
+    "payments_attempted": 0,
+    "smtp_probes_during_repo_update": 0,
+    "mx_probes_during_repo_update": 0,
+    "guessed_or_generated_contacts": 0
+  },
+  "queue_priority_breakdown": {
+    "90_free": 2,
+    "40_unknown": 1,
+    "30_freemium": 2,
+    "10_paid": 0
+  },
+  "manual_review_buckets": {
+    "third_party_freemium_login_or_credits": 2,
+    "protected_or_js_guarded_contacts": 1,
+    "audio_package_or_radio_edit_review": 1,
+    "manual_contact_resolution_or_program_targeting": 1
+  }
+}
