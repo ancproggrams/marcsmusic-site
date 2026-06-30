@@ -63,7 +63,11 @@ export function seedDiscoveryPlatforms(repositories: Repositories): { discovered
       platformId: platform.id,
       eventType: 'platform_discovered',
       message: `Seed platform discovered: ${platform.name}`,
-      data: { sourceType: seed.sourceType ?? 'seed', pricingModel: pricing.pricingModel, freeFirstPriority: pricing.freeFirstPriority }
+      data: {
+        sourceType: seed.sourceType ?? 'seed',
+        pricingModel: pricing.pricingModel,
+        freeFirstPriority: pricing.freeFirstPriority
+      }
     });
 
     repositories.queue.enqueue({
@@ -72,7 +76,12 @@ export function seedDiscoveryPlatforms(repositories: Repositories): { discovered
       jobType: 'verify_platform',
       priority: pricing.freeFirstPriority,
       idempotencyKey: `verify:${platformCanonicalKey(platform.name, platform.websiteUrl, platform.submissionUrl ?? undefined)}`,
-      payload: { source: seed.sourceType ?? 'seed', pricingModel: pricing.pricingModel, pricingReason: pricing.reason, freeFirst: pricing.pricingModel === 'free' }
+      payload: {
+        source: seed.sourceType ?? 'seed',
+        pricingModel: pricing.pricingModel,
+        pricingReason: pricing.reason,
+        freeFirst: pricing.pricingModel === 'free'
+      }
     });
     queued += 1;
   }
