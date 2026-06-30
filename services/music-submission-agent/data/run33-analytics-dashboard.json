@@ -1,0 +1,49 @@
+{
+  "run": 33,
+  "date": "2026-07-01",
+  "generated_at": "2026-07-01T00:26:19+02:00",
+  "new_platforms": 5,
+  "queue_rows_added": 5,
+  "estimated_runtime_seed_opportunities": 225,
+  "auto_submit_candidates": 0,
+  "manual_review_required": 5,
+  "pricing_mix": {
+    "free": 5,
+    "freemium": 0,
+    "paid": 0,
+    "unknown": 0
+  },
+  "route_type_mix": {
+    "music_director_or_new_music_email": 3,
+    "music_department_or_broadcaster_targeting": 1,
+    "social_hashtag_contest_submission": 1
+  },
+  "country_mix": {
+    "Canada": 2,
+    "United States": 2,
+    "Germany_global_online": 1
+  },
+  "business_email_verification": {
+    "official_public_business_or_music_email_found": 3,
+    "general_public_contact_routes_found": 1,
+    "not_applicable_social_hashtag_submission": 1,
+    "live_smtp_mx_probed": false,
+    "runtime_mailgun_smtp_required": true
+  },
+  "form_and_control_flags": {
+    "captcha_detected": 1,
+    "login_or_social_account_required": 1,
+    "payment_required": 0,
+    "manual_review_required": 5
+  },
+  "safety": {
+    "emails_sent": 0,
+    "forms_submitted": 0,
+    "uploads_performed": 0,
+    "payments_attempted": 0,
+    "captcha_bypassed": false,
+    "login_bypassed": false,
+    "protected_contacts_decoded": false,
+    "generated_or_guessed_contacts_added": false
+  }
+}
