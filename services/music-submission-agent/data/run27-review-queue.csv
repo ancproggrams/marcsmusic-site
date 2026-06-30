@@ -1,0 +1,8 @@
+job_id,platform_name,pricing_model,priority,status,free_path_focus,paid_upgrade_blocked,manual_review_reason
+run27-001,WPRB 103.3 FM Princeton Music Submissions Route,free,90,needs_manual_review,true,true,Physical submissions are prioritized and any email pitch must be human-tailored; no automated email or physical mailing
+run27-002,KXLU 88.9 FM General and Demolisten Music Submissions,free,90,needs_manual_review,true,true,FCC-clean requirement and multiple route choices require manual targeting
+run27-003,KSPC 88.7FM Claremont Music Submissions,free,90,needs_manual_review,true,true,Album/EP only with downloadable files and no substantially AI-generated music; eligibility/originality review required
+run27-004,KRCL 90.9FM Salt Lake City Music Submission Route,free,90,needs_manual_review,true,true,Physical submissions become station property and local digital form is region-restricted
+run27-005,WCBN-FM Ann Arbor Music Director Physical Submission Route,free,90,needs_manual_review,true,true,Hard-copy album route and genre care-of targeting require human preparation
+run27-006,WMBR 88.1 FM MIT How To Get Your Music Played Route,free,90,needs_manual_review,true,true,Tangible physical media preferred and station discourages unsolicited mailing-list behavior
+run27-007,WZBC 90.3 FM Boston College Programming Contact Route,free,90,needs_manual_review,true,true,Dedicated safe music submission page not exposed; validate preferred process manually before outreach
