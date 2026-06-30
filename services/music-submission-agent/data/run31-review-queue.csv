@@ -1,0 +1,6 @@
+job_id,platform_name,pricing_model,priority,status,submission_url,manual_review_reason
+run31-001,WPRK 91.5FM Rollins Music Submissions Route,free,90,needs_manual_review,https://wprk.org/music-submissions/,Public music email route found; owner-approved outreach copy clean assets rights and attachment/link policy required before any email
+run31-002,Fredonia Radio Systems WCVF Airplay Inquiry Route,free,90,needs_manual_review,https://www.fredoniaradio.com/,Public airplay inquiry route found; WCVF/WDVL targeting metadata and radio-safe assets require manual review
+run31-003,WRFL 88.1 FM Lexington Contact-Gated Music Review Route,free,90,needs_manual_review,https://wrfl.fm/contact,Public contact page found but no safe static submit workflow; director targeting and current rules require manual review
+run31-004,WRIR-LP 97.3 Richmond Music Programming Contact Route,free,90,needs_manual_review,https://www.wrir.org/,Active music programming and contact sections found; protected links not decoded and presenter targeting requires manual review
+run31-005,WHUS 91.7 FM UConn New Music Committee Route,free,90,needs_manual_review,https://whus.org/,New Music Committee navigation and station contact found; complete workflow and department targeting require manual review
