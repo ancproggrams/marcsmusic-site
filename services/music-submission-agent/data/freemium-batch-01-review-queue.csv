@@ -1,0 +1,31 @@
+job_id,platform_name,pricing_model,priority,status,free_path_focus,paid_upgrade_blocked,manual_review_reason
+freemium-01-001,SubmitHub,freemium,30,needs_manual_review,true,true,Use standard/free routes only where available; premium credits blocked until owner approval
+freemium-01-002,Groover,freemium,30,needs_manual_review,true,true,Use free opportunities only where available; paid curator credits blocked until owner approval
+freemium-01-003,MusoSoup,freemium,30,needs_manual_review,true,true,Inspect campaign flow only; campaign fees and paid offers blocked until owner approval
+freemium-01-004,DailyPlaylists,freemium,30,needs_manual_review,true,true,Use free playlist submission path only; premium marketplace features blocked
+freemium-01-005,Soundplate,freemium,30,needs_manual_review,true,true,Use free playlist submission path only; OAuth/follow actions require manual review
+freemium-01-006,A&R Factory,freemium,30,needs_manual_review,true,true,Use free submission option only; standard/premium packages and payment fields blocked
+freemium-01-007,ReverbNation,freemium,30,needs_manual_review,true,true,Inspect free profile/opportunity routes only; paid tools blocked
+freemium-01-008,Broadjam,freemium,30,needs_manual_review,true,true,Inspect free/basic path only; submission fees and paid membership blocked
+freemium-01-009,Music Xray,freemium,30,needs_manual_review,true,true,Inspect opportunities only; paid song submissions blocked
+freemium-01-010,Radio Airplay / Jango,freemium,30,needs_manual_review,true,true,Inspect limited free/trial path only; airplay packages blocked
+freemium-01-011,Playlist Push,freemium,30,needs_manual_review,true,true,Eligibility review only; campaign budgets blocked
+freemium-01-012,SoundCampaign,freemium,30,needs_manual_review,true,true,Eligibility review only; campaign budgets blocked
+freemium-01-013,DropTrack,freemium,30,needs_manual_review,true,true,Inspect trial/basic path only; promo plans blocked
+freemium-01-014,LabelRadar,freemium,30,needs_manual_review,true,true,Use basic submissions/remix opportunities only; paid pro features blocked
+freemium-01-015,Feature.fm,freemium,30,needs_manual_review,true,true,Use limited smart-link tools only; marketing plans blocked
+freemium-01-016,Bandcamp,freemium,30,needs_manual_review,true,true,Use artist page/store setup review only; pro/label features blocked
+freemium-01-017,SoundCloud for Artists,freemium,30,needs_manual_review,true,true,Use free creator upload/profile review only; Next Pro blocked
+freemium-01-018,Audiomack,freemium,30,needs_manual_review,true,true,Use free artist upload/profile review only; promotional features blocked
+freemium-01-019,Audius,freemium,30,needs_manual_review,true,true,Use free upload/profile review only; token/web3 actions blocked
+freemium-01-020,Mixcloud,freemium,30,needs_manual_review,true,true,Use free creator upload/profile review only; Pro features blocked
+freemium-01-021,RouteNote,freemium,30,needs_manual_review,true,true,Use free distribution tier only; premium tier blocked
+freemium-01-022,LANDR,freemium,30,needs_manual_review,true,true,Inspect free/trial tools only; distribution/mastering plans blocked
+freemium-01-023,TuneCore,freemium,30,needs_manual_review,true,true,Inspect account/tools only; paid distribution/publishing plans blocked
+freemium-01-024,DistroKid,freemium,30,needs_manual_review,true,true,Research only; paid subscription required for distribution
+freemium-01-025,UnitedMasters,freemium,30,needs_manual_review,true,true,Use basic tier review only; SELECT/paid services blocked
+freemium-01-026,BeatStars,freemium,30,needs_manual_review,true,true,Use basic marketplace/profile review only; paid plans blocked
+freemium-01-027,Songtradr,freemium,30,needs_manual_review,true,true,Use catalog/profile review only; paid services and licensing decisions blocked
+freemium-01-028,Pond5,freemium,30,needs_manual_review,true,true,Contributor application review only; marketplace/commercial listing decisions blocked
+freemium-01-029,AudioJungle / Envato,freemium,30,needs_manual_review,true,true,Author onboarding review only; marketplace listing decisions blocked
+freemium-01-030,Jamendo Artists,freemium,30,needs_manual_review,true,true,Artist upload/licensing setup review only; promotion/service options blocked
