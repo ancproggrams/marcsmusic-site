@@ -1,0 +1,60 @@
+{
+  "run": "run24",
+  "date": "2026-06-30",
+  "estimatedRuntimeSeedPipeline": 179,
+  "summary": {
+    "newOpportunities": 7,
+    "deduplicatedAgainstRepositorySearch": true,
+    "duplicatesSkipped": 0,
+    "newManualReviewQueueRows": 7,
+    "newAutoSubmitCandidates": 0,
+    "freeFirstRoutes": 7,
+    "paidManualOnlyRoutes": 0,
+    "loginCases": 0,
+    "paymentCases": 0,
+    "captchaOrAntiBotCases": 2,
+    "externalFormCases": 1,
+    "fileUploadCases": 2,
+    "protectedMailtoOrRedactedEmailCases": 2,
+    "businessEmailsObserved": 6,
+    "smtpProbesDuringRepoUpdate": 0,
+    "mxProbesDuringRepoUpdate": 0,
+    "guessedOrGeneratedContacts": 0
+  },
+  "countryBreakdown": {
+    "United States": 4,
+    "Australia": 1,
+    "Canada": 2
+  },
+  "routeTypeBreakdown": {
+    "public_email": 3,
+    "protected_mailto_or_contact_form": 1,
+    "public_form_with_upload_or_recaptcha": 1,
+    "station_email_and_program_targeting": 1,
+    "external_upload_form": 1
+  },
+  "queuePolicy": {
+    "freePriority": 90,
+    "allNewRowsNeedManualReview": true,
+    "autoSubmitBlockedReasons": [
+      "public email outreach requires human send-cadence approval",
+      "AI/originality policy review required",
+      "protected/redacted mailto links",
+      "contact forms with anti-spam fields",
+      "reCAPTCHA-protected pages",
+      "file uploads",
+      "external Jotform upload route",
+      "local or format eligibility restrictions"
+    ]
+  },
+  "safety": {
+    "accountsCreated": 0,
+    "emailsSent": 0,
+    "formsSubmitted": 0,
+    "uploadsPerformed": 0,
+    "paymentsAttempted": 0,
+    "captchaBypassAttempted": false,
+    "loginBypassAttempted": false,
+    "contactsGuessed": 0
+  }
+}
