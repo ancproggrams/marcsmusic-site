@@ -4,7 +4,7 @@ Date: 2026-07-01
 
 ## Latest run: Run 34
 
-Run 34 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as `needs_manual_review`.
+Run 34 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
@@ -46,12 +46,12 @@ No accounts were created, no messages were sent, no forms were submitted, no fil
 
 ## Artifacts produced
 
-- `src/discovery/run34PlatformSeeds.ts`
-- `data/run34-platform-database.json`
-- `data/run34-review-queue.csv`
-- `data/run34-analytics-dashboard.json`
-- `reports/2026-07-01-run-34.md`
-- `reports/daily_report.md`
+- src/discovery/run34PlatformSeeds.ts
+- data/run34-platform-database.json
+- data/run34-review-queue.csv
+- data/run34-analytics-dashboard.json
+- reports/2026-07-01-run-34.md
+- reports/daily_report.md
 
 ## Runtime note
 
