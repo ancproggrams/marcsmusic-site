@@ -1,0 +1,6 @@
+job_id,platform_name,pricing_model,priority,status,free_path_focus,auto_submit_allowed,manual_review_reason
+run25-001,EARMILK SubmitHub and Pillargram Music Submission Route,freemium,30,needs_manual_review,true,false,Third-party SubmitHub/Pillargram route may require login credits feedback terms or paid upgrades; use free path only after owner review
+run25-002,Obscure Sound SubmitHub and MusoSoup Indie/Electronic Submission Route,freemium,30,needs_manual_review,true,false,Third-party SubmitHub/MusoSoup route may require login credits campaigns terms or paid packages; use free path only after owner review
+run25-003,Variance Magazine Editorial Pitch and Premiere Submission Route,free,90,needs_manual_review,true,false,Public contact categories observed but email links are JavaScript/spambot protected; do not decode scrape or bypass; resolve manually
+run25-004,Radio Milwaukee Music Submission Route,free,90,needs_manual_review,true,false,Public guideline route requires clean radio edit audio package WAV preferred links bio lyrics and release context review before any submission
+run25-005,KCRW Airplay Consideration and Contact Route,unknown,40,needs_manual_review,false,false,Airplay consideration route is high-selectivity and current contact page does not expose a parsed auto-submit path; manual targeting and contact resolution required
