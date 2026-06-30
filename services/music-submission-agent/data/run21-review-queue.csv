@@ -1,0 +1,9 @@
+job_id,platform_name,status,priority,job_type,review_reason
+run21-001,Groover Global Curator Playlist Radio and Label Pitching Route,needs_manual_review,40,verify_platform,Login payment targeting rights and campaign review required
+run21-002,MusoSoup Global Music PR Curator Campaign Route,needs_manual_review,40,verify_platform,Submission review account fee rights and offer triage required
+run21-003,DailyPlaylists Spotify Playlist Submission Marketplace Route,needs_manual_review,40,verify_platform,Sign in track link playlist relevance and curator matching review required
+run21-004,Soundplate Free Spotify and Deezer Playlist Submission Route,needs_manual_review,40,verify_platform,Playlist relevance and selected form review required before any action
+run21-005,Jamendo Artists Licensing In-Store and Promotion Route,needs_manual_review,40,verify_platform,Sign in catalog rights licensing Content ID and terms review required
+run21-006,TAXI Independent A&R Music Licensing and Label Opportunity Route,needs_manual_review,40,verify_platform,Membership listing fit fees rights metadata and opportunity review required
+run21-007,Audiosocket Artist Music Licensing Submission Route,needs_manual_review,40,verify_platform,Catalog rights publishing master control and contract review required
+run21-008,Radio Airplay Jango Independent Artist Upload and Airplay Route,needs_manual_review,40,verify_platform,Account upload plan selection rights targeting and paid options review required
