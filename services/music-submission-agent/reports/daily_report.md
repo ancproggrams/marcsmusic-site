@@ -1,16 +1,16 @@
 # Music Submission Agent — Daily Report
 
-Date: 2026-06-29
+Date: 2026-06-30
 
-## Latest run: Run 19
+## Latest run: Run 20
 
-Run 19 added 8 newly researched public-authorized music submission opportunities for MarcsMusic and classified all 8 as `needs_manual_review`.
+Run 20 added 8 newly researched public-authorized upload, distribution, direct-to-fan, marketplace and community routes for MarcsMusic and classified all 8 as `needs_manual_review`.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 144 |
+| Estimated runtime seed pipeline | 152 |
 | New opportunities in latest run | 8 |
 | New manual-review queue rows | 8 |
 | New auto-submit candidates | 0 |
@@ -23,30 +23,30 @@ Run 19 added 8 newly researched public-authorized music submission opportunities
 
 | Platform | Status |
 |---|---:|
-| Liquicity Records Liquid Drum and Bass Demo Route | needs_manual_review |
-| Armada Music Demo Drop Electronic Label Route | needs_manual_review |
-| Monstercat Electronic Label Contact and A&R Route | needs_manual_review |
-| Future House Music Label and Network Demo Route | needs_manual_review |
-| Hospital Records Drum and Bass Label Route | needs_manual_review |
-| NoCopyrightSounds NCS Electronic Label and Creator-Safe Music Route | needs_manual_review |
-| Anjunabeats and Anjuna Electronic Label Route | needs_manual_review |
-| TopHit Radio and TV Music Distribution Platform | needs_manual_review |
+| Bandcamp Artist Store Direct-to-Fan Upload Route | needs_manual_review |
+| SoundCloud Creator Upload and Artist Discovery Route | needs_manual_review |
+| Audiomack Creator Upload and Emerging Artist Route | needs_manual_review |
+| SoundOn by TikTok Artist Distribution Route | needs_manual_review |
+| TIDAL Upload Independent Artist Self-Publishing Route | needs_manual_review |
+| ReverbNation Artist Opportunities and Profile Route | needs_manual_review |
+| Subvert.fm Cooperative Music Marketplace Artist Route | needs_manual_review |
+| Mikseri.net Independent Music Upload Community Route | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes require human review because they involve curated label/demo/contact policies, rights and exclusivity checks, creator-safe licensing terms, registration or upload workflows, release metadata, unreleased-music handling, or radio/TV targeting decisions.
+The latest routes require human review because they involve account access, upload or distribution actions, rights ownership declarations, territory eligibility checks, royalty or payout configuration, profile/storefront setup, licensing terms, marketplace membership, language review or current platform-policy review.
 
 ## Safety summary
 
-No accounts were created, no protected forms were submitted, no payments were attempted, no music or video assets were uploaded, no contacts were guessed, and no SMTP or MX probing was performed.
+No accounts were created, no protected forms were submitted, no payments were attempted, no music or video assets were uploaded, no terms were accepted, no contacts were guessed, and no SMTP or MX probing was performed.
 
 ## Artifacts produced
 
-- `src/discovery/run19PlatformSeeds.ts`
-- `data/run19-platform-database.json`
-- `data/run19-submission-queue.csv`
-- `reports/2026-06-29-run-19-dashboard.md`
-- `reports/2026-06-29-run-19.md`
+- `src/discovery/run20PlatformSeeds.ts`
+- `data/run20-platform-database.json`
+- `data/run20-submission-queue.csv`
+- `reports/2026-06-30-run-20-dashboard.md`
+- `reports/2026-06-30-run-20.md`
 - `reports/daily_report.md`
 
 ## Runtime note
