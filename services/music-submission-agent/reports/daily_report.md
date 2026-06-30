@@ -2,25 +2,25 @@
 
 Date: 2026-06-30
 
-## Latest run: Run 29
+## Latest run: Run 30
 
-Run 29 added 4 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 4 as `needs_manual_review`.
+Run 30 added 3 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 3 as `needs_manual_review`.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 207 |
-| New opportunities in latest run | 4 |
-| New manual-review queue rows | 4 |
+| Estimated runtime seed pipeline | 210 |
+| New opportunities in latest run | 3 |
+| New manual-review queue rows | 3 |
 | New auto-submit candidates | 0 |
-| Free-first routes in latest run | 4 |
+| Free-first routes in latest run | 3 |
 | Freemium/manual routes in latest run | 0 |
 | Unknown/manual routes in latest run | 0 |
 | Paid/manual-only routes in latest run | 0 |
 | Physical-mail/media routes observed | 2 |
-| Digital email/contact routes observed | 4 |
-| Public/dynamic forms or submission navigation observed | 1 |
+| Digital email/contact routes observed | 2 |
+| Public/dynamic forms or submission navigation observed | 0 |
 | Login/payment cases observed | 0 |
 | CAPTCHA/anti-bot cases observed | 0 |
 | Protected contacts or routes observed | 0 |
@@ -32,26 +32,25 @@ Run 29 added 4 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| WFMU Freeform Radio Music Director Review Route | needs_manual_review |
-| WREK Atlanta 91.1 FM Submit Music Route | needs_manual_review |
-| WICB 91.7 FM Ithaca Submit Music Route | needs_manual_review |
-| WXYC 89.3 FM Chapel Hill Music Department Route | needs_manual_review |
+| WTJU 91.1 FM UVA Submit Music Route | needs_manual_review |
+| WUVT-FM 90.7 Blacksburg Physical Music Submission Route | needs_manual_review |
+| KXCI 91.3 Tucson Music Department Submission Route | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes require human review because they involve physical media preparation, music director review, FCC-clean/radio-safe checks, dynamic SPA content, route confirmation, public music-department contact selection and non-automated outreach.
+The latest routes require human review because they involve genre/contact targeting, physical media preparation, stream-vs-broadcast-library rules, metadata checks, explicit-content review, high-volume music director review, FCC-clean/radio-safe checks and non-automated outreach.
 
 ## Safety summary
 
-No accounts were created, no emails were sent, no forms were submitted, no files were uploaded, no payments were attempted, no platform controls were circumvented, no protected contacts were decoded, no contacts were guessed, and no SMTP or MX probing was performed during this repo update.
+No accounts were created, no emails were sent, no forms were submitted, no files were uploaded, no physical mail was sent, no payments were attempted, no CAPTCHA/login/payment/platform controls were circumvented, no protected contacts were decoded, no contacts were guessed, and no SMTP or MX probing was performed during this repo update.
 
 ## Artifacts produced
 
-- `src/discovery/run29PlatformSeeds.ts`
-- `data/run29-platform-database.json`
-- `data/run29-review-queue.csv`
-- `data/run29-analytics-dashboard.json`
-- `reports/2026-06-30-run-29.md`
+- `src/discovery/run30PlatformSeeds.ts`
+- `data/run30-platform-database.json`
+- `data/run30-review-queue.csv`
+- `data/run30-analytics-dashboard.json`
+- `reports/2026-06-30-run-30.md`
 - `reports/daily_report.md`
 
 ## Runtime note
