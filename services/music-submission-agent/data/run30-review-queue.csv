@@ -1,0 +1,4 @@
+job_id,platform_name,pricing_model,priority,status,free_path_focus,paid_upgrade_blocked,manual_review_reason
+run30-001,WTJU 91.1 FM UVA Submit Music Route,free,90,needs_manual_review,true,true,"Genre-specific contact selection, stream-vs-library rules, rights, explicit-content review and asset packaging require human review before outreach"
+run30-002,WUVT-FM 90.7 Blacksburg Physical Music Submission Route,free,90,needs_manual_review,true,true,"Physical-only route requires owner-approved asset preparation, mailing, current-staff verification and FCC-clean review"
+run30-003,KXCI 91.3 Tucson Music Department Submission Route,free,90,needs_manual_review,true,true,"High-volume station review, local/regional prioritization, explicit-content and metadata checks require manual review before outreach"
