@@ -2,25 +2,25 @@
 
 Date: 2026-06-30
 
-## Latest run: Run 28
+## Latest run: Run 29
 
-Run 28 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as `needs_manual_review`.
+Run 29 added 4 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 4 as `needs_manual_review`.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 203 |
-| New opportunities in latest run | 5 |
-| New manual-review queue rows | 5 |
+| Estimated runtime seed pipeline | 207 |
+| New opportunities in latest run | 4 |
+| New manual-review queue rows | 4 |
 | New auto-submit candidates | 0 |
-| Free-first routes in latest run | 5 |
+| Free-first routes in latest run | 4 |
 | Freemium/manual routes in latest run | 0 |
 | Unknown/manual routes in latest run | 0 |
 | Paid/manual-only routes in latest run | 0 |
-| Physical-mail/media routes observed | 3 |
+| Physical-mail/media routes observed | 2 |
 | Digital email/contact routes observed | 4 |
-| Public/external forms observed | 1 |
+| Public/dynamic forms or submission navigation observed | 1 |
 | Login/payment cases observed | 0 |
 | CAPTCHA/anti-bot cases observed | 0 |
 | Protected contacts or routes observed | 0 |
@@ -32,15 +32,14 @@ Run 28 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| WMSE 91.7FM Milwaukee Music Department Submission Route | needs_manual_review |
-| KCSB 91.9 FM Artist Inquiry and Music Library Submission Form | needs_manual_review |
-| CJSR 88.5 FM Edmonton Music Submission Route | needs_manual_review |
-| CFUV 101.9 FM Victoria Music Submissions | needs_manual_review |
-| Radio Western 94.9FM Music Submission Email Route | needs_manual_review |
+| WFMU Freeform Radio Music Director Review Route | needs_manual_review |
+| WREK Atlanta 91.1 FM Submit Music Route | needs_manual_review |
+| WICB 91.7 FM Ithaca Submit Music Route | needs_manual_review |
+| WXYC 89.3 FM Chapel Hill Music Department Route | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes require human review because they involve physical media preparation, FCC-clean/radio-safe checks, external Google Form validation, album/EP or minimum-track eligibility, downloadable-file preparation, content metadata, paid advertising upsell blocking, degraded-site confidence checks and non-automated music-director outreach.
+The latest routes require human review because they involve physical media preparation, music director review, FCC-clean/radio-safe checks, dynamic SPA content, route confirmation, public music-department contact selection and non-automated outreach.
 
 ## Safety summary
 
@@ -48,11 +47,11 @@ No accounts were created, no emails were sent, no forms were submitted, no files
 
 ## Artifacts produced
 
-- `src/discovery/run28PlatformSeeds.ts`
-- `data/run28-platform-database.json`
-- `data/run28-review-queue.csv`
-- `data/run28-analytics-dashboard.json`
-- `reports/2026-06-30-run-28.md`
+- `src/discovery/run29PlatformSeeds.ts`
+- `data/run29-platform-database.json`
+- `data/run29-review-queue.csv`
+- `data/run29-analytics-dashboard.json`
+- `reports/2026-06-30-run-29.md`
 - `reports/daily_report.md`
 
 ## Runtime note
