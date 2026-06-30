@@ -2,25 +2,28 @@
 
 Date: 2026-06-30
 
-## Latest run: Run 24
+## Latest run: Run 25
 
-Run 24 added 7 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 7 as `needs_manual_review`.
+Run 25 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as `needs_manual_review`.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 179 |
-| New opportunities in latest run | 7 |
-| New manual-review queue rows | 7 |
+| Estimated runtime seed pipeline | 184 |
+| New opportunities in latest run | 5 |
+| New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
-| Free-first routes in latest run | 7 |
+| Free-first routes in latest run | 2 |
+| Freemium/manual routes in latest run | 2 |
+| Unknown/manual routes in latest run | 1 |
 | Paid/manual-only routes in latest run | 0 |
-| Public business/submission contacts observed in latest run | 6 |
-| Protected/redacted mailto links observed | 2 |
-| Public/external forms observed | 3 |
-| CAPTCHA / anti-bot cases observed | 2 |
-| Login cases observed | 0 |
+| Public business/submission contacts observed in latest run | 3 |
+| Protected / JavaScript-guarded contacts observed | 1 |
+| Public/external forms observed | 0 |
+| Third-party freemium routes observed | 2 |
+| CAPTCHA / anti-bot cases observed | 0 |
+| Login cases observed | 2 |
 | Payment cases observed | 0 |
 | SMTP probes during repo update | 0 |
 | MX probes during repo update | 0 |
@@ -30,29 +33,27 @@ Run 24 added 7 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| KUTX On-Air Rotation and Specialty Show Music Submission Route | needs_manual_review |
-| KVRX 91.7 FM Austin Music Submission Route | needs_manual_review |
-| KZSC Santa Cruz Music Director Submission Route | needs_manual_review |
-| WERS Wicked Local Wednesday Music Submission Form Route | needs_manual_review |
-| Triple R 102.7FM Melbourne Submit Music Route | needs_manual_review |
-| CKUA Radio Network Getting Airplay Digital Submission Route | needs_manual_review |
-| CJSW 90.9 FM Calgary Digital Music Submission Route | needs_manual_review |
+| EARMILK SubmitHub and Pillargram Music Submission Route | needs_manual_review |
+| Obscure Sound SubmitHub and MusoSoup Indie/Electronic Submission Route | needs_manual_review |
+| Variance Magazine Editorial Pitch and Premiere Submission Route | needs_manual_review |
+| Radio Milwaukee Music Submission Route | needs_manual_review |
+| KCRW Airplay Consideration and Contact Route | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes require human review because they involve public music-director email outreach, AI/originality policy checks, protected/redacted mailto links, anti-spam validation fields, reCAPTCHA-protected forms, MP3/file uploads, external Jotform upload, local eligibility restrictions, release-format requirements, clean/radio-edit requirements and human program targeting.
+The latest routes require human review because they involve third-party freemium submission platforms, login/credit/feedback-term review, JavaScript/spambot-protected contact links, radio-clean audio package checks, WAV-preferred file/link preparation, editorial/premiere fit checks, manual contact resolution and high-selectivity public-radio program targeting.
 
 ## Safety summary
 
-No accounts were created, no emails were sent, no protected forms were submitted, no files were uploaded, no payments were attempted, no terms were accepted, no anti-bot protections were bypassed, no contacts were guessed, and no SMTP or MX probing was performed during this repo update.
+No accounts were created, no emails were sent, no protected forms were submitted, no files were uploaded, no payments were attempted, no terms were accepted, no anti-bot protections were bypassed, no protected emails were decoded, no contacts were guessed, and no SMTP or MX probing was performed during this repo update.
 
 ## Artifacts produced
 
-- `src/discovery/run24PlatformSeeds.ts`
-- `data/run24-platform-database.json`
-- `data/run24-review-queue.csv`
-- `data/run24-analytics-dashboard.json`
-- `reports/2026-06-30-run-24.md`
+- `src/discovery/run25PlatformSeeds.ts`
+- `data/run25-platform-database.json`
+- `data/run25-review-queue.csv`
+- `data/run25-analytics-dashboard.json`
+- `reports/2026-06-30-run-25.md`
 - `reports/daily_report.md`
 
 ## Runtime note
