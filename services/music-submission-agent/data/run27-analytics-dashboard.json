@@ -1,0 +1,49 @@
+{
+  "run": "run-27",
+  "date": "2026-06-30",
+  "summary": {
+    "newOpportunities": 7,
+    "estimatedRuntimeSeedPipeline": 198,
+    "queueRows": 7,
+    "autoSubmitCandidates": 0,
+    "needsManualReview": 7,
+    "freeFirstRoutes": 7,
+    "freemiumRoutes": 0,
+    "paidRoutes": 0,
+    "unknownRoutes": 0,
+    "physicalSubmissionRoutes": 6,
+    "digitalEmailOrContactRoutes": 4,
+    "publicOrExternalFormsObserved": 1,
+    "loginOrPaymentCasesObserved": 0,
+    "protectedOrImageRenderedContactsObserved": 2,
+    "publicBusinessContactsObserved": 5,
+    "smtpProbesDuringRepoUpdate": 0,
+    "mxProbesDuringRepoUpdate": 0,
+    "guessedContacts": 0
+  },
+  "manualReviewBuckets": {
+    "physical_media_or_mail_required": 6,
+    "region_restricted_form": 1,
+    "radio_safe_review": 1,
+    "album_ep_or_originality_policy_review": 1,
+    "show_or_genre_targeting_required": 4,
+    "lower_confidence_contact_route_validation": 1
+  },
+  "genreFit": {
+    "electronic_or_dance": 7,
+    "reggae_or_world": 4,
+    "experimental_or_freeform": 4,
+    "college_radio": 6,
+    "community_or_independent_radio": 5
+  },
+  "safety": {
+    "accountsCreated": 0,
+    "emailsSent": 0,
+    "formsSubmitted": 0,
+    "filesUploaded": 0,
+    "paymentsAttempted": 0,
+    "platformControlsRespected": true,
+    "protectedContactsDecoded": false,
+    "contactGuessingUsed": false
+  }
+}
