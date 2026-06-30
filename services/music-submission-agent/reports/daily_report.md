@@ -1,16 +1,16 @@
 # Music Submission Agent - Daily Report
 
-Date: 2026-06-30
+Date: 2026-07-01
 
-## Latest run: Run 32
+## Latest run: Run 33
 
-Run 32 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as `needs_manual_review`.
+Run 33 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as `needs_manual_review`.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 220 |
+| Estimated runtime seed pipeline | 225 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
@@ -18,8 +18,10 @@ Run 32 added 5 newly researched public-authorized global music submission opport
 | Freemium/manual routes in latest run | 0 |
 | Unknown/manual routes in latest run | 0 |
 | Paid/manual-only routes in latest run | 0 |
-| Public station/contact routes observed | 5 |
-| Public submission forms safely observed | 0 |
+| Official public music/business email routes observed | 3 |
+| Public contact forms observed | 1 |
+| CAPTCHA/reCAPTCHA-protected routes observed | 1 |
+| Login/social-account routes observed | 1 |
 | SMTP probes during repo update | 0 |
 | MX probes during repo update | 0 |
 | Guessed/generated contacts | 0 |
@@ -28,27 +30,27 @@ Run 32 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| WNCW 88.7 Studio B Music Programming Review Route | needs_manual_review |
-| KFAI Fresh Air Community Radio Music Programming Route | needs_manual_review |
-| WUSB 90.1 FM Stony Brook Freeform Radio Route | needs_manual_review |
-| KTRU 96.1 Rice Freeform Genre-Show Music Route | needs_manual_review |
-| KSCU 103.3 Santa Clara Underground Sound Route | needs_manual_review |
+| CKUW 95.9 FM Winnipeg Music Director Submission Route | needs_manual_review |
+| CIUT 89.5 FM Toronto New Music Submission Route | needs_manual_review |
+| WRAS Album 88 Atlanta Regular Rotation Submission Route | needs_manual_review |
+| KVMR Music Department and Broadcaster Contact Review Route | needs_manual_review |
+| Thomann Beatmaking Contest 2026 Public Hashtag Submission Route | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes require human review because they involve station/show/director targeting, radio-clean/FCC-safe asset checks, rights and ownership review, outreach copy approval and incomplete or non-static public submission workflows. No route in this batch exposed a safe complete public auto-submit form.
+The latest routes require human review because they involve Music Director/new-music email outreach, radio-clean asset checks, release-window fit, rights and ownership review, public social-post contest rules, reCAPTCHA-protected contact forms and/or social-platform login. No route in this batch exposed a safe complete public auto-submit form.
 
 ## Safety summary
 
-No accounts were created, no messages were sent, no forms were submitted, no files were uploaded, no physical mail was sent, no contacts were guessed, and no SMTP or MX probing was performed during this repo update.
+No accounts were created, no messages were sent, no forms were submitted, no files were uploaded, no social posts were created, no payments were attempted, no contacts were guessed, and no SMTP or MX probing was performed during this repo update.
 
 ## Artifacts produced
 
-- `src/discovery/run32PlatformSeeds.ts`
-- `data/run32-platform-database.json`
-- `data/run32-review-queue.csv`
-- `data/run32-analytics-dashboard.json`
-- `reports/2026-06-30-run-32.md`
+- `src/discovery/run33PlatformSeeds.ts`
+- `data/run33-platform-database.json`
+- `data/run33-review-queue.csv`
+- `data/run33-analytics-dashboard.json`
+- `reports/2026-07-01-run-33.md`
 - `reports/daily_report.md`
 
 ## Runtime note
