@@ -1,0 +1,63 @@
+{
+  "generatedAt": "2026-07-01T01:25:30+02:00",
+  "run": 34,
+  "date": "2026-07-01",
+  "summary": {
+    "newOpportunities": 5,
+    "queuedRows": 5,
+    "manualReviewRows": 5,
+    "autoSubmitCandidates": 0,
+    "estimatedRuntimeSeedPipeline": 230
+  },
+  "pricing": {
+    "freeFirstRoutes": 5,
+    "freemiumManualRoutes": 0,
+    "paidManualOnlyRoutes": 0,
+    "unknownManualRoutes": 0
+  },
+  "riskControls": {
+    "captchaOrValidationRoutes": 1,
+    "loginRequiredRoutes": 0,
+    "paymentRequiredRoutes": 0,
+    "protectedContactsDecoded": 0,
+    "guessedContacts": 0,
+    "formsSubmitted": 0,
+    "emailsSent": 0,
+    "uploadsPerformed": 0,
+    "physicalMailSent": 0,
+    "smtpProbesDuringRepoUpdate": 0,
+    "mxProbesDuringRepoUpdate": 0
+  },
+  "routeTypes": {
+    "publicSubmissionForms": 2,
+    "publicGeneralContactForms": 1,
+    "musicDirectorOrMusicDepartmentRoutes": 2,
+    "physicalMailRoutes": 1,
+    "businessEmailRoutesObserved": 2
+  },
+  "genreCoverage": [
+    "electronic",
+    "dub",
+    "reggae",
+    "world",
+    "indie",
+    "hip-hop",
+    "experimental",
+    "bass",
+    "club",
+    "college-radio",
+    "community-radio",
+    "public-radio",
+    "internet-radio",
+    "global-underground"
+  ],
+  "geography": {
+    "United States": 3,
+    "United Kingdom": 2
+  },
+  "dedupe": {
+    "newUniquePlatforms": 5,
+    "duplicatesBlockedInRun": 0,
+    "method": "manual review against prior run list plus runtime canonical platform key"
+  }
+}
