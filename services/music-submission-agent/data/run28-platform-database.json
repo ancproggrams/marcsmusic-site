@@ -1,0 +1,67 @@
+{
+  "run": "run-28",
+  "date": "2026-06-30",
+  "summary": {
+    "new_opportunities": 5,
+    "deduplication_basis": "manual review against run22-run27 and freemium batch known opportunities; canonical platform names and submission URLs are new",
+    "auto_submit_candidates": 0,
+    "manual_review_required": 5,
+    "free_first_routes": 5,
+    "freemium_manual_routes": 0,
+    "unknown_manual_routes": 0,
+    "paid_manual_only_routes": 0,
+    "estimated_runtime_seed_pipeline_after_run": 203
+  },
+  "platforms": [
+    {
+      "name": "WMSE 91.7FM Milwaukee Music Department Submission Route",
+      "websiteUrl": "https://wmse.org/",
+      "submissionUrl": "https://wmse.org/about-wmse-radio/music-department/",
+      "sourceUrl": "https://wmse.org/about-wmse-radio/music-department/",
+      "pricing_model": "free",
+      "priority": 90,
+      "status": "needs_manual_review",
+      "manual_review_reason": "WMSE accepts public music submissions through physical media and a Music Director email/WeTransfer path, but review by the Music Department, FCC-clean checks, file preparation and non-automated outreach are required."
+    },
+    {
+      "name": "KCSB 91.9 FM Artist Inquiry and Music Library Submission Form",
+      "websiteUrl": "https://www.kcsb.org/",
+      "submissionUrl": "https://www.kcsb.org/contact/artist-inquiry/",
+      "sourceUrl": "https://www.kcsb.org/contact/artist-inquiry/",
+      "pricing_model": "free",
+      "priority": 90,
+      "status": "needs_manual_review",
+      "manual_review_reason": "KCSB exposes an official Artist Inquiry route and links to an external Google Form for live on-air, event, music library and premiere consideration. Manual review is required because the form is external and may contain validation, eligibility or anti-spam controls."
+    },
+    {
+      "name": "CJSR 88.5 FM Edmonton Music Submission Route",
+      "websiteUrl": "https://www.cjsr.com/",
+      "submissionUrl": "https://www.cjsr.com/submit-music/",
+      "sourceUrl": "https://www.cjsr.com/submit-music/",
+      "pricing_model": "free",
+      "priority": 90,
+      "status": "needs_manual_review",
+      "manual_review_reason": "CJSR accepts digital albums/EPs by public music email and physical media by mail/drop-off, but rejects paid streaming-only links and singles, requires downloadable files and content metadata, and includes a separate paid advertising upsell that must remain blocked."
+    },
+    {
+      "name": "CFUV 101.9 FM Victoria Music Submissions",
+      "websiteUrl": "https://cfuv.uvic.ca/",
+      "submissionUrl": "https://cfuv.uvic.ca/music-submissions/",
+      "sourceUrl": "https://cfuv.uvic.ca/music-submissions/",
+      "pricing_model": "free",
+      "priority": 90,
+      "status": "needs_manual_review",
+      "manual_review_reason": "CFUV requires at least three unique tracks, 320kbps MP3 digital download links and complete biography/tracklisting metadata; physical submissions are restricted mostly to local artists or special cases. Manual review is required for eligibility and asset preparation."
+    },
+    {
+      "name": "Radio Western 94.9FM Music Submission Email Route",
+      "websiteUrl": "https://radiowestern.ca/",
+      "submissionUrl": "https://radiowestern.ca/",
+      "sourceUrl": "https://radiowestern.ca/",
+      "pricing_model": "free",
+      "priority": 90,
+      "status": "needs_manual_review",
+      "manual_review_reason": "Radio Western official temporary page states the main web server is damaged but explicitly routes new music submissions and promotion to music@radiowestern.ca. Manual review is required because the site is degraded and no detailed asset policy is visible."
+    }
+  ]
+}
