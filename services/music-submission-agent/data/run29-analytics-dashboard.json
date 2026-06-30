@@ -1,0 +1,38 @@
+{
+  "run": 29,
+  "date": "2026-06-30",
+  "estimated_runtime_seed_pipeline": 207,
+  "new_opportunities": 4,
+  "queue_rows_created": 4,
+  "auto_submit_candidates": 0,
+  "needs_manual_review": 4,
+  "free_first_routes": 4,
+  "freemium_manual_routes": 0,
+  "paid_manual_only_routes": 0,
+  "unknown_manual_routes": 0,
+  "physical_mail_or_media_routes": 2,
+  "digital_email_or_contact_routes": 4,
+  "public_or_external_forms_observed": 1,
+  "login_required_cases": 0,
+  "payment_required_cases": 0,
+  "captcha_or_antibot_cases": 0,
+  "protected_contacts_decoded": 0,
+  "guessed_or_generated_contacts": 0,
+  "smtp_probes_during_repo_update": 0,
+  "mx_probes_during_repo_update": 0,
+  "categories": {
+    "community_radio": 2,
+    "college_radio": 3,
+    "freeform_radio": 2,
+    "music_director_route": 3,
+    "dynamic_site_manual_validation": 1
+  },
+  "safety_summary": {
+    "accounts_created": 0,
+    "emails_sent": 0,
+    "forms_submitted": 0,
+    "files_uploaded": 0,
+    "payments_attempted": 0,
+    "anti_bot_or_login_bypass_attempted": 0
+  }
+}
