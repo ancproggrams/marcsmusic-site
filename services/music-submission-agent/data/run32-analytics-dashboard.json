@@ -1,0 +1,48 @@
+{
+  "date": "2026-06-30",
+  "latest_run": 32,
+  "estimated_runtime_seed_pipeline": 220,
+  "new_opportunities": 5,
+  "new_queue_rows": 5,
+  "new_auto_submit_candidates": 0,
+  "new_manual_review_required": 5,
+  "pricing_breakdown": {
+    "free": 5,
+    "freemium": 0,
+    "paid": 0,
+    "unknown": 0
+  },
+  "route_breakdown": {
+    "public_station_or_contact_route": 5,
+    "public_submission_form_observed": 0,
+    "email_route_observed_but_not_live_probed": 0,
+    "captcha_or_anti_spam_observed": 0,
+    "login_required": 0,
+    "payment_required": 0
+  },
+  "manual_review_drivers": [
+    "no safe complete static submission form exposed during crawl",
+    "no verified direct business email live-probed during repo update",
+    "station/show/director targeting required",
+    "radio-clean/FCC-safe asset and metadata checks required",
+    "rights, ownership and outreach copy require owner approval"
+  ],
+  "deduplication": {
+    "method": "canonical platform key across name, website URL and submission URL",
+    "new_duplicates_detected_in_run": 0,
+    "idempotency_key_pattern": "verify:<platformCanonicalKey>"
+  },
+  "safety": {
+    "accounts_created": 0,
+    "emails_sent": 0,
+    "forms_submitted": 0,
+    "files_uploaded": 0,
+    "payments_attempted": 0,
+    "captcha_bypasses_attempted": 0,
+    "login_bypasses_attempted": 0,
+    "protected_contacts_decoded": 0,
+    "guessed_contacts_added": 0,
+    "smtp_probes_during_repo_update": 0,
+    "mx_probes_during_repo_update": 0
+  }
+}
