@@ -1,0 +1,5 @@
+job_id,platform_name,pricing_model,priority,status,free_path_focus,paid_upgrade_blocked,manual_review_reason
+run29-001,WFMU Freeform Radio Music Director Review Route,free,90,needs_manual_review,true,true,Public physical-media and Music Director contact route; manual package preparation rights clean-content check and non-automated outreach required
+run29-002,WREK Atlanta 91.1 FM Submit Music Route,free,90,needs_manual_review,true,true,Official music-director email and snail-mail route; manual FCC-clean review asset packaging and non-automated outreach required
+run29-003,WICB 91.7 FM Ithaca Submit Music Route,free,90,needs_manual_review,true,true,Submit Music navigation visible but dynamic SPA content requires manual validation without bypassing site behavior
+run29-004,WXYC 89.3 FM Chapel Hill Music Department Route,free,90,needs_manual_review,true,true,Public Music Department contact and mailing address route; no safe static submission form identified so manual route confirmation required
