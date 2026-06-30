@@ -1,0 +1,93 @@
+{
+  "run": 20,
+  "date": "2026-06-30",
+  "summary": {
+    "new_opportunities": 8,
+    "auto_submit_candidates": 0,
+    "needs_manual_review": 8,
+    "business_emails_stored": 0,
+    "estimated_pipeline_total": 152
+  },
+  "platforms": [
+    {
+      "name": "Bandcamp Artist Store Direct-to-Fan Upload Route",
+      "website_url": "https://bandcamp.com/artists",
+      "submission_url": "https://bandcamp.com/artists",
+      "route_type": "artist_upload_storefront",
+      "status": "needs_manual_review",
+      "genre_fit": ["electronic", "reggae", "dub", "world", "bass-music", "independent"],
+      "business_emails": [],
+      "manual_review_reason": "Artist account, upload, rights ownership, pricing, release metadata, payout and content-policy review required."
+    },
+    {
+      "name": "SoundCloud Creator Upload and Artist Discovery Route",
+      "website_url": "https://soundcloud.com/for-artists",
+      "submission_url": "https://soundcloud.com/for-artists",
+      "route_type": "creator_upload_discovery",
+      "status": "needs_manual_review",
+      "genre_fit": ["electronic", "dubstep", "drum-and-bass", "house", "reggae", "dance", "bass-music"],
+      "business_emails": [],
+      "manual_review_reason": "Account access, upload settings, rights confirmation, profile configuration and current terms review required."
+    },
+    {
+      "name": "Audiomack Creator Upload and Emerging Artist Route",
+      "website_url": "https://audiomack.com/",
+      "submission_url": "https://audiomack.com/",
+      "route_type": "creator_upload_discovery",
+      "status": "needs_manual_review",
+      "genre_fit": ["afrobeats", "dancehall", "reggae", "latin", "electronic", "hip-hop", "world"],
+      "business_emails": [],
+      "manual_review_reason": "Creator account, upload, ownership, monetization eligibility and platform policy review required."
+    },
+    {
+      "name": "SoundOn by TikTok Artist Distribution Route",
+      "website_url": "https://www.soundon.global/",
+      "submission_url": "https://www.soundon.global/",
+      "route_type": "distribution_upload",
+      "status": "needs_manual_review",
+      "genre_fit": ["electronic-pop", "dance", "afrobeats", "latin", "reggae", "world", "viral-music"],
+      "business_emails": [],
+      "manual_review_reason": "Account, territory eligibility, copyright ownership, distribution conflict and payout review required."
+    },
+    {
+      "name": "TIDAL Upload Independent Artist Self-Publishing Route",
+      "website_url": "https://tidal.com/",
+      "submission_url": "https://tidal.com/",
+      "route_type": "direct_upload_self_publishing",
+      "status": "needs_manual_review",
+      "genre_fit": ["electronic", "dance", "reggae", "world", "independent", "pop"],
+      "business_emails": [],
+      "manual_review_reason": "Eligibility, territory, ownership, copyright compliance and no-royalty upload terms review required."
+    },
+    {
+      "name": "ReverbNation Artist Opportunities and Profile Route",
+      "website_url": "https://www.reverbnation.com/",
+      "submission_url": "https://www.reverbnation.com/",
+      "route_type": "artist_profile_opportunity_marketplace",
+      "status": "needs_manual_review",
+      "genre_fit": ["independent", "electronic", "reggae", "world", "pop", "rock", "hip-hop"],
+      "business_emails": [],
+      "manual_review_reason": "Artist account, EPK/profile setup, opportunity selection, possible fees, deadlines and rights terms review required."
+    },
+    {
+      "name": "Subvert.fm Cooperative Music Marketplace Artist Route",
+      "website_url": "https://subvert.fm/",
+      "submission_url": "https://subvert.fm/",
+      "route_type": "cooperative_direct_to_fan_marketplace",
+      "status": "needs_manual_review",
+      "genre_fit": ["independent", "electronic", "experimental", "reggae", "world", "direct-to-fan"],
+      "business_emails": [],
+      "manual_review_reason": "Member alpha access, cooperative membership, storefront terms and platform-readiness review required."
+    },
+    {
+      "name": "Mikseri.net Independent Music Upload Community Route",
+      "website_url": "https://www.mikseri.net/",
+      "submission_url": "https://www.mikseri.net/",
+      "route_type": "registered_user_upload_community",
+      "status": "needs_manual_review",
+      "genre_fit": ["independent", "electronic", "experimental", "dance", "demo-community"],
+      "business_emails": [],
+      "manual_review_reason": "Finnish-language registration, upload format, licensing and community rules require manual review."
+    }
+  ]
+}
