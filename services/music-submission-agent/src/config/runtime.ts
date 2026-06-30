@@ -29,6 +29,9 @@ const envSchema = z.object({
   HOST: z.string().default('0.0.0.0'),
   AUTO_SUBMIT_ENABLED: booleanEnv,
   EMAIL_SMTP_VERIFY_ENABLED: booleanEnv,
+  EMAIL_VALIDATION_PROVIDER: z.enum(['mailgun', 'aftership', 'fallback']).default('mailgun'),
+  MAILGUN_API_KEY: z.string().optional(),
+  MAILGUN_VALIDATION_BASE_URL: z.string().default('https://api.mailgun.net/v4/address/validate'),
   WORKER_MODE: z.string().default('all'),
   ARTIST_NAME: z.string().optional(),
   ARTIST_EMAIL: z.string().optional(),
@@ -58,6 +61,9 @@ export interface RuntimeConfig {
   host: string;
   autoSubmitEnabled: boolean;
   emailSmtpVerifyEnabled: boolean;
+  emailValidationProvider: 'mailgun' | 'aftership' | 'fallback';
+  mailgunApiKey?: string;
+  mailgunValidationBaseUrl: string;
   workerMode: string;
   maxBrowserConcurrency: number;
   discoveryIntervalMs: number;
@@ -101,6 +107,9 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): RuntimeConfig 
     host: parsed.HOST,
     autoSubmitEnabled: parsed.AUTO_SUBMIT_ENABLED,
     emailSmtpVerifyEnabled: parsed.EMAIL_SMTP_VERIFY_ENABLED,
+    emailValidationProvider: parsed.EMAIL_VALIDATION_PROVIDER,
+    mailgunApiKey: parsed.MAILGUN_API_KEY,
+    mailgunValidationBaseUrl: parsed.MAILGUN_VALIDATION_BASE_URL,
     workerMode: parsed.WORKER_MODE,
     maxBrowserConcurrency: Math.max(1, parsed.MAX_BROWSER_CONCURRENCY),
     discoveryIntervalMs,
