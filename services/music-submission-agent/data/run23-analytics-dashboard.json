@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2026-06-30T12:23:20Z",
+  "run": 23,
+  "metrics": {
+    "newOpportunities": 6,
+    "estimatedRuntimeSeedPipelineAfterRun": 172,
+    "manualReviewJobs": 6,
+    "autoSubmitCandidates": 0,
+    "freePlatforms": 5,
+    "paidPlatforms": 1,
+    "freemiumPlatforms": 0,
+    "loginRequired": 1,
+    "paymentRequired": 1,
+    "captchaDetected": 0,
+    "publicSubmissionContactsObserved": 4,
+    "protectedMailtoLinksObserved": 2,
+    "smtpChecksPerformedInRepoUpdate": 0,
+    "runtimeEmailValidationQueued": true,
+    "duplicatesFound": 0
+  },
+  "priorityBreakdown": {
+    "90_free_first": 5,
+    "10_paid_owner_approval": 1
+  },
+  "categoryBreakdown": {
+    "noncommercial_radio_airplay": 4,
+    "label_demo_pool": 1,
+    "songwriting_competition": 1
+  },
+  "safety": {
+    "accountsCreated": 0,
+    "formsSubmitted": 0,
+    "paymentsAttempted": 0,
+    "uploadsAttempted": 0,
+    "antiBotBypassAttempted": 0,
+    "generatedContacts": 0
+  }
+}
