@@ -1,0 +1,52 @@
+{
+  "run": 26,
+  "date": "2026-06-30",
+  "artist": "MarcsMusic",
+  "new_platforms": 7,
+  "estimated_runtime_seed_opportunities_after_run": 191,
+  "queue": {
+    "created_rows": 7,
+    "auto_submit_candidates": 0,
+    "needs_manual_review": 7,
+    "free_first_priority_90": 7,
+    "paid_or_payment_required": 0,
+    "login_required": 0,
+    "captcha_or_antibot_or_session_guarded": 4,
+    "physical_mail_required": 1,
+    "protected_email_or_unresolved_route": 3
+  },
+  "geography": {
+    "Australia": 5,
+    "United States": 2
+  },
+  "route_types": {
+    "public_email": 2,
+    "public_form": 2,
+    "public_form_with_protected_email": 1,
+    "official_link_needs_manual_validation": 1,
+    "physical_mail": 1
+  },
+  "categories": {
+    "radio_airplay": 5,
+    "radio_airplay_physical_submission": 1,
+    "college_radio_airplay": 1
+  },
+  "safety": {
+    "accounts_created": 0,
+    "emails_sent": 0,
+    "forms_submitted": 0,
+    "uploads_performed": 0,
+    "payments_attempted": 0,
+    "captcha_or_antibot_bypassed": 0,
+    "protected_emails_decoded": 0,
+    "generated_contacts_added": 0
+  },
+  "recommended_next_manual_actions": [
+    "Prepare one MarcsMusic radio-clean pitch package with streaming link, WAV/320kbps download link, short bio, press image, release date and focus track.",
+    "Resolve PBS and 2SER forms manually because CAPTCHA/dynamic form controls are present.",
+    "Resolve RTRFM protected email/form manually and choose presenter/show targeting before submission.",
+    "Validate 4ZZZ submission page details manually before adding music-specific contacts or form fields.",
+    "Decide whether KBOO physical mail submission is worth the cost and rights implications before mailing media.",
+    "Resolve KZSU send-music route manually without bypassing cookie/session controls."
+  ]
+}
