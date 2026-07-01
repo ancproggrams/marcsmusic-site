@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-07-01T00:25:00Z",
+  "runId": "run_35",
+  "estimatedRuntimeSeedPipeline": 235,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "manualReviewQueueRows": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "officialPublicMusicOrBusinessEmailRoutesObserved": 4,
+  "physicalSubmissionRoutesObserved": 3,
+  "publicUploadFormsObserved": 1,
+  "captchaOrValidationProtectedRoutesObserved": 0,
+  "loginOrAccountRoutesObserved": 0,
+  "paymentRoutesObserved": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "guessedOrGeneratedContacts": 0,
+  "duplicatesSkipped": 0,
+  "routes": [
+    {
+      "name": "WMNF 88.5 FM Submit Your Music Form",
+      "queuePriority": 90,
+      "queueStatus": "needs_manual_review",
+      "routeType": "public_upload_form_and_music_department_email",
+      "businessEmailStatus": "public_official_route_pending_runtime_validation"
+    },
+    {
+      "name": "WWOZ Getting Airplay Music Director Route",
+      "queuePriority": 90,
+      "queueStatus": "needs_manual_review",
+      "routeType": "physical_cd_or_wav_music_director_route",
+      "businessEmailStatus": "not_applicable_physical_route"
+    },
+    {
+      "name": "KDVS 90.3 FM Music Department Physical Submission Route",
+      "queuePriority": 90,
+      "queueStatus": "needs_manual_review",
+      "routeType": "music_department_email_and_physical_only_route",
+      "businessEmailStatus": "public_official_route_pending_runtime_validation"
+    },
+    {
+      "name": "KAOS 89.3FM Olympia Submit Music Route",
+      "queuePriority": 90,
+      "queueStatus": "needs_manual_review",
+      "routeType": "physical_preferred_and_digital_link_email_route",
+      "businessEmailStatus": "public_official_route_pending_runtime_validation"
+    },
+    {
+      "name": "KMNR 89.7 FM Music Director Route",
+      "queuePriority": 90,
+      "queueStatus": "needs_manual_review",
+      "routeType": "music_director_public_email_and_station_mailing_address",
+      "businessEmailStatus": "public_official_route_pending_runtime_validation"
+    }
+  ],
+  "safety": {
+    "accountsCreated": 0,
+    "messagesSent": 0,
+    "formsSubmitted": 0,
+    "filesUploaded": 0,
+    "physicalMailSent": 0,
+    "paymentsAttempted": 0,
+    "captchaBypassAttempted": 0,
+    "loginBypassAttempted": 0,
+    "platformRestrictionBypassAttempted": 0,
+    "protectedContactsDecoded": 0
+  }
+}
