@@ -1,0 +1,65 @@
+{
+  "run": 38,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 245,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 250,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 3,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 2,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 1,
+  "publicApplicationOrUploadFormsObserved": 5,
+  "paymentRoutesObserved": 2,
+  "loginOrMembershipRoutesObserved": 4,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "guessedGeneratedContacts": 0,
+  "autoSubmitEnabled": false,
+  "safety": {
+    "accountsCreated": 0,
+    "messagesSent": 0,
+    "formsSubmitted": 0,
+    "filesUploaded": 0,
+    "paymentsAttempted": 0,
+    "captchaBypassAttempted": 0,
+    "loginBypassAttempted": 0,
+    "protectedContactsDecoded": 0
+  },
+  "opportunities": [
+    {
+      "name": "SXSW 2027 Music Festival Showcase Application",
+      "pricingModel": "paid",
+      "priority": 10,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "The New Colossus Festival 2027 Artist Application",
+      "pricingModel": "paid",
+      "priority": 10,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "BBC Music Introducing Uploader",
+      "pricingModel": "free",
+      "priority": 90,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "triple j Unearthed Artist Upload",
+      "pricingModel": "free",
+      "priority": 90,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "ccMixter Creative Commons Upload and Remix Community",
+      "pricingModel": "free",
+      "priority": 90,
+      "queueStatus": "needs_manual_review"
+    }
+  ]
+}
