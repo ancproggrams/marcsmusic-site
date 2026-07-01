@@ -1,0 +1,143 @@
+{
+  "run_id": "run44",
+  "generated_at": "2026-07-01T11:25:50+02:00",
+  "artist": "MarcsMusic",
+  "scope": "public-authorized global music submission opportunities only",
+  "dedupe_strategy": {
+    "keys": ["canonical domain", "official submission path", "normalized platform name"],
+    "deduplicated_against": ["repo visible search results", "current run candidates", "previously reported platform names from recent automation responses when available"],
+    "note": "The accessible repository did not expose prior run29-run43 seed files in code search/fetch, so this run is stored as an independent run dataset instead of fabricating a cumulative platform total."
+  },
+  "platforms": [
+    {
+      "platform_key": "95bfm-submit-music-nz",
+      "name": "95bFM Submit Music",
+      "type": "radio_station",
+      "country": "New Zealand",
+      "city": "Auckland",
+      "official_url": "https://95bfm.com/news/how-do-you-do-submitting-music",
+      "activity_verified": true,
+      "authorized_submission_route": {
+        "route_type": "public_business_email",
+        "business_email_status": "public_on_official_site_masked_in_extraction",
+        "email": "[public music submission email shown on official page; masked by fetcher]",
+        "requirements": ["streaming link", "download link to lossless file", "artist and song names", "album/release title", "artist origin/location", "no passworded/account-required links", "no Spotify-only submissions"],
+        "form_url": null
+      },
+      "genres_relevance": ["alternative", "independent", "electronic", "reggae-adjacent", "world"],
+      "pricing": "free",
+      "login_required": false,
+      "payment_required": false,
+      "captcha_present": false,
+      "needs_manual_review": true,
+      "manual_review_reasons": ["email route requires human pitch and final file-rights check", "email address appears protected/masked in fetched output", "editorial review cannot be automated"],
+      "auto_submit_allowed": false,
+      "priority": 90,
+      "dedupe_key": "95bfm.com|submit-music"
+    },
+    {
+      "platform_key": "obscure-sound-submissions",
+      "name": "Obscure Sound Contact/Submissions",
+      "type": "music_blog",
+      "country": "United States",
+      "city": null,
+      "official_url": "https://www.obscuresound.com/about/contact-submissions/",
+      "activity_verified": true,
+      "authorized_submission_route": {
+        "route_type": "submit_platform_or_public_email",
+        "business_email_status": "public_direct_email_route_described_on_official_site",
+        "email": "[direct email route described; exact address not stored in automated output]",
+        "requirements": ["subject: Obscure Sound Submission", "streaming link", "press photo", "brief artist background", "song/release context", "avoid vague or generic blasts"],
+        "form_url": "SubmitHub and MusoSoup links listed on official page"
+      },
+      "genres_relevance": ["indie", "electronic", "ambient", "alt-R&B", "hip-hop", "singer-songwriter"],
+      "pricing": "free_first_direct_email; paid_or_credit_external_platforms_possible",
+      "login_required": "external_platforms_likely",
+      "payment_required": "external_platforms_possible",
+      "captcha_present": "unknown_external_platform",
+      "needs_manual_review": true,
+      "manual_review_reasons": ["external SubmitHub/MusoSoup routes may require login/payment/session checks", "direct email is editorial/manual", "no automated submission without final human content approval"],
+      "auto_submit_allowed": false,
+      "priority": 90,
+      "dedupe_key": "obscuresound.com|contact-submissions"
+    },
+    {
+      "platform_key": "earmilk-submit-music",
+      "name": "EARMILK Submit Music",
+      "type": "online_music_magazine",
+      "country": "United States",
+      "city": null,
+      "official_url": "https://earmilk.com/submit-music/",
+      "activity_verified": true,
+      "authorized_submission_route": {
+        "route_type": "external_submission_platforms",
+        "business_email_status": "not_applicable",
+        "email": null,
+        "requirements": ["SubmitHub or Pillargram submission", "curator review", "artist/release pitch"],
+        "form_url": "SubmitHub/Pillargram routes linked from official page"
+      },
+      "genres_relevance": ["electronic", "reggae", "alt-R&B", "hip-hop", "indie", "pop"],
+      "pricing": "freemium_or_paid_external_platform",
+      "login_required": true,
+      "payment_required": "possible",
+      "captcha_present": "unknown_external_platform",
+      "needs_manual_review": true,
+      "manual_review_reasons": ["exclusive third-party submission routes require user/session choices", "possible credits/payment", "curator/editorial review"],
+      "auto_submit_allowed": false,
+      "priority": 80,
+      "dedupe_key": "earmilk.com|submit-music"
+    },
+    {
+      "platform_key": "the-line-of-best-fit-new-unsigned-artists",
+      "name": "The Line of Best Fit — New & Unsigned Artists",
+      "type": "online_music_magazine",
+      "country": "United Kingdom",
+      "city": null,
+      "official_url": "https://www.thelineofbestfit.com/contact",
+      "activity_verified": true,
+      "authorized_submission_route": {
+        "route_type": "external_form",
+        "business_email_status": "public_business_emails_shown_for_news_general_contact",
+        "email": "news [at] thelineofbestfit.com / hello [at] thelineofbestfit.com for non-form contact, not used for automated submission",
+        "requirements": ["new/unsigned artist music", "use linked Google form route", "news/press releases have separate public mailbox"],
+        "form_url": "Google Forms route linked on official contact page"
+      },
+      "genres_relevance": ["new_music", "indie", "pop", "electronic", "alternative"],
+      "pricing": "free",
+      "login_required": "unknown_google_form",
+      "payment_required": false,
+      "captcha_present": "possible_google_form_controls",
+      "needs_manual_review": true,
+      "manual_review_reasons": ["Google form/session controls must not be bypassed", "form fields need manual inspection", "editorial suitability review"],
+      "auto_submit_allowed": false,
+      "priority": 85,
+      "dedupe_key": "thelineofbestfit.com|new-unsigned-google-form"
+    },
+    {
+      "platform_key": "groover-global-music-promotion",
+      "name": "Groover Global Music Promotion",
+      "type": "promotion_marketplace",
+      "country": "France / Global",
+      "city": "Paris / New York",
+      "official_url": "https://groover.co/en/",
+      "activity_verified": true,
+      "authorized_submission_route": {
+        "route_type": "platform_campaign",
+        "business_email_status": "not_applicable",
+        "email": null,
+        "requirements": ["create/login account", "add song/demo or link", "choose curators/pros by genre/country/type", "pay Grooviz credits"],
+        "form_url": "https://groover.co/en/"
+      },
+      "genres_relevance": ["electronic", "reggae", "world", "hip-hop", "pop", "indie", "radio", "DJs"],
+      "pricing": "paid_credits",
+      "login_required": true,
+      "payment_required": true,
+      "captcha_present": "unknown_platform_controls",
+      "needs_manual_review": true,
+      "manual_review_reasons": ["paid platform; payment and account flow require human approval", "campaign targeting must be manually selected", "platform controls/session must not be automated"],
+      "auto_submit_allowed": false,
+      "priority": 70,
+      "dedupe_key": "groover.co|music-promotion"
+    }
+  ]
+}
