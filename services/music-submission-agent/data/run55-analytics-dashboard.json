@@ -1,0 +1,33 @@
+{
+  "run": 55,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 330,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 335,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 0,
+  "officialPublicPhysicalMailRoutesObserved": 0,
+  "publicApplicationOrUploadFormsObserved": 5,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 5,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 0,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "BBC Music Introducing Uploader", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Amazing Radio Artist Uploads", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Triple J Unearthed Artist Upload Platform", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Audiomack Creator Upload Platform", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "SoundOn Music Distribution and Artist Promotion", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
