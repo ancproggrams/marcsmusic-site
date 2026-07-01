@@ -2,15 +2,15 @@
 
 Date: 2026-07-01
 
-## Latest run: Run 53
+## Latest run: Run 54
 
-Run 53 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 54 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 325 |
+| Estimated runtime seed pipeline | 330 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
@@ -19,9 +19,9 @@ Run 53 added 5 newly researched public-authorized global music submission opport
 | Unknown/manual routes in latest run | 0 |
 | Paid/manual-only routes in latest run | 0 |
 | Official public route pages observed | 5 |
-| Official public music/business email routes observed | 3 |
-| Official public physical-mail routes observed | 2 |
-| Public application/upload/contact forms observed | 2 |
+| Official public music/business email routes observed | 5 |
+| Official public physical-mail routes observed | 3 |
+| Public application/upload/contact forms observed | 1 |
 | Payment/payment-option routes observed | 0 |
 | Login/member/account routes observed | 0 |
 | CAPTCHA/bot-protection routes observed | 0 |
@@ -35,15 +35,15 @@ Run 53 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| KCSB-FM Santa Barbara Artist Inquiry | needs_manual_review |
-| WNCW 88.7 Submit Music | needs_manual_review |
-| WYEP Pittsburgh Area Music Submissions | needs_manual_review |
-| KUTX Austin Submit Your Music | needs_manual_review |
-| KXT 91.7 Dallas Music Submissions | needs_manual_review |
+| WRSU 88.7FM Rutgers Music Director Submissions | needs_manual_review |
+| WHUS 91.7FM UConn New Music Committee | needs_manual_review |
+| WESU 88.1FM Middletown Music Directors | needs_manual_review |
+| WXYC 89.3FM UNC Music Department | needs_manual_review |
+| WUOG 90.5FM Athens Submit Music | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes are free-first but still require human review because they involve external Google/Wufoo forms, Music Director email routes, digital WAV/download-link packaging, physical-mail options, local/regional eligibility checks, one-song or track-selection constraints, specialty-show targeting, FCC-clean/content review, rights/licensing review, station fit and public-contact validation. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are free-first but still require human review because they involve Music Director email routes, physical-mail package options, links-only or album/package requirements, station-fit checks, local/live-show or freeform-radio targeting, metadata and rights review, clean/explicit content review, public-contact validation and one generic station contact form that was identified but not used. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
@@ -51,11 +51,11 @@ No accounts were created, no route was activated, no forms were submitted, no em
 
 ## Artifacts produced
 
-- src/discovery/run53PlatformSeeds.ts
-- data/run53-platform-database.json
-- data/run53-review-queue.csv
-- data/run53-analytics-dashboard.json
-- reports/2026-07-01-run-53.md
+- src/discovery/run54PlatformSeeds.ts
+- data/run54-platform-database.json
+- data/run54-review-queue.csv
+- data/run54-analytics-dashboard.json
+- reports/2026-07-01-run-54.md
 - reports/daily_report.md
 
 ## Runtime note
