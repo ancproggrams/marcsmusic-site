@@ -1,0 +1,33 @@
+{
+  "run": 54,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 325,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 330,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 5,
+  "officialPublicPhysicalMailRoutesObserved": 3,
+  "publicApplicationOrUploadFormsObserved": 1,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 0,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 0,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "WRSU 88.7FM Rutgers Music Director Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WHUS 91.7FM UConn New Music Committee", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WESU 88.1FM Middletown Music Directors", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WXYC 89.3FM UNC Music Department", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WUOG 90.5FM Athens Submit Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
