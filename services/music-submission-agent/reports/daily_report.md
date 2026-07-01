@@ -2,15 +2,15 @@
 
 Date: 2026-07-01
 
-## Latest run: Run 55
+## Latest run: Run 56
 
-Run 55 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 56 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 335 |
+| Estimated runtime seed pipeline | 340 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
@@ -19,12 +19,12 @@ Run 55 added 5 newly researched public-authorized global music submission opport
 | Unknown/manual routes in latest run | 0 |
 | Paid/manual-only routes in latest run | 0 |
 | Official public route pages observed | 5 |
-| Official public music/business email routes observed | 0 |
-| Official public physical-mail routes observed | 0 |
-| Public application/upload/contact forms observed | 5 |
+| Official public music/business email routes observed | 1 |
+| Official public physical-mail routes observed | 2 |
+| Public application/upload/contact forms observed | 2 |
 | Payment/payment-option routes observed | 0 |
-| Login/member/account routes observed | 5 |
-| CAPTCHA/bot-protection routes observed | 0 |
+| Login/member/account routes observed | 0 |
+| CAPTCHA/bot-protection routes observed | 1 |
 | External/manual workflow routes observed | 5 |
 | Protected/redacted contact routes observed | 0 |
 | SMTP probes during repo update | 0 |
@@ -35,27 +35,27 @@ Run 55 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| BBC Music Introducing Uploader | needs_manual_review |
-| Amazing Radio Artist Uploads | needs_manual_review |
-| Triple J Unearthed Artist Upload Platform | needs_manual_review |
-| Audiomack Creator Upload Platform | needs_manual_review |
-| SoundOn Music Distribution and Artist Promotion | needs_manual_review |
+| KRCL 90.9FM Salt Lake City How to Submit Music | needs_manual_review |
+| Radio Milwaukee 88Nine Music Submission | needs_manual_review |
+| WNXP 91.1FM Nashville Music Submissions | needs_manual_review |
+| KGNU Community Radio Contact Staff or DJ Music Department | needs_manual_review |
+| WFUV New York Send Music to Music Department | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes are free-first but still require human review because they involve account, login, signup, artist-upload, distribution, UGC terms, regional eligibility, metadata, rights/originality, clean/explicit, competition/editorial routing, royalty-share and payout/legal checks. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are free-first but still require human review because they involve physical mail, external Google Form upload routing, WAV/download-link preparation, clean radio edit requirements, music-department or DJ routing, station-fit checks, metadata and rights/originality assertions, reCaptcha v3 and phone/mail workflows. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
-No accounts were created, no route was activated, no forms were submitted, no emails were sent, no files were uploaded, no physical mail was sent, no payments were attempted, no CAPTCHA/reCAPTCHA or validation controls were bypassed, no protected or masked contacts were decoded, no contacts were guessed and no SMTP or MX probing was performed during this repo update.
+No accounts were created, no route was activated, no forms were submitted, no emails were sent, no files were uploaded, no physical mail was sent, no payments were attempted, no protected or masked contacts were decoded, no contacts were guessed and no SMTP or MX probing was performed during this repo update. The KGNU reCaptcha route was recorded as manual-only.
 
 ## Artifacts produced
 
-- src/discovery/run55PlatformSeeds.ts
-- data/run55-platform-database.json
-- data/run55-review-queue.csv
-- data/run55-analytics-dashboard.json
-- reports/2026-07-01-run-55.md
+- src/discovery/run56PlatformSeeds.ts
+- data/run56-platform-database.json
+- data/run56-review-queue.csv
+- data/run56-analytics-dashboard.json
+- reports/2026-07-01-run-56.md
 - reports/daily_report.md
 
 ## Runtime note
