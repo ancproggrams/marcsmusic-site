@@ -32,6 +32,7 @@ import { run31SeedPlatforms } from './run31PlatformSeeds.js';
 import { run32SeedPlatforms } from './run32PlatformSeeds.js';
 import { run33SeedPlatforms } from './run33PlatformSeeds.js';
 import { run34SeedPlatforms } from './run34PlatformSeeds.js';
+import { run35SeedPlatforms } from './run35PlatformSeeds.js';
 
 const allSeedPlatforms = [
   ...seedPlatforms,
@@ -64,7 +65,8 @@ const allSeedPlatforms = [
   ...run31SeedPlatforms,
   ...run32SeedPlatforms,
   ...run33SeedPlatforms,
-  ...run34SeedPlatforms
+  ...run34SeedPlatforms,
+  ...run35SeedPlatforms
 ];
 
 export function seedDiscoveryPlatforms(repositories: Repositories): { discovered: number; queued: number } {
