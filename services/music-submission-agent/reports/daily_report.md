@@ -2,15 +2,15 @@
 
 Date: 2026-07-01
 
-## Latest run: Run 40
+## Latest run: Run 41
 
-Run 40 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 41 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 260 |
+| Estimated runtime seed pipeline | 265 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
@@ -19,11 +19,11 @@ Run 40 added 5 newly researched public-authorized global music submission opport
 | Unknown/manual routes in latest run | 0 |
 | Paid/manual-only routes in latest run | 0 |
 | Official public music/business email routes observed | 3 |
-| Public application/upload forms observed | 2 |
+| Public application/upload forms observed | 3 |
 | Payment routes observed | 0 |
 | Login/member/account routes observed | 0 |
-| CAPTCHA/bot-protection routes observed | 0 |
-| Protected-contact routes observed | 1 |
+| CAPTCHA/bot-protection routes observed | 1 |
+| Protected-contact routes observed | 0 |
 | SMTP probes during repo update | 0 |
 | MX probes during repo update | 0 |
 | Guessed/generated contacts | 0 |
@@ -32,15 +32,15 @@ Run 40 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| KVRX 91.7 FM Austin Music Submissions | needs_manual_review |
-| WNYU 89.1 FM Music Director Submissions | needs_manual_review |
-| KZSC Santa Cruz Station Music Directors | needs_manual_review |
-| WHPK 88.5 FM Chicago Music Director and Format Chief Routing | needs_manual_review |
-| WNUR 89.3 FM Submit Your Sound | needs_manual_review |
+| KXT 91.7 Dallas Music Submissions | needs_manual_review |
+| KUTX 98.9 Austin On-Air Rotation Music Submissions | needs_manual_review |
+| WERS 88.9FM Wicked Local Wednesday Music Submission | needs_manual_review |
+| WYEP 91.3 Pittsburgh Area Music Submissions | needs_manual_review |
+| Toolroom Records Demo Submission | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes require human review because they involve physical/digital radio-submission choices, official music-director email curation, protected contact links, format-chief routing, external Google Forms, rights ownership review, clean-edit checks, metadata review, station-policy review and station fit assessment. No route in this batch exposed a safe complete public auto-submit form.
+The latest routes require human review because they involve external public forms, local eligibility rules, Music Director email routing, local-show targeting, MP3/WAV download requirements, clean-edit checks, metadata review, rights ownership review, A&R package review, session/cookie validation and one reCAPTCHA-protected form. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
@@ -48,11 +48,11 @@ No accounts were created, no messages were sent, no forms were submitted, no fil
 
 ## Artifacts produced
 
-- src/discovery/run40PlatformSeeds.ts
-- data/run40-platform-database.json
-- data/run40-review-queue.csv
-- data/run40-analytics-dashboard.json
-- reports/2026-07-01-run-40.md
+- src/discovery/run41PlatformSeeds.ts
+- data/run41-platform-database.json
+- data/run41-review-queue.csv
+- data/run41-analytics-dashboard.json
+- reports/2026-07-01-run-41.md
 - reports/daily_report.md
 
 ## Runtime note
