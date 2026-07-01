@@ -1,0 +1,33 @@
+{
+  "run": 48,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 295,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 300,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 5,
+  "officialPublicPhysicalMailRoutesObserved": 4,
+  "publicApplicationOrUploadFormsObserved": 0,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 0,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 1,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "WMSE 91.7FM Milwaukee Music Department", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KRUI 89.7FM Get Your Music Played", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KXCI 91.3 Tucson Music Department Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WXDU 88.7FM Duke Radio Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KDVS 90.3FM Davis Music Department Physical Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
