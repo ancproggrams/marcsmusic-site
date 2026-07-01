@@ -1,0 +1,33 @@
+{
+  "run": 51,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 310,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 315,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 4,
+  "officialPublicPhysicalMailRoutesObserved": 1,
+  "publicApplicationOrUploadFormsObserved": 1,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 0,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 2,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "KEXP Seattle Music Director Airplay Consideration", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WXPN 88.5 Music Director and Local Show Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KALX 90.7FM Berkeley Physical Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "UKF Demo Submission", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KFAI Minneapolis Music Department and Music Library", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
