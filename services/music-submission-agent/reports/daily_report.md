@@ -2,15 +2,15 @@
 
 Date: 2026-07-01
 
-## Latest run: Run 51
+## Latest run: Run 52
 
-Run 51 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 52 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 315 |
+| Estimated runtime seed pipeline | 320 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
@@ -20,13 +20,13 @@ Run 51 added 5 newly researched public-authorized global music submission opport
 | Paid/manual-only routes in latest run | 0 |
 | Official public route pages observed | 5 |
 | Official public music/business email routes observed | 4 |
-| Official public physical-mail routes observed | 1 |
-| Public application/upload/contact forms observed | 1 |
+| Official public physical-mail routes observed | 2 |
+| Public application/upload/contact forms observed | 0 |
 | Payment/payment-option routes observed | 0 |
 | Login/member/account routes observed | 0 |
 | CAPTCHA/bot-protection routes observed | 0 |
 | External/manual workflow routes observed | 5 |
-| Protected/redacted contact routes observed | 2 |
+| Protected/redacted contact routes observed | 1 |
 | SMTP probes during repo update | 0 |
 | MX probes during repo update | 0 |
 | Guessed/generated contacts | 0 |
@@ -35,15 +35,15 @@ Run 51 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| KEXP Seattle Music Director Airplay Consideration | needs_manual_review |
-| WXPN 88.5 Music Director and Local Show Submissions | needs_manual_review |
-| KALX 90.7FM Berkeley Physical Music Submissions | needs_manual_review |
-| UKF / Pilot Submit Your Demo | needs_manual_review |
-| KFAI Minneapolis Music Department and Music Library | needs_manual_review |
+| SomaFM Submit Music for Airplay | needs_manual_review |
+| KVRX 91.7FM Austin Music Submissions | needs_manual_review |
+| WUSB 90.1FM Stony Brook Music Director Submissions | needs_manual_review |
+| KSCU 103.3FM Santa Clara Music Director Submissions | needs_manual_review |
+| KZSC 88.1FM Santa Cruz Genre Music Directors | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes are free-first but still require human review because they involve Music Director or Music Library email routes, public demo forms, physical-only media mailing, protected/redacted contact handling, EPK and download-link packaging, WAV/MP3 quality checks, clean/explicit review, DJ/show or local-show targeting, rights/licensing review, station/label fit and release metadata validation. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are free-first but still require human review because they involve Music Director email routes, digital-download packaging, Bandcamp YUM/download-code or WeTransfer/Dropbox handling, physical-mail options, AI/originality policies, channel or genre-director targeting, protected/redacted contact handling, MP3 bitrate/metadata checks, clean/explicit review, rights/licensing review, station fit and public-contact validation. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
@@ -51,11 +51,11 @@ No accounts were created, no route was activated, no forms were submitted, no em
 
 ## Artifacts produced
 
-- src/discovery/run51PlatformSeeds.ts
-- data/run51-platform-database.json
-- data/run51-review-queue.csv
-- data/run51-analytics-dashboard.json
-- reports/2026-07-01-run-51.md
+- src/discovery/run52PlatformSeeds.ts
+- data/run52-platform-database.json
+- data/run52-review-queue.csv
+- data/run52-analytics-dashboard.json
+- reports/2026-07-01-run-52.md
 - reports/daily_report.md
 
 ## Runtime note
