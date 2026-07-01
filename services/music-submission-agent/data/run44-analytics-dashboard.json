@@ -1,0 +1,31 @@
+{
+  "run": 44,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 275,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 280,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 1,
+  "freemiumManualRoutes": 2,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 2,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 1,
+  "publicApplicationOrUploadFormsObserved": 5,
+  "paymentRoutesObserved": 4,
+  "loginOrMembershipRoutesObserved": 4,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "protectedContactRoutesObserved": 0,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "Groover Music Promotion Platform", "pricingModel": "paid", "priority": 50, "queueStatus": "needs_manual_review" },
+    { "name": "Musosoup Music Promotion Platform", "pricingModel": "freemium", "priority": 70, "queueStatus": "needs_manual_review" },
+    { "name": "DailyPlaylists Submit a Song", "pricingModel": "freemium", "priority": 70, "queueStatus": "needs_manual_review" },
+    { "name": "Playlist Push Music Promotion", "pricingModel": "paid", "priority": 50, "queueStatus": "needs_manual_review" },
+    { "name": "Indiemono Free Submit Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
