@@ -1,0 +1,33 @@
+{
+  "run": 50,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 305,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 310,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 5,
+  "officialPublicPhysicalMailRoutesObserved": 3,
+  "publicApplicationOrUploadFormsObserved": 2,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 0,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 0,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "CJSF 90.1FM Burnaby Music CD Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "CHLY 101.7FM Nanaimo Submit Your Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "CFRU 93.3FM Guelph Music Department Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "CKUT 90.3FM Montreal Submit Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "CJAM 99.1FM Windsor Digital Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
