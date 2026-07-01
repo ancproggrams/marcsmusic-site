@@ -1,0 +1,33 @@
+{
+  "run": 53,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 320,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 325,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 3,
+  "officialPublicPhysicalMailRoutesObserved": 2,
+  "publicApplicationOrUploadFormsObserved": 2,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 0,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 0,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "KCSB-FM Santa Barbara Artist Inquiry", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WNCW 88.7 Submit Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WYEP Pittsburgh Area Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KUTX Austin Submit Your Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KXT 91.7 Dallas Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
