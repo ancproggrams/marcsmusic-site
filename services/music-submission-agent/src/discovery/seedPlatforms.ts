@@ -45,6 +45,7 @@ import { run44SeedPlatforms } from './run44PlatformSeeds.js';
 import { run45SeedPlatforms } from './run45PlatformSeeds.js';
 import { run46SeedPlatforms } from './run46PlatformSeeds.js';
 import { run47SeedPlatforms } from './run47PlatformSeeds.js';
+import { run48SeedPlatforms } from './run48PlatformSeeds.js';
 
 const allSeedPlatforms = [
   ...seedPlatforms,
@@ -90,7 +91,8 @@ const allSeedPlatforms = [
   ...run44SeedPlatforms,
   ...run45SeedPlatforms,
   ...run46SeedPlatforms,
-  ...run47SeedPlatforms
+  ...run47SeedPlatforms,
+  ...run48SeedPlatforms
 ];
 
 export function seedDiscoveryPlatforms(repositories: Repositories): { discovered: number; queued: number } {
@@ -137,12 +139,4 @@ export function seedDiscoveryPlatforms(repositories: Repositories): { discovered
   }
 
   return { discovered, queued };
-}
-
-export class DiscoveryWorker {
-  public constructor(private readonly repositories: Repositories) {}
-
-  public runOnce(): { discovered: number; queued: number } {
-    return seedDiscoveryPlatforms(this.repositories);
-  }
 }
