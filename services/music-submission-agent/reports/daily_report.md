@@ -2,15 +2,15 @@
 
 Date: 2026-07-01
 
-## Latest run: Run 34
+## Latest run: Run 35
 
-Run 34 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 35 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 230 |
+| Estimated runtime seed pipeline | 235 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
@@ -18,9 +18,10 @@ Run 34 added 5 newly researched public-authorized global music submission opport
 | Freemium/manual routes in latest run | 0 |
 | Unknown/manual routes in latest run | 0 |
 | Paid/manual-only routes in latest run | 0 |
-| Official public music/business email routes observed | 2 |
-| Public contact/submission forms observed | 3 |
-| CAPTCHA/validation-protected routes observed | 1 |
+| Official public music/business email routes observed | 4 |
+| Public upload forms observed | 1 |
+| Physical submission routes observed | 3 |
+| CAPTCHA/validation-protected routes observed | 0 |
 | Login/social-account routes observed | 0 |
 | SMTP probes during repo update | 0 |
 | MX probes during repo update | 0 |
@@ -30,15 +31,15 @@ Run 34 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| Radio Free Brooklyn Music Submission Form | needs_manual_review |
-| Worldwide FM Collaboration and New Voices Pitch Route | needs_manual_review |
-| NTS Radio Show Proposal Audio-Link Route | needs_manual_review |
-| WMSC 90.3 FM Music Director Review Route | needs_manual_review |
-| WFUV 90.7 Music Department Physical Submission Route | needs_manual_review |
+| WMNF 88.5 FM Submit Your Music Form | needs_manual_review |
+| WWOZ Getting Airplay Music Director Route | needs_manual_review |
+| KDVS 90.3 FM Music Department Physical Submission Route | needs_manual_review |
+| KAOS 89.3FM Olympia Submit Music Route | needs_manual_review |
+| KMNR 89.7 FM Music Director Route | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes require human review because they involve CAPTCHA/validation-protected public submission forms, general collaboration/contact forms, radio-show proposal forms, protected Music Director contact links, physical Music Department submissions, clean/radio-safe asset checks, rights review, metadata validation and owner-approved outreach copy. No route in this batch exposed a safe complete public auto-submit form.
+The latest routes require human review because they involve uploaded audio files, physical media decisions, one-sheets/press releases, clean/radio-safe metadata, rights/originality checks, FCC/profanity notes, physical mailing/drop-off routes, station/show fit and owner-approved outreach copy. No route in this batch exposed a safe complete public auto-submit form.
 
 ## Safety summary
 
@@ -46,11 +47,11 @@ No accounts were created, no messages were sent, no forms were submitted, no fil
 
 ## Artifacts produced
 
-- src/discovery/run34PlatformSeeds.ts
-- data/run34-platform-database.json
-- data/run34-review-queue.csv
-- data/run34-analytics-dashboard.json
-- reports/2026-07-01-run-34.md
+- src/discovery/run35PlatformSeeds.ts
+- data/run35-platform-database.json
+- data/run35-review-queue.csv
+- data/run35-analytics-dashboard.json
+- reports/2026-07-01-run-35.md
 - reports/daily_report.md
 
 ## Runtime note
