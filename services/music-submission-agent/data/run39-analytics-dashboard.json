@@ -1,0 +1,65 @@
+{
+  "run": 39,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 250,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 255,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 2,
+  "publicApplicationOrUploadFormsObserved": 3,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 2,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "guessedGeneratedContacts": 0,
+  "autoSubmitEnabled": false,
+  "safety": {
+    "accountsCreated": 0,
+    "messagesSent": 0,
+    "formsSubmitted": 0,
+    "filesUploaded": 0,
+    "paymentsAttempted": 0,
+    "captchaBypassAttempted": 0,
+    "loginBypassAttempted": 0,
+    "protectedContactsDecoded": 0
+  },
+  "opportunities": [
+    {
+      "name": "KALX 90.7FM Berkeley Music Submissions",
+      "pricingModel": "free",
+      "priority": 90,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "KEXP Rotation Consideration",
+      "pricingModel": "free",
+      "priority": 90,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "Monstercat Demo Submission",
+      "pricingModel": "free",
+      "priority": 90,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "Spinnin Records Talent Pool",
+      "pricingModel": "free",
+      "priority": 90,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "Armada Music Demo Drop",
+      "pricingModel": "free",
+      "priority": 90,
+      "queueStatus": "needs_manual_review"
+    }
+  ]
+}
