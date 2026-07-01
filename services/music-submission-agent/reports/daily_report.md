@@ -2,15 +2,15 @@
 
 Date: 2026-07-01
 
-## Latest run: Run 48
+## Latest run: Run 49
 
-Run 48 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 49 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 300 |
+| Estimated runtime seed pipeline | 305 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
@@ -21,7 +21,7 @@ Run 48 added 5 newly researched public-authorized global music submission opport
 | Official public route pages observed | 5 |
 | Official public music/business email routes observed | 5 |
 | Official public physical-mail routes observed | 4 |
-| Public application/upload/contact forms observed | 0 |
+| Public application/upload/contact forms observed | 1 |
 | Payment/payment-option routes observed | 0 |
 | Login/member/account routes observed | 0 |
 | CAPTCHA/bot-protection routes observed | 0 |
@@ -35,15 +35,15 @@ Run 48 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| WMSE 91.7FM Milwaukee Music Department | needs_manual_review |
-| KRUI 89.7FM Get Your Music Played | needs_manual_review |
-| KXCI 91.3 Tucson Music Department Submissions | needs_manual_review |
-| WXDU 88.7FM Duke Radio Music Submissions | needs_manual_review |
-| KDVS 90.3FM Davis Music Department Physical Submissions | needs_manual_review |
+| WPRB 103.3 FM Princeton Music Submissions | needs_manual_review |
+| KZSU Stanford 90.1 FM Music Directors | needs_manual_review |
+| WCBN-FM Ann Arbor Music Hard-Copy Submissions | needs_manual_review |
+| WHRB 95.3 FM Harvard Radio Promo Submissions | needs_manual_review |
+| Soundplate Free Playlist Submission System | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes are free-first but still require human review because they involve Music Director email/download workflows, Bandcamp YUM/download-code handling, physical-only routing, MP3/WAV download links, physical media/package preparation, FCC-clean or explicit-content review, station/DJ/program fit, local-priority checks, protected/redacted contact handling and rights/metadata review. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are free-first but still require human review because they involve Music Director email routes, physical-media mailing, cookie/session-protected guideline access, department or genre-director routing, playlist/curator selection, downstream form/session steps, protected/masked contact handling, anti-spam relevance checks and rights/metadata review. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
@@ -51,11 +51,11 @@ No accounts were created, no route was activated, no forms were submitted, no em
 
 ## Artifacts produced
 
-- src/discovery/run48PlatformSeeds.ts
-- data/run48-platform-database.json
-- data/run48-review-queue.csv
-- data/run48-analytics-dashboard.json
-- reports/2026-07-01-run-48.md
+- src/discovery/run49PlatformSeeds.ts
+- data/run49-platform-database.json
+- data/run49-review-queue.csv
+- data/run49-analytics-dashboard.json
+- reports/2026-07-01-run-49.md
 - reports/daily_report.md
 
 ## Runtime note
