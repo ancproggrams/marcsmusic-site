@@ -1,0 +1,29 @@
+{
+  "run": 40,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 255,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 260,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 3,
+  "publicApplicationOrUploadFormsObserved": 2,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 0,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "protectedContactRoutesObserved": 1,
+  "guessedGeneratedContacts": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "KVRX 91.7 FM Austin Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WNYU 89.1 FM Music Director Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KZSC Santa Cruz Station Music Directors", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WHPK 88.5 FM Chicago Music Director and Format Chief Routing", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WNUR 89.3 FM Submit Your Sound", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
