@@ -1,0 +1,65 @@
+{
+  "run": 36,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 235,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 240,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 2,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 3,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 1,
+  "publicApplicationOrUploadFormsObserved": 5,
+  "paymentRoutesObserved": 3,
+  "loginOrMembershipRoutesObserved": 3,
+  "captchaOrBotProtectionRoutesObserved": 1,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "guessedGeneratedContacts": 0,
+  "autoSubmitEnabled": false,
+  "safety": {
+    "accountsCreated": 0,
+    "messagesSent": 0,
+    "formsSubmitted": 0,
+    "filesUploaded": 0,
+    "paymentsAttempted": 0,
+    "captchaBypassAttempted": 0,
+    "loginBypassAttempted": 0,
+    "protectedContactsDecoded": 0
+  },
+  "opportunities": [
+    {
+      "name": "Sofar Sounds Artist Application",
+      "pricingModel": "free",
+      "priority": 90,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "Unsigned Only Music Awards Online Entry",
+      "pricingModel": "paid",
+      "priority": 10,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "Great American Song Contest 2026 Online Submission",
+      "pricingModel": "paid",
+      "priority": 10,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "John Lennon Songwriting Contest 2026 Session Entry",
+      "pricingModel": "paid",
+      "priority": 10,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "Subvert Founding Artist or Label Membership",
+      "pricingModel": "free",
+      "priority": 90,
+      "queueStatus": "needs_manual_review"
+    }
+  ]
+}
