@@ -27,7 +27,7 @@
     { "name": "KEXP Seattle Music Director Airplay Consideration", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
     { "name": "WXPN 88.5 Music Director and Local Show Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
     { "name": "KALX 90.7FM Berkeley Physical Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
-    { "name": "UKF Demo Submission", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "UKF Pilot Demo Submission", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
     { "name": "KFAI Minneapolis Music Department and Music Library", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
   ]
 }
