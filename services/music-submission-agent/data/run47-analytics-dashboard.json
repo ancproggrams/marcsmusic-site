@@ -1,0 +1,33 @@
+{
+  "run": 47,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 290,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 295,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 2,
+  "officialPublicPhysicalMailRoutesObserved": 1,
+  "publicApplicationOrUploadFormsObserved": 2,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 0,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 1,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "95bFM Auckland Submit Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Fresh On The Net Send Us A Track", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "dublab Radio Promotional Materials", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "NTS Radio Show Proposal", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WFMU Send Music to WFMU", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
