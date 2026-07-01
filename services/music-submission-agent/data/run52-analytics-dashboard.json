@@ -1,0 +1,33 @@
+{
+  "run": 52,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 315,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 320,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 4,
+  "officialPublicPhysicalMailRoutesObserved": 2,
+  "publicApplicationOrUploadFormsObserved": 0,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 0,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 1,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "SomaFM Submit Music for Airplay", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KVRX 91.7FM Austin Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WUSB 90.1FM Stony Brook Music Director Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KSCU 103.3FM Santa Clara Music Director Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KZSC 88.1FM Santa Cruz Genre Music Directors", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
