@@ -2,27 +2,30 @@
 
 Date: 2026-07-01
 
-## Latest run: Run 44
+## Latest run: Run 45
 
-Run 44 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 45 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 280 |
+| Estimated runtime seed pipeline | 285 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
-| Free-first routes in latest run | 1 |
-| Freemium/manual routes in latest run | 2 |
+| Free-first routes in latest run | 5 |
+| Freemium/manual routes in latest run | 0 |
 | Unknown/manual routes in latest run | 0 |
-| Paid/manual-only routes in latest run | 2 |
+| Paid/manual-only routes in latest run | 0 |
 | Official public route pages observed | 5 |
-| Public application/upload forms observed | 5 |
-| Payment/payment-option routes observed | 4 |
-| Login/member/account routes observed | 4 |
+| Official public music/business email routes observed | 4 |
+| Official public physical-mail routes observed | 3 |
+| Public application/upload forms observed | 2 |
+| Payment/payment-option routes observed | 0 |
+| Login/member/account routes observed | 0 |
 | CAPTCHA/bot-protection routes observed | 0 |
+| External/manual workflow routes observed | 5 |
 | Protected-contact routes observed | 0 |
 | SMTP probes during repo update | 0 |
 | MX probes during repo update | 0 |
@@ -32,27 +35,27 @@ Run 44 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| Groover Music Promotion Platform | needs_manual_review |
-| Musosoup Music Promotion Platform | needs_manual_review |
-| DailyPlaylists Submit a Song | needs_manual_review |
-| Playlist Push Music Promotion | needs_manual_review |
-| Indiemono Free Submit Music | needs_manual_review |
+| CJSW 90.9 FM Calgary Music Submissions | needs_manual_review |
+| CFUV 101.9 FM Victoria Music Submissions | needs_manual_review |
+| CJSR 88.5 FM Edmonton Submit Music | needs_manual_review |
+| KBOO 90.7 FM Portland Submit Music | needs_manual_review |
+| KOOP 91.7 FM Austin Music Library Submissions | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes require human review because they involve signup/account flows, paid campaign credits or campaign fees, optional premium tiers, public submit forms, Spotify track-link validation, consent/privacy terms, curator targeting, dashboard/campaign setup, release metadata, playlist/press/radio fit and rights checks. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are free-first but still require human review because they involve external upload forms, email/download-link workflows, physical mail routing, incomplete static ingest instructions, release-age checks, album/EP-only rules, metadata and file-format requirements, FCC-clean or language warnings, AI/originality policy checks, genre/show targeting and station/programmer fit. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
-No accounts were created, no route was activated, no forms were submitted, no files were uploaded, no campaigns were launched, no payments were attempted, no CAPTCHA/reCAPTCHA or validation controls were bypassed, no protected contacts were decoded, no contacts were guessed and no SMTP or MX probing was performed during this repo update.
+No accounts were created, no route was activated, no forms were submitted, no emails were sent, no files were uploaded, no physical mail was sent, no payments were attempted, no CAPTCHA/reCAPTCHA or validation controls were bypassed, no protected contacts were decoded, no contacts were guessed and no SMTP or MX probing was performed during this repo update.
 
 ## Artifacts produced
 
-- src/discovery/run44PlatformSeeds.ts
-- data/run44-platform-database.json
-- data/run44-review-queue.csv
-- data/run44-analytics-dashboard.json
-- reports/2026-07-01-run-44.md
+- src/discovery/run45PlatformSeeds.ts
+- data/run45-platform-database.json
+- data/run45-review-queue.csv
+- data/run45-analytics-dashboard.json
+- reports/2026-07-01-run-45.md
 - reports/daily_report.md
 
 ## Runtime note
