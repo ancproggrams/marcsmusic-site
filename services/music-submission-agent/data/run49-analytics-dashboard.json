@@ -1,0 +1,33 @@
+{
+  "run": 49,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 300,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 305,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 5,
+  "officialPublicPhysicalMailRoutesObserved": 4,
+  "publicApplicationOrUploadFormsObserved": 1,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 0,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 1,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "WPRB 103.3 FM Princeton Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KZSU Stanford 90.1 FM Music Directors", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WCBN-FM Ann Arbor Music Hard-Copy Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WHRB 95.3 FM Harvard Radio Promo Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Soundplate Free Playlist Submission System", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
