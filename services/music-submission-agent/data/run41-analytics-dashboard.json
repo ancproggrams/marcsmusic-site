@@ -1,0 +1,31 @@
+{
+  "run": 41,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 260,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 265,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 3,
+  "publicApplicationOrUploadFormsObserved": 3,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 0,
+  "captchaOrBotProtectionRoutesObserved": 1,
+  "protectedContactRoutesObserved": 0,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "KXT 91.7 Dallas Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KUTX 98.9 Austin On-Air Rotation Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WERS 88.9FM Wicked Local Wednesday Music Submission", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "WYEP 91.3 Pittsburgh Area Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Toolroom Records Demo Submission", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
