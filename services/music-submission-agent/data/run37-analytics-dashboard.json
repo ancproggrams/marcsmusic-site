@@ -1,0 +1,65 @@
+{
+  "run": 37,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 240,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 245,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 3,
+  "freemiumManualRoutes": 2,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 1,
+  "publicApplicationOrUploadFormsObserved": 5,
+  "paymentRoutesObserved": 2,
+  "loginOrMembershipRoutesObserved": 5,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "guessedGeneratedContacts": 0,
+  "autoSubmitEnabled": false,
+  "safety": {
+    "accountsCreated": 0,
+    "messagesSent": 0,
+    "formsSubmitted": 0,
+    "filesUploaded": 0,
+    "paymentsAttempted": 0,
+    "captchaBypassAttempted": 0,
+    "loginBypassAttempted": 0,
+    "protectedContactsDecoded": 0
+  },
+  "opportunities": [
+    {
+      "name": "Jamendo Artist Upload and Licensing",
+      "pricingModel": "free",
+      "priority": 90,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "Free Music Archive / Tribe of Noise Curated Upload",
+      "pricingModel": "free",
+      "priority": 90,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "Audiomack Creator Upload",
+      "pricingModel": "free",
+      "priority": 90,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "Bandcamp Artist Release Upload",
+      "pricingModel": "freemium",
+      "priority": 30,
+      "queueStatus": "needs_manual_review"
+    },
+    {
+      "name": "SoundClick Artist and Beat Producer Upload",
+      "pricingModel": "freemium",
+      "priority": 30,
+      "queueStatus": "needs_manual_review"
+    }
+  ]
+}
