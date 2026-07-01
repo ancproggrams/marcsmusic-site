@@ -1,0 +1,31 @@
+{
+  "run": 43,
+  "date": "2026-07-01",
+  "previousEstimatedRuntimeSeedPipeline": 270,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 275,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 4,
+  "publicApplicationOrUploadFormsObserved": 3,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 0,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "protectedContactRoutesObserved": 3,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "RTRFM 92.1 Perth Submit Your Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Edge Radio 99.3FM Hobart Submit Your Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Three D Radio 93.7FM Adelaide Submit Your Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Radio Adelaide Submit Your Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "4ZZZ Brisbane Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
