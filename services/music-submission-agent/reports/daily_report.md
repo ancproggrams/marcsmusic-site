@@ -2,28 +2,28 @@
 
 Date: 2026-07-02
 
-## Latest run: Run 67
+## Latest run: Run 68
 
-Run 67 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 68 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 395 |
+| Estimated runtime seed pipeline | 400 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
-| Free-first routes in latest run | 3 |
-| Freemium/manual routes in latest run | 2 |
+| Free-first routes in latest run | 5 |
+| Freemium/manual routes in latest run | 0 |
 | Unknown/manual routes in latest run | 0 |
 | Paid/manual-only routes in latest run | 0 |
 | Official public route pages observed | 5 |
-| Official public music/business email routes observed | 1 |
-| Official public physical-mail routes observed | 0 |
-| Public application/upload/contact forms observed | 4 |
-| Payment/payment-option side routes observed | 2 |
-| Login/member/account routes observed | 1 |
+| Official public music/business email routes observed | 5 |
+| Official public physical-mail routes observed | 4 |
+| Public application/upload/contact forms observed | 0 |
+| Payment/payment-option side routes observed | 0 |
+| Login/member/account routes observed | 0 |
 | CAPTCHA/bot-protection routes observed | 0 |
 | External/manual workflow routes observed | 5 |
 | Protected/redacted contact routes observed | 0 |
@@ -35,15 +35,15 @@ Run 67 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| A&R Factory Submit Your Music | needs_manual_review |
-| WXPN Submit Music for Airplay | needs_manual_review |
-| SomaFM Submit Music and Channel Music Director Contacts | needs_manual_review |
-| Radio Boise Submit Your Music | needs_manual_review |
-| RepostExchange SoundCloud Creator Promotion Campaigns | needs_manual_review |
+| KEXP Music Director Rotation Consideration | needs_manual_review |
+| WPRB Princeton Music Submissions | needs_manual_review |
+| KALX 90.7FM Berkeley Physical Music Submissions | needs_manual_review |
+| CJSF 90.1FM Music CD Submissions | needs_manual_review |
+| KVRX 91.7FM Austin Music Department Submissions | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes are legitimate public editorial, radio airplay, internet radio, community radio and SoundCloud creator-promotion workflows, but all require manual review because they involve public form completion, optional paid package/payment choices, channel-specific email targeting and anti-bulk rules, JavaScript-rendered form content, SoundCloud OAuth/login, credit/campaign choices, metadata, rights/originality assertions and publication/programming/platform-fit decisions. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are legitimate public radio, freeform radio, campus radio and community radio airplay workflows, but all require manual review because they involve targeted email preparation, physical package selection/mailing, digital-vs-physical eligibility choices, no-AI/originality assertions, metadata, rights/originality assertions and programming/station-fit decisions. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
@@ -51,11 +51,11 @@ No accounts were created, no route was activated, no forms were submitted, no em
 
 ## Artifacts produced
 
-- src/discovery/run67PlatformSeeds.ts
-- data/run67-platform-database.json
-- data/run67-review-queue.csv
-- data/run67-analytics-dashboard.json
-- reports/2026-07-02-run-67.md
+- src/discovery/run68PlatformSeeds.ts
+- data/run68-platform-database.json
+- data/run68-review-queue.csv
+- data/run68-analytics-dashboard.json
+- reports/2026-07-02-run-68.md
 - reports/daily_report.md
 
 ## Runtime note
