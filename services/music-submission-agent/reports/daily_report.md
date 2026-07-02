@@ -2,15 +2,15 @@
 
 Date: 2026-07-03
 
-## Latest run: Run 79
+## Latest run: Run 80
 
-Run 79 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 80 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 455 |
+| Estimated runtime seed pipeline | 460 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
@@ -21,8 +21,8 @@ Run 79 added 5 newly researched public-authorized global music submission opport
 | Official public route pages observed | 5 |
 | Official public music/business email routes observed | 3 |
 | Official public physical-mail routes observed | 3 |
-| Public application/upload/contact forms observed | 0 |
-| Payment/payment-option side routes observed | 0 |
+| Public application/upload/contact forms observed | 1 |
+| Payment/payment-option side routes observed | 1 |
 | Login/member/account routes observed | 0 |
 | CAPTCHA/bot-protection routes observed | 0 |
 | External/manual workflow routes observed | 5 |
@@ -35,15 +35,15 @@ Run 79 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| WPRB 103.3 FM Music Submissions | needs_manual_review |
-| KALX 90.7FM Berkeley Airplay Submissions | needs_manual_review |
-| KSPC 88.7FM Music Submissions | needs_manual_review |
-| WUSC 90.5 FM Outreach Music Director Submissions | needs_manual_review |
-| KZSC Santa Cruz Genre Music Director Contacts | needs_manual_review |
+| WREK Atlanta How To Submit Music | needs_manual_review |
+| WMBR 88.1 FM How To Get Your Music Played | needs_manual_review |
+| WRCT 88.3 FM Pittsburgh Music Director Submissions | needs_manual_review |
+| KUTX Submit Your Music for On-Air Rotation | needs_manual_review |
+| KDVS 90.3 FM Music Department Physical Submissions | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes are legitimate public college, community, freeform and noncommercial radio airplay/library routes, but all require manual review because they involve outbound email approval, protected-contact handling, physical package decisions, genre-director routing, no-singles/no-demos checks, no-download/no-file-transfer compliance, metadata, release context, clean/FCC or explicit-language labeling, AI-use/originality review, rights assertions and station/DJ/editorial fit decisions. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are legitimate public college, community, freeform, public-radio and noncommercial radio airplay/library routes, but all require manual review because they involve outbound email approval, physical package decisions, protected-contact handling, music director or genre-director routing, no-MP3/no-attachment/no-digital-submission compliance, WAV/download-link preparation, FCC-clean/radio-edit checks, metadata, release context, rights/originality assertions and station/DJ/editorial/library fit decisions. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
@@ -51,11 +51,11 @@ No accounts were created, no login was used, no route was activated, no forms we
 
 ## Artifacts produced
 
-- src/discovery/run79PlatformSeeds.ts
-- data/run79-platform-database.json
-- data/run79-review-queue.csv
-- data/run79-analytics-dashboard.json
-- reports/2026-07-03-run-79.md
+- src/discovery/run80PlatformSeeds.ts
+- data/run80-platform-database.json
+- data/run80-review-queue.csv
+- data/run80-analytics-dashboard.json
+- reports/2026-07-03-run-80.md
 - reports/daily_report.md
 - src/discovery/seedPlatforms.ts
 
