@@ -1,0 +1,33 @@
+{
+  "run": 61,
+  "date": "2026-07-02",
+  "previousEstimatedRuntimeSeedPipeline": 360,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 365,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 0,
+  "freemiumManualRoutes": 2,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 3,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 1,
+  "officialPublicPhysicalMailRoutesObserved": 0,
+  "publicApplicationOrUploadFormsObserved": 5,
+  "paymentRoutesObserved": 4,
+  "loginOrMembershipRoutesObserved": 5,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 0,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "DailyPlaylists Free Spotify Playlist Submission System", "pricingModel": "freemium", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Groover Music Promotion Curator Campaigns", "pricingModel": "paid", "priority": 60, "queueStatus": "needs_manual_review" },
+    { "name": "Musosoup Artist Campaign Submission", "pricingModel": "freemium", "priority": 75, "queueStatus": "needs_manual_review" },
+    { "name": "SoundCampaign Spotify and TikTok Music Promotion", "pricingModel": "paid", "priority": 60, "queueStatus": "needs_manual_review" },
+    { "name": "Playlist Push Spotify and TikTok Campaigns", "pricingModel": "paid", "priority": 60, "queueStatus": "needs_manual_review" }
+  ]
+}
