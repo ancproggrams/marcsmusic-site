@@ -58,6 +58,7 @@ import { run57SeedPlatforms } from './run57PlatformSeeds.js';
 import { run58SeedPlatforms } from './run58PlatformSeeds.js';
 import { run59SeedPlatforms } from './run59PlatformSeeds.js';
 import { run60SeedPlatforms } from './run60PlatformSeeds.js';
+import { run61SeedPlatforms } from './run61PlatformSeeds.js';
 
 const allSeedPlatforms = [
   ...seedPlatforms,
@@ -116,7 +117,8 @@ const allSeedPlatforms = [
   ...run57SeedPlatforms,
   ...run58SeedPlatforms,
   ...run59SeedPlatforms,
-  ...run60SeedPlatforms
+  ...run60SeedPlatforms,
+  ...run61SeedPlatforms
 ];
 
 export function seedDiscoveryPlatforms(repositories: Repositories): { discovered: number; queued: number } {
@@ -127,7 +129,7 @@ export function seedDiscoveryPlatforms(repositories: Repositories): { discovered
     const pricing = classifyPricing(seed);
     const platform = repositories.platforms.upsert({
       ...seed,
-      ['payment' + 'Required']: seed.paymentRequired || pricing.pricingModel === 'paid',
+      paymentRequired: seed.paymentRequired || pricing.pricingModel === 'paid',
       manualReviewRequired: seed.manualReviewRequired || pricing.requiresOwnerApproval,
       notes: [seed.notes, `pricing_model=${pricing.pricingModel}`, `pricing_reason=${pricing.reason}`]
         .filter(Boolean)
