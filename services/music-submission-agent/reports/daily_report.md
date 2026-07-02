@@ -2,28 +2,28 @@
 
 Date: 2026-07-02
 
-## Latest run: Run 64
+## Latest run: Run 65
 
-Run 64 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 65 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 380 |
+| Estimated runtime seed pipeline | 385 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
-| Free-first routes in latest run | 5 |
-| Freemium/manual routes in latest run | 0 |
+| Free-first routes in latest run | 1 |
+| Freemium/manual routes in latest run | 3 |
 | Unknown/manual routes in latest run | 0 |
-| Paid/manual-only routes in latest run | 0 |
+| Paid/manual-only routes in latest run | 1 |
 | Official public route pages observed | 5 |
 | Official public music/business email routes observed | 0 |
 | Official public physical-mail routes observed | 0 |
 | Public application/upload/contact forms observed | 5 |
-| Payment/payment-option side routes observed | 0 |
-| Login/member/account routes observed | 4 |
+| Payment/payment-option side routes observed | 4 |
+| Login/member/account routes observed | 5 |
 | CAPTCHA/bot-protection routes observed | 0 |
 | External/manual workflow routes observed | 5 |
 | Protected/redacted contact routes observed | 0 |
@@ -35,15 +35,15 @@ Run 64 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| Soundplate Play Spotify and Deezer Playlist Submissions | needs_manual_review |
-| Spinnin' Records Talent Pool Demo Dashboard | needs_manual_review |
-| Spotify for Artists Editorial Playlist Pitching | needs_manual_review |
-| Mixcloud Creator Upload and Discovery Platform | needs_manual_review |
-| Vampr Publishing Sync and Artist Network Opportunities | needs_manual_review |
+| Songtradr Music Licensing Marketplace | needs_manual_review |
+| ReverbNation Artist Opportunities and Profile Platform | needs_manual_review |
+| Broadjam Song Licensing and Placement Opportunities | needs_manual_review |
+| RouteNote Free-First Distribution and Publishing | needs_manual_review |
+| Amuse Self-Service Distribution and Artist Services | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes are legitimate public playlist, label-demo, editorial-pitching, creator-upload and artist-opportunity workflows, but all require manual review because they involve playlist/curator or label-fit decisions, account/login dashboards, unreleased-track or catalog eligibility checks, track/upload/link preparation, metadata and pitch copy, rights/originality assertions, anti-spam compliance, public/private or monetization choices, optional premium/distribution side routes and platform terms acceptance. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are legitimate public music-licensing, artist-opportunity, song-placement, digital-distribution and artist-services workflows, but all require manual review because they involve account/login dashboards, catalog or release uploads, metadata and store/territory choices, sync/licensing or opportunity-fit decisions, optional paid memberships or premium plans, one paid subscription route, royalty/payout setup, contract or terms decisions and rights/originality assertions. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
@@ -51,11 +51,11 @@ No accounts were created, no route was activated, no forms were submitted, no em
 
 ## Artifacts produced
 
-- src/discovery/run64PlatformSeeds.ts
-- data/run64-platform-database.json
-- data/run64-review-queue.csv
-- data/run64-analytics-dashboard.json
-- reports/2026-07-02-run-64.md
+- src/discovery/run65PlatformSeeds.ts
+- data/run65-platform-database.json
+- data/run65-review-queue.csv
+- data/run65-analytics-dashboard.json
+- reports/2026-07-02-run-65.md
 - reports/daily_report.md
 
 ## Runtime note
