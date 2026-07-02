@@ -1,0 +1,33 @@
+{
+  "run": 62,
+  "date": "2026-07-02",
+  "previousEstimatedRuntimeSeedPipeline": 365,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 370,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 2,
+  "freemiumManualRoutes": 3,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 0,
+  "officialPublicPhysicalMailRoutesObserved": 1,
+  "publicApplicationOrUploadFormsObserved": 4,
+  "paymentRoutesObserved": 2,
+  "loginOrMembershipRoutesObserved": 4,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 0,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "WFMU Send Us Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Bandcamp for Artists", "pricingModel": "freemium", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Jamendo Artists Services", "pricingModel": "freemium", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Newgrounds Audio Portal", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "SoundCloud Upload Your Music", "pricingModel": "freemium", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
