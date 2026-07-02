@@ -2,15 +2,15 @@
 
 Date: 2026-07-02
 
-## Latest run: Run 63
+## Latest run: Run 64
 
-Run 63 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 64 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 375 |
+| Estimated runtime seed pipeline | 380 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
@@ -19,14 +19,14 @@ Run 63 added 5 newly researched public-authorized global music submission opport
 | Unknown/manual routes in latest run | 0 |
 | Paid/manual-only routes in latest run | 0 |
 | Official public route pages observed | 5 |
-| Official public music/business email routes observed | 3 |
-| Official public physical-mail routes observed | 5 |
-| Public application/upload/contact forms observed | 0 |
+| Official public music/business email routes observed | 0 |
+| Official public physical-mail routes observed | 0 |
+| Public application/upload/contact forms observed | 5 |
 | Payment/payment-option side routes observed | 0 |
-| Login/member/account routes observed | 0 |
+| Login/member/account routes observed | 4 |
 | CAPTCHA/bot-protection routes observed | 0 |
 | External/manual workflow routes observed | 5 |
-| Protected/redacted contact routes observed | 2 |
+| Protected/redacted contact routes observed | 0 |
 | SMTP probes during repo update | 0 |
 | MX probes during repo update | 0 |
 | Guessed/generated contacts | 0 |
@@ -35,15 +35,15 @@ Run 63 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| KSPC 88.7FM Claremont Music Submissions | needs_manual_review |
-| KXLU 88.9FM Los Angeles Submissions | needs_manual_review |
-| KDVS 90.3FM Davis Music Department Submissions | needs_manual_review |
-| WREK 91.1FM Atlanta How To Submit Music | needs_manual_review |
-| WMBR 88.1FM MIT Your Music | needs_manual_review |
+| Soundplate Play Spotify and Deezer Playlist Submissions | needs_manual_review |
+| Spinnin' Records Talent Pool Demo Dashboard | needs_manual_review |
+| Spotify for Artists Editorial Playlist Pitching | needs_manual_review |
+| Mixcloud Creator Upload and Discovery Platform | needs_manual_review |
+| Vampr Publishing Sync and Artist Network Opportunities | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes are legitimate public college/community/freeform radio submission routes, but all require manual review because they involve physical mailing or email-based submission, album/EP eligibility checks, downloadable-file preparation, metadata and one-sheet preparation, FCC-clean or explicit-content labeling, no-singles/no-demos/no-AI restrictions on some routes, protected/masked contact handling, rights/originality assertions, follow-up timing and station/show-fit decisions. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are legitimate public playlist, label-demo, editorial-pitching, creator-upload and artist-opportunity workflows, but all require manual review because they involve playlist/curator or label-fit decisions, account/login dashboards, unreleased-track or catalog eligibility checks, track/upload/link preparation, metadata and pitch copy, rights/originality assertions, anti-spam compliance, public/private or monetization choices, optional premium/distribution side routes and platform terms acceptance. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
@@ -51,11 +51,11 @@ No accounts were created, no route was activated, no forms were submitted, no em
 
 ## Artifacts produced
 
-- src/discovery/run63PlatformSeeds.ts
-- data/run63-platform-database.json
-- data/run63-review-queue.csv
-- data/run63-analytics-dashboard.json
-- reports/2026-07-02-run-63.md
+- src/discovery/run64PlatformSeeds.ts
+- data/run64-platform-database.json
+- data/run64-review-queue.csv
+- data/run64-analytics-dashboard.json
+- reports/2026-07-02-run-64.md
 - reports/daily_report.md
 
 ## Runtime note
