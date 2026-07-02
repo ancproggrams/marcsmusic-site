@@ -1,0 +1,33 @@
+{
+  "run": 59,
+  "date": "2026-07-02",
+  "previousEstimatedRuntimeSeedPipeline": 350,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 355,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 5,
+  "officialPublicPhysicalMailRoutesObserved": 3,
+  "publicApplicationOrUploadFormsObserved": 1,
+  "paymentRoutesObserved": 2,
+  "loginOrMembershipRoutesObserved": 0,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 0,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "RTRFM 92.1 Perth Submit Your Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "FBi Radio Sydney Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Triple R 102.7FM Melbourne Submit Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Edge Radio 99.3FM Hobart Submit Your Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Radio Adelaide Submit Your Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
