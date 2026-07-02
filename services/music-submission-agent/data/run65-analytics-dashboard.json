@@ -1,0 +1,33 @@
+{
+  "run": 65,
+  "date": "2026-07-02",
+  "previousEstimatedRuntimeSeedPipeline": 380,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 385,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 1,
+  "freemiumManualRoutes": 3,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 1,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 0,
+  "officialPublicPhysicalMailRoutesObserved": 0,
+  "publicApplicationOrUploadFormsObserved": 5,
+  "paymentRoutesObserved": 4,
+  "loginOrMembershipRoutesObserved": 5,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 0,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "Songtradr Music Licensing Marketplace", "pricingModel": "freemium", "priority": 70, "queueStatus": "needs_manual_review" },
+    { "name": "ReverbNation Artist Opportunities and Profile Platform", "pricingModel": "freemium", "priority": 70, "queueStatus": "needs_manual_review" },
+    { "name": "Broadjam Song Licensing and Placement Opportunities", "pricingModel": "freemium", "priority": 70, "queueStatus": "needs_manual_review" },
+    { "name": "RouteNote Free-First Distribution and Publishing", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Amuse Self-Service Distribution and Artist Services", "pricingModel": "paid", "priority": 40, "queueStatus": "needs_manual_review" }
+  ]
+}
