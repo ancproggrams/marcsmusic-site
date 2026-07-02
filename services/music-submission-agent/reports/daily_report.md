@@ -2,29 +2,29 @@
 
 Date: 2026-07-02
 
-## Latest run: Run 77
+## Latest run: Run 78
 
-Run 77 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 78 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 445 |
+| Estimated runtime seed pipeline | 450 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
-| Free-first routes in latest run | 3 |
-| Freemium/manual routes in latest run | 1 |
+| Free-first routes in latest run | 5 |
+| Freemium/manual routes in latest run | 0 |
 | Unknown/manual routes in latest run | 0 |
-| Paid/manual-only routes in latest run | 1 |
+| Paid/manual-only routes in latest run | 0 |
 | Official public route pages observed | 5 |
-| Official public music/business email routes observed | 1 |
-| Official public physical-mail routes observed | 0 |
-| Public application/upload/contact forms observed | 5 |
-| Payment/payment-option side routes observed | 2 |
-| Login/member/account routes observed | 2 |
-| CAPTCHA/bot-protection routes observed | 1 |
+| Official public music/business email routes observed | 5 |
+| Official public physical-mail routes observed | 4 |
+| Public application/upload/contact forms observed | 2 |
+| Payment/payment-option side routes observed | 0 |
+| Login/member/account routes observed | 0 |
+| CAPTCHA/bot-protection routes observed | 0 |
 | External/manual workflow routes observed | 5 |
 | Protected/redacted contact routes observed | 0 |
 | SMTP probes during repo update | 0 |
@@ -35,27 +35,27 @@ Run 77 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| Soho Radio Music Submission | needs_manual_review |
-| NTS Radio Show Proposal Form | needs_manual_review |
-| Groover Paid Music Promotion Submission Platform | needs_manual_review |
-| Musosoup Artist Campaign Submission | needs_manual_review |
-| Soundplate Free Playlist Submission System | needs_manual_review |
+| KEXP Airplay Submission Guidelines | needs_manual_review |
+| KVRX 91.7 FM Music Department Submissions | needs_manual_review |
+| KJHK 90.7 FM Submit Music | needs_manual_review |
+| KCSU 90.5 FM Submit Your Music for Air-Play | needs_manual_review |
+| KXLU 88.9 FM General and Specialty Submissions | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes are legitimate public independent-radio, radio-show-proposal, paid/freemium promotion, curator marketplace, playlist-submission, contact-form, app-upload and music-submission-email routes, but all require manual review because they involve outbound email, public form or app completion, account/login or payment approval in some cases, anti-bot/request verification in one case, playlist or curator selection, track/link permissions, metadata, release context, clean/explicit labeling, rights/originality assertions and station/editorial/playlist fit decisions. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are legitimate public college, public, non-commercial and freeform radio airplay routes, but all require manual review because they involve outbound email approval, stream or download-link permissions, metadata, release context, clean/FCC or explicit-language labeling, rights/originality assertions, local-vs-general routing, physical package decisions, external form handling and station/DJ/editorial fit decisions. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
-No accounts were created, no login was used, no route was activated, no forms were submitted, no emails were sent, no files were uploaded or transferred, no physical mail was sent, no payments or paid promotion routes were activated, no anti-bot or validation controls were interacted with, no protected or masked contacts were decoded, no contacts were guessed and no SMTP or MX probing was performed during this repo update.
+No accounts were created, no login was used, no route was activated, no forms were submitted, no emails were sent, no files were uploaded or transferred, no physical mail was sent, no payments or paid promotion routes were activated, no validation controls were interacted with, no protected or masked contacts were decoded, no contacts were guessed and no SMTP or MX probing was performed during this repo update.
 
 ## Artifacts produced
 
-- src/discovery/run77PlatformSeeds.ts
-- data/run77-platform-database.json
-- data/run77-review-queue.csv
-- data/run77-analytics-dashboard.json
-- reports/2026-07-02-run-77.md
+- src/discovery/run78PlatformSeeds.ts
+- data/run78-platform-database.json
+- data/run78-review-queue.csv
+- data/run78-analytics-dashboard.json
+- reports/2026-07-02-run-78.md
 - reports/daily_report.md
 - src/discovery/seedPlatforms.ts
 
