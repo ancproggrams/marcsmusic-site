@@ -1,0 +1,33 @@
+{
+  "run": 58,
+  "date": "2026-07-02",
+  "previousEstimatedRuntimeSeedPipeline": 345,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 350,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 3,
+  "officialPublicPhysicalMailRoutesObserved": 3,
+  "publicApplicationOrUploadFormsObserved": 3,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 0,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 1,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "2SER 107.3FM Sydney Submit Music for Airplay", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "CJSW 90.9FM Calgary Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Three D Radio Adelaide Submit Your Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "CFUV 101.9FM Victoria Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "CJSR 88.5FM Edmonton Submit Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
