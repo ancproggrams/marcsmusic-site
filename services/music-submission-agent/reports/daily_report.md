@@ -2,15 +2,15 @@
 
 Date: 2026-07-02
 
-## Latest run: Run 70
+## Latest run: Run 71
 
-Run 70 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 71 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 410 |
+| Estimated runtime seed pipeline | 415 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
@@ -20,13 +20,13 @@ Run 70 added 5 newly researched public-authorized global music submission opport
 | Paid/manual-only routes in latest run | 0 |
 | Official public route pages observed | 5 |
 | Official public music/business email routes observed | 5 |
-| Official public physical-mail routes observed | 4 |
-| Public application/upload/contact forms observed | 2 |
+| Official public physical-mail routes observed | 2 |
+| Public application/upload/contact forms observed | 0 |
 | Payment/payment-option side routes observed | 0 |
 | Login/member/account routes observed | 0 |
 | CAPTCHA/bot-protection routes observed | 0 |
 | External/manual workflow routes observed | 5 |
-| Protected/redacted contact routes observed | 0 |
+| Protected/redacted contact routes observed | 1 |
 | SMTP probes during repo update | 0 |
 | MX probes during repo update | 0 |
 | Guessed/generated contacts | 0 |
@@ -35,15 +35,15 @@ Run 70 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| WNCW Submit Music | needs_manual_review |
-| WXDU 88.7FM Music Submissions | needs_manual_review |
-| WXYC 89.3FM Music Department Submissions | needs_manual_review |
-| WUAG 103.1FM Music Submission Form | needs_manual_review |
-| WUOG 90.5FM Submit Music | needs_manual_review |
+| WMSE 91.7FM Music Department Submissions | needs_manual_review |
+| KFAI Music Department and Music Library | needs_manual_review |
+| KUNM 89.9FM Music Director Contact Route | needs_manual_review |
+| XRAY.fm Music Submissions | needs_manual_review |
+| WYEP Pittsburgh Area Music Submissions | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes are legitimate public radio, college radio, campus radio and student-run alternative radio airplay/workflow routes, but all require manual review because they involve targeted email preparation, physical-vs-digital package selection, Bandcamp YUM-code or cloud-link/file prep, file upload/form handling, clean/FCC assertions, local-vs-general director route selection, metadata, rights/originality assertions and programming/station-fit decisions. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are legitimate public radio, community radio and independent public music-station airplay/workflow routes, but all require manual review because they involve targeted email preparation, external guideline reading, physical-vs-digital package selection, cloud-link/file prep, FCC-clean assertions, local/regional eligibility checks, protected-contact handling without decoding, metadata, rights/originality assertions and programming/station-fit decisions. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
@@ -51,11 +51,11 @@ No accounts were created, no route was activated, no forms were submitted, no em
 
 ## Artifacts produced
 
-- src/discovery/run70PlatformSeeds.ts
-- data/run70-platform-database.json
-- data/run70-review-queue.csv
-- data/run70-analytics-dashboard.json
-- reports/2026-07-02-run-70.md
+- src/discovery/run71PlatformSeeds.ts
+- data/run71-platform-database.json
+- data/run71-review-queue.csv
+- data/run71-analytics-dashboard.json
+- reports/2026-07-02-run-71.md
 - reports/daily_report.md
 
 ## Runtime note
