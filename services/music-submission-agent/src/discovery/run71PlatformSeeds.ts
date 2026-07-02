@@ -16,8 +16,8 @@ export const run71SeedPlatforms: PlatformInput[] = [
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "WMSE publishes an official Music Department submission route accepting physical releases and digital download submissions to the Music Director; human review is required for format selection, at least four FCC-clean tracks for CDs, explicit-language labeling, WeTransfer/email handling, tracklist and contact-info prep, local-vs-general relevance, rights/originality assertions and program-host/station-fit decisions.",
-    notes: "Public research confirmed the official WMSE Music Department page, 2026 station footer, active weekly top airplay and Local/Live programming, Music Director contact route, physical mail/drop-off route, CD/vinyl/cassette/digital acceptance, FCC-clean guidance and non-guaranteed DJ-driven airplay model. No email was sent, no file was transferred, no physical mail was sent, no form was submitted and no SMTP/MX probe was performed."
+    manualReviewReason: "WMSE publishes an official Music Department submission route accepting physical releases and digital download submissions to Music Director Cal Roach via mccain@msoe.edu; human review is required for format selection, at least four FCC-clean tracks for CDs, explicit-language labeling, WeTransfer/email handling, tracklist and contact-info prep, local-vs-general relevance, rights/originality assertions and program-host/station-fit decisions.",
+    notes: "Public research and Marc's correction confirmed the official WMSE Music Department page and public Music Director email route mccain@msoe.edu, with general wmse@msoe.edu already represented in the run-71 data export. The route remains manual-only. No email was sent, no file was transferred, no physical mail was sent, no form was submitted and no SMTP/MX probe was performed."
   },
   {
     name: "KFAI Music Department and Music Library",
