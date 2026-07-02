@@ -2,15 +2,15 @@
 
 Date: 2026-07-02
 
-## Latest run: Run 58
+## Latest run: Run 59
 
-Run 58 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 59 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 350 |
+| Estimated runtime seed pipeline | 355 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
@@ -19,14 +19,14 @@ Run 58 added 5 newly researched public-authorized global music submission opport
 | Unknown/manual routes in latest run | 0 |
 | Paid/manual-only routes in latest run | 0 |
 | Official public route pages observed | 5 |
-| Official public music/business email routes observed | 3 |
+| Official public music/business email routes observed | 5 |
 | Official public physical-mail routes observed | 3 |
-| Public application/upload/contact forms observed | 3 |
-| Payment/payment-option routes observed | 0 |
+| Public application/upload/contact forms observed | 1 |
+| Payment/payment-option side routes observed | 2 |
 | Login/member/account routes observed | 0 |
 | CAPTCHA/bot-protection routes observed | 0 |
 | External/manual workflow routes observed | 5 |
-| Protected/redacted contact routes observed | 1 |
+| Protected/redacted contact routes observed | 0 |
 | SMTP probes during repo update | 0 |
 | MX probes during repo update | 0 |
 | Guessed/generated contacts | 0 |
@@ -35,15 +35,15 @@ Run 58 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| 2SER 107.3FM Sydney Submit Music for Airplay | needs_manual_review |
-| CJSW 90.9FM Calgary Music Submissions | needs_manual_review |
-| Three D Radio Adelaide Submit Your Music | needs_manual_review |
-| CFUV 101.9FM Victoria Music Submissions | needs_manual_review |
-| CJSR 88.5FM Edmonton Submit Music | needs_manual_review |
+| RTRFM 92.1 Perth Submit Your Music | needs_manual_review |
+| FBi Radio Sydney Music Submissions | needs_manual_review |
+| Triple R 102.7FM Melbourne Submit Music | needs_manual_review |
+| Edge Radio 99.3FM Hobart Submit Your Music | needs_manual_review |
+| Radio Adelaide Submit Your Music | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes are free-first but still require human review because they involve public web forms, external form routing, digital package preparation, release-window and no-singles rules, three-track minimums, 320kbps MP3 or ZIP formatting, physical mail or drop-off, local-priority or local-only exceptions, non-expiring file access requirements, genre/DJ/program fit checks and metadata and rights/originality assertions. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are free-first but still require human review because they involve public form handling, biography upload, digital package preparation, email/cloud-link preparation, release-timing claims, direct-presenter or program-routing choices, no-login stream links, 320kbps MP3 or WAV download requirements, 44.1kHz stereo 16-bit WAV preferences, physical mail/drop-off options, local-priority or Tasmanian/South Australian marking, focus-track selection, presenter/program/station fit checks and metadata and rights/originality assertions. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
@@ -51,11 +51,11 @@ No accounts were created, no route was activated, no forms were submitted, no em
 
 ## Artifacts produced
 
-- src/discovery/run58PlatformSeeds.ts
-- data/run58-platform-database.json
-- data/run58-review-queue.csv
-- data/run58-analytics-dashboard.json
-- reports/2026-07-02-run-58.md
+- src/discovery/run59PlatformSeeds.ts
+- data/run59-platform-database.json
+- data/run59-review-queue.csv
+- data/run59-analytics-dashboard.json
+- reports/2026-07-02-run-59.md
 - reports/daily_report.md
 
 ## Runtime note
