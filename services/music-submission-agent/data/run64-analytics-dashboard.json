@@ -1,0 +1,33 @@
+{
+  "run": 64,
+  "date": "2026-07-02",
+  "previousEstimatedRuntimeSeedPipeline": 375,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 380,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 0,
+  "officialPublicPhysicalMailRoutesObserved": 0,
+  "publicApplicationOrUploadFormsObserved": 5,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 4,
+  "captchaOrBotProtectionRoutesObserved": 0,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 0,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "Soundplate Play Spotify and Deezer Playlist Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Spinnin' Records Talent Pool Demo Dashboard", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Spotify for Artists Editorial Playlist Pitching", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Mixcloud Creator Upload and Discovery Platform", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Vampr Publishing Sync and Artist Network Opportunities", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
