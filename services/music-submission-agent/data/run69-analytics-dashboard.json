@@ -1,0 +1,33 @@
+{
+  "run": 69,
+  "date": "2026-07-02",
+  "previousEstimatedRuntimeSeedPipeline": 400,
+  "newOpportunitiesAdded": 5,
+  "currentEstimatedRuntimeSeedPipeline": 405,
+  "newManualReviewQueueRows": 5,
+  "newAutoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "unknownManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "duplicatesSkipped": 0,
+  "officialPublicMusicBusinessEmailRoutesObserved": 4,
+  "officialPublicPhysicalMailRoutesObserved": 1,
+  "publicApplicationOrUploadFormsObserved": 1,
+  "paymentRoutesObserved": 0,
+  "loginOrMembershipRoutesObserved": 0,
+  "captchaOrBotProtectionRoutesObserved": 1,
+  "externalFormOrManualWorkflowRoutesObserved": 5,
+  "protectedContactRoutesObserved": 0,
+  "guessedGeneratedContacts": 0,
+  "smtpProbesDuringRepoUpdate": 0,
+  "mxProbesDuringRepoUpdate": 0,
+  "autoSubmitCandidates": 0,
+  "opportunities": [
+    { "name": "KUTX Submit Your Music for On-Air Rotation", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "Radio K KUOM Submitting Music", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KCR College Radio Music Submissions", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KCSB Artist Inquiry Form", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" },
+    { "name": "KZSC Santa Cruz Station Music Director Contacts", "pricingModel": "free", "priority": 90, "queueStatus": "needs_manual_review" }
+  ]
+}
