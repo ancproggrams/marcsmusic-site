@@ -57,8 +57,8 @@ No accounts were created, no login was used, no route was activated, no forms we
 - data/run92-analytics-dashboard.json
 - reports/2026-07-03-run-92.md
 - reports/daily_report.md
-- src/discovery/seedPlatforms.ts
+- src/discovery/run91PlatformSeeds.ts aggregation
 
 ## Runtime note
 
-The committed run artifacts are ready for the next worker execution, which will idempotently upsert platforms, queue verification jobs, apply pricing/free-first priority classification and regenerate SQLite-backed exports.
+The committed run artifacts are ready for the next worker execution. Run 92 seeds are loaded through the already-wired Run 91 seed module aggregation, then idempotently upserted, queued for verification, classified for pricing/free-first priority and included in regenerated SQLite-backed exports.
