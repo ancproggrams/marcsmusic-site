@@ -2,31 +2,31 @@
 
 Date: 2026-07-03
 
-## Latest run: Run 96
+## Latest run: Run 97
 
-Run 96 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 97 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 540 |
+| Estimated runtime seed pipeline | 545 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
-| Free-first routes in latest run | 5 |
+| Free-first routes in latest run | 4 |
 | Freemium/manual routes in latest run | 0 |
 | Unknown/manual routes in latest run | 0 |
-| Paid/manual-only routes in latest run | 0 |
+| Paid/manual-only routes in latest run | 1 |
 | Public route/source pages observed | 5 |
-| Official public music/business email routes observed | 5 |
-| Official public physical-mail routes observed | 4 |
-| Public application/upload/contact forms observed | 2 |
-| Payment/payment-option side routes observed | 0 |
-| Login/member/account routes observed | 0 |
-| CAPTCHA/bot-protection routes observed | 1 |
+| Official public music/business email routes observed | 2 |
+| Official public physical-mail routes observed | 1 |
+| Public application/upload/contact forms observed | 4 |
+| Payment/payment-option side routes observed | 2 |
+| Login/member/account routes observed | 2 |
+| CAPTCHA/bot-protection routes observed | 0 |
 | External/manual workflow routes observed | 5 |
-| Protected/redacted contact routes observed | 2 |
+| Protected/redacted contact routes observed | 1 |
 | SMTP probes during repo update | 0 |
 | MX probes during repo update | 0 |
 | Guessed/generated contacts | 0 |
@@ -35,30 +35,30 @@ Run 96 added 5 newly researched public-authorized global music submission opport
 
 | Platform | Status |
 |---|---:|
-| CJSW Calgary Digital Music Submission Upload Route | needs_manual_review |
-| CKUT 90.3FM Music Department Physical and Digital Submission Route | needs_manual_review |
-| WMBR MIT Physical Music Director and Genre Contact Route | needs_manual_review |
-| WMSE 91.7FM Music Department Submission Route | needs_manual_review |
-| WRPI Troy Music Director Contact and Station Mail Route | needs_manual_review |
+| Soundplate Play Free Spotify and Deezer Playlist Submission Route | needs_manual_review |
+| KXCI Tucson Music Department Digital and Physical Submission Route | needs_manual_review |
+| KUTX Austin On-Air Rotation Music Submission Route | needs_manual_review |
+| Audiomack Free Creator Upload and Trending Consideration Route | needs_manual_review |
+| Groover Paid Curator and Music Pro Pitch Submission Route | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes are legitimate public music-submission and airplay/coverage-consideration workflows, but all require manual review because they include two protected/redacted contact cases, four physical-mail or package-prep routes, five official public music/business email or department routes, two public upload/contact-form routes, one CAPTCHA form case, one external Jotform upload workflow, one digital-album-only/no-singles route, one route with recent-release and three-track minimum rules, one physical-preferred route, one route with FCC-clean checks, route/genre targeting, metadata checks and human editorial/radio review. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are legitimate public music-submission, upload, playlist, airplay or paid curator-pitch workflows, but all require manual review because they include playlist-fit and anti-spam rules, one protected/redacted contact case, one official physical-mail route, two official public music/business email routes, four public application/upload/contact workflows, two login/account boundaries, one paid manual-only route, two payment/payment-option side routes, clean/radio-edit checks, upload/rights/metadata checks, route/genre targeting and human editorial/radio/curator review. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
-No accounts were created, no login was used, no route was activated, no forms were submitted, no emails were sent, no files were uploaded or transferred, no download links were delivered, no storage permissions were changed, no physical mail was sent, no payments were activated, no CAPTCHA, validation or session controls were interacted with, no protected or masked contacts were decoded, no contacts were guessed and no SMTP or MX probing was performed during this repo update.
+No accounts were created, no login was used, no routes were activated, no playlist was selected, no forms were submitted, no emails were sent, no files were uploaded or transferred, no download links were delivered, no storage permissions were changed, no physical mail was sent, no payments or credits were purchased, no CAPTCHA, validation or session controls were interacted with, no protected or masked contacts were decoded, no contacts were guessed and no SMTP or MX probing was performed during this repo update.
 
 ## Artifacts produced
 
-- src/discovery/run96PlatformSeeds.ts
-- data/run96-platform-database.json
-- data/run96-review-queue.csv
-- data/run96-analytics-dashboard.json
-- reports/2026-07-03-run-96.md
+- src/discovery/run97PlatformSeeds.ts
+- data/run97-platform-database.json
+- data/run97-review-queue.csv
+- data/run97-analytics-dashboard.json
+- reports/2026-07-03-run-97.md
 - reports/daily_report.md
 - src/discovery/run91PlatformSeeds.ts aggregation
 
 ## Runtime note
 
-The committed run artifacts are ready for the next worker execution. Run 96 seeds are loaded through the already-wired Run 91 seed module aggregation, then idempotently upserted, queued for verification, classified for pricing/free-first priority and included in regenerated SQLite-backed exports.
+The committed run artifacts are ready for the next worker execution. Run 97 seeds are loaded through the already-wired Run 91 seed module aggregation, then idempotently upserted, queued for verification, classified for pricing/free-first priority and included in regenerated SQLite-backed exports.
