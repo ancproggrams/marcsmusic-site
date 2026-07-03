@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
 import { run92SeedPlatforms } from './run92PlatformSeeds.js';
 import { run93SeedPlatforms } from './run93PlatformSeeds.js';
+import { run94SeedPlatforms } from './run94PlatformSeeds.js';
 
 const run91CoreSeedPlatforms: PlatformInput[] = [
   {
@@ -98,5 +99,6 @@ const run91CoreSeedPlatforms: PlatformInput[] = [
 export const run91SeedPlatforms: PlatformInput[] = [
   ...run91CoreSeedPlatforms,
   ...run92SeedPlatforms,
-  ...run93SeedPlatforms
+  ...run93SeedPlatforms,
+  ...run94SeedPlatforms
 ];
