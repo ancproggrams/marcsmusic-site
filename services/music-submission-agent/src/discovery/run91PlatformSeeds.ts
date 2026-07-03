@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run92SeedPlatforms } from './run92PlatformSeeds.js';
 
-export const run91SeedPlatforms: PlatformInput[] = [
+const run91CoreSeedPlatforms: PlatformInput[] = [
   {
     name: "PBS 106.7FM Submit Your Music Form",
     websiteUrl: "https://www.pbsfm.org.au/",
@@ -91,4 +92,9 @@ export const run91SeedPlatforms: PlatformInput[] = [
     manualReviewReason: "Human review is required because 4ZZZ routes music through an official Music Submissions page that sends users to an external form for Music Department processing and digital-library inclusion. The page stresses downloadable music, non-playlisted programmer discretion and Album of the Week eligibility. External form handling, any session controls, downloadability checks, metadata, local/Australian fit, album/EP vs single routing and station-library fit must remain manual.",
     notes: "Public research confirmed 4ZZZ's official site is active with 2026 Top 20, Album of the Week, schedule and community updates. The Music Submissions page says submissions go to the 4ZZZ Music Department for airplay consideration, possible digital-library inclusion for announcers, and require downloadable music; it links separate external submission and Album of the Week forms. No external form was opened beyond the public link, no form was submitted, no files or links were delivered and no account was used."
   }
+];
+
+export const run91SeedPlatforms: PlatformInput[] = [
+  ...run91CoreSeedPlatforms,
+  ...run92SeedPlatforms
 ];
