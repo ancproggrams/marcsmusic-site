@@ -57,8 +57,8 @@ No accounts were created, no login was used, no routes were activated, no forms 
 - data/run102-analytics-dashboard.json
 - reports/2026-07-03-run-102.md
 - reports/daily_report.md
-- src/discovery/run91PlatformSeeds.ts aggregation
+- src/discovery/seedPlatforms.ts direct loader update
 
 ## Runtime note
 
-The committed run artifacts are ready for the next worker execution. Run 102 seeds are loaded through the already-wired Run 91 seed module aggregation, then idempotently upserted, queued for verification, classified for pricing/free-first priority and included in regenerated exports.
+The committed run artifacts are ready for the next worker execution. Run 102 seeds are loaded directly through `seedPlatforms.ts`, then idempotently upserted, queued for verification, classified for pricing/free-first priority and included in regenerated exports.
