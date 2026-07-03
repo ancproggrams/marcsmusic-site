@@ -88,6 +88,7 @@ import { run87SeedPlatforms } from './run87PlatformSeeds.js';
 import { run88SeedPlatforms } from './run88PlatformSeeds.js';
 import { run89SeedPlatforms } from './run89PlatformSeeds.js';
 import { run90SeedPlatforms } from './run90PlatformSeeds.js';
+import { run91SeedPlatforms } from './run91PlatformSeeds.js';
 
 const allSeedPlatforms = [
   ...seedPlatforms,
@@ -176,7 +177,8 @@ const allSeedPlatforms = [
   ...run87SeedPlatforms,
   ...run88SeedPlatforms,
   ...run89SeedPlatforms,
-  ...run90SeedPlatforms
+  ...run90SeedPlatforms,
+  ...run91SeedPlatforms
 ];
 
 export function seedDiscoveryPlatforms(repositories: Repositories): { discovered: number; queued: number } {
