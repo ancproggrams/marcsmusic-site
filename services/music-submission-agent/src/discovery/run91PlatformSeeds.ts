@@ -6,6 +6,7 @@ import { run95SeedPlatforms } from './run95PlatformSeeds.js';
 import { run96SeedPlatforms } from './run96PlatformSeeds.js';
 import { run97SeedPlatforms } from './run97PlatformSeeds.js';
 import { run98SeedPlatforms } from './run98PlatformSeeds.js';
+import { run99SeedPlatforms } from './run99PlatformSeeds.js';
 
 const run91CoreSeedPlatforms: PlatformInput[] = [
   {
@@ -108,5 +109,6 @@ export const run91SeedPlatforms: PlatformInput[] = [
   ...run95SeedPlatforms,
   ...run96SeedPlatforms,
   ...run97SeedPlatforms,
-  ...run98SeedPlatforms
+  ...run98SeedPlatforms,
+  ...run99SeedPlatforms
 ];
