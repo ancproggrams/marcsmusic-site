@@ -1,0 +1,31 @@
+{
+  "run": 125,
+  "date": "2026-07-04",
+  "pipelineEstimate": 685,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 4,
+  "freemiumManualRoutes": 3,
+  "paidManualOnlyRoutes": 1,
+  "unknownManualRoutes": 1,
+  "publicRouteSourcePagesObserved": 5,
+  "officialContactRoutesObserved": 5,
+  "publicApplicationUploadContactFormsObserved": 5,
+  "paymentRoutesObserved": 4,
+  "loginOrSessionBoundaryRoutesObserved": 5,
+  "captchaOrChallengeRoutesObserved": 0,
+  "appSessionBoundaryRoutesObserved": 5,
+  "manualWorkflowRoutesObserved": 5,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "generatedContacts": 0,
+  "dedupeSearchTerms": ["Horus Music", "Symphonic Distribution", "AWAL", "Too Lost", "Record Union"],
+  "routes": [
+    {"name": "Horus Music Distribution Playlist Radio Promotion and Send Us Your Music Route", "queueStatus": "needs_manual_review", "pricingModel": "freemium", "priority": 85},
+    {"name": "Symphonic Distribution Starter Partner Marketing Sync and Playlist Pitching Route", "queueStatus": "needs_manual_review", "pricingModel": "paid", "priority": 84},
+    {"name": "AWAL Selective Submit Your Music Distribution Radio Playlist Sync Route", "queueStatus": "needs_manual_review", "pricingModel": "unknown", "priority": 83},
+    {"name": "Too Lost Distribution Priority Pitch Publishing Smart Link and Catalog Protection Route", "queueStatus": "needs_manual_review", "pricingModel": "freemium", "priority": 82},
+    {"name": "Record Union Distribution Smart Link EPK Pitch Priority and Release Upload Route", "queueStatus": "needs_manual_review", "pricingModel": "freemium", "priority": 81}
+  ]
+}
