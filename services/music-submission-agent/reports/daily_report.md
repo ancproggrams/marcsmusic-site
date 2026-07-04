@@ -2,28 +2,28 @@
 
 Date: 2026-07-04
 
-Latest run: Run 125
+Latest run: Run 126
 
-Run 125 added 5 public-authorized global music submission opportunities and queued all 5 for manual review.
+Run 126 added 5 public-authorized global music submission opportunities and queued all 5 for manual review.
 
-Pipeline estimate: 685
+Pipeline estimate: 690
 
 Latest opportunities:
 
-- Horus Music Distribution Playlist Radio Promotion and Send Us Your Music Route
-- Symphonic Distribution Starter Partner Marketing Sync and Playlist Pitching Route
-- AWAL Selective Submit Your Music Distribution Radio Playlist Sync Route
-- Too Lost Distribution Priority Pitch Publishing Smart Link and Catalog Protection Route
-- Record Union Distribution Smart Link EPK Pitch Priority and Release Upload Route
+- KEXP Global Music Director Digital Airplay Submission Route
+- WXPN Music Director and Local Show Digital Airplay Submission Route
+- WFMU Music Director Physical Library Submission and Contact Route
+- KCRW Active Music Programming Contact and Airplay Research Route
+- BBC Music Introducing Unsigned Artist Upload and Local Show Route
 
 Artifacts produced:
 
-- src/discovery/run125PlatformSeeds.ts
-- data/run125-platform-database.json
-- data/run125-review-queue.csv
-- data/run125-analytics-dashboard.json
-- reports/2026-07-04-run-125.md
+- src/discovery/run126PlatformSeeds.ts
+- data/run126-platform-database.json
+- data/run126-review-queue.csv
+- data/run126-analytics-dashboard.json
+- reports/2026-07-04-run-126.md
 - reports/daily_report.md
-- src/discovery/run124PlatformSeeds.ts aggregation update
+- src/discovery/run125PlatformSeeds.ts aggregation update
 
-Run 125 seeds are loaded through the Run 124 aggregation.
+Run 126 seeds are loaded through the Run 125 aggregation.
