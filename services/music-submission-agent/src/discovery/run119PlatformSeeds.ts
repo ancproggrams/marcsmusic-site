@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run120SeedPlatforms } from './run120PlatformSeeds.js';
 
 export const run119SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run119SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because The Line of Best Fit routes new and unsigned artists to a public Google Form with required email, role, artist, genre, one-sentence bio and one-track fields; the form shows a JavaScript/session warning and optional Google sign-in to save progress.",
     notes: "Official public research confirmed The Line of Best Fit is active in July 2026, welcomes music from new and unsigned artists on its contact page, and links to a Google Form asking for one best song aligned with coverage plus required artist and track fields. No form was filled or submitted."
-  }
+  },
+  ...run120SeedPlatforms
 ];
