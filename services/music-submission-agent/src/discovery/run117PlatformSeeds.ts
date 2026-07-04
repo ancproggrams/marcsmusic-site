@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run118SeedPlatforms } from './run118PlatformSeeds.js';
 
 export const run117SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run117SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because WMSE accepts physical and digital-download submissions but requires FCC-clean track guidance, music-department preview, program fit review, contact clarity and careful handling of digital delivery.",
     notes: "Official public research confirmed WMSE encourages new music submissions, accepts CD, vinyl, digital download and cassette, provides a Music Department mailing address and a public Music Director digital-download route, and asks submitters to identify non-airable material. No package or digital delivery was sent."
-  }
+  },
+  ...run118SeedPlatforms
 ];
