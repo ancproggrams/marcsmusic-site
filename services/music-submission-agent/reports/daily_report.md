@@ -45,11 +45,11 @@ Run 115 added 5 newly researched public-authorized global music submission oppor
 
 ## Manual-review reasons
 
-The latest routes are legitimate public-authorized global workflows, but all require manual review because they involve account/session boundaries, app or JavaScript routes, upload/release configuration, pricing or payment settings, metadata, rights and licensing checks, payout/splits, store delivery, playlist-pitching or monetization choices. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are legitimate public-authorized global workflows, but all require manual review because they involve account access, app routes, release configuration, pricing or payment settings, metadata, rights and licensing checks, payout/splits, store delivery, playlist-pitching or monetization choices.
 
 ## Safety summary
 
-No accounts were created, no login was used, no forms were submitted, no release flows were started, no messages or emails were sent, no files were transferred, no private links were delivered, no physical mail was sent, no payments or subscriptions were initiated, no JavaScript/app/session controls were handled beyond public page discovery, no contacts were guessed, and no SMTP or MX checks were performed during this repo update.
+No accounts were created, no login was used, no forms were submitted, no release flows were started, no messages or emails were sent, no files were transferred, no private links were delivered, no physical mail was sent, no payments or subscriptions were initiated, no contacts were guessed, and no SMTP or MX checks were performed during this repo update.
 
 ## Artifacts produced
 
@@ -59,8 +59,8 @@ No accounts were created, no login was used, no forms were submitted, no release
 - data/run115-analytics-dashboard.json
 - reports/2026-07-04-run-115.md
 - reports/daily_report.md
-- src/discovery/seedPlatforms.ts direct loader update
+- src/discovery/run113PlatformSeeds.ts aggregation update
 
 ## Runtime note
 
-The committed run artifacts are ready for the next worker execution. Run 115 seeds are loaded directly through `seedPlatforms.ts`, then idempotently upserted, queued for verification, classified for pricing/free-first priority and included in regenerated exports.
+The committed run artifacts are ready for the next worker execution. Run 115 seeds are loaded through the existing Run 113 aggregation, then idempotently upserted, queued for verification, classified for pricing/free-first priority and included in regenerated exports.
