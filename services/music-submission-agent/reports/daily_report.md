@@ -2,29 +2,29 @@
 
 Date: 2026-07-04
 
-## Latest run: Run 113
+## Latest run: Run 114
 
-Run 113 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
+Run 114 added 5 newly researched public-authorized global music submission opportunities for MarcsMusic and classified all 5 as needs_manual_review.
 
 ## Current estimated pipeline
 
 | Metric | Value |
 |---|---:|
-| Estimated runtime seed pipeline | 625 |
+| Estimated runtime seed pipeline | 630 |
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
 | Free-first routes in latest run | 1 |
-| Freemium/manual routes in latest run | 0 |
-| Unknown/manual routes in latest run | 0 |
-| Paid/manual-only routes in latest run | 4 |
+| Freemium/manual routes in latest run | 3 |
+| Unknown/manual routes in latest run | 1 |
+| Paid/manual-only routes in latest run | 0 |
 | Public route/source pages observed | 5 |
 | Official public music/business email or contact routes observed | 5 |
-| Official public physical-mail/package side routes observed | 1 |
+| Official public physical-mail/package side routes observed | 0 |
 | Public application/upload/contact forms observed | 5 |
-| Payment/payment-option side routes observed | 4 |
-| Login/member/account or session-boundary routes observed | 4 |
-| Challenge/session-boundary routes observed | 0 |
+| Payment/payment-option side routes observed | 3 |
+| Login/member/account or session-boundary routes observed | 5 |
+| Challenge/session-boundary routes observed | 2 |
 | Validation-field routes observed | 0 |
 | External/manual workflow routes observed | 5 |
 | Redacted contact routes observed | 0 |
@@ -36,30 +36,30 @@ Run 113 added 5 newly researched public-authorized global music submission oppor
 
 | Platform | Status |
 |---|---:|
-| Groover Curator Playlist Radio Label and DJ Submission Platform Route | needs_manual_review |
-| Soundplate Free Spotify and Deezer Playlist Submission Route | needs_manual_review |
-| Playlist Push Spotify Playlist and TikTok Creator Campaign Submission Route | needs_manual_review |
-| One Submit Curator Blog Radio Label Playlist and TikTok Submission Platform Route | needs_manual_review |
-| TAXI Independent A&R Record Label Publishing and Sync Licensing Submission Route | needs_manual_review |
+| Bandcamp Direct-to-Fan Artist Store and Music Upload Route | needs_manual_review |
+| Jamendo Artists Music Licensing In-Store Promotion and Content ID Route | needs_manual_review |
+| Mixcloud Creator Upload DJ Mix Radio Show and Live Stream Route | needs_manual_review |
+| Songtradr Sync Licensing Marketplace and Artist Upload Route | needs_manual_review |
+| LabelRadar Demo Contest and Label Submission Platform Route | needs_manual_review |
 
 ## Manual-review reasons
 
-The latest routes are legitimate public-authorized global submission workflows, but all require manual review because they involve paid credits, account/member login boundaries, app dashboards, upload/private-link handling, campaign and budget choices, curator/playlist/label/radio targeting, music metadata, rights checks, anti-spam relevance review and pitch copy. No route in this batch exposed a safe complete public auto-submit flow.
+The latest routes are legitimate public-authorized global workflows, but all require manual review because they involve account/session boundaries, JavaScript app routes, upload/store configuration, pricing or revenue-share settings, optional paid tiers, track metadata, rights/licensing checks, release timing, label or marketplace fit review and profile setup. No route in this batch exposed a safe complete public auto-submit flow.
 
 ## Safety summary
 
-No accounts were created, no login was used, no forms were submitted, no campaigns were started, no curators were selected, no messages or emails were sent, no files were uploaded or transferred, no download/private links were delivered, no physical mail was sent, no payments or subscriptions were initiated, no challenge or session controls were handled, no contacts were guessed and no SMTP or MX checks were performed during this repo update.
+No accounts were created, no login was used, no forms were submitted, no contests were entered, no stores/profiles/releases were configured, no messages or emails were sent, no files were uploaded or transferred, no download/private links were delivered, no physical mail was sent, no payments or subscriptions were initiated, no challenge or session controls were handled, no contacts were guessed and no SMTP or MX checks were performed during this repo update.
 
 ## Artifacts produced
 
-- src/discovery/run113PlatformSeeds.ts
-- data/run113-platform-database.json
-- data/run113-review-queue.csv
-- data/run113-analytics-dashboard.json
-- reports/2026-07-04-run-113.md
+- src/discovery/run114PlatformSeeds.ts
+- data/run114-platform-database.json
+- data/run114-review-queue.csv
+- data/run114-analytics-dashboard.json
+- reports/2026-07-04-run-114.md
 - reports/daily_report.md
-- src/discovery/run112PlatformSeeds.ts aggregation update
+- src/discovery/run113PlatformSeeds.ts aggregation update
 
 ## Runtime note
 
-The committed run artifacts are ready for the next worker execution. Run 113 seeds are loaded through the existing Run 112 aggregation, then idempotently upserted, queued for verification, classified for pricing/free-first priority and included in regenerated exports.
+The committed run artifacts are ready for the next worker execution. Run 114 seeds are loaded through the existing Run 113 aggregation, then idempotently upserted, queued for verification, classified for pricing/free-first priority and included in regenerated exports.
