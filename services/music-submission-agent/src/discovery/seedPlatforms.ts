@@ -129,6 +129,7 @@ const allSeedPlatforms = [
   ...run32SeedPlatforms,
   ...run33SeedPlatforms,
   ...run34SeedPlatforms,
+  ...run35SeedPlatforms,
   ...run36SeedPlatforms,
   ...run37SeedPlatforms,
   ...run38SeedPlatforms,
