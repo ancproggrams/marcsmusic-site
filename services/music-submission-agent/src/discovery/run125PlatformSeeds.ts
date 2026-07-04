@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run126SeedPlatforms } from './run126PlatformSeeds.js';
 
 export const run125SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run125SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because Record Union uses Get Started/Start Releasing routes, release upload, release-date selection, service-tier choice, paid yearly release plans, UPC decisions, Pitch Priority, Spotify pre-save, YouTube Content ID, EPK publishing and collaborator splits. Release assets, metadata, payment, ownership, copyright and upgrade choices require owner review.",
     notes: "Official public research confirmed Record Union is active in 2026, lets artists join free before release, upload music to Spotify and 20+ global music services, publish an EPK, use smart links, select release dates, access Spotify for Artists and choose paid Top Dog or World Domination yearly plans. No account was created, no release was uploaded, no EPK was published and no payment was made."
-  }
+  },
+  ...run126SeedPlatforms
 ];
