@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run123SeedPlatforms } from './run123PlatformSeeds.js';
 
 export const run122SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run122SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because Spotify pitching requires Spotify for Artists Admin or Editor access, an upcoming unreleased track, distributor delivery timing, detailed pitch metadata and one active song pitch at a time. Account/session access and release strategy must remain owner-reviewed.",
     notes: "Official public research confirmed Spotify documents a playlist-editor pitching workflow for upcoming unreleased songs, requires login to Spotify for Artists, recommends pitching at least 7 days before release and notes pitching does not guarantee placement. No login was used and no pitch was created."
-  }
+  },
+  ...run123SeedPlatforms
 ];
