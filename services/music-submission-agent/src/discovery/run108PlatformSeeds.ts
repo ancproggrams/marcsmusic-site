@@ -53,7 +53,7 @@ export const run108SeedPlatforms: PlatformInput[] = [
     paymentRequired: false,
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because BandLab involves account/session handling, creative-rights review, publishing or distribution settings, release metadata, store or DSP choices and a paid-membership distribution boundary that must not be crossed automatically.",
-    notes: "Public research confirmed BandLab is active in 2026 as a music creation, sharing and distribution platform. Secondary trade coverage states BandLab Distribution is available through paid Membership, while BandLab's public site is a JavaScript application. No account was created, no release was configured, no files were uploaded, no distribution route was activated and no paid membership path was opened."
+    notes: "Public research confirmed BandLab is active in 2026 as a music creation, sharing and distribution platform. The route is freemium: free creator and social publishing features exist, while secondary trade coverage states BandLab Distribution is available through paid Membership and the public site is a JavaScript application. No account was created, no release was configured, no files were uploaded, no distribution route was activated and no paid membership path was opened."
   },
   {
     name: "Radiooooo Curated Music Upload and Global Map Submission Route",
