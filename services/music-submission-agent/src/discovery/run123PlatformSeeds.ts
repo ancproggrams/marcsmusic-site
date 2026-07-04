@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run124SeedPlatforms } from './run124PlatformSeeds.js';
 
 export const run123SeedPlatforms: PlatformInput[] = [
   {
@@ -53,7 +54,7 @@ export const run123SeedPlatforms: PlatformInput[] = [
     paymentRequired: false,
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because Radio Airplay uses account sign-up/login, track upload, target-artist matching, song-review or airplay package choices, free contest eligibility and paid package tiers. Track selection, style targeting, account access, budget approval and public fan-facing profile choices must remain owner-reviewed.",
-    notes: "Official public research confirmed Radio Airplay is active through 2026, publishes a Free Sign Up route, asks artists to upload tracks, offers song reviews and contests, lists free and paid airplay packages, and exposes premium@radioairplay.com as a public deal/contact route. No account was created, no file was uploaded and no package was selected."
+    notes: "Official public research confirmed Radio Airplay is active through 2026, publishes a Free Sign Up route, asks artists to upload tracks, offers song reviews and contests, lists free and paid airplay packages, and exposes public deal/contact routes. No account was created, no file was uploaded and no package was selected."
   },
   {
     name: "Play MPE Caster Radio Curator Supervisor and Media Release Promotion Route",
@@ -90,5 +91,6 @@ export const run123SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because Promoly requires app access/free-trial setup, track or UPC upload, artwork/description prep, contact-list import or Tastemaker Network targeting, promo send decisions, smartlink/pre-save options and follow-up automation settings. Uploads, contact targeting, recipient consent, trial/payment boundaries and outbound messages must remain owner-reviewed.",
     notes: "Official public research confirmed Promoly is active in 2026, offers a 7-day free trial with 150 free sends, lets artists upload tracks, pick contacts, send promos and track opens/plays/downloads, and lists a 1,300+ DJ Tastemaker Network. No account was opened, no contacts were imported, no promo was sent and no file/link was delivered."
-  }
+  },
+  ...run124SeedPlatforms
 ];
