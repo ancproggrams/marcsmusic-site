@@ -1,0 +1,32 @@
+{
+  "run": 126,
+  "date": "2026-07-04",
+  "pipelineEstimate": 690,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "unknownManualRoutes": 0,
+  "publicRouteSourcePagesObserved": 5,
+  "officialContactRoutesObserved": 5,
+  "publicApplicationUploadContactFormsObserved": 5,
+  "physicalPackageSideRoutesObserved": 1,
+  "paymentRoutesObserved": 0,
+  "loginOrSessionBoundaryRoutesObserved": 1,
+  "captchaOrChallengeRoutesObserved": 0,
+  "appSessionBoundaryRoutesObserved": 1,
+  "manualWorkflowRoutesObserved": 5,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "generatedContacts": 0,
+  "dedupeSearchTerms": ["KEXP", "WXPN", "WFMU", "KCRW", "BBC Introducing"],
+  "routes": [
+    {"name": "KEXP Global Music Director Digital Airplay Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free", "priority": 90},
+    {"name": "WXPN Music Director and Local Show Digital Airplay Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free", "priority": 89},
+    {"name": "WFMU Music Director Physical Library Submission and Contact Route", "queueStatus": "needs_manual_review", "pricingModel": "free", "priority": 88},
+    {"name": "KCRW Active Music Programming Contact and Airplay Research Route", "queueStatus": "needs_manual_review", "pricingModel": "free", "priority": 87},
+    {"name": "BBC Music Introducing Unsigned Artist Upload and Local Show Route", "queueStatus": "needs_manual_review", "pricingModel": "free", "priority": 86}
+  ]
+}
