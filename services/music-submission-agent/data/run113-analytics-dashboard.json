@@ -1,0 +1,75 @@
+{
+  "run": 113,
+  "date": "2026-07-04",
+  "pipelineEstimate": 625,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 1,
+  "freemiumManualRoutes": 0,
+  "paidManualOnlyRoutes": 4,
+  "unknownManualRoutes": 0,
+  "publicRouteSourcePagesObserved": 5,
+  "officialPublicMusicBusinessEmailOrContactRoutesObserved": 5,
+  "officialPhysicalMailPackageRoutesObserved": 1,
+  "publicApplicationUploadContactFormsObserved": 5,
+  "paymentPaymentOptionRoutesObserved": 4,
+  "loginMemberAccountSessionBoundaryRoutesObserved": 4,
+  "captchaOrChallengeRoutesObserved": 0,
+  "validationFieldRoutesObserved": 0,
+  "externalManualWorkflowRoutesObserved": 5,
+  "redactedContactRoutesObserved": 0,
+  "smtpChecksDuringRepoUpdate": 0,
+  "mxChecksDuringRepoUpdate": 0,
+  "guessedGeneratedContacts": 0,
+  "dedupeSearchTerms": [
+    "Groover",
+    "Soundplate",
+    "Playlist Push",
+    "One Submit",
+    "TAXI A&R"
+  ],
+  "routes": [
+    {
+      "name": "Groover Curator Playlist Radio Label and DJ Submission Platform Route",
+      "queueStatus": "needs_manual_review",
+      "pricingModel": "paid",
+      "priority": 71,
+      "submissionUrl": "https://groover.co/",
+      "manualReviewReason": "Human review is required because Groover is an official paid credit-based route requiring account/session handling, curator targeting, track upload or private-link handling, pitch copy, genre filters and payment approval before any submission can occur."
+    },
+    {
+      "name": "Soundplate Free Spotify and Deezer Playlist Submission Route",
+      "queueStatus": "needs_manual_review",
+      "pricingModel": "free",
+      "priority": 96,
+      "submissionUrl": "https://play.soundplate.com/",
+      "manualReviewReason": "Human review is required because Soundplate exposes a public free playlist submission workflow, but each playlist must be selected manually and the track/playlist fit, link format, release status, rights, anti-spam guidance and curator relevance must be reviewed before use."
+    },
+    {
+      "name": "Playlist Push Spotify Playlist and TikTok Creator Campaign Submission Route",
+      "queueStatus": "needs_manual_review",
+      "pricingModel": "paid",
+      "priority": 68,
+      "submissionUrl": "https://playlistpush.com/",
+      "manualReviewReason": "Human review is required because Playlist Push is a paid campaign platform requiring account/session handling, campaign setup, budget approval, Spotify or TikTok route choice, song matching, creative brief review and payment approval before any outreach occurs."
+    },
+    {
+      "name": "One Submit Curator Blog Radio Label Playlist and TikTok Submission Platform Route",
+      "queueStatus": "needs_manual_review",
+      "pricingModel": "paid",
+      "priority": 67,
+      "submissionUrl": "https://www.one-submit.com/",
+      "manualReviewReason": "Human review is required because One Submit is a paid campaign/upload route requiring account/session handling, song upload or link entry, campaign-type choice, genre targeting, budget/payment approval and review of claims before any submission can be queued externally."
+    },
+    {
+      "name": "TAXI Independent A&R Record Label Publishing and Sync Licensing Submission Route",
+      "queueStatus": "needs_manual_review",
+      "pricingModel": "paid",
+      "priority": 62,
+      "submissionUrl": "https://www.taxi.com/",
+      "manualReviewReason": "Human review is required because TAXI is a member/login-based independent A&R opportunity route involving paid membership, opportunity-listing selection, song/instrumental suitability, metadata, rights, pitch fit and licensing strategy review before any submission."
+    }
+  ]
+}
