@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run113SeedPlatforms } from './run113PlatformSeeds.js';
 
 export const run112SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run112SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because KCSB's artist inquiry route uses an external public form for live on-air performance, station events, music-library addition and song/video premiere opportunities; form/session handling, pitch scope, music-package readiness and editorial fit must be reviewed before use.",
     notes: "Public research confirmed KCSB is active in 2026 with current music posts and an official Artist Inquiry page linking to an authorized external form. No external form was opened beyond public page discovery, no form was submitted, no files were uploaded and no session controls were bypassed."
-  }
+  },
+  ...run113SeedPlatforms
 ];
