@@ -1,0 +1,75 @@
+{
+  "run": 114,
+  "date": "2026-07-04",
+  "pipelineEstimate": 630,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 1,
+  "freemiumManualRoutes": 3,
+  "paidManualOnlyRoutes": 0,
+  "unknownManualRoutes": 1,
+  "publicRouteSourcePagesObserved": 5,
+  "officialPublicMusicBusinessEmailOrContactRoutesObserved": 5,
+  "officialPhysicalMailPackageRoutesObserved": 0,
+  "publicApplicationUploadContactFormsObserved": 5,
+  "paymentPaymentOptionRoutesObserved": 3,
+  "loginMemberAccountSessionBoundaryRoutesObserved": 5,
+  "captchaOrChallengeRoutesObserved": 0,
+  "validationFieldRoutesObserved": 0,
+  "externalManualWorkflowRoutesObserved": 5,
+  "redactedContactRoutesObserved": 0,
+  "smtpChecksDuringRepoUpdate": 0,
+  "mxChecksDuringRepoUpdate": 0,
+  "guessedGeneratedContacts": 0,
+  "dedupeSearchTerms": [
+    "Bandcamp",
+    "Jamendo",
+    "Mixcloud",
+    "Songtradr",
+    "LabelRadar"
+  ],
+  "routes": [
+    {
+      "name": "Bandcamp Direct-to-Fan Artist Store and Music Upload Route",
+      "queueStatus": "needs_manual_review",
+      "pricingModel": "freemium",
+      "priority": 88,
+      "submissionUrl": "https://bandcamp.com/artists",
+      "manualReviewReason": "Human review is required because Bandcamp is an account-based artist-store and upload route involving profile/store setup, track or album metadata, pricing, PayPal/payment configuration, merch choices, rights confirmation, release timing and optional Bandcamp Pro decisions before publication."
+    },
+    {
+      "name": "Jamendo Artists Music Licensing In-Store Promotion and Content ID Route",
+      "queueStatus": "needs_manual_review",
+      "pricingModel": "free",
+      "priority": 84,
+      "submissionUrl": "https://artists.jamendo.com/",
+      "manualReviewReason": "Human review is required because Jamendo Artists is an account-based artist services route involving music upload, licensing opt-ins, in-store placement, Content ID, promotion, rights ownership, collecting-society compatibility and revenue-share terms."
+    },
+    {
+      "name": "Mixcloud Creator Upload DJ Mix Radio Show and Live Stream Route",
+      "queueStatus": "needs_manual_review",
+      "pricingModel": "freemium",
+      "priority": 82,
+      "submissionUrl": "https://www.mixcloud.com/",
+      "manualReviewReason": "Human review is required because Mixcloud is an account-based creator upload route for shows, mixes and live streams, requiring tracklist/rights review, audio-format readiness, metadata, profile setup and optional Pro/monetization decisions before publication."
+    },
+    {
+      "name": "Songtradr Sync Licensing Marketplace and Artist Upload Route",
+      "queueStatus": "needs_manual_review",
+      "pricingModel": "unknown",
+      "priority": 76,
+      "submissionUrl": "https://www.songtradr.com/",
+      "manualReviewReason": "Human review is required because Songtradr is a JavaScript app and sync-licensing marketplace route involving account/session handling, master and publishing rights, PRO/ownership metadata, licensing fee strategy, usage permissions and possible distribution or monetization choices."
+    },
+    {
+      "name": "LabelRadar Demo Contest and Label Submission Platform Route",
+      "queueStatus": "needs_manual_review",
+      "pricingModel": "freemium",
+      "priority": 80,
+      "submissionUrl": "https://www.labelradar.com/artists",
+      "manualReviewReason": "Human review is required because LabelRadar is a JavaScript-gated artist/label submission route requiring account/session handling, demo or contest selection, label fit, rights and remix-stem rules, track metadata, upload/link handling and any credit/payment-option review."
+    }
+  ]
+}
