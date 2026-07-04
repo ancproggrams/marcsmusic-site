@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run127SeedPlatforms } from './run127PlatformSeeds.js';
 
 export const run126SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run126SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because BBC Music Introducing uses an account/upload tool, local-show routing, artist registration and eligibility boundaries. Login, UK/postcode routing, UGC terms, rights status, track selection and any upload must remain owner-controlled. The official public page was not bypassed when fetch access was restricted.",
     notes: "Public research identified BBC Music Introducing as an upload route for unsigned artists, routed to local Introducing shows after registration. The official BBC page was not bypassed where automated fetch access was restricted. No login was used, no account was created and no track was uploaded."
-  }
+  },
+  ...run127SeedPlatforms
 ];
