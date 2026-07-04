@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run110SeedPlatforms } from './run110PlatformSeeds.js';
 
-export const run109SeedPlatforms: PlatformInput[] = [
+const run109OriginalSeedPlatforms: PlatformInput[] = [
   {
     name: "KRCL 90.9FM Physical and Utah Local Digital Music Submission Route",
     websiteUrl: "https://krcl.org/",
@@ -91,4 +92,9 @@ export const run109SeedPlatforms: PlatformInput[] = [
     manualReviewReason: "Human review is required because WPRB accepts physical media and a public music email but explicitly prioritizes physical submissions, so package choice, metadata, clean edits, release fit and no-spam pitch wording need manual review.",
     notes: "Public research confirmed WPRB is active in July 2026 with current schedules, playlists, news posts and concert listings. Its official Music Submissions page invites artists, labels and promoters to submit new music, lists physical media formats and Music Director mailing address, and gives a public music email while noting physical submissions are prioritized. No email was sent, no package was prepared and no contact probing was performed."
   }
+];
+
+export const run109SeedPlatforms: PlatformInput[] = [
+  ...run109OriginalSeedPlatforms,
+  ...run110SeedPlatforms
 ];
