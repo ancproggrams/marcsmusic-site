@@ -2,6 +2,7 @@ import type { PlatformInput } from '../models/types.js';
 import { run114SeedPlatforms } from './run114PlatformSeeds.js';
 import { run115SeedPlatforms } from './run115PlatformSeeds.js';
 import { run116SeedPlatforms } from './run116PlatformSeeds.js';
+import { run117SeedPlatforms } from './run117PlatformSeeds.js';
 
 export const run113SeedPlatforms: PlatformInput[] = [
   {
@@ -96,5 +97,6 @@ export const run113SeedPlatforms: PlatformInput[] = [
   },
   ...run114SeedPlatforms,
   ...run115SeedPlatforms,
-  ...run116SeedPlatforms
+  ...run116SeedPlatforms,
+  ...run117SeedPlatforms
 ];
