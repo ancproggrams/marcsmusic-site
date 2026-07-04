@@ -47,6 +47,16 @@ const contentTypes = {
   ".json": "application/json; charset=utf-8"
 };
 
+const publicTrackIds = new Set([
+  "door-de-storm",
+  "strijd",
+  "geen-afscheid",
+  "weekend-mode",
+  "summer-time",
+  "carnival",
+  "curacao-radio-edit"
+]);
+
 const bookingTypes = [
   {
     id: "studio",
@@ -133,7 +143,7 @@ async function ensureDbFile() {
   await mkdir(dirname(bookingDbPath), { recursive: true });
   await writeFile(
     bookingDbPath,
-    JSON.stringify({ bookings: [], payments: [], newsletterSubscriptions: [], audit: [] }, null, 2),
+    JSON.stringify({ bookings: [], payments: [], newsletterSubscriptions: [], trackPlayCounts: defaultTrackPlayCounts(), audit: [] }, null, 2),
     "utf8"
   );
 }
@@ -146,8 +156,27 @@ async function readDb() {
     bookings: Array.isArray(parsed.bookings) ? parsed.bookings : [],
     payments: Array.isArray(parsed.payments) ? parsed.payments : [],
     newsletterSubscriptions: Array.isArray(parsed.newsletterSubscriptions) ? parsed.newsletterSubscriptions : [],
+    trackPlayCounts: normalizeTrackPlayCounts(parsed.trackPlayCounts),
     audit: Array.isArray(parsed.audit) ? parsed.audit : []
   };
+}
+
+function defaultTrackPlayCounts() {
+  return Object.fromEntries([...publicTrackIds].map((trackId) => [trackId, 0]));
+}
+
+function normalizeTrackPlayCounts(value) {
+  const counts = defaultTrackPlayCounts();
+  if (!value || typeof value !== "object") {
+    return counts;
+  }
+
+  for (const trackId of publicTrackIds) {
+    const plays = Number(value[trackId]);
+    counts[trackId] = Number.isSafeInteger(plays) && plays > 0 ? plays : 0;
+  }
+
+  return counts;
 }
 
 async function writeDb(db) {
@@ -309,7 +338,10 @@ async function handleApi(request, response, url) {
     return;
   }
 
-  if ((url.pathname.startsWith("/api/booking") || url.pathname.startsWith("/api/newsletter")) && !enforceRateLimit(request, response)) {
+  if (
+    (url.pathname.startsWith("/api/booking") || url.pathname.startsWith("/api/newsletter") || url.pathname.startsWith("/api/tracks")) &&
+    !enforceRateLimit(request, response)
+  ) {
     return;
   }
 
@@ -352,6 +384,18 @@ async function handleApi(request, response, url) {
     return;
   }
 
+  if (request.method === "GET" && url.pathname === "/api/tracks/plays") {
+    const db = await readDb();
+    sendJson(response, 200, { plays: db.trackPlayCounts });
+    return;
+  }
+
+  if (request.method === "POST" && url.pathname === "/api/tracks/plays") {
+    const result = await recordTrackPlay(await readJsonBody(request));
+    sendJson(response, 200, result);
+    return;
+  }
+
   if (request.method === "POST" && url.pathname === "/api/webhooks/mollie") {
     const payload = request.headers["content-type"]?.includes("application/json")
       ? await readJsonBody(request)
@@ -388,6 +432,23 @@ async function handleApi(request, response, url) {
   }
 
   sendJson(response, 404, { error: "API endpoint niet gevonden." });
+}
+
+async function recordTrackPlay(input) {
+  const trackId = cleanText(input.trackId, 80);
+  if (!publicTrackIds.has(trackId)) {
+    throw Object.assign(new Error("Onbekende track."), { statusCode: 400 });
+  }
+
+  return withDb(async (db) => {
+    db.trackPlayCounts = normalizeTrackPlayCounts(db.trackPlayCounts);
+    db.trackPlayCounts[trackId] += 1;
+    return {
+      trackId,
+      plays: db.trackPlayCounts[trackId],
+      allPlays: db.trackPlayCounts
+    };
+  });
 }
 
 function requireAdmin(request, response) {
@@ -1640,7 +1701,7 @@ function serveStatic(request, response) {
 
 const server = createServer(async (request, response) => {
   try {
-    const url = new URL(request.url || "/", request.headers.host ? `http://${request.headers.host}` : config.appBaseUrl);
+    const url = new URL(request.url || "/", request.headers.host ? `http://${request.headers.host}` : appBaseUrl);
 
     if (url.pathname.startsWith("/api/")) {
       await handleApi(request, response, url);
