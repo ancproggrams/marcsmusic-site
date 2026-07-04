@@ -1,5 +1,6 @@
 import type { PlatformInput } from '../models/types.js';
 import { run114SeedPlatforms } from './run114PlatformSeeds.js';
+import { run115SeedPlatforms } from './run115PlatformSeeds.js';
 
 export const run113SeedPlatforms: PlatformInput[] = [
   {
@@ -92,5 +93,6 @@ export const run113SeedPlatforms: PlatformInput[] = [
     manualReviewReason: "Human review is required because TAXI is a member/login-based independent A&R opportunity route involving paid membership, opportunity-listing selection, song/instrumental suitability, metadata, rights, pitch fit and licensing strategy review before any submission.",
     notes: "Official public research confirmed TAXI is an independent A&R company with Submit Music and member-login routes, offering opportunities for major/indie labels, publishers, film/TV supervisors, production libraries, ad agencies and game companies. The site also shows current 2026 activity. No membership was started, no login was used, no music was submitted and no payment was initiated."
   },
-  ...run114SeedPlatforms
+  ...run114SeedPlatforms,
+  ...run115SeedPlatforms
 ];
