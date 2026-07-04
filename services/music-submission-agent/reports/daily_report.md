@@ -14,7 +14,7 @@ Run 122 added 5 newly researched public-authorized global music submission oppor
 | New opportunities in latest run | 5 |
 | New manual-review queue rows | 5 |
 | New auto-submit candidates | 0 |
-| Free-first routes in latest run | 2 |
+| Free-first routes in latest run | 4 |
 | Freemium/manual routes in latest run | 3 |
 | Unknown/manual routes in latest run | 0 |
 | Paid/manual-only routes in latest run | 1 |
