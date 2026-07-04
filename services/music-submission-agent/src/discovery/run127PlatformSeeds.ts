@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run128SeedPlatforms } from './run128PlatformSeeds.js';
 
 export const run127SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run127SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because KTRU states music submissions must use physical formats through USPS or UPS, while the public contact page also exposes a department selector/contact form. Package preparation, format choice, mailing and any contact-form message must remain manual.",
     notes: "Official public research confirmed KTRU is active in 2026 with current blog posts and setlist routes, exposes a public contact form with Music Director as a recipient option, and states all music submissions are physical-only CD, LP or 7-inch through USPS/UPS addresses. No form was submitted and no physical package was prepared or sent."
-  }
+  },
+  ...run128SeedPlatforms
 ];
