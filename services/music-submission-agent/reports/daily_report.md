@@ -1,29 +1,29 @@
 # Music Submission Agent - Daily Report
 
-Date: 2026-07-04
+Date: 2026-07-05
 
-Latest run: Run 126
+Latest run: Run 127
 
-Run 126 added 5 public-authorized global music submission opportunities and queued all 5 for manual review.
+Run 127 added 5 public-authorized global music submission opportunities and queued all 5 for manual review.
 
-Pipeline estimate: 690
+Pipeline estimate: 695
 
 Latest opportunities:
 
-- KEXP Global Music Director Digital Airplay Submission Route
-- WXPN Music Director and Local Show Digital Airplay Submission Route
-- WFMU Music Director Physical Library Submission and Contact Route
-- KCRW Active Music Programming Contact and Airplay Research Route
-- BBC Music Introducing Unsigned Artist Upload and Local Show Route
+- WPRB Physical Priority and Email Music Submission Route
+- WMBR MIT Freeform Physical Music Director and Genre Contact Route
+- CFUV Music Director Digital Download Link Campus Radio Submission Route
+- CIUT 89.5FM New Music Email Submission Route
+- KTRU Rice Radio Physical-Only Music Department Submission and Contact Form Route
 
 Artifacts produced:
 
-- src/discovery/run126PlatformSeeds.ts
-- data/run126-platform-database.json
-- data/run126-review-queue.csv
-- data/run126-analytics-dashboard.json
-- reports/2026-07-04-run-126.md
+- src/discovery/run127PlatformSeeds.ts
+- data/run127-platform-database.json
+- data/run127-review-queue.csv
+- data/run127-analytics-dashboard.json
+- reports/2026-07-05-run-127.md
 - reports/daily_report.md
-- src/discovery/run125PlatformSeeds.ts aggregation update
+- src/discovery/run126PlatformSeeds.ts aggregation update
 
-Run 126 seeds are loaded through the Run 125 aggregation.
+Run 127 seeds are loaded through the Run 126 aggregation.
