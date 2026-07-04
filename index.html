@@ -360,6 +360,28 @@
       background: var(--pastel-muted);
     }
 
+    .artist-bio {
+      max-width: 650px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .artist-bio .eyebrow {
+      margin-bottom: 0;
+    }
+
+    .artist-bio h2 {
+      font-size: clamp(30px, 3.8vw, 46px);
+      line-height: 1;
+    }
+
+    .artist-bio p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: clamp(15px, 1.45vw, 17px);
+      line-height: 1.58;
+    }
+
     .player-card {
       max-width: 650px;
       border: 1px solid var(--ink);
@@ -883,6 +905,14 @@
           </div>
         </div>
 
+        <section class="artist-bio" id="bio" aria-labelledby="bio-title">
+          <p class="eyebrow">Bio</p>
+          <h2 id="bio-title">Over Marc.</h2>
+          <p>Ik ben Marc, de maker achter MarcsMusic. Van mezelf ben ik redelijk introvert. Ik uit me niet altijd makkelijk in woorden of lange gesprekken, maar in muziek lukt dat wel.</p>
+          <p>Soms raak ik geïnspireerd door de muziek van anderen. Soms zit ik gewoon rustig op de bank en komt er ineens een melodie of refrein in me op. Juist op de meest onverwachte momenten ontstaan vaak de eerste ideeën. Die schrijf ik van me af in de vorm van een nummer.</p>
+          <p>Daarom wil ik me niet beperken tot één stijl of genre. Elk gevoel, elk moment en elk verhaal vraagt om zijn eigen manier van vertellen.</p>
+        </section>
+
         <section class="player-card" id="listen" aria-label="Volledige MarcsMusic tracks">
           <div class="player-top">
             <div class="cover" aria-hidden="true">
@@ -935,14 +965,6 @@
           </a>
           <a class="social-link" href="https://x.com/MarcsMusic_" target="_blank" rel="noopener">X</a>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="bio" aria-labelledby="bio-title">
-      <div class="container">
-        <p class="eyebrow">Bio</p>
-        <h2 id="bio-title">Over Marc.</h2>
-        <p class="lead">Ik ben Marc, de maker achter MarcsMusic. Ik laat me inspireren door het moment: een gevoel, idee of sfeer bepaalt waar een track naartoe gaat. Daardoor beweegt mijn muziek niet binnen één vast genre. Van Nederlandstalige pop tot reggae, dance en elektronische tracks; ik vind in bijna ieder genre iets moois, zolang het maar iets oproept.</p>
       </div>
     </section>
 
