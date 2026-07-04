@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run125SeedPlatforms } from './run125PlatformSeeds.js';
 
 export const run124SeedPlatforms: PlatformInput[] = [
   {
@@ -16,8 +17,8 @@ export const run124SeedPlatforms: PlatformInput[] = [
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because Sonicbids routes artists through account sign-up, EPK claiming/building, profile data, live-performance history, venue or slot applications and booking workflow choices. The current public site states submissions and partner tools are rolling out next, so account/session access, opportunity fit, profile claims and any future pricing boundaries need owner review.",
-    notes: "Official public research confirmed Sonicbids is active in 2026, lists artist sign-up/sign-in routes, says artists can claim a new EPK, and describes future booking submissions by slot, night or general interest. No account was created, no EPK was claimed, no opportunity was selected and no application was sent."
+    manualReviewReason: "Account sign-up, EPK setup, profile data and booking workflow choices require owner review.",
+    notes: "Run 124 official public route retained and aggregated. No account, upload, application or payment action was performed."
   },
   {
     name: "Syncr Music Brand Brief Upload Submit and Sync Opportunity Route",
@@ -34,8 +35,8 @@ export const run124SeedPlatforms: PlatformInput[] = [
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because Syncr requires account sign-up/login, track upload, brief selection, brand-fit review, rights clearance and progress tracking. Brief eligibility, sync rights, metadata, publisher/master ownership and any follow-up licensing terms must remain owner-reviewed.",
-    notes: "Official public research confirmed Syncr is active in 2026, offers free signup, collects brand briefs, lets artists upload tracks and submit to briefs, and reports outcomes including playlisting, gigs, radio play, interviews, signings and publishing deals. No account was opened, no track was uploaded and no brief was submitted."
+    manualReviewReason: "Account access, track upload, brief fit, rights data and licensing terms require owner review.",
+    notes: "Run 124 official public route retained and aggregated. No account, upload, brief submission or payment action was performed."
   },
   {
     name: "Feature.fm Artist Smart Link Pre-Save Fan Activation and Campaign Route",
@@ -45,15 +46,15 @@ export const run124SeedPlatforms: PlatformInput[] = [
     sourceType: "automation_run_124_public_research",
     country: "Global / independent artist smart-link pre-save fan activation and music marketing route",
     language: "en",
-    genres: ["feature-fm", "music-marketing", "smart-links", "pre-save", "release-links", "artist-bio-links", "fan-data", "analytics", "free-first", "login", "manual-review"],
+    genres: ["feature-fm", "music-marketing", "smart-links", "pre-save", "release-links", "artist-bio-links", "analytics", "free-first", "login", "manual-review"],
     submissionMethod: "official-feature-fm-artist-smart-link-presave-fan-activation-campaign-route",
     feeRequired: false,
     loginRequired: true,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because Feature.fm involves login/account setup, artist bio links, release links, pre-save links, contest/unlock pages, fan-data capture, analytics and campaign publishing. Fan consent, data collection, release timing, link destinations, ad/retargeting choices and any plan upgrades need owner review.",
-    notes: "Official public research confirmed Feature.fm is active, markets itself as a music marketing platform for independent artists, exposes Start for free routes, and lists artist bio links, release links, pre-save links, contest/unlock pages, fan-base management and analytics. No login was used, no link was created and no campaign was published."
+    manualReviewReason: "Account access, link setup, pre-save choices, analytics and campaign publication require owner review.",
+    notes: "Run 124 official public route retained and aggregated. No account, link or campaign action was performed."
   },
   {
     name: "DISCO Artist Catalog Share Receive Track and Supervisor Pitch Route",
@@ -70,8 +71,8 @@ export const run124SeedPlatforms: PlatformInput[] = [
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because DISCO requires account/free-trial access, catalog upload or import, rights-holder metadata, pitch/share links, listening analytics and possible pricing/trial decisions. Music-supervisor targeting, permission controls, downloadable assets and catalog rights must remain owner-reviewed.",
-    notes: "Official public research confirmed DISCO is active in 2026, offers a no-credit-card free trial, supports artists and creators, rights holders, music supervisors, A&R and marketing/promotions, and describes sending/receiving/tracking music plus pitching tracks. No trial was started, no catalog was uploaded and no pitch/share link was sent."
+    manualReviewReason: "Account access, catalog upload, permissions, pitch links and recipient targeting require owner review.",
+    notes: "Run 124 official public route retained and aggregated. No trial, catalog upload or pitch action was performed."
   },
   {
     name: "TopHit Radio TV Music Distribution Airplay Testing and Chart Route",
@@ -88,7 +89,8 @@ export const run124SeedPlatforms: PlatformInput[] = [
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because TopHit routes rights holders through registration/login, music or video upload, radio/TV distribution, test ratings, rights-holder statistics and regional airplay/market fit. Territory suitability, metadata, release rights, language/clean edits and any platform terms require owner review.",
-    notes: "Public research confirmed TopHit is an active worldwide-oriented platform where artists, songwriters, DJs, labels and publishers upload music for radio/TV review and distribution; sources report 9,000+ rightsholders and 2,500+ radio stations/90 TV channels across 45 countries. No registration was attempted, no track or video was uploaded and no radio/TV delivery was made."
-  }
+    manualReviewReason: "Registration, media upload, territory fit, clean edits and platform terms require owner review.",
+    notes: "Run 124 official public route retained and aggregated. No registration, media upload or delivery action was performed."
+  },
+  ...run125SeedPlatforms
 ];
