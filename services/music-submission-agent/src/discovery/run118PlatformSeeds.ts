@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run119SeedPlatforms } from './run119PlatformSeeds.js';
 
 export const run118SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run118SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because KZSU lists Music Director email and physical music-mail routes, but its detailed music guidelines page is protected by a cookie/session boundary; no cookie, session or guideline workflow should be handled automatically.",
     notes: "Official public research confirmed KZSU lists KZSU Music snail-mail and UPS addresses, Music Director contacts, music@kzsu.stanford.edu and a public send-us-music link, while the music-guidelines page redirected to a cookie-required boundary. No cookie/session control was handled, no email was sent and no package was prepared."
-  }
+  },
+  ...run119SeedPlatforms
 ];
