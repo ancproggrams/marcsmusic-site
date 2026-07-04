@@ -59,8 +59,8 @@ No accounts were created, no login was used, no forms were submitted, no message
 - data/run118-analytics-dashboard.json
 - reports/2026-07-04-run-118.md
 - reports/daily_report.md
-- src/discovery/run113PlatformSeeds.ts aggregation update
+- src/discovery/run117PlatformSeeds.ts aggregation update
 
 ## Runtime note
 
-The committed run artifacts are ready for the next worker execution. Run 118 seeds are loaded through the existing Run 113 aggregation, then idempotently upserted, queued for verification, classified for pricing/free-first priority and included in regenerated exports.
+The committed run artifacts are ready for the next worker execution. Run 118 seeds are loaded through the existing Run 117 aggregation, which is already loaded through the Run 113 aggregation, then idempotently upserted, queued for verification, classified for pricing/free-first priority and included in regenerated exports.
