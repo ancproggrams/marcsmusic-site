@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run122SeedPlatforms } from './run122PlatformSeeds.js';
 
 export const run121SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run121SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because KGNU publishes a contact form with Department choices including Music and DJ routes, but the form is protected by reCaptcha v3. Department choice, message text, music fit and any link/package details must be reviewed manually.",
     notes: "Official public research confirmed KGNU is active with current July 2026 music/news programming and exposes a public contact workflow for Music/DJ routing. No reCaptcha/session interaction occurred and no message or music link was submitted."
-  }
+  },
+  ...run122SeedPlatforms
 ];
