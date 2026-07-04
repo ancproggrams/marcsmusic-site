@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
 import { run114SeedPlatforms } from './run114PlatformSeeds.js';
 import { run115SeedPlatforms } from './run115PlatformSeeds.js';
+import { run116SeedPlatforms } from './run116PlatformSeeds.js';
 
 export const run113SeedPlatforms: PlatformInput[] = [
   {
@@ -94,5 +95,6 @@ export const run113SeedPlatforms: PlatformInput[] = [
     notes: "Official public research confirmed TAXI is an independent A&R company with Submit Music and member-login routes, offering opportunities for major/indie labels, publishers, film/TV supervisors, production libraries, ad agencies and game companies. The site also shows current 2026 activity. No membership was started, no login was used, no music was submitted and no payment was initiated."
   },
   ...run114SeedPlatforms,
-  ...run115SeedPlatforms
+  ...run115SeedPlatforms,
+  ...run116SeedPlatforms
 ];
