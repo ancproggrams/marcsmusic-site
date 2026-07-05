@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run150SeedPlatforms } from './run150PlatformSeeds.js';
 
 export const run149SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run149SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because the official WMSE homepage exposes a How To Submit Music link, but the submission detail route returned a request-verification boundary that must not be bypassed or handled automatically.",
     notes: "Public research verified WMSE's active official site, How To Submit Music navigation and eclectic station positioning. The linked music-department submission route reached a verification/loader boundary; no anti-bot step was handled, no form was entered, no contact was guessed and no message was sent."
-  }
+  },
+  ...run150SeedPlatforms
 ];
