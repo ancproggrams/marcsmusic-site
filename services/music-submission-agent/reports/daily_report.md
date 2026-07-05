@@ -2,28 +2,28 @@
 
 Date: 2026-07-05
 
-Latest run: Run 128
+Latest run: Run 129
 
-Run 128 added 5 public-authorized global music submission opportunities and queued all 5 for manual review.
+Run 129 added 5 public-authorized global music submission opportunities and queued all 5 for manual review.
 
-Pipeline estimate: 700
+Pipeline estimate: 705
 
 Latest opportunities:
 
-- KALX Berkeley Physical CD LP Music Director Airplay Submission Route
-- Radio K KUOM Physical Digital Music Department Airplay Submission Route
-- WXYC UNC Freeform Music Department Contact and Mailing Route
-- WREK Atlanta Snail Mail Email Music Director Submission Route
-- WRAS Album 88 Regular Rotation Local Underground Music Submission Route
+- KVRX Austin Music Department Physical Digital Airplay Submission Route
+- FBi Radio Sydney Digital Music Submission Premiere and Interview Route
+- Triple J Unearthed Artist Upload Staff Review and Competition Route
+- PBS 106.7FM Digital Form Physical Music Department Airplay Route
+- 4ZZZ Brisbane Music Department Downloadable Stream and AOTW Submission Route
 
 Artifacts produced:
 
-- src/discovery/run128PlatformSeeds.ts
-- data/run128-platform-database.json
-- data/run128-review-queue.csv
-- data/run128-analytics-dashboard.json
-- reports/2026-07-05-run-128.md
+- src/discovery/run129PlatformSeeds.ts
+- data/run129-platform-database.json
+- data/run129-review-queue.csv
+- data/run129-analytics-dashboard.json
+- reports/2026-07-05-run-129.md
 - reports/daily_report.md
-- src/discovery/run127PlatformSeeds.ts aggregation update
+- src/discovery/run128PlatformSeeds.ts aggregation update
 
-Run 128 seeds are loaded through the Run 127 aggregation.
+Run 129 seeds are loaded through the Run 128 aggregation.
