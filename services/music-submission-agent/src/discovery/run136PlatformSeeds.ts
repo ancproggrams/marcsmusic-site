@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run137SeedPlatforms } from './run137PlatformSeeds.js';
 
 export const run136SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run136SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because the official Armada site exposes a Demo drop entry point, but the parsed public page did not expose a complete safe auto-submit form; label fit, demo format, rights, metadata and any app/session boundary need owner review.",
     notes: "Official Armada Music pages show active 2026 site content, featured releases, artists, news and a Demo drop navigation route. No demo page beyond the public navigation was opened, no account/session control was handled, no form was submitted, no contact was guessed and no music/link was delivered."
-  }
+  },
+  ...run137SeedPlatforms
 ];
