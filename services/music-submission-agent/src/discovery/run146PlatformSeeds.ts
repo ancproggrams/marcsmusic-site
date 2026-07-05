@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run147SeedPlatforms } from './run147PlatformSeeds.js';
 
 export const run146SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run146SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because VPAL/VP Records distribution fit depends on Caribbean genre alignment, release ownership, label/distribution terms, rights metadata, territory strategy and professional package quality.",
     notes: "Public research verified VP Records as a reggae/dancehall/soca label group and VPAL as its distribution branch that gives independent artists access to VP Records' distribution channel. No application was submitted, no music was delivered and no contact or terms negotiation was initiated."
-  }
+  },
+  ...run147SeedPlatforms
 ];
