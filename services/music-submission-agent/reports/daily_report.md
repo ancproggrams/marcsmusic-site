@@ -2,28 +2,28 @@
 
 Date: 2026-07-05
 
-Latest run: Run 133
+Latest run: Run 134
 
-Run 133 added 5 public-authorized global music submission opportunities.
+Run 134 added 5 public-authorized global music submission opportunities.
 
-Pipeline estimate: 725
+Pipeline estimate: 730
 
 Latest opportunities:
 
-- WMSE
-- WTJU
-- Radio Free Brooklyn
-- KCSB
-- KFAI
+- SoundCloud
+- Audiomack
+- Bandcamp
+- Jamendo
+- Mixcloud
 
 Artifacts produced:
 
-- src/discovery/run133PlatformSeeds.ts
-- data/run133-platform-database.json
-- data/run133-review-queue.csv
-- data/run133-analytics-dashboard.json
-- reports/2026-07-05-run-133.md
+- src/discovery/run134PlatformSeeds.ts
+- data/run134-platform-database.json
+- data/run134-review-queue.csv
+- data/run134-analytics-dashboard.json
+- reports/2026-07-05-run-134.md
 - reports/daily_report.md
-- src/discovery/run132PlatformSeeds.ts aggregation update
+- src/discovery/run133PlatformSeeds.ts aggregation update
 
-Run 133 seeds are loaded through the Run 132 aggregation.
+Run 134 seeds are loaded through the Run 133 aggregation.
