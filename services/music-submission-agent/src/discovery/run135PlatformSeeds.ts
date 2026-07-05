@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run136SeedPlatforms } from './run136PlatformSeeds.js';
 
 export const run135SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run135SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because WWOZ fit depends on New Orleans/Louisiana relevance, finished CD or WAV quality, cover-letter/package decisions, host/show matching, profanity marking and physical or digital delivery choices.",
     notes: "Official WWOZ pages show active programming, musician resources and a Getting Airplay route that prefers finished CDs but accepts WAV files for digital delivery. No CD package was prepared, no WAV/link/file was delivered, no host was contacted and no follow-up was sent."
-  }
+  },
+  ...run136SeedPlatforms
 ];
