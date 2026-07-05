@@ -99,7 +99,7 @@
     "paymentRequired": false,
     "manualReviewRequired": true,
     "publicRouteStatus": "official WMSE homepage verified with How To Submit Music navigation; linked music-department route returned request-verification boundary",
-    "businessEmailStatus": "no official public business email verified during this run; no contact guessed and no SMTP/MX probing performed",
+    "businessEmailStatus": "official public Music Director and station email addresses observed on the public homepage; submission-detail route still requires manual review because it returned a request-verification boundary; no SMTP/MX probing performed",
     "queueStatus": "needs_manual_review",
     "priority": 91,
     "pricingModel": "free-first/request-verification-boundary-manual-review"
