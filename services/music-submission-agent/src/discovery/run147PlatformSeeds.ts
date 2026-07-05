@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run148SeedPlatforms } from './run148PlatformSeeds.js';
 
 export const run147SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run147SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because KCRW airplay consideration is local/regional touring-artist dependent and requires selecting the right recording, metadata, clean context, tour angle and pitch route.",
     notes: "Public research verified KCRW's eclectic music programming, electronic/dance/world/reggae-related show context and guidance that local and regional touring artists can send recordings for airplay consideration. No recording was sent, no contact was used and no pitch was submitted."
-  }
+  },
+  ...run148SeedPlatforms
 ];
