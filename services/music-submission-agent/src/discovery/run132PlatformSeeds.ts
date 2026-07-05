@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run133SeedPlatforms } from './run133PlatformSeeds.js';
 
-export const run132SeedPlatforms: PlatformInput[] = [
+const run132BaseSeedPlatforms: PlatformInput[] = [
   {
     name: "KXCI Global Digital and Physical Music Department Submission Route",
     websiteUrl: "https://kxci.org/",
@@ -91,4 +92,9 @@ export const run132SeedPlatforms: PlatformInput[] = [
     manualReviewReason: "Human review is required because Revealed's Demo route redirects to account sign-in with email/password or Spotify connection, requiring owner-controlled login, demo upload/metadata, rights checks and label-fit decisions.",
     notes: "Official public research confirmed the Revealed site is active with current 2026 releases and a Demo navigation route that redirects to Sign in before demo submission. No account was created, no Spotify connection was authorized, no login was used and no demo was uploaded."
   }
+];
+
+export const run132SeedPlatforms: PlatformInput[] = [
+  ...run132BaseSeedPlatforms,
+  ...run133SeedPlatforms
 ];
