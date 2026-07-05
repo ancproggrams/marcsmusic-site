@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run146SeedPlatforms } from './run146PlatformSeeds.js';
 
 export const run145SeedPlatforms: PlatformInput[] = [
   {
@@ -17,7 +18,7 @@ export const run145SeedPlatforms: PlatformInput[] = [
     paymentRequired: false,
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because KUCI accepts physical CD/vinyl/wax-cylinder packages and an external Google Form digital route; the form/session boundary, track listing, artist information, genre targeting and package choice must remain owner-controlled.",
-    notes: "Official KUCI Submitting Music page gives a Music Director mailing address, a New Release Submission Form link and programming-fit guidance, including not contacting non-music directors about airplay. No Google Form was opened for submission, no file/link was delivered and no physical package was prepared or mailed."
+    notes: "Official KUCI Submitting Music page gives a Music Director mailing address, a New Release Submission Form link and programming-fit guidance. No Google Form was opened, no file/link was delivered and no package was prepared or mailed."
   },
   {
     name: "WCBN Ann Arbor Hard-Copy Album Music Director Submission Route",
@@ -35,7 +36,7 @@ export const run145SeedPlatforms: PlatformInput[] = [
     paymentRequired: false,
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because WCBN asks musicians to send a hard copy, preferably CD or vinyl, to WCBN MUSIC or a genre director; the music-director contact is public but obfuscated in parsed text and must not be decoded or guessed automatically.",
-    notes: "Official WCBN Contact Us page lists the station mailing address, Music Directors, genre-director routing and states WCBN accepts music from any and all musicians willing to send a hard copy of an album. No protected/obfuscated contact was decoded, no email was sent and no package was prepared or mailed."
+    notes: "Official WCBN Contact Us page lists the station mailing address, Music Directors, genre-director routing and hard-copy album guidance. No protected/obfuscated contact was decoded, no email was sent and no package was prepared or mailed."
   },
   {
     name: "KVRX Austin Physical Digital Music Department Airplay Submission Route",
@@ -53,7 +54,7 @@ export const run145SeedPlatforms: PlatformInput[] = [
     paymentRequired: false,
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because KVRX accepts physical and digital submissions for airplay consideration but excludes AI-assisted/generated music; format, rights, metadata, clean notes and email/package choices require owner review.",
-    notes: "Official KVRX Contact page lists the mailing address, says all music submissions for airplay consideration should go to music@kvrx.org, gives operations@kvrx.org for submission questions, states both physical and digital submissions are accepted, and excludes AI-assisted/generated music. No email was sent and no file/package was delivered."
+    notes: "Official KVRX Contact page lists public music-department submission guidance, both physical and digital routes, and excludes AI-assisted/generated music. No email was sent and no file/package was delivered."
   },
   {
     name: "WYSO Novaphonic WAV CD Music Department Airplay Submission Route",
@@ -71,7 +72,7 @@ export const run145SeedPlatforms: PlatformInput[] = [
     paymentRequired: false,
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because WYSO/Novaphonic requests high-quality downloadable files, clean radio edits, metadata, bios/one-sheets and optional physical releases; package quality, FCC-clean status and Ohio/local context need review.",
-    notes: "Official WYSO Music Submission page invites singles and albums/EPs, asks for releases by email to musicdepartment@wyso.org with WAV-preferred download files, artist/release metadata, clean edits and bio/press context, also allowing physical releases by mail. No email was sent, no files were delivered and no package was prepared or mailed."
+    notes: "Official WYSO Music Submission page invites singles and albums/EPs with WAV-preferred download files, artist/release metadata, clean edits and bio/press context, also allowing physical releases by mail. No email was sent, no files were delivered and no package was prepared or mailed."
   },
   {
     name: "WREK Atlanta Snail Mail Email Music Director Library Submission Route",
@@ -88,7 +89,8 @@ export const run145SeedPlatforms: PlatformInput[] = [
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because WREK accepts snail-mail and email music director submissions, but CDs and LPs have better airplay odds; media format, genre fit, metadata, contact details and follow-up timing require owner control.",
-    notes: "Official WREK Music page links to Submit Songs, and the official submission page lists the snail-mail address plus music.director@wrek.org, common media-format handling, CD/LP preference and add-list follow-up guidance. No email was sent and no physical package was prepared or mailed."
-  }
+    manualReviewReason: "Human review is required because WREK accepts snail-mail and music-director email submissions, but CDs and LPs have better airplay odds; media format, genre fit, metadata, contact details and follow-up timing require owner control.",
+    notes: "Official WREK Music page links to Submit Songs, and the official submission page lists snail-mail plus music-director contact guidance, common media-format handling, CD/LP preference and add-list follow-up guidance. No email was sent and no physical package was prepared or mailed."
+  },
+  ...run146SeedPlatforms
 ];
