@@ -2,28 +2,28 @@
 
 Date: 2026-07-05
 
-Latest run: Run 135
+Latest run: Run 136
 
-Run 135 added 5 public-authorized global music submission opportunities.
+Run 136 added 5 public-authorized music routes.
 
-Pipeline estimate: 735
+Pipeline estimate: 740
 
 Latest opportunities:
 
-- SomaFM
-- KUTX
-- KXT
-- KBOO
-- WWOZ
+- CJSW
+- CKUT
+- Monstercat
+- NCS
+- Armada Music
 
 Artifacts produced:
 
-- src/discovery/run135PlatformSeeds.ts
-- data/run135-platform-database.json
-- data/run135-review-queue.csv
-- data/run135-analytics-dashboard.json
-- reports/2026-07-05-run-135.md
+- src/discovery/run136PlatformSeeds.ts
+- data/run136-platform-database.json
+- data/run136-review-queue.csv
+- data/run136-analytics-dashboard.json
+- reports/2026-07-05-run-136.md
 - reports/daily_report.md
-- src/discovery/run134PlatformSeeds.ts aggregation update
+- src/discovery/run135PlatformSeeds.ts aggregation update
 
-Run 135 seeds are loaded through the Run 134 aggregation.
+Run 136 seeds are loaded through the Run 135 aggregation.
