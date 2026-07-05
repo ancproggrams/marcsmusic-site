@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run134SeedPlatforms } from './run134PlatformSeeds.js';
 
-export const run133SeedPlatforms: PlatformInput[] = [
+const run133BaseSeedPlatforms: PlatformInput[] = [
   {
     name: "WMSE Music Department Physical Digital Cassette Airplay Submission Route",
     websiteUrl: "https://wmse.org/",
@@ -91,4 +92,9 @@ export const run133SeedPlatforms: PlatformInput[] = [
     manualReviewReason: "Human review is required because KFAI asks artists to connect through its Music Department and Music Library email, warns that confirmation may not be sent, and requires a tailored music package rather than any safe auto-submit workflow.",
     notes: "Official public research confirmed KFAI's active 2026 site, current staff/contact directory, First Tracks new-music activity, and a Music Department & Music Library route inviting artists to share music by email. No email, link, file, form or package was delivered."
   }
+];
+
+export const run133SeedPlatforms: PlatformInput[] = [
+  ...run133BaseSeedPlatforms,
+  ...run134SeedPlatforms
 ];
