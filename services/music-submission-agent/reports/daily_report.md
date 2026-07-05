@@ -2,28 +2,28 @@
 
 Date: 2026-07-05
 
-Latest run: Run 144
+Latest run: Run 145
 
-Run 144 added 5 public-authorized global music submission routes.
+Run 145 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 780
+Pipeline estimate: 785
 
 Latest opportunities:
 
-- KALX
-- WNRN
-- WPRB
-- KZSU
-- KXLU
+- KUCI
+- WCBN
+- KVRX
+- WYSO
+- WREK
 
 Artifacts produced:
 
-- src/discovery/run144PlatformSeeds.ts
-- data/run144-platform-database.json
-- data/run144-review-queue.csv
-- data/run144-analytics-dashboard.json
-- reports/2026-07-05-run-144.md
+- src/discovery/run145PlatformSeeds.ts
+- data/run145-platform-database.json
+- data/run145-review-queue.csv
+- data/run145-analytics-dashboard.json
+- reports/2026-07-05-run-145.md
 - reports/daily_report.md
-- src/discovery/run143PlatformSeeds.ts aggregation update
+- src/discovery/run144PlatformSeeds.ts aggregation update
 
-Run 144 seeds are available as a standalone seed file and are loaded through the Run 143 aggregation.
+Run 145 seeds are available as a standalone seed file and are loaded through the Run 144 aggregation.
