@@ -2,28 +2,28 @@
 
 Date: 2026-07-05
 
-Latest run: Run 147
+Latest run: Run 148
 
-Run 147 added 5 public-authorized global music submission routes.
+Run 148 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 795
+Pipeline estimate: 800
 
 Latest opportunities:
 
-- Groover
-- SubmitHub
-- Playlist Push
-- Soundplate / Play.Soundplate
-- KCRW
+- BBC Music Introducing
+- triple j Unearthed
+- Spinnin Records Talent Pool
+- Revealed Recordings
+- Protocol Recordings
 
 Artifacts produced:
 
-- src/discovery/run147PlatformSeeds.ts
-- data/run147-platform-database.json
-- data/run147-review-queue.csv
-- data/run147-analytics-dashboard.json
-- reports/2026-07-05-run-147.md
+- src/discovery/run148PlatformSeeds.ts
+- data/run148-platform-database.json
+- data/run148-review-queue.csv
+- data/run148-analytics-dashboard.json
+- reports/2026-07-05-run-148.md
 - reports/daily_report.md
-- src/discovery/run146PlatformSeeds.ts aggregation update
+- src/discovery/run147PlatformSeeds.ts aggregation update
 
-Run 147 seeds are available as a standalone seed file and are loaded through the Run 146 aggregation.
+Run 148 seeds are available as a standalone seed file and are loaded through the Run 147 aggregation.
