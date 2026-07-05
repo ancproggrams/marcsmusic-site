@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run130SeedPlatforms } from './run130PlatformSeeds.js';
 
 export const run129SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run129SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because 4ZZZ routes submissions through a JavaScript-required public form with contact, subscriber status, artist, release, permission, identity/disclosure, warning, downloadable-stream, cover-art and social-link fields. Downloadability, release data, permissions, optional AOTW eligibility and form boundaries must remain owner-controlled.",
     notes: "Official public research confirmed 4ZZZ is active, publishes a Music Submissions page, requires downloadable music rather than non-downloadable streams, links to a JavaScript-required submission form, and separately exposes Album of the Week consideration with Australian-artist criteria. No JavaScript form was submitted, no permissions were granted, no link or file was delivered and no account/payment action was taken."
-  }
+  },
+  ...run130SeedPlatforms
 ];
