@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run132SeedPlatforms } from './run132PlatformSeeds.js';
 
 export const run131SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run131SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because Songtradr is an app-based music licensing marketplace requiring JavaScript/session control, account access, rights ownership verification, upload decisions, territory/licensing-fee settings and catalog metadata review.",
     notes: "Official public research confirmed the public Songtradr route renders behind a JavaScript app boundary, while public reference research describes Songtradr as a B2B music licensing platform where artists can upload music and set licensing fees. No JavaScript app workflow was handled, no account was created, no login was used, no music was uploaded and no licensing terms were set."
-  }
+  },
+  ...run132SeedPlatforms
 ];
