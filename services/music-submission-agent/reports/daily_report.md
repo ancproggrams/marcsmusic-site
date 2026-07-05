@@ -2,28 +2,28 @@
 
 Date: 2026-07-06
 
-Latest run: Run 151
+Latest run: Run 152
 
-Run 151 added 5 public-authorized global music submission routes.
+Run 152 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 815
+Pipeline estimate: 820
 
 Latest opportunities:
 
-- Songtradr
-- Symphonic
-- GYROstream
-- Labelcaster
-- Subvert
+- Fresh On The Net
+- KUTX
+- FBi Radio
+- PBS 106.7FM
+- 2SER
 
 Artifacts produced:
 
-- src/discovery/run151PlatformSeeds.ts
-- data/run151-platform-database.json
-- data/run151-review-queue.csv
-- data/run151-analytics-dashboard.json
-- reports/2026-07-06-run-151.md
+- src/discovery/run152PlatformSeeds.ts
+- data/run152-platform-database.json
+- data/run152-review-queue.csv
+- data/run152-analytics-dashboard.json
+- reports/2026-07-06-run-152.md
 - reports/daily_report.md
-- src/discovery/run150PlatformSeeds.ts aggregation update
+- src/discovery/run151PlatformSeeds.ts aggregation update
 
-Run 151 seeds are available as a standalone seed file and are loaded through the Run 150 aggregation.
+Run 152 seeds are available as a standalone seed file and are loaded through the Run 151 aggregation.
