@@ -1,0 +1,6 @@
+run,platform_route,queue_status,pricing_model,priority,manual_review_reason
+132,"KXCI Global Digital and Physical Music Department Submission Route",needs_manual_review,free,91,"Review release metadata, explicit-language notes, MP3/WAV download-link handling, physical-copy option and fit for KXCI volunteer/staff airplay review."
+132,"KRCL Physical Music Department and Utah Digital Upload Route",needs_manual_review,free,90,"Review physical CD-only constraints, no-demo/no-CD-R rule, Google Form boundary for Utah digital route and whether MarcsMusic should use the physical route only."
+132,"Spinnin Records Talent Pool Account Demo Upload Route",needs_manual_review,free,89,"Review account creation/login, demo upload, track rights, profile/community choices, terms and dance-label fit before any action."
+132,"WNCW Programming Department CD WAV MP3 Airplay Submission Route",needs_manual_review,free,88,"Review CD versus WAV/MP3 download-service route, one-sheet, single/EP/full-length choice, no-guarantee terms and follow-up policy."
+132,"Revealed Recordings Account Gated Electronic Demo Submission Route",needs_manual_review,free,87,"Review account login/Spotify connection, demo upload, metadata, rights, label-fit and terms before any action."
