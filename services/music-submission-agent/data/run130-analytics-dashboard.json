@@ -1,0 +1,33 @@
+{
+  "run": 130,
+  "date": "2026-07-05",
+  "pipelineEstimate": 710,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "unknownManualRoutes": 0,
+  "publicRouteSourcePagesObserved": 5,
+  "officialContactRoutesObserved": 5,
+  "publicApplicationUploadContactFormsObserved": 5,
+  "physicalPackageSideRoutesObserved": 4,
+  "paymentRoutesObserved": 0,
+  "loginOrSessionBoundaryRoutesObserved": 0,
+  "captchaOrChallengeRoutesObserved": 0,
+  "appSessionBoundaryRoutesObserved": 0,
+  "redactedOrObfuscatedContactRoutesObserved": 1,
+  "manualWorkflowRoutesObserved": 5,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "generatedContacts": 0,
+  "dedupeSearchTerms": ["KDVS", "KZSC", "KSPC", "WMFO", "WZBC"],
+  "routes": [
+    {"name": "KDVS Davis Physical-Only Music Department Airplay Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free", "priority": 90},
+    {"name": "KZSC Santa Cruz Music Submission Contact Form and Package Route", "queueStatus": "needs_manual_review", "pricingModel": "free", "priority": 89},
+    {"name": "KSPC Claremont Album EP Digital Physical Music Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free", "priority": 88},
+    {"name": "WMFO Tufts Music Director Digital Physical Library Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free", "priority": 87},
+    {"name": "WZBC Boston College Programming Promotion Contact Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free", "priority": 86}
+  ]
+}
