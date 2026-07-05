@@ -2,28 +2,28 @@
 
 Date: 2026-07-05
 
-Latest run: Run 141
+Latest run: Run 142
 
-Run 141 added 5 public-authorized global music submission routes.
+Run 142 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 765
+Pipeline estimate: 770
 
 Latest opportunities:
 
-- Spotify for Artists
-- Amazon Music for Artists
-- Pandora AMP
-- BandLab
-- Audius
+- XRAY FM
+- Radio Milwaukee 88Nine
+- WMNF
+- WYEP
+- STMPD RCRDS
 
 Artifacts produced:
 
-- src/discovery/run141PlatformSeeds.ts
-- data/run141-platform-database.json
-- data/run141-review-queue.csv
-- data/run141-analytics-dashboard.json
-- reports/2026-07-05-run-141.md
+- src/discovery/run142PlatformSeeds.ts
+- data/run142-platform-database.json
+- data/run142-review-queue.csv
+- data/run142-analytics-dashboard.json
+- reports/2026-07-05-run-142.md
 - reports/daily_report.md
-- src/discovery/run140PlatformSeeds.ts aggregation update
+- src/discovery/run141PlatformSeeds.ts aggregation update
 
-Run 141 seeds are available as a standalone seed file and are loaded through the Run 140 aggregation.
+Run 142 seeds are available as a standalone seed file and are loaded through the Run 141 aggregation.
