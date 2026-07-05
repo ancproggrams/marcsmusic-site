@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run129SeedPlatforms } from './run129PlatformSeeds.js';
 
 export const run128SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run128SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because WRAS exposes Regular Rotation and specialty-programming contact routes and asks for local Atlanta or generally underground music released in the past four months. Release date, format, fit, department choice, pitch copy and any email/link delivery must remain owner-reviewed.",
     notes: "Official public research confirmed WRAS Album 88 is active, publishes current rotation and schedule routes, lists Regular Rotation music contacts and asks for local Atlanta or generally underground music released in the past four months. No email was sent, no link or file was delivered and no form was submitted."
-  }
+  },
+  ...run129SeedPlatforms
 ];
