@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run138SeedPlatforms } from './run138PlatformSeeds.js';
 
 export const run137SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run137SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because UnitedMasters is an account/session-bound distribution and artist-services route with plan choices, release upload, platform delivery, brand opportunity, rights, metadata, artwork and payout decisions that need owner approval.",
     notes: "Public research identifies UnitedMasters as a worldwide independent artist distributor whose release workflow lets artists upload music and artwork for distribution across major streaming and social platforms. No account was created, no login was used, no music or artwork was uploaded, no platform delivery was selected and no paid plan or brand-opportunity workflow was entered."
-  }
+  },
+  ...run138SeedPlatforms
 ];
