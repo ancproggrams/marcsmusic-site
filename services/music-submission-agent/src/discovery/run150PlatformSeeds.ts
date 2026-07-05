@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run151SeedPlatforms } from './run151PlatformSeeds.js';
 
 export const run150SeedPlatforms: PlatformInput[] = [
   {
@@ -93,5 +94,6 @@ export const run150SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because BeatStars marketplace use requires account access, seller/buyer role selection, beat or song ownership review, license type, price, collaborator splits, publishing administration and paid-tier decisions.",
     notes: "Public research verified BeatStars as a global music licensing marketplace where artists and producers collaborate, license and distribute work through non-exclusive and exclusive license types, with free and paid subscription models and configurable licenses. No account was created, no marketplace listing was entered, no license was configured and no payment/subscription was started."
-  }
+  },
+  ...run151SeedPlatforms
 ];
