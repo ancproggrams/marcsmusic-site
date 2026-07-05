@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run139SeedPlatforms } from './run139PlatformSeeds.js';
 
 export const run138SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run138SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because WERS is a local Boston-area route, the form requests artist/contact/location details and MP3 file upload, and the site discloses reCAPTCHA protection; this cannot be automated and may not fit MarcsMusic unless there is a Boston/local angle.",
     notes: "Official WERS pages show active July 2026 music content, a Submit Music menu route to Wicked Local Wednesday, local-artist form fields, required contact/location data, MP3 upload with 39 MB max file size and reCAPTCHA protection. No form was filled, no file was uploaded, no reCAPTCHA was touched and no local-fit claim was made."
-  }
+  },
+  ...run139SeedPlatforms
 ];
