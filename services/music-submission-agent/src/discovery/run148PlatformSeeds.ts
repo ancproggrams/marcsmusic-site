@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run149SeedPlatforms } from './run149PlatformSeeds.js';
 
 export const run148SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run148SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because the public source verifies a producer/platform submission context but the current safe public auto-submit surface was not fully exposed; label fit, rights, metadata and route selection require review.",
     notes: "Public research verified Protocol Recordings as Nicky Romero's Dutch electronic label and Protocol Radio as a weekly route featuring tracks from label artists and new artists whose works can be sent through the platform. The official site was not safely entered beyond public discovery; no form, upload, message or login workflow was used."
-  }
+  },
+  ...run149SeedPlatforms
 ];
