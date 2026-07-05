@@ -1,0 +1,6 @@
+run,platform_route,queue_status,pricing_model,priority,manual_review_reason
+134,"SoundCloud Artist Upload Direct Fan Discovery Route",needs_manual_review,freemium,94,"Review account ownership, track rights, artwork, metadata, public or private visibility, content policy, plan limits and monetization choices before any upload."
+134,"Audiomack Creator Upload Discovery and Monetization Route",needs_manual_review,freemium,93,"Review creator account, rights ownership, genre fit, artwork, release metadata, monetization eligibility and profile settings before any upload."
+134,"Bandcamp Artist Store Track Album Upload and Sales Route",needs_manual_review,freemium,92,"Review artist profile, track or album package, pricing, payout setup, content policy, download or streaming terms and store choices before publication."
+134,"Jamendo Artist Profile Licensing and Free Streaming Upload Route",needs_manual_review,free-first,91,"Review rights status, collecting-society compatibility, licensing choices, profile metadata and sync or background licensing opt-in before publishing."
+134,"Mixcloud DJ Mix Radio Show Creator Upload Route",needs_manual_review,freemium,90,"Review creator account, long-form mix or show format, tracklist and rights metadata, profile settings and creator-subscription choices before any upload."
