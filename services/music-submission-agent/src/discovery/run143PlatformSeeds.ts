@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run144SeedPlatforms } from './run144PlatformSeeds.js';
 
 export const run143SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run143SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because Too Lost exposes account, dashboard and create-release routes plus distribution, publishing, Content ID, priority pitch, copyright, physical distribution and financing features; rights, metadata, stores, paid options and eligibility must remain owner-controlled.",
     notes: "Official Too Lost page describes delivery to 450+ digital platforms, login/get-started/create-release routes, pricing link, Priority Pitch, publishing, Content ID, physical distribution and catalog tools. No app workflow was entered, no release was created and no paid feature was activated."
-  }
+  },
+  ...run144SeedPlatforms
 ];
