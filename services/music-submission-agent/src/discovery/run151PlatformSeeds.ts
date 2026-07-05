@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run152SeedPlatforms } from './run152PlatformSeeds.js';
 
 export const run151SeedPlatforms: PlatformInput[] = [
   {
@@ -12,13 +13,13 @@ export const run151SeedPlatforms: PlatformInput[] = [
     genres: ["sync-licensing", "music-marketplace", "artist-upload", "film-tv-advertising", "electronic", "world", "reggae", "account-boundary", "manual-review"],
     submissionMethod: "official-songtradr-sync-licensing-marketplace-artist-upload-route",
     feeRequired: false,
-    feeAmount: "Public research indicates artists can upload music and set licensing fees; final account, commission, licensing and payout terms require manual review.",
+    feeAmount: "Final account, commission, licensing and payout terms require manual review.",
     loginRequired: true,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because Songtradr licensing upload requires account access, rights clearance, licensing fee strategy, publishing/master ownership, metadata, territory and payout settings that must remain owner-controlled.",
-    notes: "Public research verified Songtradr as a global music licensing marketplace where artists can upload music and set licensing fees. The safe public auto-submit surface was not exposed during this run. No account was created, no track was uploaded, no license price was configured, no pitch was submitted and no email was sent."
+    manualReviewReason: "Human review is required for account access, rights clearance, license terms, metadata, territory and payout settings.",
+    notes: "Public research verified Songtradr as a global music licensing marketplace. No protected workflow was entered."
   },
   {
     name: "Symphonic Starter Paid Distribution Unlimited Release Upload Route",
@@ -31,13 +32,13 @@ export const run151SeedPlatforms: PlatformInput[] = [
     genres: ["digital-distribution", "diy-distribution", "streaming-platforms", "electronic", "latin", "hip-hop", "world", "subscription-boundary", "manual-review"],
     submissionMethod: "official-symphonic-starter-paid-distribution-release-upload-route",
     feeRequired: true,
-    feeAmount: "Public research identifies Symphonic Starter as a yearly-fee DIY option for unlimited song upload with 100% royalties; exact active pricing and terms require manual review.",
+    feeAmount: "Yearly-fee DIY option observed; exact active pricing and terms require manual review.",
     loginRequired: true,
     captchaDetected: false,
     paymentRequired: true,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because Symphonic Starter involves account creation, paid yearly plan selection, release metadata, store/territory delivery, rights, royalty, tax and payout decisions.",
-    notes: "Public research verified Symphonic as a worldwide music distributor and identified Symphonic Starter as a DIY option for artists. No signup was started, no plan was selected, no release was configured, no audio/artwork was uploaded and no payment or subscription was initiated."
+    manualReviewReason: "Human review is required for plan selection, release metadata, delivery, rights, royalties, tax and payout settings.",
+    notes: "Public research verified Symphonic Starter as a DIY distribution option. No protected workflow was entered."
   },
   {
     name: "GYROstream Australian Global Distribution Artist Release Upload Route",
@@ -50,13 +51,13 @@ export const run151SeedPlatforms: PlatformInput[] = [
     genres: ["digital-distribution", "artist-services", "streaming-platforms", "electronic", "pop", "hip-hop", "world", "paid-route", "manual-review"],
     submissionMethod: "official-gyrostream-global-distribution-artist-release-upload-route",
     feeRequired: true,
-    feeAmount: "Distribution and artist-service terms require manual review before release setup; public research confirms distribution and royalty-collection service scope.",
+    feeAmount: "Distribution and artist-service terms require manual review before release setup.",
     loginRequired: true,
     captchaDetected: false,
     paymentRequired: true,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because GYROstream distribution depends on account/session access, service plan, release metadata, DSP delivery, rights, royalty collection, tax/payout settings and territory strategy.",
-    notes: "Public research verified GYROstream as an Australian digital music distribution platform founded in 2018 that distributes to DSPs, collects and distributes royalties and operates internationally. No account was created, no release was configured, no files were uploaded and no payment was initiated."
+    manualReviewReason: "Human review is required for service scope, release metadata, delivery, rights, royalty collection, tax/payout settings and territory strategy.",
+    notes: "Public research verified GYROstream as an international digital music distribution platform. No protected workflow was entered."
   },
   {
     name: "Labelcaster Digital Delivery Royalty Splits Artist Label Release Route",
@@ -69,13 +70,13 @@ export const run151SeedPlatforms: PlatformInput[] = [
     genres: ["digital-distribution", "artist-label-tools", "royalty-splits", "spotify", "apple-music", "tiktok", "deezer", "manual-review"],
     submissionMethod: "official-labelcaster-digital-delivery-artist-label-release-route",
     feeRequired: false,
-    feeAmount: "Pricing and royalty-split terms were not fully exposed in parsed public research and require manual review before account or release setup.",
+    feeAmount: "Pricing and split terms were not fully exposed in parsed public research and require manual review.",
     loginRequired: true,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because Labelcaster release delivery involves account access, roster setup, release metadata, royalty split configuration, DSP selection, rights, payout and tax decisions.",
-    notes: "Public research verified Labelcaster as an online music distribution platform for independent labels and artists, with digital delivery and royalty split tooling. No account was created, no label roster was configured, no release was uploaded and no royalty split was entered."
+    manualReviewReason: "Human review is required for account access, roster setup, release metadata, DSP selection, split configuration, rights, payout and tax settings.",
+    notes: "Public research verified Labelcaster as a digital delivery and royalty split platform. No protected workflow was entered."
   },
   {
     name: "Subvert Artist Owned Marketplace Founder Member Release Route",
@@ -88,12 +89,13 @@ export const run151SeedPlatforms: PlatformInput[] = [
     genres: ["direct-to-fan", "artist-owned-marketplace", "digital-downloads", "cooperative-membership", "independent-labels", "electronic", "experimental", "manual-review"],
     submissionMethod: "official-subvert-artist-owned-marketplace-founder-member-release-route",
     feeRequired: false,
-    feeAmount: "Public research indicates artist/label membership is free, supporter membership is paid and the platform adopted a 0% platform-fee model with optional buyer contributions; access/launch status requires manual review.",
+    feeAmount: "Artist/label membership and access status require manual review.",
     loginRequired: true,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because Subvert is in phased/alpha rollout with cooperative membership, account access, governance, catalog upload, AI-policy, release, pricing and ownership choices that must remain owner-controlled.",
-    notes: "Public research verified Subvert as a cooperatively owned Bandcamp-style marketplace for artists, labels and supporters, with member-only alpha testing in late 2025 and broader membership context in early 2026. No membership/account workflow was entered, no catalog was uploaded, no pricing was configured and no payment or supporter membership was initiated."
-  }
+    manualReviewReason: "Human review is required for phased access, cooperative membership, governance, catalog upload, content policy, release, pricing and ownership choices.",
+    notes: "Public research verified Subvert as a cooperatively owned marketplace in phased rollout. No protected workflow was entered."
+  },
+  ...run152SeedPlatforms
 ];
