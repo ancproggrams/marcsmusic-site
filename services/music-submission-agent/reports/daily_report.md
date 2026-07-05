@@ -2,28 +2,28 @@
 
 Date: 2026-07-05
 
-Latest run: Run 143
+Latest run: Run 144
 
-Run 143 added 5 public-authorized global music submission routes.
+Run 144 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 775
+Pipeline estimate: 780
 
 Latest opportunities:
 
-- KEXP
-- DropTrack
-- EmuBands
-- Record Union
-- Too Lost
+- KALX
+- WNRN
+- WPRB
+- KZSU
+- KXLU
 
 Artifacts produced:
 
-- src/discovery/run143PlatformSeeds.ts
-- data/run143-platform-database.json
-- data/run143-review-queue.csv
-- data/run143-analytics-dashboard.json
-- reports/2026-07-05-run-143.md
+- src/discovery/run144PlatformSeeds.ts
+- data/run144-platform-database.json
+- data/run144-review-queue.csv
+- data/run144-analytics-dashboard.json
+- reports/2026-07-05-run-144.md
 - reports/daily_report.md
-- src/discovery/run142PlatformSeeds.ts aggregation update
+- src/discovery/run143PlatformSeeds.ts aggregation update
 
-Run 143 seeds are available as a standalone seed file and are loaded through the Run 142 aggregation.
+Run 144 seeds are available as a standalone seed file and are loaded through the Run 143 aggregation.
