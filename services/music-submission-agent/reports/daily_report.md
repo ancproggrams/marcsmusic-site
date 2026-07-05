@@ -1,29 +1,29 @@
 # Music Submission Agent - Daily Report
 
-Date: 2026-07-05
+Date: 2026-07-06
 
-Latest run: Run 150
+Latest run: Run 151
 
-Run 150 added 5 public-authorized global music submission routes.
+Run 151 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 810
+Pipeline estimate: 815
 
 Latest opportunities:
 
-- Audiomack
-- Bandcamp
-- SoundCloud
-- Jamendo
-- BeatStars
+- Songtradr
+- Symphonic
+- GYROstream
+- Labelcaster
+- Subvert
 
 Artifacts produced:
 
-- src/discovery/run150PlatformSeeds.ts
-- data/run150-platform-database.json
-- data/run150-review-queue.csv
-- data/run150-analytics-dashboard.json
-- reports/2026-07-05-run-150.md
+- src/discovery/run151PlatformSeeds.ts
+- data/run151-platform-database.json
+- data/run151-review-queue.csv
+- data/run151-analytics-dashboard.json
+- reports/2026-07-06-run-151.md
 - reports/daily_report.md
-- src/discovery/run149PlatformSeeds.ts aggregation update
+- src/discovery/run150PlatformSeeds.ts aggregation update
 
-Run 150 seeds are available as a standalone seed file and are loaded through the Run 149 aggregation.
+Run 151 seeds are available as a standalone seed file and are loaded through the Run 150 aggregation.
