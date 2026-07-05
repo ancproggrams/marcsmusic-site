@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run143SeedPlatforms } from './run143PlatformSeeds.js';
 
 export const run142SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run142SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because STMPD routes demos through an external demo app boundary; label fit, rights, demo version, metadata, terms and any session prompts require owner control.",
     notes: "Official STMPD RCRDS public page shows current 2026 release activity and links to demo.stmpdrcrds.com for demo submission. No demo app workflow was executed, no login was used and no file or link was delivered."
-  }
+  },
+  ...run143SeedPlatforms
 ];
