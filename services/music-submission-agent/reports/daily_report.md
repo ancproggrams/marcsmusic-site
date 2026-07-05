@@ -2,28 +2,28 @@
 
 Date: 2026-07-05
 
-Latest run: Run 131
+Latest run: Run 132
 
-Run 131 added 5 public-authorized global music submission opportunities.
+Run 132 added 5 public-authorized global music submission opportunities.
 
-Pipeline estimate: 715
+Pipeline estimate: 720
 
 Latest opportunities:
 
-- Groover
-- Playlist Push
-- TAXI
-- Soundplate
-- Songtradr
+- KXCI
+- KRCL
+- Spinnin Records
+- WNCW
+- Revealed Recordings
 
 Artifacts produced:
 
-- src/discovery/run131PlatformSeeds.ts
-- data/run131-platform-database.json
-- data/run131-review-queue.txt
-- data/run131-analytics-dashboard.json
-- reports/2026-07-05-run-131.md
+- src/discovery/run132PlatformSeeds.ts
+- data/run132-platform-database.json
+- data/run132-review-queue.csv
+- data/run132-analytics-dashboard.json
+- reports/2026-07-05-run-132.md
 - reports/daily_report.md
-- src/discovery/run130PlatformSeeds.ts aggregation update
+- src/discovery/run131PlatformSeeds.ts aggregation update
 
-Run 131 seeds are loaded through the Run 130 aggregation.
+Run 132 seeds are loaded through the Run 131 aggregation.
