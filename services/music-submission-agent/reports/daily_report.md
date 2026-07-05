@@ -2,28 +2,28 @@
 
 Date: 2026-07-05
 
-Latest run: Run 130
+Latest run: Run 131
 
-Run 130 added 5 public-authorized global music submission opportunities and queued all 5 for manual review.
+Run 131 added 5 public-authorized global music submission opportunities.
 
-Pipeline estimate: 710
+Pipeline estimate: 715
 
 Latest opportunities:
 
-- KDVS Davis Physical-Only Music Department Airplay Submission Route
-- KZSC Santa Cruz Music Submission Contact Form and Package Route
-- KSPC Claremont Album EP Digital Physical Music Submission Route
-- WMFO Tufts Music Director Digital Physical Library Submission Route
-- WZBC Boston College Programming Promotion Contact Submission Route
+- Groover
+- Playlist Push
+- TAXI
+- Soundplate
+- Songtradr
 
 Artifacts produced:
 
-- src/discovery/run130PlatformSeeds.ts
-- data/run130-platform-database.json
-- data/run130-review-queue.csv
-- data/run130-analytics-dashboard.json
-- reports/2026-07-05-run-130.md
+- src/discovery/run131PlatformSeeds.ts
+- data/run131-platform-database.json
+- data/run131-review-queue.txt
+- data/run131-analytics-dashboard.json
+- reports/2026-07-05-run-131.md
 - reports/daily_report.md
-- src/discovery/run129PlatformSeeds.ts aggregation update
+- src/discovery/run130PlatformSeeds.ts aggregation update
 
-Run 130 seeds are loaded through the Run 129 aggregation.
+Run 131 seeds are loaded through the Run 130 aggregation.
