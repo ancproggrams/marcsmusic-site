@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run145SeedPlatforms } from './run145PlatformSeeds.js';
 
 export const run144SeedPlatforms: PlatformInput[] = [
   {
@@ -88,7 +89,8 @@ export const run144SeedPlatforms: PlatformInput[] = [
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because KXLU's submission routes are FCC-clean and physical-mail oriented, with separate general Music Director, Demolisten and A Fistful of Vinyl specialty destinations; route fit, content cleanliness and package prep need review.",
+    manualReviewReason: "Human review is required because KXLU's submission routes are FCC-clean and physical-mail oriented, with separate general Music Director, Demolisten and A Fistful of Vinyl specialty destinations; route fit, clean status and physical package prep need review.",
     notes: "Official KXLU Contact page lists station contacts plus physical submission guidance for General Submissions, Demolisten Submissions and Punk/Folk/Vinyl submissions. No email was sent, no package was prepared and no physical mail was initiated."
-  }
+  },
+  ...run145SeedPlatforms
 ];
