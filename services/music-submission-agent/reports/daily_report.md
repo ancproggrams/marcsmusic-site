@@ -2,29 +2,28 @@
 
 Date: 2026-07-05
 
-Latest run: Run 138
+Latest run: Run 139
 
-Run 138 added 5 public-authorized music routes.
+Run 139 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 750
+Pipeline estimate: 755
 
 Latest opportunities:
 
-- Musosoup
-- DailyPlaylists
-- Obscure Sound
-- A&R Factory
-- WERS Wicked Local Wednesday
+- TuneCore
+- CD Baby
+- Ditto Music
+- ONErpm
+- LANDR
 
 Artifacts produced:
 
-- src/discovery/run138PlatformSeeds.ts
-- data/run138-platform-database.json
-- data/run138-review-queue.csv
-- data/run138-analytics-dashboard.json
-- reports/2026-07-05-run-138.md
+- src/discovery/run139PlatformSeeds.ts
+- data/run139-platform-database.json
+- data/run139-review-queue.csv
+- data/run139-analytics-dashboard.json
+- reports/2026-07-05-run-139.md
 - reports/daily_report.md
-- src/discovery/run137PlatformSeeds.ts aggregation update
-- src/discovery/run136PlatformSeeds.ts aggregation update for Run 137
+- src/discovery/run138PlatformSeeds.ts aggregation update
 
-Run 138 seeds are available as a standalone seed file and are loaded through the Run 137 aggregation. Run 137 is also loaded through the Run 136 aggregation.
+Run 139 seeds are available as a standalone seed file and are loaded through the Run 138 aggregation.
