@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run142SeedPlatforms } from './run142PlatformSeeds.js';
 
 export const run141SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run141SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because Audius resolves as a JavaScript app boundary and upload/use requires account/session control, rights ownership, profile setup, track metadata, fan-discovery choices and web3/token or monetization boundary review.",
     notes: "Official Audius public site was observed as a JavaScript app boundary for a free music streaming service for artists, labels and fans; public sources identify Audius as a decentralized music platform that lets artists upload content and connect directly with fans. No account was created, no login was used, no wallet/token feature was entered and no track was uploaded."
-  }
+  },
+  ...run142SeedPlatforms
 ];
