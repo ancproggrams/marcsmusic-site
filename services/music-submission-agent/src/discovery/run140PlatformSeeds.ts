@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run141SeedPlatforms } from './run141PlatformSeeds.js';
 
-export const run140SeedPlatforms: PlatformInput[] = [
+const run140StandaloneSeedPlatforms: PlatformInput[] = [
   {
     name: "Amazing Radio Emerging Artist Upload and Airplay Discovery Route",
     websiteUrl: "https://amazingradio.com/",
@@ -9,15 +10,15 @@ export const run140SeedPlatforms: PlatformInput[] = [
     sourceType: "automation_run_140_public_research",
     country: "United Kingdom / United States / global emerging-artist online radio and discovery platform",
     language: "en",
-    genres: ["amazing-radio", "emerging-artists", "unsigned-artists", "radio-airplay", "artist-upload", "music-discovery", "cmj", "global-radio", "javascript-app-boundary", "account-required", "manual-review"],
+    genres: ["amazing-radio", "emerging-artists", "radio-airplay", "artist-upload", "manual-review"],
     submissionMethod: "official-amazing-radio-emerging-artist-upload-airplay-route",
     feeRequired: false,
     loginRequired: true,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because Amazing Radio's public site resolves as a JavaScript app boundary and artist submission/upload requires owner-controlled account/session, track-rights, metadata and airplay-fit choices.",
-    notes: "Public research verifies Amazing Radio as an active emerging-artist platform with a website submission model, international online/DAB radio presence, CMJ context and prior artist-upload-to-airplay workflow. The official public site was observed but not entered beyond its JavaScript boundary. No account was created, no login was used, no track was uploaded and no submission was made."
+    manualReviewReason: "Manual review required for account/session, track-rights, metadata and airplay-fit choices.",
+    notes: "Run 140 standalone route preserved; no login, upload or submission was performed."
   },
   {
     name: "DistroKid Distribution Playlister HyperFollow and Release Upload Route",
@@ -25,17 +26,17 @@ export const run140SeedPlatforms: PlatformInput[] = [
     submissionUrl: "https://distrokid.com/",
     sourceUrl: "https://distrokid.com/",
     sourceType: "automation_run_140_public_research",
-    country: "United States / global independent digital music distribution, playlist, video, royalty-split and artist tools platform",
+    country: "United States / global independent digital music distribution and artist tools platform",
     language: "en",
-    genres: ["distrokid", "digital-distribution", "release-upload", "spotify", "apple-music", "youtube-music", "tiktok", "tidal", "playlister", "hyperfollow", "royalty-splits", "content-id", "annual-subscription", "payment-required", "account-required", "manual-review"],
+    genres: ["distrokid", "digital-distribution", "release-upload", "payment-required", "account-required", "manual-review"],
     submissionMethod: "official-distrokid-distribution-playlister-release-upload-route",
     feeRequired: true,
     loginRequired: true,
     captchaDetected: false,
     paymentRequired: true,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because DistroKid is an account/subscription distribution route with release upload, rights, splits, cover licensing, platform delivery, HyperFollow/Playlister and payment decisions that must remain owner-controlled.",
-    notes: "Public research verifies DistroKid as an active independent distribution service enabling musicians and rights holders to distribute and monetize music on Spotify, Apple Music/iTunes, YouTube Music, Tidal and other platforms while retaining rights/royalties. No account was created, no login was used, no release was configured, no platform delivery was selected and no subscription/payment was initiated."
+    manualReviewReason: "Manual review required for subscription, release upload, rights, splits, cover licensing, platform delivery and promo-tool choices.",
+    notes: "Run 140 standalone route preserved; no login, release setup, delivery selection or payment was performed."
   },
   {
     name: "TopHit Radio TV Music Upload Testing and Airplay Distribution Route",
@@ -45,15 +46,15 @@ export const run140SeedPlatforms: PlatformInput[] = [
     sourceType: "automation_run_140_public_research",
     country: "United States / Europe / CIS / international radio, TV, chart, airplay-monitoring and music-distribution platform",
     language: "en/ru/uk/es/de/pl/lt/lv/et/ro",
-    genres: ["tophit", "radio-distribution", "tv-distribution", "airplay-monitoring", "music-upload", "song-testing", "rights-holder", "record-label", "radio-stations", "charts", "account-required", "unknown-pricing", "manual-review"],
+    genres: ["tophit", "radio-distribution", "tv-distribution", "music-upload", "account-required", "manual-review"],
     submissionMethod: "official-tophit-radio-tv-music-upload-testing-airplay-route",
     feeRequired: false,
     loginRequired: true,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because TopHit is a rights-holder registration/upload and industry testing route; eligibility, territory fit, radio/TV servicing, rights metadata, chart/monitoring terms and commercial terms need review before use.",
-    notes: "Public research verifies TopHit as a worldwide-oriented music chart, distribution and airplay-monitoring platform where authors, artists, producers and labels upload works for examination/download by radio and TV partners, with 2024-scale activity across thousands of artists/rightsholders and stations. No registration, login, upload or testing workflow was entered."
+    manualReviewReason: "Manual review required for rights-holder registration, upload/testing workflow, territory fit and commercial terms.",
+    notes: "Run 140 standalone route preserved; no registration, login, upload or testing workflow was entered."
   },
   {
     name: "SoundClick Artist Upload Store Licensing and Genre Chart Route",
@@ -63,15 +64,15 @@ export const run140SeedPlatforms: PlatformInput[] = [
     sourceType: "automation_run_140_public_research",
     country: "United States / global music social community, artist upload, store, licensing and genre-chart platform",
     language: "en",
-    genres: ["soundclick", "artist-upload", "mp3-upload", "music-social-network", "music-store", "licensing", "genre-charts", "streams", "downloads", "optional-vip", "payment-side-route", "account-required", "manual-review"],
+    genres: ["soundclick", "artist-upload", "music-store", "licensing", "account-required", "manual-review"],
     submissionMethod: "official-soundclick-artist-upload-store-licensing-genre-chart-route",
     feeRequired: false,
     loginRequired: true,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because SoundClick requires owner-controlled profile/account setup, MP3 upload, stream/download/store/licensing choices, genre routing and optional VIP/payment decisions.",
-    notes: "Public research verifies SoundClick as a music-based social community where songs can be streamed, downloaded, sold through the store or licensed, with unlimited MP3 upload and optional fee-based VIP features. No account was created, no login was used, no songs were uploaded, no store/licensing settings were configured and no payment-side route was entered."
+    manualReviewReason: "Manual review required for account setup, upload, stream/download/store/licensing settings, genre routing and optional VIP choices.",
+    notes: "Run 140 standalone route preserved; no account, upload, store setup or payment-side route was entered."
   },
   {
     name: "TIDAL Upload Direct Artist Self Publishing and Spotlight Review Route",
@@ -81,14 +82,19 @@ export const run140SeedPlatforms: PlatformInput[] = [
     sourceType: "automation_run_140_public_research",
     country: "United States eligibility boundary / TIDAL direct artist upload, private sharing and editorial spotlight route",
     language: "en",
-    genres: ["tidal-upload", "direct-upload", "artist-self-publishing", "private-sharing", "spotlight-program", "editorial-review", "rights-verification", "ai-policy", "eligibility-boundary", "account-required", "manual-review"],
+    genres: ["tidal-upload", "direct-upload", "artist-self-publishing", "eligibility-boundary", "account-required", "manual-review"],
     submissionMethod: "official-tidal-upload-direct-artist-self-publishing-spotlight-route",
     feeRequired: false,
     loginRequired: true,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because TIDAL Upload is account/session and eligibility bound; artist age/location, rights ownership, metadata, public/private sharing, editorial placement, AI disclosure and no-royalty terms require owner review.",
-    notes: "Fresh public research identifies TIDAL Upload as a free artist-aimed direct upload route with public/private sharing, tagging/catalog tools, copyright checks, 200-track maximum context, Spotlight Program review and U.S.-only eligibility for artists 18+ at the time reported. No login was used, no eligibility flow was entered, no track was uploaded and no sharing/Spotlight route was activated."
+    manualReviewReason: "Manual review required for account/session, eligibility, rights ownership, metadata, public/private sharing, editorial context and policy decisions.",
+    notes: "Run 140 standalone route preserved; no login, eligibility flow, upload or sharing route was activated."
   }
+];
+
+export const run140SeedPlatforms: PlatformInput[] = [
+  ...run140StandaloneSeedPlatforms,
+  ...run141SeedPlatforms
 ];
