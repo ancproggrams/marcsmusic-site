@@ -2,28 +2,28 @@
 
 Date: 2026-07-05
 
-Latest run: Run 145
+Latest run: Run 146
 
-Run 145 added 5 public-authorized global music submission routes.
+Run 146 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 785
+Pipeline estimate: 790
 
 Latest opportunities:
 
-- KUCI
-- WCBN
-- KVRX
-- WYSO
-- WREK
+- Broadjam
+- ReverbNation
+- RadioAirplay / Jango
+- Music Xray
+- VPAL / VP Records
 
 Artifacts produced:
 
-- src/discovery/run145PlatformSeeds.ts
-- data/run145-platform-database.json
-- data/run145-review-queue.csv
-- data/run145-analytics-dashboard.json
-- reports/2026-07-05-run-145.md
+- src/discovery/run146PlatformSeeds.ts
+- data/run146-platform-database.json
+- data/run146-review-queue.csv
+- data/run146-analytics-dashboard.json
+- reports/2026-07-05-run-146.md
 - reports/daily_report.md
-- src/discovery/run144PlatformSeeds.ts aggregation update
+- src/discovery/run145PlatformSeeds.ts aggregation update
 
-Run 145 seeds are available as a standalone seed file and are loaded through the Run 144 aggregation.
+Run 146 seeds are available as a standalone seed file and are loaded through the Run 145 aggregation.
