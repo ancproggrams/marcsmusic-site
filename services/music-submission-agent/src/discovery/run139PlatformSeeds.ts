@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run140SeedPlatforms } from './run140PlatformSeeds.js';
 
 export const run139SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run139SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because LANDR combines mastering, distribution and collaboration tools; account access, plan choice, master/export settings, release metadata, rights, store delivery and subscription/payment decisions require owner control.",
     notes: "Official LANDR pages show Distribution, Log in, Sign up free, LANDR Studio pricing context, unlimited distribution to 150+ streaming platforms, Apple Music/Spotify/TikTok/YouTube delivery, 100% royalties and connected mastering/collaboration tools. No account was created, no login was used, no file was uploaded/mastered, no release was configured, no store delivery was selected and no subscription/payment was initiated."
-  }
+  },
+  ...run140SeedPlatforms
 ];
