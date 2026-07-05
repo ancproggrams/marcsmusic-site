@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run135SeedPlatforms } from './run135PlatformSeeds.js';
 
 export const run134SeedPlatforms: PlatformInput[] = [
   {
@@ -90,5 +91,6 @@ export const run134SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because Mixcloud upload requires a registered account, long-form mix/show formatting, tracklist and rights metadata, creator profile choices and any creator-subscription or monetization decisions.",
     notes: "Public research confirmed Mixcloud is active worldwide, registered users can upload radio shows, DJ mixes and podcasts, and correct artist/song metadata is required to preserve IP rights. No account was created, no login was used, no mix/show was uploaded, no metadata was submitted and no subscription/monetization route was activated."
-  }
+  },
+  ...run135SeedPlatforms
 ];
