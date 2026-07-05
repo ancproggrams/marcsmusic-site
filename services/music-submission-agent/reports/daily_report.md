@@ -2,28 +2,28 @@
 
 Date: 2026-07-05
 
-Latest run: Run 129
+Latest run: Run 130
 
-Run 129 added 5 public-authorized global music submission opportunities and queued all 5 for manual review.
+Run 130 added 5 public-authorized global music submission opportunities and queued all 5 for manual review.
 
-Pipeline estimate: 705
+Pipeline estimate: 710
 
 Latest opportunities:
 
-- KVRX Austin Music Department Physical Digital Airplay Submission Route
-- FBi Radio Sydney Digital Music Submission Premiere and Interview Route
-- Triple J Unearthed Artist Upload Staff Review and Competition Route
-- PBS 106.7FM Digital Form Physical Music Department Airplay Route
-- 4ZZZ Brisbane Music Department Downloadable Stream and AOTW Submission Route
+- KDVS Davis Physical-Only Music Department Airplay Submission Route
+- KZSC Santa Cruz Music Submission Contact Form and Package Route
+- KSPC Claremont Album EP Digital Physical Music Submission Route
+- WMFO Tufts Music Director Digital Physical Library Submission Route
+- WZBC Boston College Programming Promotion Contact Submission Route
 
 Artifacts produced:
 
-- src/discovery/run129PlatformSeeds.ts
-- data/run129-platform-database.json
-- data/run129-review-queue.csv
-- data/run129-analytics-dashboard.json
-- reports/2026-07-05-run-129.md
+- src/discovery/run130PlatformSeeds.ts
+- data/run130-platform-database.json
+- data/run130-review-queue.csv
+- data/run130-analytics-dashboard.json
+- reports/2026-07-05-run-130.md
 - reports/daily_report.md
-- src/discovery/run128PlatformSeeds.ts aggregation update
+- src/discovery/run129PlatformSeeds.ts aggregation update
 
-Run 129 seeds are loaded through the Run 128 aggregation.
+Run 130 seeds are loaded through the Run 129 aggregation.
