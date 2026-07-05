@@ -2,28 +2,29 @@
 
 Date: 2026-07-05
 
-Latest run: Run 137
+Latest run: Run 138
 
-Run 137 added 5 public-authorized music routes.
+Run 138 added 5 public-authorized music routes.
 
-Pipeline estimate: 745
+Pipeline estimate: 750
 
 Latest opportunities:
 
-- SoundOn
-- RouteNote
-- Amuse
-- iMusician
-- UnitedMasters
+- Musosoup
+- DailyPlaylists
+- Obscure Sound
+- A&R Factory
+- WERS Wicked Local Wednesday
 
 Artifacts produced:
 
-- src/discovery/run137PlatformSeeds.ts
-- data/run137-platform-database.json
-- data/run137-review-queue.csv
-- data/run137-analytics-dashboard.json
-- reports/2026-07-05-run-137.md
+- src/discovery/run138PlatformSeeds.ts
+- data/run138-platform-database.json
+- data/run138-review-queue.csv
+- data/run138-analytics-dashboard.json
+- reports/2026-07-05-run-138.md
 - reports/daily_report.md
-- src/discovery/run136PlatformSeeds.ts aggregation update attempted
+- src/discovery/run137PlatformSeeds.ts aggregation update
+- src/discovery/run136PlatformSeeds.ts aggregation update for Run 137
 
-Run 137 seeds are available as a standalone seed file. Aggregation update was attempted but blocked by repository-write safety controls during this automation run.
+Run 138 seeds are available as a standalone seed file and are loaded through the Run 137 aggregation. Run 137 is also loaded through the Run 136 aggregation.
