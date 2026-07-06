@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run164SeedPlatforms } from './run164PlatformSeeds.js';
 
 export const run163SeedPlatforms: PlatformInput[] = [
   {
@@ -95,5 +96,6 @@ export const run163SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because RepostExchange requires SoundCloud account connection, track selection, credit/campaign decisions, permission review and platform-compliance review before any campaign action.",
     notes: "Public research verified RepostExchange's official active 2026 site, official SoundCloud Partner positioning, 500,000+ creator community, free-to-use claim, credit model, SoundCloud connection requirement and login/pricing boundary. No SoundCloud account was connected and no campaign was created."
-  }
+  },
+  ...run164SeedPlatforms
 ];
