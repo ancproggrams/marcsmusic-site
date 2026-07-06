@@ -1,4 +1,4 @@
-FROM espocrm/espocrm:latest
+FROM espocrm/espocrm:10.0.0-apache
 
 COPY start-railway.sh /usr/local/bin/start-railway-espocrm
 
@@ -9,5 +9,5 @@ RUN rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.c
 
 EXPOSE 80
 
-ENTRYPOINT ["start-railway-espocrm"]
-CMD ["apache2-foreground"]
+ENTRYPOINT []
+CMD ["start-railway-espocrm", "apache2-foreground"]
