@@ -24,5 +24,7 @@ Artifacts produced:
 - data/run169-analytics-dashboard.json
 - reports/2026-07-06-run-169.md
 - reports/daily_report.md
+- src/discovery/run168BasePlatformSeeds.ts
+- src/discovery/run168PlatformSeeds.ts aggregation update
 
-Run 169 seeds are available as a standalone seed file. Aggregation loading into Run 168 could not be completed in this tool pass and remains the only follow-up item for the repository chain.
+Run 169 seeds are available as a standalone seed file and are loaded through the Run 168 aggregation. Run 168's original five seeds were preserved in run168BasePlatformSeeds.ts.
