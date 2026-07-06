@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run161SeedPlatforms } from './run161PlatformSeeds.js';
 
 export const run160SeedPlatforms: PlatformInput[] = [
   {
@@ -95,5 +96,6 @@ export const run160SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because WRAS asks for routing by format/department, emphasizes local Atlanta or underground fit and recent releases, and requires the owner to verify release date, department fit, clean/explicit notes, metadata and pitch copy before outreach.",
     notes: "Public research verified WRAS Album 88 official site activity, schedule/rotation context, Georgia State student-run station identity, contact page and regular-rotation music department routes including WRASMD, WRASRPMMD and WRASUrbanMD. No email was sent, no links/files were delivered and no payment or account workflow was used."
-  }
+  },
+  ...run161SeedPlatforms
 ];
