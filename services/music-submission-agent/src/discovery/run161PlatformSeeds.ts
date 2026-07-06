@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run162SeedPlatforms } from './run162PlatformSeeds.js';
 
 export const run161SeedPlatforms: PlatformInput[] = [
   {
@@ -95,5 +96,6 @@ export const run161SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because TopHit is a registration/upload platform for rights holders and media review, the official site returned an access boundary, and terms, geography, pricing, rights, metadata and suitability must be checked by the owner before any account or upload action.",
     notes: "Public research verified TopHit as an active global radio/TV music delivery and monitoring platform through public indexed material, but the official site returned a 403 boundary. No boundary was bypassed, no account was created, no form was submitted, no audio/video was uploaded and no payment route was entered."
-  }
+  },
+  ...run162SeedPlatforms
 ];
