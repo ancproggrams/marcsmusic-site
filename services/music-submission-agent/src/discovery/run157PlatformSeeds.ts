@@ -1,6 +1,8 @@
 import type { PlatformInput } from '../models/types.js';
+import { run158SeedPlatforms } from './run158PlatformSeeds.js';
 
 export const run157SeedPlatforms: PlatformInput[] = [
+  ...(run158SeedPlatforms as PlatformInput[]),
   {
     name: "UnitedMasters Digital Distribution Brand Sync Pitching Route",
     websiteUrl: "https://unitedmasters.com/",
