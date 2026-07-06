@@ -2,28 +2,28 @@
 
 Date: 2026-07-06
 
-Latest run: Run 163
+Latest run: Run 164
 
-Run 163 added 5 public-authorized global music submission routes.
+Run 164 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 875
+Pipeline estimate: 880
 
 Latest opportunities:
 
-- Groover
-- Musosoup
-- DailyPlaylists
-- Soundplate
-- RepostExchange
+- KDVS
+- KTRU
+- WUSB
+- WXYC
+- WREK
 
 Artifacts produced:
 
-- src/discovery/run163PlatformSeeds.ts
-- data/run163-platform-database.json
-- data/run163-review-queue.csv
-- data/run163-analytics-dashboard.json
-- reports/2026-07-06-run-163.md
+- src/discovery/run164PlatformSeeds.ts
+- data/run164-platform-database.json
+- data/run164-review-queue.csv
+- data/run164-analytics-dashboard.json
+- reports/2026-07-06-run-164.md
 - reports/daily_report.md
-- src/discovery/run162PlatformSeeds.ts aggregation update
+- src/discovery/run163PlatformSeeds.ts aggregation update
 
-Run 163 seeds are available as a standalone seed file and are loaded through the Run 162 aggregation.
+Run 164 seeds are available as a standalone seed file and are loaded through the Run 163 aggregation.
