@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Short of the Week RSS",
+    "type": "shortoftheweek-rss",
+    "url": "https://www.shortoftheweek.com/feed/",
+    "enabled": true,
+    "includeNews": false,
+    "trustScore": 6
+  },
+  {
+    "name": "Shortverse New Films Feed",
+    "type": "atom-author-feed",
+    "url": "https://www.shortverse.com/feed/films/",
+    "enabled": false,
+    "genreHint": "Short film",
+    "locationHint": "Unknown",
+    "trustScore": 3,
+    "minimumConfidence": 8
+  }
+]

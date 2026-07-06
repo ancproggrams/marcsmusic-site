@@ -12,7 +12,12 @@ const DEFAULT_LOCK_TTL_MS = 10 * 60 * 1000;
 
 const args = new Set(process.argv.slice(2));
 const dryRun = args.has("--dry-run") || process.env.SEARCH_ACTION_DRY_RUN === "true";
+const discoveryEnabled =
+  !args.has("--no-discovery") && process.env.FILM_DIRECTOR_DISCOVERY_ENABLED !== "false";
 const csvPath = process.env.FILM_DIRECTOR_LEADS_CSV || DEFAULT_CSV_PATH;
+const searchOutputCsvPath =
+  process.env.FILM_DIRECTOR_SEARCH_OUTPUT_CSV ||
+  `${tmpdir()}/marcsmusic-film-director-leads-combined.csv`;
 const lockPath =
   process.env.SEARCH_ACTION_LOCK_PATH || `${tmpdir()}/marcsmusic-film-director-search.lock`;
 const lockTtlMs = parsePositiveInteger(process.env.SEARCH_ACTION_LOCK_TTL_MS, DEFAULT_LOCK_TTL_MS);
@@ -34,6 +39,7 @@ try {
           pid: process.pid,
           startedAt: new Date(startedAt).toISOString(),
           csvPath,
+          discoveryEnabled,
           dryRun
         },
         null,
@@ -41,8 +47,9 @@ try {
       )
     );
 
-    log("info", "Starting film director search action", { csvPath, dryRun });
-    await runImport(csvPath, dryRun);
+    log("info", "Starting film director search action", { csvPath, discoveryEnabled, dryRun });
+    const importCsvPath = await prepareImportCsv(csvPath, dryRun);
+    await runImport(importCsvPath, dryRun);
     log("info", "Finished film director search action", { elapsedMs: Date.now() - startedAt });
   }
 } catch (error) {
@@ -110,6 +117,27 @@ async function isStaleLock(path, ttlMs) {
   }
 }
 
+async function prepareImportCsv(path, shouldDryRun) {
+  if (!discoveryEnabled) {
+    return path;
+  }
+
+  const discoveryArgs = [
+    "scripts/discover-film-director-leads.mjs",
+    "--seed",
+    path,
+    "--output",
+    searchOutputCsvPath
+  ];
+
+  if (shouldDryRun) {
+    discoveryArgs.push("--dry-run");
+  }
+
+  await runNode(discoveryArgs);
+  return searchOutputCsvPath;
+}
+
 async function runImport(path, shouldDryRun) {
   const importArgs = ["scripts/import-film-director-leads-to-espocrm.mjs", path];
 
@@ -117,8 +145,12 @@ async function runImport(path, shouldDryRun) {
     importArgs.push("--dry-run");
   }
 
+  await runNode(importArgs);
+}
+
+async function runNode(nodeArgs) {
   await new Promise((resolvePromise, rejectPromise) => {
-    const child = spawn(process.execPath, importArgs, {
+    const child = spawn(process.execPath, nodeArgs, {
       cwd: repoRoot,
       env: process.env,
       stdio: "inherit"
@@ -134,8 +166,8 @@ async function runImport(path, shouldDryRun) {
       rejectPromise(
         new Error(
           signal
-            ? `Film director import terminated by signal ${signal}`
-            : `Film director import exited with code ${code}`
+            ? `Film director task terminated by signal ${signal}`
+            : `Film director task exited with code ${code}`
         )
       );
     });

@@ -103,6 +103,11 @@ Run the film director outreach search/import as a separate Railway cron service,
    ESPOCRM_API_KEY=...
    ESPOCRM_IMPORT_ENTITY=Contact
    FILM_DIRECTOR_LEADS_CSV=data/film-director-leads-2026-07-06.csv
+   FILM_DIRECTOR_DISCOVERY_ENABLED=true
+   FILM_DIRECTOR_SOURCE_CONFIG=data/film-director-discovery-sources.json
+   FILM_DIRECTOR_MAX_SOURCE_ITEMS=12
+   FILM_DIRECTOR_MIN_CONFIDENCE=6
+   FILM_DIRECTOR_SEARCH_OUTPUT_CSV=/tmp/marcsmusic-film-director-leads-combined.csv
    SEARCH_ACTION_LOCK_TTL_MS=600000
    ```
 
@@ -123,10 +128,23 @@ This config is committed at `deploy/film-director-search/railway.json`. In the R
 
 Railway cron schedules are UTC and the shortest supported interval is 5 minutes. Each cron run should finish and exit; if a previous run is still active, Railway skips the next scheduled run. The local script also uses a lock so local/manual runs do not overlap. See the Railway cron documentation at `https://docs.railway.com/cron-jobs`.
 
+The cron run now has two stages:
+
+1. Discover new public film-director leads from configured public sources.
+2. Import the seed leads plus discovered leads into EspoCRM with upsert-by-name behavior.
+
+Discovery sources are configured in `data/film-director-discovery-sources.json`. `Short of the Week RSS` is enabled by default because its public pages expose film title, filmmaker, genre, country and project website metadata. `Shortverse New Films Feed` is present but disabled by default because the raw feed is noisier and needs stricter review before enabling.
+
 Validate the task without writing to EspoCRM:
 
 ```text
 npm run search:film-directors -- --dry-run
+```
+
+Validate discovery only:
+
+```text
+npm run search:discover-film-directors -- --dry-run
 ```
 
 ## Newsletter sender
