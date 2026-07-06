@@ -6,11 +6,26 @@
   "newQueueRows": 5,
   "needsManualReview": 5,
   "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 2,
+  "freemiumManualRoutes": 2,
+  "paidManualOnlyRoutes": 1,
+  "publicRouteSourcePagesObserved": 5,
+  "officialContactRoutesObserved": 2,
+  "officialPublicUploadRoutesObserved": 5,
+  "businessEmailsVerified": 2,
+  "publicApplicationUploadContactFormsObserved": 5,
+  "physicalPackageSideRoutesObserved": 1,
+  "paymentRoutesObserved": 3,
+  "loginOrSessionBoundaryRoutesObserved": 4,
+  "captchaOrChallengeRoutesObserved": 0,
+  "appSessionBoundaryRoutesObserved": 4,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "dedupeSearchTerms": ["CJSW", "RTRFM", "DistroKid", "Amuse", "Ditto Music"],
   "routes": [
-    "CJSW Digital Album Jotform Music Submission Route",
-    "RTRFM Submit Your Music Form WAV MP3 Airplay Route",
-    "DistroKid Unlimited Paid Distribution Upload Route",
-    "Amuse Self-Service Distribution App Release Upload Route",
-    "Ditto Music Unlimited Distribution Playlist Pitching Route"
+    {"name": "CJSW Digital Album Jotform Music Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/external-jotform-digital-album-owner-review", "priority": 95},
+    {"name": "RTRFM Submit Your Music Form WAV MP3 Airplay Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/public-form-email-digital-airplay-owner-review", "priority": 94},
+    {"name": "DistroKid Unlimited Paid Distribution Upload Route", "queueStatus": "needs_manual_review", "pricingModel": "paid/manual-only/annual-unlimited-distribution-owner-review", "priority": 93},
+    {"name": "Amuse Self-Service Distribution App Release Upload Route", "queueStatus": "needs_manual_review", "pricingModel": "freemium-manual/self-service-app-distribution-owner-review", "priority": 92},
+    {"name": "Ditto Music Unlimited Distribution Playlist Pitching Route", "queueStatus": "needs_manual_review", "pricingModel": "freemium-manual/unlimited-distribution-playlist-pitching-owner-review", "priority": 91}
   ]
 }
