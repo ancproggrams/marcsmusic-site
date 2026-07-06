@@ -1,6 +1,8 @@
 import type { PlatformInput } from '../models/types.js';
+import { run156SeedPlatforms } from './run156PlatformSeeds.js';
 
 export const run155SeedPlatforms: PlatformInput[] = [
+  ...run156SeedPlatforms,
   {
     name: "TuneCore Unlimited Digital Distribution Release Upload Route",
     websiteUrl: "https://www.tunecore.com/",
