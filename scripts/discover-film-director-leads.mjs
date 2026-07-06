@@ -6,8 +6,14 @@ import { dirname, resolve } from "node:path";
 
 const DEFAULT_SEED_CSV_PATH = "data/film-director-leads-2026-07-06.csv";
 const DEFAULT_SOURCE_CONFIG_PATH = "data/film-director-discovery-sources.json";
+const DEFAULT_COUNTRY_SHARDS_PATH = "data/film-director-country-shards.json";
 const DEFAULT_OUTPUT_CSV_PATH = `${tmpdir()}/marcsmusic-film-director-leads-combined.csv`;
 const DEFAULT_MAX_SOURCE_ITEMS = 12;
+const DEFAULT_SHARDS_PER_RUN = 8;
+const DEFAULT_SEARCH_ITEMS_PER_QUERY = 2;
+const DEFAULT_SEARCH_TEMPLATES_PER_SHARD = 2;
+const DEFAULT_SEARCH_MAX_PAGE_FETCHES = 32;
+const DEFAULT_SHARD_INTERVAL_MS = 5 * 60 * 1000;
 const DEFAULT_FETCH_TIMEOUT_MS = 15000;
 const DEFAULT_FETCH_DELAY_MS = 250;
 const DEFAULT_MIN_CONFIDENCE = 6;
@@ -64,6 +70,40 @@ const NON_COUNTRY_CATEGORIES = new Set([
   "transformation"
 ]);
 
+const NAME_PARTICLES = new Set(["al", "bin", "da", "de", "del", "der", "di", "du", "el", "la", "le", "ten", "van", "von"]);
+const NON_NAME_WORDS = new Set([
+  "administrations",
+  "and",
+  "animation",
+  "author",
+  "award",
+  "best",
+  "director",
+  "documentary",
+  "drama",
+  "engaging",
+  "father",
+  "feature",
+  "film",
+  "filmmaker",
+  "guy",
+  "hard",
+  "interview",
+  "official",
+  "our",
+  "selection",
+  "short",
+  "school",
+  "son",
+  "the",
+  "this",
+  "video",
+  "when",
+  "who",
+  "with",
+  "writer"
+]);
+
 const args = process.argv.slice(2);
 const dryRun = args.includes("--dry-run");
 const seedCsvPath = getArgValue("--seed") || process.env.FILM_DIRECTOR_LEADS_CSV || DEFAULT_SEED_CSV_PATH;
@@ -71,6 +111,10 @@ const sourceConfigPath =
   getArgValue("--sources") ||
   process.env.FILM_DIRECTOR_SOURCE_CONFIG ||
   DEFAULT_SOURCE_CONFIG_PATH;
+const countryShardsPath =
+  getArgValue("--country-shards") ||
+  process.env.FILM_DIRECTOR_COUNTRY_SHARDS ||
+  DEFAULT_COUNTRY_SHARDS_PATH;
 const outputCsvPath =
   getArgValue("--output") ||
   process.env.FILM_DIRECTOR_SEARCH_OUTPUT_CSV ||
@@ -79,6 +123,27 @@ const maxSourceItems = parsePositiveInteger(
   process.env.FILM_DIRECTOR_MAX_SOURCE_ITEMS,
   DEFAULT_MAX_SOURCE_ITEMS
 );
+const shardsPerRun = parsePositiveInteger(
+  process.env.FILM_DIRECTOR_SHARDS_PER_RUN,
+  DEFAULT_SHARDS_PER_RUN
+);
+const searchItemsPerQuery = parsePositiveInteger(
+  process.env.FILM_DIRECTOR_SEARCH_ITEMS_PER_QUERY,
+  DEFAULT_SEARCH_ITEMS_PER_QUERY
+);
+const searchTemplatesPerShard = parsePositiveInteger(
+  process.env.FILM_DIRECTOR_SEARCH_TEMPLATES_PER_SHARD,
+  DEFAULT_SEARCH_TEMPLATES_PER_SHARD
+);
+const searchMaxPageFetches = parsePositiveInteger(
+  process.env.FILM_DIRECTOR_SEARCH_MAX_PAGE_FETCHES,
+  DEFAULT_SEARCH_MAX_PAGE_FETCHES
+);
+const shardIntervalMs = parsePositiveInteger(
+  process.env.FILM_DIRECTOR_SHARD_INTERVAL_MS,
+  DEFAULT_SHARD_INTERVAL_MS
+);
+const configuredShardOffset = process.env.FILM_DIRECTOR_SHARD_OFFSET;
 const fetchTimeoutMs = parsePositiveInteger(
   process.env.FILM_DIRECTOR_FETCH_TIMEOUT_MS,
   DEFAULT_FETCH_TIMEOUT_MS
@@ -94,16 +159,24 @@ const defaultMinimumConfidence = parsePositiveInteger(
 
 const seedRows = await readCsvRows(seedCsvPath);
 const sources = await readJson(sourceConfigPath);
+const countryShards = await readJson(countryShardsPath).catch(() => []);
+const activeCountryShards = selectCountryShards(countryShards);
 const knownNames = new Set(seedRows.map((row) => normalizeName(row.name)).filter(Boolean));
 
 const discoveredCandidates = [];
 const sourceResults = [];
+let pageFetchCount = 0;
 
 for (const source of sources.filter((item) => item.enabled !== false)) {
   try {
-    const candidates = await discoverFromSource(source);
+    const candidates = await discoverFromSource(source, { activeCountryShards });
     discoveredCandidates.push(...candidates);
-    sourceResults.push({ source: source.name, candidates: candidates.length, status: "ok" });
+    sourceResults.push({
+      source: source.name,
+      candidates: candidates.length,
+      status: "ok",
+      shards: source.type === "country-search-rss" ? activeCountryShards.length : undefined
+    });
   } catch (error) {
     sourceResults.push({
       source: source.name,
@@ -148,16 +221,26 @@ log("info", "Film director discovery completed", {
   newRecords: newRows.length,
   totalRecords: combinedRows.length,
   outputCsvPath,
+  activeCountryShards: activeCountryShards.map((shard) => shard.country),
+  pageFetchCount,
   sourceResults
 });
 
-async function discoverFromSource(source) {
+async function discoverFromSource(source, context) {
   if (source.type === "shortoftheweek-rss") {
     return discoverShortOfTheWeek(source);
   }
 
+  if (source.type === "generic-rss-feed") {
+    return discoverGenericRssFeed(source);
+  }
+
   if (source.type === "atom-author-feed") {
     return discoverAtomAuthorFeed(source);
+  }
+
+  if (source.type === "country-search-rss") {
+    return discoverCountrySearchRss(source, context.activeCountryShards);
   }
 
   throw new Error(`Unsupported discovery source type: ${source.type}`);
@@ -237,6 +320,106 @@ async function discoverAtomAuthorFeed(source) {
   );
 }
 
+async function discoverGenericRssFeed(source) {
+  const feedXml = await fetchText(source.url);
+  const items = parseRssItems(feedXml).slice(0, source.maxItems || maxSourceItems);
+  const candidates = [];
+
+  for (const item of items) {
+    await delay(fetchDelayMs);
+
+    const pageHtml = source.fetchPages === false ? "" : await fetchPageWithBudget(item.link, source.name);
+    const text = joinUniqueText([item.title, item.description, item.content, pageHtml]);
+    const mentions = extractDirectorMentions(text);
+
+    for (const mention of mentions) {
+      candidates.push({
+        sourceName: source.name,
+        sourceUrl: item.link,
+        trustScore: source.trustScore || 0,
+        minimumConfidence: source.minimumConfidence,
+        confidenceBoost: mention.confidenceBoost,
+        name: mention.name,
+        projectTitle: extractProjectTitle(item, text),
+        pubDate: item.pubDate,
+        summary: stripHtml(item.description || item.content || ""),
+        categories: item.categories,
+        country: source.locationHint || categoryLocation(item.categories),
+        genre: source.genreHint || joinUnique(item.categories),
+        website: item.link,
+        social: "",
+        sourceType: "public-film-rss"
+      });
+    }
+  }
+
+  return candidates;
+}
+
+async function discoverCountrySearchRss(source, activeShards) {
+  if (!activeShards.length) {
+    return [];
+  }
+
+  const candidates = [];
+  const queryTemplates = Array.isArray(source.queryTemplates) ? source.queryTemplates : [];
+
+  if (!queryTemplates.length || !source.urlTemplate) {
+    throw new Error("country-search-rss source requires urlTemplate and queryTemplates");
+  }
+
+  for (const shard of activeShards) {
+    const templates = rotateSlice(
+      queryTemplates,
+      shard.country,
+      source.templatesPerShard || searchTemplatesPerShard
+    );
+
+    for (const template of templates) {
+      await delay(fetchDelayMs);
+
+      const query = renderTemplate(template, shard);
+      const url = renderTemplate(source.urlTemplate, {
+        ...shard,
+        query,
+        encodedQuery: encodeURIComponent(query)
+      });
+      const feedXml = await fetchText(url);
+      const items = parseRssItems(feedXml).slice(0, source.itemsPerQuery || searchItemsPerQuery);
+
+      for (const item of items) {
+        await delay(fetchDelayMs);
+
+        const pageHtml = source.fetchPages === false ? "" : await fetchPageWithBudget(item.link, source.name);
+        const text = joinUniqueText([item.title, item.description, item.content, pageHtml]);
+        const mentions = extractDirectorMentions(text);
+
+        for (const mention of mentions) {
+          candidates.push({
+            sourceName: `${source.name}: ${shard.country}`,
+            sourceUrl: item.link || url,
+            trustScore: source.trustScore || 0,
+            minimumConfidence: source.minimumConfidence,
+            confidenceBoost: mention.confidenceBoost,
+            name: mention.name,
+            projectTitle: extractProjectTitle(item, text),
+            pubDate: item.pubDate,
+            summary: stripHtml(item.description || item.content || ""),
+            categories: item.categories,
+            country: shard.country,
+            genre: source.genreHint || "Short film, festival film",
+            website: item.link || url,
+            social: "",
+            sourceType: "country-public-search"
+          });
+        }
+      }
+    }
+  }
+
+  return candidates;
+}
+
 function buildLeadRow(candidate) {
   const firstName = firstGivenName(candidate.name);
   const project = cleanText(candidate.projectTitle || "recent short film", 250);
@@ -283,6 +466,7 @@ function isQualifiedLead(row, candidate) {
 
 function scoreCandidate(row, candidate) {
   let score = candidate.trustScore || 0;
+  score += candidate.confidenceBoost || 0;
 
   if (row.website) {
     score += 1;
@@ -305,6 +489,199 @@ function scoreCandidate(row, candidate) {
   }
 
   return score;
+}
+
+function selectCountryShards(shards) {
+  const enabledShards = Array.isArray(shards)
+    ? shards.filter((shard) => shard && shard.enabled !== false && cleanText(shard.country, 80))
+    : [];
+
+  if (!enabledShards.length) {
+    return [];
+  }
+
+  const parsedOffset = Number.parseInt(configuredShardOffset || "", 10);
+  const offset = Number.isFinite(parsedOffset)
+    ? parsedOffset
+    : Math.floor(Date.now() / shardIntervalMs) * shardsPerRun;
+  const count = Math.min(shardsPerRun, enabledShards.length);
+  const selected = [];
+
+  for (let index = 0; index < count; index += 1) {
+    selected.push(enabledShards[(offset + index) % enabledShards.length]);
+  }
+
+  return selected;
+}
+
+function rotateSlice(values, key, count) {
+  if (!values.length) {
+    return [];
+  }
+
+  const offset = hashText(key) % values.length;
+  const selected = [];
+
+  for (let index = 0; index < Math.min(count, values.length); index += 1) {
+    selected.push(values[(offset + index) % values.length]);
+  }
+
+  return selected;
+}
+
+function extractDirectorMentions(text) {
+  const sourceText = cleanText(stripHtml(decodeHtml(text)), 12000);
+  const mentions = [];
+
+  for (const match of sourceText.matchAll(
+    /\b(?:directed by|director(?:s)?\s*:|director(?:s)?\s+-|from director|filmmaker|writer-director|writer\/director|interview with)\b/giu
+  )) {
+    const window = sourceText.slice(match.index + match[0].length, match.index + match[0].length + 160);
+    addMention(mentions, window, 3);
+  }
+
+  for (const match of sourceText.matchAll(
+    /((?:[A-Z][\p{L}'’.:-]+|[A-Z]\.)(?:\s+(?:(?:al|bin|da|de|del|der|di|du|el|la|le|ten|van|von)\s+)?(?:[A-Z][\p{L}'’.:-]+|[A-Z]\.)){1,4})['’]s\s+(?:short|film|documentary|animation|music video|feature)\b/gu
+  )) {
+    addMention(mentions, match[1], 2);
+  }
+
+  for (const match of sourceText.matchAll(
+    /\b(?:by|from)\s+((?:[A-Z][\p{L}'’.:-]+|[A-Z]\.)(?:\s+(?:(?:al|bin|da|de|del|der|di|du|el|la|le|ten|van|von)\s+)?(?:[A-Z][\p{L}'’.:-]+|[A-Z]\.)){1,4})\s+(?:is|wins|screens|premieres|lands|heads|brings)\b/gu
+  )) {
+    addMention(mentions, match[1], 1);
+  }
+
+  const seen = new Set();
+  return mentions.filter((mention) => {
+    const key = normalizeName(mention.name);
+
+    if (seen.has(key)) {
+      return false;
+    }
+
+    seen.add(key);
+    return true;
+  });
+}
+
+function addMention(mentions, value, confidenceBoost) {
+  const match = cleanText(value, 160).match(
+    /^\s*((?:[A-Z][\p{L}'’.:-]+|[A-Z]\.)(?:\s+(?:(?:al|bin|da|de|del|der|di|du|el|la|le|ten|van|von)\s+)?(?:[A-Z][\p{L}'’.:-]+|[A-Z]\.)){1,4})/u
+  );
+
+  if (!match?.[1]) {
+    return;
+  }
+
+  for (const name of splitFilmmakers(match[1])) {
+    const cleaned = cleanDirectorName(name);
+
+    if (cleaned && isHumanName(cleaned)) {
+      mentions.push({ name: cleaned, confidenceBoost });
+    }
+  }
+}
+
+function cleanDirectorName(value) {
+  const cleaned = cleanText(value, 120)
+    .replace(
+      /^(?:[A-Z][a-z]+)\s+(?:Animator|Author|Director|Filmmaker|Producer|Writer)\s+/u,
+      ""
+    )
+    .replace(/\b(?:short|film|documentary|animation|feature|director|filmmaker|producer|writer)\b.*$/iu, "")
+    .replace(/\s+(?:and|with|for|on|about)\s+.*$/iu, "")
+    .replace(/^[^A-Z\p{L}]+/u, "")
+    .replace(/[^A-Z\p{L}'’. -]+$/u, "")
+    .trim();
+
+  const words = cleaned.split(/\s+/u);
+  const half = words.length / 2;
+
+  if (
+    words.length >= 4 &&
+    Number.isInteger(half) &&
+    words.slice(0, half).join(" ") === words.slice(half).join(" ")
+  ) {
+    return words.slice(0, half).join(" ");
+  }
+
+  for (let size = Math.floor(words.length / 2); size >= 2; size -= 1) {
+    if (words.slice(0, size).join(" ") === words.slice(-size).join(" ")) {
+      return words.slice(size).join(" ");
+    }
+  }
+
+  return cleaned;
+}
+
+function extractProjectTitle(item, text) {
+  const title = cleanText(decodeHtml(item.title || ""), 250);
+  const directedTitle = text.match(/(?:short|film|documentary|animation|feature)\s+["“]([^"”]{3,120})["”]/iu)?.[1];
+  const quotedTitle = text.match(/["“]([^"”]{3,120})["”]\s+(?:directed by|from director|screens|premieres)/iu)?.[1];
+  const feedTitle = title
+    .replace(/\s*[-|]\s*(?:Film Shortage|Directors Notes|Aesthetica|Short of the Week).*$/iu, "")
+    .replace(/^(?:Watch|Review|Interview|Premiere|Short Film|Video)\s*[:.-]\s*/iu, "");
+
+  return cleanText(directedTitle || quotedTitle || feedTitle || "recent film project", 250);
+}
+
+async function fetchPageWithBudget(url, sourceName) {
+  if (!normalizeUrl(url) || pageFetchCount >= searchMaxPageFetches) {
+    return "";
+  }
+
+  pageFetchCount += 1;
+
+  try {
+    return await fetchText(url);
+  } catch (error) {
+    log("warn", "Could not fetch candidate source page", {
+      source: sourceName,
+      url,
+      error: error instanceof Error ? error.message : String(error)
+    });
+    return "";
+  }
+}
+
+function renderTemplate(template, values) {
+  return String(template || "").replace(/\{([a-zA-Z0-9_]+)\}/g, (_, key) => {
+    if (key === "aliases") {
+      return Array.isArray(values.aliases) ? values.aliases.join(" OR ") : "";
+    }
+
+    return cleanText(values[key] || "", 500);
+  });
+}
+
+function joinUniqueText(values) {
+  const seen = new Set();
+  const parts = [];
+
+  for (const value of values) {
+    const text = cleanText(value, 20000);
+    const key = text.slice(0, 250).toLowerCase();
+
+    if (!text || seen.has(key)) {
+      continue;
+    }
+
+    seen.add(key);
+    parts.push(text);
+  }
+
+  return parts.join(" ");
+}
+
+function hashText(value) {
+  let hash = 0;
+
+  for (const char of String(value || "")) {
+    hash = (hash * 31 + char.codePointAt(0)) >>> 0;
+  }
+
+  return hash;
 }
 
 function parseRssItems(xml) {
@@ -541,7 +918,7 @@ function isHumanName(value) {
     return false;
   }
 
-  if (!/^[\p{L}][\p{L}'’. -]+$/u.test(name)) {
+  if (!/^\p{Lu}[\p{L}'’. -]+$/u.test(name)) {
     return false;
   }
 
@@ -549,7 +926,27 @@ function isHumanName(value) {
     return false;
   }
 
-  return words.every((word) => word.length > 1 || /^[A-Z]\.?$/u.test(word));
+  if (words.some((word) => NON_NAME_WORDS.has(word.toLowerCase().replace(/[^a-z-]/g, "")))) {
+    return false;
+  }
+
+  const significantWords = words.filter((word) => !NAME_PARTICLES.has(word.toLowerCase()));
+  const first = significantWords[0] || "";
+  const last = significantWords.at(-1) || "";
+
+  if (!/^\p{Lu}/u.test(first) || !/^\p{Lu}/u.test(last)) {
+    return false;
+  }
+
+  return words.every((word) => {
+    const normalized = word.toLowerCase().replace(/[.'’]/g, "");
+
+    if (NAME_PARTICLES.has(normalized)) {
+      return true;
+    }
+
+    return word.length > 1 || /^[A-Z]\.?$/u.test(word);
+  });
 }
 
 function titleCaseName(value) {

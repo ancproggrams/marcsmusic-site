@@ -1,5 +1,15 @@
 {
   "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "watchPatterns": [
+      "data/film-director-discovery-sources.json",
+      "data/film-director-country-shards.json",
+      "data/film-director-leads-2026-07-06.csv",
+      "scripts/**",
+      "package.json",
+      "deploy/film-director-search/railway.json"
+    ]
+  },
   "deploy": {
     "startCommand": "npm run search:film-directors",
     "cronSchedule": "*/5 * * * *",

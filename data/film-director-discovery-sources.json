@@ -8,6 +8,86 @@
     "trustScore": 6
   },
   {
+    "name": "Directors Notes RSS",
+    "type": "generic-rss-feed",
+    "url": "https://directorsnotes.com/feed/",
+    "enabled": true,
+    "fetchPages": false,
+    "genreHint": "Short film, music video, commercial, director interview",
+    "locationHint": "Global",
+    "trustScore": 5,
+    "minimumConfidence": 8,
+    "maxItems": 12
+  },
+  {
+    "name": "Film Shortage RSS",
+    "type": "generic-rss-feed",
+    "url": "https://filmshortage.com/feed/",
+    "enabled": true,
+    "fetchPages": false,
+    "genreHint": "Short film, indie film",
+    "locationHint": "Global",
+    "trustScore": 5,
+    "minimumConfidence": 8,
+    "maxItems": 12
+  },
+  {
+    "name": "Aesthetica Short Film Festival RSS",
+    "type": "generic-rss-feed",
+    "url": "https://www.asff.co.uk/feed/",
+    "enabled": true,
+    "fetchPages": false,
+    "genreHint": "Festival short film, animation, documentary",
+    "locationHint": "Global",
+    "trustScore": 5,
+    "minimumConfidence": 8,
+    "maxItems": 8
+  },
+  {
+    "name": "Google News country film search",
+    "type": "country-search-rss",
+    "urlTemplate": "https://news.google.com/rss/search?q={encodedQuery}&hl=en-US&gl=US&ceid=US:en",
+    "enabled": true,
+    "fetchPages": false,
+    "genreHint": "Short film, festival film, documentary, music video",
+    "trustScore": 4,
+    "minimumConfidence": 9,
+    "itemsPerQuery": 2,
+    "templatesPerShard": 2,
+    "queryTemplates": [
+      "\"{country}\" \"short film\" director 2026 festival",
+      "\"{country}\" filmmaker \"short film\" 2026",
+      "\"{country}\" \"directed by\" \"short film\"",
+      "\"{country}\" \"music video\" director filmmaker",
+      "\"{country}\" \"documentary short\" director festival",
+      "\"{country}\" \"FilmFreeway\" director \"short film\"",
+      "\"{country}\" \"Vimeo\" \"directed by\" \"short film\"",
+      "\"{country}\" \"film school\" alumni director short film"
+    ]
+  },
+  {
+    "name": "Bing News country film search",
+    "type": "country-search-rss",
+    "urlTemplate": "https://www.bing.com/news/search?q={encodedQuery}&format=rss",
+    "enabled": true,
+    "fetchPages": false,
+    "genreHint": "Short film, festival film, documentary, music video",
+    "trustScore": 4,
+    "minimumConfidence": 9,
+    "itemsPerQuery": 2,
+    "templatesPerShard": 2,
+    "queryTemplates": [
+      "\"{country}\" \"short film\" director 2026 festival",
+      "\"{country}\" filmmaker \"short film\" 2026",
+      "\"{country}\" \"directed by\" \"short film\"",
+      "\"{country}\" \"music video\" director filmmaker",
+      "\"{country}\" \"documentary short\" director festival",
+      "\"{country}\" \"FilmFreeway\" director \"short film\"",
+      "\"{country}\" \"Vimeo\" \"directed by\" \"short film\"",
+      "\"{country}\" \"film school\" alumni director short film"
+    ]
+  },
+  {
     "name": "Shortverse New Films Feed",
     "type": "atom-author-feed",
     "url": "https://www.shortverse.com/feed/films/",

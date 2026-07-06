@@ -105,7 +105,12 @@ Run the film director outreach search/import as a separate Railway cron service,
    FILM_DIRECTOR_LEADS_CSV=data/film-director-leads-2026-07-06.csv
    FILM_DIRECTOR_DISCOVERY_ENABLED=true
    FILM_DIRECTOR_SOURCE_CONFIG=data/film-director-discovery-sources.json
+   FILM_DIRECTOR_COUNTRY_SHARDS=data/film-director-country-shards.json
    FILM_DIRECTOR_MAX_SOURCE_ITEMS=12
+   FILM_DIRECTOR_SHARDS_PER_RUN=8
+   FILM_DIRECTOR_SEARCH_TEMPLATES_PER_SHARD=2
+   FILM_DIRECTOR_SEARCH_ITEMS_PER_QUERY=2
+   FILM_DIRECTOR_SEARCH_MAX_PAGE_FETCHES=32
    FILM_DIRECTOR_MIN_CONFIDENCE=6
    FILM_DIRECTOR_SEARCH_OUTPUT_CSV=/tmp/marcsmusic-film-director-leads-combined.csv
    SEARCH_ACTION_LOCK_TTL_MS=600000
@@ -134,6 +139,8 @@ The cron run now has two stages:
 2. Import the seed leads plus discovered leads into EspoCRM with upsert-by-name behavior.
 
 Discovery sources are configured in `data/film-director-discovery-sources.json`. `Short of the Week RSS` is enabled by default because its public pages expose film title, filmmaker, genre, country and project website metadata. `Shortverse New Films Feed` is present but disabled by default because the raw feed is noisier and needs stricter review before enabling.
+
+Country shards are configured in `data/film-director-country-shards.json`. The cron rotates through the country list instead of querying the whole world in one run. With `FILM_DIRECTOR_SHARDS_PER_RUN=8`, the 197-country shard list cycles roughly every two hours while each 5-minute run stays bounded.
 
 Validate the task without writing to EspoCRM:
 
