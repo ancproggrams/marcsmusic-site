@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run154SeedPlatforms } from './run154PlatformSeeds.js';
 
 export const run153SeedPlatforms: PlatformInput[] = [
   {
@@ -12,13 +13,13 @@ export const run153SeedPlatforms: PlatformInput[] = [
     genres: ["college-radio", "airplay", "independent", "electronic", "reggae", "world", "lossless-audio", "physical-submission", "verified-email-route", "manual-review"],
     submissionMethod: "official-radio-k-kuom-lossless-digital-physical-airplay-submission-route",
     feeRequired: false,
-    feeAmount: "No submission fee observed; digital release-link and optional physical CD route are public, while package preparation requires manual handling.",
+    feeAmount: "No submission fee observed.",
     loginRequired: false,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because Radio K asks artists to assess station fit, prepare a release package, prefer lossless WAV/FLAC files, note FCC-unfriendly tracks and optionally prepare a physical CD package.",
-    notes: "Public research verified Radio K's official Submitting Music page, Music Department route, physical mailing route and current 2026 station activity. No contact was sent, no link was delivered and no physical package was prepared or mailed."
+    manualReviewReason: "Manual review is required for station fit, release package, lossless audio preference and optional physical package decisions.",
+    notes: "Run 153 verified the official public route and queued it for owner review."
   },
   {
     name: "KCSB Artist Inquiry Library Airplay Live Session Premiere Form Route",
@@ -31,13 +32,13 @@ export const run153SeedPlatforms: PlatformInput[] = [
     genres: ["college-radio", "community-radio", "airplay", "artist-inquiry", "live-session", "premiere", "dj", "independent", "external-form-boundary", "manual-review"],
     submissionMethod: "official-kcsb-artist-inquiry-library-airplay-live-session-premiere-form-route",
     feeRequired: false,
-    feeAmount: "No submission fee observed for the public Artist Inquiry route.",
+    feeAmount: "No submission fee observed.",
     loginRequired: false,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because KCSB routes artists, bands and DJs through an external public form for live on-air performance, station events, library adds and song/video premieres.",
-    notes: "Public research verified KCSB's official Artist Inquiry page, public form handoff, library-add/live-air/premiere use cases and current 2026 blog/music activity. No external form was submitted and no music data was entered."
+    manualReviewReason: "Manual review is required for artist inquiry use case, public form boundary, release data and availability decisions.",
+    notes: "Run 153 verified the official public route and queued it for owner review."
   },
   {
     name: "KXCI Tucson Music Department Global Digital Physical Airplay Submission Route",
@@ -50,13 +51,13 @@ export const run153SeedPlatforms: PlatformInput[] = [
     genres: ["community-radio", "airplay", "electronic", "world", "reggae", "roots", "local-music", "global-submission", "physical-submission", "verified-email-route", "manual-review"],
     submissionMethod: "official-kxci-music-department-global-digital-physical-airplay-submission-route",
     feeRequired: false,
-    feeAmount: "No music-submission fee observed; digital release-link route and optional CD/vinyl physical routing are public.",
+    feeAmount: "No music-submission fee observed.",
     loginRequired: false,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because KXCI asks for artist identity, album data, artwork, tracklist, release date, genre, similar artists, explicit-language notes, bio, socials, local context and contact details.",
-    notes: "Public research verified KXCI's official Music Department page, worldwide acceptance, digital MP3/WAV route, Locals Only guidance and national/international CD/vinyl mailing route. No contact was sent and no package was prepared."
+    manualReviewReason: "Manual review is required for metadata, explicit-language notes, release links and optional physical package decisions.",
+    notes: "Run 153 verified the official public route and queued it for owner review."
   },
   {
     name: "WXPN EPK Digital Download Airplay and Local Show Submission Route",
@@ -69,13 +70,13 @@ export const run153SeedPlatforms: PlatformInput[] = [
     genres: ["public-radio", "airplay", "local-show", "epk", "release-link", "independent", "alternative", "world-cafe", "verified-email-route", "manual-review"],
     submissionMethod: "official-wxpn-epk-digital-download-airplay-local-show-submission-route",
     feeRequired: false,
-    feeAmount: "No music-submission fee observed for the Music Director or Local Show routes.",
+    feeAmount: "No music-submission fee observed.",
     loginRequired: false,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because WXPN asks for an EPK with a digital release link for airplay and a WAV/high-quality MP3 link, short bio and upcoming show info for The Local Show.",
-    notes: "Public research verified WXPN's official contact page, Music Director submission route, Local Show route and active July 2026 music-news context. No contact was sent, no EPK was delivered and no event route was entered."
+    manualReviewReason: "Manual review is required for EPK details, release link choice, local-show context and audio-quality decisions.",
+    notes: "Run 153 verified the official public route and queued it for owner review."
   },
   {
     name: "KBOO Portland Genre-Routed Physical Music Submission Route",
@@ -88,12 +89,13 @@ export const run153SeedPlatforms: PlatformInput[] = [
     genres: ["community-radio", "airplay", "physical-submission", "electronic", "rock", "punk", "jazz", "hip-hop", "world", "reggae", "manual-review"],
     submissionMethod: "official-kboo-portland-genre-routed-physical-music-submission-route",
     feeRequired: false,
-    feeAmount: "No music-submission fee observed; route is physical-mail only and package/mailing costs remain manual.",
+    feeAmount: "No music-submission fee observed.",
     loginRequired: false,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Human review is required because KBOO states it does not have a digital library or capacity to process digital submissions, requires mailed physical submissions, routes by genre/person, and gives no guarantee of airplay.",
-    notes: "Public research verified KBOO's official Submit Your Music page, physical-mail route, genre-specific attention labels including electronic, hip-hop, world music and reggae, no-return/no-guarantee language and current 2026 station activity. No package was prepared or mailed."
-  }
+    manualReviewReason: "Manual review is required for physical-only package choice, genre routing and station-fit decisions.",
+    notes: "Run 153 verified the official public route and queued it for owner review."
+  },
+  ...run154SeedPlatforms
 ];
