@@ -2,29 +2,29 @@
 
 Date: 2026-07-06
 
-Latest run: Run 172
+Latest run: Run 173
 
-Run 172 added 5 public-authorized global music submission routes.
+Run 173 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 920
+Pipeline estimate: 925
 
 Latest opportunities:
 
-- RouteNote Free Premium Global Music Distribution Upload
-- Amuse Paid Web Mobile Distribution Artist Services
-- TuneCore Paid Unlimited Global Distribution Accelerator
-- Ditto Music Paid Unlimited Distribution Playlist Sync Pitching
-- Soundrop Free Account Per Track Distribution Cover Licensing
+- KCSB Santa Barbara Music Director All Formats Artist Inquiry
+- CD Baby Paid Digital Distribution Human Review Dashboard
+- LANDR Paid Unlimited Distribution Release Wizard
+- UnitedMasters Debut Select Distribution Brand Sync Pitching
+- Horus Music Unlimited Artist Label Distribution Dashboard
 
 Artifacts produced:
 
-- src/discovery/run172PlatformSeeds.ts
-- data/run172-platform-database.json
-- data/run172-review-queue.csv
-- data/run172-analytics-dashboard.json
-- reports/2026-07-06-run-172.md
+- src/discovery/run173PlatformSeeds.ts
+- data/run173-platform-database.json
+- data/run173-review-queue.csv
+- data/run173-analytics-dashboard.json
+- reports/2026-07-06-run-173.md
 - reports/daily_report.md
-- src/discovery/run171BasePlatformSeeds.ts
-- src/discovery/run171PlatformSeeds.ts aggregation update
+- src/discovery/run172BasePlatformSeeds.ts
+- src/discovery/run172PlatformSeeds.ts aggregation update
 
-Run 172 seeds are available as a standalone seed file and are loaded through the Run 171 aggregation. Run 171's original five seeds were preserved in run171BasePlatformSeeds.ts.
+Run 173 seeds are available as a standalone seed file and are loaded through the Run 172 aggregation. Run 172's original five seeds were preserved in run172BasePlatformSeeds.ts.
