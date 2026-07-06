@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run167SeedPlatforms } from './run167PlatformSeeds.js';
 
 export const run166SeedPlatforms: PlatformInput[] = [
   {
@@ -95,5 +96,6 @@ export const run166SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because Jamendo artist services require sign-in, catalog upload, licensing opt-ins, sync/in-store/Content ID choices, revenue-share terms, copyright ownership and collecting-society compatibility review.",
     notes: "Public research verified the official Jamendo Artists page, sign-in/start-now route, Jamendo Music audience reach, sync licensing, in-store placement, Content ID, promotion and compensation language. No sign-in was used, no catalog was uploaded, no licensing or Content ID option was selected and no payment or rights workflow was entered."
-  }
+  },
+  ...run167SeedPlatforms
 ];
