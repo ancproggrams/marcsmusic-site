@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run163SeedPlatforms } from './run163PlatformSeeds.js';
 
 export const run162SeedPlatforms: PlatformInput[] = [
   {
@@ -95,5 +96,6 @@ export const run162SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because CJSF points artists toward an external national distribution form/!earshot Distro registration and requires broadcast-rights authority; owner must verify rights grant, local-vs-national eligibility, metadata, release format, clean/explicit status and form/account boundaries before action.",
     notes: "Public research verified CJSF's official site activity, listen-live context, Music Department pages, Music Coordinator contact, CD-submission guidance, local-physical limitations, broadcast-rights language and !earshot Distro/National Music Director submission context. No external form was submitted, no account/login was used, no email was sent and no package was prepared."
-  }
+  },
+  ...run163SeedPlatforms
 ];
