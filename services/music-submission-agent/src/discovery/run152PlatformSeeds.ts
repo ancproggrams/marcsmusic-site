@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run153SeedPlatforms } from './run153PlatformSeeds.js';
 
 export const run152SeedPlatforms: PlatformInput[] = [
   {
@@ -95,5 +96,6 @@ export const run152SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because the 2SER form asks for personal/contact fields, location, release date, artist/band name, release title, artist bio and social links; the form must be completed only by the owner with correct release context.",
     notes: "Public research verified 2SER's official How to Submit Music page and public airplay-consideration form. The site showed 2026 music content and active on-demand programming. No form was submitted, no contact data was entered and no track/release package was delivered."
-  }
+  },
+  ...run153SeedPlatforms
 ];
