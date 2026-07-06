@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run166SeedPlatforms } from './run166PlatformSeeds.js';
 
 export const run165SeedPlatforms: PlatformInput[] = [
   {
@@ -95,5 +96,6 @@ export const run165SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because this is a local Boston-area WERS route with artist/location eligibility, contact fields, MP3 upload, file-size limits, local-program fit and site reCAPTCHA boundary that must remain owner-controlled.",
     notes: "Public research verified WERS official 2026 site activity, Submit Music navigation, Wicked Local Wednesday discovery page, local artist form fields, MP3 upload limit, recent 2026 posts and reCAPTCHA-protected site context. No form was submitted, no file was uploaded and no CAPTCHA/session control was handled."
-  }
+  },
+  ...run166SeedPlatforms
 ];
