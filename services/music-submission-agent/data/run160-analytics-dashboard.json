@@ -1,0 +1,31 @@
+{
+  "run": 160,
+  "date": "2026-07-06",
+  "pipelineEstimate": 860,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "publicRouteSourcePagesObserved": 5,
+  "officialContactRoutesObserved": 5,
+  "officialPublicUploadRoutesObserved": 0,
+  "businessEmailsVerified": 5,
+  "publicApplicationUploadContactFormsObserved": 5,
+  "physicalPackageSideRoutesObserved": 3,
+  "paymentRoutesObserved": 0,
+  "loginOrSessionBoundaryRoutesObserved": 0,
+  "captchaOrChallengeRoutesObserved": 0,
+  "appSessionBoundaryRoutesObserved": 0,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "dedupeSearchTerms": ["KALX", "WPRB", "WNYU", "WZBC", "WRAS", "Album 88"],
+  "routes": [
+    {"name": "KALX Berkeley Physical CD LP Music Director Airplay Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/manual-physical-cd-lp-music-director-owner-review", "priority": 95},
+    {"name": "WPRB Princeton Physical Priority Music Director Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/manual-physical-priority-music-director-owner-review", "priority": 94},
+    {"name": "WNYU 89.1FM Physical Priority Digital Music Director Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/manual-physical-priority-digital-side-route-owner-review", "priority": 93},
+    {"name": "WZBC Boston College Rock NCP Specialty Music Director Contact Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/manual-department-routed-music-director-owner-review", "priority": 92},
+    {"name": "WRAS Album 88 Regular Rotation Underground Music Department Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/manual-regular-rotation-music-department-owner-review", "priority": 91}
+  ]
+}
