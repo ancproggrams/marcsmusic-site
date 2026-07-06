@@ -2,28 +2,28 @@
 
 Date: 2026-07-06
 
-Latest run: Run 161
+Latest run: Run 162
 
-Run 161 added 5 public-authorized global music submission routes.
+Run 162 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 865
+Pipeline estimate: 870
 
 Latest opportunities:
 
-- WFUV New York
-- KVRX Austin
-- WCBN Ann Arbor
-- Amazing Radio
-- TopHit
+- KZSU Stanford
+- KXLU 88.9 FM
+- KUPS Tacoma
+- CFUV 101.9 Victoria
+- CJSF 90.1FM
 
 Artifacts produced:
 
-- src/discovery/run161PlatformSeeds.ts
-- data/run161-platform-database.json
-- data/run161-review-queue.csv
-- data/run161-analytics-dashboard.json
-- reports/2026-07-06-run-161.md
+- src/discovery/run162PlatformSeeds.ts
+- data/run162-platform-database.json
+- data/run162-review-queue.csv
+- data/run162-analytics-dashboard.json
+- reports/2026-07-06-run-162.md
 - reports/daily_report.md
-- src/discovery/run160PlatformSeeds.ts aggregation update
+- src/discovery/run161PlatformSeeds.ts aggregation update
 
-Run 161 seeds are available as a standalone seed file and are loaded through the Run 160 aggregation.
+Run 162 seeds are available as a standalone seed file and are loaded through the Run 161 aggregation.
