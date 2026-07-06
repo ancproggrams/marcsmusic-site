@@ -1,0 +1,31 @@
+{
+  "run": 158,
+  "date": "2026-07-06",
+  "pipelineEstimate": 850,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 4,
+  "freemiumManualRoutes": 1,
+  "paidManualOnlyRoutes": 0,
+  "publicRouteSourcePagesObserved": 5,
+  "officialContactRoutesObserved": 0,
+  "officialPublicUploadRoutesObserved": 5,
+  "businessEmailsVerified": 0,
+  "publicApplicationUploadContactFormsObserved": 5,
+  "physicalPackageSideRoutesObserved": 0,
+  "paymentRoutesObserved": 1,
+  "loginOrSessionBoundaryRoutesObserved": 4,
+  "captchaOrChallengeRoutesObserved": 0,
+  "appSessionBoundaryRoutesObserved": 4,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "dedupeSearchTerms": ["STMPD RCRDS", "Future House Music", "Armada Demo Drop", "Radiooooo", "Audiotool"],
+  "routes": [
+    {"name": "STMPD RCRDS SoundCloud Original Demo Drop Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/manual-soundcloud-demo-drop-owner-review", "priority": 95},
+    {"name": "Future House Music Discord Demo Drop Community Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/manual-discord-demo-drop-owner-review", "priority": 94},
+    {"name": "Armada Music Official Demo Drop and A&R Listening Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/manual-label-demo-drop-owner-review", "priority": 93},
+    {"name": "Radiooooo Global Map Curated Song Upload Route", "queueStatus": "needs_manual_review", "pricingModel": "freemium-manual/app-curated-upload-subscription-side-owner-review", "priority": 92},
+    {"name": "Audiotool Free Produce Publish and Community Music Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/manual-community-publish-app-owner-review", "priority": 91}
+  ]
+}
