@@ -2,28 +2,28 @@
 
 Date: 2026-07-06
 
-Latest run: Run 160
+Latest run: Run 161
 
-Run 160 added 5 public-authorized global music submission routes.
+Run 161 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 860
+Pipeline estimate: 865
 
 Latest opportunities:
 
-- KALX Berkeley
-- WPRB Princeton
-- WNYU 89.1FM
-- WZBC Boston College
-- WRAS Album 88
+- WFUV New York
+- KVRX Austin
+- WCBN Ann Arbor
+- Amazing Radio
+- TopHit
 
 Artifacts produced:
 
-- src/discovery/run160PlatformSeeds.ts
-- data/run160-platform-database.json
-- data/run160-review-queue.csv
-- data/run160-analytics-dashboard.json
-- reports/2026-07-06-run-160.md
+- src/discovery/run161PlatformSeeds.ts
+- data/run161-platform-database.json
+- data/run161-review-queue.csv
+- data/run161-analytics-dashboard.json
+- reports/2026-07-06-run-161.md
 - reports/daily_report.md
-- src/discovery/run159PlatformSeeds.ts aggregation update
+- src/discovery/run160PlatformSeeds.ts aggregation update
 
-Run 160 seeds are available as a standalone seed file and are loaded through the Run 159 aggregation.
+Run 161 seeds are available as a standalone seed file and are loaded through the Run 160 aggregation.
