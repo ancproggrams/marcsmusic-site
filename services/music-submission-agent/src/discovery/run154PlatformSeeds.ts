@@ -1,6 +1,8 @@
 import type { PlatformInput } from '../models/types.js';
+import { run155SeedPlatforms } from './run155PlatformSeeds.js';
 
 export const run154SeedPlatforms: PlatformInput[] = [
+  ...run155SeedPlatforms,
   {
     name: "KFAI Music Department and Music Library Public Email Route",
     websiteUrl: "https://kfai.org/",
