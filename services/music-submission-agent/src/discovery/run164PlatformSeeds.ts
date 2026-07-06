@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run165SeedPlatforms } from './run165PlatformSeeds.js';
 
 export const run164SeedPlatforms: PlatformInput[] = [
   {
@@ -95,5 +96,6 @@ export const run164SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because WREK accepts snail-mail and email submissions but prioritizes CDs/LPs and does not acknowledge receipt; owner must verify format, clean/explicit status, metadata, rights, pitch copy, package contents and follow-up policy before action.",
     notes: "Public research verified WREK official site activity, current music programming, Submit Songs link, official submission page, music.director@wrek.org, snail-mail route, common-media-format policy, CD/LP priority and contact/follow-up guidance. No email was sent, no files/links were delivered and no package was prepared."
-  }
+  },
+  ...run165SeedPlatforms
 ];
