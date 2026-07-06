@@ -2,29 +2,29 @@
 
 Date: 2026-07-06
 
-Latest run: Run 169
+Latest run: Run 170
 
-Run 169 added 5 public-authorized global music submission routes.
+Run 170 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 905
+Pipeline estimate: 910
 
 Latest opportunities:
 
-- AWAL Selective Submit Your Music Distribution Application
-- Symphonic Starter Paid Distribution and Release Campaign Builder
-- EmuBands One-Time Fee Premium Dashboard Distribution
-- Record Union Paid Dashboard Distribution and Pitch Priority
-- iMusician Paid Distribution Editorial Playlist and Curated Playlist Submission
+- Playlist Push Spotify TikTok Paid Curator Campaign
+- SoundCampaign Spotify TikTok A&R Reviewed Promotion Campaign
+- One Submit Multi Channel Curator Review Dashboard
+- Stereofox SubmitHub Groover Curated Music Blog Playlist
+- EARMILK SubmitHub Pillargram Music Submission and Premiere
 
 Artifacts produced:
 
-- src/discovery/run169PlatformSeeds.ts
-- data/run169-platform-database.json
-- data/run169-review-queue.csv
-- data/run169-analytics-dashboard.json
-- reports/2026-07-06-run-169.md
+- src/discovery/run170PlatformSeeds.ts
+- data/run170-platform-database.json
+- data/run170-review-queue.csv
+- data/run170-analytics-dashboard.json
+- reports/2026-07-06-run-170.md
 - reports/daily_report.md
-- src/discovery/run168BasePlatformSeeds.ts
-- src/discovery/run168PlatformSeeds.ts aggregation update
+- src/discovery/run169BasePlatformSeeds.ts
+- src/discovery/run169PlatformSeeds.ts aggregation update
 
-Run 169 seeds are available as a standalone seed file and are loaded through the Run 168 aggregation. Run 168's original five seeds were preserved in run168BasePlatformSeeds.ts.
+Run 170 seeds are available as a standalone seed file and are loaded through the Run 169 aggregation. Run 169's original five seeds were preserved in run169BasePlatformSeeds.ts.
