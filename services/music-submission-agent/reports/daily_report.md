@@ -2,28 +2,28 @@
 
 Date: 2026-07-06
 
-Latest run: Run 156
+Latest run: Run 157
 
-Run 156 added 5 public-authorized global music submission routes.
+Run 157 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 840
+Pipeline estimate: 845
 
 Latest opportunities:
 
-- CJSW
-- RTRFM
-- DistroKid
-- Amuse
-- Ditto Music
+- UnitedMasters
+- Mixcloud
+- BandLab
+- TIDAL Upload
+- NTS Radio
 
 Artifacts produced:
 
-- src/discovery/run156PlatformSeeds.ts
-- data/run156-platform-database.json
-- data/run156-review-queue.csv
-- data/run156-analytics-dashboard.json
-- reports/2026-07-06-run-156.md
+- src/discovery/run157PlatformSeeds.ts
+- data/run157-platform-database.json
+- data/run157-review-queue.csv
+- data/run157-analytics-dashboard.json
+- reports/2026-07-06-run-157.md
 - reports/daily_report.md
-- src/discovery/run155PlatformSeeds.ts aggregation update
+- src/discovery/run156PlatformSeeds.ts aggregation update
 
-Run 156 seeds are available as a standalone seed file and are loaded through the Run 155 aggregation.
+Run 157 seeds are available as a standalone seed file and are loaded through the Run 156 aggregation.
