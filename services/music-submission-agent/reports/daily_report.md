@@ -2,28 +2,28 @@
 
 Date: 2026-07-06
 
-Latest run: Run 154
+Latest run: Run 155
 
-Run 154 added 5 public-authorized global music submission routes.
+Run 155 added 5 public-authorized global music submission and distribution routes.
 
-Pipeline estimate: 830
+Pipeline estimate: 835
 
 Latest opportunities:
 
-- KFAI
-- KRCL
-- KGNU
-- WUOG
-- KCR College Radio
+- TuneCore
+- CD Baby
+- ONErpm
+- LANDR
+- RouteNote
 
 Artifacts produced:
 
-- src/discovery/run154PlatformSeeds.ts
-- data/run154-platform-database.json
-- data/run154-review-queue.csv
-- data/run154-analytics-dashboard.json
-- reports/2026-07-06-run-154.md
+- src/discovery/run155PlatformSeeds.ts
+- data/run155-platform-database.json
+- data/run155-review-queue.csv
+- data/run155-analytics-dashboard.json
+- reports/2026-07-06-run-155.md
 - reports/daily_report.md
-- src/discovery/run153PlatformSeeds.ts aggregation update
+- src/discovery/run154PlatformSeeds.ts aggregation update
 
-Run 154 seeds are available as a standalone seed file and are loaded through the Run 153 aggregation.
+Run 155 seeds are available as a standalone seed file and are loaded through the Run 154 aggregation.
