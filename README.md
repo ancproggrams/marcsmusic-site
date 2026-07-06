@@ -96,7 +96,7 @@ Run the film director outreach search/import as a separate Railway cron service,
    ```text
    */5 * * * *
    ```
-4. Set the restart policy to `Never` for the cron service. Failed runs should be visible in logs rather than restarting indefinitely.
+4. Set Restart Policy to `Always`.
 5. Add the same CRM variables used by the website service:
    ```text
    ESPOCRM_BASE_URL=https://marcsmusic-crm-production.up.railway.app
@@ -114,12 +114,12 @@ For a dedicated cron service, the equivalent deploy config is:
   "deploy": {
     "startCommand": "npm run search:film-directors",
     "cronSchedule": "*/5 * * * *",
-    "restartPolicyType": "NEVER"
+    "restartPolicyType": "ALWAYS"
   }
 }
 ```
 
-Do not put this in the existing website service `railway.json`; that file must keep running `npm start`.
+This config is committed at `deploy/film-director-search/railway.json`. In the Railway cron service, set the config file path to `/deploy/film-director-search/railway.json`. Do not put these cron settings in the existing website service `railway.json`; that file must keep running `npm start`.
 
 Railway cron schedules are UTC and the shortest supported interval is 5 minutes. Each cron run should finish and exit; if a previous run is still active, Railway skips the next scheduled run. The local script also uses a lock so local/manual runs do not overlap. See the Railway cron documentation at `https://docs.railway.com/cron-jobs`.
 
