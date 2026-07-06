@@ -1,6 +1,8 @@
 import type { PlatformInput } from '../models/types.js';
+import { run168SeedPlatforms } from './run168PlatformSeeds.js';
 
 export const run167SeedPlatforms: PlatformInput[] = [
+  ...run168SeedPlatforms,
   {
     name: "Audiomack Free Limitless Creator Upload Discovery Route",
     websiteUrl: "https://audiomack.com/",
