@@ -1,5 +1,33 @@
 {
   "run": 153,
   "date": "2026-07-06",
-  "pipelineEstimate": 825
+  "pipelineEstimate": 825,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "unknownManualRoutes": 0,
+  "publicRouteSourcePagesObserved": 5,
+  "officialContactRoutesObserved": 5,
+  "publicApplicationUploadContactFormsObserved": 5,
+  "physicalPackageSideRoutesObserved": 3,
+  "paymentRoutesObserved": 0,
+  "loginOrSessionBoundaryRoutesObserved": 1,
+  "captchaOrChallengeRoutesObserved": 0,
+  "appSessionBoundaryRoutesObserved": 1,
+  "redactedOrObfuscatedContactRoutesObserved": 0,
+  "manualWorkflowRoutesObserved": 5,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "generatedContacts": 0,
+  "dedupeSearchTerms": ["Radio K", "KUOM", "KCSB", "KXCI", "WXPN", "KBOO"],
+  "routes": [
+    {"name": "Radio K KUOM Lossless Digital and Physical Airplay Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/radio-email-lossless-digital-physical-package-manual-review", "priority": 95},
+    {"name": "KCSB Artist Inquiry Library Airplay Live Session Premiere Form Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/public-artist-inquiry-google-form-manual-review", "priority": 94},
+    {"name": "KXCI Tucson Music Department Global Digital Physical Airplay Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/radio-email-digital-release-link-physical-package-manual-review", "priority": 93},
+    {"name": "WXPN EPK Digital Download Airplay and Local Show Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/radio-email-epk-release-link-local-show-manual-review", "priority": 92},
+    {"name": "KBOO Portland Genre-Routed Physical Music Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/physical-mail-genre-routed-manual-review", "priority": 91}
+  ]
 }
