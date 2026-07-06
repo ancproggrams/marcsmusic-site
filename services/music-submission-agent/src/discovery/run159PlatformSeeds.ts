@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run160SeedPlatforms } from './run160PlatformSeeds.js';
 
 export const run159SeedPlatforms: PlatformInput[] = [
   {
@@ -95,5 +96,6 @@ export const run159SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because this is a general contact/collaboration and editorial pitch route rather than a generic upload inbox; show/curator fit, global music angle, link package, rights, clean/explicit notes and whether Discord/member side routes are appropriate must be reviewed.",
     notes: "Public research verified the official Worldwide FM site, current 2026 programming/activity, Contact page, info@worldwidefm.net email, public Send a Message fields, Discord/community link, member-support side route and New Voices/Friday Curates context for innovative music from around the globe. No form was submitted, no Discord joined, no login used, no payment started and no music links were delivered."
-  }
+  },
+  ...run160SeedPlatforms
 ];
