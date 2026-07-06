@@ -1,6 +1,8 @@
 import type { PlatformInput } from '../models/types.js';
+import { run159SeedPlatforms } from './run159PlatformSeeds.js';
 
 export const run158SeedPlatforms: PlatformInput[] = [
+  ...(run159SeedPlatforms as PlatformInput[]),
   {
     name: "STMPD RCRDS SoundCloud Original Demo Drop Route",
     websiteUrl: "https://stmpdrcrds.com/",
