@@ -82,14 +82,26 @@ function buildContactPayload(row) {
 }
 
 async function findExistingContact(firstName, lastName) {
-  const query = new URLSearchParams({
-    "where[0][type]": "equals",
-    "where[0][attribute]": "lastName",
-    "where[0][value]": lastName,
-    "where[1][type]": "equals",
-    "where[1][attribute]": "firstName",
-    "where[1][value]": firstName,
-    maxSize: "1"
+  const filters = [
+    {
+      attribute: "lastName",
+      value: lastName
+    }
+  ];
+
+  if (firstName) {
+    filters.push({
+      attribute: "firstName",
+      value: firstName
+    });
+  }
+
+  const query = new URLSearchParams({ maxSize: "1" });
+
+  filters.forEach((filter, index) => {
+    query.set(`where[${index}][type]`, "equals");
+    query.set(`where[${index}][attribute]`, filter.attribute);
+    query.set(`where[${index}][value]`, filter.value);
   });
 
   const result = await crmRequest("GET", `${entityName}?${query.toString()}`);
