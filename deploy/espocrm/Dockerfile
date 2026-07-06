@@ -2,10 +2,9 @@ FROM espocrm/espocrm:latest
 
 COPY start-railway.sh /usr/local/bin/start-railway-espocrm
 
-RUN if command -v a2dismod >/dev/null 2>&1; then \
-      a2dismod mpm_event mpm_worker || true; \
-      a2enmod mpm_prefork || true; \
-    fi; \
+RUN rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf; \
+    ln -sf ../mods-available/mpm_prefork.load /etc/apache2/mods-enabled/mpm_prefork.load; \
+    ln -sf ../mods-available/mpm_prefork.conf /etc/apache2/mods-enabled/mpm_prefork.conf; \
     chmod +x /usr/local/bin/start-railway-espocrm
 
 EXPOSE 80
