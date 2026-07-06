@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "test": "node --check server.js"
+    "test": "node --check server.js",
+    "search:film-directors": "node scripts/run-film-director-search-action.mjs",
+    "crm:import-film-directors": "node scripts/import-film-director-leads-to-espocrm.mjs"
   },
   "engines": {
     "node": ">=20"

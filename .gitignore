@@ -8,6 +8,8 @@
 !package.json
 !railway.json
 !server.js
+!scripts/
+!scripts/**
 !soundcloud-growth-os/
 !soundcloud-growth-os/**
 !assets/
@@ -16,6 +18,7 @@
 !assets/artist-portrait.jpg
 !data/
 !data/.gitkeep
+!data/*.csv
 !deploy/
 !deploy/espocrm/
 !deploy/espocrm/docker-compose.yml

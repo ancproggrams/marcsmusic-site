@@ -83,6 +83,52 @@ Optional newsletter custom fields on Contact:
 
 Set `ESPOCRM_USE_CUSTOM_FIELDS=true` only after those fields exist.
 
+## Film director outreach search cron
+
+Run the film director outreach search/import as a separate Railway cron service, not inside the website service.
+
+1. Create a new Railway service from this same repository.
+2. Set the service start command to:
+   ```text
+   npm run search:film-directors
+   ```
+3. In the Railway service settings, set Cron Schedule to:
+   ```text
+   */5 * * * *
+   ```
+4. Set the restart policy to `Never` for the cron service. Failed runs should be visible in logs rather than restarting indefinitely.
+5. Add the same CRM variables used by the website service:
+   ```text
+   ESPOCRM_BASE_URL=https://marcsmusic-crm-production.up.railway.app
+   ESPOCRM_API_KEY=...
+   ESPOCRM_IMPORT_ENTITY=Contact
+   FILM_DIRECTOR_LEADS_CSV=data/film-director-leads-2026-07-06.csv
+   SEARCH_ACTION_LOCK_TTL_MS=600000
+   ```
+
+For a dedicated cron service, the equivalent deploy config is:
+
+```json
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "deploy": {
+    "startCommand": "npm run search:film-directors",
+    "cronSchedule": "*/5 * * * *",
+    "restartPolicyType": "NEVER"
+  }
+}
+```
+
+Do not put this in the existing website service `railway.json`; that file must keep running `npm start`.
+
+Railway cron schedules are UTC and the shortest supported interval is 5 minutes. Each cron run should finish and exit; if a previous run is still active, Railway skips the next scheduled run. The local script also uses a lock so local/manual runs do not overlap. See the Railway cron documentation at `https://docs.railway.com/cron-jobs`.
+
+Validate the task without writing to EspoCRM:
+
+```text
+npm run search:film-directors -- --dry-run
+```
+
 ## Newsletter sender
 
 Newsletter subscriptions are stored with this sender identity:
