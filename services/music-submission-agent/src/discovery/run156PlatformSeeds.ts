@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run157SeedPlatforms } from './run157PlatformSeeds.js';
 
 export const run156SeedPlatforms: PlatformInput[] = [
   {
@@ -95,5 +96,6 @@ export const run156SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: "Human review is required because Ditto Music uses login/sign-up account creation, release upload, store/platform delivery, playlist pitching, publishing/sync/Content ID options, promo/ad tools and terms acceptance.",
     notes: "Public research verified Ditto's official distribution page, login/try-free/sign-up form, 150+ platform delivery, unlimited releases, playlist-pitching route, sync licensing, publishing, YouTube Content ID and active 2026 site context. No sign-up form was submitted, no payment was initiated and no release/audio/artwork was uploaded."
-  }
+  },
+  ...run157SeedPlatforms,
 ];
