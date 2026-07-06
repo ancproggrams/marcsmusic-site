@@ -1,30 +1,30 @@
 # Music Submission Agent - Daily Report
 
-Date: 2026-07-06
+Date: 2026-07-07
 
-Latest run: Run 174
+Latest run: Run 175
 
-Run 174 added 5 public-authorized global music submission routes.
+Run 175 added 5 public-authorized global music submission routes.
 
-Pipeline estimate: 930
+Pipeline estimate: 935
 
 Latest opportunities:
 
-- Obscure Sound SubmitHub MusoSoup Indie Electronic Blog Submission
-- TAXI Independent A&R Daily Industry Listings Submission
-- Pond5 Free Contributor Music Upload Licensing Marketplace
-- Musicbed Artist Licensing Roster Contact and JavaScript App Boundary
-- AudioJungle Envato Market Start Selling Music Author Upload
+- Radio K KUOM Music Submissions and Off The Record Route
+- CKUA Alberta Digital Music Committee Airplay Route
+- KGNU Boulder Denver Music Department Contact Form Route
+- WFMU Freeform Physical Music Director Review Route
+- PBS 106.7FM Melbourne Digital Music Form Route
 
 Artifacts produced:
 
-- src/discovery/run174PlatformSeeds.ts
-- data/run174-platform-database.json
-- data/run174-review-queue.csv
-- data/run174-analytics-dashboard.json
-- reports/2026-07-06-run-174.md
+- src/discovery/run175PlatformSeeds.ts
+- data/run175-platform-database.json
+- data/run175-review-queue.csv
+- data/run175-analytics-dashboard.json
+- reports/2026-07-07-run-175.md
 - reports/daily_report.md
-- src/discovery/run173BasePlatformSeeds.ts
-- src/discovery/run173PlatformSeeds.ts aggregation update
+- src/discovery/run174BasePlatformSeeds.ts
+- src/discovery/run174PlatformSeeds.ts aggregation update
 
-Run 174 seeds are available as a standalone seed file and are loaded through the Run 173 aggregation. Run 173's original five seeds were preserved in run173BasePlatformSeeds.ts.
+Run 175 seeds are available as a standalone seed file and are loaded through the Run 174 aggregation. Run 174's original five seeds were preserved in run174BasePlatformSeeds.ts.
