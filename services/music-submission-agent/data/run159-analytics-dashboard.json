@@ -1,0 +1,31 @@
+{
+  "run": 159,
+  "date": "2026-07-06",
+  "pipelineEstimate": 855,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "paidManualOnlyRoutes": 0,
+  "publicRouteSourcePagesObserved": 5,
+  "officialContactRoutesObserved": 5,
+  "officialPublicUploadRoutesObserved": 0,
+  "businessEmailsVerified": 4,
+  "publicApplicationUploadContactFormsObserved": 5,
+  "physicalPackageSideRoutesObserved": 3,
+  "paymentRoutesObserved": 1,
+  "loginOrSessionBoundaryRoutesObserved": 2,
+  "captchaOrChallengeRoutesObserved": 0,
+  "appSessionBoundaryRoutesObserved": 2,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "dedupeSearchTerms": ["KEXP", "Triple R", "3RRR", "CKUT", "WFMU", "Worldwide FM"],
+  "routes": [
+    {"name": "KEXP Digital WAV Music Director Rotation Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/manual-digital-wav-radio-airplay-owner-review", "priority": 95},
+    {"name": "Triple R 3RRR Digital Physical Presenter Station Music Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/manual-station-email-presenter-routing-owner-review", "priority": 94},
+    {"name": "CKUT 90.3FM Physical Digital Music Department Library Submission Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/manual-physical-digital-library-owner-review", "priority": 93},
+    {"name": "WFMU Freeform Physical Music Director Review and JavaScript Contact Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/manual-physical-music-director-owner-review", "priority": 92},
+    {"name": "Worldwide FM Global Music Collaboration Contact and New Voices Pitch Route", "queueStatus": "needs_manual_review", "pricingModel": "free-first/manual-global-radio-collaboration-pitch-owner-review", "priority": 91}
+  ]
+}
