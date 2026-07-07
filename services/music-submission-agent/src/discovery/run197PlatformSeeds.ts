@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run198SeedPlatforms } from './run198PlatformSeeds.js';
 
-export const run197SeedPlatforms: PlatformInput[] = [
+const run197OriginalSeedPlatforms: PlatformInput[] = [
   {
     name: "KVRX Austin Physical Digital Music Department Airplay Submission Route",
     websiteUrl: "https://kvrx.org/",
@@ -97,3 +98,5 @@ export const run197SeedPlatforms: PlatformInput[] = [
     notes: "Official KALW contact page lists music@kalw.org for music inquiries and music programming questions, and the same site shows active music programming sections. This is queued as a cautious manual inquiry route rather than an auto-submit route."
   }
 ];
+
+export const run197SeedPlatforms = [...run198SeedPlatforms, ...run197OriginalSeedPlatforms];
