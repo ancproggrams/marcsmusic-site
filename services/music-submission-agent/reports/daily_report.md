@@ -24,6 +24,7 @@ Artifacts produced:
 - data/run199-analytics-dashboard.json
 - reports/2026-07-08-run-199.md
 - reports/daily_report.md
+- src/discovery/run198BasePlatformSeeds.ts
 - src/discovery/run198PlatformSeeds.ts aggregation update
 
-Run 199 seeds are available as a standalone seed file and are loaded through the Run 198 aggregation.
+Run 199 seeds are available as a standalone seed file and are loaded through the Run 198 aggregation. Run 198's original seeds were preserved in run198BasePlatformSeeds.ts.
