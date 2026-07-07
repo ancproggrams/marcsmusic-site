@@ -1,0 +1,31 @@
+{
+  "run": 199,
+  "date": "2026-07-08",
+  "pipelineEstimate": 1055,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 1,
+  "officialContactRoutesObserved": 5,
+  "officialPublicUploadRoutesObserved": 5,
+  "businessEmailsVerified": 4,
+  "businessEmailsUsableForMusicSubmission": 3,
+  "protectedContactRoutesObserved": 1,
+  "publicFormsObserved": 3,
+  "physicalPackageRoutesObserved": 2,
+  "loginOrSessionBoundaryRoutesObserved": 2,
+  "paymentOrPricingRoutesObserved": 1,
+  "cookieOrConsentBoundaryRoutesObserved": 2,
+  "captchaOrChallengeRoutesObserved": 0,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "dedupeSearchTerms": ["Stereofox", "The Line of Best Fit", "musicOMH", "KCSB", "WTSR"],
+  "routes": [
+    {"name": "Stereofox SubmitHub Groover No Email Music Submission Route", "queueStatus": "needs_manual_review", "priority": 100},
+    {"name": "The Line of Best Fit New Unsigned Artist Google Form Email Route", "queueStatus": "needs_manual_review", "priority": 99},
+    {"name": "musicOMH Album Download URL Limited Review Pitch Route", "queueStatus": "needs_manual_review", "priority": 98},
+    {"name": "KCSB Santa Barbara Music Director All Formats Email Postal Form Route", "queueStatus": "needs_manual_review", "priority": 97},
+    {"name": "WTSR 91.3FM TCNJ Music Director Student Board Submission Route", "queueStatus": "needs_manual_review", "priority": 96}
+  ]
+}
