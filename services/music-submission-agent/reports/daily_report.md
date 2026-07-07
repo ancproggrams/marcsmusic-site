@@ -2,29 +2,29 @@
 
 Date: 2026-07-07
 
-Latest run: Run 196
+Latest run: Run 197
 
-Run 196 added 5 reviewed public-authorized Canadian and US radio/distribution music submission opportunities for MarcsMusic.
+Run 197 added 5 reviewed public-authorized music opportunity routes for MarcsMusic.
 
-Pipeline estimate: 1040
+Pipeline estimate: 1045
 
 Latest opportunities:
 
-- CJSW Calgary Digital Album ZIP Jotform Music Submission Route
-- CKUT Montreal Physical 320 MP3 Music Department Submission Route
-- !earshot Distro Canadian Campus Radio Paid Upload Distribution Route
-- Radio Free Brooklyn Download Link reCAPTCHA Music Submission Form Route
-- KUTX Austin Music Director WAV Link Airplay Submission Route
+- KVRX Austin Physical Digital Music Department Airplay Submission Route
+- WPRB Princeton Physical Priority Music Submission Email Route
+- KXLU Los Angeles FCC Clean Music Director Physical Submission Route
+- Fresh On The Net Listening Post SoundCloud Dropbox Submission Route
+- KALW Bay Area Music Programming Inquiry Route
 
 Artifacts produced:
 
-- src/discovery/run196PlatformSeeds.ts
-- data/run196-platform-database.json
-- data/run196-review-queue.csv
-- data/run196-analytics-dashboard.json
-- reports/2026-07-07-run-196.md
+- src/discovery/run197PlatformSeeds.ts
+- data/run197-platform-database.json
+- data/run197-review-queue.csv
+- data/run197-analytics-dashboard.json
+- reports/2026-07-07-run-197.md
 - reports/daily_report.md
-- src/discovery/run195BasePlatformSeeds.ts
-- src/discovery/run195PlatformSeeds.ts aggregation update
+- src/discovery/run196BasePlatformSeeds.ts
+- src/discovery/run196PlatformSeeds.ts aggregation update
 
-Run 196 seeds are available as a standalone seed file and are loaded through the Run 195 aggregation. Run 195 original five seeds were preserved in run195BasePlatformSeeds.ts.
+Run 197 seeds are available as a standalone seed file and are loaded through the Run 196 aggregation. Run 196 original seeds were preserved in run196BasePlatformSeeds.ts.
