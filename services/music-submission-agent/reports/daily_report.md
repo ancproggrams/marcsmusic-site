@@ -2,29 +2,29 @@
 
 Date: 2026-07-07
 
-Latest run: Run 191
+Latest run: Run 192
 
-Run 191 added 5 reviewed public global music submission, A&R, licensing, archive, community-radio and curator-research opportunities for MarcsMusic.
+Run 192 added 5 reviewed public-authorized public-radio, college-radio and freeform-radio music submission opportunities for MarcsMusic.
 
-Pipeline estimate: 1015
+Pipeline estimate: 1020
 
 Latest opportunities:
 
-- Music Xray Paid A&R Song Opportunity Submission Route
-- Broadjam Artist Upload Licensing Radio Review Route
-- Free Music Archive Creative Commons Curated Upload Permission Route
-- Boxout.fm Alternative Community Radio Artist Contribution Route
-- Hype Machine Blog Directory Manual Curator Outreach Route
+- KEXP Digital WAV Music Director Rotation Consideration Route
+- KALX Berkeley Physical CD LP Music Director Airplay Route
+- WXPN EPK Download Link Music Director Local Show Route
+- WFMU Physical Materials Music Director Review Route
+- Radio K KUOM Physical Digital Music Department Submission Route
 
 Artifacts produced:
 
-- src/discovery/run191PlatformSeeds.ts
-- data/run191-platform-database.json
-- data/run191-review-queue.csv
-- data/run191-analytics-dashboard.json
-- reports/2026-07-07-run-191.md
+- src/discovery/run192PlatformSeeds.ts
+- data/run192-platform-database.json
+- data/run192-review-queue.csv
+- data/run192-analytics-dashboard.json
+- reports/2026-07-07-run-192.md
 - reports/daily_report.md
-- src/discovery/run190BasePlatformSeeds.ts
-- src/discovery/run190PlatformSeeds.ts aggregation update
+- src/discovery/run191BasePlatformSeeds.ts
+- src/discovery/run191PlatformSeeds.ts aggregation update
 
-Run 191 seeds are available as a standalone seed file and are loaded through the Run 190 aggregation. Run 190 original five seeds were preserved in run190BasePlatformSeeds.ts.
+Run 192 seeds are available as a standalone seed file and are loaded through the Run 191 aggregation. Run 191 original five seeds were preserved in run191BasePlatformSeeds.ts.
