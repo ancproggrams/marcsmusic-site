@@ -2,29 +2,29 @@
 
 Date: 2026-07-07
 
-Latest run: Run 193
+Latest run: Run 194
 
-Run 193 added 5 reviewed public-authorized digital distribution, self-release and DSP upload opportunities for MarcsMusic.
+Run 194 added 5 reviewed public-authorized Australian/community-radio and artist-upload opportunities for MarcsMusic.
 
-Pipeline estimate: 1025
+Pipeline estimate: 1030
 
 Latest opportunities:
 
-- DistroKid Unlimited DSP Upload Distribution Route
-- TuneCore Worldwide DSP Beatport Publishing Distribution Route
-- CD Baby Digital Distribution Publishing Administration Route
-- RouteNote Free Premium DSP Distribution Publishing Route
-- Amuse Independent Artist Self Release Licensing Upload Route
+- FBi Radio Sydney Music Submissions Email Route
+- RTRFM Perth Form Download Link Music Director Route
+- PBS 106.7FM International Digital Form Human Verification Music Submission Route
+- 4ZZZ Brisbane Music Department Digital Library Form Route
+- Triple J Unearthed Australian Artist Upload Discovery Route
 
 Artifacts produced:
 
-- src/discovery/run193PlatformSeeds.ts
-- data/run193-platform-database.json
-- data/run193-review-queue.csv
-- data/run193-analytics-dashboard.json
-- reports/2026-07-07-run-193.md
+- src/discovery/run194PlatformSeeds.ts
+- data/run194-platform-database.json
+- data/run194-review-queue.csv
+- data/run194-analytics-dashboard.json
+- reports/2026-07-07-run-194.md
 - reports/daily_report.md
-- src/discovery/run192BasePlatformSeeds.ts
-- src/discovery/run192PlatformSeeds.ts aggregation update
+- src/discovery/run193BasePlatformSeeds.ts
+- src/discovery/run193PlatformSeeds.ts aggregation update
 
-Run 193 seeds are available as a standalone seed file and are loaded through the Run 192 aggregation. Run 192 original five seeds were preserved in run192BasePlatformSeeds.ts.
+Run 194 seeds are available as a standalone seed file and are loaded through the Run 193 aggregation. Run 193 original five seeds were preserved in run193BasePlatformSeeds.ts.
