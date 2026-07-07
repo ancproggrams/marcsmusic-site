@@ -1,0 +1,31 @@
+{
+  "run": 200,
+  "date": "2026-07-08",
+  "pipelineEstimate": 1060,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "officialContactRoutesObserved": 5,
+  "officialPublicUploadRoutesObserved": 5,
+  "businessEmailsVerified": 4,
+  "businessEmailsUsableForMusicSubmission": 3,
+  "protectedContactRoutesObserved": 3,
+  "publicFormsObserved": 1,
+  "physicalPackageRoutesObserved": 3,
+  "loginOrSessionBoundaryRoutesObserved": 2,
+  "paymentOrPricingRoutesObserved": 0,
+  "cookieOrConsentBoundaryRoutesObserved": 0,
+  "humanVerificationRoutesObserved": 1,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "dedupeSearchTerms": ["WERS Wicked Local Wednesday", "WMBR", "WMFO", "KXCI", "KFAI"],
+  "routes": [
+    {"name": "WERS 88.9FM Wicked Local Wednesday MP3 Upload Local Boston Route", "queueStatus": "needs_manual_review", "priority": 100},
+    {"name": "WMBR MIT Physical CD Music Director Freeform Airplay Route", "queueStatus": "needs_manual_review", "priority": 99},
+    {"name": "WMFO Tufts Music Director CD Digital Library Route", "queueStatus": "needs_manual_review", "priority": 98},
+    {"name": "KXCI Tucson MP3 WAV Download Link Music Department Route", "queueStatus": "needs_manual_review", "priority": 97},
+    {"name": "KFAI Fresh Air Music Library Email Submission Route", "queueStatus": "needs_manual_review", "priority": 96}
+  ]
+}
