@@ -1,0 +1,30 @@
+{
+  "run": 198,
+  "date": "2026-07-07",
+  "pipelineEstimate": 1050,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 3,
+  "officialContactRoutesObserved": 4,
+  "officialPublicUploadRoutesObserved": 5,
+  "businessEmailsVerified": 3,
+  "businessEmailsUsableForMusicSubmission": 2,
+  "protectedContactRoutesObserved": 1,
+  "publicFormsObserved": 2,
+  "physicalPackageRoutesObserved": 1,
+  "loginOrSessionBoundaryRoutesObserved": 3,
+  "paymentOrPricingRoutesObserved": 3,
+  "captchaOrChallengeRoutesObserved": 0,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "dedupeSearchTerms": ["XRAY", "WYEP", "Radio Wigwam", "Obscure Sound", "A&R Factory"],
+  "routes": [
+    {"name": "XRAY.fm Portland Public Music Submissions Email Guidelines Route", "queueStatus": "needs_manual_review", "priority": 100},
+    {"name": "WYEP Pittsburgh Local Music Link Airplay Submission Route", "queueStatus": "needs_manual_review", "priority": 99},
+    {"name": "Radio Wigwam Basic Artist Upload Grassroots Submission Route", "queueStatus": "needs_manual_review", "priority": 98},
+    {"name": "Obscure Sound SubmitHub MusoSoup Direct Email Editorial Route", "queueStatus": "needs_manual_review", "priority": 97},
+    {"name": "A&R Factory Electronic Music Free Paid Form Submission Route", "queueStatus": "needs_manual_review", "priority": 96}
+  ]
+}
