@@ -1,0 +1,6 @@
+run,queue_status,priority,name,submission_method,needs_manual_review_reason
+200,needs_manual_review,100,WERS 88.9FM Wicked Local Wednesday MP3 Upload Local Boston Route,official-wers-wicked-local-wednesday-mp3-upload-form-route,"Manual review required for local eligibility, form fields, MP3 choice, rights, clean status and human verification boundary."
+200,needs_manual_review,99,WMBR MIT Physical CD Music Director Freeform Airplay Route,official-wmbr-music-director-physical-cd-route,"Manual review required for physical format, one-sheet, clean content and genre-show fit."
+200,needs_manual_review,98,WMFO Tufts Music Director CD Digital Library Route,official-wmfo-music-director-contact-and-library-route,"Manual review required for email versus physical format choice, metadata, rights and clean edits."
+200,needs_manual_review,97,KXCI Tucson MP3 WAV Download Link Music Department Route,official-kxci-music-department-download-link-physical-route,"Manual review required for protected contact boundary, download link, language metadata and local or regional fit."
+200,needs_manual_review,96,KFAI Fresh Air Music Library Email Submission Route,official-kfai-music-library-email-submission-route,"Manual review required for protected email boundary, link-only pitch, metadata and no repeated follow-up."
