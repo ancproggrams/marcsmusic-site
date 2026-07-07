@@ -2,29 +2,29 @@
 
 Date: 2026-07-08
 
-Latest run: Run 199
+Latest run: Run 200
 
-Run 199 added 5 reviewed public-authorized music submission routes for MarcsMusic.
+Run 200 added 5 reviewed public-authorized music submission routes for MarcsMusic.
 
-Pipeline estimate: 1055
+Pipeline estimate: 1060
 
 Latest opportunities:
 
-- Stereofox SubmitHub Groover No Email Music Submission Route
-- The Line of Best Fit New Unsigned Artist Google Form Email Route
-- musicOMH Album Download URL Limited Review Pitch Route
-- KCSB Santa Barbara Music Director All Formats Email Postal Form Route
-- WTSR 91.3FM TCNJ Music Director Student Board Submission Route
+- WERS 88.9FM Wicked Local Wednesday MP3 Upload Local Boston Route
+- WMBR MIT Physical CD Music Director Freeform Airplay Route
+- WMFO Tufts Music Director CD Digital Library Route
+- KXCI Tucson MP3 WAV Download Link Music Department Route
+- KFAI Fresh Air Music Library Email Submission Route
 
 Artifacts produced:
 
-- src/discovery/run199PlatformSeeds.ts
-- data/run199-platform-database.json
-- data/run199-review-queue.csv
-- data/run199-analytics-dashboard.json
-- reports/2026-07-08-run-199.md
+- src/discovery/run200PlatformSeeds.ts
+- data/run200-platform-database.json
+- data/run200-review-queue.csv
+- data/run200-analytics-dashboard.json
+- reports/2026-07-08-run-200.md
 - reports/daily_report.md
-- src/discovery/run198BasePlatformSeeds.ts
-- src/discovery/run198PlatformSeeds.ts aggregation update
+- src/discovery/run199BasePlatformSeeds.ts
+- src/discovery/run199PlatformSeeds.ts aggregation update
 
-Run 199 seeds are available as a standalone seed file and are loaded through the Run 198 aggregation. Run 198's original seeds were preserved in run198BasePlatformSeeds.ts.
+Run 200 seeds are available as a standalone seed file and are loaded through the Run 199 aggregation. Run 199's original seeds were preserved in run199BasePlatformSeeds.ts.
