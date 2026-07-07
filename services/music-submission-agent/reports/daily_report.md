@@ -2,29 +2,29 @@
 
 Date: 2026-07-07
 
-Latest run: Run 185
+Latest run: Run 186
 
-Run 185 added 5 reviewed public radio opportunities for MarcsMusic.
+Run 186 added 5 reviewed public college/community radio opportunities for MarcsMusic.
 
-Pipeline estimate: 985
+Pipeline estimate: 990
 
 Latest opportunities:
 
-- WXDU Duke Bandcamp YUM Code Airplay Submission Route
-- WESU Middletown Music Directors Link Submission Route
-- WNCW Programming Department CD WAV MP3 Airplay Submission Route
-- WPRK Rollins Community Radio Music Submissions Email Route
-- WXYC UNC Music Department Postal Contact Route
+- WZBC Boston College Music Director Email Postal Submission Route
+- KZSC Santa Cruz RPM International Music Director Form Package Route
+- WRIR Richmond Music Department Public Email Submission Route
+- WCBN Michigan Freeform Hard Copy Music Director Submission Route
+- WNYU NYU Physical Digital Music Director Submission Route
 
 Artifacts produced:
 
-- src/discovery/run185PlatformSeeds.ts
-- data/run185-platform-database.json
-- data/run185-review-queue.csv
-- data/run185-analytics-dashboard.json
-- reports/2026-07-07-run-185.md
+- src/discovery/run186PlatformSeeds.ts
+- data/run186-platform-database.json
+- data/run186-review-queue.csv
+- data/run186-analytics-dashboard.json
+- reports/2026-07-07-run-186.md
 - reports/daily_report.md
-- src/discovery/run184BasePlatformSeeds.ts
-- src/discovery/run184PlatformSeeds.ts aggregation update
+- src/discovery/run185BasePlatformSeeds.ts
+- src/discovery/run185PlatformSeeds.ts aggregation update
 
-Run 185 seeds are available as a standalone seed file and are loaded through the Run 184 aggregation. Run 184 original five seeds were preserved in run184BasePlatformSeeds.ts.
+Run 186 seeds are available as a standalone seed file and are loaded through the Run 185 aggregation. Run 185 original five seeds were preserved in run185BasePlatformSeeds.ts.
