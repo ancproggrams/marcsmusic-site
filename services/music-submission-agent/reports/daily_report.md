@@ -2,29 +2,29 @@
 
 Date: 2026-07-07
 
-Latest run: Run 188
+Latest run: Run 189
 
-Run 188 added 5 reviewed public college/community radio opportunities for MarcsMusic.
+Run 189 added 5 reviewed public global music submission/promotion opportunities for MarcsMusic.
 
-Pipeline estimate: 1000
+Pipeline estimate: 1005
 
 Latest opportunities:
 
-- CKCU Ottawa Music Library CD Mail Program Director Review Route
-- CFUV Victoria 320kbps Digital Download Music Director Submission Route
-- KUPS Tacoma Staff Music Submission Form Genre Director Route
-- KSPC Claremont Album EP Digital Cloud Music Submission Route
-- KXUA Fayetteville Non Local Local Music Director Email Submission Route
+- EARMILK SubmitHub Pillargram Electronic Blog Submission Route
+- DropTrack Artist Label DJ Radio Blog Playlist Campaign Route
+- Playlist Push Spotify TikTok Curator Paid Campaign Route
+- RepostExchange SoundCloud Creator Credit Repost Feedback Route
+- Hypeddit Music Promotion Download Gate New Releases Route
 
 Artifacts produced:
 
-- src/discovery/run188PlatformSeeds.ts
-- data/run188-platform-database.json
-- data/run188-review-queue.csv
-- data/run188-analytics-dashboard.json
-- reports/2026-07-07-run-188.md
+- src/discovery/run189PlatformSeeds.ts
+- data/run189-platform-database.json
+- data/run189-review-queue.csv
+- data/run189-analytics-dashboard.json
+- reports/2026-07-07-run-189.md
 - reports/daily_report.md
-- src/discovery/run187BasePlatformSeeds.ts
-- src/discovery/run187PlatformSeeds.ts aggregation update
+- src/discovery/run188BasePlatformSeeds.ts
+- src/discovery/run188PlatformSeeds.ts aggregation update
 
-Run 188 seeds are available as a standalone seed file and are loaded through the Run 187 aggregation. Run 187 original five seeds were preserved in run187BasePlatformSeeds.ts.
+Run 189 seeds are available as a standalone seed file and are loaded through the Run 188 aggregation. Run 188 original five seeds were preserved in run188BasePlatformSeeds.ts.
