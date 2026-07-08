@@ -1,0 +1,31 @@
+{
+  "run": 201,
+  "date": "2026-07-08",
+  "pipelineEstimate": 1065,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "officialContactRoutesObserved": 5,
+  "officialPublicUploadRoutesObserved": 4,
+  "businessEmailsVerified": 0,
+  "businessEmailsUsableForMusicSubmission": 0,
+  "protectedContactRoutesObserved": 0,
+  "publicFormsObserved": 0,
+  "physicalPackageRoutesObserved": 0,
+  "loginOrSessionBoundaryRoutesObserved": 4,
+  "paymentOrPricingRoutesObserved": 0,
+  "cookieOrConsentBoundaryRoutesObserved": 0,
+  "humanVerificationRoutesObserved": 0,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "dedupeSearchTerms": ["KCRW", "BBC Introducing", "Amazing Radio", "TIDAL Upload", "Jamendo"],
+  "routes": [
+    {"name": "KCRW Santa Monica Recording Airplay Consideration Route", "queueStatus": "needs_manual_review", "priority": 100},
+    {"name": "BBC Music Introducing UK Postcode Upload Tool Route", "queueStatus": "needs_manual_review", "priority": 99},
+    {"name": "Amazing Radio New Emerging Artist Upload Airplay Route", "queueStatus": "needs_manual_review", "priority": 98},
+    {"name": "TIDAL Upload Independent Artist Direct Publishing Spotlight Route", "queueStatus": "needs_manual_review", "priority": 97},
+    {"name": "Jamendo Artist Free Music Licensing Upload Route", "queueStatus": "needs_manual_review", "priority": 96}
+  ]
+}
