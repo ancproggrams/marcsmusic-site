@@ -1,0 +1,42 @@
+{
+  "run": 220,
+  "date": "2026-07-08",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1160,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 5,
+  "freeTrialOrFreemiumRoutes": 0,
+  "paidManualRoutes": 0,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 1,
+  "loginSessionAppBoundaryRoutes": 2,
+  "paymentPricingBoundaryRoutes": 0,
+  "captchaHumanVerificationRoutes": 1,
+  "cookieConsentBoundaryRoutes": 0,
+  "publicBusinessContactEmailRoutesObserved": 1,
+  "usablePublicMusicSubmissionEmailRoutes": 1,
+  "officialNonPlaintextEmailLinkRoutes": 0,
+  "protectedContactRoutesObservedButNotDecoded": 0,
+  "publicFormsObserved": 3,
+  "physicalPackageRoutes": 1,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "WERS",
+    "Wicked Local Wednesday",
+    "WYEP",
+    "Radio Milwaukee",
+    "BBC Music Introducing",
+    "NPR Tiny Desk Contest"
+  ],
+  "dedupeResult": "Repository searches were performed for all dedupe terms before creation; no existing matching music-submission-agent platform entries were returned for the selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/files uploaded or transferred, no outbound emails/messages/contact forms sent, no physical packages prepared or mailed, no payment/subscription/campaign/contest workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing was performed.",
+  "items": [
+    "WERS Boston Wicked Local Wednesday MP3 Local Artist Form Route",
+    "WYEP Pittsburgh Link Email Hard Copy Local Airplay Submission Route",
+    "Radio Milwaukee WAV Digital Music Submission Route",
+    "BBC Music Introducing UK UGC Artist Upload Review Route",
+    "NPR Tiny Desk Contest Original Song Video Submission Route"
+  ]
+}
