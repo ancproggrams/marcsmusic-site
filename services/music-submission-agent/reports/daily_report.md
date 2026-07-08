@@ -2,19 +2,19 @@
 
 Date: 2026-07-08
 
-Latest run: Run 216
+Latest run: Run 217
 
 New items added: 5
 
-Pipeline estimate: 1140
+Pipeline estimate: 1145
 
 Items:
 
-- CISM 89.3 FM
-- Obscure Sound
-- Playlist Push
-- SoundCampaign
-- Feature.fm
+- Fresh On The Net
+- Stereofox
+- A&R Factory
+- CKUA
+- triple j Unearthed
 
 All items are marked needs_manual_review.
 
