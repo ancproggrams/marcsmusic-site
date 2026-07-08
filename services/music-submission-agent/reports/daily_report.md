@@ -2,19 +2,19 @@
 
 Date: 2026-07-09
 
-Latest run: Run 224
+Latest run: Run 225
 
 New items added: 5
 
-Pipeline estimate: 1180
+Pipeline estimate: 1185
 
 Items:
 
-- DailyPlaylists
-- Indiemono
-- Musosoup
-- Hypeddit
-- Richer Unsigned
+- KZSU
+- WPRB
+- WHUS
+- WNYU
+- WCBN
 
 All items are marked needs_manual_review.
 
