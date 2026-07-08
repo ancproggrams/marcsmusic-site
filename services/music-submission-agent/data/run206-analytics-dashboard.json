@@ -1,0 +1,32 @@
+{
+  "run": 206,
+  "date": "2026-07-08",
+  "pipelineEstimate": 1090,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 3,
+  "freemiumManualRoutes": 2,
+  "paidManualRoutes": 4,
+  "officialContactRoutesObserved": 5,
+  "officialPublicUploadRoutesObserved": 5,
+  "businessEmailsVerified": 0,
+  "businessEmailsUsableForMusicSubmission": 0,
+  "protectedContactRoutesObserved": 0,
+  "publicFormsObserved": 5,
+  "physicalPackageRoutesObserved": 0,
+  "loginOrSessionBoundaryRoutesObserved": 5,
+  "paymentOrPricingRoutesObserved": 4,
+  "cookieOrConsentBoundaryRoutesObserved": 0,
+  "humanVerificationRoutesObserved": 0,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "dedupeSearchTerms": ["LANDR", "Ditto Music", "Symphonic", "AWAL", "Songtradr"],
+  "routes": [
+    {"name": "LANDR Global Music Distribution Release Upload Route", "queueStatus": "needs_manual_review", "priority": 100},
+    {"name": "Ditto Music Unlimited DSP Distribution Upload Route", "queueStatus": "needs_manual_review", "priority": 99},
+    {"name": "Symphonic Distribution Artist Label Application Route", "queueStatus": "needs_manual_review", "priority": 98},
+    {"name": "AWAL Selective Artist Services Application Route", "queueStatus": "needs_manual_review", "priority": 97},
+    {"name": "Songtradr Music Licensing Marketplace Upload Route", "queueStatus": "needs_manual_review", "priority": 96}
+  ]
+}
