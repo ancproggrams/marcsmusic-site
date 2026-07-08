@@ -1,0 +1,42 @@
+{
+  "run": 217,
+  "date": "2026-07-08",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1145,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 4,
+  "freeTrialOrFreemiumRoutes": 1,
+  "paidManualRoutes": 2,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 1,
+  "loginSessionAppBoundaryRoutes": 2,
+  "paymentPricingBoundaryRoutes": 2,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 1,
+  "publicBusinessContactEmailRoutesObserved": 0,
+  "usablePublicMusicSubmissionEmailRoutes": 1,
+  "officialNonPlaintextEmailLinkRoutes": 1,
+  "protectedContactRoutesObservedButNotDecoded": 1,
+  "publicFormsObserved": 2,
+  "physicalPackageRoutes": 1,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "Fresh On The Net",
+    "Stereofox",
+    "A&R Factory",
+    "CKUA",
+    "triple j Unearthed",
+    "ABC Unearthed"
+  ],
+  "dedupeResult": "Repository searches were performed for all dedupe terms before creation; no existing matching music-submission-agent platform entries were returned for the selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/files uploaded or transferred, no outbound emails/messages/contact forms sent, no physical packages prepared or mailed, no payment/subscription/campaign/review-fee workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing performed.",
+  "items": [
+    "Fresh On The Net Weekly Listening Post SoundCloud Form Route",
+    "Stereofox SubmitHub Groover Human-Curated Playlist Blog Route",
+    "A&R Factory Free Paid Blog Review Public Form Route",
+    "CKUA Alberta Digital Link Music Committee Airplay Route",
+    "triple j Unearthed Australian Artist Account Upload Route"
+  ]
+}
