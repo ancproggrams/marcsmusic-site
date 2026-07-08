@@ -2,18 +2,18 @@
 
 Date: 2026-07-08
 
-Latest run: Run 204
+Latest run: Run 205
 
 New items added: 5
 
-Pipeline estimate: 1080
+Pipeline estimate: 1085
 
 Items:
 
-- Audiomack
-- Bandcamp
-- hearthis.at
-- SoundCloud
-- BandLab
+- MusoSoup
+- DailyPlaylists
+- EmuBands
+- Record Union
+- UnitedMasters
 
 All items are marked needs_manual_review.
