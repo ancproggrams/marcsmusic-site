@@ -1,0 +1,43 @@
+{
+  "run": 218,
+  "date": "2026-07-08",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1150,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 4,
+  "freeTrialOrFreemiumRoutes": 5,
+  "paidManualRoutes": 4,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 0,
+  "loginSessionAppBoundaryRoutes": 5,
+  "paymentPricingBoundaryRoutes": 5,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 0,
+  "publicBusinessContactEmailRoutesObserved": 2,
+  "usablePublicMusicSubmissionEmailRoutes": 0,
+  "officialNonPlaintextEmailLinkRoutes": 0,
+  "protectedContactRoutesObservedButNotDecoded": 0,
+  "publicFormsObserved": 5,
+  "physicalPackageRoutes": 0,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "BIRP",
+    "alexrainbirdMusic",
+    "DropTrack",
+    "Radio Airplay",
+    "Jango",
+    "HAULIX",
+    "Media Connect"
+  ],
+  "dedupeResult": "Repository searches were performed for all dedupe terms before creation; no existing matching music-submission-agent platform entries were returned for the selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/files uploaded or transferred, no outbound emails/messages/contact forms sent, no physical packages prepared or mailed, no payment/subscription/campaign/review-fee/airplay-package workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing was performed.",
+  "items": [
+    "BIRP Groover SubmitHub Monthly Indie Playlist Submission Route",
+    "alexrainbirdMusic Free Portal Playlist Submission Route",
+    "DropTrack Artist Label Promo Campaign Upload Route",
+    "Radio Airplay Jango Internet Radio Promotion Upload Route",
+    "HAULIX Media Connect Artist Promo Page Industry Exposure Route"
+  ]
+}
