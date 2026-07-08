@@ -1,0 +1,32 @@
+{
+  "run": 208,
+  "date": "2026-07-08",
+  "pipelineEstimate": 1100,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "paidManualRoutes": 0,
+  "officialContactRoutesObserved": 5,
+  "officialPublicUploadRoutesObserved": 3,
+  "businessEmailsVerified": 3,
+  "businessEmailsUsableForMusicSubmission": 3,
+  "protectedContactRoutesObserved": 2,
+  "publicFormsObserved": 1,
+  "physicalPackageRoutesObserved": 5,
+  "loginOrSessionBoundaryRoutesObserved": 0,
+  "paymentOrPricingRoutesObserved": 0,
+  "cookieOrConsentBoundaryRoutesObserved": 0,
+  "humanVerificationRoutesObserved": 0,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "dedupeSearchTerms": ["KSPC", "KZSU", "WUOG", "KDVS", "WCBN"],
+  "routes": [
+    {"name": "KSPC Claremont Album EP Digital Physical Music Submission Route", "queueStatus": "needs_manual_review", "priority": 100},
+    {"name": "KZSU Stanford Music Director Email Physical Send Music Route", "queueStatus": "needs_manual_review", "priority": 99},
+    {"name": "WUOG Athens Physical Album Music Director Airtime Route", "queueStatus": "needs_manual_review", "priority": 98},
+    {"name": "KDVS Davis Physical Only Music Department Submission Route", "queueStatus": "needs_manual_review", "priority": 97},
+    {"name": "WCBN Ann Arbor Hard Copy Album Music Director Route", "queueStatus": "needs_manual_review", "priority": 96}
+  ]
+}
