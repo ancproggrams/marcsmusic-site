@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MarcsMusic Release OS</title>
+  <style>
+    :root {
+      --primary: #fece14;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --surface: #ffffff;
+      --panel: #f8fafc;
+      --black: #000000;
+      --success: #16a34a;
+      --warning: #d97706;
+      --danger: #dc2626;
+      --radius: 8px;
+      --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --font: Inter, Poppins, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-width: 1120px;
+      background: var(--panel);
+      color: var(--ink);
+      font-family: var(--font);
+      line-height: 1.4;
+    }
+    .shell {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+    aside {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      border-right: 1px solid var(--line);
+      background: var(--black);
+      color: white;
+      padding: 20px;
+    }
+    .brand {
+      display: grid;
+      gap: 4px;
+      margin-bottom: 28px;
+    }
+    .brand strong { font-size: 18px; }
+    .brand span { color: #d1d5db; font-size: 12px; }
+    nav { display: grid; gap: 8px; }
+    nav a {
+      border-radius: var(--radius);
+      color: #e5e7eb;
+      padding: 10px 12px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    nav a[aria-current="page"] {
+      background: var(--primary);
+      color: var(--black);
+      font-weight: 700;
+    }
+    main { padding: 0 24px 32px; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+    }
+    h1 { margin: 0; font-size: 22px; }
+    h2 { margin: 0 0 14px; font-size: 15px; }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      padding: 8px 12px;
+      font-size: 13px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 16px;
+    }
+    .span-2 { grid-column: span 2; }
+    .row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px 11px;
+      color: var(--ink);
+      font: inherit;
+      text-transform: none;
+    }
+    textarea { min-height: 86px; resize: vertical; }
+    .checks {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .checks label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px;
+      color: var(--ink);
+      text-transform: none;
+      font-weight: 500;
+    }
+    .checks input { width: auto; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    button {
+      border: 1px solid var(--black);
+      border-radius: 6px;
+      background: var(--black);
+      color: white;
+      padding: 10px 14px;
+      font-weight: 700;
+    }
+    button.secondary { background: white; color: var(--black); }
+    button.primary { background: var(--primary); color: var(--black); }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    pre {
+      min-height: 220px;
+      max-height: 520px;
+      overflow: auto;
+      margin: 0;
+      border-radius: 6px;
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 14px;
+      font-family: var(--mono);
+      font-size: 12px;
+      white-space: pre-wrap;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 12px;
+      background: white;
+    }
+    .metric span { color: var(--muted); font-size: 12px; }
+    .metric strong { display: block; margin-top: 4px; font-size: 22px; }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <div class="brand">
+        <strong>MarcsMusic</strong>
+        <span>Release OS</span>
+      </div>
+      <nav>
+        <a href="#release" aria-current="page">Release</a>
+        <a href="#platforms">Platforms</a>
+        <a href="#player">Player Sync</a>
+        <a href="#campaign">New Music Mail</a>
+        <a href="#log">Result Log</a>
+      </nav>
+    </aside>
+    <main>
+      <header>
+        <h1>Release Control Panel</h1>
+        <div class="status"><span class="dot"></span><span id="health">Checking API</span></div>
+      </header>
+
+      <section class="grid" id="release">
+        <div class="card">
+          <h2>Release Metadata</h2>
+          <form id="releaseForm">
+            <div class="row">
+              <label>Artist
+                <select name="primaryArtistId" id="artistSelect"></select>
+              </label>
+              <label>Title
+                <input name="title" required placeholder="Track title">
+              </label>
+            </div>
+            <div class="row">
+              <label>Genre
+                <input name="genre" placeholder="Pop, Latin">
+              </label>
+              <label>Tags
+                <input name="tags" placeholder="radio, summer, priority-a">
+              </label>
+            </div>
+            <div class="row">
+              <label>Release date
+                <input name="releaseDate" type="date">
+              </label>
+              <label>Visibility
+                <select name="visibility">
+                  <option value="private">Private</option>
+                  <option value="unlisted">Unlisted</option>
+                  <option value="public">Public</option>
+                </select>
+              </label>
+            </div>
+            <label>Description
+              <textarea name="description" placeholder="Short release note"></textarea>
+            </label>
+            <div class="row">
+              <label>Artwork JPG/PNG/WEBP
+                <input name="artwork" type="file" accept="image/jpeg,image/png,image/webp">
+              </label>
+              <label>Audio MP3/WAV
+                <input name="audio" type="file" accept="audio/mpeg,audio/wav">
+              </label>
+            </div>
+            <div class="actions">
+              <button class="primary" type="submit">Upload Release</button>
+              <button class="secondary" id="planBtn" type="button" disabled>Plan Platforms</button>
+              <button class="secondary" id="publishDryBtn" type="button" disabled>Dry-run Publish</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2>New Artist</h2>
+          <form id="artistForm">
+            <label>Name
+              <input name="name" placeholder="Artist name">
+            </label>
+            <div class="row">
+              <label>Country
+                <input name="country" placeholder="NL">
+              </label>
+              <label>Language
+                <input name="primaryLanguage" placeholder="nl">
+              </label>
+            </div>
+            <label>Website
+              <input name="websiteUrl" placeholder="https://...">
+            </label>
+            <div class="actions">
+              <button type="submit">Add Artist</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card span-2" id="platforms">
+          <h2>Platform Targets</h2>
+          <div class="checks" id="platformChecks"></div>
+        </div>
+
+        <div class="card" id="player">
+          <h2>Player Sync</h2>
+          <div class="metric-grid">
+            <div class="metric"><span>Release</span><strong id="currentRelease">None</strong></div>
+            <div class="metric"><span>Dry-runs</span><strong id="dryRuns">0</strong></div>
+            <div class="metric"><span>Manual tasks</span><strong id="manualTasks">0</strong></div>
+            <div class="metric"><span>Blocked</span><strong id="blocked">0</strong></div>
+          </div>
+          <div class="actions">
+            <input id="executionToken" placeholder="Execution token for sync/send">
+            <button class="primary" id="syncBtn" type="button" disabled>Sync Player</button>
+          </div>
+        </div>
+
+        <div class="card" id="campaign">
+          <h2>New Music Mail</h2>
+          <label>Recipient types
+            <input id="recipientTypes" value="radio_station,dj,playlist_curator">
+          </label>
+          <label>Tags
+            <input id="recipientTags" placeholder="pop,netherlands,priority-a">
+          </label>
+          <label>Languages
+            <input id="recipientLanguages" value="nl,en,de,fr,es">
+          </label>
+          <label>Test recipient
+            <input id="testRecipient" placeholder="you@example.com">
+          </label>
+          <div class="actions">
+            <button id="previewCampaignBtn" type="button" disabled>Preview Campaign</button>
+            <button class="primary" id="sendTestBtn" type="button" disabled>Send Test</button>
+          </div>
+        </div>
+
+        <div class="card span-2" id="log">
+          <h2>Result Log</h2>
+          <pre id="logOutput">Ready.</pre>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const state = { releaseId: null, platforms: [] };
+    const log = (value) => {
+      document.getElementById("logOutput").textContent =
+        typeof value === "string" ? value : JSON.stringify(value, null, 2);
+    };
+    const csv = (value) => value.split(",").map((item) => item.trim()).filter(Boolean);
+
+    async function api(path, options = {}) {
+      const response = await fetch(path, options);
+      const body = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(body.error?.message || body.error || response.statusText);
+      return body;
+    }
+
+    async function boot() {
+      const health = await api("/health");
+      document.getElementById("health").textContent = health.status;
+      const artists = await api("/music/artists");
+      document.getElementById("artistSelect").innerHTML = artists.artists
+        .map((artist) => `<option value="${artist.id}">${artist.displayName}</option>`)
+        .join("");
+      const platforms = await api("/music/platforms");
+      state.platforms = platforms.platforms
+        .filter((platform) => [
+          "audiomack","audius","bandcamp","bandlab","drooble","hearthis","hypeddit","jamendo","linktree","n1m","podomatic","reverbnation","soundclick","soundcloud","spreaker"
+        ].includes(platform.id));
+      document.getElementById("platformChecks").innerHTML = state.platforms
+        .map((platform) => `<label><input type="checkbox" value="${platform.id}" checked> ${platform.name}</label>`)
+        .join("");
+    }
+
+    document.getElementById("artistForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const body = Object.fromEntries(new FormData(event.currentTarget));
+      log(await api("/music/artists", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(body)
+      }));
+      await boot();
+    });
+
+    document.getElementById("releaseForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.currentTarget);
+      log("Uploading release...");
+      const body = await fetch("/music/releases", { method: "POST", body: formData }).then((response) => response.json());
+      if (body.error) throw new Error(body.error.message);
+      state.releaseId = body.release.id;
+      document.getElementById("currentRelease").textContent = body.release.title;
+      ["planBtn", "publishDryBtn", "syncBtn", "previewCampaignBtn", "sendTestBtn"].forEach((id) => {
+        document.getElementById(id).disabled = false;
+      });
+      log(body);
+    });
+
+    function selectedPlatforms() {
+      return [...document.querySelectorAll("#platformChecks input:checked")].map((input) => input.value);
+    }
+
+    document.getElementById("planBtn").addEventListener("click", async () => {
+      const body = await api(`/music/releases/${state.releaseId}/plan`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ targetPlatforms: selectedPlatforms() })
+      });
+      log(body);
+    });
+
+    document.getElementById("publishDryBtn").addEventListener("click", async () => {
+      const body = await api(`/music/releases/${state.releaseId}/publish`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ targetPlatforms: selectedPlatforms(), dryRun: true })
+      });
+      document.getElementById("dryRuns").textContent = body.summary.dryRun;
+      document.getElementById("manualTasks").textContent = body.summary.manualTask;
+      document.getElementById("blocked").textContent = body.summary.blocked;
+      log(body);
+    });
+
+    document.getElementById("syncBtn").addEventListener("click", async () => {
+      const body = await api(`/music/releases/${state.releaseId}/player-sync`, {
+        method: "POST",
+        headers: { "x-music-api-token": document.getElementById("executionToken").value }
+      });
+      log(body);
+    });
+
+    document.getElementById("previewCampaignBtn").addEventListener("click", async () => {
+      const body = await api(`/music/releases/${state.releaseId}/email-campaigns/preview`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          selectedTypes: csv(document.getElementById("recipientTypes").value),
+          selectedTags: csv(document.getElementById("recipientTags").value),
+          selectedLanguages: csv(document.getElementById("recipientLanguages").value)
+        })
+      });
+      log(body);
+    });
+
+    document.getElementById("sendTestBtn").addEventListener("click", async () => {
+      const body = await api(`/music/releases/${state.releaseId}/email-campaigns/test`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "x-music-api-token": document.getElementById("executionToken").value
+        },
+        body: JSON.stringify({
+          selectedTypes: csv(document.getElementById("recipientTypes").value),
+          selectedTags: csv(document.getElementById("recipientTags").value),
+          selectedLanguages: csv(document.getElementById("recipientLanguages").value),
+          testRecipient: document.getElementById("testRecipient").value
+        })
+      });
+      log(body);
+    });
+
+    boot().catch((error) => log(error.message));
+  </script>
+</body>
+</html>

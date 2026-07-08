@@ -36,3 +36,12 @@
 !deploy/radicale/users.example
 !deploy/radicale/README.md
 !deploy/radicale/Procfile
+!services/
+!services/release-os/
+!services/release-os/**
+services/release-os/.env
+services/release-os/.env.*
+!services/release-os/.env.example
+services/release-os/node_modules/
+services/release-os/data/
+services/release-os/.playwright-mcp/
