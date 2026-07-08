@@ -147,6 +147,20 @@
       font-weight: 500;
     }
     .checks input { width: auto; }
+    .checkbox-field {
+      display: grid;
+      gap: 6px;
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+    .checkbox-field legend {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .recipient-checks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
     button {
       border: 1px solid var(--black);
@@ -303,9 +317,14 @@
 
         <div class="card" id="campaign">
           <h2>New Music Mail</h2>
-          <label>Recipient types
-            <input id="recipientTypes" value="radio_station,dj,playlist_curator">
-          </label>
+          <fieldset class="checkbox-field">
+            <legend>Recipient types</legend>
+            <div class="checks recipient-checks" id="recipientTypeChecks">
+              <label><input type="checkbox" value="radio_station" checked> Radio stations</label>
+              <label><input type="checkbox" value="dj" checked> DJs</label>
+              <label><input type="checkbox" value="playlist_curator" checked> Playlist curators</label>
+            </div>
+          </fieldset>
           <label>Tags
             <input id="recipientTags" placeholder="pop,netherlands,priority-a">
           </label>
@@ -386,8 +405,16 @@
       log(body);
     });
 
+    function checkedValues(selector) {
+      return [...document.querySelectorAll(`${selector} input:checked`)].map((input) => input.value);
+    }
+
     function selectedPlatforms() {
-      return [...document.querySelectorAll("#platformChecks input:checked")].map((input) => input.value);
+      return checkedValues("#platformChecks");
+    }
+
+    function selectedRecipientTypes() {
+      return checkedValues("#recipientTypeChecks");
     }
 
     document.getElementById("planBtn").addEventListener("click", async () => {
@@ -424,7 +451,7 @@
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          selectedTypes: csv(document.getElementById("recipientTypes").value),
+          selectedTypes: selectedRecipientTypes(),
           selectedTags: csv(document.getElementById("recipientTags").value),
           selectedLanguages: csv(document.getElementById("recipientLanguages").value)
         })
@@ -440,7 +467,7 @@
           "x-music-api-token": document.getElementById("executionToken").value
         },
         body: JSON.stringify({
-          selectedTypes: csv(document.getElementById("recipientTypes").value),
+          selectedTypes: selectedRecipientTypes(),
           selectedTags: csv(document.getElementById("recipientTags").value),
           selectedLanguages: csv(document.getElementById("recipientLanguages").value),
           testRecipient: document.getElementById("testRecipient").value
