@@ -1,0 +1,41 @@
+{
+  "run": 225,
+  "date": "2026-07-09",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1185,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 5,
+  "freeTrialOrFreemiumRoutes": 0,
+  "paidManualRoutes": 0,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 4,
+  "loginSessionAppBoundaryRoutes": 0,
+  "paymentPricingBoundaryRoutes": 0,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 1,
+  "publicBusinessContactEmailRoutesObserved": 4,
+  "usablePublicMusicSubmissionEmailRoutes": 4,
+  "officialNonPlaintextEmailLinkRoutes": 1,
+  "protectedContactRoutesObservedButNotDecoded": 1,
+  "publicFormsObserved": 0,
+  "physicalPackageRoutes": 4,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "KZSU",
+    "WPRB",
+    "WHUS",
+    "WNYU",
+    "WCBN"
+  ],
+  "dedupeResult": "Repository searches were performed for all dedupe terms before creation. No existing music-submission-agent platform entries were returned for the selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/image/files uploaded or transferred, no outbound emails/messages/contact forms sent, no physical packages prepared or mailed, no payment/subscription/campaign/credit/ad-spend/promotion workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing was performed.",
+  "items": [
+    "KZSU Stanford Physical Digital Music Director Submission Route",
+    "WPRB Princeton Physical Priority Music Submission Email Route",
+    "WHUS UConn New Music Committee Album Review Music Director Route",
+    "WNYU New York Physical Digital Music Director Submission Route",
+    "WCBN Ann Arbor Hard Copy Album Music Director Route"
+  ]
+}
