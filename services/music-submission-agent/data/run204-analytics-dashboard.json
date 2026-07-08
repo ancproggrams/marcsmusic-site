@@ -1,0 +1,31 @@
+{
+  "run": 204,
+  "date": "2026-07-08",
+  "pipelineEstimate": 1080,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 4,
+  "officialContactRoutesObserved": 5,
+  "officialPublicUploadRoutesObserved": 5,
+  "businessEmailsVerified": 0,
+  "businessEmailsUsableForMusicSubmission": 0,
+  "protectedContactRoutesObserved": 0,
+  "publicFormsObserved": 5,
+  "physicalPackageRoutesObserved": 0,
+  "loginOrSessionBoundaryRoutesObserved": 5,
+  "paymentOrPricingRoutesObserved": 4,
+  "cookieOrConsentBoundaryRoutesObserved": 3,
+  "humanVerificationRoutesObserved": 0,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "dedupeSearchTerms": ["Audiomack", "Bandcamp", "hearthis", "SoundCloud", "BandLab"],
+  "routes": [
+    {"name": "Audiomack Creator App Free Unlimited Upload Route", "queueStatus": "needs_manual_review", "priority": 100},
+    {"name": "Bandcamp Artist Direct To Fan Store Upload Route", "queueStatus": "needs_manual_review", "priority": 99},
+    {"name": "Hearthis.at Free Weekly Upload Artist Profile Route", "queueStatus": "needs_manual_review", "priority": 98},
+    {"name": "SoundCloud Artist Upload Next Pro Discovery Route", "queueStatus": "needs_manual_review", "priority": 97},
+    {"name": "BandLab Creator Social Upload Collaboration Distribution Route", "queueStatus": "needs_manual_review", "priority": 96}
+  ]
+}
