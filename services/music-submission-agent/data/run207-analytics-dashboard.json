@@ -1,0 +1,32 @@
+{
+  "run": 207,
+  "date": "2026-07-08",
+  "pipelineEstimate": 1095,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 3,
+  "paidManualRoutes": 2,
+  "officialContactRoutesObserved": 5,
+  "officialPublicUploadRoutesObserved": 4,
+  "businessEmailsVerified": 1,
+  "businessEmailsUsableForMusicSubmission": 1,
+  "protectedContactRoutesObserved": 0,
+  "publicFormsObserved": 4,
+  "physicalPackageRoutesObserved": 0,
+  "loginOrSessionBoundaryRoutesObserved": 4,
+  "paymentOrPricingRoutesObserved": 2,
+  "cookieOrConsentBoundaryRoutesObserved": 1,
+  "humanVerificationRoutesObserved": 0,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "dedupeSearchTerms": ["NCS", "NoCopyrightSounds", "Monstercat", "EARMILK", "Dancing Astronaut", "RepostExchange"],
+  "routes": [
+    {"name": "NCS NoCopyrightSounds LabelRadar Demo Submission Route", "queueStatus": "needs_manual_review", "priority": 100},
+    {"name": "Monstercat LabelRadar Electronic Demo Portal Route", "queueStatus": "needs_manual_review", "priority": 99},
+    {"name": "EARMILK SubmitHub Pillargram Music Submission Route", "queueStatus": "needs_manual_review", "priority": 98},
+    {"name": "Dancing Astronaut Track Promo Music Email Route", "queueStatus": "needs_manual_review", "priority": 97},
+    {"name": "RepostExchange SoundCloud Partner Free Credits Promotion Route", "queueStatus": "needs_manual_review", "priority": 96}
+  ]
+}
