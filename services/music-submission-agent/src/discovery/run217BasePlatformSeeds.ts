@@ -12,13 +12,13 @@ export const run217BaseSeedPlatforms: PlatformInput[] = [
     genres: ["music-blog", "listening-post", "independent", "electronic", "hip-hop", "reggae", "pop", "soundcloud-link", "public-form", "manual-review"],
     submissionMethod: "fresh-on-the-net-weekly-listening-post-soundcloud-form-route",
     feeRequired: false,
-    feeAmount: "Free-first/manual editorial route. Official Fresh On The Net guidance accepts one public, embeddable SoundCloud track per artist each week while the dropbox is open; no payment requirement was observed.",
+    feeAmount: "Free-first/manual editorial route; public SoundCloud dropbox, no payment observed.",
     loginRequired: false,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Owner review required for weekly dropbox timing and 200-track cap, one-track-per-week rule, public/worldwide embeddable SoundCloud URL, no-repeat/no-remix conditions, social/bio readiness, AI-generated-content exclusion and whether to pursue the separate clean-radio-edit email route only after Fresh On The Net submission. No form was submitted and no audio link was posted.",
-    notes: "Official Fresh On The Net submission page shows an active open dropbox, a public form with Artist Name, Track Name and SoundCloud Track URL fields, one-track-per-week limits, public/worldwide availability requirements, no-remix/repeat-submission rules, AI-generated-track exclusion language and July 2026 blog activity."
+    manualReviewReason: "Weekly dropbox timing, 200-track cap, SoundCloud availability, repeat/remix rules, AI-content exclusion and optional clean-radio-edit route require owner approval.",
+    notes: "Official Fresh On The Net submit page showed public form fields, one-track-per-week rules and July 2026 activity."
   },
   {
     name: "Stereofox SubmitHub Groover Human-Curated Playlist Blog Route",
@@ -31,13 +31,13 @@ export const run217BaseSeedPlatforms: PlatformInput[] = [
     genres: ["music-blog", "playlist", "submithub", "groover", "electronic", "chill-beats", "indie", "rnb", "hip-hop", "manual-review"],
     submissionMethod: "stereofox-submithub-groover-human-curated-playlist-blog-route",
     feeRequired: false,
-    feeAmount: "Freemium/manual third-party submission route. Official Stereofox contact page routes music submissions to SubmitHub or Groover and rejects email/Discord submissions; third-party login/credit/payment boundaries may apply.",
+    feeAmount: "Freemium/manual third-party route through SubmitHub or Groover; credits/payment may apply.",
     loginRequired: true,
     captchaDetected: false,
     paymentRequired: true,
     manualReviewRequired: true,
-    manualReviewReason: "Owner review required for choosing SubmitHub versus Groover, third-party account/session and possible credit/payment use, target playlist/blog fit, track link, genre alignment, press metadata and cookie/consent boundary. No SubmitHub/Groover session was opened beyond public routing and no submission was made.",
-    notes: "Official Stereofox site shows 2026 activity, Submit Music navigation, recent music/editorial posts and curated playlists across chill beats, chill electronica, groovy beats, soul/R&B, hip hop and alternative dancefloor. The contact page states music submissions should use SubmitHub or Groover and not email/Discord."
+    manualReviewReason: "SubmitHub/Groover choice, account/session, possible credits/payment, track link, playlist/blog fit and metadata require owner approval.",
+    notes: "Official Stereofox contact page routes music submissions to SubmitHub or Groover and rejects email/Discord submissions."
   },
   {
     name: "A&R Factory Free Paid Blog Review Public Form Route",
@@ -50,13 +50,13 @@ export const run217BaseSeedPlatforms: PlatformInput[] = [
     genres: ["music-blog", "a-and-r", "public-form", "electronic", "dance-edm", "drum-and-bass", "hip-hop", "reggae", "world", "manual-review"],
     submissionMethod: "anr-factory-free-paid-blog-review-public-form-route",
     feeRequired: false,
-    feeAmount: "Free-first/manual public-form route with paid options. Official form offers Free Submission plus Standard £20 and Premium Donation £30 packages with visible payment fields; no payment was initiated.",
+    feeAmount: "Free-first/manual public form with paid Standard and Premium options visible.",
     loginRequired: false,
     captchaDetected: false,
     paymentRequired: true,
     manualReviewRequired: true,
-    manualReviewReason: "Owner review required for choosing free versus paid package, one-track review link, release status/date, social links, artwork/photo URL, EPK/bio, marketing-challenge and budget fields, data-use consent and payment boundary if a paid option is selected. No form was submitted and no payment details were entered.",
-    notes: "Official A&R Factory pages show July 2026 posts, global independent-artist coverage, public Submit Your Music navigation and a Step 1 of 3 form with genre selection, track link, release status, artist links, artwork/EPK fields, email fields and free/paid package choices."
+    manualReviewReason: "Free versus paid package, track link, release date/status, socials, artwork, EPK/bio and payment boundary require owner approval.",
+    notes: "Official A&R Factory pages showed July 2026 posts and a public submit-demo form with free and paid options."
   },
   {
     name: "CKUA Alberta Digital Link Music Committee Airplay Route",
@@ -69,13 +69,13 @@ export const run217BaseSeedPlatforms: PlatformInput[] = [
     genres: ["radio-airplay", "music-committee", "canadian-radio", "alberta", "streaming-link", "download-link", "mp3-320", "manual-review"],
     submissionMethod: "ckua-alberta-digital-link-music-committee-airplay-route",
     feeRequired: false,
-    feeAmount: "Free-first/manual radio-submission route. Official CKUA guidance currently asks for digital submissions only, with streaming and download links; no payment requirement was observed.",
+    feeAmount: "Free-first/manual digital-link radio route; no payment observed.",
     loginRequired: false,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Owner review required for Canadian/Alberta fit, clean/radio edits or explicit-track warnings, one-sheet/bio/website links, 320kbps MP3 or minimum 128kbps download links, no zip/large attachment handling, Music Committee review expectations and optional host-specific routing. No email was opened or sent.",
-    notes: "Official CKUA pages show July 2026 activity, a Submit Your Music link and Getting Airplay guidance. CKUA says submissions are reviewed by the Music Committee and, if suitable, added to the music library for hosts. The page exposes a non-plaintext Send it Now email route and a physical mailing address, but no contact was decoded or used."
+    manualReviewReason: "Canadian/Alberta fit, clean edits, one-sheet, stream/download links, no-zip handling and Music Committee review require owner approval.",
+    notes: "Official CKUA pages showed 2026 activity, Submit Your Music and Getting Airplay guidance."
   },
   {
     name: "triple j Unearthed Australian Artist Account Upload Route",
@@ -88,12 +88,12 @@ export const run217BaseSeedPlatforms: PlatformInput[] = [
     genres: ["artist-upload", "digital-radio", "independent", "australian-music", "electronic", "hip-hop", "rnb", "pop", "manual-review"],
     submissionMethod: "triple-j-unearthed-australian-artist-account-upload-route",
     feeRequired: false,
-    feeAmount: "Free/manual account-upload route. ABC Help guidance requires creating an ABC account and Unearthed artist profile, then using Manage Tracks to upload; no payment requirement was observed.",
+    feeAmount: "Free/manual account-upload route; no payment observed.",
     loginRequired: true,
     captchaDetected: false,
     paymentRequired: false,
     manualReviewRequired: true,
-    manualReviewReason: "Owner review required because artists must be Australian citizens or residents, the route requires ABC account/session and artist-profile creation, original-music copyright ownership, no general covers/remixes, audio upload, profile metadata and Unearthed team approval before publication. No account was created, no login used and no track was uploaded.",
-    notes: "Official triple j Unearthed home page shows July 2026 staff reviews, Track of the Day, current featured artists and the 2026 ABC footer. ABC Help says uploaded tracks are listened to in full before approval and may be added to triple j Unearthed digital radio, triple j or Double J, but artist uploads are limited to Australian citizens or residents."
+    manualReviewReason: "Australian citizen/resident eligibility, ABC account/session, original rights, no covers/remixes, audio upload and approval require owner review.",
+    notes: "Official triple j Unearthed/ABC Help guidance requires ABC account, Unearthed profile and team approval before publication."
   }
 ];
