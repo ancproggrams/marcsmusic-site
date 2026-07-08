@@ -1,0 +1,32 @@
+{
+  "run": 211,
+  "date": "2026-07-08",
+  "pipelineEstimate": 1115,
+  "newOpportunities": 5,
+  "newQueueRows": 5,
+  "needsManualReview": 5,
+  "autoSubmitCandidates": 0,
+  "freeFirstRoutes": 5,
+  "freemiumManualRoutes": 0,
+  "paidManualRoutes": 0,
+  "officialContactRoutesObserved": 5,
+  "officialPublicUploadRoutesObserved": 5,
+  "businessEmailsVerified": 4,
+  "businessEmailsUsableForMusicSubmission": 4,
+  "protectedContactRoutesObserved": 0,
+  "publicFormsObserved": 0,
+  "physicalPackageRoutesObserved": 4,
+  "loginOrSessionBoundaryRoutesObserved": 0,
+  "paymentOrPricingRoutesObserved": 1,
+  "cookieOrConsentBoundaryRoutesObserved": 0,
+  "humanVerificationRoutesObserved": 0,
+  "deliverabilityChecksDuringRepoUpdate": 0,
+  "dedupeSearchTerms": ["WMPG", "KALX", "CJSR", "WNCW", "WFUV"],
+  "routes": [
+    {"name": "WMPG Portland MP3 WAV Download Link Airplay Submission Route", "queueStatus": "needs_manual_review", "priority": 100},
+    {"name": "KALX Berkeley Physical Pressed CD LP Music Director Route", "queueStatus": "needs_manual_review", "priority": 99},
+    {"name": "CJSR Edmonton Album EP Digital Files Physical Music Department Route", "queueStatus": "needs_manual_review", "priority": 98},
+    {"name": "WNCW Carolina CD WAV MP3 Programming Department Route", "queueStatus": "needs_manual_review", "priority": 97},
+    {"name": "WFUV New York Music Department Snail Mail Airplay Route", "queueStatus": "needs_manual_review", "priority": 96}
+  ]
+}
