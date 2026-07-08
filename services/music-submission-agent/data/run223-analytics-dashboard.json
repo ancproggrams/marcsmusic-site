@@ -1,0 +1,42 @@
+{
+  "run": 223,
+  "date": "2026-07-08",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1175,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 5,
+  "freeTrialOrFreemiumRoutes": 4,
+  "paidManualRoutes": 4,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 0,
+  "loginSessionAppBoundaryRoutes": 5,
+  "paymentPricingBoundaryRoutes": 4,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 0,
+  "publicBusinessContactEmailRoutesObserved": 0,
+  "usablePublicMusicSubmissionEmailRoutes": 0,
+  "officialNonPlaintextEmailLinkRoutes": 0,
+  "protectedContactRoutesObservedButNotDecoded": 0,
+  "publicFormsObserved": 0,
+  "physicalPackageRoutes": 0,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "Bandcamp",
+    "Mixcloud",
+    "SoundCloud For Artists",
+    "SoundCloud upload route",
+    "BandLab",
+    "Songtradr"
+  ],
+  "dedupeResult": "Repository searches were performed for all dedupe terms before creation. No existing music-submission-agent platform entries were returned for the selected standalone route names; one unrelated SoundCloud For Artists reference outside the music-submission-agent platform database was ignored as not a queued route duplicate.",
+  "safety": "No accounts created, no login used, no forms submitted, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/files uploaded or transferred, no outbound emails/messages/contact forms sent, no physical packages prepared or mailed, no payment/subscription/campaign/upload/promotion/licensing workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing was performed.",
+  "items": [
+    "Bandcamp for Artists Direct Store Upload Route",
+    "Mixcloud Creator DJ Mix Radio Show Upload Route",
+    "SoundCloud Public Track Upload Creator Growth Route",
+    "BandLab Creator Publish Social Distribution Route",
+    "Songtradr Licensing Marketplace Artist Upload Route"
+  ]
+}
