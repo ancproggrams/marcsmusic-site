@@ -1,0 +1,41 @@
+{
+  "run": 216,
+  "date": "2026-07-08",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1140,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 3,
+  "freeTrialOrFreemiumRoutes": 1,
+  "paidManualRoutes": 3,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 1,
+  "loginSessionAppBoundaryRoutes": 4,
+  "paymentPricingBoundaryRoutes": 3,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 2,
+  "publicBusinessContactEmailRoutesObserved": 2,
+  "usablePublicMusicSubmissionEmailRoutes": 1,
+  "officialNonPlaintextEmailLinkRoutes": 1,
+  "protectedContactRoutesObservedButNotDecoded": 1,
+  "publicFormsObserved": 0,
+  "physicalPackageRoutes": 1,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "CISM",
+    "Obscure Sound",
+    "Playlist Push",
+    "SoundCampaign",
+    "Feature.fm"
+  ],
+  "dedupeResult": "Repository searches were performed for all dedupe terms before creation; no existing matching music-submission-agent platform entries were returned for the selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/files uploaded or transferred, no outbound emails/messages/contact forms sent, no physical packages prepared or mailed, no payment/subscription/campaign/PR-spend workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing performed.",
+  "items": [
+    "CISM 89.3 FM Montreal Digital Album EP Music Committee Route",
+    "Obscure Sound SubmitHub MusoSoup Direct Email Indie Blog Route",
+    "Playlist Push Spotify TikTok Paid Playlist Promotion Route",
+    "SoundCampaign Spotify TikTok Curator Review Paid Promotion Route",
+    "Feature.fm Free Music Marketing Release Link PreSave Route"
+  ]
+}
