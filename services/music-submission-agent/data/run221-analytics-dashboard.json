@@ -1,0 +1,41 @@
+{
+  "run": 221,
+  "date": "2026-07-08",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1165,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 5,
+  "freeTrialOrFreemiumRoutes": 1,
+  "paidManualRoutes": 2,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 0,
+  "loginSessionAppBoundaryRoutes": 5,
+  "paymentPricingBoundaryRoutes": 3,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 1,
+  "publicBusinessContactEmailRoutesObserved": 0,
+  "usablePublicMusicSubmissionEmailRoutes": 0,
+  "officialNonPlaintextEmailLinkRoutes": 0,
+  "protectedContactRoutesObservedButNotDecoded": 0,
+  "publicFormsObserved": 0,
+  "physicalPackageRoutes": 0,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "Audiomack Creator Upload",
+    "Jamendo Artists One Stop",
+    "Pond5 Contributor Stock Music",
+    "Amazing Radio Emerging Artist",
+    "TIDAL Upload Artist Home"
+  ],
+  "dedupeResult": "Repository searches were performed for all dedupe terms before creation. No existing standalone music-submission-agent platform entries were returned for the selected route names; one unrelated/non-submission-agent Audiomack capability mention was ignored as not a queued route duplicate.",
+  "safety": "No accounts created, no login used, no forms submitted, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/files uploaded or transferred, no outbound emails/messages/contact forms sent, no physical packages prepared or mailed, no payment/subscription/campaign/upload/promotion/licensing workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing was performed.",
+  "items": [
+    "Audiomack Creator Upload Free Streaming Discovery Route",
+    "Jamendo Artists One Stop Licensing In Store Content ID Route",
+    "Pond5 Contributor Stock Music Sound Effects Licensing Upload Route",
+    "Amazing Radio Emerging Artist Website Upload Airplay Route",
+    "TIDAL Artist Home Upload Direct Artist Review Route"
+  ]
+}
