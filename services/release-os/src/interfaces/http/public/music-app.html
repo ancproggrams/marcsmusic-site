@@ -160,7 +160,7 @@
       font-weight: 700;
       text-transform: uppercase;
     }
-    .recipient-checks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .campaign-checks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
     button {
       border: 1px solid var(--black);
@@ -319,18 +319,30 @@
           <h2>New Music Mail</h2>
           <fieldset class="checkbox-field">
             <legend>Recipient types</legend>
-            <div class="checks recipient-checks" id="recipientTypeChecks">
+            <div class="checks campaign-checks" id="recipientTypeChecks">
               <label><input type="checkbox" value="radio_station" checked> Radio stations</label>
               <label><input type="checkbox" value="dj" checked> DJs</label>
               <label><input type="checkbox" value="playlist_curator" checked> Playlist curators</label>
             </div>
           </fieldset>
-          <label>Tags
-            <input id="recipientTags" placeholder="pop,netherlands,priority-a">
-          </label>
-          <label>Languages
-            <input id="recipientLanguages" value="nl,en,de,fr,es">
-          </label>
+          <fieldset class="checkbox-field">
+            <legend>Tags</legend>
+            <div class="checks campaign-checks" id="recipientTagChecks">
+              <label><input type="checkbox" value="pop"> Pop</label>
+              <label><input type="checkbox" value="netherlands"> Netherlands</label>
+              <label><input type="checkbox" value="priority-a"> Priority A</label>
+            </div>
+          </fieldset>
+          <fieldset class="checkbox-field">
+            <legend>Languages</legend>
+            <div class="checks campaign-checks" id="recipientLanguageChecks">
+              <label><input type="checkbox" value="nl" checked> NL</label>
+              <label><input type="checkbox" value="en" checked> EN</label>
+              <label><input type="checkbox" value="de" checked> DE</label>
+              <label><input type="checkbox" value="fr" checked> FR</label>
+              <label><input type="checkbox" value="es" checked> ES</label>
+            </div>
+          </fieldset>
           <label>Test recipient
             <input id="testRecipient" placeholder="you@example.com">
           </label>
@@ -354,8 +366,6 @@
       document.getElementById("logOutput").textContent =
         typeof value === "string" ? value : JSON.stringify(value, null, 2);
     };
-    const csv = (value) => value.split(",").map((item) => item.trim()).filter(Boolean);
-
     async function api(path, options = {}) {
       const response = await fetch(path, options);
       const body = await response.json().catch(() => ({}));
@@ -417,6 +427,14 @@
       return checkedValues("#recipientTypeChecks");
     }
 
+    function selectedRecipientTags() {
+      return checkedValues("#recipientTagChecks");
+    }
+
+    function selectedRecipientLanguages() {
+      return checkedValues("#recipientLanguageChecks");
+    }
+
     document.getElementById("planBtn").addEventListener("click", async () => {
       const body = await api(`/music/releases/${state.releaseId}/plan`, {
         method: "POST",
@@ -452,8 +470,8 @@
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           selectedTypes: selectedRecipientTypes(),
-          selectedTags: csv(document.getElementById("recipientTags").value),
-          selectedLanguages: csv(document.getElementById("recipientLanguages").value)
+          selectedTags: selectedRecipientTags(),
+          selectedLanguages: selectedRecipientLanguages()
         })
       });
       log(body);
@@ -468,8 +486,8 @@
         },
         body: JSON.stringify({
           selectedTypes: selectedRecipientTypes(),
-          selectedTags: csv(document.getElementById("recipientTags").value),
-          selectedLanguages: csv(document.getElementById("recipientLanguages").value),
+          selectedTags: selectedRecipientTags(),
+          selectedLanguages: selectedRecipientLanguages(),
           testRecipient: document.getElementById("testRecipient").value
         })
       });

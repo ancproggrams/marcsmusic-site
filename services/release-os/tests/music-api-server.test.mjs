@@ -57,8 +57,14 @@ describe("music API server", () => {
     assert.equal(response.status, 200);
     assert.match(body, /Release Control Panel/u);
     assert.match(body, /id="recipientTypeChecks"/u);
+    assert.match(body, /id="recipientTagChecks"/u);
+    assert.match(body, /id="recipientLanguageChecks"/u);
     assert.match(body, /value="radio_station" checked/u);
+    assert.match(body, /value="pop"/u);
+    assert.match(body, /value="nl" checked/u);
     assert.doesNotMatch(body, /id="recipientTypes"/u);
+    assert.doesNotMatch(body, /id="recipientTags"/u);
+    assert.doesNotMatch(body, /id="recipientLanguages"/u);
   });
 
   it("creates a release over multipart REST and guards player sync", async () => {
