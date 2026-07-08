@@ -1,0 +1,6 @@
+run,queue_status,priority,name,submission_method,needs_manual_review_reason
+201,needs_manual_review,100,KCRW Santa Monica Recording Airplay Consideration Route,official-kcrw-recording-airplay-consideration-route,"Manual review required for local/regional fit, delivery path, music-library relevance and clean edit status."
+201,needs_manual_review,99,BBC Music Introducing UK Postcode Upload Tool Route,official-bbc-introducing-postcode-upload-tool-route,"Manual review required for UK eligibility, postcode routing, account consent, rights and metadata."
+201,needs_manual_review,98,Amazing Radio New Emerging Artist Upload Airplay Route,official-amazing-radio-new-artist-upload-airplay-route,"Manual review required for artist account terms, upload choice, rights, profile data and radio fit."
+201,needs_manual_review,97,TIDAL Upload Independent Artist Direct Publishing Spotlight Route,official-tidal-upload-independent-artist-direct-upload-route,"Manual review required for eligibility, account workflow, rights, metadata, availability and AI-labeling policy implications."
+201,needs_manual_review,96,Jamendo Artist Free Music Licensing Upload Route,official-jamendo-artist-free-music-licensing-upload-route,"Manual review required for account setup, license selection, collecting-society constraints, metadata and ownership verification."
