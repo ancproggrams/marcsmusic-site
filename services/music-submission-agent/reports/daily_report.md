@@ -2,19 +2,19 @@
 
 Date: 2026-07-08
 
-Latest run: Run 219
+Latest run: Run 220
 
 New items added: 5
 
-Pipeline estimate: 1155
+Pipeline estimate: 1160
 
 Items:
 
-- RouteNote
-- TuneCore
-- CD Baby
-- Horus Music
-- iMusician
+- WERS
+- WYEP
+- Radio Milwaukee
+- BBC Music Introducing
+- NPR Tiny Desk Contest
 
 All items are marked needs_manual_review.
 
