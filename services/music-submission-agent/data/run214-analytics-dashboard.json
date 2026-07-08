@@ -1,0 +1,40 @@
+{
+  "run": 214,
+  "date": "2026-07-08",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1130,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 5,
+  "freeTrialOrFreemiumRoutes": 0,
+  "paidManualRoutes": 0,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 4,
+  "loginSessionAppBoundaryRoutes": 0,
+  "paymentPricingBoundaryRoutes": 0,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 0,
+  "publicBusinessContactEmailRoutesObserved": 3,
+  "usablePublicMusicSubmissionEmailRoutes": 2,
+  "protectedContactRoutesObservedButNotDecoded": 2,
+  "publicFormsObserved": 1,
+  "physicalPackageRoutes": 4,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "WMSE",
+    "KXLU",
+    "CJSW",
+    "KVRX",
+    "Radio K"
+  ],
+  "dedupeResult": "Repository searches were performed for all dedupe terms before creation; no existing matching music-submission-agent platform entries were returned for the selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/files uploaded or transferred, no outbound emails/messages/contact forms sent, no physical packages prepared or mailed, no payment/subscription/campaign spend initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing performed.",
+  "items": [
+    "WMSE Milwaukee CD Vinyl Digital Music Department Submission Route",
+    "KXLU Los Angeles FCC Clean Physical Music Director Submission Route",
+    "CJSW Calgary Recent Album Digital Jotform Music Submission Route",
+    "KVRX Austin Physical Digital Music Department Airplay Submission Route",
+    "Radio K Minneapolis Physical Digital Independent Release Submission Route"
+  ]
+}
