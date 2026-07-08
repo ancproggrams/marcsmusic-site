@@ -2,19 +2,19 @@
 
 Date: 2026-07-08
 
-Latest run: Run 217
+Latest run: Run 218
 
 New items added: 5
 
-Pipeline estimate: 1145
+Pipeline estimate: 1150
 
 Items:
 
-- Fresh On The Net
-- Stereofox
-- A&R Factory
-- CKUA
-- triple j Unearthed
+- BIRP
+- alexrainbirdMusic
+- DropTrack
+- Radio Airplay / Jango
+- HAULIX Media Connect
 
 All items are marked needs_manual_review.
 
