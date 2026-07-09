@@ -50,13 +50,13 @@ const contentTypes = {
 const downloadableAudioExtensions = new Set([".mp3", ".m4a", ".wav", ".ogg", ".flac"]);
 
 const publicTrackIds = new Set([
+  "curacao-radio-edit",
+  "carnival",
   "door-de-storm",
   "strijd",
   "geen-afscheid",
   "weekend-mode",
-  "summer-time",
-  "carnival",
-  "curacao-radio-edit"
+  "summer-time"
 ]);
 
 const bookingTypes = [
