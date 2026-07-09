@@ -1,0 +1,41 @@
+{
+  "run": 226,
+  "date": "2026-07-09",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1190,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 5,
+  "freeTrialOrFreemiumRoutes": 0,
+  "paidManualRoutes": 0,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 1,
+  "loginSessionAppBoundaryRoutes": 0,
+  "paymentPricingBoundaryRoutes": 0,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 1,
+  "publicBusinessContactEmailRoutesObserved": 2,
+  "usablePublicMusicSubmissionEmailRoutes": 2,
+  "officialNonPlaintextEmailLinkRoutes": 1,
+  "protectedContactRoutesObservedButNotDecoded": 1,
+  "publicFormsObserved": 2,
+  "physicalPackageRoutes": 1,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "KBOO",
+    "BFF.fm",
+    "XRAY",
+    "SomaFM",
+    "idobi"
+  ],
+  "dedupeResult": "Repository searches were performed for all dedupe terms before creation. No existing music-submission-agent platform entries were returned for the selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/image/files uploaded or transferred, no outbound emails/messages/contact forms sent, no physical packages prepared or mailed, no payment/subscription/campaign/credit/ad-spend/promotion workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing was performed.",
+  "items": [
+    "KBOO Portland Physical Genre Attention Community Radio Submission Route",
+    "BFF.fm Bay Area Bands Google Form Digital Airplay Submission Route",
+    "XRAY Portland Submissions Email Guidelines Music Director Route",
+    "SomaFM Digital High Bitrate MP3 Channel Music Director Submission Route",
+    "idobi Radio Howl Anthm Public Form Dropbox Upload Music Submission Route"
+  ]
+}
