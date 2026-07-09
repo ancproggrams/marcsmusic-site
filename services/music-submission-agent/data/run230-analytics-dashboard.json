@@ -1,0 +1,41 @@
+{
+  "run": 230,
+  "date": "2026-07-09",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1210,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 5,
+  "freeTrialOrFreemiumRoutes": 0,
+  "paidManualRoutes": 0,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 2,
+  "loginSessionAppBoundaryRoutes": 0,
+  "paymentPricingBoundaryRoutes": 1,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 0,
+  "publicBusinessContactEmailRoutesObserved": 4,
+  "usablePublicMusicSubmissionEmailRoutes": 3,
+  "officialNonPlaintextEmailLinkRoutes": 2,
+  "protectedContactRoutesObservedButNotDecoded": 2,
+  "publicFormsObserved": 2,
+  "physicalPackageRoutes": 2,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "KUTX",
+    "WXPN",
+    "WFMU",
+    "WNXP",
+    "WREK"
+  ],
+  "dedupeResult": "Repository searches were performed for all dedupe terms before creation. No existing music-submission-agent platform entries were returned for the selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/image/files uploaded or transferred, no outbound emails/messages/contact forms sent, no physical packages prepared or mailed, no payment/subscription/campaign/credit/ad-spend/promotion workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing was performed.",
+  "items": [
+    "KUTX Austin Music Director WAV Download Airplay Route",
+    "WXPN Philadelphia EPK Download Music Director Local Show Route",
+    "WFMU Jersey City Physical Music Director Review Route",
+    "WNXP Nashville Clean Mastered WAV Email Airplay Route",
+    "WREK Atlanta Snail Mail Email Music Director Submission Route"
+  ]
+}
