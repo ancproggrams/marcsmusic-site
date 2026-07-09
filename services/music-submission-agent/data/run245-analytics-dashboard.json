@@ -1,0 +1,41 @@
+{
+  "run": 245,
+  "date": "2026-07-09",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1285,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 2,
+  "freeTrialOrFreemiumRoutes": 2,
+  "paidManualRoutes": 4,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 0,
+  "loginSessionAppBoundaryRoutes": 5,
+  "paymentPricingBoundaryRoutes": 5,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 1,
+  "publicBusinessContactEmailRoutesObserved": 0,
+  "usablePublicMusicSubmissionEmailRoutes": 0,
+  "officialNonPlaintextEmailLinkRoutes": 0,
+  "protectedContactRoutesObservedButNotDecoded": 0,
+  "publicFormsObserved": 5,
+  "physicalPackageRoutes": 0,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "RouteNote",
+    "LANDR",
+    "TuneCore",
+    "Record Union",
+    "Amuse"
+  ],
+  "dedupeResult": "Repository search was performed for RouteNote, LANDR, TuneCore, Record Union and Amuse before creation; no existing music-submission-agent platform entries were returned for these selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no distribution releases created, no tracks/audio/artwork/images/files uploaded or transferred, no DSP/store selections finalized, no playlist-pitching, accelerator, A&R, label-services, pre-save, Content ID, cover-licensing, publishing, smart-link, EPK or paid-promotion workflow initiated, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no outbound emails/messages/contact forms sent, no payment/subscription/campaign/credit/ad-spend/promotion/upload/distribution/licensing/sales workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing performed.",
+  "items": [
+    "RouteNote Free Premium Global Distribution Upload Route",
+    "LANDR Paid Distribution Playlist Pitching Release Upload Route",
+    "TuneCore Paid Unlimited Distribution Accelerator Upload Route",
+    "Record Union Free Signup Paid Release Pitch Priority Route",
+    "Amuse Affordable Self Service Distribution Artist Label Services Route"
+  ]
+}
