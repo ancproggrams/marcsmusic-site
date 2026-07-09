@@ -20,6 +20,8 @@
 !data/.gitkeep
 !data/*.csv
 !data/*.json
+data/marcsmusic-release-os.json
+data/player-manifest.json
 !deploy/
 !deploy/film-director-search/
 !deploy/film-director-search/railway.json

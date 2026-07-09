@@ -481,6 +481,30 @@
       height: 20px;
     }
 
+    .track-action-button {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid color-mix(in oklch, var(--white) 24%, transparent);
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--white);
+      padding: 0 12px;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .track-action-button:hover {
+      border-color: var(--pastel);
+      background: color-mix(in oklch, var(--pastel) 14%, transparent);
+    }
+
+    .track-action-button svg {
+      width: 18px;
+      height: 18px;
+    }
+
     .progress-wrap {
       display: grid;
       grid-template-columns: 44px 1fr 44px;
@@ -1038,6 +1062,10 @@
                 <button class="icon-button" type="button" data-next aria-label="Volgende track">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 5h2v14h-2V5ZM6 19l9-7-9-7v14Z"/></svg>
                 </button>
+                <button class="track-action-button" type="button" data-share-current aria-label="Deel huidige track">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18 16.1c-.76 0-1.44.3-1.96.77L8.91 12.7a3.3 3.3 0 0 0 0-1.39l7.05-4.11A2.98 2.98 0 1 0 15 5c0 .23.03.45.08.66L8.03 9.77A3 3 0 1 0 8 14.23l7.12 4.18c-.04.18-.06.37-.06.56A2.94 2.94 0 1 0 18 16.1Z"/></svg>
+                  Delen
+                </button>
               </div>
             </div>
           </div>
@@ -1181,6 +1209,7 @@
     const playButton = document.querySelector("[data-play]");
     const previousButton = document.querySelector("[data-prev]");
     const nextButton = document.querySelector("[data-next]");
+    const shareCurrentButton = document.querySelector("[data-share-current]");
     const progress = document.querySelector("[data-progress]");
     const currentTimeNode = document.querySelector("[data-current]");
     const durationNode = document.querySelector("[data-duration]");
@@ -1631,6 +1660,11 @@
 
     nextButton.addEventListener("click", () => {
       setTrack(currentTrackIndex + 1, true);
+    });
+
+    shareCurrentButton.addEventListener("click", () => {
+      closeTrackMenus();
+      shareTrack(tracks[currentTrackIndex]);
     });
 
     progress.addEventListener("input", () => {
