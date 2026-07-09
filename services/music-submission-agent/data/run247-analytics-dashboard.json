@@ -1,0 +1,41 @@
+{
+  "run": 247,
+  "date": "2026-07-10",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1295,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 4,
+  "freeTrialOrFreemiumRoutes": 3,
+  "paidManualRoutes": 4,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 0,
+  "loginSessionAppBoundaryRoutes": 3,
+  "paymentPricingBoundaryRoutes": 4,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 1,
+  "publicBusinessContactEmailRoutesObserved": 1,
+  "usablePublicMusicSubmissionEmailRoutes": 0,
+  "officialNonPlaintextEmailLinkRoutes": 0,
+  "protectedContactRoutesObservedButNotDecoded": 0,
+  "publicFormsObserved": 5,
+  "physicalPackageRoutes": 0,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "SubmitHub",
+    "LabelRadar",
+    "One Submit",
+    "Indiemono",
+    "For The Love Of Bands"
+  ],
+  "dedupeResult": "Public GitHub indexed search and current branch recent-run inspection were performed for SubmitHub, LabelRadar, One Submit, Indiemono and For The Love Of Bands before creation; no existing music-submission-agent platform entries were returned for these selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no campaigns activated, no credits used or purchased, no tracks/audio/artwork/images/files uploaded or transferred, no playlist submissions, curator targeting, blog/radio/label/YouTube/TikTok campaigns, demo submissions, remix contests, paid skip-queue actions, donation/merch/payment routes, review requests or PR/sync/service-interest routes initiated, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no outbound emails/messages/contact forms sent, no payment/subscription/campaign/credit/ad-spend/promotion/upload/distribution/licensing/sales workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing performed.",
+  "items": [
+    "SubmitHub Free Paid Blog Playlist Influencer Submission Route",
+    "LabelRadar Free Credits Record Label Demo Submission Route",
+    "One Submit Paid Curator Playlist Blog Radio Label Campaign Route",
+    "Indiemono Free Spotify Playlist Discovery Submission Form Route",
+    "For The Love Of Bands Free Paid Playlist Review Submission Route"
+  ]
+}
