@@ -1,0 +1,41 @@
+{
+  "run": 240,
+  "date": "2026-07-09",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1260,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 5,
+  "freeTrialOrFreemiumRoutes": 1,
+  "paidManualRoutes": 1,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 0,
+  "loginSessionAppBoundaryRoutes": 5,
+  "paymentPricingBoundaryRoutes": 2,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 0,
+  "publicBusinessContactEmailRoutesObserved": 0,
+  "usablePublicMusicSubmissionEmailRoutes": 0,
+  "officialNonPlaintextEmailLinkRoutes": 0,
+  "protectedContactRoutesObservedButNotDecoded": 0,
+  "publicFormsObserved": 0,
+  "physicalPackageRoutes": 0,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "SoundOn",
+    "Audiomack",
+    "Jamendo",
+    "Bandcamp",
+    "BandLab"
+  ],
+  "dedupeResult": "Repository search was performed for SoundOn, Audiomack, Jamendo, Bandcamp, BandLab and BeatStars before creation; no existing music-submission-agent platform entries were returned for these selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no playlist, creator, collaboration, upload, release, distribution, marketplace or paid-promotion workflow was initiated, no CAPTCHA/challenge/session controls were handled, no cookies or consent choices were accepted, no audio/artwork/image/files were uploaded or transferred, no outbound emails/messages/contact forms were sent, no payment/subscription/campaign/credit/ad-spend/promotion/upload/distribution/licensing/sales workflow was initiated, no protected contacts were decoded, no contacts were guessed and no SMTP/MX/deliverability probing was performed.",
+  "items": [
+    "SoundOn TikTok Global Artist Distribution Upload Route",
+    "Audiomack Creator Direct Upload Streaming Discovery Route",
+    "Jamendo Artist Creative Commons Licensing Upload Route",
+    "Bandcamp Artist Store Upload Direct Fan Sales Route",
+    "BandLab Social Music Publishing Collaboration Upload Route"
+  ]
+}
