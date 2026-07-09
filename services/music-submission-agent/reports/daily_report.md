@@ -1,21 +1,21 @@
 # Daily Report
 
-Date: 2026-07-09
+Date: 2026-07-10
 
-Latest run: Run 246
+Latest run: Run 247
 
 New items added: 5
 
-Pipeline estimate: 1290
+Pipeline estimate: 1295
 
 Items:
 
-- Musosoup
-- DailyPlaylists
-- SoundCampaign
-- Jamendo
-- Bandcamp
+- SubmitHub
+- LabelRadar
+- One Submit
+- Indiemono
+- For The Love Of Bands
 
 All items are marked needs_manual_review.
 
-Safety: no accounts created, no login used, no forms submitted, no campaigns activated, no tracks/audio/artwork/images/files uploaded or transferred, no playlist submissions, curator targeting, campaign budgets, TikTok creator campaigns, ads, direct-to-fan releases, store listings, merch workflows, licensing, sync, in-store placement, Content ID, promotion, Bandcamp release/storefront, paid PR, paid placement or revenue/payout workflows initiated, no CAPTCHA/challenge/session controls handled, no cookies/consent accepted, no outbound messages sent, no payment/subscription/campaign/ad-spend/promotion/upload/distribution/licensing/sales workflow initiated, no protected contacts decoded and no deliverability probing performed.
+Safety: no accounts created, no login used, no forms submitted, no campaigns activated, no credits used or purchased, no tracks/audio/artwork/images/files uploaded or transferred, no playlist submissions, curator targeting, blog/radio/label/YouTube/TikTok campaigns, demo submissions, remix contests, paid skip-queue actions, donation/merch/payment routes, review requests or PR/sync/service-interest routes initiated, no CAPTCHA/challenge/session controls handled, no cookies/consent accepted, no outbound messages sent, no payment/subscription/campaign/credit/ad-spend/promotion/upload/distribution/licensing/sales workflow initiated, no protected contacts decoded and no deliverability probing performed.
