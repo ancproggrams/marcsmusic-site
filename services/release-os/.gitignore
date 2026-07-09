@@ -6,3 +6,13 @@ node_modules/
 coverage/
 dist/
 *.log
+.playwright-mcp/
+data/marcsmusic-release-os.json
+data/player-manifest.json
+data/uploads/**
+!data/uploads/
+!data/uploads/.gitkeep
+!data/uploads/audio/
+!data/uploads/audio/.gitkeep
+!data/uploads/artwork/
+!data/uploads/artwork/.gitkeep
