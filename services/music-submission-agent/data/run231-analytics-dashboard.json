@@ -1,0 +1,41 @@
+{
+  "run": 231,
+  "date": "2026-07-09",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1215,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 5,
+  "freeTrialOrFreemiumRoutes": 2,
+  "paidManualRoutes": 1,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 0,
+  "loginSessionAppBoundaryRoutes": 3,
+  "paymentPricingBoundaryRoutes": 3,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 1,
+  "publicBusinessContactEmailRoutesObserved": 1,
+  "usablePublicMusicSubmissionEmailRoutes": 1,
+  "officialNonPlaintextEmailLinkRoutes": 0,
+  "protectedContactRoutesObservedButNotDecoded": 0,
+  "publicFormsObserved": 2,
+  "physicalPackageRoutes": 0,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "KLOF",
+    "Soundplate",
+    "RepostExchange",
+    "TopHit",
+    "Radiooooo"
+  ],
+  "dedupeResult": "Repository searches were performed for all dedupe terms before creation. No existing music-submission-agent platform entries were returned for the selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/image/files uploaded or transferred, no outbound emails/messages/contact forms sent, no physical packages prepared or mailed, no payment/subscription/campaign/credit/ad-spend/promotion/upload/licensing workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing was performed.",
+  "items": [
+    "KLOF Magazine 320kbps Download Link Submission Email Route",
+    "Soundplate Free Spotify Deezer Playlist Submission Route",
+    "RepostExchange SoundCloud Partner Credit Campaign Promotion Route",
+    "TopHit Rights Holder Upload Radio TV Distribution Route",
+    "Radiooooo Community Curated Global Map Upload Route"
+  ]
+}
