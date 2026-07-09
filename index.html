@@ -389,7 +389,8 @@
       background: var(--panel);
       color: var(--white);
       box-shadow: var(--shadow);
-      overflow: hidden;
+      position: relative;
+      overflow: visible;
     }
 
     .player-top {
@@ -513,26 +514,41 @@
     }
 
     .track-row {
+      position: relative;
       display: grid;
-      grid-template-columns: 42px 1fr auto;
+      grid-template-columns: minmax(0, 1fr) 44px;
       align-items: center;
-      gap: 14px;
       width: 100%;
       border: 0;
       border-bottom: 1px solid color-mix(in oklch, var(--white) 12%, transparent);
       background: transparent;
       color: var(--white);
-      padding: 15px 22px;
+      padding: 0 12px 0 22px;
       text-align: left;
     }
 
     .track-row:hover,
-    .track-row[aria-current="true"] {
+    .track-row[aria-current="true"],
+    .track-row:focus-within {
       background: color-mix(in oklch, var(--pastel) 18%, transparent);
     }
 
     .track-row:last-child {
       border-bottom: 0;
+    }
+
+    .track-select {
+      min-width: 0;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      padding: 15px 0;
+      text-align: left;
     }
 
     .track-number {
@@ -550,6 +566,85 @@
     .track-duration {
       color: color-mix(in oklch, var(--white) 68%, transparent);
       font-size: 13px;
+    }
+
+    .track-actions {
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .track-menu-button {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: var(--radius);
+      background: transparent;
+      color: color-mix(in oklch, var(--white) 72%, transparent);
+    }
+
+    .track-menu-button:hover,
+    .track-menu-button[aria-expanded="true"] {
+      background: color-mix(in oklch, var(--white) 10%, transparent);
+      color: var(--white);
+    }
+
+    .track-menu-button svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .track-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      z-index: 20;
+      min-width: 168px;
+      display: grid;
+      gap: 2px;
+      border: 1px solid color-mix(in oklch, var(--white) 16%, transparent);
+      border-radius: var(--radius);
+      background: var(--panel-soft);
+      padding: 6px;
+      box-shadow: 0 18px 45px color-mix(in oklch, var(--ink) 45%, transparent);
+    }
+
+    .track-menu-item {
+      width: 100%;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      border: 0;
+      border-radius: calc(var(--radius) - 2px);
+      background: transparent;
+      color: var(--white);
+      padding: 0 10px;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    .track-menu-item:hover,
+    .track-menu-item:focus-visible {
+      background: color-mix(in oklch, var(--pastel) 20%, transparent);
+    }
+
+    .track-toast {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      z-index: 80;
+      transform: translateX(-50%);
+      border: 1px solid color-mix(in oklch, var(--white) 20%, transparent);
+      border-radius: var(--radius);
+      background: var(--panel-soft);
+      color: var(--white);
+      padding: 10px 14px;
+      box-shadow: 0 16px 38px color-mix(in oklch, var(--ink) 36%, transparent);
+      font-size: 14px;
+      font-weight: 700;
     }
 
     .social-strip {
@@ -842,11 +937,21 @@
       }
 
       .track-row {
-        grid-template-columns: 32px 1fr;
+        grid-template-columns: minmax(0, 1fr) 42px;
+        padding-left: 16px;
+        padding-right: 10px;
+      }
+
+      .track-select {
+        grid-template-columns: 32px minmax(0, 1fr);
       }
 
       .track-duration {
         grid-column: 2;
+      }
+
+      .track-menu {
+        right: 0;
       }
 
       .set-item,
@@ -952,6 +1057,7 @@
           </audio>
 
           <div class="playlist" data-playlist aria-label="Tracklijst"></div>
+          <div class="track-toast" data-share-status role="status" aria-live="polite" hidden></div>
         </section>
 
         <div class="social-strip" aria-label="MarcsMusic social links">
@@ -1080,9 +1186,20 @@
     const durationNode = document.querySelector("[data-duration]");
     const playIcon = document.querySelector("[data-play-icon]");
     const pauseIcon = document.querySelector("[data-pause-icon]");
+    const shareStatusNode = document.querySelector("[data-share-status]");
     let currentTrackIndex = 0;
     let playCounts = Object.fromEntries(tracks.map((track) => [track.id, 0]));
+    let activeMenuTrackId = null;
+    let shareStatusTimer = null;
     const countedTrackIds = new Set(loadCountedTrackIds());
+
+    const htmlEntities = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      "\"": "&quot;",
+      "'": "&#39;"
+    };
 
     function loadCountedTrackIds() {
       try {
@@ -1090,6 +1207,168 @@
       } catch {
         return [];
       }
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, (character) => htmlEntities[character]);
+    }
+
+    function createTrackLink(track) {
+      const url = new URL(window.location.href);
+      url.search = "";
+      url.searchParams.set("track", track.id);
+      url.hash = "listen";
+      return url.toString();
+    }
+
+    function createDownloadFilename(track) {
+      const slug = `marcsmusic-${track.title}`
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+
+      return `${slug || track.id}.mp3`;
+    }
+
+    function createDownloadUrl(track) {
+      const url = new URL(track.src, window.location.href);
+      url.searchParams.set("download", "1");
+      url.searchParams.set("filename", createDownloadFilename(track));
+      return `${url.pathname}${url.search}`;
+    }
+
+    function getTrackById(trackId) {
+      return tracks.find((track) => track.id === trackId);
+    }
+
+    function getRequestedTrackId() {
+      const queryTrack = new URLSearchParams(window.location.search).get("track");
+      if (queryTrack) {
+        return queryTrack;
+      }
+
+      try {
+        const hash = decodeURIComponent(window.location.hash.replace(/^#/, ""));
+        return hash.startsWith("track=") ? hash.slice("track=".length) : "";
+      } catch {
+        return "";
+      }
+    }
+
+    function getInitialTrackIndex() {
+      const requestedTrackId = getRequestedTrackId();
+      const requestedIndex = tracks.findIndex((track) => track.id === requestedTrackId);
+      return requestedIndex >= 0 ? requestedIndex : 0;
+    }
+
+    function showShareStatus(message) {
+      if (!shareStatusNode) {
+        return;
+      }
+
+      window.clearTimeout(shareStatusTimer);
+      shareStatusNode.textContent = message;
+      shareStatusNode.hidden = false;
+      shareStatusTimer = window.setTimeout(() => {
+        shareStatusNode.hidden = true;
+      }, 2200);
+    }
+
+    async function copyText(value) {
+      if (navigator.clipboard?.writeText) {
+        try {
+          await navigator.clipboard.writeText(value);
+          return;
+        } catch {
+          // Fall through to the textarea fallback for older or restricted browsers.
+        }
+      }
+
+      const textarea = document.createElement("textarea");
+      textarea.value = value;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.top = "-9999px";
+      document.body.append(textarea);
+      textarea.select();
+      const copied = document.execCommand("copy");
+      textarea.remove();
+
+      if (!copied) {
+        throw new Error("Kopieren mislukt");
+      }
+    }
+
+    async function shareTrack(track) {
+      const url = createTrackLink(track);
+      const sharePayload = {
+        title: track.title,
+        text: `Luister naar ${track.title} van MarcsMusic.`,
+        url
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(sharePayload);
+          showShareStatus("Link gedeeld");
+          return;
+        } catch (error) {
+          if (error?.name === "AbortError") {
+            return;
+          }
+        }
+      }
+
+      try {
+        await copyText(url);
+        showShareStatus("Link gekopieerd");
+      } catch {
+        showShareStatus("Kopiëren mislukt");
+      }
+    }
+
+    function getTrackMenu(trackId) {
+      return document.querySelector(`[data-track-menu="${trackId}"]`);
+    }
+
+    function getTrackMenuToggle(trackId) {
+      return document.querySelector(`[data-track-menu-toggle="${trackId}"]`);
+    }
+
+    function closeTrackMenus() {
+      document.querySelectorAll("[data-track-menu]").forEach((menu) => {
+        menu.hidden = true;
+      });
+      document.querySelectorAll("[data-track-menu-toggle]").forEach((button) => {
+        button.setAttribute("aria-expanded", "false");
+      });
+      activeMenuTrackId = null;
+    }
+
+    function openTrackMenu(trackId) {
+      closeTrackMenus();
+      const menu = getTrackMenu(trackId);
+      const button = getTrackMenuToggle(trackId);
+      if (!menu || !button) {
+        return;
+      }
+
+      menu.hidden = false;
+      button.setAttribute("aria-expanded", "true");
+      activeMenuTrackId = trackId;
+      menu.querySelector("[role='menuitem']")?.focus();
+    }
+
+    function toggleTrackMenu(trackId) {
+      if (activeMenuTrackId === trackId) {
+        closeTrackMenus();
+        getTrackMenuToggle(trackId)?.focus();
+        return;
+      }
+
+      openTrackMenu(trackId);
     }
 
     function formatTime(seconds) {
@@ -1181,19 +1460,54 @@
     }
 
     function renderPlaylist() {
-      playlistNode.innerHTML = tracks.map((track, index) => `
-        <button class="track-row" type="button" data-track-index="${index}" aria-current="${index === currentTrackIndex ? "true" : "false"}">
-          <span class="track-number">${String(index + 1).padStart(2, "0")}</span>
-          <span>
-            <span class="track-name">${track.title}</span>
-            <span class="track-detail">${track.detail}</span>
-          </span>
-          <span class="track-duration" data-row-plays="${track.id}">${formatPlayCount(playCounts[track.id])}</span>
-        </button>
-      `).join("");
+      playlistNode.innerHTML = tracks.map((track, index) => {
+        const trackId = escapeHtml(track.id);
+        const title = escapeHtml(track.title);
+        const detail = escapeHtml(track.detail);
+        const plays = escapeHtml(formatPlayCount(playCounts[track.id]));
+        const downloadUrl = escapeHtml(createDownloadUrl(track));
+        const downloadName = escapeHtml(createDownloadFilename(track));
+        const menuId = `track-menu-${trackId}`;
+
+        return `
+          <div class="track-row" data-track-row-index="${index}" aria-current="${index === currentTrackIndex ? "true" : "false"}">
+            <button class="track-select" type="button" data-track-index="${index}" aria-label="Speel ${title} af">
+              <span class="track-number">${String(index + 1).padStart(2, "0")}</span>
+              <span>
+                <span class="track-name">${title}</span>
+                <span class="track-detail">${detail}</span>
+              </span>
+              <span class="track-duration" data-row-plays="${trackId}">${plays}</span>
+            </button>
+            <span class="track-actions">
+              <button
+                class="track-menu-button"
+                type="button"
+                aria-label="Menu voor ${title}"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                aria-controls="${menuId}"
+                data-track-menu-toggle="${trackId}">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="5" cy="12" r="2" fill="currentColor"></circle>
+                  <circle cx="12" cy="12" r="2" fill="currentColor"></circle>
+                  <circle cx="19" cy="12" r="2" fill="currentColor"></circle>
+                </svg>
+              </button>
+              <span class="track-menu" id="${menuId}" role="menu" data-track-menu="${trackId}" hidden>
+                <button class="track-menu-item" type="button" role="menuitem" data-share-track="${trackId}">Delen</button>
+                <a class="track-menu-item" role="menuitem" href="${downloadUrl}" download="${downloadName}" data-download-track="${trackId}">Downloaden</a>
+              </span>
+            </span>
+          </div>
+        `;
+      }).join("");
     }
 
     function syncTrackRows() {
+      document.querySelectorAll("[data-track-row-index]").forEach((row) => {
+        row.setAttribute("aria-current", Number(row.dataset.trackRowIndex) === currentTrackIndex ? "true" : "false");
+      });
       document.querySelectorAll("[data-track-index]").forEach((row) => {
         row.setAttribute("aria-current", Number(row.dataset.trackIndex) === currentTrackIndex ? "true" : "false");
       });
@@ -1234,15 +1548,71 @@
     }
 
     renderPlaylist();
-    setTrack(0);
+    setTrack(getInitialTrackIndex());
     loadPlayCounts();
 
     playlistNode.addEventListener("click", (event) => {
+      const menuToggle = event.target.closest("[data-track-menu-toggle]");
+      if (menuToggle) {
+        event.stopPropagation();
+        toggleTrackMenu(menuToggle.dataset.trackMenuToggle);
+        return;
+      }
+
+      const shareButton = event.target.closest("[data-share-track]");
+      if (shareButton) {
+        event.preventDefault();
+        const track = getTrackById(shareButton.dataset.shareTrack);
+        closeTrackMenus();
+        if (track) {
+          shareTrack(track);
+        }
+        return;
+      }
+
+      if (event.target.closest("[data-download-track]")) {
+        closeTrackMenus();
+        return;
+      }
+
       const row = event.target.closest("[data-track-index]");
       if (!row) {
         return;
       }
       setTrack(Number(row.dataset.trackIndex), true);
+    });
+
+    playlistNode.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && activeMenuTrackId) {
+        const button = getTrackMenuToggle(activeMenuTrackId);
+        closeTrackMenus();
+        button?.focus();
+        return;
+      }
+
+      const menu = event.target.closest("[data-track-menu]");
+      if (!menu || !["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) {
+        return;
+      }
+
+      event.preventDefault();
+      const items = [...menu.querySelectorAll("[role='menuitem']")];
+      const currentIndex = items.indexOf(document.activeElement);
+      const lastIndex = items.length - 1;
+      const nextIndex = {
+        ArrowDown: currentIndex >= lastIndex ? 0 : currentIndex + 1,
+        ArrowUp: currentIndex <= 0 ? lastIndex : currentIndex - 1,
+        Home: 0,
+        End: lastIndex
+      }[event.key];
+
+      items[nextIndex]?.focus();
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest("[data-track-menu]") && !event.target.closest("[data-track-menu-toggle]")) {
+        closeTrackMenus();
+      }
     });
 
     playButton.addEventListener("click", () => {

@@ -2,7 +2,7 @@ import { createReadStream, existsSync, statSync } from "node:fs";
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { createHash, randomUUID } from "node:crypto";
-import { dirname, extname, join, normalize, resolve, sep } from "node:path";
+import { basename, dirname, extname, join, normalize, resolve, sep } from "node:path";
 
 const root = resolve(".");
 const port = Number.parseInt(process.env.PORT || "3000", 10);
@@ -46,6 +46,8 @@ const contentTypes = {
   ".flac": "audio/flac",
   ".json": "application/json; charset=utf-8"
 };
+
+const downloadableAudioExtensions = new Set([".mp3", ".m4a", ".wav", ".ogg", ".flac"]);
 
 const publicTrackIds = new Set([
   "door-de-storm",
@@ -1678,8 +1680,34 @@ function publicErrorMessage(error) {
   return error instanceof Error ? error.message : "Onbekende fout";
 }
 
+function attachmentFilename(input, fallback, extension) {
+  const normalized = String(input || fallback || "download")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+  const cleaned = normalized
+    .replace(/[^A-Za-z0-9._-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^[-.]+|[-.]+$/g, "");
+  const filename = cleaned || "download";
+
+  return filename.toLowerCase().endsWith(extension) ? filename : `${filename}${extension}`;
+}
+
+function downloadHeaders(url, filePath) {
+  const extension = extname(filePath).toLowerCase();
+  if (url.searchParams.get("download") !== "1" || !downloadableAudioExtensions.has(extension)) {
+    return {};
+  }
+
+  const filename = attachmentFilename(url.searchParams.get("filename"), basename(filePath), extension);
+  return {
+    "content-disposition": `attachment; filename="${filename}"`
+  };
+}
+
 function serveStatic(request, response) {
-  const filePath = getFilePath(request.url || "/");
+  const url = new URL(request.url || "/", request.headers.host ? `http://${request.headers.host}` : appBaseUrl);
+  const filePath = getFilePath(url.pathname);
 
   if (!filePath || !existsSync(filePath) || !statSync(filePath).isFile()) {
     sendText(response, 404, "Not found");
@@ -1688,7 +1716,8 @@ function serveStatic(request, response) {
 
   response.writeHead(200, {
     "content-type": contentTypes[extname(filePath)] || "application/octet-stream",
-    "cache-control": "public, max-age=300"
+    "cache-control": "public, max-age=300",
+    ...downloadHeaders(url, filePath)
   });
 
   if (request.method === "HEAD") {
