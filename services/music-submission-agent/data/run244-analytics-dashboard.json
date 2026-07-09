@@ -1,0 +1,41 @@
+{
+  "run": 244,
+  "date": "2026-07-09",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1280,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 3,
+  "freeTrialOrFreemiumRoutes": 2,
+  "paidManualRoutes": 4,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 0,
+  "loginSessionAppBoundaryRoutes": 5,
+  "paymentPricingBoundaryRoutes": 4,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 3,
+  "publicBusinessContactEmailRoutesObserved": 0,
+  "usablePublicMusicSubmissionEmailRoutes": 0,
+  "officialNonPlaintextEmailLinkRoutes": 0,
+  "protectedContactRoutesObservedButNotDecoded": 0,
+  "publicFormsObserved": 5,
+  "physicalPackageRoutes": 0,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "Groover",
+    "Playlist Push",
+    "Spinnin Records",
+    "RepostExchange",
+    "Hypeddit"
+  ],
+  "dedupeResult": "Repository search was performed for Groover, Playlist Push, Spinnin Records, RepostExchange and Hypeddit before creation; no existing music-submission-agent platform entries were returned for these selected standalone route names. Playlist Push had non-agent matches in unrelated outreach/script files only and was treated as not already queued in the music-submission-agent dataset.",
+  "safety": "No accounts created, no login used, no forms submitted, no curator selections made, no playlist, radio, label, DJ, TikTok, SoundCloud repost, download-gate, ad, chart, spotlight, demo-upload or paid-promotion workflow initiated, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/image/files uploaded or transferred, no outbound emails/messages/contact forms sent, no payment/subscription/campaign/credit/ad-spend/promotion/upload/distribution/licensing/sales workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing performed.",
+  "items": [
+    "Groover Paid Curator Playlist Radio Label DJ Submission Route",
+    "Playlist Push Paid Spotify TikTok Curator Campaign Submission Route",
+    "Spinnin Records Talent Pool Login Demo Upload Route",
+    "RepostExchange SoundCloud Partner Repost Feedback Campaign Route",
+    "Hypeddit Music Promotion Download Gate Chart Spotlight Route"
+  ]
+}
