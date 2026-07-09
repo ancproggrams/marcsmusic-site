@@ -1,0 +1,41 @@
+{
+  "run": 228,
+  "date": "2026-07-09",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1200,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 3,
+  "freeTrialOrFreemiumRoutes": 3,
+  "paidManualRoutes": 3,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 0,
+  "loginSessionAppBoundaryRoutes": 4,
+  "paymentPricingBoundaryRoutes": 3,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 0,
+  "publicBusinessContactEmailRoutesObserved": 2,
+  "usablePublicMusicSubmissionEmailRoutes": 1,
+  "officialNonPlaintextEmailLinkRoutes": 1,
+  "protectedContactRoutesObservedButNotDecoded": 0,
+  "publicFormsObserved": 1,
+  "physicalPackageRoutes": 0,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "KEXP",
+    "The Line of Best Fit",
+    "Music Xray",
+    "ReverbNation",
+    "Broadjam"
+  ],
+  "dedupeResult": "Repository searches were performed for all dedupe terms before creation. No existing music-submission-agent platform entries were returned for the selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/image/files uploaded or transferred, no outbound emails/messages/contact forms sent, no physical packages prepared or mailed, no payment/subscription/campaign/credit/ad-spend/promotion/licensing workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing was performed.",
+  "items": [
+    "KEXP Seattle Digital WAV Music Director Airplay Route",
+    "The Line of Best Fit New Unsigned Artist Google Form Route",
+    "Music Xray Song Opportunity Paid A&R Submission Route",
+    "ReverbNation Artist Profile Opportunities Promotion Route",
+    "Broadjam Licensing Contest Radio Play Artist Submission Route"
+  ]
+}
