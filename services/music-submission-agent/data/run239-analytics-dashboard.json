@@ -1,0 +1,41 @@
+{
+  "run": 239,
+  "date": "2026-07-09",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1255,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 5,
+  "freeTrialOrFreemiumRoutes": 0,
+  "paidManualRoutes": 0,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 3,
+  "loginSessionAppBoundaryRoutes": 0,
+  "paymentPricingBoundaryRoutes": 0,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 0,
+  "publicBusinessContactEmailRoutesObserved": 4,
+  "usablePublicMusicSubmissionEmailRoutes": 3,
+  "officialNonPlaintextEmailLinkRoutes": 1,
+  "protectedContactRoutesObservedButNotDecoded": 1,
+  "publicFormsObserved": 1,
+  "physicalPackageRoutes": 3,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "CJSW",
+    "CFUV",
+    "WMSE",
+    "KALX",
+    "Radio Milwaukee"
+  ],
+  "dedupeResult": "Repository searches were performed for CJSW, CFUV, WMSE, KALX and Radio Milwaukee before creation; no existing music-submission-agent platform entries were returned for these selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no upload, playlist, radio-tracking, email, interview, live-session, package, shipment or campaign workflow was initiated, no CAPTCHA/challenge/session controls were handled, no cookies or consent choices were accepted, no audio/artwork/image/files were uploaded or transferred, no outbound emails/messages/contact forms were sent, no physical packages were prepared or mailed, no payment/subscription/campaign/credit/ad-spend/promotion/upload/distribution/licensing workflow was initiated, no protected contacts were decoded, no contacts were guessed and no SMTP/MX/deliverability probing was performed.",
+  "items": [
+    "CJSW Calgary Digital New Album Jotform Airplay Route",
+    "CFUV Victoria 320kbps Download Link Music Director Airplay Route",
+    "WMSE Milwaukee FCC Clean Physical Digital Music Department Route",
+    "KALX Berkeley Professionally Pressed CD LP Music Director Route",
+    "Radio Milwaukee WAV Radio Edit Music Submission Route"
+  ]
+}
