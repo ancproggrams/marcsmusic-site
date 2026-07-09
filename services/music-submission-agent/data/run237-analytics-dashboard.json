@@ -1,0 +1,41 @@
+{
+  "run": 237,
+  "date": "2026-07-09",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1245,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 4,
+  "freeTrialOrFreemiumRoutes": 3,
+  "paidManualRoutes": 2,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 0,
+  "loginSessionAppBoundaryRoutes": 5,
+  "paymentPricingBoundaryRoutes": 3,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 0,
+  "publicBusinessContactEmailRoutesObserved": 0,
+  "usablePublicMusicSubmissionEmailRoutes": 0,
+  "officialNonPlaintextEmailLinkRoutes": 0,
+  "protectedContactRoutesObservedButNotDecoded": 0,
+  "publicFormsObserved": 5,
+  "physicalPackageRoutes": 0,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "TIDAL Upload",
+    "SubmitHub",
+    "Feature.fm",
+    "Subvert",
+    "Zedwap"
+  ],
+  "dedupeResult": "Repository searches were performed for TIDAL Upload, SubmitHub, Feature.fm, Subvert and Zedwap before creation; no existing music-submission-agent platform entries were returned for these selected standalone route names. TIDAL Upload appeared only in unrelated release-os documentation, not in the music-submission-agent platform seed set.",
+  "safety": "No accounts created, no login used, no forms submitted, no sponsored-song, ad, playlist, upload, marketplace, direct-publish or social campaign was initiated, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/image/files uploaded or transferred, no outbound emails/messages/contact forms sent, no physical packages prepared or mailed, no payment/subscription/campaign/credit/ad-spend/promotion/upload/distribution/marketplace/listing/licensing workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing was performed.",
+  "items": [
+    "TIDAL Upload Free US Artist Direct Publish Route",
+    "SubmitHub Free Premium Curator Playlist Blog Submission Route",
+    "Feature.fm Sponsored Songs Pre Save Music Marketing Route",
+    "Subvert Cooperative Artist Label Digital Download Marketplace Route",
+    "Zedwap Zambia Artist Upload Streaming Download Route"
+  ]
+}
