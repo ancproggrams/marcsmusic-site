@@ -1,0 +1,41 @@
+{
+  "run": 248,
+  "date": "2026-07-10",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1300,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 5,
+  "freeTrialOrFreemiumRoutes": 0,
+  "paidManualRoutes": 0,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 4,
+  "officialPublicPhysicalDeliveryRoutes": 0,
+  "loginSessionAppBoundaryRoutes": 3,
+  "paymentPricingBoundaryRoutes": 0,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 0,
+  "publicBusinessContactEmailRoutesObserved": 2,
+  "usablePublicMusicSubmissionEmailRoutes": 1,
+  "officialNonPlaintextEmailLinkRoutes": 0,
+  "protectedContactRoutesObservedButNotDecoded": 0,
+  "publicFormsObserved": 4,
+  "physicalPackageRoutes": 0,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "Fresh On The Net",
+    "KEXP",
+    "Triple J Unearthed",
+    "BBC Music Introducing",
+    "Amazing Radio"
+  ],
+  "dedupeResult": "Current branch recent-run inspection and public GitHub indexed searches were performed for Fresh On The Net, KEXP, Triple J Unearthed, BBC Music Introducing and Amazing Radio before creation; no existing music-submission-agent platform entries were returned for these selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no emails sent, no radio pitches sent, no direct messages sent, no submission windows entered, no tracks/audio/artwork/images/files uploaded or transferred, no playlist submissions, radio consideration emails, BBC/ABC/Amazing upload sessions, Fresh On The Net inbox interactions, KEXP mailto actions, competition entries, UGC acceptances or profile setups initiated, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no outbound contact forms sent, no payment/subscription/campaign/credit/ad-spend/promotion/upload/distribution/licensing/sales workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing performed.",
+  "items": [
+    "Fresh On The Net Listening Post Weekly Track Submission Route",
+    "KEXP Music Director Radio Rotation Consideration Email Route",
+    "Triple J Unearthed Australian Artist Upload Airplay Route",
+    "BBC Music Introducing UK Upload Tool Radio Network Route",
+    "Amazing Radio Amazing Artists Upload Radio Discovery Route"
+  ]
+}
