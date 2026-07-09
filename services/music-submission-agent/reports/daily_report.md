@@ -2,19 +2,19 @@
 
 Date: 2026-07-09
 
-Latest run: Run 225
+Latest run: Run 226
 
 New items added: 5
 
-Pipeline estimate: 1185
+Pipeline estimate: 1190
 
 Items:
 
-- KZSU
-- WPRB
-- WHUS
-- WNYU
-- WCBN
+- KBOO
+- BFF.fm
+- XRAY
+- SomaFM
+- idobi
 
 All items are marked needs_manual_review.
 
