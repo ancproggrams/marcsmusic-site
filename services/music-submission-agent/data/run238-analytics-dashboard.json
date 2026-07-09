@@ -1,0 +1,41 @@
+{
+  "run": 238,
+  "date": "2026-07-09",
+  "newItemsAdded": 5,
+  "pipelineEstimate": 1250,
+  "queueRows": 5,
+  "needsManualReview": 5,
+  "freeFirstRoutes": 4,
+  "freeTrialOrFreemiumRoutes": 3,
+  "paidManualRoutes": 4,
+  "officialPublicContactSubmissionRoutes": 5,
+  "officialPublicUploadFormAppRoutes": 5,
+  "officialPublicPhysicalDeliveryRoutes": 0,
+  "loginSessionAppBoundaryRoutes": 3,
+  "paymentPricingBoundaryRoutes": 4,
+  "captchaHumanVerificationRoutes": 0,
+  "cookieConsentBoundaryRoutes": 1,
+  "publicBusinessContactEmailRoutesObserved": 1,
+  "usablePublicMusicSubmissionEmailRoutes": 0,
+  "officialNonPlaintextEmailLinkRoutes": 0,
+  "protectedContactRoutesObservedButNotDecoded": 0,
+  "publicFormsObserved": 5,
+  "physicalPackageRoutes": 0,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "DailyPlaylists",
+    "Indiemono",
+    "A&R Factory",
+    "Musosoup",
+    "CD Baby"
+  ],
+  "dedupeResult": "Repository searches were performed for DailyPlaylists, Indiemono, A&R Factory, Musosoup and CD Baby before creation; no existing music-submission-agent platform entries were returned for these selected standalone route names.",
+  "safety": "No accounts created, no login used, no forms submitted, no playlist, curator, campaign, upload, release, distribution or paid-promotion workflow was initiated, no CAPTCHA/challenge/session controls handled, no cookies or consent choices accepted, no audio/artwork/image/files uploaded or transferred, no outbound emails/messages/contact forms sent, no physical packages prepared or mailed, no payment/subscription/campaign/credit/ad-spend/promotion/upload/distribution/licensing workflow initiated, no protected contacts decoded, no contacts guessed and no SMTP/MX/deliverability probing was performed.",
+  "items": [
+    "DailyPlaylists Free Spotify Curator Submission Marketplace Route",
+    "Indiemono Free Spotify Playlist Form Chill Electronic Route",
+    "A&R Factory Electronic Music Blog Free Paid Form Route",
+    "Musosoup Independent Artist Curator Campaign Submission Route",
+    "CD Baby Paid Global Digital Distribution Upload Route"
+  ]
+}
