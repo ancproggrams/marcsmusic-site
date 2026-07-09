@@ -838,6 +838,22 @@
       bookingStatus.style.color = isError ? "#ff9c9a" : "#bcb5ba";
     }
 
+    function areBookingIntegrationsReady() {
+      const integrations = bookingConfig?.integrations;
+      return Boolean(
+        integrations?.ready ??
+          (integrations?.calendarConfigured && integrations?.crmConfigured && integrations?.mollieConfigured)
+      );
+    }
+
+    function getBookingUnavailableMessage() {
+      if (!bookingConfig) {
+        return "Bookingconfiguratie wordt geladen...";
+      }
+
+      return "Live boekingen zijn tijdelijk niet beschikbaar. Neem direct contact op.";
+    }
+
     function getSelectedType() {
       return bookingConfig?.bookingTypes.find((type) => type.id === bookingType.value);
     }
@@ -897,7 +913,7 @@
         button.textContent = String(day);
         button.setAttribute("role", "gridcell");
         button.setAttribute("aria-label", formatDate(date));
-        button.disabled = date < minDate;
+        button.disabled = date < minDate || (bookingConfig && !areBookingIntegrationsReady());
 
         if (sameDate(date, today)) {
           button.classList.add("is-today");
@@ -994,13 +1010,19 @@
           button.setAttribute("aria-pressed", "true");
           renderSlotCountOptions();
           updatePrice();
-          bookingSubmit.disabled = false;
+          bookingSubmit.disabled = !areBookingIntegrationsReady();
         });
         slotGrid.append(button);
       }
     }
 
     async function loadAvailability() {
+      if (!bookingConfig || !areBookingIntegrationsReady()) {
+        renderSlots([]);
+        setBookingStatus(getBookingUnavailableMessage(), true);
+        return;
+      }
+
       if (isFilePreview) {
         renderSlots([]);
         setBookingStatus(filePreviewMessage, true);
@@ -1051,8 +1073,10 @@
           bookingType.append(option);
         }
         updatePrice();
-        if (!bookingConfig.integrations.mollieConfigured || !bookingConfig.integrations.calendarConfigured || !bookingConfig.integrations.crmConfigured) {
-          setBookingStatus("Agenda, EspoCRM en Mollie moeten server-side ingesteld zijn voordat live boekingen volledig werken.");
+        if (!areBookingIntegrationsReady()) {
+          renderSlots([]);
+          renderCalendar();
+          setBookingStatus(getBookingUnavailableMessage(), true);
         }
       } catch {
         setBookingStatus("Bookingconfiguratie kon niet worden geladen. Controleer de Railway deployment.", true);
@@ -1082,6 +1106,12 @@
 
     bookingForm.addEventListener("submit", async (event) => {
       event.preventDefault();
+      if (!areBookingIntegrationsReady()) {
+        bookingSubmit.disabled = true;
+        setBookingStatus(getBookingUnavailableMessage(), true);
+        return;
+      }
+
       if (!selectedSlot) {
         setBookingStatus("Kies eerst een beschikbare tijd.", true);
         return;
