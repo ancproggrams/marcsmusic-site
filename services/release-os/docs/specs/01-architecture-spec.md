@@ -18,7 +18,7 @@ project and should reuse Railway environment variables and volumes.
 
 ## Existing Player Findings
 
-The current production site has a hardcoded `tracks` array in `index.html` using
+The current production site has a hardcoded `tracks` array in `public/index.html` using
 MP3 URLs below `/soundcloud-growth-os/outreach-mp3/...`. The
 `music-submission-agent` copy has direct download links under `assets/audio/*.mp3`
 and `assets/audio/*.wav`. Its server can serve `/assets/audio/<file>` from
@@ -34,4 +34,3 @@ that can be used to update the existing player without creating a second player.
 - EspoCRM remains the source of truth for contacts; local state stores campaign
   attempt records only.
 - Mailgun remains the only mail sender.
-
