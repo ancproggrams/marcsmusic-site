@@ -5,10 +5,13 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "test": "node --check server.js && node --check scripts/import-film-director-leads-to-espocrm.mjs && node --check scripts/discover-film-director-leads.mjs && node --check scripts/run-film-director-search-action.mjs",
+    "test": "node --check server.js && node --check scripts/import-film-director-leads-to-espocrm.mjs && node --check scripts/discover-film-director-leads.mjs && node --check scripts/run-film-director-search-action.mjs && node --test tests/*.test.mjs",
     "search:discover-film-directors": "node scripts/discover-film-director-leads.mjs",
     "search:film-directors": "node scripts/run-film-director-search-action.mjs",
     "crm:import-film-directors": "node scripts/import-film-director-leads-to-espocrm.mjs"
+  },
+  "dependencies": {
+    "@xmldom/xmldom": "0.9.10"
   },
   "engines": {
     "node": ">=20"

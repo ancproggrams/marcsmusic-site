@@ -6,8 +6,13 @@
 !booking.html
 !admin.html
 !package.json
+!package-lock.json
 !railway.json
 !server.js
+!src/
+!src/**
+!tests/
+!tests/**
 !scripts/
 !scripts/**
 !soundcloud-growth-os/
