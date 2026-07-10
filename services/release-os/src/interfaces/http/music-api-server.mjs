@@ -19,6 +19,7 @@ import { PlayerManifestClient } from "../../infrastructure/marcsmusic-site/playe
 import { EspoCrmClient } from "../../infrastructure/espocrm/espocrm-client.mjs";
 import { MailgunClient } from "../../infrastructure/mailgun/mailgun-client.mjs";
 import { resolveMailgunConfig } from "../../config/env.mjs";
+import { authorizeRequest, isPublicLiveness, normalizeAllowedOrigins } from "./access-control.mjs";
 import { sendUploadedAsset } from "./uploaded-asset-response.mjs";
 
 const MAX_JSON_BODY_BYTES = 1_000_000;
@@ -81,18 +82,24 @@ export function createMusicApiServer(options = {}) {
     playerSyncService,
     espocrmClient,
     contactSegmentService,
-    campaignService
+    campaignService,
+    authenticateRequest: options.authenticateRequest,
+    allowedOrigins: normalizeAllowedOrigins(options.allowedOrigins ?? env.RELEASE_OS_ALLOWED_ORIGINS)
   };
 
-  return http.createServer(async (request, response) => {
+  const handleRequest = async (request, response, continueRequest = false) => {
     try {
-      await routeRequest(request, response, context);
+      await routeRequest(request, response, context, continueRequest);
     } catch (error) {
       if (response.headersSent || response.destroyed) {
         response.destroy(error);
         return;
       }
 
+      if (error.closeConnection) {
+        response.shouldKeepAlive = false;
+        response.setHeader("connection", "close");
+      }
       sendJson(response, error.statusCode ?? 500, {
         error: {
           message: error.message,
@@ -100,11 +107,31 @@ export function createMusicApiServer(options = {}) {
         }
       });
     }
-  });
+  };
+  const server = http.createServer((request, response) => handleRequest(request, response));
+  server.on("checkContinue", (request, response) => handleRequest(request, response, true));
+  return server;
 }
 
-async function routeRequest(request, response, context) {
+async function routeRequest(request, response, context, continueRequest = false) {
   const url = new URL(request.url, "http://localhost");
+
+  if (request.method === "GET" && url.pathname === "/livez") {
+    response.setHeader("cache-control", "no-store");
+    if (!isPublicLiveness(request, url.pathname)) {
+      response.shouldKeepAlive = false;
+      response.setHeader("connection", "close");
+      sendJson(response, 400, { error: { message: "Unexpected request body.", code: "UNEXPECTED_BODY" } });
+      return;
+    }
+    sendJson(response, 200, { status: "ok" });
+    return;
+  }
+
+  response.setHeader("cache-control", "private, no-store");
+  response.setHeader("vary", "Cookie, Authorization");
+  await authorizeRequest(request, url, context);
+  if (continueRequest) response.writeContinue();
 
   if (request.method === "GET" && url.pathname === "/health") {
     sendJson(response, 200, {

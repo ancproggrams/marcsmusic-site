@@ -7,6 +7,8 @@ import { after, before, describe, it } from "node:test";
 import { createMusicApiServer } from "../src/interfaces/http/music-api-server.mjs";
 import { sendUploadedAsset } from "../src/interfaces/http/uploaded-asset-response.mjs";
 
+const ADMIN_HEADERS = Object.freeze({ origin: "https://release.test", "x-csrf-token": "test-csrf" });
+
 describe("music API server", () => {
   let server;
   let baseUrl;
@@ -31,6 +33,13 @@ describe("music API server", () => {
       env: {
         MUSIC_API_EXECUTION_TOKEN: "test-token"
       },
+      allowedOrigins: ["https://release.test"],
+      authenticateRequest: async () => ({
+        kind: "human",
+        subject: "test-admin",
+        roles: ["administrator"],
+        csrfToken: "test-csrf"
+      }),
       contacts: [
         {
           id: "radio-1",
@@ -60,6 +69,8 @@ describe("music API server", () => {
     const body = await response.json();
 
     assert.equal(response.status, 200);
+    assert.equal(response.headers.get("cache-control"), "private, no-store");
+    assert.match(response.headers.get("vary"), /Authorization/u);
     assert.ok(body.platforms.some((platform) => platform.id === "soundcloud"));
     assert.ok(body.platforms.every((platform) => platform.canAutoPost));
   });
@@ -81,7 +92,7 @@ describe("music API server", () => {
     assert.doesNotMatch(body, /id="recipientLanguages"/u);
   });
 
-  it("serves an opened asset with immutable response metadata", async () => {
+  it("serves an opened asset with private response metadata", async () => {
     const response = await fetch(`${baseUrl}/assets/audio/safe-track.mp3`);
     const body = await response.text();
 
@@ -89,7 +100,7 @@ describe("music API server", () => {
     assert.equal(body, "safe mp3 bytes");
     assert.equal(response.headers.get("content-type"), "audio/mpeg");
     assert.equal(response.headers.get("content-length"), String(Buffer.byteLength(body)));
-    assert.equal(response.headers.get("cache-control"), "public, max-age=31536000, immutable");
+    assert.equal(response.headers.get("cache-control"), "private, no-store");
     assert.equal(response.headers.get("x-content-type-options"), "nosniff");
     assert.equal(response.headers.get("content-disposition"), null);
   });
@@ -167,6 +178,7 @@ describe("music API server", () => {
 
     const createResponse = await fetch(`${baseUrl}/music/releases`, {
       method: "POST",
+      headers: ADMIN_HEADERS,
       body: form
     });
     const created = await createResponse.json();
@@ -177,7 +189,8 @@ describe("music API server", () => {
     assert.equal(created.assets.length, 2);
 
     const blockedResponse = await fetch(`${baseUrl}/music/releases/${created.release.id}/player-sync`, {
-      method: "POST"
+      method: "POST",
+      headers: ADMIN_HEADERS
     });
     const blocked = await blockedResponse.json();
     assert.equal(blockedResponse.status, 403);
@@ -186,6 +199,7 @@ describe("music API server", () => {
     const syncResponse = await fetch(`${baseUrl}/music/releases/${created.release.id}/player-sync`, {
       method: "POST",
       headers: {
+        ...ADMIN_HEADERS,
         "x-music-api-token": "test-token"
       }
     });
@@ -194,12 +208,17 @@ describe("music API server", () => {
     assert.equal(syncResponse.status, 200);
     assert.equal(synced.playerEntry.title, "REST Upload");
     assert.match(synced.playerEntry.mp3DownloadUrl, /^\/assets\/audio\//u);
+    const assetResponse = await fetch(`${baseUrl}${synced.playerEntry.mp3DownloadUrl}`);
+    assert.equal(assetResponse.status, 200);
+    assert.equal(assetResponse.headers.get("cache-control"), "private, no-store");
+    await assetResponse.arrayBuffer();
   });
 
   it("plans a release over REST", async () => {
     const response = await fetch(`${baseUrl}/music/releases/plan`, {
       method: "POST",
       headers: {
+        ...ADMIN_HEADERS,
         "content-type": "application/json"
       },
       body: JSON.stringify({
@@ -219,6 +238,7 @@ describe("music API server", () => {
     const response = await fetch(`${baseUrl}/music/releases/publish`, {
       method: "POST",
       headers: {
+        ...ADMIN_HEADERS,
         "content-type": "application/json"
       },
       body: JSON.stringify({
@@ -240,6 +260,7 @@ describe("music API server", () => {
     const response = await fetch(`${baseUrl}/music/releases/publish`, {
       method: "POST",
       headers: {
+        ...ADMIN_HEADERS,
         "content-type": "application/json"
       },
       body: JSON.stringify({
@@ -260,6 +281,7 @@ describe("music API server", () => {
     const response = await fetch(`${baseUrl}/graphql`, {
       method: "POST",
       headers: {
+        ...ADMIN_HEADERS,
         "content-type": "application/json"
       },
       body: JSON.stringify({
@@ -296,6 +318,7 @@ describe("music API server", () => {
     const response = await fetch(`${baseUrl}/graphql`, {
       method: "POST",
       headers: {
+        ...ADMIN_HEADERS,
         "content-type": "application/json"
       },
       body: JSON.stringify({
