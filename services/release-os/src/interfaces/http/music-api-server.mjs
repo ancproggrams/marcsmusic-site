@@ -1,8 +1,7 @@
 import http from "node:http";
 import { timingSafeEqual } from "node:crypto";
-import { createReadStream } from "node:fs";
 import { readFile } from "node:fs/promises";
-import { extname, join, resolve, sep } from "node:path";
+import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createReleasePlan } from "../../application/music/release-planner.mjs";
 import { publishRelease } from "../../application/music/publication-service.mjs";
@@ -20,19 +19,11 @@ import { PlayerManifestClient } from "../../infrastructure/marcsmusic-site/playe
 import { EspoCrmClient } from "../../infrastructure/espocrm/espocrm-client.mjs";
 import { MailgunClient } from "../../infrastructure/mailgun/mailgun-client.mjs";
 import { resolveMailgunConfig } from "../../config/env.mjs";
+import { sendUploadedAsset } from "./uploaded-asset-response.mjs";
 
 const MAX_JSON_BODY_BYTES = 1_000_000;
 const MODULE_DIR = fileURLToPath(new URL(".", import.meta.url));
 const PUBLIC_APP_PATH = resolve(MODULE_DIR, "public", "music-app.html");
-const STATIC_TYPES = Object.freeze({
-  ".html": "text/html; charset=utf-8",
-  ".mp3": "audio/mpeg",
-  ".wav": "audio/wav",
-  ".jpg": "image/jpeg",
-  ".jpeg": "image/jpeg",
-  ".png": "image/png",
-  ".webp": "image/webp"
-});
 
 export function createMusicApiServer(options = {}) {
   const env = options.env ?? process.env;
@@ -97,6 +88,11 @@ export function createMusicApiServer(options = {}) {
     try {
       await routeRequest(request, response, context);
     } catch (error) {
+      if (response.headersSent || response.destroyed) {
+        response.destroy(error);
+        return;
+      }
+
       sendJson(response, error.statusCode ?? 500, {
         error: {
           message: error.message,
@@ -423,23 +419,6 @@ function sendHtml(response, body) {
     "content-length": Buffer.byteLength(body)
   });
   response.end(body);
-}
-
-async function sendUploadedAsset(response, uploadRoot, kind, pathname) {
-  const prefix = kind === "audio" ? "/assets/audio/" : "/assets/artwork/";
-  const filename = decodeURIComponent(pathname.slice(prefix.length));
-  const filePath = resolve(uploadRoot, kind, filename);
-  const root = resolve(uploadRoot, kind);
-
-  if (!filePath.startsWith(root + sep)) {
-    throw httpError(400, "Invalid asset path", "INVALID_ASSET_PATH");
-  }
-
-  response.writeHead(200, {
-    "content-type": STATIC_TYPES[extname(filePath).toLowerCase()] ?? "application/octet-stream",
-    "cache-control": "public, max-age=31536000, immutable"
-  });
-  createReadStream(filePath).pipe(response);
 }
 
 function httpError(statusCode, message, code) {
