@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { mkdtemp } from "node:fs/promises";
+import { createConnection } from "node:net";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { after, before, describe, it } from "node:test";
@@ -65,6 +66,29 @@ describe("music API server", () => {
     assert.doesNotMatch(body, /id="recipientTypes"/u);
     assert.doesNotMatch(body, /id="recipientTags"/u);
     assert.doesNotMatch(body, /id="recipientLanguages"/u);
+  });
+
+  it("closes rejected upload connections before unread body bytes", async () => {
+    const { port } = server.address();
+    const cases = [
+      ["multipart/form-data; boundary=oversized", 200_000_000, 413, "PAYLOAD_TOO_LARGE"],
+      ["multipart/form-data", 100, 415, "INVALID_MULTIPART"]
+    ];
+
+    for (const [contentType, contentLength, status, code] of cases) {
+      const response = await sendHeadersAndWaitForClose(port, [
+        "POST /music/releases HTTP/1.1",
+        "Host: 127.0.0.1",
+        `Content-Type: ${contentType}`,
+        `Content-Length: ${contentLength}`,
+        "Connection: keep-alive",
+        "",
+        ""
+      ].join("\r\n"));
+      assert.match(response, new RegExp(`^HTTP/1\\.1 ${status} `, "u"));
+      assert.match(response, /\r\nconnection: close\r\n/iu);
+      assert.match(response, new RegExp(code, "u"));
+    }
   });
 
   it("creates a release over multipart REST and guards player sync", async () => {
@@ -237,3 +261,16 @@ describe("music API server", () => {
     assert.equal(body.data.publishRelease.summary.blocked, 1);
   });
 });
+
+function sendHeadersAndWaitForClose(port, requestHeaders) {
+  return new Promise((resolve, reject) => {
+    const socket = createConnection({ host: "127.0.0.1", port });
+    let response = "";
+    socket.setEncoding("utf8");
+    socket.setTimeout(2_000, () => socket.destroy(new Error("Server did not close the upload connection")));
+    socket.on("connect", () => socket.write(requestHeaders));
+    socket.on("data", (chunk) => (response += chunk));
+    socket.on("error", reject);
+    socket.on("close", () => resolve(response));
+  });
+}

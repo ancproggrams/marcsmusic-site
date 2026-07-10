@@ -1,9 +1,11 @@
 const DEFAULT_MAX_BODY_BYTES = 80 * 1024 * 1024;
 
 export async function readMultipartForm(request, options = {}) {
+  const maxBytes = options.maxBytes ?? DEFAULT_MAX_BODY_BYTES;
+  assertContentLength(request.headers["content-length"], maxBytes);
   const contentType = request.headers["content-type"] ?? "";
   const boundary = readBoundary(contentType);
-  const body = await readBodyBuffer(request, options.maxBytes ?? DEFAULT_MAX_BODY_BYTES);
+  const body = await readBodyBuffer(request, maxBytes);
   const parts = parseMultipartBuffer(body, boundary);
   const fields = {};
   const files = [];
@@ -29,7 +31,8 @@ function readBoundary(contentType) {
   if (!match) {
     throw Object.assign(new Error("Expected multipart/form-data boundary"), {
       statusCode: 415,
-      code: "INVALID_MULTIPART"
+      code: "INVALID_MULTIPART",
+      closeConnection: true
     });
   }
 
@@ -46,7 +49,8 @@ async function readBodyBuffer(request, maxBytes) {
     if (size > maxBytes) {
       throw Object.assign(new Error("Multipart body is too large"), {
         statusCode: 413,
-        code: "PAYLOAD_TOO_LARGE"
+        code: "PAYLOAD_TOO_LARGE",
+        closeConnection: true
       });
     }
 
@@ -124,3 +128,28 @@ function readDispositionValue(disposition, key) {
   return match?.[1];
 }
 
+function assertContentLength(value, maxBytes) {
+  if (!Number.isSafeInteger(maxBytes) || maxBytes < 1) {
+    throw new TypeError("maxBytes must be a positive safe integer");
+  }
+
+  if (value === undefined) {
+    return;
+  }
+
+  if (Array.isArray(value) || !/^\d+$/u.test(value) || !Number.isSafeInteger(Number(value))) {
+    throw Object.assign(new Error("Invalid Content-Length header"), {
+      statusCode: 400,
+      code: "INVALID_MULTIPART",
+      closeConnection: true
+    });
+  }
+
+  if (Number(value) > maxBytes) {
+    throw Object.assign(new Error("Multipart body is too large"), {
+      statusCode: 413,
+      code: "PAYLOAD_TOO_LARGE",
+      closeConnection: true
+    });
+  }
+}

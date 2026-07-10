@@ -97,6 +97,11 @@ export function createMusicApiServer(options = {}) {
     try {
       await routeRequest(request, response, context);
     } catch (error) {
+      if (error.closeConnection) {
+        response.shouldKeepAlive = false;
+        response.setHeader("connection", "close");
+      }
+
       sendJson(response, error.statusCode ?? 500, {
         error: {
           message: error.message,
