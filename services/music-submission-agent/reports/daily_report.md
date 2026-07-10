@@ -2,19 +2,19 @@
 
 Date: 2026-07-10
 
-Latest run: Run 267
+Latest run: Run 268
 
 New items added: 5
 
-Pipeline estimate: 1395
+Pipeline estimate: 1400
 
 Items:
 
-- 4ZZZ Brisbane Music Submission Form Route
-- PBS 106.7FM Melbourne Submit Music Form Route
-- fbi.radio Sydney Music Submissions Email Route
-- Three D Radio Adelaide Digital Music Submission Form Route
-- Triple R Melbourne Submit Music Email and Physical Route
+- CKUT 90.3 FM Montreal Music Submission Email and Physical Route
+- Radio K KUOM Minneapolis Digital and Physical Music Submission Route
+- WPRB Princeton Music Submission Email and Physical Route
+- WKNC 88.1 FM Digital Music Submission Google Form Route
+- KVSC 88.1 FM St. Cloud Music Submission Email and Physical Route
 
 All items are marked needs_manual_review.
 
