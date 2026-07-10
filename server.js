@@ -3,6 +3,13 @@ import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { createHash, randomUUID } from "node:crypto";
 import { basename, dirname, extname, join, normalize, resolve, sep } from "node:path";
+import { requireLiveCalendar } from "./src/application/queries/require-live-calendar.mjs";
+import { parseCalendarEvents } from "./src/infrastructure/caldav/parse-calendar-data.mjs";
+import {
+  MAX_CALDAV_XML_BYTES,
+  parseCalDavMultiStatusResponse
+} from "./src/infrastructure/caldav/parse-multistatus-response.mjs";
+import { readLimitedText } from "./src/infrastructure/http/read-limited-text.mjs";
 
 const root = resolve(".");
 const port = Number.parseInt(process.env.PORT || "3000", 10);
@@ -23,6 +30,7 @@ const crmBookingEntity = process.env.CRM_BOOKING_ENTITY || "DJBooking";
 const crmNewsletterList = process.env.CRM_NEWSLETTER_LIST || "MarcsMusic Newsletter";
 const newsletterFromEmail = process.env.NEWSLETTER_FROM_EMAIL || "noreply@marcsmusic.nl";
 const newsletterFromName = process.env.NEWSLETTER_FROM_NAME || "MarcsMusic";
+const caldavTimeoutMs = Math.max(1, numberFromEnv("CALDAV_TIMEOUT_MS", 5000));
 
 if (process.env.RAILWAY_ENVIRONMENT && !process.env.PRIVACY_HASH_SALT) {
   throw new Error("PRIVACY_HASH_SALT must be set for Railway deployments.");
@@ -561,19 +569,21 @@ async function getAvailability({ date, bookingType }) {
 
   const dayStart = localDateTimeToUtc(date, workdayStart, bookingTimeZone);
   const dayEnd = localDateTimeToUtc(date, workdayEnd, bookingTimeZone);
-  const calendarResult = await getCalDavBusyIntervals(dayStart, dayEnd);
+  const bufferMs = bookingBufferMinutes * 60 * 1000;
+  const calendarResult = await getCalDavBusyIntervals(
+    new Date(dayStart.getTime() - bufferMs),
+    new Date(dayEnd.getTime() + bufferMs)
+  );
+  const calendarBusy = requireLiveCalendar(calendarResult);
 
   const db = await readDb();
   expireOldPendingBookings(db);
 
   const localBusy = getReservedIntervals(db);
-  const calendarBusy = calendarResult.status === "error" ? [] : calendarResult.busy;
   const busy = [...localBusy, ...calendarBusy];
   const minStart = new Date(Date.now() + minLeadHours * 60 * 60 * 1000);
   const slots = [];
   const durationMs = type.durationMinutes * 60 * 1000;
-  const bufferMs = bookingBufferMinutes * 60 * 1000;
-
   for (
     let slotStartMs = dayStart.getTime();
     slotStartMs + durationMs <= dayEnd.getTime();
@@ -607,10 +617,7 @@ async function getAvailability({ date, bookingType }) {
     calendar: {
       configured: isCalendarConfigured(),
       status: calendarResult.status,
-      message:
-        calendarResult.status === "error"
-          ? "Agenda kon niet live worden gecontroleerd; beschikbare tijden worden getoond op basis van website-reserveringen."
-          : calendarResult.message
+      message: calendarResult.message
     }
   };
 }
@@ -1118,7 +1125,7 @@ function getCalendarUrl() {
   return new URL(path, `${base}/`).toString();
 }
 
-async function caldavRequest(method, url, { body = null, headers = {} } = {}) {
+async function caldavRequest(method, url, { body = null, headers = {}, signal = undefined } = {}) {
   const auth = Buffer.from(`${process.env.CALDAV_USERNAME}:${process.env.CALDAV_PASSWORD}`).toString("base64");
   return fetch(url, {
     method,
@@ -1126,7 +1133,8 @@ async function caldavRequest(method, url, { body = null, headers = {} } = {}) {
       authorization: `Basic ${auth}`,
       ...headers
     },
-    body
+    body,
+    signal
   });
 }
 
@@ -1153,44 +1161,17 @@ async function getCalDavBusyIntervals(startUtc, endUtc) {
     </c:comp-filter>
   </c:filter>
 </c:calendar-query>`;
-  const propfindBody = `<?xml version="1.0" encoding="utf-8" ?>
-<d:propfind xmlns:d="DAV:" xmlns:c="urn:ietf:params:xml:ns:caldav">
-  <d:prop>
-    <d:getetag />
-    <c:calendar-data />
-  </d:prop>
-</d:propfind>`;
-
   try {
     const response = await caldavRequest("REPORT", getCalendarUrl(), {
       body: reportBody,
       headers: {
         depth: "1",
         "content-type": "application/xml; charset=utf-8"
-      }
+      },
+      signal: AbortSignal.timeout(caldavTimeoutMs)
     });
-    const text = await response.text();
-
     if (![200, 207].includes(response.status)) {
-      if (response.status === 405) {
-        const fallback = await caldavRequest("PROPFIND", getCalendarUrl(), {
-          body: propfindBody,
-          headers: {
-            depth: "1",
-            "content-type": "application/xml; charset=utf-8"
-          }
-        });
-        const fallbackText = await fallback.text();
-
-        if ([200, 207].includes(fallback.status)) {
-          return {
-            status: "connected",
-            message: "Agenda beschikbaarheid is live gecontroleerd.",
-            busy: parseBusyIntervalsFromCalendarXml(fallbackText, startUtc, endUtc)
-          };
-        }
-      }
-
+      await response.body?.cancel();
       return {
         status: "error",
         message: `Agenda availability request mislukt met status ${response.status}.`,
@@ -1198,10 +1179,20 @@ async function getCalDavBusyIntervals(startUtc, endUtc) {
       };
     }
 
+    const text = await readLimitedText(response, MAX_CALDAV_XML_BYTES);
+    const parsedResponse = parseCalDavMultiStatusResponse(response, text);
+    if (!parsedResponse) {
+      return {
+        status: "error",
+        message: "Agenda gaf geen geldig CalDAV multistatus-antwoord.",
+        busy: []
+      };
+    }
+
     return {
       status: "connected",
       message: "Agenda beschikbaarheid is live gecontroleerd.",
-      busy: parseBusyIntervalsFromCalendarXml(text, startUtc, endUtc)
+      busy: parseBusyIntervalsFromCalendarData(parsedResponse.calendarData, startUtc, endUtc)
     };
   } catch (error) {
     return {
@@ -1212,12 +1203,10 @@ async function getCalDavBusyIntervals(startUtc, endUtc) {
   }
 }
 
-function parseBusyIntervalsFromCalendarXml(xml, rangeStart, rangeEnd) {
-  return parseCalendarDataFromMultiStatus(xml)
-    .flatMap(parseIcsEvents)
+function parseBusyIntervalsFromCalendarData(calendarData, rangeStart, rangeEnd) {
+  return parseCalendarEvents(calendarData)
     .filter((event) => event.status !== "CANCELLED" && event.transp !== "TRANSPARENT")
     .map((event) => ({ start: event.start, end: event.end }))
-    .filter((interval) => Number.isFinite(interval.start.getTime()) && Number.isFinite(interval.end.getTime()))
     .filter((interval) => intervalsOverlap(rangeStart, rangeEnd, interval.start, interval.end));
 }
 
@@ -1237,10 +1226,11 @@ async function createCalDavEvent(booking) {
   });
 
   if (![200, 201, 204].includes(response.status)) {
-    const text = await response.text().catch(() => "");
-    throw new Error(`Agenda-event kon niet worden aangemaakt (${response.status}). ${text}`.trim());
+    await response.body?.cancel().catch(() => {});
+    throw new Error(`Agenda-event kon niet worden aangemaakt (${response.status}).`);
   }
 
+  await response.body?.cancel().catch(() => {});
   return { uid, url };
 }
 
@@ -1252,8 +1242,10 @@ async function deleteCalDavEvent(eventUid) {
   const url = new URL(`${encodeURIComponent(eventUid)}.ics`, getCalendarUrl()).toString();
   const response = await caldavRequest("DELETE", url);
   if (![200, 202, 204, 404].includes(response.status)) {
+    await response.body?.cancel().catch(() => {});
     throw new Error(`Agenda-event kon niet worden verwijderd (${response.status}).`);
   }
+  await response.body?.cancel().catch(() => {});
 }
 
 async function findEventByBookingId(bookingId) {
@@ -1314,52 +1306,6 @@ function buildIcsEvent(booking, uid) {
   ].join("\r\n");
 }
 
-function parseCalendarDataFromMultiStatus(xml) {
-  const matches = [...xml.matchAll(/<[^>]*calendar-data[^>]*>([\s\S]*?)<\/[^>]*calendar-data>/gi)];
-  return matches.map((match) => decodeXml(match[1]).trim()).filter(Boolean);
-}
-
-function parseIcsEvents(ics) {
-  const unfolded = ics.replace(/\r?\n[ \t]/g, "");
-  const eventBlocks = [...unfolded.matchAll(/BEGIN:VEVENT([\s\S]*?)END:VEVENT/g)].map((match) => match[1]);
-  return eventBlocks.map((block) => {
-    const lines = block.split(/\r?\n/).filter(Boolean);
-    const get = (name) => {
-      const line = lines.find((entry) => entry.toUpperCase().startsWith(name));
-      return line ? line.slice(line.indexOf(":") + 1).trim() : "";
-    };
-
-    return {
-      uid: get("UID"),
-      start: parseIcsDate(get("DTSTART")),
-      end: parseIcsDate(get("DTEND")),
-      status: get("STATUS").toUpperCase(),
-      transp: get("TRANSP").toUpperCase(),
-      bookingId: get("X-MARCSMUSIC-BOOKING-ID")
-    };
-  });
-}
-
-function parseIcsDate(value) {
-  const clean = String(value || "").trim();
-  const dateTime = clean.match(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z?$/);
-  if (dateTime) {
-    return new Date(Date.UTC(
-      Number(dateTime[1]),
-      Number(dateTime[2]) - 1,
-      Number(dateTime[3]),
-      Number(dateTime[4]),
-      Number(dateTime[5]),
-      Number(dateTime[6])
-    ));
-  }
-  const dateOnly = clean.match(/^(\d{4})(\d{2})(\d{2})$/);
-  if (dateOnly) {
-    return new Date(Date.UTC(Number(dateOnly[1]), Number(dateOnly[2]) - 1, Number(dateOnly[3])));
-  }
-  return new Date(Number.NaN);
-}
-
 function formatIcsDate(date) {
   return date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
 }
@@ -1370,16 +1316,6 @@ function escapeIcs(value) {
     .replace(/\r?\n/g, "\\n")
     .replace(/,/g, "\\,")
     .replace(/;/g, "\\;");
-}
-
-function decodeXml(value) {
-  return String(value || "")
-    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&apos;/g, "'")
-    .replace(/&amp;/g, "&");
 }
 
 async function crmRequest(method, path, body = null) {
@@ -1753,5 +1689,5 @@ const server = createServer(async (request, response) => {
 });
 
 server.listen(port, "0.0.0.0", () => {
-  console.log(`MarcsMusic site listening on port ${port}`);
+  console.log(`MarcsMusic site listening on port ${server.address().port}`);
 });
