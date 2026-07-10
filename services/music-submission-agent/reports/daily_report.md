@@ -2,19 +2,19 @@
 
 Date: 2026-07-10
 
-Latest run: Run 266
+Latest run: Run 267
 
 New items added: 5
 
-Pipeline estimate: 1390
+Pipeline estimate: 1395
 
 Items:
 
-- WMSE College Radio Music Submission Contact Route
-- KUCI Music Submissions College Radio Route
-- WMBR College Radio Music Submission Contact Route
-- KZSU Stanford Radio Music Submission Contact Route
-- KVRX Student Radio Music Submission Contact Route
+- 4ZZZ Brisbane Music Submission Form Route
+- PBS 106.7FM Melbourne Submit Music Form Route
+- fbi.radio Sydney Music Submissions Email Route
+- Three D Radio Adelaide Digital Music Submission Form Route
+- Triple R Melbourne Submit Music Email and Physical Route
 
 All items are marked needs_manual_review.
 
