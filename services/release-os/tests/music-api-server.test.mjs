@@ -1,19 +1,32 @@
 import assert from "node:assert/strict";
-import { mkdtemp } from "node:fs/promises";
+import { mkdir, mkdtemp, rm, symlink, truncate, writeFile } from "node:fs/promises";
+import { get } from "node:http";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { after, before, describe, it } from "node:test";
 import { createMusicApiServer } from "../src/interfaces/http/music-api-server.mjs";
+import { sendUploadedAsset } from "../src/interfaces/http/uploaded-asset-response.mjs";
 
 describe("music API server", () => {
   let server;
   let baseUrl;
+  let dir;
+  let uploadDir;
 
   before(async () => {
-    const dir = await mkdtemp(join(tmpdir(), "marcsmusic-api-"));
+    dir = await mkdtemp(join(tmpdir(), "marcsmusic-api-"));
+    uploadDir = join(dir, "uploads");
+    await mkdir(join(uploadDir, "audio"), { recursive: true });
+    await mkdir(join(uploadDir, "artwork"), { recursive: true });
+    await mkdir(join(uploadDir, "audio", "directory.mp3"));
+    await writeFile(join(uploadDir, "audio", "safe-track.mp3"), "safe mp3 bytes");
+    await writeFile(join(uploadDir, "audio", "large-track.mp3"), "");
+    await truncate(join(uploadDir, "audio", "large-track.mp3"), 128 * 1024 * 1024);
+    await writeFile(join(uploadDir, "audio", "unsafe.html"), "<script>unsafe()</script>");
+    await writeFile(join(uploadDir, "artwork", "safe-cover.webp"), "safe webp bytes");
     server = createMusicApiServer({
       storeFilePath: join(dir, "store.json"),
-      uploadDir: join(dir, "uploads"),
+      uploadDir,
       playerManifestPath: join(dir, "player-manifest.json"),
       env: {
         MUSIC_API_EXECUTION_TOKEN: "test-token"
@@ -39,6 +52,7 @@ describe("music API server", () => {
     await new Promise((resolve, reject) => {
       server.close((error) => (error ? reject(error) : resolve()));
     });
+    await rm(dir, { recursive: true, force: true });
   });
 
   it("lists platforms over REST", async () => {
@@ -65,6 +79,83 @@ describe("music API server", () => {
     assert.doesNotMatch(body, /id="recipientTypes"/u);
     assert.doesNotMatch(body, /id="recipientTags"/u);
     assert.doesNotMatch(body, /id="recipientLanguages"/u);
+  });
+
+  it("serves an opened asset with immutable response metadata", async () => {
+    const response = await fetch(`${baseUrl}/assets/audio/safe-track.mp3`);
+    const body = await response.text();
+
+    assert.equal(response.status, 200);
+    assert.equal(body, "safe mp3 bytes");
+    assert.equal(response.headers.get("content-type"), "audio/mpeg");
+    assert.equal(response.headers.get("content-length"), String(Buffer.byteLength(body)));
+    assert.equal(response.headers.get("cache-control"), "public, max-age=31536000, immutable");
+    assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+    assert.equal(response.headers.get("content-disposition"), null);
+  });
+
+  it("preserves the public artwork URL and inline MIME contract", async () => {
+    const response = await fetch(`${baseUrl}/assets/artwork/safe-cover.webp`);
+
+    assert.equal(response.status, 200);
+    assert.equal(await response.text(), "safe webp bytes");
+    assert.equal(response.headers.get("content-type"), "image/webp");
+    assert.equal(response.headers.get("content-disposition"), null);
+  });
+
+  it("returns 404 for missing and invalid asset paths without poisoning the server", async () => {
+    for (const pathname of [
+      "/assets/audio/missing.mp3",
+      "/assets/audio/%2e%2e%2foutside.mp3",
+      "/assets/audio/%E0%A4%A.mp3",
+      "/assets/audio/track%00.mp3",
+      "/assets/audio/unsafe.html",
+      "/assets/audio/directory.mp3"
+    ]) {
+      const response = await fetch(`${baseUrl}${pathname}`);
+      const body = await response.json();
+      assert.equal(response.status, 404);
+      assert.equal(body.error.code, "ASSET_NOT_FOUND");
+      assert.equal(body.error.message, "Asset not found");
+    }
+
+    assert.equal((await fetch(`${baseUrl}/health`)).status, 200);
+  });
+
+  it("does not serve asset symlinks outside the upload root", async () => {
+    const outsidePath = join(dir, "outside.mp3");
+    await writeFile(outsidePath, "private outside bytes");
+    await symlink(outsidePath, join(uploadDir, "audio", "escape.mp3"));
+
+    const response = await fetch(`${baseUrl}/assets/audio/escape.mp3`);
+    const body = await response.text();
+
+    assert.equal(response.status, 404);
+    assert.doesNotMatch(body, /private outside bytes/u);
+  });
+
+  it("rejects an asset directory symlink outside the upload root", async () => {
+    const isolatedRoot = join(dir, "isolated-uploads");
+    const outsideAudio = join(dir, "outside-audio");
+    await mkdir(isolatedRoot);
+    await mkdir(outsideAudio);
+    await writeFile(join(outsideAudio, "outside.mp3"), "private outside bytes");
+    await symlink(outsideAudio, join(isolatedRoot, "audio"), "dir");
+
+    await assert.rejects(
+      () => sendUploadedAsset({ destroyed: false }, isolatedRoot, "audio", "/assets/audio/outside.mp3"),
+      (error) => error.code === "ASSET_NOT_FOUND" && error.statusCode === 404
+    );
+  });
+
+  it("survives an interrupted asset download", async () => {
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      await abortDownload(`${baseUrl}/assets/audio/large-track.mp3`);
+    }
+
+    await new Promise((resolve) => setTimeout(resolve, 25));
+
+    assert.equal((await fetch(`${baseUrl}/health`)).status, 200);
   });
 
   it("creates a release over multipart REST and guards player sync", async () => {
@@ -237,3 +328,14 @@ describe("music API server", () => {
     assert.equal(body.data.publishRelease.summary.blocked, 1);
   });
 });
+
+function abortDownload(url) {
+  return new Promise((resolve, reject) => {
+    const request = get(url, (response) => {
+      response.once("close", resolve);
+      response.once("error", reject);
+      response.destroy();
+    });
+    request.once("error", reject);
+  });
+}
