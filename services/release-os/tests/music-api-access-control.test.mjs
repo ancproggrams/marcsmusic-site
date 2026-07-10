@@ -90,8 +90,9 @@ describe("Release OS access boundary", () => {
         baseUrl,
         "GET /music/platforms HTTP/1.1\r\nHost: localhost\r\nTransfer-Encoding: chunked\r\n\r\n1\r\nx\r\n"
       );
-      assert.match(chunkedProtected, /^HTTP\/1\.1 503 /u);
+      assert.match(chunkedProtected, /^HTTP\/1\.1 400 /u);
       assert.match(chunkedProtected, /\r\nconnection: close\r\n/iu);
+      assert.match(chunkedProtected, /UNEXPECTED_BODY/u);
 
       const expected = await rawRequest(
         baseUrl,
@@ -101,6 +102,44 @@ describe("Release OS access boundary", () => {
       assert.match(expected, /^HTTP\/1\.1 503 /u);
       assert.match(expected, /\r\nconnection: close\r\n/iu);
     });
+  });
+
+  it("closes authenticated body-bearing reads before their handlers", async () => {
+    let authenticatorCalls = 0;
+    await withServer(
+      {
+        authenticateRequest: async () => {
+          authenticatorCalls += 1;
+          return { kind: "human", subject: "viewer", roles: ["viewer"], csrfToken: "csrf" };
+        }
+      },
+      async (baseUrl) => {
+        const response = await rawRequest(
+          baseUrl,
+          "GET /music/platforms HTTP/1.1\r\nHost: localhost\r\nTransfer-Encoding: chunked\r\n\r\n1\r\nx\r\n"
+        );
+        assert.match(response, /^HTTP\/1\.1 400 /u);
+        assert.match(response, /\r\nconnection: close\r\n/iu);
+        assert.match(response, /UNEXPECTED_BODY/u);
+
+        const head = await rawRequest(
+          baseUrl,
+          "HEAD /music/platforms HTTP/1.1\r\nHost: localhost\r\nTransfer-Encoding: chunked\r\n\r\n1\r\nx\r\n"
+        );
+        assert.match(head, /^HTTP\/1\.1 400 /u);
+        assert.match(head, /\r\nconnection: close\r\n/iu);
+        assert.equal(head.split("\r\n\r\n")[1], "");
+
+        const expected = await rawRequest(
+          baseUrl,
+          "GET /music/platforms HTTP/1.1\r\nHost: localhost\r\nContent-Length: 100\r\nExpect: 100-continue\r\n\r\n"
+        );
+        assert.doesNotMatch(expected, /HTTP\/1\.1 100 Continue/iu);
+        assert.match(expected, /^HTTP\/1\.1 400 /u);
+        assert.match(expected, /\r\nconnection: close\r\n/iu);
+        assert.equal(authenticatorCalls, 0);
+      }
+    );
   });
 
 });

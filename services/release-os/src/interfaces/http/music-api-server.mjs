@@ -19,7 +19,12 @@ import { PlayerManifestClient } from "../../infrastructure/marcsmusic-site/playe
 import { EspoCrmClient } from "../../infrastructure/espocrm/espocrm-client.mjs";
 import { MailgunClient } from "../../infrastructure/mailgun/mailgun-client.mjs";
 import { resolveMailgunConfig } from "../../config/env.mjs";
-import { authorizeRequest, isPublicLiveness, normalizeAllowedOrigins } from "./access-control.mjs";
+import {
+  authorizeRequest,
+  isPublicLiveness,
+  normalizeAllowedOrigins,
+  requestHasBody
+} from "./access-control.mjs";
 import { sendUploadedAsset } from "./uploaded-asset-response.mjs";
 
 const MAX_JSON_BODY_BYTES = 1_000_000;
@@ -115,6 +120,14 @@ export function createMusicApiServer(options = {}) {
 
 async function routeRequest(request, response, context, continueRequest = false) {
   const url = new URL(request.url, "http://localhost");
+
+  if (["GET", "HEAD"].includes(request.method) && requestHasBody(request)) {
+    response.shouldKeepAlive = false;
+    response.setHeader("cache-control", "no-store");
+    response.setHeader("connection", "close");
+    sendJson(response, 400, { error: { message: "Unexpected request body.", code: "UNEXPECTED_BODY" } });
+    return;
+  }
 
   if (request.method === "GET" && url.pathname === "/livez") {
     response.setHeader("cache-control", "no-store");
