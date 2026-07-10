@@ -745,6 +745,56 @@
     </div>
   </footer>
 
+  <script data-booking-readiness-state>
+    globalThis.createBookingReadinessState = function createBookingReadinessState() {
+      let configured = false;
+      let availabilityReady = false;
+      let submissionInFlight = false;
+      let availabilityGeneration = 0;
+
+      function canSubmit(hasSelectedSlot) {
+        return configured && availabilityReady && !submissionInFlight && hasSelectedSlot;
+      }
+
+      return Object.freeze({
+        configure(value) {
+          configured = Boolean(value);
+          availabilityReady = false;
+          availabilityGeneration += 1;
+        },
+        beginAvailability() {
+          availabilityReady = false;
+          availabilityGeneration += 1;
+          return availabilityGeneration;
+        },
+        resolveAvailability(generation, succeeded) {
+          if (generation !== availabilityGeneration || submissionInFlight) return false;
+          availabilityReady = configured && Boolean(succeeded);
+          return true;
+        },
+        canSubmit,
+        beginSubmission(hasSelectedSlot) {
+          if (!canSubmit(hasSelectedSlot)) return false;
+          submissionInFlight = true;
+          availabilityReady = false;
+          availabilityGeneration += 1;
+          return true;
+        },
+        finishSubmission() {
+          submissionInFlight = false;
+          availabilityReady = false;
+          availabilityGeneration += 1;
+        },
+        isConfigured() {
+          return configured;
+        },
+        isSubmitting() {
+          return submissionInFlight;
+        }
+      });
+    };
+  </script>
+
   <script>
     const bookingForm = document.querySelector("[data-booking-form]");
     const bookingType = document.querySelector("[data-booking-type]");
@@ -771,6 +821,8 @@
     const invoiceTotal = document.querySelector("[data-invoice-total]");
 
     let bookingConfig = null;
+    const bookingState = createBookingReadinessState();
+    let availabilityRequest = null;
     let selectedSlot = null;
     let selectedDate = null;
     let availableSlots = [];
@@ -972,7 +1024,7 @@
       availableSlots = slots;
       slotGrid.innerHTML = "";
       renderSlotCountOptions();
-      bookingSubmit.disabled = true;
+      syncSubmitState();
       updatePrice();
 
       if (!slots.length) {
@@ -994,13 +1046,25 @@
           button.setAttribute("aria-pressed", "true");
           renderSlotCountOptions();
           updatePrice();
-          bookingSubmit.disabled = false;
+          syncSubmitState();
         });
         slotGrid.append(button);
       }
     }
 
+    function syncSubmitState() {
+      bookingSubmit.disabled = !bookingState.canSubmit(Boolean(selectedSlot));
+    }
+
     async function loadAvailability() {
+      if (bookingState.isSubmitting()) {
+        renderSlots([]);
+        return;
+      }
+      availabilityRequest?.abort();
+      availabilityRequest = null;
+      const generation = bookingState.beginAvailability();
+
       if (isFilePreview) {
         renderSlots([]);
         setBookingStatus(filePreviewMessage, true);
@@ -1012,23 +1076,34 @@
         return;
       }
 
+      availabilityRequest = new AbortController();
+      const request = availabilityRequest;
+
       setBookingStatus("Beschikbaarheid controleren...");
       renderSlots([]);
 
       try {
+        if (!bookingState.isConfigured()) {
+          throw new Error("Agenda, EspoCRM en Mollie zijn nog niet gereed voor live boekingen.");
+        }
         const params = new URLSearchParams({
           date: bookingDate.value,
           bookingType: bookingType.value
         });
-        const response = await fetch(`/api/booking/availability?${params.toString()}`);
+        const response = await fetch(`/api/booking/availability?${params.toString()}`, { signal: request.signal });
         const payload = await response.json();
         if (!response.ok) {
           throw new Error(payload.error || "Beschikbaarheid kon niet worden opgehaald.");
         }
+        if (!bookingState.resolveAvailability(generation, true)) return;
         renderSlots(payload.slots || []);
         setBookingStatus(payload.calendar?.message || "");
       } catch (error) {
+        if (error.name === "AbortError" || !bookingState.resolveAvailability(generation, false)) return;
+        renderSlots([]);
         setBookingStatus(error.message, true);
+      } finally {
+        if (availabilityRequest === request) availabilityRequest = null;
       }
     }
 
@@ -1051,10 +1126,19 @@
           bookingType.append(option);
         }
         updatePrice();
-        if (!bookingConfig.integrations.mollieConfigured || !bookingConfig.integrations.calendarConfigured || !bookingConfig.integrations.crmConfigured) {
+        bookingState.configure(
+          bookingConfig.integrations.mollieConfigured &&
+            bookingConfig.integrations.calendarConfigured &&
+            bookingConfig.integrations.crmConfigured
+        );
+        if (!bookingState.isConfigured()) {
+          renderSlots([]);
           setBookingStatus("Agenda, EspoCRM en Mollie moeten server-side ingesteld zijn voordat live boekingen volledig werken.");
         }
       } catch {
+        bookingState.configure(false);
+        availabilityRequest?.abort();
+        renderSlots([]);
         setBookingStatus("Bookingconfiguratie kon niet worden geladen. Controleer de Railway deployment.", true);
       }
     }
@@ -1082,17 +1166,19 @@
 
     bookingForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      if (!selectedSlot) {
-        setBookingStatus("Kies eerst een beschikbare tijd.", true);
+      if (!bookingState.beginSubmission(Boolean(selectedSlot))) {
+        setBookingStatus("De live beschikbaarheid moet opnieuw worden gecontroleerd.", true);
         return;
       }
+      availabilityRequest?.abort();
+      availabilityRequest = null;
 
       const formData = new FormData(bookingForm);
       const payload = Object.fromEntries(formData.entries());
       payload.startUtc = selectedSlot.startUtc;
       payload.slotCount = getSelectedSlotCount();
       payload.travelHours = getTravelHours();
-      bookingSubmit.disabled = true;
+      syncSubmitState();
       bookingSubmit.textContent = "Redirecting...";
       setBookingStatus("Betaling voorbereiden...");
 
@@ -1108,7 +1194,8 @@
         }
         window.location.href = result.checkoutUrl;
       } catch (error) {
-        bookingSubmit.disabled = false;
+        bookingState.finishSubmission();
+        renderSlots([]);
         bookingSubmit.textContent = "Book & Pay";
         setBookingStatus(error.message, true);
       }
