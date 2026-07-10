@@ -1,9 +1,14 @@
 import assert from "node:assert/strict";
 import { mkdtemp } from "node:fs/promises";
+import { request as httpRequest } from "node:http";
+import { createConnection } from "node:net";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { after, before, describe, it } from "node:test";
 import { createMusicApiServer } from "../src/interfaces/http/music-api-server.mjs";
+import { ReleaseAssetStorage } from "../src/infrastructure/storage/release-asset-storage.mjs";
+
+const MAX_TEST_MULTIPART_BYTES = 2_000_200;
 
 describe("music API server", () => {
   let server;
@@ -11,9 +16,14 @@ describe("music API server", () => {
 
   before(async () => {
     const dir = await mkdtemp(join(tmpdir(), "marcsmusic-api-"));
+    const uploadDir = join(dir, "uploads");
     server = createMusicApiServer({
       storeFilePath: join(dir, "store.json"),
-      uploadDir: join(dir, "uploads"),
+      assetStorage: new ReleaseAssetStorage({
+        rootDir: uploadDir,
+        maxAudioBytes: 100,
+        maxArtworkBytes: 100
+      }),
       playerManifestPath: join(dir, "player-manifest.json"),
       env: {
         MUSIC_API_EXECUTION_TOKEN: "test-token"
@@ -65,6 +75,40 @@ describe("music API server", () => {
     assert.doesNotMatch(body, /id="recipientTypes"/u);
     assert.doesNotMatch(body, /id="recipientTags"/u);
     assert.doesNotMatch(body, /id="recipientLanguages"/u);
+  });
+
+  it("closes rejected upload connections before unread body bytes", async () => {
+    const { port } = server.address();
+    const cases = [
+      ["multipart/form-data; boundary=oversized", 200_000_000, 413, "PAYLOAD_TOO_LARGE"],
+      ["multipart/form-data", 100, 415, "INVALID_MULTIPART"]
+    ];
+
+    for (const [contentType, contentLength, status, code] of cases) {
+      const response = await sendHeadersAndWaitForClose(port, [
+        "POST /music/releases HTTP/1.1",
+        "Host: 127.0.0.1",
+        `Content-Type: ${contentType}`,
+        `Content-Length: ${contentLength}`,
+        "Connection: keep-alive",
+        "",
+        ""
+      ].join("\r\n"));
+      assert.match(response, new RegExp(`^HTTP/1\\.1 ${status} `, "u"));
+      assert.match(response, /\r\nconnection: close\r\n/iu);
+      assert.match(response, new RegExp(code, "u"));
+    }
+  });
+
+  it("returns 413 for an oversized chunked upload without resetting the client", async () => {
+    const response = await sendChunkedUpload(
+      `${baseUrl}/music/releases`,
+      Buffer.alloc(MAX_TEST_MULTIPART_BYTES + 1)
+    );
+
+    assert.equal(response.statusCode, 413);
+    assert.equal(response.headers.connection, "close");
+    assert.equal(JSON.parse(response.body).error.code, "PAYLOAD_TOO_LARGE");
   });
 
   it("creates a release over multipart REST and guards player sync", async () => {
@@ -237,3 +281,44 @@ describe("music API server", () => {
     assert.equal(body.data.publishRelease.summary.blocked, 1);
   });
 });
+
+function sendHeadersAndWaitForClose(port, requestHeaders) {
+  return new Promise((resolve, reject) => {
+    const socket = createConnection({ host: "127.0.0.1", port });
+    let response = "";
+    socket.setEncoding("utf8");
+    socket.setTimeout(2_000, () => socket.destroy(new Error("Server did not close the upload connection")));
+    socket.on("connect", () => socket.write(requestHeaders));
+    socket.on("data", (chunk) => (response += chunk));
+    socket.on("error", reject);
+    socket.on("close", () => resolve(response));
+  });
+}
+
+function sendChunkedUpload(url, body) {
+  return new Promise((resolve, reject) => {
+    const request = httpRequest(url, {
+      method: "POST",
+      headers: {
+        "content-type": "multipart/form-data; boundary=chunked",
+        "transfer-encoding": "chunked"
+      }
+    });
+
+    request.on("response", (response) => {
+      const chunks = [];
+      response.on("error", reject);
+      response.on("data", (chunk) => chunks.push(chunk));
+      response.on("end", () =>
+        resolve({
+          statusCode: response.statusCode,
+          headers: response.headers,
+          body: Buffer.concat(chunks).toString("utf8")
+        })
+      );
+    });
+    request.setTimeout(2_000, () => request.destroy(new Error("Server did not reject the chunked upload")));
+    request.on("error", reject);
+    request.end(body);
+  });
+}

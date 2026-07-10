@@ -1,9 +1,11 @@
 const DEFAULT_MAX_BODY_BYTES = 80 * 1024 * 1024;
 
 export async function readMultipartForm(request, options = {}) {
+  const maxBytes = options.maxBytes ?? DEFAULT_MAX_BODY_BYTES;
+  assertContentLength(request.headers["content-length"], maxBytes);
   const contentType = request.headers["content-type"] ?? "";
   const boundary = readBoundary(contentType);
-  const body = await readBodyBuffer(request, options.maxBytes ?? DEFAULT_MAX_BODY_BYTES);
+  const body = await readBodyBuffer(request, maxBytes);
   const parts = parseMultipartBuffer(body, boundary);
   const fields = {};
   const files = [];
@@ -27,33 +29,69 @@ function readBoundary(contentType) {
   const match = contentType.match(/boundary=(?:"([^"]+)"|([^;]+))/iu);
 
   if (!match) {
-    throw Object.assign(new Error("Expected multipart/form-data boundary"), {
-      statusCode: 415,
-      code: "INVALID_MULTIPART"
-    });
+    throw multipartError(415, "Expected multipart/form-data boundary", "INVALID_MULTIPART");
   }
 
   return match[1] ?? match[2];
 }
 
-async function readBodyBuffer(request, maxBytes) {
-  let size = 0;
-  const chunks = [];
+function readBodyBuffer(request, maxBytes) {
+  return new Promise((resolve, reject) => {
+    let size = 0;
+    const chunks = [];
+    let settled = false;
 
-  for await (const chunk of request) {
-    size += chunk.byteLength;
+    const cleanup = () => {
+      request.removeListener("data", onData);
+      request.removeListener("end", onEnd);
+      request.removeListener("error", onError);
+      request.removeListener("aborted", onAborted);
+      request.removeListener("close", onClose);
+    };
+    const fail = (error) => {
+      if (settled) {
+        return;
+      }
 
-    if (size > maxBytes) {
-      throw Object.assign(new Error("Multipart body is too large"), {
-        statusCode: 413,
-        code: "PAYLOAD_TOO_LARGE"
-      });
-    }
+      settled = true;
+      request.pause();
+      cleanup();
+      reject(error);
+    };
+    const onData = (chunk) => {
+      const buffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+      size += buffer.length;
 
-    chunks.push(chunk);
-  }
+      if (size > maxBytes) {
+        fail(multipartError(413, "Multipart body is too large", "PAYLOAD_TOO_LARGE"));
+        return;
+      }
 
-  return Buffer.concat(chunks);
+      chunks.push(buffer);
+    };
+    const onEnd = () => {
+      if (settled) {
+        return;
+      }
+
+      settled = true;
+      cleanup();
+      resolve(Buffer.concat(chunks, size));
+    };
+    const onError = (error) => fail(error);
+    const onAborted = () => fail(multipartError(400, "Upload request was aborted", "UPLOAD_ABORTED"));
+    const onClose = () => {
+      if (!request.complete) {
+        onAborted();
+      }
+    };
+
+    request.on("data", onData);
+    request.once("end", onEnd);
+    request.once("error", onError);
+    request.once("aborted", onAborted);
+    request.once("close", onClose);
+  });
 }
 
 function parseMultipartBuffer(body, boundary) {
@@ -124,3 +162,28 @@ function readDispositionValue(disposition, key) {
   return match?.[1];
 }
 
+function assertContentLength(value, maxBytes) {
+  if (!Number.isSafeInteger(maxBytes) || maxBytes < 1) {
+    throw new TypeError("maxBytes must be a positive safe integer");
+  }
+
+  if (value === undefined) {
+    return;
+  }
+
+  if (Array.isArray(value) || !/^\d+$/u.test(value) || !Number.isSafeInteger(Number(value))) {
+    throw multipartError(400, "Invalid Content-Length header", "INVALID_MULTIPART");
+  }
+
+  if (Number(value) > maxBytes) {
+    throw multipartError(413, "Multipart body is too large", "PAYLOAD_TOO_LARGE");
+  }
+}
+
+function multipartError(statusCode, message, code) {
+  return Object.assign(new Error(message), {
+    statusCode,
+    code,
+    closeConnection: true
+  });
+}
