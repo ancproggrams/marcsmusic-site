@@ -58,7 +58,7 @@ export async function sendUploadedAsset(response, uploadRoot, kind, pathname) {
     response.writeHead(200, {
       "content-type": mimeType,
       "content-length": stats.size,
-      "cache-control": "public, max-age=31536000, immutable",
+      "cache-control": "private, no-store",
       "x-content-type-options": "nosniff"
     });
     await pipeline(fileHandle.createReadStream({ autoClose: false }), response);
