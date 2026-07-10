@@ -1,10 +1,14 @@
 import assert from "node:assert/strict";
 import { mkdtemp } from "node:fs/promises";
+import { request as httpRequest } from "node:http";
 import { createConnection } from "node:net";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { after, before, describe, it } from "node:test";
 import { createMusicApiServer } from "../src/interfaces/http/music-api-server.mjs";
+import { ReleaseAssetStorage } from "../src/infrastructure/storage/release-asset-storage.mjs";
+
+const MAX_TEST_MULTIPART_BYTES = 2_000_200;
 
 describe("music API server", () => {
   let server;
@@ -12,9 +16,14 @@ describe("music API server", () => {
 
   before(async () => {
     const dir = await mkdtemp(join(tmpdir(), "marcsmusic-api-"));
+    const uploadDir = join(dir, "uploads");
     server = createMusicApiServer({
       storeFilePath: join(dir, "store.json"),
-      uploadDir: join(dir, "uploads"),
+      assetStorage: new ReleaseAssetStorage({
+        rootDir: uploadDir,
+        maxAudioBytes: 100,
+        maxArtworkBytes: 100
+      }),
       playerManifestPath: join(dir, "player-manifest.json"),
       env: {
         MUSIC_API_EXECUTION_TOKEN: "test-token"
@@ -89,6 +98,17 @@ describe("music API server", () => {
       assert.match(response, /\r\nconnection: close\r\n/iu);
       assert.match(response, new RegExp(code, "u"));
     }
+  });
+
+  it("returns 413 for an oversized chunked upload without resetting the client", async () => {
+    const response = await sendChunkedUpload(
+      `${baseUrl}/music/releases`,
+      Buffer.alloc(MAX_TEST_MULTIPART_BYTES + 1)
+    );
+
+    assert.equal(response.statusCode, 413);
+    assert.equal(response.headers.connection, "close");
+    assert.equal(JSON.parse(response.body).error.code, "PAYLOAD_TOO_LARGE");
   });
 
   it("creates a release over multipart REST and guards player sync", async () => {
@@ -272,5 +292,33 @@ function sendHeadersAndWaitForClose(port, requestHeaders) {
     socket.on("data", (chunk) => (response += chunk));
     socket.on("error", reject);
     socket.on("close", () => resolve(response));
+  });
+}
+
+function sendChunkedUpload(url, body) {
+  return new Promise((resolve, reject) => {
+    const request = httpRequest(url, {
+      method: "POST",
+      headers: {
+        "content-type": "multipart/form-data; boundary=chunked",
+        "transfer-encoding": "chunked"
+      }
+    });
+
+    request.on("response", (response) => {
+      const chunks = [];
+      response.on("error", reject);
+      response.on("data", (chunk) => chunks.push(chunk));
+      response.on("end", () =>
+        resolve({
+          statusCode: response.statusCode,
+          headers: response.headers,
+          body: Buffer.concat(chunks).toString("utf8")
+        })
+      );
+    });
+    request.setTimeout(2_000, () => request.destroy(new Error("Server did not reject the chunked upload")));
+    request.on("error", reject);
+    request.end(body);
   });
 }
