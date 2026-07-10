@@ -2,19 +2,19 @@
 
 Date: 2026-07-10
 
-Latest run: Run 265
+Latest run: Run 266
 
 New items added: 5
 
-Pipeline estimate: 1385
+Pipeline estimate: 1390
 
 Items:
 
-- WFUV Public Radio Music Submission Contact Route
-- WXPN Public Radio Submit Music Contact Route
-- KDHX Community Radio Music Submission Contact Route
-- KBOO Community Radio Music Submission Contact Route
-- WERS 88.9 Public Radio Music Submission Contact Route
+- WMSE College Radio Music Submission Contact Route
+- KUCI Music Submissions College Radio Route
+- WMBR College Radio Music Submission Contact Route
+- KZSU Stanford Radio Music Submission Contact Route
+- KVRX Student Radio Music Submission Contact Route
 
 All items are marked needs_manual_review.
 
