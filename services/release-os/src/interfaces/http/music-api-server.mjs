@@ -14,6 +14,8 @@ import { createNewMusicCampaignService } from "../../application/email/new-music
 import { listPlatformCapabilities } from "../../domain/music/platform-capabilities.mjs";
 import { executeMusicGraphQuery } from "../graphql/music-schema.mjs";
 import { readMultipartForm } from "../../infrastructure/http/multipart.mjs";
+import { UploadAdmissionController } from "../../infrastructure/http/upload-admission-controller.mjs";
+import { resolveUploadRequestDeadlines } from "../../infrastructure/http/upload-request-deadline.mjs";
 import { JsonStore, createDefaultState } from "../../infrastructure/storage/json-store.mjs";
 import { ReleaseAssetStorage } from "../../infrastructure/storage/release-asset-storage.mjs";
 import { PlayerManifestClient } from "../../infrastructure/marcsmusic-site/player-client.mjs";
@@ -79,6 +81,15 @@ export function createMusicApiServer(options = {}) {
       contactSegmentService,
       mailProvider
     });
+  const uploadAdmission =
+    options.uploadAdmission ??
+    new UploadAdmissionController({
+      maxConcurrent: options.maxConcurrentUploads ?? env.MUSIC_MAX_CONCURRENT_UPLOADS
+    });
+  const uploadDeadlines = resolveUploadRequestDeadlines({
+    bodyTimeoutMs: options.uploadBodyTimeoutMs ?? env.MUSIC_UPLOAD_BODY_TIMEOUT_MS,
+    idleTimeoutMs: options.uploadIdleTimeoutMs ?? env.MUSIC_UPLOAD_IDLE_TIMEOUT_MS
+  });
   const context = {
     env,
     fetch,
@@ -90,16 +101,27 @@ export function createMusicApiServer(options = {}) {
     playerSyncService,
     espocrmClient,
     contactSegmentService,
-    campaignService
+    campaignService,
+    uploadAdmission,
+    uploadDeadlines
   };
 
-  return http.createServer(async (request, response) => {
+  const handleRequest = async (request, response) => {
     try {
       await routeRequest(request, response, context);
     } catch (error) {
+      if (response.headersSent || response.destroyed) {
+        response.destroy(error);
+        return;
+      }
+
       if (error.closeConnection) {
         response.shouldKeepAlive = false;
         response.setHeader("connection", "close");
+      }
+
+      if (error.retryAfterSeconds) {
+        response.setHeader("retry-after", String(error.retryAfterSeconds));
       }
 
       sendJson(response, error.statusCode ?? 500, {
@@ -109,7 +131,20 @@ export function createMusicApiServer(options = {}) {
         }
       });
     }
+  };
+  const server = http.createServer(handleRequest);
+
+  server.on("checkContinue", (request, response) => {
+    if (isReleaseUploadRequest(request) && context.uploadAdmission.atCapacity) {
+      void handleRequest(request, response);
+      return;
+    }
+
+    response.writeContinue();
+    void handleRequest(request, response);
   });
+
+  return server;
 }
 
 async function routeRequest(request, response, context) {
@@ -183,10 +218,14 @@ async function routeRequest(request, response, context) {
   }
 
   if (request.method === "POST" && url.pathname === "/music/releases") {
-    const multipart = await readMultipartForm(request, {
-      maxBytes: context.assetStorage.maxAudioBytes + context.assetStorage.maxArtworkBytes + 2_000_000
+    const result = await context.uploadAdmission.run(async () => {
+      const multipart = await readMultipartForm(request, {
+        maxBytes: context.assetStorage.maxAudioBytes + context.assetStorage.maxArtworkBytes + 2_000_000,
+        ...context.uploadDeadlines
+      });
+      return context.releaseService.createRelease(multipart);
     });
-    sendJson(response, 201, await context.releaseService.createRelease(multipart));
+    sendJson(response, 201, result);
     return;
   }
 
@@ -342,6 +381,14 @@ async function routeRequest(request, response, context) {
       code: "NOT_FOUND"
     }
   });
+}
+
+function isReleaseUploadRequest(request) {
+  if (request.method !== "POST") {
+    return false;
+  }
+
+  return request.url?.split("?", 1)[0] === "/music/releases";
 }
 
 function createOptionalMailgunProvider(env, fetch) {
