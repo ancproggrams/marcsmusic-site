@@ -23,7 +23,7 @@
 
 - [ ] Persist publication/campaign state in Railway MySQL or approved durable
       store instead of JSON files.
-- [ ] Update production `marcsmusic.nl/index.html` player from manifest through
+- [ ] Update production `public/index.html` player from manifest through
       an approved deployment workflow.
 - [ ] Add Mailgun webhook event ingestion.
 - [ ] Add real EspoCRM field mapping once production fields are confirmed.

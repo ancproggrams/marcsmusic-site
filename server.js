@@ -1,10 +1,13 @@
-import { createReadStream, existsSync, statSync } from "node:fs";
+import { createReadStream, existsSync, realpathSync, statSync } from "node:fs";
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { createHash, randomUUID } from "node:crypto";
-import { basename, dirname, extname, join, normalize, resolve, sep } from "node:path";
+import { basename, dirname, extname, join, resolve, sep } from "node:path";
 
 const root = resolve(".");
+const publicRoot = join(root, "public");
+const publicAssetsRoot = join(publicRoot, "assets");
+const publicAudioRoot = join(root, "soundcloud-growth-os", "outreach-mp3");
 const port = Number.parseInt(process.env.PORT || "3000", 10);
 const bookingDbPath = process.env.BOOKING_DB_PATH || (process.env.RAILWAY_ENVIRONMENT ? "/data/bookings.json" : join(root, "data", "bookings.json"));
 const bookingTimeZone = process.env.BOOKING_TIMEZONE || "Europe/Amsterdam";
@@ -48,6 +51,43 @@ const contentTypes = {
 };
 
 const downloadableAudioExtensions = new Set([".mp3", ".m4a", ".wav", ".ogg", ".flac"]);
+
+const publicPages = new Map([
+  ["/", "index.html"],
+  ["/index.html", "index.html"],
+  ["/booking", "booking.html"],
+  ["/booking/", "booking.html"],
+  ["/booking.html", "booking.html"],
+  ["/booking/success", "booking.html"],
+  ["/booking/cancelled", "booking.html"],
+  ["/admin", "admin.html"],
+  ["/admin.html", "admin.html"]
+]);
+
+const publicAudioFiles = new Map([
+  [
+    "/soundcloud-growth-os/outreach-mp3/01 Door de Storm/Door de Storm.mp3",
+    "01 Door de Storm/Door de Storm.mp3"
+  ],
+  ["/soundcloud-growth-os/outreach-mp3/02 Strijd/Strijd.mp3", "02 Strijd/Strijd.mp3"],
+  [
+    "/soundcloud-growth-os/outreach-mp3/03 Geen Afscheid/Geen Afscheid.mp3",
+    "03 Geen Afscheid/Geen Afscheid.mp3"
+  ],
+  [
+    "/soundcloud-growth-os/outreach-mp3/04 Weekend Mode/Weekend Mode.mp3",
+    "04 Weekend Mode/Weekend Mode.mp3"
+  ],
+  [
+    "/soundcloud-growth-os/outreach-mp3/05 Summer Time/Summer Time.mp3",
+    "05 Summer Time/Summer Time.mp3"
+  ],
+  ["/soundcloud-growth-os/outreach-mp3/06 Carnival/Carnival.mp3", "06 Carnival/Carnival.mp3"],
+  [
+    "/soundcloud-growth-os/outreach-mp3/07 Curacao/Curacao Radio Edit.mp3",
+    "07 Curacao/Curacao Radio Edit.mp3"
+  ]
+]);
 
 const publicTrackIds = new Set([
   "curacao-radio-edit",
@@ -225,24 +265,42 @@ function expireOldPendingBookings(db) {
 }
 
 function getFilePath(urlPath) {
-  const decoded = decodeURIComponent(urlPath.split("?")[0]);
-  const requested = decoded === "/" ? "/index.html" : decoded;
-  const aliases = {
-    "/booking": "/booking.html",
-    "/booking/": "/booking.html",
-    "/booking/success": "/booking.html",
-    "/booking/cancelled": "/booking.html",
-    "/admin": "/admin.html"
-  };
-  const safeRequested = aliases[requested] || requested;
-  const safePath = normalize(safeRequested).replace(/^(\.\.(\/|\\|$))+/, "");
-  const filePath = join(root, safePath);
-
-  if (!filePath.startsWith(root + sep) && filePath !== root) {
+  let decoded;
+  try {
+    decoded = decodeURIComponent(urlPath);
+  } catch {
     return null;
   }
 
-  return filePath;
+  const page = publicPages.get(decoded);
+  if (page) {
+    return resolveApprovedFile(publicRoot, page);
+  }
+
+  if (decoded.startsWith("/assets/")) {
+    return resolveApprovedFile(publicAssetsRoot, decoded.slice("/assets/".length));
+  }
+
+  const audio = publicAudioFiles.get(decoded);
+  return audio ? resolveApprovedFile(publicAudioRoot, audio) : null;
+}
+
+function resolveApprovedFile(allowedRoot, relativePath) {
+  const candidate = resolve(allowedRoot, relativePath);
+  if (candidate !== allowedRoot && !candidate.startsWith(allowedRoot + sep)) {
+    return null;
+  }
+
+  try {
+    const realRoot = realpathSync(allowedRoot);
+    const realCandidate = realpathSync(candidate);
+    if (realCandidate !== realRoot && !realCandidate.startsWith(realRoot + sep)) {
+      return null;
+    }
+    return statSync(realCandidate).isFile() ? realCandidate : null;
+  } catch {
+    return null;
+  }
 }
 
 function sendJson(response, status, payload, extraHeaders = {}) {
