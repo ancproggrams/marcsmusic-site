@@ -130,6 +130,8 @@ class RuntimeBootstrapTests(unittest.TestCase):
             second_stale_path.chmod(0o600)
             with self.assertRaisesRegex(RuntimeError, "multiple stale"):
                 runtime.prepare_runtime(runtime_env(), data_path)
+            self.assertEqual(stale_path.read_text(encoding="utf-8"), "stale")
+            self.assertEqual(second_stale_path.read_text(encoding="utf-8"), "stale")
             second_stale_path.unlink()
             _, lock_descriptor = runtime.prepare_runtime(runtime_env(), data_path)
             os.close(lock_descriptor)
