@@ -3,9 +3,11 @@ const DEFAULT_MAX_BODY_BYTES = 80 * 1024 * 1024;
 export async function readMultipartForm(request, options = {}) {
   const maxBytes = options.maxBytes ?? DEFAULT_MAX_BODY_BYTES;
   assertContentLength(request.headers["content-length"], maxBytes);
+  assertOptionalTimeout(options.bodyTimeoutMs, "bodyTimeoutMs");
+  assertOptionalTimeout(options.idleTimeoutMs, "idleTimeoutMs");
   const contentType = request.headers["content-type"] ?? "";
   const boundary = readBoundary(contentType);
-  const body = await readBodyBuffer(request, maxBytes);
+  const body = await readBodyBuffer(request, maxBytes, options);
   const parts = parseMultipartBuffer(body, boundary);
   const fields = {};
   const files = [];
@@ -35,13 +37,17 @@ function readBoundary(contentType) {
   return match[1] ?? match[2];
 }
 
-function readBodyBuffer(request, maxBytes) {
+function readBodyBuffer(request, maxBytes, options) {
   return new Promise((resolve, reject) => {
     let size = 0;
     const chunks = [];
     let settled = false;
+    let idleTimer;
+    let bodyTimer;
 
     const cleanup = () => {
+      clearTimeout(idleTimer);
+      clearTimeout(bodyTimer);
       request.removeListener("data", onData);
       request.removeListener("end", onEnd);
       request.removeListener("error", onError);
@@ -58,6 +64,12 @@ function readBodyBuffer(request, maxBytes) {
       cleanup();
       reject(error);
     };
+    const resetIdleTimer = () => {
+      clearTimeout(idleTimer);
+      idleTimer = startTimer(options.idleTimeoutMs, () =>
+        fail(multipartError(408, "Upload body was idle for too long", "UPLOAD_IDLE_TIMEOUT"))
+      );
+    };
     const onData = (chunk) => {
       const buffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
       size += buffer.length;
@@ -68,6 +80,7 @@ function readBodyBuffer(request, maxBytes) {
       }
 
       chunks.push(buffer);
+      resetIdleTimer();
     };
     const onEnd = () => {
       if (settled) {
@@ -86,6 +99,10 @@ function readBodyBuffer(request, maxBytes) {
       }
     };
 
+    bodyTimer = startTimer(options.bodyTimeoutMs, () =>
+      fail(multipartError(408, "Upload body exceeded its total time limit", "UPLOAD_BODY_TIMEOUT"))
+    );
+    resetIdleTimer();
     request.on("data", onData);
     request.once("end", onEnd);
     request.once("error", onError);
@@ -186,4 +203,20 @@ function multipartError(statusCode, message, code) {
     code,
     closeConnection: true
   });
+}
+
+function startTimer(timeoutMs, callback) {
+  if (timeoutMs === undefined) {
+    return undefined;
+  }
+
+  const timer = setTimeout(callback, timeoutMs);
+  timer.unref();
+  return timer;
+}
+
+function assertOptionalTimeout(timeoutMs, name) {
+  if (timeoutMs !== undefined && (!Number.isSafeInteger(timeoutMs) || timeoutMs < 1)) {
+    throw new TypeError(`${name} must be a positive safe integer`);
+  }
 }

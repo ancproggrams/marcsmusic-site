@@ -57,4 +57,21 @@ describe("multipart body limit", () => {
       assert.equal(request.listenerCount(event), 0);
     }
   });
+
+  it("enforces the total body deadline despite continuing request data", async () => {
+    const request = new PassThrough();
+    request.headers = { "content-type": "multipart/form-data; boundary=slow-drip" };
+    const pendingRead = readMultipartForm(request, { maxBytes: 1_024, bodyTimeoutMs: 80 });
+    const drip = setInterval(() => request.write(Buffer.from("x")), 10);
+
+    try {
+      await assert.rejects(
+        pendingRead,
+        (error) => error.code === "UPLOAD_BODY_TIMEOUT" && error.statusCode === 408
+      );
+    } finally {
+      clearInterval(drip);
+      request.destroy();
+    }
+  });
 });
