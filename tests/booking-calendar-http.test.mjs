@@ -23,10 +23,14 @@ describe("booking calendar HTTP boundary", () => {
   let tempDir;
   let bookingDbPath;
   let lastCalendarRequest;
+  let providerRequestCount = 0;
+  let calendarReportCount = 0;
   before(async () => {
     calendarServer = createServer(async (request, response) => {
       const chunks = [];
       for await (const chunk of request) chunks.push(chunk);
+      providerRequestCount += 1;
+      if (request.method === "REPORT") calendarReportCount += 1;
       lastCalendarRequest = { method: request.method, url: request.url, headers: request.headers, body: Buffer.concat(chunks).toString() };
       if (calendarMode === "hang") return;
       const stub = CALENDAR_STUBS[calendarMode];
@@ -35,7 +39,8 @@ describe("booking calendar HTTP boundary", () => {
         response.end(stub.body);
         return;
       }
-      if (calendarMode === "busy") {
+      if (calendarMode === "busy" || (calendarMode === "extended-busy" && calendarReportCount === 1)) {
+        const isExtended = calendarMode === "extended-busy";
         response.writeHead(207, { "content-type": "application/xml" });
         response.end(`<?xml version="1.0"?>
           <d:multistatus xmlns:d="DAV:" xmlns:c="urn:ietf:params:xml:ns:caldav">
@@ -44,9 +49,9 @@ describe("booking calendar HTTP boundary", () => {
 VERSION:2.0
 PRODID:-//Radicale//NONSGML Radicale Server//EN
 BEGIN:VEVENT
-UID:buffered-busy-test
-DTSTART:20990101T084500Z
-DTEND:20990101T090000Z
+UID:${isExtended ? "extended-busy-test" : "buffered-busy-test"}
+DTSTART:${isExtended ? "20990101T120000Z" : "20990101T084500Z"}
+DTEND:${isExtended ? "20990101T123000Z" : "20990101T090000Z"}
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 END:VEVENT
@@ -108,16 +113,7 @@ END:VCALENDAR]]></c:calendar-data>
     const response = await fetch(`http://127.0.0.1:${site.port}/api/booking/create`, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        bookingType: "studio",
-        startUtc: "2099-01-01T10:00:00.000Z",
-        slotCount: 1,
-        travelHours: 0,
-        name: "Test Booker",
-        email: "booker@example.test",
-        phone: "0612345678",
-        location: "Test location"
-      }),
+      body: JSON.stringify(bookingPayload()),
       signal: AbortSignal.timeout(2_000)
     });
     assert.equal(response.status, 503);
@@ -147,7 +143,39 @@ END:VCALENDAR]]></c:calendar-data>
     assert.match(lastCalendarRequest.body, /<c:calendar-query/u);
     assert.match(lastCalendarRequest.body, /start="20990101T083000Z" end="20990101T133000Z"/u);
   });
+
+  it("reuses one live snapshot before touching storage", async () => {
+    await rm(bookingDbPath, { force: true });
+    calendarMode = "extended-busy";
+    providerRequestCount = 0;
+    calendarReportCount = 0;
+    const response = await fetch(`http://127.0.0.1:${site.port}/api/booking/create`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(bookingPayload({ slotCount: 3 })),
+      signal: AbortSignal.timeout(2_000)
+    });
+
+    assert.equal(response.status, 409);
+    assert.equal(calendarReportCount, 1);
+    assert.equal(providerRequestCount, 1);
+    await assert.rejects(access(bookingDbPath), (error) => error.code === "ENOENT");
+  });
 });
+
+function bookingPayload(overrides = {}) {
+  return {
+    bookingType: "studio",
+    startUtc: "2099-01-01T10:00:00.000Z",
+    slotCount: 1,
+    travelHours: 0,
+    name: "Test Booker",
+    email: "booker@example.test",
+    phone: "0612345678",
+    location: "Test location",
+    ...overrides
+  };
+}
 
 async function requestAvailability(port) {
   const response = await fetch(

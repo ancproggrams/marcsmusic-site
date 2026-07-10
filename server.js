@@ -557,7 +557,7 @@ async function subscribeNewsletter(input, request) {
   };
 }
 
-async function getAvailability({ date, bookingType }) {
+async function getAvailability({ date, bookingType }, preloadedCalendarResult = null) {
   const type = getBookingType(bookingType);
   if (!type) {
     throw Object.assign(new Error("Ongeldig bookingtype."), { statusCode: 400 });
@@ -567,13 +567,8 @@ async function getAvailability({ date, bookingType }) {
     throw Object.assign(new Error("Ongeldige datum."), { statusCode: 400 });
   }
 
-  const dayStart = localDateTimeToUtc(date, workdayStart, bookingTimeZone);
-  const dayEnd = localDateTimeToUtc(date, workdayEnd, bookingTimeZone);
-  const bufferMs = bookingBufferMinutes * 60 * 1000;
-  const calendarResult = await getCalDavBusyIntervals(
-    new Date(dayStart.getTime() - bufferMs),
-    new Date(dayEnd.getTime() + bufferMs)
-  );
+  const { dayStart, dayEnd, calendarStart, calendarEnd, bufferMs } = getBookingDayWindow(date);
+  const calendarResult = preloadedCalendarResult ?? (await getCalDavBusyIntervals(calendarStart, calendarEnd));
   const calendarBusy = requireLiveCalendar(calendarResult);
 
   const db = await readDb();
@@ -622,6 +617,19 @@ async function getAvailability({ date, bookingType }) {
   };
 }
 
+function getBookingDayWindow(date) {
+  const dayStart = localDateTimeToUtc(date, workdayStart, bookingTimeZone);
+  const dayEnd = localDateTimeToUtc(date, workdayEnd, bookingTimeZone);
+  const bufferMs = bookingBufferMinutes * 60 * 1000;
+  return {
+    dayStart,
+    dayEnd,
+    bufferMs,
+    calendarStart: new Date(dayStart.getTime() - bufferMs),
+    calendarEnd: new Date(dayEnd.getTime() + bufferMs)
+  };
+}
+
 async function createBooking(input) {
   requireBookingIntegrations();
   const type = getBookingType(String(input.bookingType || ""));
@@ -644,17 +652,26 @@ async function createBooking(input) {
   }
 
   const customer = validateCustomer(input);
-  const availability = await getAvailability({
-    date: formatLocalInputDate(startUtc),
-    bookingType: type.id
-  });
+  const bookingDate = formatLocalInputDate(startUtc);
+  const { calendarStart, calendarEnd } = getBookingDayWindow(bookingDate);
+  const calendarResult = await getCalDavBusyIntervals(calendarStart, calendarEnd);
+  const calendarBusy = requireLiveCalendar(calendarResult);
+  const protectedStart = new Date(startUtc.getTime() - bookingBufferMinutes * 60 * 1000);
+  const protectedEnd = new Date(endUtc.getTime() + bookingBufferMinutes * 60 * 1000);
+  if (calendarBusy.some((interval) => intervalsOverlap(protectedStart, protectedEnd, interval.start, interval.end))) {
+    throw Object.assign(new Error("Het gekozen tijdsblok overlapt met een bestaande agenda-afspraak."), { statusCode: 409 });
+  }
+  const availability = await getAvailability(
+    { date: bookingDate, bookingType: type.id },
+    calendarResult
+  );
   const selectedSlot = availability.slots.find((slot) => slot.startUtc === startUtc.toISOString());
 
   if (!selectedSlot) {
     throw Object.assign(new Error("Dit tijdslot is niet meer beschikbaar."), { statusCode: 409 });
   }
 
-  const intervalAvailability = await isBookingWindowAvailable(startUtc, endUtc);
+  const intervalAvailability = await isBookingWindowAvailable(startUtc, endUtc, null, calendarBusy);
   if (!intervalAvailability.ok) {
     throw Object.assign(new Error(intervalAvailability.reason), { statusCode: 409 });
   }
@@ -1081,18 +1098,16 @@ async function isSlotStillFreeForConfirmation(booking) {
   return isBookingWindowAvailable(start, end, booking.id);
 }
 
-async function isBookingWindowAvailable(start, end, excludeBookingId = null) {
+async function isBookingWindowAvailable(start, end, excludeBookingId = null, preloadedCalendarBusy = null) {
   const protectedStart = new Date(start.getTime() - bookingBufferMinutes * 60 * 1000);
   const protectedEnd = new Date(end.getTime() + bookingBufferMinutes * 60 * 1000);
-  const calendarResult = await getCalDavBusyIntervals(protectedStart, protectedEnd);
-  if (calendarResult.status === "error") {
-    return { ok: false, reason: calendarResult.message };
-  }
+  const calendarBusy =
+    preloadedCalendarBusy ?? requireLiveCalendar(await getCalDavBusyIntervals(protectedStart, protectedEnd));
 
   const db = await readDb();
   expireOldPendingBookings(db);
   const localBusy = getReservedIntervals(db, excludeBookingId);
-  const hasConflict = [...calendarResult.busy, ...localBusy].some((interval) =>
+  const hasConflict = [...calendarBusy, ...localBusy].some((interval) =>
     intervalsOverlap(protectedStart, protectedEnd, interval.start, interval.end)
   );
 
