@@ -1,0 +1,6 @@
+run,platform,submission_url,status,manual_review_reason
+265,WFUV Public Radio Music Submission Contact Route,https://wfuv.org/contact,needs_manual_review,"Station contact forms, track links, metadata, artist bio, release notes and contact details require owner review."
+265,WXPN Public Radio Submit Music Contact Route,https://xpn.org/contact/,needs_manual_review,"Station contact, forms, track links, EPK, metadata and release notes require owner review."
+265,KDHX Community Radio Music Submission Contact Route,https://kdhx.org/contact/,needs_manual_review,"Contact forms, music links, release metadata, EPK, images and press copy require owner review."
+265,KBOO Community Radio Music Submission Contact Route,https://kboo.fm/contact,needs_manual_review,"Contact forms, track links, metadata, EPK, delivery details and press copy require owner review."
+265,WERS 88.9 Public Radio Music Submission Contact Route,https://wers.org/contact/,needs_manual_review,"Music/programming contact, forms, track links, EPK, artist identity and release metadata require owner review."
