@@ -1,0 +1,6 @@
+run,platform,submission_url,status,manual_review_reason
+263,Groover Artist Curator Feedback Campaign Route,https://groover.co/en/artists/,needs_manual_review,"Account, track/link submission, curator targeting, campaign credits/payment and feedback terms require owner review."
+263,Playlist Push Music Promotion Campaign Route,https://playlistpush.com/submit-music/,needs_manual_review,"Account, track submission, playlist/TikTok targeting, campaign budget/payment, creator terms and reporting require owner review."
+263,SoundPlate Free Playlist Submission Route,https://soundplate.com/submit-music/,needs_manual_review,"Artist identity, track links, Spotify/Deezer data, playlist choices and consent fields require owner review before use."
+263,RepostExchange SoundCloud Promotion Feedback Campaign Route,https://repostexchange.com/,needs_manual_review,"SoundCloud OAuth connection, track selection, repost requests, feedback, campaigns, credits/plans and profile-affecting actions require owner review."
+263,RadioAirplay Jango Artist Radio Promotion Route,https://www.radioairplay.com/,needs_manual_review,"Artist account, track upload/link, listener targeting, campaign/subscription, payment, reporting and platform terms require owner review."
