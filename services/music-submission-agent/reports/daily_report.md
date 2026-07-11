@@ -2,19 +2,19 @@
 
 Date: 2026-07-11
 
-Latest run: Run 273
+Latest run: Run 274
 
 New items added: 5
 
-Pipeline estimate: 1425
+Pipeline estimate: 1430
 
 Items:
 
-- KEXP Seattle Digital Rotation Consideration Email Route
-- WREK 91.1 Atlanta Email and Physical Music Submission Route
-- WTUL 91.5 New Orleans Protected Music-Director Email and Physical Submission Route
-- WUOG 90.5 Athens Physical Album Submission Route
-- WKDU 91.7 Philadelphia Music Submission Contact Form Route
+- WXYC 89.3 Chapel Hill Music Director Email Submission Route
+- WUSB 90.1 Stony Brook Music Director Email and Physical Submission Route
+- WHRB 95.3 Harvard Department-Targeted Physical Promo Submission Route
+- WFMU Jersey City Physical Music Review Submission Route
+- WPRK 91.5 Rollins Music Submission Email Route
 
 All items are marked needs_manual_review.
 
