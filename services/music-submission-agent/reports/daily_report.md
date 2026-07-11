@@ -2,20 +2,20 @@
 
 Date: 2026-07-11
 
-Latest run: Run 288
+Latest run: Run 289
 
 New items added: 5
 
-Pipeline estimate: 1500
+Pipeline estimate: 1505
 
 Items:
 
-- Gravitas Recordings Unreleased Private SoundCloud Demo Form Route
-- Quality Goods Records Official Airtable Demo Submission Route
-- Soma Records Protected Demo Email Two-Track SoundCloud Route
-- Loci Records Public Contact Form Demo Routing Inquiry
-- CloudKid Public Business Email Demo Routing Inquiry
+- STMPD RCRDS Official SoundCloud Login Demo Drop Route
+- Selected Base Native Unreleased Streamable-Link Demo Drop Route
+- Future House Music Official Discord Demo Drop Route
+- Spinnin Records Account-Gated Talent Pool Demo Upload Route
+- Dim Mak Official Dynamic Demo Submission Page Route
 
 All items are marked needs_manual_review.
 
-Safety: no forms submitted, no emails or messages sent, no demos submitted, no private SoundCloud or other streaming/download links supplied, no tracks/audio/artwork/files uploaded or transferred, no external Airtable workflow completed, no CAPTCHA or human-verification controls handled or bypassed, no accounts or logins used, no cookie choices accepted, no protected contacts decoded, no contacts guessed, no payment or subscription workflow started and no deliverability probing performed.
+Safety: no forms submitted, no emails or messages sent, no demos or links delivered, no files uploaded, no SoundCloud, Discord or Spinnin account, login or session used, no OAuth authorization granted, no cookie choices accepted, no CAPTCHA or anti-bot control handled or bypassed, no payment or subscription started, no contacts guessed and no SMTP/MX/deliverability probing performed.
