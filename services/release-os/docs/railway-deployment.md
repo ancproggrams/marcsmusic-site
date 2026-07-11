@@ -14,7 +14,8 @@ for `MUSIC_UPLOAD_DIR` and `MARCSMUSIC_PLAYER_MANIFEST_PATH`.
 
 ## Health Check
 
-`GET /health` reports:
+Railway uses the minimal public `GET /livez` endpoint for process liveness.
+`GET /health` remains available for richer integration diagnostics and reports:
 
 - API status
 - Mailgun configured
@@ -27,3 +28,5 @@ for `MUSIC_UPLOAD_DIR` and `MARCSMUSIC_PLAYER_MANIFEST_PATH`.
 Use `.env.example` as the source of truth. Real sends/uploads/syncs require
 `MUSIC_API_EXECUTION_TOKEN`.
 
+`MUSIC_MAX_CONCURRENT_UPLOADS` limits simultaneous multipart uploads to protect
+memory and disk I/O. Valid values are 1 through 4; the production-safe default is 1.

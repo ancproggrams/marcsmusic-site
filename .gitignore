@@ -24,6 +24,7 @@
 !data/.gitkeep
 !data/*.csv
 !data/*.json
+data/bookings.json
 data/marcsmusic-release-os.json
 data/player-manifest.json
 !deploy/

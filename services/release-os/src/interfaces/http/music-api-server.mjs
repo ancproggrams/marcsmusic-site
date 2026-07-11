@@ -1,8 +1,9 @@
 import http from "node:http";
 import { timingSafeEqual } from "node:crypto";
-import { createReadStream } from "node:fs";
-import { readFile } from "node:fs/promises";
-import { extname, join, resolve, sep } from "node:path";
+import { constants } from "node:fs";
+import { open, readFile, realpath } from "node:fs/promises";
+import { basename, extname, isAbsolute, relative, resolve, sep } from "node:path";
+import { pipeline } from "node:stream/promises";
 import { fileURLToPath } from "node:url";
 import { createReleasePlan } from "../../application/music/release-planner.mjs";
 import { publishRelease } from "../../application/music/publication-service.mjs";
@@ -14,6 +15,7 @@ import { createNewMusicCampaignService } from "../../application/email/new-music
 import { listPlatformCapabilities } from "../../domain/music/platform-capabilities.mjs";
 import { executeMusicGraphQuery } from "../graphql/music-schema.mjs";
 import { readMultipartForm } from "../../infrastructure/http/multipart.mjs";
+import { UploadAdmissionController } from "../../infrastructure/http/upload-admission-controller.mjs";
 import { JsonStore, createDefaultState } from "../../infrastructure/storage/json-store.mjs";
 import { ReleaseAssetStorage } from "../../infrastructure/storage/release-asset-storage.mjs";
 import { PlayerManifestClient } from "../../infrastructure/marcsmusic-site/player-client.mjs";
@@ -33,6 +35,10 @@ const STATIC_TYPES = Object.freeze({
   ".png": "image/png",
   ".webp": "image/webp"
 });
+const ASSET_EXTENSIONS = Object.freeze({
+  audio: new Set([".mp3", ".wav"]),
+  artwork: new Set([".jpg", ".jpeg", ".png", ".webp"])
+});
 
 export function createMusicApiServer(options = {}) {
   const env = options.env ?? process.env;
@@ -48,6 +54,9 @@ export function createMusicApiServer(options = {}) {
     new ReleaseAssetStorage({
       rootDir: options.uploadDir ?? env.MUSIC_UPLOAD_DIR
     });
+  const uploadAdmission =
+    options.uploadAdmission ??
+    new UploadAdmissionController({ maxConcurrent: options.maxConcurrentUploads ?? env.MUSIC_MAX_CONCURRENT_UPLOADS });
   const artistService = options.artistService ?? createArtistService({ store });
   const releaseService =
     options.releaseService ?? createReleaseManagementService({ store, assetStorage, artistService });
@@ -84,6 +93,7 @@ export function createMusicApiServer(options = {}) {
     fetch,
     store,
     assetStorage,
+    uploadAdmission,
     artistService,
     releaseService,
     playerClient,
@@ -97,6 +107,15 @@ export function createMusicApiServer(options = {}) {
     try {
       await routeRequest(request, response, context);
     } catch (error) {
+      if (response.headersSent || response.destroyed) {
+        response.destroy(error);
+        return;
+      }
+
+      const headers = {};
+      if (error.closeConnection) headers.connection = "close";
+      if (error.retryAfterSeconds) headers["retry-after"] = String(error.retryAfterSeconds);
+      for (const [name, value] of Object.entries(headers)) response.setHeader(name, value);
       sendJson(response, error.statusCode ?? 500, {
         error: {
           message: error.message,
@@ -109,6 +128,11 @@ export function createMusicApiServer(options = {}) {
 
 async function routeRequest(request, response, context) {
   const url = new URL(request.url, "http://localhost");
+
+  if (request.method === "GET" && url.pathname === "/livez") {
+    sendJson(response, 200, { status: "ok" });
+    return;
+  }
 
   if (request.method === "GET" && url.pathname === "/health") {
     sendJson(response, 200, {
@@ -178,10 +202,16 @@ async function routeRequest(request, response, context) {
   }
 
   if (request.method === "POST" && url.pathname === "/music/releases") {
-    const multipart = await readMultipartForm(request, {
-      maxBytes: context.assetStorage.maxAudioBytes + context.assetStorage.maxArtworkBytes + 2_000_000
+    const result = await context.uploadAdmission.run(async () => {
+      const multipart = await readMultipartForm(request, {
+        maxBytes: context.assetStorage.maxAudioBytes + context.assetStorage.maxArtworkBytes + 2_000_000,
+        maxFiles: 2,
+        maxFields: 16,
+        maxFileBytes: context.assetStorage.maxAudioBytes
+      });
+      return context.releaseService.createRelease(multipart);
     });
-    sendJson(response, 201, await context.releaseService.createRelease(multipart));
+    sendJson(response, 201, await result);
     return;
   }
 
@@ -427,19 +457,75 @@ function sendHtml(response, body) {
 
 async function sendUploadedAsset(response, uploadRoot, kind, pathname) {
   const prefix = kind === "audio" ? "/assets/audio/" : "/assets/artwork/";
-  const filename = decodeURIComponent(pathname.slice(prefix.length));
-  const filePath = resolve(uploadRoot, kind, filename);
-  const root = resolve(uploadRoot, kind);
-
-  if (!filePath.startsWith(root + sep)) {
-    throw httpError(400, "Invalid asset path", "INVALID_ASSET_PATH");
+  const filename = decodeAssetFilename(pathname.slice(prefix.length));
+  const extension = extname(filename).toLowerCase();
+  if (filename.includes("\0") || filename !== basename(filename) || !ASSET_EXTENSIONS[kind].has(extension)) {
+    throw assetNotFound();
   }
 
-  response.writeHead(200, {
-    "content-type": STATIC_TYPES[extname(filePath).toLowerCase()] ?? "application/octet-stream",
-    "cache-control": "public, max-age=31536000, immutable"
-  });
-  createReadStream(filePath).pipe(response);
+  const filePath = await resolveUploadedAssetPath(uploadRoot, kind, filename);
+  const fileHandle = await openAsset(filePath);
+  try {
+    const stats = await fileHandle.stat();
+    if (!stats.isFile()) throw assetNotFound();
+    if (response.destroyed) return;
+    response.writeHead(200, {
+      "content-type": STATIC_TYPES[extension],
+      "content-length": stats.size,
+      "cache-control": "public, max-age=31536000, immutable",
+      "x-content-type-options": "nosniff"
+    });
+    await pipeline(fileHandle.createReadStream(), response);
+  } finally {
+    await fileHandle.close().catch((error) => {
+      if (error.code !== "EBADF") throw error;
+    });
+  }
+}
+
+function decodeAssetFilename(value) {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    throw assetNotFound();
+  }
+}
+
+async function resolveUploadedAssetPath(uploadRoot, kind, filename) {
+  try {
+    const canonicalRoot = await realpath(resolve(uploadRoot));
+    const canonicalSubdir = await realpath(resolve(canonicalRoot, kind));
+    if (!isContained(canonicalRoot, canonicalSubdir)) throw assetNotFound();
+    const requestedPath = resolve(canonicalSubdir, filename);
+    if (!isContained(canonicalSubdir, requestedPath)) throw assetNotFound();
+    const canonicalFile = await realpath(requestedPath);
+    if (!isContained(canonicalSubdir, canonicalFile) || !ASSET_EXTENSIONS[kind].has(extname(canonicalFile).toLowerCase())) {
+      throw assetNotFound();
+    }
+    return canonicalFile;
+  } catch (error) {
+    if (error.code === "ASSET_NOT_FOUND") throw error;
+    if (["EACCES", "ELOOP", "ENOENT", "ENOTDIR"].includes(error.code)) throw assetNotFound();
+    throw error;
+  }
+}
+
+async function openAsset(filePath) {
+  try {
+    return await open(filePath, constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0));
+  } catch (error) {
+    if (["EACCES", "ELOOP", "ENOENT", "ENOTDIR"].includes(error.code)) throw assetNotFound();
+    throw error;
+  }
+}
+
+function isContained(root, candidate) {
+  const pathFromRoot = relative(root, candidate);
+  return pathFromRoot !== "" && !isAbsolute(pathFromRoot) && pathFromRoot !== ".." && !pathFromRoot.startsWith(`..${sep}`);
+}
+
+function assetNotFound() {
+  return httpError(404, "Asset not found", "ASSET_NOT_FOUND");
 }
 
 function httpError(statusCode, message, code) {
