@@ -326,6 +326,88 @@
       margin-top: 30px;
     }
 
+    .booking-action {
+      display: grid;
+      gap: 7px;
+      justify-items: start;
+    }
+
+    .booking-context {
+      margin: 0;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.03em;
+    }
+
+    .release-highlight {
+      max-width: 650px;
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: var(--pastel-muted);
+      padding: 10px 12px;
+    }
+
+    .release-art {
+      width: 58px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: calc(var(--radius) - 2px);
+      background:
+        radial-gradient(circle at 68% 30%, var(--white) 0 9%, transparent 10%),
+        linear-gradient(145deg, var(--pastel-strong), var(--white));
+      overflow: hidden;
+    }
+
+    .release-art img {
+      width: 42px;
+    }
+
+    .release-copy {
+      min-width: 0;
+    }
+
+    .release-copy span {
+      display: block;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .release-copy strong {
+      display: block;
+      margin-top: 2px;
+      overflow: hidden;
+      font-family: var(--font-display);
+      font-size: 19px;
+      line-height: 1.1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .release-link {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: var(--radius);
+      padding: 0 10px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .release-link:hover {
+      background: var(--surface);
+    }
+
     .button {
       min-height: 46px;
       display: inline-flex;
@@ -408,8 +490,22 @@
       border: 1px solid color-mix(in oklch, var(--white) 24%, transparent);
       border-radius: var(--radius);
       background:
+        radial-gradient(circle at 72% 28%, var(--white) 0 8%, transparent 9%),
         linear-gradient(135deg, var(--pastel), var(--white)),
         var(--pastel);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::after {
+      content: "MM / 01";
+      position: absolute;
+      right: 9px;
+      bottom: 7px;
+      color: var(--ink);
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.08em;
     }
 
     .cover img {
@@ -522,13 +618,6 @@
 
     .progress {
       width: 100%;
-      accent-color: var(--pastel);
-    }
-
-    .native-audio {
-      width: calc(100% - 44px);
-      margin: 0 22px 22px;
-      display: block;
       accent-color: var(--pastel);
     }
 
@@ -910,22 +999,60 @@
 
     @media (max-width: 680px) {
       html {
-        scroll-padding-top: 138px;
+        scroll-padding-top: 68px;
+      }
+
+      #home,
+      #listen,
+      #bio,
+      #instagram {
+        scroll-margin-top: 68px;
+      }
+
+      .header-inner {
+        min-height: 58px;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+        padding: 6px 0;
+      }
+
+      .brand {
+        gap: 8px;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .brand-mark img {
+        width: 28px;
       }
 
       .brand-name strong {
-        font-size: 20px;
+        font-size: 18px;
+      }
+
+      .brand-name span {
+        display: none;
       }
 
       .site-nav {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 3px;
       }
 
       .site-nav a {
         justify-content: center;
-        padding: 0 8px;
+        min-height: 36px;
+        padding: 0 9px;
+        font-size: 12px;
+      }
+
+      .site-nav a[href="#home"],
+      .site-nav a[href="#instagram"] {
+        display: none;
       }
 
       h1 {
@@ -933,9 +1060,76 @@
         font-size: clamp(54px, 17vw, 82px);
       }
 
+      .hero {
+        row-gap: 24px;
+      }
+
       .hero-media {
-        min-height: 480px;
+        min-height: min(72vh, 480px);
         background-position: 52% top;
+        order: 4;
+      }
+
+      .hero-content {
+        display: contents;
+      }
+
+      .hero-copy,
+      .release-highlight,
+      .player-card,
+      .artist-bio,
+      .social-strip {
+        width: min(650px, calc(100% - (var(--gutter) * 2)));
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .hero-copy {
+        order: 1;
+        padding-top: 34px;
+      }
+
+      .release-highlight {
+        order: 2;
+      }
+
+      .player-card {
+        order: 3;
+      }
+
+      .artist-bio {
+        order: 5;
+      }
+
+      .social-strip {
+        order: 6;
+        padding-bottom: 42px;
+      }
+
+      .hero-actions {
+        margin-top: 22px;
+      }
+
+      .booking-context {
+        max-width: 24ch;
+      }
+
+      .release-highlight {
+        grid-template-columns: 50px minmax(0, 1fr) auto;
+        gap: 10px;
+        padding: 8px;
+      }
+
+      .release-art {
+        width: 50px;
+      }
+
+      .release-art img {
+        width: 36px;
+      }
+
+      .release-copy strong {
+        font-size: 17px;
       }
 
       .player-top,
@@ -952,12 +1146,6 @@
       .cover {
         aspect-ratio: 16 / 10;
         min-height: 0;
-      }
-
-      .native-audio {
-        width: calc(100% - 32px);
-        margin-left: 16px;
-        margin-right: 16px;
       }
 
       .track-row {
@@ -981,6 +1169,22 @@
       .set-item,
       .signup-form {
         grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .brand-name {
+        display: none;
+      }
+
+      .release-link {
+        padding: 0 6px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
       }
     }
   </style>
@@ -1027,20 +1231,26 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.6v12.8L18.2 12 8 5.6Z"/></svg>
               Luister nu
             </a>
-            <a class="button secondary" href="booking.html">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 3v3M17 3v3M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></svg>
-              Boek MarcsMusic
-            </a>
+            <div class="booking-action">
+              <a class="button secondary" href="booking.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 3v3M17 3v3M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></svg>
+                Boek MarcsMusic
+              </a>
+              <p class="booking-context">DJ-set, event of studio-aanvraag</p>
+            </div>
           </div>
         </div>
 
-        <section class="artist-bio" id="bio" aria-labelledby="bio-title">
-          <p class="eyebrow">Bio</p>
-          <h2 id="bio-title">Over Marc.</h2>
-          <p>Ik ben Marc, de maker achter MarcsMusic. Van mezelf ben ik redelijk introvert. Ik uit me niet altijd makkelijk in woorden of lange gesprekken, maar in muziek lukt dat wel.</p>
-          <p>Soms raak ik geïnspireerd door de muziek van anderen. Soms zit ik gewoon rustig op de bank en komt er ineens een melodie of refrein in me op. Juist op de meest onverwachte momenten ontstaan vaak de eerste ideeën. Die schrijf ik van me af in de vorm van een nummer.</p>
-          <p>Daarom wil ik me niet beperken tot één stijl of genre. Elk gevoel, elk moment en elk verhaal vraagt om zijn eigen manier van vertellen.</p>
-        </section>
+        <a class="release-highlight" href="#listen" aria-label="Luister naar de nieuwste track Curaçao Radio Edit">
+          <span class="release-art" aria-hidden="true">
+            <img src="assets/marcsmusic-logo-black.png" alt="">
+          </span>
+          <span class="release-copy">
+            <span>Uitgelicht · nieuwste track</span>
+            <strong>Curaçao (Radio Edit)</strong>
+          </span>
+          <span class="release-link" aria-hidden="true">Luister <span>→</span></span>
+        </a>
 
         <section class="player-card" id="listen" aria-label="Volledige MarcsMusic tracks">
           <div class="player-top">
@@ -1079,13 +1289,26 @@
           <audio
             class="native-audio"
             data-audio
-            controls
+            aria-label="MarcsMusic audio"
             preload="metadata"
             src="/soundcloud-growth-os/outreach-mp3/07%20Curacao/Curacao%20Radio%20Edit.mp3">
           </audio>
+          <noscript>
+            <audio controls preload="metadata" src="/soundcloud-growth-os/outreach-mp3/07%20Curacao/Curacao%20Radio%20Edit.mp3">
+              <a href="/soundcloud-growth-os/outreach-mp3/07%20Curacao/Curacao%20Radio%20Edit.mp3">Download Curaçao (Radio Edit)</a>
+            </audio>
+          </noscript>
 
           <div class="playlist" data-playlist aria-label="Tracklijst"></div>
           <div class="track-toast" data-share-status role="status" aria-live="polite" hidden></div>
+        </section>
+
+        <section class="artist-bio" id="bio" aria-labelledby="bio-title">
+          <p class="eyebrow">Bio</p>
+          <h2 id="bio-title">Over Marc.</h2>
+          <p>Ik ben Marc, de maker achter MarcsMusic. Van mezelf ben ik redelijk introvert. Ik uit me niet altijd makkelijk in woorden of lange gesprekken, maar in muziek lukt dat wel.</p>
+          <p>Soms raak ik geïnspireerd door de muziek van anderen. Soms zit ik gewoon rustig op de bank en komt er ineens een melodie of refrein in me op. Juist op de meest onverwachte momenten ontstaan vaak de eerste ideeën. Die schrijf ik van me af in de vorm van een nummer.</p>
+          <p>Daarom wil ik me niet beperken tot één stijl of genre. Elk gevoel, elk moment en elk verhaal vraagt om zijn eigen manier van vertellen.</p>
         </section>
 
         <div class="social-strip" aria-label="MarcsMusic social links">

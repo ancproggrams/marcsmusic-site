@@ -235,6 +235,13 @@ function getFilePath(urlPath) {
     "/admin": "/admin.html"
   };
   const safeRequested = aliases[requested] || requested;
+  const publicFiles = new Set(["/index.html", "/booking.html", "/admin.html"]);
+  const publicDirectories = ["/assets/", "/soundcloud-growth-os/outreach-mp3/"];
+
+  if (!publicFiles.has(safeRequested) && !publicDirectories.some((directory) => safeRequested.startsWith(directory))) {
+    return null;
+  }
+
   const safePath = normalize(safeRequested).replace(/^(\.\.(\/|\\|$))+/, "");
   const filePath = join(root, safePath);
 
@@ -1714,11 +1721,46 @@ function serveStatic(request, response) {
     return;
   }
 
-  response.writeHead(200, {
+  const fileStats = statSync(filePath);
+  const extension = extname(filePath).toLowerCase();
+  const range = downloadableAudioExtensions.has(extension)
+    ? parseByteRange(request.headers.range, fileStats.size)
+    : null;
+  const headers = {
     "content-type": contentTypes[extname(filePath)] || "application/octet-stream",
     "cache-control": "public, max-age=300",
+    "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.instagram.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; frame-src https://www.instagram.com; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+    "permissions-policy": "camera=(), microphone=(), geolocation=()",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-content-type-options": "nosniff",
+    "x-frame-options": "DENY",
     ...downloadHeaders(url, filePath)
-  });
+  };
+
+  if (request.headers.range && !range && downloadableAudioExtensions.has(extension)) {
+    response.writeHead(416, { ...headers, "content-range": `bytes */${fileStats.size}` });
+    response.end();
+    return;
+  }
+
+  if (range) {
+    response.writeHead(206, {
+      ...headers,
+      "accept-ranges": "bytes",
+      "content-length": range.end - range.start + 1,
+      "content-range": `bytes ${range.start}-${range.end}/${fileStats.size}`
+    });
+
+    if (request.method === "HEAD") {
+      response.end();
+      return;
+    }
+
+    createReadStream(filePath, range).pipe(response);
+    return;
+  }
+
+  response.writeHead(200, { ...headers, "content-length": fileStats.size });
 
   if (request.method === "HEAD") {
     response.end();
@@ -1726,6 +1768,32 @@ function serveStatic(request, response) {
   }
 
   createReadStream(filePath).pipe(response);
+}
+
+function parseByteRange(value, fileSize) {
+  const match = String(value || "").match(/^bytes=(\d*)-(\d*)$/u);
+  if (!match || fileSize <= 0) {
+    return null;
+  }
+
+  const requestedStart = match[1] === "" ? null : Number(match[1]);
+  const requestedEnd = match[2] === "" ? null : Number(match[2]);
+  let start = requestedStart;
+  let end = requestedEnd;
+
+  if (start === null) {
+    const suffixLength = Math.min(requestedEnd || 0, fileSize);
+    start = fileSize - suffixLength;
+    end = fileSize - 1;
+  } else {
+    end = end === null ? fileSize - 1 : Math.min(end, fileSize - 1);
+  }
+
+  if (!Number.isSafeInteger(start) || !Number.isSafeInteger(end) || start < 0 || start > end || start >= fileSize) {
+    return null;
+  }
+
+  return { start, end };
 }
 
 const server = createServer(async (request, response) => {

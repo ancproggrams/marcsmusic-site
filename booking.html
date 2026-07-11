@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Booking | MarcsMusic</title>
-  <meta name="description" content="Book MarcsMusic direct met agenda-beschikbaarheid, CRM opslag en Mollie betaling.">
-  <link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
+  <meta name="description" content="Boek MarcsMusic voor een DJ-set, event of studiosessie. Bekijk direct de beschikbaarheid en rond je aanvraag veilig af.">
+  <link rel="icon" type="image/png" href="assets/marcsmusic-logo-black.png">
   <style>
     :root {
       --page: #151315;
@@ -186,6 +186,56 @@
       font-size: 15px;
     }
 
+    .booking-intro {
+      font-size: 17px !important;
+      line-height: 1.55;
+    }
+
+    .booking-options {
+      display: grid;
+      gap: 10px;
+      margin: 26px 0 24px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .booking-options li {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .booking-options strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .booking-primary-link {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cta);
+      color: var(--ink);
+      padding: 0 20px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .booking-primary-link:hover {
+      background: var(--cta-dark);
+    }
+
+    .booking-expectation {
+      margin-top: 14px !important;
+      font-size: 12px !important;
+    }
+
     .booking-result {
       margin-top: 22px;
       border-left: 3px solid var(--cta);
@@ -200,6 +250,19 @@
       padding: 28px;
       border: 1px solid #3b3439;
       background: var(--panel);
+      scroll-margin-top: 112px;
+    }
+
+    .form-heading {
+      margin: 0 0 -6px;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .form-intro {
+      margin: 0 0 4px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     .booking-row {
@@ -518,35 +581,38 @@
 
     @media (max-width: 720px) {
       .site-header {
-        min-height: 114px;
+        min-height: 64px;
       }
 
       .header-inner {
-        min-height: 114px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 8px;
+        width: calc(100% - 24px);
+        min-height: 64px;
+        display: grid;
+        grid-template-columns: 108px minmax(0, 1fr);
+        gap: 12px;
       }
 
       .brand,
       .brand img {
-        width: 126px;
+        width: 108px;
       }
 
       .site-nav {
-        width: 100%;
-        justify-content: center;
-        gap: 22px;
-        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 14px;
       }
 
       .site-nav a {
         font-size: 12px;
       }
 
+      .site-nav a:nth-child(1),
+      .site-nav a:nth-child(3) {
+        display: none;
+      }
+
       .booking-page {
-        padding: 48px 0 62px;
+        padding: 36px 0 62px;
       }
 
       .booking-inner {
@@ -555,6 +621,14 @@
 
       .booking-copy h1 {
         font-size: 38px;
+      }
+
+      .booking-primary-link {
+        width: 100%;
+      }
+
+      .booking-form {
+        scroll-margin-top: 76px;
       }
 
       .booking-form {
@@ -595,6 +669,12 @@
         font-size: 13px;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -607,9 +687,9 @@
       </a>
       <nav class="site-nav" aria-label="Site">
         <a href="index.html#home">Home</a>
-        <a href="index.html#music">Music</a>
-        <a href="index.html#pics">Pics</a>
-        <a href="booking.html" aria-current="page">Booking &amp; Contact</a>
+        <a href="index.html#listen">Luister</a>
+        <a href="index.html#instagram">Instagram</a>
+        <a href="booking.html" aria-current="page">Bookings</a>
       </nav>
     </div>
   </header>
@@ -617,13 +697,22 @@
   <main class="booking-page" id="main">
     <section class="booking-inner" aria-labelledby="booking-title">
       <div class="booking-copy">
-        <p class="booking-kicker">Booking</p>
+        <p class="booking-kicker">DJ-set · event · studio</p>
         <h1 id="booking-title">Book MarcsMusic</h1>
-        <p>Kies een datum, selecteer een beschikbare starttijd en betaal veilig via Mollie. Na betaling ontvang je de bevestiging met de agenda boeking.</p>
-        <div class="booking-result" data-booking-result hidden></div>
+        <p class="booking-intro">Van een energieke DJ-set tot muziek voor je event of een studiosessie: kies wat past en bekijk direct wanneer Marc beschikbaar is.</p>
+        <ul class="booking-options" aria-label="Mogelijke boekingen">
+          <li><strong>DJ-set</strong>Voor club, feest of een eigen concept.</li>
+          <li><strong>Event</strong>Muziek op maat voor jouw publiek en locatie.</li>
+          <li><strong>Studiosessie</strong>Samen creëren, opnemen of muziek uitwerken.</li>
+        </ul>
+        <a class="booking-primary-link" href="#booking-form">Bekijk beschikbaarheid</a>
+        <p class="booking-expectation">Kies een tijd, vul je gegevens in en rond veilig af via Mollie.</p>
+        <div class="booking-result" data-booking-result role="status" aria-live="polite" hidden></div>
       </div>
 
-      <form class="booking-form" data-booking-form>
+      <form class="booking-form" id="booking-form" data-booking-form aria-labelledby="form-title">
+        <h2 class="form-heading" id="form-title">Plan je boeking</h2>
+        <p class="form-intro">Alle bedragen en de duur worden bijgewerkt op basis van je keuzes.</p>
         <div class="booking-row">
           <label class="booking-field">
             <span>Type booking</span>
@@ -652,7 +741,7 @@
 
         <section class="calendar-picker" aria-labelledby="calendar-label">
           <div class="calendar-label" id="calendar-label">Datum kiezen</div>
-          <input class="sr-only" name="date" type="text" data-booking-date required tabindex="-1" aria-hidden="true">
+          <input class="sr-only" name="date" type="hidden" data-booking-date>
           <div class="calendar-head">
             <button class="calendar-nav" type="button" data-prev-month aria-label="Vorige maand">&lsaquo;</button>
             <div class="calendar-month" data-calendar-month aria-live="polite"></div>
@@ -732,8 +821,8 @@
           <textarea name="message" placeholder="Extra informatie over het event"></textarea>
         </label>
 
-        <button class="booking-submit" type="submit" data-booking-submit disabled>Book &amp; Pay</button>
-        <p class="booking-status" data-booking-status aria-live="polite"></p>
+        <button class="booking-submit" type="submit" data-booking-submit disabled>Boek en betaal veilig</button>
+        <p class="booking-status" data-booking-status role="status" aria-live="polite"></p>
       </form>
     </section>
   </main>
@@ -836,6 +925,7 @@
     function setBookingStatus(message, isError = false) {
       bookingStatus.textContent = message;
       bookingStatus.style.color = isError ? "#ff9c9a" : "#bcb5ba";
+      bookingStatus.setAttribute("role", isError ? "alert" : "status");
     }
 
     function getSelectedType() {
@@ -1109,7 +1199,7 @@
         window.location.href = result.checkoutUrl;
       } catch (error) {
         bookingSubmit.disabled = false;
-        bookingSubmit.textContent = "Book & Pay";
+        bookingSubmit.textContent = "Boek en betaal veilig";
         setBookingStatus(error.message, true);
       }
     });
