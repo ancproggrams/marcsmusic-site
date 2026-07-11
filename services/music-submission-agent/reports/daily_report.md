@@ -2,19 +2,19 @@
 
 Date: 2026-07-11
 
-Latest run: Run 275
+Latest run: Run 276
 
 New items added: 5
 
-Pipeline estimate: 1435
+Pipeline estimate: 1440
 
 Items:
 
-- KTRU 96.1 Rice University Physical Music Submission Route
-- WCBN 88.3 University of Michigan Hard-Copy Music Submission Route
-- WNUR 89.3 Northwestern General Manager Music Inquiry Route
-- WNMC 90.7 Genre Music Director Contact-Form Route
-- WTBU Boston University Music Directors Album Submission Email Route
+- WIDR 89.1 FM Music Airtime Email and External Form Route
+- WSUM 91.7 FM Music Director Submission Route
+- KGLT Alternative Public Radio Music Director Pre-Submission Inquiry Route
+- WMUC 90.5 FM General Pre-Submission Inquiry Route
+- Impact 89FM WDBM General Pre-Submission Inquiry Route
 
 All items are marked needs_manual_review.
 
