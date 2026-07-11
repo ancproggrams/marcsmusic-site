@@ -2,19 +2,19 @@
 
 Date: 2026-07-11
 
-Latest run: Run 274
+Latest run: Run 275
 
 New items added: 5
 
-Pipeline estimate: 1430
+Pipeline estimate: 1435
 
 Items:
 
-- WXYC 89.3 Chapel Hill Music Director Email Submission Route
-- WUSB 90.1 Stony Brook Music Director Email and Physical Submission Route
-- WHRB 95.3 Harvard Department-Targeted Physical Promo Submission Route
-- WFMU Jersey City Physical Music Review Submission Route
-- WPRK 91.5 Rollins Music Submission Email Route
+- KTRU 96.1 Rice University Physical Music Submission Route
+- WCBN 88.3 University of Michigan Hard-Copy Music Submission Route
+- WNUR 89.3 Northwestern General Manager Music Inquiry Route
+- WNMC 90.7 Genre Music Director Contact-Form Route
+- WTBU Boston University Music Directors Album Submission Email Route
 
 All items are marked needs_manual_review.
 
