@@ -2,20 +2,20 @@
 
 Date: 2026-07-11
 
-Latest run: Run 282
+Latest run: Run 283
 
 New items added: 5
 
-Pipeline estimate: 1470
+Pipeline estimate: 1475
 
 Items:
 
-- WMUA 91.1 UMass Music Communications and Archival Music Submission Route
-- WRIU 90.3 Rhode Island Genre Music Director Digital and Physical Submission Route
-- WRUW-FM 91.1 Case Western Music Director Pre-Submission Inquiry Route
-- WUNH 91.3 University of New Hampshire Physical Music Director Submission Route
-- WVKR 91.3 Vassar Music Director and Genre Email or Promotional CD Submission Route
+- Radio WigWam Grassroots Artist Account Upload and Airplay Route
+- Lonely Oak Radio MP3 WAV Song EP and Album Upload Route
+- Radio TFSC Indie Music MP3 Email Submission Route
+- Reprezent Radio UK Underground Playlist Pre-Submission Routing Inquiry
+- WNHU 88.7 University of New Haven Official Station Pre-Submission Routing Inquiry
 
 All items are marked needs_manual_review.
 
-Safety: no accounts created, no login used, no forms submitted, no emails or direct messages sent, no phone calls made, no radio submissions made, no streaming or download links supplied, no tracks/audio/artwork/images/files uploaded or transferred, no CAPTCHA or human-verification controls handled or bypassed, no protected contacts decoded, no physical media manufactured, no physical packages prepared or sent, no payment workflow started and no deliverability probing performed.
+Safety: no accounts created, no login used, no forms submitted, no emails or direct messages sent, no social messages sent, no radio submissions made, no streaming or download links supplied, no tracks/audio/artwork/images/files uploaded or transferred, no CAPTCHA or human-verification controls handled or bypassed, no cookie choices accepted, no protected contacts decoded, no contacts guessed, no payment or subscription workflow started and no deliverability probing performed.
