@@ -18,6 +18,8 @@
 !assets/marcsmusic-logo-black.png
 !assets/marcsmusic-logo-white.png
 !assets/artist-portrait.jpg
+!assets/covers/
+!assets/covers/*.svg
 !data/
 !data/.gitkeep
 !data/*.csv
