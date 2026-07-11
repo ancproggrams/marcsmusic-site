@@ -280,6 +280,21 @@
       background: linear-gradient(180deg, transparent, color-mix(in oklch, var(--ink) 54%, transparent));
     }
 
+    .hero-media::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: clamp(180px, 29vw, 350px);
+      right: clamp(18px, 4vw, 52px);
+      width: clamp(116px, 16vw, 210px);
+      aspect-ratio: 1;
+      border: 1px solid color-mix(in oklch, var(--white) 70%, transparent);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, var(--pastel) 0 6%, transparent 6.5% 18%, color-mix(in oklch, var(--white) 56%, transparent) 18.5% 19%, transparent 19.5% 33%, color-mix(in oklch, var(--white) 42%, transparent) 33.5% 34%, transparent 34.5%);
+      box-shadow: 0 18px 50px color-mix(in oklch, var(--ink) 20%, transparent);
+    }
+
     .hero-logo {
       position: absolute;
       z-index: 1;
@@ -330,6 +345,12 @@
       display: grid;
       gap: 7px;
       justify-items: start;
+    }
+
+    .booking-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .booking-context {
@@ -845,7 +866,18 @@
       border-radius: var(--radius);
       background: var(--white);
       padding: 10px;
-      box-shadow: 12px 12px 0 var(--pastel);
+      box-shadow: 0 18px 48px color-mix(in oklch, var(--ink) 9%, transparent);
+    }
+
+    .social-section {
+      padding-top: clamp(42px, 6vw, 72px);
+      padding-bottom: clamp(42px, 6vw, 72px);
+      background: var(--pastel-muted);
+    }
+
+    .social-section .grid-two {
+      grid-template-columns: minmax(0, .72fr) minmax(280px, .58fr);
+      align-items: center;
     }
 
     .instagram-frame-header {
@@ -1232,10 +1264,16 @@
               Luister nu
             </a>
             <div class="booking-action">
-              <a class="button secondary" href="booking.html">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 3v3M17 3v3M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></svg>
-                Boek MarcsMusic
-              </a>
+              <div class="booking-buttons">
+                <a class="button secondary" href="booking.html">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 3v3M17 3v3M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/></svg>
+                  Boek MarcsMusic
+                </a>
+                <a class="button secondary" href="booking.html#booking-form">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M6 3.5h9l3 3V20H6V3.5Zm9 0V7h3M9 11h6M9 15h6"/></svg>
+                  Offerte aanvragen
+                </a>
+              </div>
               <p class="booking-context">DJ-set, event of studio-aanvraag</p>
             </div>
           </div>
@@ -1246,7 +1284,7 @@
             <img src="assets/marcsmusic-logo-black.png" alt="">
           </span>
           <span class="release-copy">
-            <span>Uitgelicht · nieuwste track</span>
+            <span>Start hier · nieuwste release</span>
             <strong>Curaçao (Radio Edit)</strong>
           </span>
           <span class="release-link" aria-hidden="true">Luister <span>→</span></span>
@@ -1325,12 +1363,12 @@
       </div>
     </section>
 
-    <section class="section" id="instagram" aria-labelledby="instagram-title">
+    <section class="section social-section" id="instagram" aria-labelledby="instagram-title">
       <div class="container grid-two">
         <div>
-          <p class="eyebrow">Instagram fotoframe</p>
-          <h2 id="instagram-title">Bekijk wat Marc deelt.</h2>
-          <p class="lead">Foto’s en updates blijven onderdeel van de site, zonder dat bezoekers de muziek of boekingsroute kwijtraken.</p>
+          <p class="eyebrow">Achter de muziek</p>
+          <h2 id="instagram-title">Volg Marc.</h2>
+          <p class="lead">Nieuwe muziek, studiobeelden en momenten achter MarcsMusic.</p>
         </div>
         <div class="instagram-frame">
           <div class="instagram-frame-header">
