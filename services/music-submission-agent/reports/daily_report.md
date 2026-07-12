@@ -1,19 +1,19 @@
 # Daily Report
 
-Date: 2026-07-12
+Date: 2026-07-13
 
-Latest run: Run 317
+Latest run: Run 318
 
 New items added: 3
 
-Pipeline estimate: 1601
+Pipeline estimate: 1604
 
 Items:
 
-- KZSU Stanford Music Submission Portal and Physical Mail
-- WCBN Hard-Copy Album Airplay Submission
-- KDVS Genre-Directed Physical Music Submission
+- KUTX On-Air Rotation and Electronic Specialty Submission
+- Fresh On The Net Weekly Listening Post Submission
+- WRIR Music Department Email Submission
 
 All items are marked needs_manual_review.
 
-Safety: no email, message, form or submission was sent; no track, album, CD, vinyl, file, streaming link, metadata, biography, artwork, rights declaration or consent was supplied; no cookie or secure portal session was accepted; no physical package, postage purchase or shipment was prepared; no protected email address was decoded; no CAPTCHA, anti-bot, human-verification or platform control was handled or bypassed; no payment workflow was started; no contact was guessed; and no SMTP/MX/deliverability probing was performed.
+Safety: no email, message, form or submission was sent; no track, audio file, WAV link, streaming link, biography, social profile, metadata, radio edit, attachment, rights declaration or consent was supplied; no protected email address was decoded; no submission window, CAPTCHA, anti-bot, human-verification, cookie, login or platform control was handled or bypassed; no paid promotion or payment workflow was started; no contact was guessed; and no SMTP/MX/deliverability probing was performed.
