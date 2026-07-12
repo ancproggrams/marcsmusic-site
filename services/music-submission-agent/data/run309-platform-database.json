@@ -1,0 +1,93 @@
+{
+  "run": 309,
+  "date": "2026-07-12",
+  "platforms": [
+    {
+      "name": "UKF Official First-Party Demo Submission Form",
+      "websiteUrl": "https://ukf.com/",
+      "submissionUrl": "https://ukf.com/submit-your-demo/",
+      "sourceUrl": "https://ukf.com/submit-your-demo/",
+      "sourceType": "automation_run_309_public_research",
+      "country": "United Kingdom / global bass-music label and media platform",
+      "language": "en",
+      "genres": [
+        "bass-music",
+        "drum-and-bass",
+        "dubstep",
+        "electronic",
+        "edm",
+        "label-demo",
+        "first-party-form",
+        "dynamic-form",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-ukf-or-pilot-demo-form",
+      "feeRequired": false,
+      "feeAmount": "UKF states that artists should use its official form for a possible UKF or Pilot label release and does not publish a submission fee on the reviewed page. Any live account, fee, credit or payment prompt must be confirmed before use.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "UKF explicitly authorizes demos through the first-party form for potential release on UKF or Pilot. The passively retrieved page did not expose the complete form fields, asset limits, rights declarations or runtime protections. A human must inspect the live form, choose the appropriate label and track, review every consent and cookie choice, and approve the final submission. The page says not to send demos to the support address.",
+      "notes": "Verified on 2026-07-12 from UKF's official Submit your Demo page and homepage. The demo page invites artists to submit music for a UKF or Pilot release through the form and explicitly excludes the support address as a demo route. The official homepage showed current releases dated 2026-07-08 and 2026-07-01 and describes UKF and Pilot as active bass-music labels. A cookie-consent interface was present. No form was submitted, no support contact was used and no track, file, link, metadata, rights declaration or cookie choice was supplied."
+    },
+    {
+      "name": "Circus Records Official LabelRadar Demo Route",
+      "websiteUrl": "https://circus-records.co.uk/",
+      "submissionUrl": "https://www.labelradar.com/labels/circusrecords/profile",
+      "sourceUrl": "https://circus-records.co.uk/about/",
+      "sourceType": "automation_run_309_public_research",
+      "country": "United Kingdom / global bass-music label family",
+      "language": "en",
+      "genres": [
+        "bass-music",
+        "dubstep",
+        "melodic-bass",
+        "electronic",
+        "dance",
+        "label-demo",
+        "labelradar",
+        "account-boundary",
+        "pricing-boundary",
+        "manual-review"
+      ],
+      "submissionMethod": "official-about-page-link-to-circus-labelradar-profile",
+      "feeRequired": false,
+      "feeAmount": "Circus Records states that demos are accepted only through LabelRadar. The official page does not state a mandatory submission fee; LabelRadar account, free-slot, credit and optional paid-route conditions must be checked in the live profile.",
+      "loginRequired": true,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Circus Records explicitly accepts demos only through its LabelRadar route for Circus Records and Circus Electric. LabelRadar is an account/session workflow and may present free-slot, credit or paid options. A human must sign in through the authorized platform, inspect current campaign availability, choose the correct imprint and track, verify rights and genre fit, and approve any credit or payment choice. The public info address is for questions and requests, not a substitute demo route.",
+      "notes": "Verified on 2026-07-12 from the official Circus Records About page and homepage. The About page says demos are accepted via LabelRadar only, links the Circus Records + Circus Electric profile, and publishes info@circus-records.co.uk as a general business contact. That address was validated as officially published but excluded as a demo mailbox. The site describes Circus as melodic dance-floor bass, Circus Electric as futuristic and emotional bass, and DPMO as aggressive bass, and displays a current Latest Releases section. The LabelRadar profile is dynamically loaded. No account, login, campaign, credit, payment, form, track or file was used."
+    },
+    {
+      "name": "Liquicity Records Official Label Engine Demo Form",
+      "websiteUrl": "https://liquicity.com/",
+      "submissionUrl": "https://liquicityrecords.label-engine.com/demos?embed=1",
+      "sourceUrl": "https://liquicity.com/demo/",
+      "sourceType": "automation_run_309_public_research",
+      "country": "Netherlands / global liquid drum-and-bass label and events platform",
+      "language": "en",
+      "genres": [
+        "drum-and-bass",
+        "liquid-drum-and-bass",
+        "electronic",
+        "label-demo",
+        "mp3-upload",
+        "external-form",
+        "dynamic-form",
+        "manual-review"
+      ],
+      "submissionMethod": "official-demo-page-link-to-liquicity-label-engine-form",
+      "feeRequired": false,
+      "feeAmount": "Liquicity directs all music submissions to its official Label Engine form and does not state a submission fee or payment requirement on the reviewed pages.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Liquicity's official demo page directs all music submissions to the external Label Engine form. The form requests artist name, real name, confirmed email, up to five MP3 tracks with titles, optional social profiles and a message. A human must choose and verify the tracks, personal and contact data, rights and metadata, inspect any live runtime validation or CAPTCHA not visible in the passive extraction, and approve the final upload.",
+      "notes": "Verified on 2026-07-12 from Liquicity's official demo, contact and homepage pages plus the authorized Label Engine form. Liquicity says every track is listened to but a response is not guaranteed. The form supports up to five MP3 uploads, requires artist name, real name and matching email fields, makes social profiles optional, and provides a message section. The official homepage lists 2026 releases and events including Liquicity Festival on 2026-07-24 to 2026-07-26. No form, upload, personal data, social account, message, track or file was supplied."
+    }
+  ]
+}
