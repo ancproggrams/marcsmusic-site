@@ -2,18 +2,18 @@
 
 Date: 2026-07-12
 
-Latest run: Run 306
+Latest run: Run 307
 
 New items added: 3
 
-Pipeline estimate: 1575
+Pipeline estimate: 1578
 
 Items:
 
-- Protocol Recordings Official LabelRadar Demo Drop Route
-- Revealed Recordings Account-Gated Official Demo Portal
-- Monstercat Official Uncaged Instinct and Silk LabelRadar Demo Portals
+- NoCopyrightSounds Official LabelRadar Demo Submission Route
+- STMPD RCRDS Official SoundCloud-Connected Demo Drop
+- Spinnin' Records Account-Gated Talent Pool Demo Platform
 
 All items are marked needs_manual_review.
 
-Safety: no emails, contact forms or demos were submitted; no LabelRadar or Revealed account, login, Spotify authorization or authenticated session was used; no tracks, private links, metadata, artwork or files were supplied; no exclusivity commitment, rights declaration, plan, subscription, checkout or payment was accepted; no cookie choice, CAPTCHA, honeypot, anti-bot or runtime protection was handled or bypassed; protected Monstercat addresses were not decoded; no contacts were guessed and no SMTP/MX/deliverability probing was performed.
+Safety: no emails, forms or demos were submitted; no NCS LabelRadar, STMPD, Spinnin or SoundCloud account, login, authorization or authenticated session was used; no tracks, SoundCloud links, metadata, artwork or files were supplied; no rights declaration, license, exclusive option, contract, credit, plan, checkout or payment was accepted; no cookie choice, CAPTCHA, voting mechanism, anti-bot or runtime protection was handled or bypassed; account-support, privacy and removal-request emails were not used as submission routes; no contacts were guessed and no SMTP/MX/deliverability probing was performed.
