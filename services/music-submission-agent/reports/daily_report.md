@@ -2,18 +2,18 @@
 
 Date: 2026-07-12
 
-Latest run: Run 299
+Latest run: Run 300
 
 New items added: 3
 
-Pipeline estimate: 1553
+Pipeline estimate: 1556
 
 Items:
 
-- Indie Music Center External Submit Music and Editorial Playlist Route
-- We Write About Music Scheduled Review Interview and Playlist Placement Route
-- It's All Indie External Multi-Curator Music Submission Route
+- Fresh On The Net Weekly Send Us A Track Route
+- KFAI Music Department and Music Library Email Route
+- WMNF Music Department Upload Form and Music Relations Email Route
 
 All items are marked needs_manual_review.
 
-Safety: no forms submitted, no emails or messages sent, no tracks, audio, biographies, metadata, artwork, files or links delivered, no external submission or booking session entered, no account or login used, no CAPTCHA solved, no adjacent dedication control used, no appointment selected, no cart or payment step opened, no contact guessed and no SMTP/MX/deliverability probing performed.
+Safety: no forms submitted, no emails or messages sent, no tracks, audio, biographies, metadata, artwork, files or links delivered, no closed submission window entered, no protected address decoded, no account or login used, no CAPTCHA solved, no newsletter honeypot used, no cookies accepted, no Cloudflare control bypassed, no payment step opened, no contact guessed and no SMTP/MX/deliverability probing performed.
