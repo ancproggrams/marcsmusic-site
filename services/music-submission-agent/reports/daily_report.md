@@ -2,18 +2,18 @@
 
 Date: 2026-07-12
 
-Latest run: Run 300
+Latest run: Run 301
 
 New items added: 3
 
-Pipeline estimate: 1556
+Pipeline estimate: 1559
 
 Items:
 
-- Fresh On The Net Weekly Send Us A Track Route
-- KFAI Music Department and Music Library Email Route
-- WMNF Music Department Upload Form and Music Relations Email Route
+- Radio Wigwam Basic Artist Submission Route
+- Lonely Oak Radio New Music Upload Route
+- Radio Airplay Free Account and Airplay Promotion Route
 
 All items are marked needs_manual_review.
 
-Safety: no forms submitted, no emails or messages sent, no tracks, audio, biographies, metadata, artwork, files or links delivered, no closed submission window entered, no protected address decoded, no account or login used, no CAPTCHA solved, no newsletter honeypot used, no cookies accepted, no Cloudflare control bypassed, no payment step opened, no contact guessed and no SMTP/MX/deliverability probing performed.
+Safety: no accounts created, no logins or social authorizations used, no forms submitted, no audio, artwork, biographies, metadata, files or links uploaded, no request verification bypassed, no protected contact decoded, no paid tier or promotion selected, no donation or payment initiated, no contact guessed and no SMTP/MX/deliverability probing performed.
