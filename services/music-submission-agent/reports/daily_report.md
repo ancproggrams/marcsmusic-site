@@ -2,18 +2,16 @@
 
 Date: 2026-07-12
 
-Latest run: Run 309
+Latest run: Run 310
 
-New items added: 3
+New items added: 1
 
-Pipeline estimate: 1584
+Pipeline estimate: 1585
 
 Items:
 
-- UKF Official First-Party Demo Submission Form
-- Circus Records Official LabelRadar Demo Route
-- Liquicity Records Official Label Engine Demo Form
+- Barong Family Protected Public Demo Email Route
 
 All items are marked needs_manual_review.
 
-Safety: no emails, forms or demos were submitted; no UKF, Circus, LabelRadar, Liquicity or Label Engine account, login, authorization or authenticated session was used; no tracks, MP3s, files, links, metadata, personal data, biographies, artwork, social profiles or messages were supplied; no rights declaration, license, campaign, credit, checkout or payment was accepted; no cookie choice, CAPTCHA, anti-bot or runtime protection was handled or bypassed; the Circus business email and UKF support route were not used as substitute demo routes; no contacts were guessed and no SMTP/MX/deliverability probing was performed.
+Safety: no email or demo was submitted; the protected Barong Family demo address was not decoded, guessed, copied into the dataset or probed; no track, audio, file, private link, metadata, biography, artwork or message was supplied; no account, login, payment, CAPTCHA, anti-bot or other protected workflow was used or bypassed; and no SMTP/MX/deliverability probing was performed.
