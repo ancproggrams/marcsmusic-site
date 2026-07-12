@@ -1,0 +1,63 @@
+{
+  "run": 307,
+  "date": "2026-07-12",
+  "platforms": [
+    {
+      "name": "NoCopyrightSounds Official LabelRadar Demo Submission Route",
+      "websiteUrl": "https://ncs.io/",
+      "submissionUrl": "https://www.labelradar.com/labels/ncs/portal",
+      "sourceUrl": "https://ncs.io/contact",
+      "sourceType": "automation_run_307_public_research",
+      "country": "United Kingdom / global electronic music label",
+      "language": "en",
+      "genres": ["electronic", "edm", "bass-music", "dubstep", "drum-and-bass", "future-bass", "house", "trap", "dance-pop", "label-demo", "labelradar", "manual-review"],
+      "submissionMethod": "official-contact-page-link-to-ncs-labelradar-demo-portal",
+      "feeRequired": false,
+      "feeAmount": "NCS does not state a demo-submission fee on its official contact page. Any current LabelRadar account requirement, optional plan, credit prompt or platform term must be confirmed in the live portal before use.",
+      "loginRequired": true,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "NCS authorizes demo submissions through its dedicated LabelRadar portal. The portal is dynamically loaded and requires a user-controlled LabelRadar session. A human must inspect the current fields and terms, confirm ownership and release status, select a suitable electronic track, approve all metadata and assets, and decline any unapproved paid option. General NCS enquiries are not an authorized substitute for the demo portal.",
+      "notes": "Verified on 2026-07-12 from the official NCS contact page, which explicitly labels the route as Demo Submissions and links to the NCS LabelRadar portal. The official NCS music library was active with releases listed as one day, two days and five days old and describes coverage across a broad range of electronic genres. The LabelRadar destination loaded as a dynamic portal. No account, login, form, file, track, metadata, social authorization, credit purchase or payment was used."
+    },
+    {
+      "name": "STMPD RCRDS Official SoundCloud-Connected Demo Drop",
+      "websiteUrl": "https://stmpdrcrds.com/",
+      "submissionUrl": "https://demo.stmpdrcrds.com/",
+      "sourceUrl": "https://stmpdrcrds.com/",
+      "sourceType": "automation_run_307_public_research",
+      "country": "Netherlands / global electronic dance label",
+      "language": "en",
+      "genres": ["electro-house", "progressive-house", "future-bass", "tech-house", "bass-music", "dance", "edm", "label-demo", "soundcloud-auth", "manual-review"],
+      "submissionMethod": "official-demo-drop-requiring-stmpd-account-and-soundcloud-connection",
+      "feeRequired": false,
+      "feeAmount": "No submission fee or payment requirement is stated on the public demo, terms or help pages.",
+      "loginRequired": true,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "The official route requires login and SoundCloud connection and accepts original demos only, excluding remixes and bootlegs. Its terms grant STMPD a non-exclusive, royalty-free, perpetual, worldwide and irrevocable right to store the demo and make it public during demo-drop listening sessions. A human must review and approve that license, verify the track has not been encumbered by another demo portal, inspect the live account form and consent choices, and approve the SoundCloud authorization and submission.",
+      "notes": "Verified on 2026-07-12 from the official STMPD homepage, Demo Drop, Terms of Use, Privacy and Cookie Policy and Help pages. The homepage listed a release dated 2026-07-03 and linked directly to demo.stmpdrcrds.com. The portal says original demo tracks only, no remixes or bootlegs, and uses SoundCloud for review. The terms state that no contract or license is requested at submission, but include a broad demo-storage and listening-session license and advise treating no reply within three months as a decline. The help page publishes admin@stmpdrcrds.com for account or platform problems only; privacy@stmpdrcrds.com is a privacy contact. Neither was classified as a demo mailbox. No account, login, SoundCloud authorization, cookie choice, form, upload or rights acceptance was performed."
+    },
+    {
+      "name": "Spinnin' Records Account-Gated Talent Pool Demo Platform",
+      "websiteUrl": "https://spinninrecords.com/",
+      "submissionUrl": "https://spinninrecords.com/talentpool/",
+      "sourceUrl": "https://spinninrecords.com/talentpool/",
+      "sourceType": "automation_run_307_public_research",
+      "country": "Netherlands / global dance and electronic label network",
+      "language": "en",
+      "genres": ["house", "dance", "edm", "techno", "trance", "electronic", "label-demo", "talent-pool", "soundcloud-link", "manual-review"],
+      "submissionMethod": "official-account-gated-talent-pool-using-soundcloud-track-links",
+      "feeRequired": false,
+      "feeAmount": "The official Talent Pool terms state that use is free of charge. A current account, SoundCloud and live terms review remain required before submission.",
+      "loginRequired": true,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "The live Talent Pool requires an account before demo submission. The published terms describe SoundCloud-link delivery, rights warranties, a platform-publication license, limited removal options and an exclusive four-month option for Spinnin to enter an exploitation agreement. Because the linked terms document is dated 2017 while the platform is active in 2026, a human must inspect the current live terms and account workflow, verify all rights and exclusivity conflicts, approve the SoundCloud link and metadata, and avoid automated voting or promotion.",
+      "notes": "Verified on 2026-07-12 from the official Spinnin Records homepage and Talent Pool. The live platform displayed current most-popular and latest-added tracks and explicitly said an account must be created before uploading a track. The official terms state that the platform is free, uses SoundCloud links and prohibits bots or automated scripts. They also describe rights warranties, a limited non-exclusive platform license, an exclusive four-month option and a removal-request address. The terms PDF is labelled 1-2017, so its provisions were recorded as a mandatory live re-verification boundary rather than assumed current without review. The removal address was not classified as a submission route. No account, login, SoundCloud session, vote, form, track, rights acceptance, cookie choice or payment was used."
+    }
+  ]
+}
