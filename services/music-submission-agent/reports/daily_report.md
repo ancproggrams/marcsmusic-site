@@ -2,20 +2,20 @@
 
 Date: 2026-07-12
 
-Latest run: Run 297
+Latest run: Run 298
 
 New items added: 5
 
-Pipeline estimate: 1545
+Pipeline estimate: 1550
 
 Items:
 
-- IndieXL Official New Single 320kbps MP3 Upload Form Route
-- KANM Student Radio Official Artist Submission Google Form Route
-- KZUU 90.7 FM Official Music-by-Mail and Band Contact Route
-- KWVA 88.1 FM Official Demo and Music Donation Physical Route
-- KCOU 88.1 FM Official New-Submitter Music Director and Physical Review Route
+- CFRC 101.9 FM Kingston Digital MP3 Email and Physical Music Submission Route
+- JOY 94.9 Melbourne Stream-Link Email and Physical Music Submission Route
+- 2XXfm 98.3 Canberra Global Download-Link Music Submission Form
+- Cam FM 97.2 Cambridge Direct Head of Music Email Submission Route
+- University Radio Nottingham Artist Collaboration Pre-Submission Inquiry Route
 
 All items are marked needs_manual_review.
 
-Safety: no forms submitted, no emails, calls or messages made, no audio, metadata, biographies, EPKs, files or links delivered, no Google Form or other external session used, no CAPTCHA, cookie, anti-spam, login or payment control handled, no protected or obfuscated contact decoded, no physical package prepared, no contact guessed and no SMTP/MX/deliverability probing performed.
+Safety: no forms submitted, no emails or messages sent, no audio, biographies, metadata, artwork, files or stream/download links delivered, no CAPTCHA solved, no hidden validation field manipulated, no protected contact decoded, no account or login used, no optional !earshot purchase or payment started, no physical package prepared, no contact guessed and no SMTP/MX/deliverability probing performed.
