@@ -1,0 +1,63 @@
+{
+  "run": 304,
+  "date": "2026-07-12",
+  "platforms": [
+    {
+      "name": "LoudKult Official Demo Drop Route",
+      "websiteUrl": "https://www.loudkult.com/",
+      "submissionUrl": "https://www.loudkult.com/demo-drop",
+      "sourceUrl": "https://www.loudkult.com/demo-drop",
+      "sourceType": "automation_run_304_public_research",
+      "country": "Sweden / Stockholm-based global artist-development and electronic-pop label",
+      "language": "en",
+      "genres": ["electronic", "dance-pop", "house", "pop", "edm", "label-demo", "dynamic-form", "free-first", "manual-review"],
+      "submissionMethod": "official-loudkult-demo-drop-page-and-dynamic-form",
+      "feeRequired": false,
+      "feeAmount": "No demo-submission fee or payment requirement is stated on the accessible official Demo Drop page. Any live pricing or service option must be checked manually before use.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "LoudKult publishes an official Submit Your Demo page, but the passive page extraction does not expose the complete embedded form, required fields, upload or link rules, rights declarations, privacy text, login state or runtime protections. A human must inspect the live workflow and approve the track, metadata, ownership and every declaration before entering data.",
+      "notes": "Verified on 2026-07-12 from LoudKult official homepage, Demo Drop, artist roster and contact pages. The official site repeatedly links the Demo Drop and displays an established artist roster. recruitment@loudkult.com is publicly published only for careers and is not classified or used as a demo route. No form, account, email, upload, CAPTCHA or payment action was performed."
+    },
+    {
+      "name": "Seeking Blue and MrSuicideSheep Official District Submission Portal",
+      "websiteUrl": "https://seeking.blue/",
+      "submissionUrl": "https://mrsuicidesheep.portal.district.biz/",
+      "sourceUrl": "https://seeking.blue/submit",
+      "sourceType": "automation_run_304_public_research",
+      "country": "Canada / global indie-electronic label and MrSuicideSheep curator ecosystem",
+      "language": "en",
+      "genres": ["indie-electronic", "melodic-bass", "future-bass", "ambient", "chill", "electronic-pop", "youtube-curator", "district-portal", "manual-review"],
+      "submissionMethod": "official-seeking-blue-mrsuicidesheep-district-submission-portal",
+      "feeRequired": false,
+      "feeAmount": "No fee or payment requirement is displayed on the accessible official Seeking Blue or MrSuicideSheep routes. The dynamic District portal must be inspected live for current account, pricing or service boundaries.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Both the official Seeking Blue Submit link and MrSuicideSheep official Submit Music link resolve to a dynamically rendered District portal that exposes only a loading shell in passive inspection. A human must review current fields, account or session requirements, privacy terms, track-link or upload rules, rights declarations, any CAPTCHA and any payment option before sharing music.",
+      "notes": "Verified on 2026-07-12 from the official Seeking Blue site, its Submit and artist-roster pages, the official MrSuicideSheep website and its official Linktree. Seeking Blue identifies itself as an electronic record label born from MrSuicideSheep, and both official surfaces route music to the same District portal. The roster covers melodic bass, future bass, ambient and indie-electronic artists. No portal session, account, form, upload, email, CAPTCHA or payment was used."
+    },
+    {
+      "name": "Mesmerized Editorial Platforms and Supported Content Route",
+      "websiteUrl": "https://www.mesmerized.io/",
+      "submissionUrl": "https://www.mesmerized.io/music-pitches/",
+      "sourceUrl": "https://www.mesmerized.io/music-pitches/",
+      "sourceType": "automation_run_304_public_research",
+      "country": "United Kingdom / global multi-genre independent music publication",
+      "language": "en",
+      "genres": ["multi-genre", "indie", "pop", "electronic", "alternative", "music-publication", "editorial-submission", "supported-content", "manual-review"],
+      "submissionMethod": "official-editorial-platform-routes-with-optional-paid-supported-content",
+      "feeRequired": false,
+      "feeAmount": "The editorial path is routed through major submission platforms and no direct editorial fee is stated on the page. Optional supported content costs GBP 10 to GBP 15 and promises a branded article plus social activation; the final booking and payment terms require manual approval.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Mesmerized explicitly offers two routes: editorial submissions through major submission platforms and optional donation-supported content booked through Calendly. It rejects unsolicited email and Instagram DM pitches. A human must choose editorial versus paid supported content, inspect the live external links, account, credit, booking, asset, disclosure and payment terms, and approve the track and publication fit.",
+      "notes": "Verified on 2026-07-12 from Mesmerized official homepage and Music Pitches page. The publication describes a multi-genre editorial scope and published a dated article on 2026-07-02, confirming current activity. The official page states supported content costs GBP 10-15 and includes an article and Instagram activation. No email, DM, submission platform, Calendly booking, asset upload, account, CAPTCHA or payment was used."
+    }
+  ]
+}
