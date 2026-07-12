@@ -1,0 +1,38 @@
+import type { PlatformInput } from '../models/types.js';
+
+export const run311SeedPlatforms: PlatformInput[] = [
+  {
+    name: 'Sinusoidal Music Direct Editorial Submission Form',
+    websiteUrl: 'https://sinusoidalmusic.com/',
+    submissionUrl: 'https://sinusoidalmusic.com/contact/',
+    sourceUrl: 'https://sinusoidalmusic.com/contact/',
+    sourceType: 'automation_run_311_public_research',
+    country: 'Global / independent music media, editorial and marketing platform',
+    language: 'en',
+    genres: [
+      'sinusoidal-music',
+      'music-blog',
+      'editorial-review',
+      'electronica',
+      'downtempo',
+      'edm',
+      'instrumental',
+      'experimental',
+      'pop',
+      'r-and-b',
+      'hip-hop',
+      'public-form',
+      'dynamic-form',
+      'manual-review'
+    ],
+    submissionMethod: 'official-first-party-editorial-music-submission-form-with-optional-paid-side-routes',
+    feeRequired: false,
+    feeAmount: 'No mandatory fee is displayed for the first-party submission form. Sinusoidal Music separately offers paid Meta advertising, playlist-submission and Musosoup routes; those commercial side routes are optional and require separate human approval.',
+    loginRequired: false,
+    captchaDetected: false,
+    paymentRequired: false,
+    manualReviewRequired: true,
+    manualReviewReason: 'Sinusoidal Music explicitly directs artists to its first-party Music Submissions/contact page and promotes the form as a route for song or album coverage, but the complete form fields, consent language, asset requirements and runtime challenge state are not exposed in passive retrieval. A human must inspect the live form, distinguish the direct editorial route from paid Meta ads, playlist and Musosoup options, confirm track and genre fit, review any promotional-disclosure or rights language, and approve all artist data, links and final submission. No public email should be guessed or used as a substitute.',
+    notes: 'Verified on 2026-07-12 from the official Sinusoidal Music website and its official Linktree. The website navigation labels the route Music Submissions, the contact page says artists can submit for song or album coverage, and the official Linktree separately lists direct music submission, playlist submission, Musosoup and paid Meta-ad routes. The publication remained active with an electronic-pop review dated 2026-06-23 and currently displays EDM, electronica/downtempo, instrumental, experimental, pop and R&B/hip-hop coverage. No purpose-specific public submission email was exposed. No form, account, email, message, track link, audio, artwork, EPK, cookie choice, challenge or payment workflow was used.'
+  }
+];
