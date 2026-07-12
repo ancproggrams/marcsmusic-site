@@ -1,0 +1,38 @@
+{
+  "run": 312,
+  "date": "2026-07-12",
+  "platforms": [
+    {
+      "name": "When The Horn Blows Direct Editorial Email Routes",
+      "websiteUrl": "https://whenthehornblows.com/",
+      "submissionUrl": "https://whenthehornblows.com/about",
+      "sourceUrl": "https://whenthehornblows.com/about",
+      "sourceType": "automation_run_312_public_research",
+      "country": "United Kingdom / London-based global music website",
+      "language": "en",
+      "genres": [
+        "all-genres",
+        "indie",
+        "folk",
+        "singer-songwriter",
+        "rock",
+        "electronic-pop",
+        "single-review",
+        "album-review",
+        "artist-feature",
+        "music-news",
+        "public-business-email",
+        "manual-review"
+      ],
+      "submissionMethod": "official-purpose-segmented-public-editorial-email-routes",
+      "feeRequired": false,
+      "feeAmount": "No submission fee or mandatory paid route is stated on the official About/Contact page. The separate Donate navigation item is not part of the editorial submission route.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "When The Horn Blows publishes separate purpose-labelled editorial mailboxes: Anthony Adams for live content, photography, artist features and album reviews, and assistant editors Dave Beach, Laura Rosierse and Matthew Caslin for track reviews or news. A human must select exactly one appropriate recipient, confirm that the chosen MarcsMusic release fits the publication and requested coverage type, prepare a concise non-duplicative pitch, verify streaming and download-link permissions, and approve all final metadata and assets. Do not mass-email the team or use the recruitment mailbox.",
+      "notes": "Verified on 2026-07-12 from the official When The Horn Blows About/Contact page. The official page publicly lists anthony@whenthehornblows.com for live content, photography, artist features and album reviews; dave@whenthehornblows.com, Laura@whenthehornblows.com and matt@whenthehornblows.com for track reviews or news; and wow@whenthehornblows.com only for joining the team, which is excluded from music outreach. Publication purpose, syntax and same-domain ownership were confirmed from the first-party page; no SMTP, MX or mailbox-level deliverability probe was performed. The site states that it is open to all genres and mainly covers Indie, Folk, Singer-Songwriter, Rock and Electronic pop. Current activity was verified from first-party posts dated 2026-07-06 and multiple features dated 2026-06-29. No email, message, track link, audio, artwork, EPK, biography or file was sent, and no login, CAPTCHA, payment or anti-bot workflow was used."
+    }
+  ]
+}
