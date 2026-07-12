@@ -1,0 +1,63 @@
+{
+  "run": 305,
+  "date": "2026-07-12",
+  "platforms": [
+    {
+      "name": "Illustrate Magazine Public Music Submission Email Route",
+      "websiteUrl": "https://illustratemagazine.com/",
+      "submissionUrl": "mailto:contact@illustratemagazine.com",
+      "sourceUrl": "https://illustratemagazine.com/contact/",
+      "sourceType": "automation_run_305_public_research",
+      "country": "Global / independent multi-genre online music magazine",
+      "language": "en",
+      "genres": ["electronic", "edm", "pop", "indie", "hip-hop", "rnb", "rock", "world-music", "editorial-review", "public-email", "manual-review"],
+      "submissionMethod": "official-public-music-submission-email-with-streaming-links-and-press-assets",
+      "feeRequired": false,
+      "feeAmount": "No music-submission fee or payment requirement is stated in the official submission guidelines.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Illustrate Magazine authorizes music submissions by email and requests an artist introduction or EPK, streamable links, high-resolution promotional images, cover artwork and official social links while prohibiting heavy MP3 or WAV attachments. A human must select the release, verify rights and link accessibility, prepare the editorial pitch and approve every asset before sending.",
+      "notes": "Verified on 2026-07-12 from the official Illustrate Magazine homepage and contact page. contact@illustratemagazine.com is publicly identified as the primary inbox for music submissions and interview pitches. The publication posted multiple reviews dated 2026-07-10 and 2026-07-11, including EDM coverage. A cookie-consent notice is present. No email was sent, no files or links were delivered, no cookie choice was accepted and no SMTP/MX probing was performed."
+    },
+    {
+      "name": "The Wild Is Calling Official SubmitHub Music and Playlist Route",
+      "websiteUrl": "https://thewildiscallingus.com/",
+      "submissionUrl": "https://sbmt.to/the-wild-is-calling",
+      "sourceUrl": "https://thewildiscallingus.com/contact/",
+      "sourceType": "automation_run_305_public_research",
+      "country": "United States / Philadelphia-based global independent music blog and playlist curator",
+      "language": "en",
+      "genres": ["indie-rock", "indie-pop", "synthwave", "trip-hop", "electronic", "hip-hop", "playlist-submission", "submithub", "manual-review"],
+      "submissionMethod": "official-public-submithub-editorial-and-playlist-submission-route",
+      "feeRequired": false,
+      "feeAmount": "The official site does not state a direct fee. SubmitHub account, free-credit availability, premium-credit pricing and curator terms must be confirmed in the live platform before use.",
+      "loginRequired": true,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "The Wild Is Calling explicitly routes new music and playlist pitches to its SubmitHub destination. SubmitHub requires a user-controlled account or session and may present free versus premium credits, payment options, campaign choices and platform terms. A human must confirm the current route, select the correct track and playlist fit, approve the pitch and decline any unapproved paid option.",
+      "notes": "Verified on 2026-07-12 from the official homepage and Contact page. The site describes a Philadelphia-based blog covering indie rock, indie pop, synthwave, trip-hop and related music and publishes active new-music discovery posts. The Contact page explicitly links the authorized SubmitHub route. WordPress cookie and login surfaces are adjacent but were not used. No SubmitHub session, account, credit, payment, form, track link or cookie action was used."
+    },
+    {
+      "name": "TJPL News Global Editorial Music Submission Email Route",
+      "websiteUrl": "https://www.tjplnews.com/",
+      "submissionUrl": "mailto:editorial@tjplnews.com",
+      "sourceUrl": "https://www.tjplnews.com/submissions",
+      "sourceType": "automation_run_305_public_research",
+      "country": "United Kingdom / global independent music magazine network",
+      "language": "en",
+      "genres": ["electronic", "dance", "pop", "hip-hop", "rap", "rnb", "afrobeat", "indie", "rock", "world-music", "editorial-review", "public-email", "manual-review"],
+      "submissionMethod": "official-public-editorial-email-with-streaming-links-press-assets-and-rights-declaration",
+      "feeRequired": false,
+      "feeAmount": "The rolling editorial email route is presented without a submission fee. Separate sponsored advertorial, artist-profile and commercial services are adjacent and must not be confused with the free editorial route.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "TJPL News requests artist and release details, stream or private links, a bio, high-resolution images, artwork and contact information through editorial@tjplnews.com. Submission grants a non-exclusive licence to use supplied materials if coverage is agreed and requires rights and accuracy confirmations. A human must review the licence, ownership, assets, three-week lead-time guidance and editorial-versus-sponsored distinction before sending.",
+      "notes": "Verified on 2026-07-12 from the official submissions and news pages. editorial@tjplnews.com is publicly designated for music submissions, with a specified subject-line format. The site published 2026 news and magazine content through 2026-06-01 and describes rolling review. The separate sponsored advertorial form and commercial artist-profile service were observed but excluded from the primary route. No email, form, physical submission, asset, streaming link, account or payment workflow was used, and no SMTP/MX probing was performed."
+    }
+  ]
+}
