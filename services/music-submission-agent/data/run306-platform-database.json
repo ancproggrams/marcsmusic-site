@@ -1,0 +1,63 @@
+{
+  "run": 306,
+  "date": "2026-07-12",
+  "platforms": [
+    {
+      "name": "Protocol Recordings Official LabelRadar Demo Drop Route",
+      "websiteUrl": "https://protocol-recordings.com/",
+      "submissionUrl": "https://www.labelradar.com/labels/protocolrecordings/portal",
+      "sourceUrl": "https://protocol-recordings.com/demo/",
+      "sourceType": "automation_run_306_public_research",
+      "country": "Netherlands / global electronic dance label",
+      "language": "en",
+      "genres": ["progressive-house", "electro-house", "mainstage", "dance", "edm", "label-demo", "labelradar", "manual-review"],
+      "submissionMethod": "official-labelradar-demo-widget-and-portal-for-unsigned-original-production",
+      "feeRequired": false,
+      "feeAmount": "Protocol does not state a demo-submission fee on its official demo page. Any current LabelRadar account, plan, optional upgrade or platform term must be confirmed in the live portal before use.",
+      "loginRequired": true,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Protocol accepts demos only through its embedded LabelRadar widget or the linked official LabelRadar portal. The track must be an unsigned original production, not a bootleg, mash-up or promo, and must be offered exclusively to Protocol for up to 30 days. A human must sign in, confirm the live portal fields and terms, verify exclusivity and ownership, select the correct production and approve the upload. No alternate business mailbox may be used.",
+      "notes": "Verified on 2026-07-12 from Protocol Recordings official homepage, demo page and contact page. The site shows an active 2026 release catalogue, including Like Home (Remixes 2026), and explicitly states that the team listens only to demos submitted through the displayed widget or official LabelRadar link. The contact page publishes separate press, licensing/sync and event addresses; the licensing address explicitly rejects other inquiries, so none were classified as demo routes. An adjacent newsletter honeypot was observed but was not part of the demo route. No account, form, upload, email, exclusivity commitment, cookie choice or payment was used."
+    },
+    {
+      "name": "Revealed Recordings Account-Gated Official Demo Portal",
+      "websiteUrl": "https://www.revealedrecordings.com/",
+      "submissionUrl": "https://www.revealedrecordings.com/demo",
+      "sourceUrl": "https://www.revealedrecordings.com/demo",
+      "sourceType": "automation_run_306_public_research",
+      "country": "Netherlands / global electronic dance label and artist platform",
+      "language": "en",
+      "genres": ["big-room", "mainstage", "progressive-house", "bass-house", "tech-house", "trance", "dance-pop", "edm", "account-gated-demo", "manual-review"],
+      "submissionMethod": "official-demo-page-redirecting-to-revealed-account-sign-in",
+      "feeRequired": false,
+      "feeAmount": "No demo-submission fee is stated before sign-in. The site has a separate optional Pro subscription and paid store products, which must not be assumed to be required for demo submission.",
+      "loginRequired": true,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "The public Demo navigation redirects to the official Revealed sign-in page and also offers Spotify account connection. The actual demo fields, upload limits, declarations, rights terms and any plan restrictions are unavailable without an authenticated user-controlled session. A human must sign in or create an account, decline unapproved social authorization or paid upgrades, inspect the live terms and approve the track and assets before submission.",
+      "notes": "Verified on 2026-07-12 from the official Revealed Recordings homepage and demo redirect. The homepage lists current releases and pre-releases with availability windows extending into August 2026, confirming active operations. The demo URL redirects to /login?return=%2Fdemo and presents email/password sign-in plus optional Spotify connection. No public demo email was identified. The adjacent Pro subscription and store pricing were recorded only as optional paid boundaries, not as submission requirements. No account, Spotify authorization, login, form, upload, subscription or payment was used."
+    },
+    {
+      "name": "Monstercat Official Uncaged Instinct and Silk LabelRadar Demo Portals",
+      "websiteUrl": "https://www.monstercat.com/",
+      "submissionUrl": "https://www.labelradar.com/labels/monstercat/portal",
+      "sourceUrl": "https://www.monstercat.com/contact-us",
+      "sourceType": "automation_run_306_public_research",
+      "country": "Canada / United States / global electronic music label",
+      "language": "en",
+      "genres": ["bass-music", "dubstep", "drum-and-bass", "electronic", "dance-pop", "future-bass", "progressive-house", "trance", "chill", "label-demo", "labelradar", "manual-review"],
+      "submissionMethod": "official-brand-specific-labelradar-portals-for-uncaged-instinct-and-silk",
+      "feeRequired": false,
+      "feeAmount": "Monstercat does not state a demo-submission fee on its official contact page. Any LabelRadar account requirement, optional plan or platform pricing must be checked in the live portals.",
+      "loginRequired": true,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Monstercat states that every submitted demo is heard and links separate official LabelRadar routes for Uncaged, Instinct and Silk. A human must choose the correct brand for the track, sign in to LabelRadar, verify original-work ownership and current portal declarations, review any account or pricing prompts and approve the upload. The general support, press, event and contact-form routes are not authorized substitutes for demo submission.",
+      "notes": "Verified on 2026-07-12 from Monstercat official homepage and Contact Us page. The homepage lists releases dated 2026-07-10 and 2026-07-03, confirming current activity. The Contact Us page explicitly links Uncaged/Instinct and Silk LabelRadar portals and says the label listens to every submitted demo. General support, press and event emails are Cloudflare-protected on the official page; they were not decoded and were excluded as demo routes. A general contact form and cookie-consent banner are adjacent. No cookie choice, account, login, form, demo, file, email or payment was used."
+    }
+  ]
+}
