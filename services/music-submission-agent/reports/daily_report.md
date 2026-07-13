@@ -2,21 +2,21 @@
 
 Date: 2026-07-13
 
-Latest run: Run 338
+Latest run: Run 339
 
 New items added: 2
 
-Pipeline estimate: 1647
+Pipeline estimate: 1649
 
 Items:
 
-- WREK Atlanta Official Music Submission Route
-- KVRX 91.7 FM Official Music Submission Route
+- WPRB 103.3 FM Official Music Submission Route
+- WCBN-FM Official Physical Music Submission Route
 
 All items are marked needs_manual_review.
 
-Deduplication note: the active dataset was searched for both station names, domains, official submission pages and dedicated music mailboxes. No existing WREK or KVRX route record was found. Each station was added once, with email and physical paths consolidated to prevent duplicate outreach.
+Deduplication note: the active dataset was searched for both station names, domains, official submission pages and the visible WPRB music mailbox. No existing WPRB or WCBN route record was found. Each station was added once, with all authorized delivery paths consolidated to prevent duplicate outreach.
 
-Eligibility note: KVRX explicitly rejects AI-assisted and AI-generated music. The route may only proceed after a human confirms that the selected MarcsMusic track contains no AI-assisted or AI-generated elements; otherwise it must be closed as ineligible.
+Manual-review note: WPRB accepts email and postal submissions but prioritizes physical media. WCBN accepts hard-copy albums, preferably CD or vinyl. WCBN's Music Directors email remains protected by Cloudflare and was not decoded, guessed, stored or used.
 
-Safety: No email or music submission was sent; no package, track, stream, download, attachment, biography, press material, metadata, rights declaration, consent or personal data was supplied; no login, CAPTCHA, anti-spam, payment or platform restriction was entered or bypassed; no contact was guessed; and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Safety: No email or music submission was sent; no package, track, stream, download, attachment, physical medium, biography, press material, metadata, rights declaration, consent or personal data was supplied; no login, CAPTCHA, email-protection, anti-spam, payment or platform restriction was entered or bypassed; no contact was guessed; and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
