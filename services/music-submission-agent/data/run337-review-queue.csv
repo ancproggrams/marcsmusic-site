@@ -1,0 +1,2 @@
+run,platform,submission_url,status,manual_review_reason
+337,Eatbrain Official Demo Email Route,mailto:mailstoeatbrain@gmail.com,needs_manual_review,"Eatbrain explicitly accepts demos at mailstoeatbrain@gmail.com with the subject 'DEMO' and either a download link or private SoundCloud link. A human must select a genre-appropriate track, verify ownership and release status, approve the private or downloadable link and any personal data, prepare the email, reconfirm the published address and send it manually. The separate booking address is not authorized for demo delivery."
