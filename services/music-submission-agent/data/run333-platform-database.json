@@ -1,0 +1,42 @@
+{
+  "run": 333,
+  "date": "2026-07-13",
+  "platforms": [
+    {
+      "name": "Dancing Astronaut Official Track Promo and Submission Email Route",
+      "websiteUrl": "https://dancingastronaut.com/",
+      "submissionUrl": "mailto:music@wordpress-980886-3437349.cloudwaysapps.com",
+      "sourceUrl": "https://dancingastronaut.com/contact/",
+      "sourceType": "automation_run_333_public_research",
+      "country": "United States / global EDM, house, techno, bass, trap, dubstep and electronic publication",
+      "language": "en",
+      "genres": [
+        "dancing-astronaut",
+        "electronic",
+        "edm",
+        "house",
+        "deep-house",
+        "tech-house",
+        "techno",
+        "trap",
+        "dubstep",
+        "bass-music",
+        "uk-garage",
+        "uk-bass",
+        "editorial-submission",
+        "track-promo",
+        "direct-public-email",
+        "manual-review"
+      ],
+      "submissionMethod": "official-public-purpose-specific-track-promo-and-submission-email",
+      "feeRequired": false,
+      "feeAmount": "No editorial submission fee, account, login, CAPTCHA or mandatory payment is stated for the official email route. Advertising and general-contact addresses are separate and are not submission routes.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Dancing Astronaut publicly directs track promos and submissions exclusively to music@wordpress-980886-3437349.cloudwaysapps.com, but the page does not publish complete rules for accepted links or attachments, release windows, rights declarations, AI-origin disclosure, submission frequency or response timing. The contact page itself is dated 2018 even though it remains live on an active 2026 publication. A human must therefore confirm the route is still suitable at send time, select a strongly fitting MarcsMusic track, prepare an authorized private stream or stable download link, approve the pitch, metadata and personal data, and send the email manually.",
+      "notes": "Verified on 2026-07-13 from Dancing Astronaut's official contact page and homepage. The contact page explicitly labels music@wordpress-980886-3437349.cloudwaysapps.com for Track Promos & Submission and states that submissions sent to other addresses will not be accepted. The same page separately publishes advertising and general-contact addresses; neither was queued for music delivery. Although the contact page shows a last-updated date of 2018, the official homepage and footer remain active in 2026, with content dated through 2026-07-12 and current coverage of EDM, house, techno, bass, trap, dubstep, UK garage and experimental electronic music. The submission address has valid syntax and an expressly published business purpose, but uses the site hosting domain rather than dancingastronaut.com; this is recorded transparently. The login prompt on the page applies only to posting comments and is not part of the email submission route. No address was inferred or guessed, and no SMTP, MX, catch-all, mailbox-level or deliverability probe was performed. No email, track, link, attachment, biography, press material, metadata or personal data was prepared or sent."
+    }
+  ]
+}
