@@ -2,18 +2,18 @@
 
 Date: 2026-07-13
 
-Latest run: Run 329
+Latest run: Run 330
 
 New items added: 3
 
-Pipeline estimate: 1631
+Pipeline estimate: 1634
 
 Items:
 
-- NoCopyrightSounds (NCS) Official LabelRadar Demo Submission Route
-- UKF / Pilot First-Party Bass Music Demo Form Route
-- Gravitas Recordings First-Party Unreleased Demo Submission Form Route
+- Liquicity Records Official Label Engine Demo Upload Route
+- Circus Records / Circus Electric Official LabelRadar Demo Route
+- Monstercat Uncaged / Instinct / Silk Official LabelRadar Demo Routes
 
 All items are marked needs_manual_review.
 
-Safety: No email, form, demo or submission was sent; no account was created or used; no LabelRadar login, credit or pricing workflow was entered; no SoundCloud playlist, track, file, link, artwork, biography, metadata, rights declaration or personal data was supplied; no CAPTCHA, cookie, anti-spam, anti-bot, payment or platform restriction was bypassed; no contact was guessed; and no SMTP/MX/deliverability probing was performed.
+Safety: No email, form, demo or submission was sent; no account was created or used; no LabelRadar or Label Engine login, credit, pricing or upload workflow was entered; no MP3, track, link, artwork, biography, metadata, rights declaration, consent or personal data was supplied; no cookie choice, CAPTCHA, anti-spam, anti-bot, payment or platform restriction was bypassed; no protected contact was decoded; and no SMTP/MX/deliverability probing was performed.
