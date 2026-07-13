@@ -1,0 +1,67 @@
+import type { PlatformInput } from '../models/types.js';
+
+export const run340SeedPlatforms: PlatformInput[] = [
+  {
+    "name": "RTRFM 92.1 Official Music Submission Form",
+    "websiteUrl": "https://rtrfm.com.au/",
+    "submissionUrl": "https://rtrfm.com.au/submit-your-music/",
+    "sourceUrl": "https://rtrfm.com.au/submit-your-music/",
+    "sourceType": "automation_run_340_public_research",
+    "country": "Australia / Perth, Western Australia / independent community radio accepting overseas submissions",
+    "language": "en",
+    "genres": [
+      "electronic",
+      "dance",
+      "beats",
+      "experimental",
+      "ambient",
+      "reggae",
+      "dub",
+      "world-music",
+      "independent-radio",
+      "community-radio",
+      "airplay-submission",
+      "manual-review"
+    ],
+    "submissionMethod": "official-first-party-music-submission-form-with-protected-email-alternative",
+    "feeRequired": false,
+    "feeAmount": "No submission fee, account, login or mandatory payment is stated. The first-party form contains an anti-spam validation field and must be completed manually.",
+    "loginRequired": false,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "RTRFM's official first-party form requests required personal and artist details, location including an Overseas option, optional biography upload, social and gig information, a music stream link and a free download link. It also contains a validation field that must remain untouched. A human must select the release, confirm rights and release timing, provide a downloadable WAV or high-quality MP3 link, approve any personal data and file upload, leave the anti-spam field blank and perform the final submission. Cloudflare-protected submission and Music Director email links were not decoded or stored.",
+    "notes": "Verified on 2026-07-13 from RTRFM's official first-party submission and current-content pages. RTRFM invites latest or upcoming releases, recommends submission about two weeks before release, accepts downloadable WAV or high-quality MP3 links through services such as Google Drive, Dropbox, SoundCloud or Bandcamp, and says not to attach audio to email. The form supports overseas artists. Physical copies are optional but must accompany a free digital email submission and are not an automated route. Two purpose-bound music contacts are displayed through Cloudflare email protection; neither was decoded, guessed, stored or used. Current activity was confirmed by weekly featured music, events through 18 July 2026 and stories published 7–10 July 2026. No form field was completed and no music, file, link or personal data was submitted."
+  },
+  {
+    "name": "PBS 106.7FM Official International Music Submission Form",
+    "websiteUrl": "https://www.pbsfm.org.au/",
+    "submissionUrl": "https://www.pbsfm.org.au/submitmusic",
+    "sourceUrl": "https://www.pbsfm.org.au/submitmusic",
+    "sourceType": "automation_run_340_public_research",
+    "country": "Australia / Melbourne, Victoria / community radio accepting local and international acts",
+    "language": "en",
+    "genres": [
+      "electronic",
+      "experimental",
+      "downtempo",
+      "world-music",
+      "reggae",
+      "dub",
+      "roots",
+      "independent-radio",
+      "community-radio",
+      "airplay-submission",
+      "manual-review"
+    ],
+    "submissionMethod": "official-first-party-digital-form-with-captcha-and-optional-physical-delivery",
+    "feeRequired": false,
+    "feeAmount": "No submission fee, account, login or mandatory payment is stated. The official digital form contains CAPTCHA human verification and must be completed manually.",
+    "loginRequired": false,
+    "captchaDetected": true,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "PBS explicitly welcomes local and international acts through its preferred digital submission form. The form requires identity and location information, a high-quality download link and CAPTCHA completion; it also contains a leave-blank anti-spam field. A human must choose a suitable MarcsMusic release, verify rights and broadcast suitability, use a 320 kbps AAC/MP3 or WAV-equivalent download, avoid Spotify and Deezer stream links, approve personal data and optional newsletter consent, leave the anti-spam field blank, complete the CAPTCHA and submit manually. Optional CD or vinyl delivery must not be automated.",
+    "notes": "Verified on 2026-07-13 from PBS 106.7FM's official first-party submission, homepage and contact pages. PBS states that it loves receiving new music from local and international acts and prefers the digital form. The form accepts SoundCloud, YouTube or Bandcamp streams but excludes Spotify and Deezer links, and requires a high-quality 320 kbps AAC/MP3 or WAV-equivalent download. Optional CD or vinyl packages may be posted or delivered in person; PBS recommends four to five copies and a one-page press release or bio. The separate general contact form offers a Music Department category but is not used as a substitute submission route and also has CAPTCHA. Current activity was confirmed through 2026 feature music, news, live sessions and scheduled events extending from July through November 2026. No form field, CAPTCHA, package, file, link or personal data was submitted."
+  }
+];
