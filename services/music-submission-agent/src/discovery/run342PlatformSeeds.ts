@@ -1,0 +1,69 @@
+import type { PlatformInput } from '../models/types.js';
+
+export const run342SeedPlatforms: PlatformInput[] = [
+  {
+    "name": "Triple R 102.7FM Official Station Music Submission Email",
+    "websiteUrl": "https://www.rrr.org.au/",
+    "submissionUrl": "mailto:music@rrr.org.au",
+    "sourceUrl": "https://www.rrr.org.au/get-involved/submit-music",
+    "sourceType": "automation_run_342_public_research",
+    "country": "Australia / Melbourne, Victoria / independent community radio; the official station-wide digital servicing route has no stated geographic restriction",
+    "language": "en",
+    "genres": [
+      "electronic",
+      "dance",
+      "bass-music",
+      "experimental",
+      "ambient",
+      "hip-hop",
+      "reggae",
+      "dub",
+      "world-music",
+      "independent-radio",
+      "community-radio",
+      "airplay-submission",
+      "manual-review"
+    ],
+    "submissionMethod": "official-public-purpose-bound-station-music-submission-email",
+    "feeRequired": false,
+    "feeAmount": "No submission fee, account, login, CAPTCHA or mandatory payment is stated for the officially published station-wide music-submission mailbox.",
+    "loginRequired": false,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "Triple R directs station-wide digital servicing to music@rrr.org.au and asks for a clear artist-and-release subject, a stream that does not require login, a non-expiring download for a high-quality 320 kbps MP3 or WAV, clearly named files, a short biography and relevant gig or launch details. A human must choose a suitable MarcsMusic release, verify ownership, release status, broadcast suitability and international editorial fit, prepare approved links and information, reconfirm the address and send the email manually. Large audio attachments must not be emailed, and presenter-specific routes must only be used when publicly listed and deliberately selected.",
+    "notes": "Verified on 2026-07-14 from Triple R's official Submit Music page and current official homepage. The station is not playlisted; individual presenters select their own tracks. Artists may service a relevant public program directly, but the station-wide fallback is music@rrr.org.au. SoundCloud, Bandcamp and YouTube streams are accepted when no login is required; streaming-service-only links are less desired. The download should be a 320 kbps MP3 or WAV supplied through a non-expiring Dropbox, WeTransfer or Google Drive route. A PDF press release is allowed, but key information should be in the email body. Optional physical CD, LP and cassette delivery is also published, but only the digital mailbox is queued. The official homepage showed programs and episodes dated 2026-07-13, videos dated 2026-07-08 and future events through December 2026, confirming current activity. The email was validated only through official publication, syntax, first-party domain alignment and stated purpose; no SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+  },
+  {
+    "name": "2SER 107.3FM Official Airplay Submission Form",
+    "websiteUrl": "https://www.2ser.com/",
+    "submissionUrl": "https://www.2ser.com/how-to-submit-music",
+    "sourceUrl": "https://www.2ser.com/how-to-submit-music",
+    "sourceType": "automation_run_342_public_research",
+    "country": "Australia / Sydney, New South Wales / community radio; the official form requires an artist location and states no explicit geographic exclusion",
+    "language": "en",
+    "genres": [
+      "electronic",
+      "dance",
+      "beats",
+      "experimental",
+      "ambient",
+      "reggae",
+      "dub",
+      "world-music",
+      "independent-radio",
+      "community-radio",
+      "airplay-submission",
+      "manual-review"
+    ],
+    "submissionMethod": "official-first-party-dynamic-airplay-submission-form",
+    "feeRequired": false,
+    "feeAmount": "No submission fee, account, login or mandatory payment is stated. The first-party form is dynamically rendered and must be reviewed manually before submission.",
+    "loginRequired": false,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "2SER's official airplay-consideration page provides a first-party form requesting first and last name, email, the music submission, artist location, release date, artist or band name, release title, artist bio and social links. A human must inspect the live form to determine the current upload or link format, file limits, rights or consent wording and any runtime anti-spam or CAPTCHA control; select a suitable release; verify ownership, release status, international editorial fit and personal information; and complete the final submission manually.",
+    "notes": "Verified on 2026-07-14 from 2SER's official How to Submit Music, homepage, schedule and team pages. The submission page explicitly says the form is for airplay consideration and exposes the required identity, release, biography, location and social fields after a dynamic 'Loading form' state. No login, account, price or mandatory payment is presented, and no CAPTCHA was confirmed in passive inspection. The official team page identifies Music Director Lachlan Holland and publishes an obfuscated first-party business contact, Lachlan(at)2ser.com; it was classified as a public Music Director contact but not queued because the official submission form is the authorized route. The live site displayed an on-air program and a populated weekly schedule including Beat Heads, Down Low Disco, Static, Dream State, ForeignDub, 3AM Eternal and Global Village, supporting genre relevance. The on-demand index exposed older January 2026 entries during passive inspection, so a human should reconfirm current operational status and form behavior immediately before submission. No field, file, link, personal data or consent was supplied."
+  }
+];
