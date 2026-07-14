@@ -2,25 +2,25 @@
 
 Date: 2026-07-14
 
-Latest run: Run 352
+Latest run: Run 353
 
 New items added: 2
 
 Existing items materially enriched: 0
 
-Pipeline estimate: 1674
+Pipeline estimate: 1676
 
 Items:
 
-- Edge Radio 99.3FM Global Digital and Physical Music Submission Route — new
-- SYN Media 90.7FM Rolling Music Submission Email Route — new
+- KEXP Global Digital Music Submission Email Route — new
+- WXPN 88.5 Digital EPK Music Submission Route — new
 
 Both queue items are marked needs_manual_review.
 
-Deduplication note: The active pull-request dataset was searched for Edge Radio 99.3FM, Edge Radio Hobart, edgeradio.org.au, the official Submit Your Music path, SYN Media, SYN 90.7FM, syn.org.au and music@syn.org.au. Neither station had an existing canonical music-submission opportunity. Edge Radio's digital email, optional physical delivery, Tasmanian-only subject marker and optional paid promotion were consolidated into one record. SYN's dedicated music-submission mailbox was kept separate from its interview-request mailbox.
+Deduplication note: The active pull-request dataset was searched for KEXP, KEXP Seattle, kexp.org, md@kexp.org, the official KEXP submission-guidelines path, WXPN, WXPN 88.5, xpn.org and the official WXPN Contact path. Neither station had an existing canonical music-submission opportunity. KEXP's contact page, guidelines, Music Department mailbox and optional direct-DJ guidance were consolidated into one record, with only the station-level Music Department route queued. WXPN's main Music Director route was kept separate from its locally focused Local Show route.
 
-Manual-review note: Edge Radio requires a short bio, streaming link and high-quality download link and publishes its dedicated music destination through a Cloudflare-protected email link that was not decoded. Only genuine Tasmanian artists may use the Tasmanian submission marker. SYN requires a 320 kbps MP3 or WAV download link without direct attachments plus release metadata and supporting links; international eligibility and AI-origin rules are not expressly stated. A human must verify rights and current eligibility, prepare the release package and send each email manually.
+Manual-review note: KEXP requires streaming and WAV download links without attachments plus artist, release, content, lyric, credit and biography information. WXPN requires an EPK with a digital download link, but its first-party Music Director destination was not exposed in passive plaintext and was not decoded or guessed. A human must choose a rights-cleared release, verify content and catalogue fit, prepare the required package and send each submission manually.
 
-Email-verification note: SYN publishes music@syn.org.au in plaintext on its official Contact page specifically for music submissions; syntax, first-party domain alignment, purpose and current activity were verified. Edge Radio's dedicated music-email link was verified on the official submission page but left undecoded because it is Cloudflare-protected. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
+Email-verification note: KEXP publishes md@kexp.org in plaintext on its official Contact and Submission Guidelines pages specifically for rotation consideration; syntax, purpose, first-party domain alignment and current activity were verified. WXPN's official Contact page provides a first-party Email Music Director action, but its destination was left unresolved because it was not exposed in passive plaintext. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
 
-Safety: No email, form, stream, download link, attachment, audio file, biography, metadata, rights declaration, personal information, physical package or payment was sent. No protected contact was decoded, no Tasmanian-local status was claimed, and no CAPTCHA, anti-bot, authentication, payment or platform restriction was entered or bypassed.
+Safety: No email, EPK, stream, download link, audio file, attachment, biography, lyric sheet, credits, metadata, personal information, rights declaration or payment was sent. No non-plaintext destination was decoded or guessed, no local eligibility was claimed, and no CAPTCHA, anti-bot, authentication, payment or platform restriction was entered or bypassed.
