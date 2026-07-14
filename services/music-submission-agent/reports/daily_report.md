@@ -2,25 +2,25 @@
 
 Date: 2026-07-14
 
-Latest run: Run 353
+Latest run: Run 354
 
 New items added: 2
 
 Existing items materially enriched: 0
 
-Pipeline estimate: 1676
+Pipeline estimate: 1678
 
 Items:
 
-- KEXP Global Digital Music Submission Email Route — new
-- WXPN 88.5 Digital EPK Music Submission Route — new
+- WJCU 88.7 FM All-Genres Physical Music Director Airplay Submission Route — new
+- WVUM 90.5 FM Music Director Pre-Submission Inquiry Route — new
 
 Both queue items are marked needs_manual_review.
 
-Deduplication note: The active pull-request dataset was searched for KEXP, KEXP Seattle, kexp.org, md@kexp.org, the official KEXP submission-guidelines path, WXPN, WXPN 88.5, xpn.org and the official WXPN Contact path. Neither station had an existing canonical music-submission opportunity. KEXP's contact page, guidelines, Music Department mailbox and optional direct-DJ guidance were consolidated into one record, with only the station-level Music Department route queued. WXPN's main Music Director route was kept separate from its locally focused Local Show route.
+Deduplication note: The active pull-request dataset was searched for WJCU, WJCU 88.7, wjcu.org, the official WJCU Contact path, WVUM, WVUM 90.5, wvum.org, the official WVUM Contact path and md@wvum.org. Neither station had an existing canonical opportunity. WJCU's Triple-A email route, all-other-genres physical route, staff contacts and postal destination were consolidated into one station-level record, with only the genre-appropriate physical route queued. WVUM's staff directory, Music Director mailbox and music-programming page were consolidated into one restricted inquiry record.
 
-Manual-review note: KEXP requires streaming and WAV download links without attachments plus artist, release, content, lyric, credit and biography information. WXPN requires an EPK with a digital download link, but its first-party Music Director destination was not exposed in passive plaintext and was not decoded or guessed. A human must choose a rights-cleared release, verify content and catalogue fit, prepare the required package and send each submission manually.
+Manual-review note: WJCU explicitly authorizes physical delivery for non-Triple-A music but does not publish accepted physical formats, release-age limits, metadata requirements, clean-edit rules, international eligibility or return policy. WVUM publishes its Music Director mailbox and says its staff continuously selects new independent music, but publishes no complete delivery policy. A human must confirm WJCU's current physical requirements and prepare the package manually; WVUM must first receive an asset-free routing inquiry, with no track or EPK supplied until explicit instructions are returned.
 
-Email-verification note: KEXP publishes md@kexp.org in plaintext on its official Contact and Submission Guidelines pages specifically for rotation consideration; syntax, purpose, first-party domain alignment and current activity were verified. WXPN's official Contact page provides a first-party Email Music Director action, but its destination was left unresolved because it was not exposed in passive plaintext. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
+Email-verification note: WVUM publishes md@wvum.org in plaintext on its official Contact page for named Music Directors; syntax, purpose, first-party domain alignment and current site activity were verified. WJCU's Music Director role addresses are intentionally obfuscated or non-plaintext and were not decoded, guessed or stored. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
 
-Safety: No email, EPK, stream, download link, audio file, attachment, biography, lyric sheet, credits, metadata, personal information, rights declaration or payment was sent. No non-plaintext destination was decoded or guessed, no local eligibility was claimed, and no CAPTCHA, anti-bot, authentication, payment or platform restriction was entered or bypassed.
+Safety: No email, inquiry, phone call, physical package, stream, download link, audio file, attachment, EPK, biography, metadata, personal information, rights declaration or payment was sent. No obfuscated contact was decoded or guessed, no undocumented digital delivery route was inferred, and no CAPTCHA, anti-bot, authentication, payment or platform restriction was entered or bypassed.
