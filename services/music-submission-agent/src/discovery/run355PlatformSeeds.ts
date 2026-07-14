@@ -1,0 +1,77 @@
+import type { PlatformInput } from '../models/types.js';
+
+export const run355SeedPlatforms: PlatformInput[] = [
+  {
+    name: 'KSPC 88.7FM Album/EP Digital-or-Physical Airplay Submission Route',
+    websiteUrl: 'https://kspc.org/',
+    submissionUrl: 'https://kspc.org/contact/music-submissions/',
+    sourceUrl: 'https://kspc.org/contact/music-submissions/',
+    sourceType: 'automation_run_355_public_research',
+    country: 'United States / Claremont, California / Pomona College and Claremont Colleges community radio',
+    language: 'en',
+    genres: [
+      'electronic',
+      'dance',
+      'hip-hop',
+      'reggae',
+      'world-music',
+      'experimental',
+      'alternative',
+      'independent',
+      'all-genres',
+      'college-radio',
+      'radio-airplay',
+      'digital-submission',
+      'physical-submission',
+      'ai-origin-review',
+      'manual-review'
+    ],
+    submissionMethod: 'official-kspc-protected-email-or-physical-album-ep-airplay-route',
+    feeRequired: false,
+    feeAmount:
+      'KSPC explicitly states that it does not accept pay-for-play. No submission fee or mandatory payment is stated; physical-media production and shipping costs would remain with the sender.',
+    loginRequired: false,
+    captchaDetected: false,
+    paymentRequired: false,
+    manualReviewRequired: true,
+    manualReviewReason:
+      "KSPC's official Music Submissions page welcomes albums and EPs from artists of all genres through either a purpose-bound email route or professionally mailed CDs and records. Digital delivery may use attached files or a downloadable cloud-storage link, but streaming-only YouTube or SoundCloud links, Spotify, iTunes, singles, demos and cassettes are rejected. KSPC also rejects work that is substantially AI-generated or falsely represented as non-AI. A human must confirm that the selected MarcsMusic release is an eligible album or EP with sufficient human authorship, choose a rights-cleared downloadable or physical package, and open the protected official email action manually without decoding or guessing the address. The adjacent general-contact form contains a leave-unchanged honeypot and is not an authorized music-submission substitute; it must not be used or touched.",
+    notes:
+      "Verified on 2026-07-14 from KSPC's official Music Submissions, Contact and homepage pages. The station publishes current 2026 editorial content and active programming and states that it supports new, local and underrepresented voices. The dedicated submission email is protected by Cloudflare in passive rendering and was not decoded, guessed or stored. The official page also authorizes physical delivery to the Music Director at the published Pomona College address. No email, form, honeypot field, file, cloud link, physical package, identity claim, rights declaration, login, CAPTCHA or payment action was performed, and no SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+  },
+  {
+    name: 'KALX 90.7FM Professionally Pressed Physical Airplay Submission Route',
+    websiteUrl: 'https://kalx.berkeley.edu/',
+    submissionUrl: 'https://kalx.berkeley.edu/about/contact/',
+    sourceUrl: 'https://kalx.berkeley.edu/about/contact/',
+    sourceType: 'automation_run_355_public_research',
+    country: 'United States / Berkeley, California / University of California Berkeley student and community radio',
+    language: 'en',
+    genres: [
+      'electronic',
+      'experimental',
+      'reggae',
+      'world-music',
+      'alternative',
+      'independent',
+      'freeform',
+      'college-radio',
+      'radio-airplay',
+      'physical-submission',
+      'music-director',
+      'manual-review'
+    ],
+    submissionMethod: 'official-kalx-professionally-pressed-cd-or-lp-physical-airplay-route',
+    feeRequired: false,
+    feeAmount:
+      'No submission fee or mandatory payment is stated. Professionally pressed media production and international shipping costs would remain with the sender.',
+    loginRequired: false,
+    captchaDetected: false,
+    paymentRequired: false,
+    manualReviewRequired: true,
+    manualReviewReason:
+      "KALX's official Contact page states that its current Music Directors accept only physical, professionally pressed CDs or LPs for airplay consideration and do not accept downloads, file transfers, Bandcamp, Spotify, YouTube, CD-Rs or other digital submissions. The official FAQ also references LPs, CDs and 7-inch records and rejects CD singles. A human must select a compliant professionally pressed, non-CD-single MarcsMusic release, confirm current international acceptance and package requirements, prepare the media and customs or shipping documents, and mail it to the published Music Director address. The public music@kalx.berkeley.edu role mailbox is a verified current business contact but is expressly not authorization to send digital music and must not be used as a workaround around the physical-only policy.",
+    notes:
+      "Verified on 2026-07-14 from KALX's official Contact, FAQ and homepage pages. The Contact page identifies current Music Directors Dasha Shevchenko and Ava Hoener, publishes music@kalx.berkeley.edu and gives the physical Music Director mailing address. Current operation was confirmed through live recent-play data, a populated daily schedule, July 17-19, 2026 event listings, 2026 specialty charts and a 2026 copyright notice. Email verification was limited to first-party plaintext publication, valid syntax, current role purpose and berkeley.edu domain alignment; the mailbox was not treated as a digital submission destination. No email, file, link, physical package, metadata, rights declaration, login, CAPTCHA or payment action was performed, and no SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+  }
+];
