@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
-import { mkdtemp } from "node:fs/promises";
+import { mkdtemp, realpath } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { isAbsolute, join, relative } from "node:path";
 import { describe, it } from "node:test";
 import { createArtistService } from "../src/application/artists/artist-service.mjs";
 import { createPlayerSyncService } from "../src/application/music/player-sync-service.mjs";
@@ -85,6 +85,33 @@ describe("release management", () => {
       /Audio file must be MP3 or WAV/u
     );
   });
+
+  it("generates release IDs server-side and keeps asset paths inside the upload root", async () => {
+    const dir = await mkdtemp(join(tmpdir(), "marcsmusic-release-"));
+    const uploadRoot = join(dir, "uploads");
+    const store = new JsonStore({ filePath: join(dir, "store.json"), initialState: createDefaultState() });
+    const artistService = createArtistService({ store });
+    const assetStorage = new ReleaseAssetStorage({ rootDir: uploadRoot });
+    const releaseService = createReleaseManagementService({ store, assetStorage, artistService });
+
+    const result = await releaseService.createRelease({
+      fields: { title: "Contained Track", releaseId: "../../escaped-release" },
+      files: [file("audio", "contained-track.mp3", "audio/mpeg", "mp3 bytes")]
+    });
+
+    assert.notEqual(result.release.id, "../../escaped-release");
+    assert.match(
+      result.release.id,
+      /^rel_[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/u
+    );
+
+    const canonicalUploadRoot = await realpath(uploadRoot);
+    for (const asset of result.assets) {
+      const pathFromRoot = relative(canonicalUploadRoot, asset.storagePath);
+      assert.equal(isAbsolute(pathFromRoot), false);
+      assert.doesNotMatch(pathFromRoot, /^\.\.(?:[/\\]|$)/u);
+    }
+  });
 });
 
 function file(name, filename, contentType, data) {
@@ -95,4 +122,3 @@ function file(name, filename, contentType, data) {
     data: Buffer.from(data)
   };
 }
-

@@ -1,4 +1,4 @@
-import { createHash } from "node:crypto";
+import { randomUUID } from "node:crypto";
 import { createReleasePlan } from "./release-planner.mjs";
 import { MARCSMUSIC_RELEASE_PLATFORM_IDS } from "../../domain/music/platform-capabilities.mjs";
 import { normalizeSlug } from "../../domain/artists/artist-model.mjs";
@@ -13,7 +13,7 @@ export function createReleaseManagementService({ store, assetStorage, artistServ
     async createRelease({ fields, files }) {
       const title = requireString(fields.title, "title");
       const artistContext = await artistService.resolveReleaseArtists(fields);
-      const releaseId = optionalString(fields.releaseId) ?? createReleaseId(title, artistContext.artistDisplayName);
+      const releaseId = createReleaseId();
       const release = normalizeReleaseRecord({
         id: releaseId,
         title,
@@ -159,11 +159,8 @@ function findReleaseOrThrow(state, releaseId) {
   return release;
 }
 
-function createReleaseId(title, artist) {
-  return `rel_${createHash("sha256")
-    .update(`${artist}\n${title}\n${Date.now()}`)
-    .digest("hex")
-    .slice(0, 16)}`;
+function createReleaseId() {
+  return `rel_${randomUUID()}`;
 }
 
 function requireString(value, fieldName) {
@@ -208,4 +205,3 @@ function normalizeVisibility(value) {
 
   return normalized;
 }
-

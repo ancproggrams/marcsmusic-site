@@ -1,6 +1,6 @@
 import { createHash, randomUUID } from "node:crypto";
-import { mkdir, writeFile } from "node:fs/promises";
-import { extname, join, resolve } from "node:path";
+import { mkdir, realpath, writeFile } from "node:fs/promises";
+import { extname, isAbsolute, join, relative, resolve, sep } from "node:path";
 
 const DEFAULT_AUDIO_TYPES = Object.freeze(["audio/mpeg", "audio/wav", "audio/x-wav"]);
 const DEFAULT_ARTWORK_TYPES = Object.freeze(["image/jpeg", "image/png", "image/webp"]);
@@ -22,16 +22,24 @@ export class ReleaseAssetStorage {
     validateFile(file, normalizedKind, this);
     const extension = extname(file.filename).toLowerCase();
     const checksumSha256 = createHash("sha256").update(file.data).digest("hex");
-    const safeBaseName = sanitizeFilename(file.filename).replace(new RegExp(`${escapeRegExp(extension)}$`, "iu"), "");
-    const storageName = `${releaseId}-${normalizedKind}-${safeBaseName}-${checksumSha256.slice(0, 10)}${extension}`;
+    const assetUuid = randomUUID();
+    const storageName = `${assetUuid}-${checksumSha256}${extension}`;
     const subdir = normalizedKind.startsWith("audio") ? "audio" : "artwork";
-    const storagePath = resolve(this.rootDir, subdir, storageName);
+    const subdirPath = resolve(this.rootDir, subdir);
 
-    await mkdir(resolve(this.rootDir, subdir), { recursive: true });
-    await writeFile(storagePath, file.data);
+    await mkdir(this.rootDir, { recursive: true });
+    await mkdir(subdirPath, { recursive: true });
+
+    const realRootDir = await realpath(this.rootDir);
+    const realSubdirPath = await realpath(subdirPath);
+    assertContained(realRootDir, realSubdirPath);
+
+    const storagePath = resolve(realSubdirPath, storageName);
+    assertContained(realRootDir, storagePath);
+    await writeFile(storagePath, file.data, { flag: "wx", mode: 0o600 });
 
     return Object.freeze({
-      id: `asset_${randomUUID()}`,
+      id: `asset_${assetUuid}`,
       releaseId,
       kind: normalizedKind,
       originalFilename: file.filename,
@@ -92,21 +100,18 @@ function validateFile(file, kind, storage) {
   }
 }
 
-function sanitizeFilename(filename) {
-  return String(filename)
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/gu, "")
-    .replace(/[^a-zA-Z0-9._-]+/gu, "-")
-    .replace(/^-+|-+$/gu, "")
-    .slice(0, 120);
+function assertContained(rootDir, candidatePath) {
+  const pathFromRoot = relative(rootDir, candidatePath);
+
+  if (isAbsolute(pathFromRoot) || pathFromRoot === ".." || pathFromRoot.startsWith(`..${sep}`)) {
+    throw Object.assign(new Error("Asset storage path escapes the configured root"), {
+      statusCode: 500,
+      code: "ASSET_STORAGE_ESCAPE"
+    });
+  }
 }
 
 function parseBytes(value, fallback) {
   const parsed = Number.parseInt(value ?? "", 10);
   return Number.isSafeInteger(parsed) && parsed > 0 ? parsed : fallback;
 }
-
-function escapeRegExp(value) {
-  return value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
-}
-
