@@ -924,6 +924,110 @@
       fill: currentColor;
     }
 
+    .reactions-section {
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .reactions-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .reactions-head h2 {
+      max-width: 12ch;
+    }
+
+    .slider-controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .slider-button {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 22px;
+    }
+
+    .slider-button:hover:not(:disabled) {
+      background: var(--pastel-muted);
+    }
+
+    .slider-button:disabled {
+      cursor: default;
+      opacity: .32;
+    }
+
+    .reactions-slider {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(310px, calc((100% - 32px) / 3));
+      gap: 16px;
+      overflow-x: auto;
+      padding: 2px 2px 18px;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--pastel-strong) var(--pastel-muted);
+      overscroll-behavior-inline: contain;
+    }
+
+    .reaction-card {
+      min-height: 250px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 20px;
+      margin: 0;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: var(--pastel-muted);
+      padding: clamp(22px, 3vw, 30px);
+      scroll-snap-align: start;
+    }
+
+    .reaction-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--pastel);
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .reaction-card blockquote {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(21px, 2.3vw, 28px);
+      line-height: 1.12;
+    }
+
+    .reaction-card footer {
+      display: grid;
+      gap: 3px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .reaction-card cite {
+      color: var(--ink);
+      font-style: normal;
+      font-weight: 800;
+    }
+
     .grid-two {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(300px, 0.82fr);
@@ -1314,6 +1418,18 @@
         right: 0;
       }
 
+      .reactions-head {
+        align-items: center;
+      }
+
+      .reactions-slider {
+        grid-auto-columns: min(86vw, 340px);
+      }
+
+      .reaction-card {
+        min-height: 230px;
+      }
+
       .set-item,
       .signup-form {
         grid-template-columns: 1fr;
@@ -1347,6 +1463,10 @@
       .vinyl-cover,
       .tonearm {
         transition-duration: 1ms;
+      }
+
+      .reactions-slider {
+        scroll-behavior: auto;
       }
     }
   </style>
@@ -1494,6 +1614,53 @@
             Instagram
           </a>
           <a class="social-link" href="https://x.com/MarcsMusic_" target="_blank" rel="noopener">X</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reactions-section" aria-labelledby="reactions-title">
+      <div class="container">
+        <div class="reactions-head">
+          <div>
+            <p class="eyebrow">Reacties op MarcsMusic</p>
+            <h2 id="reactions-title">Wat anderen horen.</h2>
+          </div>
+          <div class="slider-controls" aria-label="Blader door reacties">
+            <button class="slider-button" type="button" data-reactions-prev aria-label="Vorige reacties">←</button>
+            <button class="slider-button" type="button" data-reactions-next aria-label="Volgende reacties">→</button>
+          </div>
+        </div>
+
+        <div class="reactions-slider" data-reactions-slider tabindex="0" aria-label="Reacties op de muziek van MarcsMusic">
+          <figure class="reaction-card">
+            <span class="reaction-mark" aria-hidden="true">“</span>
+            <blockquote>“What you’re doing is genuinely exciting—the kind of thing that doesn’t come along very often.”</blockquote>
+            <footer><cite>Eric Alper</cite><span>Publicist &amp; music commentator · 1 juli 2026</span></footer>
+          </figure>
+
+          <figure class="reaction-card">
+            <span class="reaction-mark" aria-hidden="true">“</span>
+            <blockquote>“Cool dat je verschillende stijlen combineert en ons zo een inkijk in je muziek geeft.”</blockquote>
+            <footer><cite>1LIVE</cite><span>Muziekredactie · vertaald uit het Duits · 29 juni 2026</span></footer>
+          </figure>
+
+          <figure class="reaction-card">
+            <span class="reaction-mark" aria-hidden="true">“</span>
+            <blockquote>“You are a good fit for some of the record labels and publishers we are working with.”</blockquote>
+            <footer><cite>Stephen Morgridge</cite><span>A&amp;R Director, SKUNK RADIO LIVE · 9 juli 2026</span></footer>
+          </figure>
+
+          <figure class="reaction-card">
+            <span class="reaction-mark" aria-hidden="true">“</span>
+            <blockquote>“Sounds like a great release.”</blockquote>
+            <footer><cite>Kris</cite><span>FVMusicBlog · 30 juni 2026</span></footer>
+          </figure>
+
+          <figure class="reaction-card">
+            <span class="reaction-mark" aria-hidden="true">“</span>
+            <blockquote>“We’ll circulate your music to the hosts who may be interested.”</blockquote>
+            <footer><cite>Lindsay Morrison</cite><span>CKCU 93.1 FM · 30 juni 2026</span></footer>
+          </figure>
         </div>
       </div>
     </section>
@@ -2152,6 +2319,50 @@
       resetTurntable();
       setTrack(currentTrackIndex + 1, true);
     });
+
+    const reactionsSlider = document.querySelector("[data-reactions-slider]");
+    const reactionsPrevious = document.querySelector("[data-reactions-prev]");
+    const reactionsNext = document.querySelector("[data-reactions-next]");
+
+    function reactionScrollStep() {
+      const card = reactionsSlider?.querySelector(".reaction-card");
+      if (!card) {
+        return 320;
+      }
+      const gap = Number.parseFloat(getComputedStyle(reactionsSlider).columnGap) || 16;
+      return card.getBoundingClientRect().width + gap;
+    }
+
+    function updateReactionControls() {
+      if (!reactionsSlider || !reactionsPrevious || !reactionsNext) {
+        return;
+      }
+      const maxScroll = reactionsSlider.scrollWidth - reactionsSlider.clientWidth;
+      reactionsPrevious.disabled = reactionsSlider.scrollLeft <= 2;
+      reactionsNext.disabled = reactionsSlider.scrollLeft >= maxScroll - 2;
+    }
+
+    reactionsPrevious?.addEventListener("click", () => {
+      reactionsSlider?.scrollBy({ left: -reactionScrollStep(), behavior: "smooth" });
+    });
+
+    reactionsNext?.addEventListener("click", () => {
+      reactionsSlider?.scrollBy({ left: reactionScrollStep(), behavior: "smooth" });
+    });
+
+    reactionsSlider?.addEventListener("scroll", updateReactionControls, { passive: true });
+    reactionsSlider?.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") {
+        return;
+      }
+      event.preventDefault();
+      reactionsSlider.scrollBy({
+        left: event.key === "ArrowLeft" ? -reactionScrollStep() : reactionScrollStep(),
+        behavior: "smooth"
+      });
+    });
+    window.addEventListener("resize", updateReactionControls);
+    updateReactionControls();
 
     const signupForm = document.querySelector("[data-signup]");
     const signupStatus = document.querySelector("[data-signup-status]");
