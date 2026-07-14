@@ -1,0 +1,72 @@
+{
+  "run": 343,
+  "date": "2026-07-14",
+  "platforms": [
+    {
+      "name": "CJSW 90.9 FM Official Digital Music Submission Form",
+      "websiteUrl": "https://cjsw.com/",
+      "submissionUrl": "https://form.jotform.com/260625704327253",
+      "sourceUrl": "https://cjsw.com/music/submit/",
+      "sourceType": "automation_run_343_public_research",
+      "country": "Canada / Calgary, Alberta / campus and community radio; the official digital route states no geographic exclusion and separately treats Calgary-area mailout participation as optional",
+      "language": "en",
+      "genres": [
+        "electronic",
+        "dance",
+        "bass-music",
+        "experimental",
+        "ambient",
+        "hip-hop",
+        "reggae",
+        "dub",
+        "world-music",
+        "independent-radio",
+        "community-radio",
+        "airplay-submission",
+        "manual-review"
+      ],
+      "submissionMethod": "official-third-party-jotform-digital-release-upload-form",
+      "feeRequired": false,
+      "feeAmount": "No submission fee, account, login or mandatory payment is stated. The external Jotform upload route includes file, permission and anti-spam boundaries that require manual handling.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "CJSW accepts digital EPs and albums only: at least three unique tracks, released within the previous three months, no singles, MP3 files only and the complete release supplied as a ZIP. The official Jotform requests contact and release metadata, genre, location, biography, RIYL, a streaming or website URL, the ZIP release, optional one-sheet, artwork and permission to share the release with programmers and permanently add it to the station's digital library. The form exposes a leave-empty anti-spam field. A human must select an eligible MarcsMusic release, verify the release window, rights, metadata and permission scope, inspect the live form for any runtime CAPTCHA or changed requirements, upload the approved files, leave the anti-spam field untouched and submit manually.",
+      "notes": "Verified on 2026-07-14 from CJSW's official Music Submissions page, the linked 2026 Jotform, official contact page and live homepage. The official page explicitly rejects singles and physical servicing, while the form accepts EPs with three or more songs and full-length releases. The form asks whether Calgary-area artists want to join the optional digital campus-station mailout; that local option is not required for the primary airplay submission and should be declined or reviewed separately for Netherlands-based MarcsMusic. The homepage showed an active live schedule, electronic programming and 2026 Sled Island interviews, confirming current station activity. CJSW's contact page identifies the Music & Performance Director as responsible for submissions, but the rendered email link was protected or masked in passive extraction and was not decoded, guessed or stored as an alternative route. No field, upload, signature or permission was supplied and no CAPTCHA was confirmed during passive inspection."
+    },
+    {
+      "name": "CFUV 101.9 FM Official Digital Music Submission Email",
+      "websiteUrl": "https://cfuv.uvic.ca/",
+      "submissionUrl": "mailto:music@cfuv.ca",
+      "sourceUrl": "https://cfuv.uvic.ca/music-submissions/",
+      "sourceType": "automation_run_343_public_research",
+      "country": "Canada / Victoria, British Columbia / non-profit campus and community radio; the official digital route states no geographic restriction",
+      "language": "en",
+      "genres": [
+        "electronic",
+        "dance",
+        "bass-music",
+        "experimental",
+        "ambient",
+        "hip-hop",
+        "reggae",
+        "dub",
+        "world-music",
+        "independent-radio",
+        "community-radio",
+        "airplay-submission",
+        "manual-review"
+      ],
+      "submissionMethod": "official-public-purpose-bound-music-director-email",
+      "feeRequired": false,
+      "feeAmount": "No submission fee, account, login, CAPTCHA or mandatory payment is stated for the officially published Music Department mailbox.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "CFUV directs all digital music submissions to music@cfuv.ca and requires at least three unique tracks, 320 kbps MP3 files delivered through a download link, and complete artist, album and track-listing information. A one-page biography is recommended. A human must choose a suitable MarcsMusic release, verify ownership, release status, recording quality, non-commercial editorial fit and complete track metadata, prepare an approved download route, reconfirm the mailbox and send the email manually. Physical submissions are normally limited to local Victoria-area artists and are not part of the queued global digital route.",
+      "notes": "Verified on 2026-07-14 from CFUV's official Music Submissions and Contact pages. The station lists Troy Lemberg as Music Director and publishes music@cfuv.ca for all formats and all digital submissions. Accepted delivery services include !earshot Distro, Dropbox, Google Drive, WeTransfer, Box and DISCO; direct audio attachments are not requested. The first-party cfuv.ca domain redirects to the official cfuv.uvic.ca website, supporting domain alignment. Current activity was confirmed by a 2026 job posting dated 2026-05-11 for station roles starting 2026-06-29 and by a populated current schedule containing new and recurring specialist programs, including electronic, dub, world and experimental programming. Email verification was limited to official publication, syntax, domain relationship and stated business purpose; no SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+    }
+  ]
+}
