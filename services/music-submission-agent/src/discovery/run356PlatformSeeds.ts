@@ -1,0 +1,85 @@
+import type { PlatformInput } from '../models/types.js';
+
+export const run356SeedPlatforms: PlatformInput[] = [
+  {
+    name: 'WREK 91.1 FM Music Director Email-or-Physical Airplay Submission Route',
+    websiteUrl: 'https://www.wrek.org/',
+    submissionUrl: 'https://old.wrek.org/submissions/',
+    sourceUrl: 'https://www.wrek.org/music',
+    sourceType: 'automation_run_356_public_research',
+    country: 'United States / Atlanta, Georgia / Georgia Tech student radio',
+    language: 'en',
+    genres: [
+      'electronic',
+      'edm',
+      'house',
+      'techno',
+      'ambient',
+      'experimental',
+      'hip-hop',
+      'reggae',
+      'dub',
+      'world-music',
+      'independent',
+      'college-radio',
+      'radio-airplay',
+      'digital-submission',
+      'physical-submission',
+      'music-director',
+      'manual-review'
+    ],
+    submissionMethod: 'official-wrek-music-director-email-or-physical-airplay-route',
+    feeRequired: false,
+    feeAmount:
+      'No submission fee or mandatory payment is stated. Physical-media production and international shipping costs would remain with the sender.',
+    loginRequired: false,
+    captchaDetected: false,
+    paymentRequired: false,
+    manualReviewRequired: true,
+    manualReviewReason:
+      "WREK's current official Music page links to the station's official legacy submission instructions, which publish music.director@wrek.org and a Georgia Tech mailing address. The instructions say submissions may be emailed or mailed and that WREK can handle common music-media formats, while also opening with the internally inconsistent sentence that music can only be submitted by snail mail. A human must therefore re-open the official page immediately before outreach, clarify whether current digital delivery means an attachment, download link or inquiry, avoid large unsolicited files, select an FCC-clean release, and use the physical route if the digital requirements remain ambiguous. No automated email or package should be sent.",
+    notes:
+      "Verified on 2026-07-14 from WREK's current official Music and homepage pages and its officially linked legacy How To Submit Music page. The station broadcasts 24/7 and published playlist updates dated July 7-10, 2026. Current programming includes dedicated electronic, dance/EDM, house, techno, ambient, experimental, hip-hop, reggae, dub, international and independent blocks and shows. The plaintext role mailbox music.director@wrek.org was verified through first-party publication, valid syntax, explicit Music Director purpose and wrek.org domain alignment. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed. No email, attachment, link, file, metadata, physical package, login, CAPTCHA or payment action was performed."
+  },
+  {
+    name: 'WRIR-LP 97.3 FM Digital One-Sheet-or-Physical Music Department Submission Route',
+    websiteUrl: 'https://www.wrir.org/',
+    submissionUrl: 'https://www.wrir.org/station/committees/music/',
+    sourceUrl: 'https://www.wrir.org/station/committees/music/',
+    sourceType: 'automation_run_356_public_research',
+    country: 'United States / Richmond, Virginia / nonprofit community radio',
+    language: 'en',
+    genres: [
+      'electronic',
+      'house',
+      'drum-and-bass',
+      'hip-hop',
+      'reggae',
+      'dub',
+      'world-music',
+      'afrobeat',
+      'experimental',
+      'alternative',
+      'independent',
+      'community-radio',
+      'radio-airplay',
+      'digital-submission',
+      'physical-submission',
+      'one-sheet',
+      'protected-email',
+      'manual-review'
+    ],
+    submissionMethod: 'official-wrir-protected-music-department-email-or-physical-airplay-route',
+    feeRequired: false,
+    feeAmount:
+      'No music-submission fee or mandatory payment is stated. Physical-media production and international shipping costs would remain with the sender.',
+    loginRequired: false,
+    captchaDetected: false,
+    paymentRequired: false,
+    manualReviewRequired: true,
+    manualReviewReason:
+      "WRIR's current official Music Programming page authorizes digital submissions consisting of music plus a one-sheet to its Music Department and separately authorizes physical copies addressed to the Music Director. The digital destination is exposed through a Cloudflare-protected official email action and was not decoded, guessed or stored. A human must open the official page manually, confirm the current mailbox and accepted delivery method, select a rights-cleared FCC-clean MarcsMusic release, prepare a concise one-sheet, avoid using the separate local-RVA addresses or newsletter/contact fields, and submit without interacting with unrelated honeypot or anti-spam controls.",
+    notes:
+      "Verified on 2026-07-14 from WRIR's official Contact, Music Programming and homepage pages. The Contact page was explicitly updated in 2026 and directs music to the Music Department; the Music Programming page specifies music plus a one-sheet and provides a physical Music Director address. Current activity was confirmed through a populated weekly schedule, homepage posts and playlists dated July 12, 2026, and programming that includes house, drum-and-bass, hip-hop, reggae, dub, international, Afrobeat, electronic and experimental music. The protected email action was verified only as a first-party, purpose-bound business route; its underlying address was not decoded. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed. No email, form, honeypot field, file, one-sheet, metadata, physical package, login, CAPTCHA or payment action was performed."
+  }
+];
