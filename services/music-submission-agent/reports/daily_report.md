@@ -2,25 +2,25 @@
 
 Date: 2026-07-14
 
-Latest run: Run 351
+Latest run: Run 352
 
-New items added: 1
+New items added: 2
 
-Existing items materially enriched: 1
+Existing items materially enriched: 0
 
-Pipeline estimate: 1672
+Pipeline estimate: 1674
 
 Items:
 
-- Bass Rebels LabelRadar and Streamable-Link Demo Submission Route — new
-- DI.FM Electronic Radio Channel Discovery Route — canonical record reverified and corrected
+- Edge Radio 99.3FM Global Digital and Physical Music Submission Route — new
+- SYN Media 90.7FM Rolling Music Submission Email Route — new
 
 Both queue items are marked needs_manual_review.
 
-Deduplication note: The active pull-request dataset was searched for Bass Rebels, bassrebels.co.uk, its official Submit Music path, DI.FM, di.fm and the official DI.FM submissions page. Bass Rebels was not previously present and was added once through its canonical first-party submission page. DI.FM already existed in Run 13, so that record was updated in place rather than duplicated. Bass Rebels' LabelRadar route, fallback email, contact page and commercial-licensing mailbox were consolidated into one opportunity.
+Deduplication note: The active pull-request dataset was searched for Edge Radio 99.3FM, Edge Radio Hobart, edgeradio.org.au, the official Submit Your Music path, SYN Media, SYN 90.7FM, syn.org.au and music@syn.org.au. Neither station had an existing canonical music-submission opportunity. Edge Radio's digital email, optional physical delivery, Tasmanian-only subject marker and optional paid promotion were consolidated into one record. SYN's dedicated music-submission mailbox was kept separate from its interview-request mailbox.
 
-Manual-review note: Bass Rebels' official LabelRadar link misresolved during passive verification, while its authorized email fallback requires a streamable SoundCloud or Dropbox link and does not expose the destination in plaintext. DI.FM accepts brief new-music and demo email requests with channel-matching genre and description, permits media links, prohibits attachments and protects the Send Request destination through Cloudflare. A human must select the track or channel, verify rights and metadata, inspect any LabelRadar account or optional credit boundary and send manually.
+Manual-review note: Edge Radio requires a short bio, streaming link and high-quality download link and publishes its dedicated music destination through a Cloudflare-protected email link that was not decoded. Only genuine Tasmanian artists may use the Tasmanian submission marker. SYN requires a 320 kbps MP3 or WAV download link without direct attachments plus release metadata and supporting links; international eligibility and AI-origin rules are not expressly stated. A human must verify rights and current eligibility, prepare the release package and send each email manually.
 
-Email-verification note: Bass Rebels' fallback demo-email link and DI.FM's Send Request link were verified on their official submission pages but left undecoded because the destinations were non-plaintext or Cloudflare-protected. Bass Rebels' public licensing@bassrebels.co.uk mailbox was verified as commercial-licensing-only and excluded from demo routing. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
+Email-verification note: SYN publishes music@syn.org.au in plaintext on its official Contact page specifically for music submissions; syntax, first-party domain alignment, purpose and current activity were verified. Edge Radio's dedicated music-email link was verified on the official submission page but left undecoded because it is Cloudflare-protected. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
 
-Safety: No account was created, no login or LabelRadar session was used, no form was submitted, no email or request was sent, no attachment, streamable link, track, mix, artwork, biography, metadata, rights declaration or personal information was supplied, no protected contact was decoded, no broken link was worked around, and no CAPTCHA, anti-bot, authentication, payment, subscription or platform restriction was entered or bypassed.
+Safety: No email, form, stream, download link, attachment, audio file, biography, metadata, rights declaration, personal information, physical package or payment was sent. No protected contact was decoded, no Tasmanian-local status was claimed, and no CAPTCHA, anti-bot, authentication, payment or platform restriction was entered or bypassed.
