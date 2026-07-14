@@ -2,25 +2,25 @@
 
 Date: 2026-07-14
 
-Latest run: Run 355
+Latest run: Run 356
 
 New items added: 2
 
 Existing items materially enriched: 0
 
-Pipeline estimate: 1680
+Pipeline estimate: 1682
 
 Items:
 
-- KSPC 88.7FM Album/EP Digital-or-Physical Airplay Submission Route — new
-- KALX 90.7FM Professionally Pressed Physical Airplay Submission Route — new
+- WREK 91.1 FM Music Director Email-or-Physical Airplay Submission Route — new
+- WRIR-LP 97.3 FM Digital One-Sheet-or-Physical Music Department Submission Route — new
 
 Both queue items are marked needs_manual_review.
 
-Deduplication note: The active pull-request dataset was searched for KSPC, KSPC 88.7, kspc.org, the official KSPC Music Submissions path, KALX, KALX 90.7, kalx.berkeley.edu, the official KALX Contact path and music@kalx.berkeley.edu. Neither station had an existing canonical opportunity. KSPC's protected email action, physical address, AI-origin restriction and adjacent general-contact form were consolidated into one record; the general form and honeypot were excluded. KALX's Music Director mailbox, physical address, FAQ and interview contacts were consolidated into one record; only its authorized professionally pressed physical route was queued.
+Deduplication note: The active pull-request dataset was searched for WREK, WREK 91.1, wrek.org, old.wrek.org/submissions, music.director@wrek.org, WRIR, WRIR-LP 97.3, wrir.org and the official WRIR Music Programming path. Neither station had an existing canonical opportunity. WREK's current Music page, legacy instructions, mailbox and physical route were consolidated into one record. WRIR's Contact and Music Programming pages, protected Music Department action, physical route and local-only adjacent contacts were consolidated into one record; only the general authorized routes were queued.
 
-Manual-review note: KSPC accepts albums and EPs by protected email action or physical delivery, rejects streaming-only links, singles, demos and substantially AI-generated work, and exposes a separate general form with a leave-unchanged honeypot that must not be used for music. KALX accepts only professionally pressed physical CDs or LPs, rejects digital delivery and CD-Rs, and does not authorize its Music Director mailbox for sending music. A human must review the KSPC release's authorship and eligibility, open the protected route manually or prepare physical media, and select and ship a compliant KALX pressing.
+Manual-review note: WREK's official instructions authorize a Music Director email and mailing address but contain contradictory wording about whether music is email-eligible or snail-mail-only, so a human must re-check the route and avoid unsolicited large files. WRIR accepts music plus a one-sheet through a protected official email action or physical delivery, but its codecs, file/link rules, international eligibility and other package details are not published. A human must open the protected route, verify the current destination and prepare a rights-cleared FCC-clean package.
 
-Email-verification note: KALX publishes music@kalx.berkeley.edu in plaintext for its current Music Directors; syntax, purpose, first-party domain alignment and current site activity were verified, but the mailbox is not a digital submission route. KSPC's dedicated music-submission address is exposed only through a Cloudflare-protected official action and was not decoded, guessed or stored. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
+Email-verification note: WREK publishes music.director@wrek.org in plaintext for its Music Director; syntax, purpose, first-party domain alignment and current site activity were verified. WRIR's Music Department destination is first-party and purpose-bound but Cloudflare-protected, so the underlying address was not decoded, guessed or stored. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
 
-Safety: No email, form, honeypot field, stream, cloud link, audio file, attachment, physical package, metadata, identity claim, AI-origin declaration, rights statement or payment was submitted. No protected KSPC address was decoded, the KSPC general-contact form was not used as a workaround, and the KALX Music Director mailbox was not used to bypass the physical-only policy. No CAPTCHA, anti-bot, authentication, payment or platform restriction was entered or bypassed.
+Safety: No email, inquiry, form, honeypot field, audio file, download link, attachment, one-sheet, metadata, physical package, identity claim, rights statement or payment was submitted. No protected contact was decoded, no local-only or general contact was used as a workaround, and no CAPTCHA, anti-bot, authentication, payment or platform restriction was entered or bypassed.
