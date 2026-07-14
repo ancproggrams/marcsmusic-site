@@ -2,23 +2,23 @@
 
 Date: 2026-07-14
 
-Latest run: Run 347
+Latest run: Run 348
 
 New items added: 2
 
-Pipeline estimate: 1665
+Pipeline estimate: 1667
 
 Items:
 
-- CKUW 95.9 FM Winnipeg Music Director Digital Download and Physical Airplay Route
-- 101.5 UMFM CJUM Winnipeg Music Department Download-Link and Physical CD Route
+- CKUT 90.3 FM Montreal Music Department Digital MP3 and Physical Airplay Route
+- CJAM 99.1 FM Windsor Music Director Digital Album and EP Download-Link Route
 
 All items are marked needs_manual_review.
 
-Deduplication note: The repository was searched for CKUW, ckuw.ca, music@ckuw.ca, UMFM, CJUM and umfm.com before creation; no prior music-submission-agent record was returned. CKUW's Music Director address, digital download instructions and physical formats were stored as one canonical opportunity. UMFM's protected Music Department link, approved digital-transfer methods and physical-CD route were stored as one canonical opportunity; the protected address was not decoded, guessed or duplicated as a separate contact.
+Deduplication note: The repository was searched for CKUT, ckut.ca, music@ckut.ca, CJAM, cjam.ca and cjammd@gmail.com before creation; no prior music-submission-agent record was returned. CKUT's digital Music Department email and optional physical formats were stored as one canonical opportunity. CJAM's digital-only Music Director address, download-link requirements and related tracking/contact details were stored as one canonical opportunity; its local Singles Club was treated as adjacent programming rather than a duplicate global submission route.
 
-Manual-review note: CKUW rejects unsolicited MP3 attachments and requires a high-quality downloadable link sent to its Music Director; its public page does not state complete codec, metadata, rights, release-window or AI-origin rules. UMFM accepts secure downloadable release links and physical CDs, rejects audio-file email attachments and physical singles, and protects the authorized email destination through Cloudflare. Both routes require human verification and manual submission.
+Manual-review note: CKUT requires an eligible multi-track 320-kbps MP3 release and leaves several digital-delivery, metadata, rights and policy details unstated. CJAM is digital-only, rejects Spotify-only links and direct MP3 attachments, and requires a four-plus-track properly tagged release delivered through a reliable download link. Both routes require human eligibility verification and manual delivery.
 
-Email-verification note: CKUW publishes music@ckuw.ca for Music Director David Tymoshchuk on its official Staff page, and its Contact page explicitly directs digital submissions to that role. UMFM's official Music Department FAQ exposes an authorized email link but protects the address through Cloudflare; it was not decoded, guessed or stored. Verification was limited to official publication, syntax and first-party domain alignment where plaintext was available, role purpose and route instructions. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
+Email-verification note: CKUT publishes music@ckut.ca on its official submission, contact and Music Department pages; the address has valid syntax, first-party domain alignment and a stated Music Department purpose. CJAM publishes cjammd@gmail.com consistently on its official Submit, Music and Contact pages for its named Music Director and for getting music played. The latter is a purpose-bound business role mailbox hosted on Gmail rather than the station domain. Verification was limited to official publication, syntax, cross-page consistency, role purpose and route instructions. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
 
-Safety: No email, download link, audio attachment or physical package was sent. No music, file, metadata, rights statement, contact information or payment was supplied. UMFM's protected address was not decoded, and no authentication, anti-bot, payment, validation or platform restriction was bypassed.
+Safety: No email, download link, audio file or physical package was sent. No music, metadata, EPK, rights statement, contact information or payment was supplied. No authentication, anti-bot, CAPTCHA, payment, validation or platform restriction was bypassed.
