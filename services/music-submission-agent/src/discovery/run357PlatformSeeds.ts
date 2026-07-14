@@ -1,0 +1,80 @@
+import type { PlatformInput } from '../models/types.js';
+
+export const run357SeedPlatforms: PlatformInput[] = [
+  {
+    name: 'Radio K KUOM Official Linked Music Submission Route',
+    websiteUrl: 'https://radiok.org/',
+    submissionUrl: 'https://radiok.umn.edu/submitting-music',
+    sourceUrl: 'https://radiok.org/contact',
+    sourceType: 'automation_run_357_public_research',
+    country: 'United States / Minneapolis, Minnesota / University of Minnesota student radio',
+    language: 'en',
+    genres: [
+      'independent',
+      'indie',
+      'alternative',
+      'electronic',
+      'experimental',
+      'hip-hop',
+      'rap',
+      'eclectic',
+      'college-radio',
+      'radio-airplay',
+      'digital-submission',
+      'music-director',
+      'protected-email',
+      'manual-review'
+    ],
+    submissionMethod: 'official-radio-k-first-party-linked-music-submission-route',
+    feeRequired: false,
+    feeAmount:
+      'No submission fee or mandatory payment is stated on the accessible official pages. The live linked submission route must be rechecked manually before use.',
+    loginRequired: false,
+    captchaDetected: false,
+    paymentRequired: false,
+    manualReviewRequired: true,
+    manualReviewReason:
+      "Radio K's official Contact page contains a dedicated Music Submissions section linking to its first-party How to Submit Music page and separately identifies a purpose-bound Music Director email action. Passive retrieval of the linked radiok.umn.edu submission page failed, and the Music Director destination was not exposed in plaintext. A human must open the official link immediately before outreach, verify the current form or email destination, accepted release types, file or link rules, metadata, international eligibility, and any CAPTCHA, login, consent or payment boundary. Do not use the separate Off The Record performance contact, request mailbox or general address as substitutes, and do not submit automatically.",
+    notes:
+      "Verified on 2026-07-14 from Radio K's official Contact, About and homepage pages. Radio K is the University of Minnesota's student-run independent-music station and serves listeners globally online and through four terrestrial signals. The homepage displayed current rotation additions and content dated June 17 through July 2, 2026, including independent, electronic-adjacent, experimental and hip-hop material. The official Contact page exposes both the dedicated submission link and a Music Director email action, but the underlying address was not decoded, guessed or stored. The linked instructions returned a passive cache-miss boundary and were not worked around. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed. No email, form, login, CAPTCHA, file, link, metadata or payment action was performed."
+  },
+  {
+    name: 'KAOS 89.3FM Full-Release Digital-Link-or-Physical Airplay Submission Route',
+    websiteUrl: 'https://www.kaosradio.org/',
+    submissionUrl: 'https://www.kaosradio.org/submitmusic',
+    sourceUrl: 'https://www.kaosradio.org/submitmusic',
+    sourceType: 'automation_run_357_public_research',
+    country: 'United States / Olympia, Washington / Evergreen State College community and college radio',
+    language: 'en',
+    genres: [
+      'independent',
+      'freeform',
+      'electronic',
+      'experimental',
+      'hip-hop',
+      'world-music',
+      'global-fusion',
+      'alternative',
+      'ambient',
+      'community-radio',
+      'college-radio',
+      'radio-airplay',
+      'digital-submission',
+      'physical-submission',
+      'one-sheet',
+      'manual-review'
+    ],
+    submissionMethod: 'official-kaos-full-release-email-links-or-physical-music-department-route',
+    feeRequired: false,
+    feeAmount:
+      'No submission fee or mandatory payment is stated. Physical-media production and international shipping costs would remain with the sender.',
+    loginRequired: false,
+    captchaDetected: false,
+    paymentRequired: false,
+    manualReviewRequired: true,
+    manualReviewReason:
+      "KAOS accepts physical CDs, vinyl and cassettes and accepts digital submissions by email when time allows, but it does not accept singles or direct file attachments. A human must select an eligible upcoming full release, prepare a one-sheet or press release with a brief bio, album description, focus tracks and all FCC violations or clean-edit information, confirm every track is suitable for a station with no safe-harbor period, and manually send both streaming and download links with the subject Music Submission to the officially published Music Department mailbox. International eligibility is not explicitly stated, physical submissions are preferred, and the adjacent general contact form and general mailboxes are not music-submission routes.",
+    notes:
+      "Verified on 2026-07-14 from KAOS's official Submit Music, Contact, Staff, homepage and shows pages. The official pages consistently publish kaosmusicdirector@gmail.com for the Music Department, identify current Music Director Colwyn Cunningham and assistants, and instruct artists not to send attachments. Activity was confirmed through 2026 Music Department charts, live-session and fundraising posts, a current schedule, and active freeform programming that includes electronic, experimental, hip-hop, world and independent music. Email verification covered valid syntax, repeated first-party publication and explicit Music Department purpose; the Gmail domain is external to the station but the address is officially authorized. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed. No email, general form, attachment, stream, download link, one-sheet, physical package, login, CAPTCHA or payment action was performed."
+  }
+];
