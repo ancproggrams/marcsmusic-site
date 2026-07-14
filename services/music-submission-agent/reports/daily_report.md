@@ -2,25 +2,25 @@
 
 Date: 2026-07-14
 
-Latest run: Run 357
+Latest run: Run 358
 
 New items added: 2
 
 Existing items materially enriched: 0
 
-Pipeline estimate: 1684
+Pipeline estimate: 1686
 
 Items:
 
-- Radio K KUOM Official Linked Music Submission Route — new
-- KAOS 89.3FM Full-Release Digital-Link-or-Physical Airplay Submission Route — new
+- KVRX 91.7FM Digital-or-Physical Airplay Submission Route — new
+- KDVS 90.3FM Physical-Only Music Department Airplay Submission Route — new
 
 Both queue items are marked needs_manual_review.
 
-Deduplication note: The active pull-request dataset was searched for Radio K, Radio K KUOM, KUOM, radiok.org, radiok.umn.edu/submitting-music, KAOS, KAOS 89.3, kaosradio.org, the official KAOS Submit Music path and kaosmusicdirector@gmail.com. Neither station had an existing canonical opportunity. Radio K's dedicated first-party link, protected Music Director action and adjacent contacts were consolidated into one record; only the dedicated submission route was queued. KAOS's Music Department mailbox, physical route, submission instructions, staff listing and adjacent general form were consolidated into one record; only the authorized music routes were queued.
+Deduplication note: The active pull-request dataset was searched for KVRX, KVRX 91.7, kvrx.org, music@kvrx.org, KDVS, KDVS 90.3, kdvs.org, musicdept@kdvs.org and the official KDVS FAQ path. Neither station had an existing canonical opportunity. KVRX's Music Department mailbox, physical address, operations question mailbox and AI-origin exclusion were consolidated into one record; only the authorized Music Department route was queued. KDVS's physical addresses, genre-department labels, Music Director mailbox and physical-only rule were consolidated into one record; only the authorized physical route was queued.
 
-Manual-review note: Radio K publishes an official music-submission link and protected Music Director action, but the linked instructions were not passively retrievable, so a human must open the live first-party route and verify its current requirements and controls. KAOS accepts full releases through streaming and download links or physical media, rejects singles and attachments, requires a one-sheet or press release and has no safe-harbor period. A human must select an eligible clean release, confirm international eligibility and manually prepare the package.
+Manual-review note: KVRX accepts digital and physical submissions but excludes AI-assisted or AI-generated music and does not publish complete digital packaging or international-eligibility rules. A human must verify production origin and current delivery requirements. KDVS accepts physical submissions only; a human must select an eligible format, verify the correct carrier address and prepare international shipping and customs information without using its Music Director mailbox as a digital workaround.
 
-Email-verification note: Radio K's Music Director action is first-party and purpose-bound but not plaintext, so its destination was not decoded, guessed or stored. KAOS repeatedly publishes kaosmusicdirector@gmail.com for Music Department submissions; syntax, purpose, cross-page consistency and current activity were verified while retaining the external Gmail-domain provenance. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
+Email-verification note: KVRX publishes music@kvrx.org specifically for airplay submissions; syntax, purpose, first-party domain alignment and current activity were verified. KDVS publishes musicdept@kdvs.org for its Music Directors; syntax, purpose, first-party domain alignment and current activity were verified, but the address was retained only as a business contact because KDVS explicitly requires physical music delivery. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
 
-Safety: No email, form, attachment, stream, download link, one-sheet, metadata, physical package, login, CAPTCHA, consent, identity claim, rights statement or payment was submitted. The inaccessible Radio K instructions were not worked around, no protected contact was decoded, and no performance, request or general contact was used as a substitute. KAOS's general form and general mailboxes were not used for music. No anti-bot, authentication, payment or platform restriction was entered or bypassed.
+Safety: No email, form, audio file, download link, attachment, physical package, courier booking, customs declaration, AI-origin claim, rights statement or payment was sent. KVRX's operations mailbox was not used as a duplicate route, KDVS's Music Director mailbox was not used to bypass its physical-only requirement, and no CAPTCHA, anti-bot, authentication, payment or platform restriction was entered or bypassed.
