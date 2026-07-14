@@ -2,23 +2,23 @@
 
 Date: 2026-07-14
 
-Latest run: Run 343
+Latest run: Run 344
 
 New items added: 2
 
-Pipeline estimate: 1657
+Pipeline estimate: 1659
 
 Items:
 
-- CJSW 90.9 FM Official Digital Music Submission Form
-- CFUV 101.9 FM Official Digital Music Submission Email
+- CKMS-FM 102.7 Radio Waterloo Public Music Submission Email and Contact Form
+- CJAI 101.3 FM Island Radio First-Party Music Upload Form
 
 All items are marked needs_manual_review.
 
-Deduplication note: the active pull-request branch, recent run artifacts and canonical route identifiers were searched for both station names, official domains, the CJSW submission page, its current Jotform identifier and the CFUV Music Director mailbox. No existing CJSW or CFUV submission record was found. CJSW's form was stored once; its protected staff contact and optional Calgary-area campus mailout were classified as adjacent routes. CFUV's mailbox was stored once, while local physical-delivery information was retained only as an adjacent option.
+Deduplication note: the complete active pull-request patch and current branch history were searched for CKMS, Radio Waterloo, radiowaterloo.ca, office@radiowaterloo.ca, CJAI, Island Radio, cjai.ca and air@cjai.ca. No prior submission record was found. Radio Waterloo's purpose-bound email and alternative contact form were stored as one canonical route. CJAI's dedicated upload form was stored once; its general station mailbox and local-only Radio Free Stella lane were retained only as adjacent information.
 
-Manual-review note: CJSW accepts only recent digital EPs and albums with at least three tracks, MP3 files in a ZIP, artwork, release metadata and permission for programmer sharing and permanent library addition. Its external form includes a leave-empty anti-spam field and must be completed manually. CFUV requires at least three 320 kbps MP3 tracks through an approved download link, complete artist/album/track-listing metadata and a manually approved email. No login, confirmed CAPTCHA or mandatory payment applies to either primary route.
+Manual-review note: Radio Waterloo's authorized music-submission email has incomplete delivery specifications because its detailed Submit Music page presented a request-verification loader; its alternative form also contains a human anti-spam knowledge question. CJAI requires a first-party upload containing an artist name, bio, audio file up to 16 MB, local status, location and contact details, with complete MP3 metadata and optional artwork. Neither route may be submitted automatically.
 
-Email-verification note: `music@cfuv.ca` is published on CFUV's official Music Submissions and Contact pages for all digital submissions and is assigned to its Music Director. The `cfuv.ca` domain redirects to the official `cfuv.uvic.ca` site. CJSW's staff submission contact was protected or masked during passive extraction and was not decoded, guessed or queued. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
+Email-verification note: `office@radiowaterloo.ca` is published on Radio Waterloo's official Contact Us page and explicitly authorized for music submissions. `air@cjai.ca` is published by CJAI as a general station contact, but CJAI directs music submissions to the dedicated form, so it was not queued as an alternate route. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
 
-Safety: No email, form or physical package was sent. No field, anti-spam input, upload, signature, permission, track, ZIP, MP3, artwork, one-sheet, stream, download link, biography, release metadata, track listing, location or personal information was supplied. No CAPTCHA, login, authentication, payment, anti-bot or platform restriction was entered or bypassed. The CJSW leave-empty field was not touched.
+Safety: No email or form was sent. No name, email, subject, message, anti-spam answer, track, audio file, image, biography, location, metadata, website, privacy consent or rights statement was supplied. Radio Waterloo's request-verification screen and anti-spam question were not bypassed. No login, authentication, payment or platform restriction was entered or bypassed.
