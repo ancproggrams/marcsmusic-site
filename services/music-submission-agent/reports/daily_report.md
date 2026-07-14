@@ -2,23 +2,23 @@
 
 Date: 2026-07-14
 
-Latest run: Run 345
+Latest run: Run 346
 
 New items added: 2
 
-Pipeline estimate: 1661
+Pipeline estimate: 1663
 
 Items:
 
-- CJSR FM 88 Edmonton Digital Album/EP Submission Email and Physical Route
-- CJSF 90.1 FM National Music Director Submission Form and Music Coordinator Email
+- CHLY 101.7FM Nanaimo Music Submission Form, Email Fallback and Physical Route
+- CIVL Radio 101.7FM Abbotsford Music Director Email and CAPTCHA Contact Form
 
 All items are marked needs_manual_review.
 
-Deduplication note: The repository search was run for CJSR, cjsr.com, music@cjsr.com, CJSF, cjsf.ca and cjsfmusc@sfu.ca before creation; no prior music-submission-agent record was returned. CJSR's digital email and optional physical delivery were stored as one canonical opportunity, with the separate local advertising offer classified only as adjacent paid promotion. CJSF's National Music Director form was stored once, while its Music Coordinator mailbox, local-only physical route and optional direct !earshot Distro alternative were retained as adjacent information rather than duplicate queue rows.
+Deduplication note: The repository was searched for CHLY, chly.ca, submissions@chly.ca, music@chly.ca, CIVL, civl.ca and music@civl.ca before creation; no prior music-submission-agent record was returned. CHLY's form, conditional fallback mailbox, assistance mailbox and physical route were stored as one canonical opportunity, while optional !earshot distribution remained adjacent information. CIVL's Music Director address and Submit your music form option were stored as one canonical opportunity; general station contacts were not queued as duplicates.
 
-Manual-review note: CJSR accepts only albums and EPs through stable downloadable files or codes, rejects paid-streaming-only and expiring links, and will not air wholly AI-generated music. CJSF's National Music Director form grants broadcast rights across its partner network, uses optional discoverability/self-disclosure labels and does not accept non-local physical submissions. Its live external form controls must be inspected manually. Neither route may be submitted automatically.
+Manual-review note: CHLY rejects AI-generated music, requires downloadable high-quality MP3 or AAC rather than streaming-only delivery, prioritizes its first-party form and authorizes submissions@chly.ca only when the form fails. CIVL publishes a Music Director address and a first-party Submit your music form with confirmed CAPTCHA but no complete public file/link specification. Both require human review and manual submission.
 
-Email-verification note: CJSR publishes music@cjsr.com on its official Submit Music page specifically for digital albums and EPs; the address was verified through official publication, syntax, first-party domain alignment and stated business purpose. CJSF publishes cjsfmusc@sfu.ca on its official Music Department, Submissions and Contact pages as the Music Coordinator address; the institutional domain relationship and staff purpose were verified from CJSF's own site. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
+Email-verification note: CHLY publishes submissions@chly.ca as a conditional fallback and music@chly.ca for Music Department assistance. CIVL displays music (at) civl (dot) ca for its Music Director; it was normalized to music@civl.ca without defeating any protection. The addresses were verified through official publication, syntax, first-party domain alignment and stated purpose only. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
 
-Safety: No email, form or physical package was sent. No track, album, EP, download code, cloud link, file, metadata, one-sheet, focus track, identity label, local-status claim, rights grant, language warning, contact information or payment was supplied. CJSF's external form was not completed or probed, and no runtime CAPTCHA, authentication, validation or platform restriction was bypassed. CJSR's optional paid advertising route was not used.
+Safety: No email, form, CAPTCHA or physical package was submitted. No music, file, stream or download link, biography, metadata, identity or content label, rights statement, contact information or payment was supplied. CHLY's form was not completed or dynamically probed, CIVL's CAPTCHA was not attempted, and no authentication, anti-bot, payment, validation or platform restriction was bypassed.
