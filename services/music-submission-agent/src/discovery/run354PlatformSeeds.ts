@@ -1,0 +1,74 @@
+import type { PlatformInput } from '../models/types.js';
+
+export const run354SeedPlatforms: PlatformInput[] = [
+  {
+    name: 'WJCU 88.7 FM All-Genres Physical Music Director Airplay Submission Route',
+    websiteUrl: 'https://www.wjcu.org/',
+    submissionUrl: 'https://www.wjcu.org/contact',
+    sourceUrl: 'https://www.wjcu.org/contact',
+    sourceType: 'automation_run_354_public_research',
+    country: 'United States / University Heights, Ohio / student-operated noncommercial college radio',
+    language: 'en',
+    genres: [
+      'electronic',
+      'dance',
+      'synth-pop',
+      'reggae',
+      'world-music',
+      'alternative',
+      'independent',
+      'eclectic',
+      'college-radio',
+      'radio-airplay',
+      'physical-submission',
+      'music-director',
+      'manual-review'
+    ],
+    submissionMethod: 'official-wjcu-non-triple-a-physical-music-director-airplay-route',
+    feeRequired: false,
+    feeAmount:
+      'No music-submission fee or mandatory payment is stated. Physical-media production and international shipping costs would remain with the sender.',
+    loginRequired: false,
+    captchaDetected: false,
+    paymentRequired: false,
+    manualReviewRequired: true,
+    manualReviewReason:
+      "WJCU's official Contact page instructs artists promoting music outside its Triple-A daytime format to call the Genre Music Director or send music physically to ATTN: Music Director at the published station address. The page does not specify accepted physical formats, release-age limits, metadata requirements, clean-edit rules, international eligibility or return policy. A human must confirm the current format requirements, select a rights-cleared MarcsMusic release, prepare the physical package and shipping documents, and use the published address exactly. The separate Triple-A email route and non-plaintext role addresses must not be decoded or used as a shortcut around the all-genres physical route.",
+    notes:
+      "Verified on 2026-07-14 from WJCU's official Contact, Staff, About and homepage pages. The Contact page explicitly separates Triple-A promotion from all other genres and authorizes the all-genres Music Director physical route. The current staff page identifies two student Music Directors and a professional Heights Music Director. Current operation was confirmed through a 2026 summer concert series, 2026 station updates, live recent-play data and active programming that includes independent music, dance punk, synth-pop, alternative, ethnic and community programming. The public role-email strings are intentionally obfuscated in the rendered page and were not decoded, guessed or stored. No phone call, email, physical package, audio, metadata, rights declaration, login, CAPTCHA or payment action was performed, and no SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+  },
+  {
+    name: 'WVUM 90.5 FM Music Director Pre-Submission Inquiry Route',
+    websiteUrl: 'https://www.wvum.org/',
+    submissionUrl: 'https://www.wvum.org/contact',
+    sourceUrl: 'https://www.wvum.org/contact',
+    sourceType: 'automation_run_354_public_research',
+    country: 'United States / Coral Gables and Miami, Florida / University of Miami student-run radio',
+    language: 'en',
+    genres: [
+      'alternative',
+      'electronic',
+      'dance',
+      'house',
+      'techno',
+      'independent',
+      'new-music',
+      'college-radio',
+      'radio-airplay',
+      'music-director-email',
+      'routing-inquiry',
+      'manual-review'
+    ],
+    submissionMethod: 'official-wvum-music-director-asset-free-pre-submission-inquiry-route',
+    feeRequired: false,
+    feeAmount: 'No fee or mandatory payment is stated for contacting the official WVUM Music Director role address.',
+    loginRequired: false,
+    captchaDetected: false,
+    paymentRequired: false,
+    manualReviewRequired: true,
+    manualReviewReason:
+      "WVUM's official Contact page publishes md@wvum.org for its Music Directors, and its Music page states that the music staff continuously introduces and hand-selects new independent music. The site does not publish a complete unsolicited-music delivery policy, accepted file or download-link formats, attachment limits, metadata fields, release windows, clean-edit requirements, international eligibility or AI-origin rules. The queue item is therefore restricted to a concise asset-free inquiry asking for the current authorized submission procedure. A human must wait for explicit instructions before supplying any track, stream, download link, attachment or EPK.",
+    notes:
+      "Verified on 2026-07-14 from WVUM's official Contact, Music and homepage pages. The Contact page lists current Music Directors Janel Bates and Laura De Arcos and the plaintext role mailbox md@wvum.org. The Music page describes alternative-music programming and continuous hand-selection of new independent music and lists electronic artists including Diplo, Bonobo, Oliver Heldens and DJ Tennis among prior featured artists. Current operation was confirmed through a 2026 copyright notice, active listening and programming navigation, current staff details and current editorial posts. Email verification was limited to first-party plaintext publication, valid syntax, exact Music Director purpose and wvum.org domain alignment. No inquiry, music asset, form, login, CAPTCHA or payment action was performed, and no SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+  }
+];
