@@ -1,0 +1,139 @@
+{
+  "run": 365,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1694,
+  "pipelineEstimate": 1696,
+  "newPlatforms": [
+    {
+      "platform": "CJSW 90.9 FM",
+      "canonicalName": "CJSW 90.9 FM Digital EP and Album Jotform Submission Route",
+      "websiteUrl": "https://cjsw.com/",
+      "submissionUrl": "https://form.jotform.com/260625704327253",
+      "country": "Canada / Calgary, Alberta",
+      "category": "campus and community radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Use the exact Jotform linked from CJSW's official Music Submissions page",
+        "Upload a complete ZIP containing MP3 files for an EP or album with at least three unique tracks",
+        "Include artist, release, label, date, genre, location, biography, RIYL, streaming, artwork and consent information"
+      ],
+      "eligibility": {
+        "singlesAccepted": false,
+        "minimumDistinctTracks": 3,
+        "releaseWindow": "Released within the previous three months",
+        "audioFormat": "MP3 only, complete release in ZIP format",
+        "internationalEligibility": "not_explicitly_confirmed"
+      },
+      "businessContact": {
+        "type": "official_submission_form_plus_protected_first_party_assistance_email",
+        "name": "CJSW Music Department / Helen Young, Music & Performance Director",
+        "email": null,
+        "verification": "CJSW's official Contact and Music Department pages link the submission guidelines and identify Helen Young as the Music & Performance Director responsible for submissions. The separate assistance email was protected in passive rendering and was not decoded, inferred or guessed. The authorized submission destination is the exact Jotform linked by the station."
+      },
+      "formControls": {
+        "thirdPartyFormHost": "Jotform",
+        "fileUploadsObserved": true,
+        "requiredReleaseUpload": "ZIP containing MP3 files",
+        "optionalOneSheetUpload": true,
+        "requiredArtworkUpload": true,
+        "permissionConsentObserved": true,
+        "honeypotObserved": true,
+        "honeypotLabel": "Should be Empty",
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false
+      },
+      "activityVerification": "CJSW's official homepage displayed current live and upcoming programming, 2026 Sled Island interviews and active shows covering independent, reggae, dub, afrobeat, electronica, breakbeat and experimental music.",
+      "genreFit": [
+        "independent",
+        "electronic",
+        "electronica",
+        "breakbeat",
+        "dub",
+        "reggae",
+        "afrobeat",
+        "experimental",
+        "regional",
+        "hip-hop"
+      ],
+      "manualReviewReason": "The route is legitimate and free-first, but a human must confirm international eligibility, select a recent EP or album rather than a single, prepare MP3 files in a complete ZIP, review the permanent-library and programmer-sharing consent, leave the anti-spam field untouched, upload the assets and submit manually. Stop if any new CAPTCHA, login, payment or platform restriction appears."
+    },
+    {
+      "platform": "CKUT 90.3 FM",
+      "canonicalName": "CKUT 90.3 FM Global Digital and Physical Music Department Submission Route",
+      "websiteUrl": "https://ckut.ca/",
+      "submissionUrl": "https://ckut.ca/submit-music-to-ckut/",
+      "country": "Canada / Montreal, Quebec",
+      "category": "non-profit campus-community radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Send a 320-kbps MP3 digital submission to music@ckut.ca",
+        "Mail or drop off CDs, cassettes, 12-inch vinyl or 7-inch vinyl to the published CKUT Music Department address",
+        "Submit at least three distinct tracks unless the release is a 7-inch vinyl; singles are not accepted"
+      ],
+      "eligibility": {
+        "singlesAccepted": false,
+        "minimumDistinctTracks": 3,
+        "sevenInchVinylException": true,
+        "remixesCountTowardMinimum": false,
+        "digitalAudioFormat": "320-kbps MP3",
+        "internationalEligibility": "confirmed_worldwide"
+      },
+      "businessContact": {
+        "type": "verified_first_party_music_submission_mailbox",
+        "name": "CKUT Music Department",
+        "email": "music@ckut.ca",
+        "verification": "The mailbox is published both on CKUT's official submission instructions and in the Music Department section of its first-party contact page. Verification covered repeated first-party publication, valid syntax, official-domain alignment and explicit music-submission purpose. No SMTP, MX, catch-all or mailbox-level probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false
+      },
+      "activityVerification": "CKUT's official site displayed a 2026 funding-drive notice, July 2026 station posts and archives, active schedule navigation and current programming across electronics, house, techno, ambient, experimental, global, reggae, dancehall and hip-hop.",
+      "genreFit": [
+        "independent",
+        "electronic",
+        "electronics",
+        "house",
+        "techno",
+        "ambient",
+        "experimental",
+        "avant-garde",
+        "noise",
+        "reggae",
+        "dancehall",
+        "global",
+        "world-music",
+        "hip-hop"
+      ],
+      "manualReviewReason": "Worldwide eligibility and the business mailbox are confirmed, but a human must select an eligible multi-track release, verify 320-kbps MP3 encoding, decide on a delivery method that respects email-size limits because attachment-versus-download-link rules are not stated, add sufficient release metadata and send manually. Physical media, postage and customs also require human handling."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "CJSW",
+      "CJSW 90.9 FM",
+      "cjsw.com",
+      "cjsw.com/music/submit",
+      "form.jotform.com/260625704327253",
+      "CKUT",
+      "CKUT 90.3 FM",
+      "ckut.ca",
+      "ckut.ca/submit-music-to-ckut",
+      "music@ckut.ca"
+    ],
+    "result": "Repository code searches returned no prior canonical CJSW or CKUT submission opportunity. CJSW's official guidelines, linked Jotform and protected assistance contact were consolidated into one record. CKUT's digital email and physical-delivery methods were consolidated into one record rather than counted as separate opportunities."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Both routes are free-first and manual-review only. CJSW uses a station-authorized Jotform with required uploads, permanent-library consent and a leave-empty anti-spam field; international eligibility is not explicit. CKUT explicitly accepts worldwide submissions, publishes music@ckut.ca and accepts digital 320-kbps MP3 plus physical media. No form, email, file, link, package, login, CAPTCHA, payment or anti-bot control was submitted or bypassed."
+}
