@@ -1,0 +1,109 @@
+{
+  "run": 364,
+  "date": "2026-07-14",
+  "pipelineEstimateBefore": 1692,
+  "pipelineEstimate": 1694,
+  "newPlatforms": [
+    {
+      "platform": "KXCI 91.3FM",
+      "canonicalName": "KXCI 91.3FM Global Digital Album Email and Physical Music Submission Route",
+      "websiteUrl": "https://kxci.org/",
+      "submissionUrl": "https://kxci.org/about/music-department/",
+      "country": "United States / Tucson, Arizona",
+      "category": "independent community radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Send an MP3 or WAV download link for a digital album to the protected Music Department email displayed on the official page",
+        "Send CDs or vinyl accompanied by a digital download to the published national and international Music Department address",
+        "Include complete album, track, release, genre, rights, explicit-content, biography, social and contact metadata"
+      ],
+      "businessContact": {
+        "type": "protected_first_party_music_department_email_action",
+        "name": "KXCI Music Department",
+        "email": null,
+        "verification": "The official Music Department page identifies a dedicated Music Department email action for digital submissions. Its destination is protected in passive rendering and was not decoded, inferred or guessed. The same page explicitly authorizes the physical Music Department route for national and international submissions."
+      },
+      "formControls": {
+        "javascriptRequired": false,
+        "honeypotObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false
+      },
+      "activityVerification": "KXCI's official site displayed current playlist and archive navigation, podcasts dated through July 12, 2026, news dated through July 10, 2026 and scheduled July-August 2026 events and programming.",
+      "genreFit": [
+        "independent",
+        "electronic",
+        "electro-pop",
+        "ambient",
+        "experimental",
+        "dub",
+        "reggae",
+        "global",
+        "world-music",
+        "hip-hop"
+      ],
+      "manualReviewReason": "International eligibility is confirmed, but a human must open the official page and use the protected displayed Music Department address without decoding or guessing it, select an eligible album, verify rights and explicit-content metadata, prepare stable MP3 or WAV download access and send manually. Physical media, postage and customs also require human handling. The separate local-only route must not be used for MarcsMusic."
+    },
+    {
+      "platform": "Radio Boise KRBX",
+      "canonicalName": "Radio Boise KRBX First-Party Dynamic Music Submission Form",
+      "websiteUrl": "https://radioboise.org/",
+      "submissionUrl": "https://radioboise.org/support/submit-your-music/",
+      "country": "United States / Boise, Idaho",
+      "category": "independent community radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": "unconfirmed_dynamic_route",
+      "captchaDetected": "unconfirmed_dynamic_route",
+      "paymentRequired": "unconfirmed_dynamic_route",
+      "authorizedRoutes": [
+        "Use the dedicated first-party Submit Your Music page after a human inspects its fully rendered interface and instructions"
+      ],
+      "businessContact": {
+        "type": "first_party_dynamic_music_submission_route_with_adjacent_public_staff_contacts",
+        "name": "Radio Boise Submit Your Music",
+        "email": null,
+        "verification": "The official site repeatedly links a dedicated Submit Your Music page. The Staff page publishes general management, programming, operations, marketing and studio contacts, but none was identified as the music-submission destination, so those contacts were not queued or used as substitutes."
+      },
+      "formControls": {
+        "javascriptRequired": true,
+        "renderStateObserved": "Loading only in passive client",
+        "honeypotObserved": "unconfirmed_dynamic_route",
+        "captchaObserved": "unconfirmed_dynamic_route",
+        "loginObserved": "unconfirmed_dynamic_route",
+        "paymentObserved": "unconfirmed_dynamic_route"
+      },
+      "activityVerification": "Radio Boise's official homepage displayed a June 22, 2026 anniversary-concert announcement, active live-listening and current-playlist navigation, while its official Staff page listed current station leadership and operations.",
+      "genreFit": [
+        "independent",
+        "eclectic",
+        "electronic",
+        "global",
+        "experimental",
+        "community-radio"
+      ],
+      "manualReviewReason": "The official submission route is legitimate but dynamically loaded. A human must inspect the live fields, accepted release types, audio or link requirements, metadata, rights and consent language, privacy terms, international eligibility and any CAPTCHA, login, payment, upload or anti-spam controls. No general or staff mailbox may be used as a workaround."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "KXCI",
+      "KXCI 91.3FM",
+      "kxci.org",
+      "kxci.org/about/music-department",
+      "KXCI Music Department",
+      "Radio Boise",
+      "KRBX",
+      "radioboise.org",
+      "radioboise.org/support/submit-your-music"
+    ],
+    "result": "Repository code search and the open pull-request changed-file inventory contained no prior canonical KXCI or Radio Boise submission opportunity. KXCI digital and physical routes were consolidated into one record and its local-only route was excluded. Radio Boise's adjacent staff contacts were not counted as separate submission routes."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Both routes are free-first and manual-review only. KXCI confirms international submissions and authorizes digital albums plus physical media, but its Music Department address is protected. Radio Boise provides a first-party dynamic submission route whose live controls and eligibility must be inspected manually. No form, email, file, link, package, login, CAPTCHA, payment or anti-bot control was submitted or bypassed."
+}
