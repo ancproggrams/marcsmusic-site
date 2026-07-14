@@ -1,0 +1,96 @@
+{
+  "run": 361,
+  "date": "2026-07-14",
+  "pipelineEstimateBefore": 1686,
+  "pipelineEstimate": 1688,
+  "newPlatforms": [
+    {
+      "platform": "WPRB 103.3 FM",
+      "canonicalName": "WPRB 103.3 FM Digital-or-Physical New Music Submission Route",
+      "websiteUrl": "https://wprb.com/",
+      "submissionUrl": "https://wprb.com/music-submissions/",
+      "country": "United States / Princeton, New Jersey",
+      "category": "community-supported independent freeform radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Email new music to music@wprb.com",
+        "Mail CDs or CD-Rs to the official WPRB Music Director address",
+        "Mail LPs, 12-inch, 10-inch or 7-inch records to the official WPRB Music Director address"
+      ],
+      "businessContact": {
+        "type": "official_music_submission_role_mailbox",
+        "name": "WPRB Music Director",
+        "email": "music@wprb.com",
+        "verification": "Repeatedly published on WPRB first-party Music Submissions and Contact pages, valid syntax, same-domain alignment and explicit music-submission purpose."
+      },
+      "activityVerification": "WPRB's official site exposed live now-playing data, a current daily schedule, recent playlists, July 2026 concert listings and a 2026 copyright notice.",
+      "genreFit": [
+        "freeform",
+        "independent",
+        "electronic",
+        "experimental",
+        "ambient",
+        "dub",
+        "reggae",
+        "world-music",
+        "hip-hop"
+      ],
+      "manualReviewReason": "The email route is authorized but does not publish complete attachment, streaming-link, downloadable-file, codec, metadata, release-window, international-eligibility or rights requirements. Physical submissions are prioritized and require human media selection, address confirmation, postage and customs handling."
+    },
+    {
+      "platform": "WCBN-FM 88.3",
+      "canonicalName": "WCBN-FM 88.3 Physical Album Airplay Submission Route",
+      "websiteUrl": "https://wcbn.org/",
+      "submissionUrl": "https://wcbn.org/c/",
+      "country": "United States / Ann Arbor, Michigan",
+      "category": "University of Michigan student-run freeform radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Send a hard-copy album, preferably CD or vinyl, to WCBN MUSIC at the official station address",
+        "Mark a genre-specific album care of the relevant genre director"
+      ],
+      "businessContact": {
+        "type": "cloudflare_protected_music_directors_contact_and_named_staff",
+        "name": "WCBN Music Directors",
+        "email": null,
+        "verification": "The first-party Contact page lists current general and genre Music Directors and exposes a Cloudflare-protected email action. The address was not decoded, inferred or guessed."
+      },
+      "activityVerification": "WCBN states that it broadcasts 24/7 and exposes live listening, recent two-week archives, a current schedule and board appointments extending through October and December 2026.",
+      "genreFit": [
+        "freeform",
+        "independent",
+        "electronic",
+        "techno",
+        "reggae",
+        "dancehall",
+        "hip-hop",
+        "world-music",
+        "experimental"
+      ],
+      "manualReviewReason": "WCBN authorizes hard-copy albums rather than a digital route. A human must confirm that the release is an eligible album, choose CD or vinyl and genre routing, reconfirm the address, and prepare postage and customs. The protected Music Directors contact must not be decoded or used as a digital-submission workaround."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "WPRB",
+      "wprb.com",
+      "music@wprb.com",
+      "https://wprb.com/music-submissions/",
+      "WCBN",
+      "WCBN-FM",
+      "wcbn.org",
+      "https://wcbn.org/c/"
+    ],
+    "result": "No existing canonical WPRB or WCBN opportunity was found in repository code search or the complete pull-request patch resource. Each station's related email, staff, genre-routing and physical-delivery variants were consolidated into one canonical platform record."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Both opportunities use first-party authorized routes and remain manual-review only. No outbound submission, protected-contact decoding, authentication, anti-bot bypass, payment or mailbox-level probing occurred."
+}
