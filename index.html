@@ -944,7 +944,30 @@
 
     .slider-controls {
       display: flex;
+      align-items: center;
       gap: 8px;
+    }
+
+    .slider-mode {
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-right: 4px;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .slider-mode::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--pastel-strong);
+      box-shadow: 0 0 0 3px var(--pastel-muted);
     }
 
     .slider-button {
@@ -1626,6 +1649,7 @@
             <h2 id="reactions-title">Wat anderen horen.</h2>
           </div>
           <div class="slider-controls" aria-label="Blader door reacties">
+            <span class="slider-mode" data-slider-mode>Automatisch</span>
             <button class="slider-button" type="button" data-reactions-prev aria-label="Vorige reacties">←</button>
             <button class="slider-button" type="button" data-reactions-next aria-label="Volgende reacties">→</button>
           </div>
@@ -2323,6 +2347,10 @@
     const reactionsSlider = document.querySelector("[data-reactions-slider]");
     const reactionsPrevious = document.querySelector("[data-reactions-prev]");
     const reactionsNext = document.querySelector("[data-reactions-next]");
+    const reactionsMode = document.querySelector("[data-slider-mode]");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let reactionsAutoplayTimer = null;
+    let reactionsResumeTimer = null;
 
     function reactionScrollStep() {
       const card = reactionsSlider?.querySelector(".reaction-card");
@@ -2342,12 +2370,52 @@
       reactionsNext.disabled = reactionsSlider.scrollLeft >= maxScroll - 2;
     }
 
+    function stopReactionAutoplay() {
+      window.clearInterval(reactionsAutoplayTimer);
+      window.clearTimeout(reactionsResumeTimer);
+      reactionsAutoplayTimer = null;
+      reactionsResumeTimer = null;
+      if (reactionsMode) {
+        reactionsMode.textContent = reduceMotion.matches ? "Handmatig" : "Gepauzeerd";
+      }
+    }
+
+    function advanceReactionSlider() {
+      if (!reactionsSlider) {
+        return;
+      }
+      const maxScroll = reactionsSlider.scrollWidth - reactionsSlider.clientWidth;
+      const atEnd = reactionsSlider.scrollLeft >= maxScroll - 2;
+      reactionsSlider.scrollTo({
+        left: atEnd ? 0 : Math.min(maxScroll, reactionsSlider.scrollLeft + reactionScrollStep()),
+        behavior: "smooth"
+      });
+    }
+
+    function startReactionAutoplay() {
+      stopReactionAutoplay();
+      if (!reactionsSlider || reduceMotion.matches || reactionsSlider.scrollWidth <= reactionsSlider.clientWidth) {
+        return;
+      }
+      if (reactionsMode) {
+        reactionsMode.textContent = "Automatisch";
+      }
+      reactionsAutoplayTimer = window.setInterval(advanceReactionSlider, 4800);
+    }
+
+    function restartReactionAutoplay() {
+      stopReactionAutoplay();
+      reactionsResumeTimer = window.setTimeout(startReactionAutoplay, 6500);
+    }
+
     reactionsPrevious?.addEventListener("click", () => {
       reactionsSlider?.scrollBy({ left: -reactionScrollStep(), behavior: "smooth" });
+      restartReactionAutoplay();
     });
 
     reactionsNext?.addEventListener("click", () => {
       reactionsSlider?.scrollBy({ left: reactionScrollStep(), behavior: "smooth" });
+      restartReactionAutoplay();
     });
 
     reactionsSlider?.addEventListener("scroll", updateReactionControls, { passive: true });
@@ -2360,9 +2428,24 @@
         left: event.key === "ArrowLeft" ? -reactionScrollStep() : reactionScrollStep(),
         behavior: "smooth"
       });
+      restartReactionAutoplay();
     });
-    window.addEventListener("resize", updateReactionControls);
+    reactionsSlider?.addEventListener("pointerenter", stopReactionAutoplay);
+    reactionsSlider?.addEventListener("pointerleave", startReactionAutoplay);
+    reactionsSlider?.addEventListener("focusin", stopReactionAutoplay);
+    reactionsSlider?.addEventListener("focusout", (event) => {
+      if (!reactionsSlider.contains(event.relatedTarget)) {
+        startReactionAutoplay();
+      }
+    });
+    reactionsSlider?.addEventListener("pointerdown", restartReactionAutoplay, { passive: true });
+    reduceMotion.addEventListener("change", startReactionAutoplay);
+    window.addEventListener("resize", () => {
+      updateReactionControls();
+      startReactionAutoplay();
+    });
     updateReactionControls();
+    startReactionAutoplay();
 
     const signupForm = document.querySelector("[data-signup]");
     const signupStatus = document.querySelector("[data-signup-status]");
