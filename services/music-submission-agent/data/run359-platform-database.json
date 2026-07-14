@@ -1,0 +1,46 @@
+{
+  "run": 359,
+  "date": "2026-07-14",
+  "pipelineEstimateBeforeCorrection": 1686,
+  "pipelineEstimate": 1684,
+  "newPlatforms": [],
+  "enrichedExistingPlatforms": [
+    {
+      "platform": "KVRX 91.7FM",
+      "canonicalRun": 112,
+      "canonicalName": "KVRX 91.7FM Music Department Digital and Physical Airplay Submission Route",
+      "canonicalSubmissionUrl": "https://www.kvrx.org/app/contact/",
+      "duplicateRun": 358,
+      "duplicateName": "KVRX 91.7FM Digital-or-Physical Airplay Submission Route",
+      "action": "removed_duplicate_seed_and_queue_row",
+      "status": "canonical_existing_needs_manual_review",
+      "dedupeKeys": [
+        "kvrx",
+        "kvrx.org",
+        "music@kvrx.org",
+        "https://www.kvrx.org/app/contact/"
+      ],
+      "reason": "Run 358 represented the same station, Music Department, authorized digital or physical route, public mailbox and AI-origin restriction already recorded in Run 112. The newer naming and URL normalization did not create a distinct opportunity."
+    },
+    {
+      "platform": "KDVS 90.3FM",
+      "canonicalRun": 130,
+      "canonicalName": "KDVS Davis Physical-Only Music Department Airplay Submission Route",
+      "canonicalSubmissionUrl": "https://kdvs.org/contact",
+      "duplicateRun": 358,
+      "duplicateName": "KDVS 90.3FM Physical-Only Music Department Airplay Submission Route",
+      "action": "removed_duplicate_seed_and_queue_row",
+      "status": "canonical_existing_needs_manual_review",
+      "dedupeKeys": [
+        "kdvs",
+        "kdvs.org",
+        "musicdept@kdvs.org",
+        "https://kdvs.org/contact"
+      ],
+      "reason": "Run 358 represented the same physical-only station route and Music Department business contact already recorded in Run 130. The FAQ URL and expanded package notes are enrichment, not a separate opportunity."
+    }
+  ],
+  "removedDuplicatePlatforms": 2,
+  "activeQueueRowsAdded": 0,
+  "notes": "This run prioritized database integrity after a full active-patch audit found that both Run 358 records duplicated earlier canonical opportunities. The duplicate seed records and Run 358 queue rows were removed. No new route was inserted without a confirmed unique canonical identity."
+}
