@@ -2,23 +2,23 @@
 
 Date: 2026-07-14
 
-Latest run: Run 344
+Latest run: Run 345
 
 New items added: 2
 
-Pipeline estimate: 1659
+Pipeline estimate: 1661
 
 Items:
 
-- CKMS-FM 102.7 Radio Waterloo Public Music Submission Email and Contact Form
-- CJAI 101.3 FM Island Radio First-Party Music Upload Form
+- CJSR FM 88 Edmonton Digital Album/EP Submission Email and Physical Route
+- CJSF 90.1 FM National Music Director Submission Form and Music Coordinator Email
 
 All items are marked needs_manual_review.
 
-Deduplication note: the complete active pull-request patch and current branch history were searched for CKMS, Radio Waterloo, radiowaterloo.ca, office@radiowaterloo.ca, CJAI, Island Radio, cjai.ca and air@cjai.ca. No prior submission record was found. Radio Waterloo's purpose-bound email and alternative contact form were stored as one canonical route. CJAI's dedicated upload form was stored once; its general station mailbox and local-only Radio Free Stella lane were retained only as adjacent information.
+Deduplication note: The repository search was run for CJSR, cjsr.com, music@cjsr.com, CJSF, cjsf.ca and cjsfmusc@sfu.ca before creation; no prior music-submission-agent record was returned. CJSR's digital email and optional physical delivery were stored as one canonical opportunity, with the separate local advertising offer classified only as adjacent paid promotion. CJSF's National Music Director form was stored once, while its Music Coordinator mailbox, local-only physical route and optional direct !earshot Distro alternative were retained as adjacent information rather than duplicate queue rows.
 
-Manual-review note: Radio Waterloo's authorized music-submission email has incomplete delivery specifications because its detailed Submit Music page presented a request-verification loader; its alternative form also contains a human anti-spam knowledge question. CJAI requires a first-party upload containing an artist name, bio, audio file up to 16 MB, local status, location and contact details, with complete MP3 metadata and optional artwork. Neither route may be submitted automatically.
+Manual-review note: CJSR accepts only albums and EPs through stable downloadable files or codes, rejects paid-streaming-only and expiring links, and will not air wholly AI-generated music. CJSF's National Music Director form grants broadcast rights across its partner network, uses optional discoverability/self-disclosure labels and does not accept non-local physical submissions. Its live external form controls must be inspected manually. Neither route may be submitted automatically.
 
-Email-verification note: `office@radiowaterloo.ca` is published on Radio Waterloo's official Contact Us page and explicitly authorized for music submissions. `air@cjai.ca` is published by CJAI as a general station contact, but CJAI directs music submissions to the dedicated form, so it was not queued as an alternate route. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
+Email-verification note: CJSR publishes music@cjsr.com on its official Submit Music page specifically for digital albums and EPs; the address was verified through official publication, syntax, first-party domain alignment and stated business purpose. CJSF publishes cjsfmusc@sfu.ca on its official Music Department, Submissions and Contact pages as the Music Coordinator address; the institutional domain relationship and staff purpose were verified from CJSF's own site. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
 
-Safety: No email or form was sent. No name, email, subject, message, anti-spam answer, track, audio file, image, biography, location, metadata, website, privacy consent or rights statement was supplied. Radio Waterloo's request-verification screen and anti-spam question were not bypassed. No login, authentication, payment or platform restriction was entered or bypassed.
+Safety: No email, form or physical package was sent. No track, album, EP, download code, cloud link, file, metadata, one-sheet, focus track, identity label, local-status claim, rights grant, language warning, contact information or payment was supplied. CJSF's external form was not completed or probed, and no runtime CAPTCHA, authentication, validation or platform restriction was bypassed. CJSR's optional paid advertising route was not used.
