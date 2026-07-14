@@ -1,0 +1,142 @@
+{
+  "run": 366,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1696,
+  "pipelineEstimate": 1698,
+  "newPlatforms": [
+    {
+      "platform": "CFUV 101.9 FM",
+      "canonicalName": "CFUV 101.9 FM Digital Music Director Submission Route",
+      "websiteUrl": "https://cfuv.uvic.ca/",
+      "submissionUrl": "https://cfuv.uvic.ca/music-submissions/",
+      "country": "Canada / Victoria, British Columbia",
+      "category": "non-profit campus and community radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Send a digital submission to music@cfuv.ca",
+        "Provide at least three unique tracks as MP3 files at a minimum of 320 kbps",
+        "Deliver the files through a downloadable link and include a proper track listing"
+      ],
+      "eligibility": {
+        "minimumDistinctTracks": 3,
+        "digitalAudioFormat": "MP3 at a minimum of 320 kbps",
+        "deliveryMethod": "Download link through !earshot Distro, Dropbox, Google Drive, WeTransfer, Box, DISCO or equivalent",
+        "physicalEligibility": "Non-local physical submissions are not accepted",
+        "internationalEligibility": "not_explicitly_confirmed"
+      },
+      "businessContact": {
+        "type": "verified_first_party_music_submission_mailbox",
+        "name": "CFUV Music Director / Troy Lemberg",
+        "email": "music@cfuv.ca",
+        "verification": "The mailbox is published on both CFUV's official Music Submissions page and its first-party staff-contact page. Verification covered repeated first-party publication, valid syntax, official-domain alignment and explicit Music Director and submission purpose. No SMTP, MX, catch-all or mailbox-level probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false
+      },
+      "activityVerification": "CFUV's official site exposes a live stream, a current weekly schedule and active show descriptions. Current programming includes electronica, hip-hop, reggae, dub, breakbeat, ambient, experimental, world music, amapiano, gqom, house and synthwave.",
+      "genreFit": [
+        "independent",
+        "electronic",
+        "electronica",
+        "ambient",
+        "experimental",
+        "breakbeat",
+        "dub",
+        "reggae",
+        "world-music",
+        "hip-hop",
+        "amapiano",
+        "gqom",
+        "house",
+        "synthwave"
+      ],
+      "manualReviewReason": "The route is free-first and the business mailbox is verified, but a human must confirm international eligibility, select a release with at least three unique tracks, prepare 320-kbps MP3 files and a stable download link, add a proper track list and useful biography, and send manually. Physical delivery is not authorized for a non-local MarcsMusic submission."
+    },
+    {
+      "platform": "CHSR-FM 97.9",
+      "canonicalName": "CHSR-FM 97.9 Digital and Physical Music Submission Route",
+      "websiteUrl": "https://chsrfm.ca/",
+      "submissionUrl": "https://chsrfm.ca/blog/about/get-your-music-on-chsr",
+      "country": "Canada / Fredericton, New Brunswick",
+      "category": "campus and community radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Use the Music Director email route displayed in human-readable obfuscated form on CHSR's official submission page",
+        "Send digital MP3 files at a minimum of 320 kbps through a download link or email attachment",
+        "Mail or drop off playable CDs, LPs or cassettes to the published CHSR address"
+      ],
+      "eligibility": {
+        "genres": "All genres",
+        "digitalAudioFormat": "MP3 at a minimum of 320 kbps",
+        "digitalDelivery": "Download link or email attachment",
+        "physicalFormats": [
+          "playable CD",
+          "LP",
+          "cassette"
+        ],
+        "internationalEligibility": "confirmed_for_physical_submissions_by_explicit_outside_canada_delivery_guidance"
+      },
+      "businessContact": {
+        "type": "verified_first_party_obfuscated_music_director_route",
+        "name": "CHSR Music Director",
+        "email": null,
+        "publishedAddressForm": "MusicDirector [at] chsrfm [dot] ca",
+        "verification": "The role address is published in human-readable obfuscated form on both CHSR's official submission page and first-party contact page, aligned to the official chsrfm.ca domain and explicit Music Director purpose. It was not machine-decoded or stored as plaintext. No SMTP, MX, catch-all or mailbox-level probe was performed."
+      },
+      "formControls": {
+        "adjacentGeneralOrSessionFormObserved": true,
+        "canonicalSubmissionFormObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "adjacentFormExcluded": "The form on the page is framed around sessions and interviews and was not used as a substitute for the Music Director route."
+      },
+      "activityVerification": "CHSR's current site navigation still links the submission page, and the station published shows, playlists, archives and posts through July 2026, including electronic, remix, chiptune, experimental, global and hip-hop programming.",
+      "genreFit": [
+        "all-genres",
+        "independent",
+        "electronic",
+        "electronica",
+        "dance",
+        "remix",
+        "chiptune",
+        "experimental",
+        "ambient",
+        "global",
+        "world-music",
+        "reggae",
+        "hip-hop"
+      ],
+      "manualReviewReason": "The guideline is legitimate and still linked, but it is marked last updated March 2023 and the Music Director route is intentionally obfuscated. A human must open the first-party page, manually use the displayed role route, choose a current delivery method, prepare 320-kbps MP3 files, include a clear track list plus artist, genre, location and contact information, and send manually. Do not use the adjacent sessions, PSA or general-contact routes as substitutes."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "CFUV",
+      "CFUV 101.9 FM",
+      "cfuv.ca",
+      "cfuv.uvic.ca",
+      "cfuv.uvic.ca/music-submissions",
+      "music@cfuv.ca",
+      "CHSR",
+      "CHSR-FM 97.9",
+      "chsrfm.ca",
+      "chsrfm.ca/blog/about/get-your-music-on-chsr",
+      "MusicDirector [at] chsrfm [dot] ca"
+    ],
+    "result": "Repository code searches returned no prior canonical CFUV or CHSR submission opportunity. CFUV's submission and contact pages were consolidated into one digital email record. CHSR's digital email and physical-delivery methods were consolidated into one record, while its sessions, PSA and general-contact routes were excluded."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Both routes are free-first and manual-review only. CFUV publishes a verified plaintext Music Director mailbox and requires at least three unique 320-kbps MP3 tracks through a download link; international eligibility is not explicit and non-local physical music is rejected. CHSR publishes its Music Director route in human-readable obfuscated form, accepts 320-kbps MP3 by link or attachment and authorizes physical media. No email, form, file, link, package, login, CAPTCHA, payment or anti-bot control was submitted or bypassed."
+}
