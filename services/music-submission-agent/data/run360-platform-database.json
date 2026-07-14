@@ -1,0 +1,94 @@
+{
+  "run": 360,
+  "date": "2026-07-14",
+  "pipelineEstimateBefore": 1684,
+  "pipelineEstimate": 1686,
+  "newPlatforms": [
+    {
+      "platform": "WFMU",
+      "canonicalName": "WFMU Freeform Radio Physical Music Review Route",
+      "websiteUrl": "https://wfmu.org/",
+      "submissionUrl": "https://wfmu.org/sendmusic.html",
+      "country": "United States / Jersey City, New Jersey",
+      "category": "independent freeform radio airplay and review",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Physical vinyl, CD, CD-R or cassette review copies to the official USPS address",
+        "Physical review copies to the separate official UPS/FedEx address",
+        "JavaScript-dependent Music Department contact form for manual routing questions only"
+      ],
+      "businessContact": {
+        "type": "official_music_department_form_and_named_music_director",
+        "name": "Jessica Romoff",
+        "email": null,
+        "verification": "First-party WFMU pages identify Jessica Romoff as Music Director and link a Music Department contact form. No plaintext mailbox was exposed and no address was guessed."
+      },
+      "activityVerification": "WFMU's official homepage contained archives and playlists dated 2026-07-14 and current 2026 programming and event information.",
+      "genreFit": [
+        "freeform",
+        "independent",
+        "electronic",
+        "experimental",
+        "ambient",
+        "noise",
+        "dub",
+        "reggae",
+        "world-music"
+      ],
+      "manualReviewReason": "Physical media selection, current-address confirmation, international postage and customs require human handling. The Music Department form requires JavaScript and its live validation or anti-abuse controls were not mapped."
+    },
+    {
+      "platform": "KZSU Stanford 90.1 FM",
+      "canonicalName": "KZSU Stanford Digital-or-Physical Music Rotation Submission Route",
+      "websiteUrl": "https://kzsu.stanford.edu/",
+      "submissionUrl": "https://kzsu.stanford.edu/contact/",
+      "country": "United States / Stanford, California",
+      "category": "university freeform radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Digital rotation submission to music@kzsu.stanford.edu",
+        "Physical music through the official KZSU postal address",
+        "Physical music through the official UPS/FedEx address"
+      ],
+      "businessContact": {
+        "type": "official_music_director_role_mailbox",
+        "name": "KZSU Music Directors",
+        "email": "music@kzsu.stanford.edu",
+        "verification": "Published on KZSU's first-party Contact and Wednesday Night Live pages, valid syntax, Stanford institutional-domain alignment and explicit Music Director submission purpose."
+      },
+      "activityVerification": "KZSU's official site exposed a live on-air homepage, current named staff, schedule and a featured program originally broadcast on 2025-12-03.",
+      "genreFit": [
+        "freeform",
+        "independent",
+        "electronic",
+        "experimental",
+        "hip-hop",
+        "reggae",
+        "world-music"
+      ],
+      "manualReviewReason": "The official guidelines require a temporary cookie during passive inspection and the go.kzsu.fm send-music shortcut returned a gateway error. A human must verify current formats, delivery method, metadata, release-window and international-eligibility rules without bypassing either boundary."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "WFMU",
+      "wfmu.org",
+      "https://wfmu.org/sendmusic.html",
+      "KZSU",
+      "kzsu.stanford.edu",
+      "music@kzsu.stanford.edu",
+      "https://kzsu.stanford.edu/contact/"
+    ],
+    "result": "No existing canonical WFMU or KZSU opportunity was found in the repository search index. Each station's related physical, digital and contact routes were consolidated into one canonical platform record rather than inserted as separate opportunities."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Both opportunities use first-party authorized routes and remain manual-review only. No outbound submission, protected-contact decoding, authentication, anti-bot bypass, payment or mailbox-level probing occurred."
+}
