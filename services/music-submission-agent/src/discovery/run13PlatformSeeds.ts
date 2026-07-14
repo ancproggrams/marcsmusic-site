@@ -105,19 +105,37 @@ export const run13SeedPlatforms: PlatformInput[] = [
   {
     name: 'DI.FM Electronic Radio Channel Discovery Route',
     websiteUrl: 'https://www.di.fm/',
-    submissionUrl: 'https://www.di.fm/',
-    sourceUrl: 'https://www.di.fm/',
-    sourceType: 'automation_run_13_public_research',
-    country: 'United States / global',
+    submissionUrl: 'https://www.di.fm/submissions',
+    sourceUrl: 'https://www.di.fm/submissions',
+    sourceType: 'automation_run_351_public_reverification',
+    country: 'United States / global electronic radio network with channel-director demo review',
     language: 'en',
-    genres: ['electronic', 'house', 'trance', 'techno', 'drum and bass', 'dubstep', 'ambient'],
-    submissionMethod: 'electronic-radio-programming-route-needs-current-editorial-contact-review',
-    paymentRequired: true,
+    genres: [
+      'electronic',
+      'house',
+      'trance',
+      'techno',
+      'drum-and-bass',
+      'dubstep',
+      'ambient',
+      'chillstep',
+      'dj-mixes',
+      'radio-airplay',
+      'email-request',
+      'manual-review'
+    ],
+    submissionMethod: 'official-difm-new-music-demo-email-request-to-channel-directors',
+    feeRequired: false,
+    feeAmount:
+      'No submission fee or mandatory payment is stated for the official new-music and demo request route. DI.FM listener subscriptions are separate from music submission.',
+    loginRequired: false,
+    captchaDetected: false,
+    paymentRequired: false,
     manualReviewRequired: true,
     manualReviewReason:
-      'DI.FM is a highly relevant electronic radio network, but its free listening ended and current music/editorial intake, channel fit, rights and any subscription/account requirements must be reviewed manually.',
+      'DI.FM accepts brief new-music and demo requests by email to a mailing list reviewed by multiple Channel Directors. The request must identify a DI.FM channel-matching genre and describe the intended submission, including track names or mix listings. Attachments are prohibited; media links are permitted, and actual media is sent only if a Channel Director replies with instructions. The Send Request destination is Cloudflare-protected and was not decoded. A human must choose the correct channel, prepare a concise rights-cleared request and approved links, distinguish a track/demo request from a regular-show proposal, and send manually. Waiting lists for regular shows are currently closed for Progressive, Techno, Tech House and Trance, but the page continues to accept new-music/demo requests.',
     notes:
-      'Research verified electronic channel coverage and subscription-only status. No account, subscription, payment, protected page or editorial submission was accessed.'
+      "Materially reverified and corrected on 2026-07-14 from DI.FM's official homepage, Help & Support page and Submissions page. The support page explicitly redirects new-music and channel requests to the submissions page. The submissions page authorizes brief email requests without attachments, allows media links, requires a channel-matching genre and description, and states that only suitable requests receive a response. The site currently lists active Trance, House, Techno, Chillstep, Ambient, Drum and Bass, Dubstep and other electronic channels and carries a 2026 copyright notice. The protected Send Request email was not decoded, guessed or stored. No email, attachment, media link, account, login, form, subscription or payment was used, and no SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
   },
   {
     name: 'Ninja Tune Electronic and Experimental Label Route',
