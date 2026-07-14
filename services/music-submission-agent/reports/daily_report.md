@@ -2,23 +2,25 @@
 
 Date: 2026-07-14
 
-Latest run: Run 350
+Latest run: Run 351
 
-New items added: 2
+New items added: 1
 
-Pipeline estimate: 1671
+Existing items materially enriched: 1
+
+Pipeline estimate: 1672
 
 Items:
 
-- 95bFM Auckland Lossless Stream-and-Download Airplay Submission Route
-- RadioActive.FM Wellington Music Submission Email and Physical Delivery Route
+- Bass Rebels LabelRadar and Streamable-Link Demo Submission Route — new
+- DI.FM Electronic Radio Channel Discovery Route — canonical record reverified and corrected
 
-All items are marked needs_manual_review.
+Both queue items are marked needs_manual_review.
 
-Deduplication note: The repository was searched for 95bFM, 95bfm.com, the official Submit Music route, RadioActive.FM, radioactive.fm and music@radioactive.fm before creation; no prior music-submission-agent record was returned. 95bFM's official pages, protected contact and adjacent general form were consolidated into one canonical opportunity without decoding or guessing the email destination. RadioActive.FM's role mailbox, staff contacts, general address and authorized postal option were consolidated into one canonical opportunity, with only music@radioactive.fm queued digitally.
+Deduplication note: The active pull-request dataset was searched for Bass Rebels, bassrebels.co.uk, its official Submit Music path, DI.FM, di.fm and the official DI.FM submissions page. Bass Rebels was not previously present and was added once through its canonical first-party submission page. DI.FM already existed in Run 13, so that record was updated in place rather than duplicated. Bass Rebels' LabelRadar route, fallback email, contact page and commercial-licensing mailbox were consolidated into one opportunity.
 
-Manual-review note: 95bFM requires both an account-free stream and lossless WAV or FLAC download, but its purpose-specific destination is Cloudflare-protected and must be opened manually from the official page. RadioActive.FM publishes music@radioactive.fm and permits postal delivery, but does not state technical delivery, release-age, rights, AI-origin or international-eligibility rules. Both routes require human eligibility verification, release preparation and manual delivery.
+Manual-review note: Bass Rebels' official LabelRadar link misresolved during passive verification, while its authorized email fallback requires a streamable SoundCloud or Dropbox link and does not expose the destination in plaintext. DI.FM accepts brief new-music and demo email requests with channel-matching genre and description, permits media links, prohibits attachments and protects the Send Request destination through Cloudflare. A human must select the track or channel, verify rights and metadata, inspect any LabelRadar account or optional credit boundary and send manually.
 
-Email-verification note: 95bFM's current homepage links directly to official Submit Music instructions and its Staff Directory repeats a dedicated Music Submissions contact, but the destination remains protected and was not decoded, guessed or stored. RadioActive.FM's official Contact page publishes music@radioactive.fm under Music Submissions; the address has valid syntax, first-party domain alignment and explicit role purpose. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
+Email-verification note: Bass Rebels' fallback demo-email link and DI.FM's Send Request link were verified on their official submission pages but left undecoded because the destinations were non-plaintext or Cloudflare-protected. Bass Rebels' public licensing@bassrebels.co.uk mailbox was verified as commercial-licensing-only and excluded from demo routing. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
 
-Safety: No email, streaming link, lossless file, download link, attachment or physical package was sent. No music, metadata, biography, personal information, rights statement, consent or payment was supplied. The protected contact was not decoded, the adjacent general form was not used, and no authentication, anti-bot, CAPTCHA, payment, validation or platform restriction was bypassed.
+Safety: No account was created, no login or LabelRadar session was used, no form was submitted, no email or request was sent, no attachment, streamable link, track, mix, artwork, biography, metadata, rights declaration or personal information was supplied, no protected contact was decoded, no broken link was worked around, and no CAPTCHA, anti-bot, authentication, payment, subscription or platform restriction was entered or bypassed.
