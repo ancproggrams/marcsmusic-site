@@ -1,0 +1,121 @@
+{
+  "run": 363,
+  "date": "2026-07-14",
+  "pipelineEstimateBefore": 1690,
+  "pipelineEstimate": 1692,
+  "newPlatforms": [
+    {
+      "platform": "PBS 106.7FM",
+      "canonicalName": "PBS 106.7FM International Digital Submission Form and Physical Music Route",
+      "websiteUrl": "https://www.pbsfm.org.au/",
+      "submissionUrl": "https://www.pbsfm.org.au/submitmusic",
+      "country": "Australia / Melbourne, Victoria",
+      "category": "independent community radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": true,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Complete the first-party PBS digital submission form for local or international acts",
+        "Provide a stream link that is not Spotify- or Deezer-only and a free high-quality 320-kbps AAC/MP3 or WAV-equivalent download link",
+        "Optionally send CDs or vinyl by post or deliver them in person, following PBS physical-copy guidance"
+      ],
+      "businessContact": {
+        "type": "first_party_submission_form_and_physical_music_department_route",
+        "name": "PBS 106.7FM Music Department",
+        "email": null,
+        "verification": "PBS's official Submit Your Music page provides the first-party form and physical-delivery addresses. No email address was inferred or guessed."
+      },
+      "formControls": {
+        "javascriptRequired": false,
+        "honeypotObserved": true,
+        "honeypotInstruction": "Leave this field blank",
+        "captchaObserved": true,
+        "captchaDescription": "The page explicitly labels a human-verification CAPTCHA to prevent automated spam submissions.",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "optionalNewsletterConsentObserved": true
+      },
+      "activityVerification": "PBS's official site showed a feature release for July 13-19, 2026, station news dated July 14, 2026, July-August 2026 events, upcoming interviews and an active program list.",
+      "genreFit": [
+        "independent",
+        "electronic",
+        "dance",
+        "ambient",
+        "experimental",
+        "dub",
+        "reggae",
+        "global",
+        "world-music",
+        "hip-hop"
+      ],
+      "manualReviewReason": "The authorized form explicitly supports international submissions but requires personal and release data, links, optional marketing consent, a leave-blank anti-spam field and a CAPTCHA. A human must review privacy, rights, data minimization, asset access and the live human-verification step. The honeypot and CAPTCHA must not be automated or bypassed. Physical copies, postage and customs also require manual handling."
+    },
+    {
+      "platform": "fbi.radio",
+      "canonicalName": "fbi.radio Digital Music Director Email Submission Route",
+      "websiteUrl": "https://www.fbi.radio/",
+      "submissionUrl": "https://www.fbi.radio/pages/music-submissions",
+      "country": "Australia / Sydney, New South Wales",
+      "category": "independent youth community radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Email the purpose-bound Music Submissions mailbox music@fbiradio.com",
+        "Include a clear artist-and-release subject, short biography, press image or upcoming-gig details, a stream link and a free high-quality download link",
+        "Submit digitally before midnight Tuesday for consideration during Wednesday music auditioning"
+      ],
+      "businessContact": {
+        "type": "public_first_party_music_submission_email",
+        "name": "fbi.radio Music Director / Music Submissions",
+        "email": "music@fbiradio.com",
+        "verification": "The mailbox is published on both the official fbi.radio Contact and Music Submissions pages. Syntax is valid and the fbiradio.com domain is used by the station's official role addresses. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formControls": {
+        "javascriptRequired": false,
+        "honeypotObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false
+      },
+      "activityVerification": "fbi.radio's official homepage showed featured episodes and articles dated July 2026, including content dated July 14, 2026, together with active schedule and genre navigation.",
+      "genreFit": [
+        "independent",
+        "emerging-music",
+        "electronic",
+        "dance",
+        "ambient",
+        "experimental",
+        "dub",
+        "reggae",
+        "dubstep",
+        "drum-and-bass",
+        "grime",
+        "house",
+        "techno",
+        "hip-hop"
+      ],
+      "manualReviewReason": "The authorized route is a manually curated business email requiring a release-specific pitch and free stream/download assets. A human must verify rights, metadata, download permissions, timing and geographic eligibility before sending. The station explicitly champions emerging Sydney music, while the reviewed submission page does not state whether international artists are accepted. Presenter, interview, gig-guide and paid-promotion routes must not be used as duplicates or workarounds."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "PBS 106.7FM",
+      "PBS FM",
+      "pbsfm.org.au",
+      "pbsfm.org.au/submitmusic",
+      "fbi.radio",
+      "FBi Radio",
+      "fbiradio.com",
+      "music@fbiradio.com",
+      "fbi.radio/pages/music-submissions"
+    ],
+    "result": "The complete open PR patch and repository code search contained no prior canonical PBS 106.7FM or fbi.radio submission opportunity. Each station's related form, email, physical, presenter, interview, gig-guide and paid-promotion variants were consolidated into one canonical record per station."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Both opportunities use first-party free routes and remain manual-review only. PBS has an explicit CAPTCHA and leave-blank anti-spam field. fbi.radio has a verified purpose-bound public business mailbox. No form, email, file, link, package, login, CAPTCHA, consent or payment was submitted."
+}
