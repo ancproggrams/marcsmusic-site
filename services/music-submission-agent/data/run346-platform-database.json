@@ -1,0 +1,73 @@
+{
+  "run": 346,
+  "date": "2026-07-14",
+  "platforms": [
+    {
+      "name": "CHLY 101.7FM Nanaimo Music Submission Form, Email Fallback and Physical Route",
+      "websiteUrl": "https://www.chly.ca/",
+      "submissionUrl": "https://www.chly.ca/submissions",
+      "sourceUrl": "https://www.chly.ca/submissions",
+      "sourceType": "automation_run_346_public_research",
+      "country": "Canada / Nanaimo, British Columbia / campus-community radio; digital submissions are open beyond the local region, while local artists receive priority",
+      "language": "en",
+      "genres": [
+        "electronic",
+        "electronica",
+        "experimental",
+        "hip-hop",
+        "reggae",
+        "world-music",
+        "indie",
+        "campus-radio",
+        "community-radio",
+        "airplay-submission",
+        "album-submission",
+        "ep-submission",
+        "single-submission",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-music-submission-form-with-purpose-bound-email-fallback-and-optional-physical-delivery",
+      "feeRequired": false,
+      "feeAmount": "No fee, account, login or mandatory payment is stated for CHLY's own form, fallback email or physical-delivery route. The page separately mentions optional !earshot distribution, which may involve cost and is not required.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "CHLY requires human review because it rejects AI-generated music, requires downloadable high-quality 320 kbps MP3 or AAC rather than streaming-only delivery, asks for biography, focus tracks, explicit-language flags, genre/subgenre and accurate optional local, CanCon and content labels, and gives form-completed submissions priority. The live embedded form fields and runtime validation or CAPTCHA controls were not fully exposed in passive HTML. A human must confirm production origin, rights, release type, files, links, metadata and labels, inspect the current form and submit manually. submissions@chly.ca may be used only when the form does not work, and music@chly.ca is for assistance rather than bypassing the form.",
+      "notes": "Verified on 2026-07-14 from CHLY's official Music Submissions and homepage pages. CHLY accepts digital and physical releases, including digital singles, while preferring full releases with four or more unique tracks. It rejects streaming-only delivery and individual-song attachments, and publishes an email fallback only for form failures. The homepage displayed station news dated 2026-07-03 through 2026-07-10. The two public addresses were validated only through official publication, syntax, first-party domain alignment and stated purpose; no SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+    },
+    {
+      "name": "CIVL Radio 101.7FM Abbotsford Music Director Email and CAPTCHA Contact Form",
+      "websiteUrl": "https://www.civl.ca/",
+      "submissionUrl": "https://www.civl.ca/contact/",
+      "sourceUrl": "https://www.civl.ca/contact/",
+      "sourceType": "automation_run_346_public_research",
+      "country": "Canada / Abbotsford and Fraser Valley, British Columbia / campus-community radio; the official Music Director contact is not stated to be local-only",
+      "language": "en",
+      "genres": [
+        "electronic",
+        "ambient",
+        "experimental",
+        "dance",
+        "hip-hop",
+        "indie",
+        "alternative",
+        "noise",
+        "world-music",
+        "campus-radio",
+        "community-radio",
+        "airplay-submission",
+        "manual-review"
+      ],
+      "submissionMethod": "official-purpose-bound-music-director-email-and-first-party-contact-form-with-submit-your-music-subject",
+      "feeRequired": false,
+      "feeAmount": "No submission fee, account, login or mandatory payment is stated for the Music Director email or contact form.",
+      "loginRequired": false,
+      "captchaDetected": true,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "CIVL publishes music@civl.ca for the Music Director and provides a first-party contact form whose subject menu includes Submit your music. The form explicitly contains CAPTCHA, and the page does not publish complete audio-format, attachment, link, release-window, rights or response rules. A human must review current requirements, choose the submission subject, supply only permitted links, files and personal data, complete CAPTCHA, confirm rights and track fit, and send manually. The CAPTCHA or any other validation must not be automated or bypassed.",
+      "notes": "Verified on 2026-07-14 from CIVL's official Contact and homepage pages. The contact page identifies the Music Director and displays the address as music (at) civl (dot) ca, while its form includes a Submit your music subject option and an explicit CAPTCHA. The homepage showed live programming, a weekly top ten and station posts dated from 2026-02-12 through 2026-05-04. The address was normalized from the official human-readable display and validated only through official publication, syntax, first-party domain alignment and stated staff purpose; no SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+    }
+  ]
+}
