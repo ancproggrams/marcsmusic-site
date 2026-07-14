@@ -1,0 +1,112 @@
+{
+  "run": 362,
+  "date": "2026-07-14",
+  "pipelineEstimateBefore": 1688,
+  "pipelineEstimate": 1690,
+  "newPlatforms": [
+    {
+      "platform": "4ZZZ 102.1FM",
+      "canonicalName": "4ZZZ 102.1FM First-Party Digital Music Submission Form",
+      "websiteUrl": "https://4zzz.org.au/",
+      "submissionUrl": "https://jeff.4zzz.org.au/form/submit-your-music-to-4zzz",
+      "country": "Australia / Brisbane, Queensland",
+      "category": "independent community radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Complete the first-party 4ZZZ digital music submission form",
+        "Provide a downloadable WAV or 320-kbps MP3 link",
+        "Use a Bandcamp or Apple Music download code when applicable"
+      ],
+      "businessContact": {
+        "type": "first_party_javascript_dependent_submission_form",
+        "name": "4ZZZ Music Department",
+        "email": null,
+        "verification": "The official 4ZZZ Music Submissions page links directly to the station-controlled jeff.4zzz.org.au form. No email address was inferred or guessed."
+      },
+      "formControls": {
+        "javascriptRequired": true,
+        "honeypotObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false
+      },
+      "activityVerification": "4ZZZ's official homepage showed current on-air data, a 2026 Album of the Week, July and August 2026 events and current station updates.",
+      "genreFit": [
+        "independent",
+        "alternative",
+        "electronic",
+        "experimental",
+        "ambient",
+        "dub",
+        "reggae",
+        "world-music",
+        "hip-hop"
+      ],
+      "manualReviewReason": "The authorized form requires JavaScript and detailed release, contact, rights and asset information. A human must verify international eligibility, privacy and permission wording, downloadable access, current validation controls and any live CAPTCHA before submission. Spotify-only links are not accepted."
+    },
+    {
+      "platform": "RTRFM 92.1",
+      "canonicalName": "RTRFM 92.1 First-Party Overseas Music Submission Form",
+      "websiteUrl": "https://rtrfm.com.au/",
+      "submissionUrl": "https://rtrfm.com.au/submit-your-music/",
+      "country": "Australia / Perth, Western Australia",
+      "category": "independent community radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Complete the first-party RTRFM submission form using the Overseas location option",
+        "Provide a free downloadable WAV or high-quality MP3 link",
+        "Optionally provide a stream link and biography document"
+      ],
+      "businessContact": {
+        "type": "first_party_form_and_protected_music_director_contact",
+        "name": "Matt Perrett / RTRFM Music Director",
+        "email": null,
+        "verification": "RTRFM's official page names the Music Director and exposes protected email actions. The addresses were not decoded, inferred or guessed; the first-party form is the queued route."
+      },
+      "formControls": {
+        "javascriptRequired": false,
+        "honeypotObserved": true,
+        "honeypotField": "Comments",
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false
+      },
+      "activityVerification": "RTRFM's official site showed active programming, RTR2 streaming, current featured music and stories published on 2026-07-14.",
+      "genreFit": [
+        "independent",
+        "alternative",
+        "electronic",
+        "dance",
+        "ambient",
+        "experimental",
+        "global",
+        "world-music",
+        "hip-hop"
+      ],
+      "manualReviewReason": "The form explicitly supports Overseas submissions but contains a leave-unchanged validation field. A human must review privacy, data minimization, rights, release timing, free-download permissions, genre fit and any live CAPTCHA or validation state. The honeypot must not be populated or bypassed."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "4ZZZ",
+      "4ZZZ 102.1FM",
+      "4zzz.org.au",
+      "jeff.4zzz.org.au/form/submit-your-music-to-4zzz",
+      "RTRFM",
+      "RTRFM 92.1",
+      "rtrfm.com.au",
+      "https://rtrfm.com.au/submit-your-music/"
+    ],
+    "result": "Repository code searches found no existing canonical 4ZZZ or RTRFM opportunity. Each station's form, protected contact, physical-copy and presenter-routing variants were consolidated into one canonical platform record."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Both opportunities use first-party free routes and remain manual-review only. No form, email, upload, protected-contact decoding, authentication, anti-bot bypass, payment or outbound submission occurred."
+}
