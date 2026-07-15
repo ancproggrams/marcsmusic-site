@@ -1,8 +1,8 @@
 # Daily Report
 
-Date: 2026-07-15
+Date: 2026-07-16
 
-Latest run: Run 388
+Latest run: Run 389
 
 New items added: 1
 
@@ -10,24 +10,26 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1706
+Pipeline estimate: 1707
 
 Items:
 
-- 4ZZZ — explicit first-party Music Department airplay-submission form requiring a downloadable WAV or 320 kbps MP3 link; queued for JavaScript, rights, privacy, permission and international-eligibility review
+- KKFI 90.1 FM — official protected Music Librarian route for digital submissions; queued for address confirmation, package preparation, rights, international-eligibility, explicit-content and AI-origin review
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-4ZZZ note: The official Music Submissions page directs artists to `https://jeff.4zzz.org.au/form/submit-your-music-to-4zzz`. The station considers submissions for inclusion in its digital library and rejects non-downloadable streams. The form accepts WAV or 320 kbps MP3 through a download-enabled SoundCloud or cloud-storage link; Spotify-only links are not accepted, while Bandcamp or Apple Music require a download code.
+KKFI route note: The current official New Music Submissions page explicitly accepts digital music. It prefers MP3 encoded at 300 kbps constant bitrate and cloud delivery through services such as Google Drive, Dropbox or OneDrive. Bandcamp, PlayMPE, AllMusic and SoundCloud are also named. Direct attachments must remain below 8 MB total, and links requiring a separate player will not be reviewed.
 
-Form-boundary note: JavaScript is required. The form requests contact, artist, location, release, genre, label or distributor, member and pronoun, biography or press-pack, content-warning, downloadable-audio, cover-art, social and local-show information. It also includes optional identity fields, pre-release-airplay permission and a final acknowledgement authorizing airplay on 102.1FM and Zed Digital. No textual CAPTCHA, login or payment step was visible passively, but live validation, consent and session state require human confirmation.
+Contact-verification note: KKFI publishes a protected first-party email link for its Music Librarian and associates that role with digital submissions and follow-up. The destination was observed but not decoded or stored, so exact mailbox syntax and domain were not asserted. No address was guessed and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Contact-verification note: The official Contact page publishes `music-department@4zzz.org.au` in plaintext for following up an existing submission. It has valid syntax and exact official-domain alignment, but it is not the initial delivery route because 4ZZZ expressly directs initial submissions through the form. General and adjacent contacts were excluded. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Physical-route note: KKFI's updated page is dated May 8, 2026 and states that, effective May 1, physical media is accepted only from local artists within its listening area. Because MarcsMusic is non-local, the physical route is excluded. The newer policy supersedes broader postal language still present on the older Contact page.
 
-Activity and fit note: 4ZZZ exposes active FM and Zed Digital listening interfaces, a populated current schedule, weekly New Releases programming, reviews, current event sections and 2026 news. Relevant programmes include Full Of Air for electronic and dance, No Guitars Allowed for hip-hop, electronic and experimental music, and Pass The Aux! for hip-hop, electronic music and beats. Selected MarcsMusic electronic, bass, reggae, global-fusion and crossover releases have plausible fit.
+Form-boundary note: No canonical public music-submission form was identified. JavaScript-dependent contact widgets are present, but the passive Contact representation reports no fields. They were not used as substitutes for the protected Music Librarian route. No CAPTCHA, login or payment requirement was observed.
 
-Manual-review note: A human must verify international eligibility, recheck for CAPTCHA or session controls, select and rights-check the release, provide a working downloadable WAV or 320 kbps MP3 link, approve all personal and optional identity disclosures, complete content-warning and permission decisions and review the unpublished AI-origin policy. The separate Album of the Week form is excluded because it is limited to Australian artists and requires prior 4ZZZ programme support.
+Activity and fit note: KKFI's official homepage contains content dated July 8, 2026, current upcoming episodes, recently played information and current event announcements. Its programme taxonomy includes Hip-Hop / Electronic and Reggae / World, with specialist shows covering dub, reggae, global music, electronic and hip-hop. Selected MarcsMusic electronic, bass, dub, reggae, world-fusion and crossover releases have plausible fit.
 
-Deduplication note: The complete open pull-request patch and repository code search were checked for 4ZZZ, the canonical domain, canonical form path and Music Department follow-up mailbox. No prior music-submission-agent record was found. The form is stored once; the follow-up mailbox, individual-announcer routes and Album of the Week form are not counted separately.
+Manual-review note: A human must reopen the official page, use only the protected destination displayed there, confirm international eligibility, choose and rights-check the release, provide a working 300 kbps MP3 or accessible download link, keep attachments below 8 MB, verify no separate player is required, include accurate release context, review clean/explicit and AI-origin rules, and avoid the local-only postal route.
 
-Safety: No form field, email, direct message, audio file, downloadable link, download code, biography, metadata, personal or optional identity information, cover art, social link, permission checkbox, physical package, login, CAPTCHA, consent or payment was entered or submitted. No anti-bot, authentication, platform or payment restriction was bypassed.
+Deduplication note: The complete open pull-request patch and repository code index were searched for KKFI, its frequency, canonical domain, current submission path and Music Librarian role. No prior music-submission-agent record was found. The digital route is stored once; the protected destination, local-only physical route, individual hosts and JavaScript widgets are not counted separately.
+
+Safety: No email, form field, direct message, stream, download link, attachment, audio file, metadata, physical package, login, CAPTCHA, consent or payment was entered or submitted. The protected destination was not decoded, no contact was guessed, and no anti-bot, authentication, platform or payment restriction was bypassed.
