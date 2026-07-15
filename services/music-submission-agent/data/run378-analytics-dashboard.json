@@ -1,0 +1,40 @@
+{
+  "run": 378,
+  "date": "2026-07-15",
+  "newItemsAdded": 0,
+  "existingItemsReverified": 2,
+  "existingItemsMateriallyCorrectedOrEnriched": 2,
+  "duplicateItemsRemoved": 2,
+  "duplicateRuntimeSeedsRemoved": 2,
+  "duplicateQueueRowsRemoved": 2,
+  "pipelineEstimateBefore": 1699,
+  "pipelineEstimate": 1697,
+  "queueRows": 0,
+  "needsManualReviewAdded": 0,
+  "freeFirstRoutesReverified": 2,
+  "officialPublicContactRoutesReverified": 2,
+  "authorizedPhysicalDeliveryRoutesReverified": 2,
+  "usablePublicMusicSubmissionEmailRoutesReverified": 1,
+  "publicFormsObserved": 0,
+  "captchaHumanVerificationRoutesObserved": 0,
+  "loginSessionBoundaryRoutesObserved": 0,
+  "paymentPricingBoundaryRoutesObserved": 0,
+  "internationalEligibilityUnconfirmedRoutes": 2,
+  "aiOriginEligibilityCheckRoutes": 1,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "KVRX",
+    "kvrx.org",
+    "music@kvrx.org",
+    "KALX",
+    "kalx.berkeley.edu",
+    "music@kalx.berkeley.edu"
+  ],
+  "dedupeResult": "Full open-pull-request patch inspection located earlier canonical records for KALX in Run 39 and KVRX in Run 112. Run 377's duplicate seed exports and review-queue rows were removed. The pipeline estimate was corrected from 1699 to 1697. Older generated artifacts remain as audit evidence and are not treated as new active queue items.",
+  "emailVerificationLevel": "KVRX publishes music@kvrx.org in plaintext for all music submissions and repeats it as the Music Department address. KALX publishes music@kalx.berkeley.edu for its Music Directors, but explicitly authorizes physical professionally pressed CDs or LPs only and rejects digital music delivery. Both addresses have valid syntax and official-domain alignment. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.",
+  "safety": "No email, form field, audio file, attachment, download or streaming link, physical package, manufacturing order, customs declaration, login, CAPTCHA, consent or payment was entered or submitted. No adjacent mailbox was used as a workaround, no prohibited digital delivery was attempted, and no anti-bot, authentication, platform or payment restriction was bypassed.",
+  "items": [
+    "KVRX 91.7 FM canonical record reverified; Run 377 duplicate retired",
+    "KALX 90.7 FM canonical record reverified; Run 377 duplicate retired"
+  ]
+}
