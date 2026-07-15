@@ -1,0 +1,138 @@
+{
+  "run": 377,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1697,
+  "pipelineEstimate": 1699,
+  "newPlatforms": [
+    {
+      "platform": "KVRX 91.7 FM",
+      "canonicalName": "KVRX 91.7 FM Authorized Music Department Submission",
+      "websiteUrl": "https://www.kvrx.org/app/",
+      "submissionUrl": "mailto:music@kvrx.org",
+      "country": "United States",
+      "category": "student radio airplay consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Send eligible digital music submissions for airplay consideration to music@kvrx.org",
+        "Send eligible physical music submissions to the official KVRX mailing address published on the contact page"
+      ],
+      "eligibility": {
+        "digitalSubmissionsAccepted": true,
+        "acceptedReleaseTypes": "not publicly specified",
+        "acceptedFormats": "not publicly specified",
+        "attachmentOrDownloadLinkRules": "not publicly specified",
+        "metadataRequirements": "not publicly specified",
+        "releaseWindow": "not publicly specified",
+        "internationalEligibility": "not expressly confirmed",
+        "physicalSubmissionsAccepted": true,
+        "physicalSubmissionStatus": "explicitly authorized on the official contact page",
+        "explicitContentPolicy": "not publicly specified",
+        "aiOriginPolicy": "AI-assisted/generated music will not be considered"
+      },
+      "businessContact": {
+        "type": "official_public_music_department_submission_email",
+        "name": "KVRX Music Department",
+        "email": "music@kvrx.org",
+        "verification": "Published in plaintext on KVRX's official contact page for all music submissions and repeated as the Music Department address. Syntax is valid and the address aligns with the official kvrx.org domain. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": false,
+        "canonicalSubmissionFormObserved": false,
+        "fieldsPassivelyExposed": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "emailRouteObserved": true,
+        "physicalMusicSubmissionAuthorized": true,
+        "controlStatus": "No web-form workflow is used for the authorized route; eligibility and final delivery details require human confirmation"
+      },
+      "activityVerification": "KVRX's official homepage displayed a live on-air automation state and describes student-run underground music, live shows and local discoveries around the clock. Its official blog contains station-produced coverage through December 2, 2025, and the contact page currently states that digital and physical submissions are being accepted.",
+      "genreFit": [
+        "independent",
+        "alternative",
+        "electronic",
+        "experimental",
+        "hip-hop",
+        "world-music",
+        "freeform"
+      ],
+      "manualReviewReason": "A human must determine and document the selected MarcsMusic release's production provenance because KVRX excludes AI-assisted/generated music, confirm current file or link delivery rules, metadata, release-type and international eligibility, verify that the release has not already been submitted, and send manually only if fully eligible. The operations mailbox may be used only for a genuine policy question, not as a duplicate submission route."
+    },
+    {
+      "platform": "KALX 90.7 FM",
+      "canonicalName": "KALX 90.7 FM Authorized Physical Music Submission",
+      "websiteUrl": "https://kalx.berkeley.edu/",
+      "submissionUrl": "https://kalx.berkeley.edu/about/contact/",
+      "country": "United States",
+      "category": "college and community radio airplay consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Mail a professionally pressed CD or LP to KALX, Attn: Music Director, at the official UC Berkeley postal address"
+      ],
+      "eligibility": {
+        "digitalSubmissionsAccepted": false,
+        "acceptedReleaseTypes": "professionally pressed CD or LP",
+        "acceptedFormats": "physical professionally pressed CD or LP only",
+        "attachmentOrDownloadLinkRules": "downloads, file transfers, Bandcamp or Spotify links, YouTube, CD-Rs and other digital forms are explicitly rejected",
+        "metadataRequirements": "not publicly specified beyond delivering an eligible physical release to the Music Director",
+        "releaseWindow": "not publicly specified",
+        "internationalEligibility": "not expressly confirmed",
+        "physicalSubmissionsAccepted": true,
+        "physicalSubmissionStatus": "explicitly authorized; manufacturing, postage and possible customs costs require human approval",
+        "explicitContentPolicy": "not publicly specified",
+        "aiOriginPolicy": "not publicly specified"
+      },
+      "businessContact": {
+        "type": "official_public_music_department_contact_not_a_digital_submission_route",
+        "name": "KALX Music Directors Dasha Shevchenko and Ava Hoener",
+        "email": "music@kalx.berkeley.edu",
+        "verification": "Published in plaintext on KALX's official contact page and aligned with the official kalx.berkeley.edu domain. The same page makes clear that music submissions must be physical and should not be delivered digitally. The address is retained as a verified Music Department business contact, not as authorization to email music. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": false,
+        "canonicalSubmissionFormObserved": false,
+        "fieldsPassivelyExposed": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "emailRouteObserved": false,
+        "physicalMusicSubmissionAuthorized": true,
+        "controlStatus": "No web-form or digital submission route is authorized; physical fulfillment and international eligibility require human handling"
+      },
+      "activityVerification": "KALX's official homepage displayed a current live playlist, a July 17-19, 2026 co-announcement and a current daily schedule. Its specialty-program page lists active electronic, jungle, techno, house, experimental, industrial, world-music and underground-hip-hop programming.",
+      "genreFit": [
+        "electronic",
+        "jungle",
+        "techno",
+        "house",
+        "experimental",
+        "industrial",
+        "world-music",
+        "underground-hip-hop",
+        "freeform"
+      ],
+      "manualReviewReason": "A human must confirm that international physical submissions are accepted, select an eligible professionally pressed MarcsMusic CD or LP, approve manufacturing, postage and customs costs, prepare accurate packaging and metadata, verify rights and prior-submission status, and mail manually. Do not email audio, download links or streaming links to the Music Directors or any adjacent KALX address."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "KVRX",
+      "kvrx.org",
+      "music@kvrx.org",
+      "KALX",
+      "kalx.berkeley.edu",
+      "music@kalx.berkeley.edu"
+    ],
+    "result": "Default-branch repository code search and the complete open pull-request patch were checked for station names, official domains and public Music Department addresses. No previous canonical KVRX or KALX music-submission-agent record was found. Each station is stored once. Digital and physical delivery methods for KVRX are consolidated into one editorial opportunity. KALX's verified Music Department email is not counted as a submission route because its official policy permits physical professionally pressed CDs or LPs only."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Both opportunities are publicly authorized and free-first but remain needs_manual_review. KVRX requires an AI-origin eligibility determination and unconfirmed delivery details. KALX requires physical manufacturing, postage and possible customs handling. No email, form, file, link, attachment, physical package, login, CAPTCHA, consent or payment was submitted or bypassed."
+}
