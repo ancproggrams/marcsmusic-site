@@ -1,3 +1,4 @@
+# MarcsMusic production outreach extension deployment marker: 2026-07-15.
 FROM espocrm/espocrm:10.0.2-apache@sha256:ee13cdbcf52dc032d1e50a9b15d8774d2633c71dce4b2a9d208e3af6fbf40e35
 
 ARG TARGETARCH
