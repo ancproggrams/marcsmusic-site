@@ -1,0 +1,38 @@
+{
+  "run": 379,
+  "date": "2026-07-15",
+  "newItemsAdded": 2,
+  "existingItemsReverified": 0,
+  "existingItemsMateriallyCorrectedOrEnriched": 0,
+  "duplicateItemsRemoved": 0,
+  "pipelineEstimateBefore": 1697,
+  "pipelineEstimate": 1699,
+  "queueRows": 2,
+  "needsManualReviewAdded": 2,
+  "freeFirstRoutesAdded": 2,
+  "officialPublicContactRoutesAdded": 2,
+  "authorizedPhysicalDeliveryRoutesAdded": 2,
+  "usablePublicMusicSubmissionEmailRoutesAdded": 2,
+  "publicFormsObserved": 0,
+  "captchaHumanVerificationRoutesObserved": 0,
+  "loginSessionBoundaryRoutesObserved": 0,
+  "paymentPricingBoundaryRoutesObserved": 0,
+  "internationalEligibilityUnconfirmedRoutes": 2,
+  "postalAddressConfirmationRoutes": 1,
+  "autoSubmitCandidates": 0,
+  "dedupeTerms": [
+    "WREK",
+    "wrek.org",
+    "music.director@wrek.org",
+    "WPRB",
+    "wprb.com",
+    "music@wprb.com"
+  ],
+  "dedupeResult": "Full open-pull-request patch inspection found no earlier canonical WREK or WPRB record and no prior use of either purpose-specific mailbox. Each station's authorized email and physical delivery methods were consolidated into one opportunity.",
+  "emailVerificationLevel": "music.director@wrek.org and music@wprb.com are published in plaintext on official first-party submission pages, have valid syntax, are purpose-bound to music submissions and align with their stations' official domains. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.",
+  "safety": "No email, form field, audio file, attachment, download or streaming link, physical package, manufacturing order, customs declaration, login, CAPTCHA, consent or payment was entered or submitted. No adjacent mailbox was used as a workaround and no anti-bot, authentication, platform or payment restriction was bypassed.",
+  "items": [
+    "WREK 91.1 FM authorized Music Director email and physical route",
+    "WPRB 103.3 FM authorized music-submission email and physical route"
+  ]
+}
