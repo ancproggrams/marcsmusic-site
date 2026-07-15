@@ -2,29 +2,29 @@
 
 Date: 2026-07-15
 
-Latest run: Run 378
+Latest run: Run 379
 
-New items added: 0
+New items added: 2
 
-Existing items materially corrected or enriched: 2
+Existing items materially corrected or enriched: 0
 
-Duplicate opportunity counts retired: 2
+Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1697
+Pipeline estimate: 1699
 
 Items:
 
-- KVRX 91.7 FM — canonical Run 112 record reverified; duplicate Run 377 seed and queue row retired
-- KALX 90.7 FM — canonical Run 39 record reverified; duplicate Run 377 seed and queue row retired
+- WREK 91.1 FM — official Music Director email and authorized physical-delivery route
+- WPRB 103.3 FM — official music-submission email and authorized physical-delivery route
 
-No new queue rows were created. Both canonical routes remain `needs_manual_review`, and no auto-submit candidate was created.
+Two new queue rows were created. Both routes remain `needs_manual_review`, and no auto-submit candidate was created.
 
-Deduplication note: Full open-pull-request patch inspection found earlier canonical KVRX and KALX records, contradicting Run 377's no-prior-record conclusion. Run 377's two duplicate runtime seeds and two review-queue rows were removed. Older generated reports remain as audit evidence and are not treated as active new queue items.
+WREK note: The current first-party site links to official submission guidance that publishes `music.director@wrek.org`, accepts independently produced music and authorizes common physical media. CDs and LPs receive stronger consideration. Current digital specifications, international eligibility and content policies remain incomplete. The linked guidance and current station site display different Ferst Drive street numbers, so the postal address requires manual confirmation before shipment.
 
-KVRX note: `music@kvrx.org` remains the official plaintext Music Department submission route. Physical and digital submissions are accepted, but AI-assisted or AI-generated music is expressly ineligible. File, metadata, release-type and international requirements remain incomplete and require human confirmation.
+WPRB note: The official Music Submissions page publishes `music@wprb.com`, authorizes CDs, CD-Rs, LPs, 12-inch, 10-inch and 7-inch physical submissions, and states that physical media are prioritized. Current digital-delivery specifications, international eligibility and content policies remain incomplete.
 
-KALX note: `music@kalx.berkeley.edu` is a verified Music Director business contact, but it is not a digital submission route. KALX accepts only professionally pressed physical CDs or LPs and rejects downloads, file transfers, streaming links, YouTube, CD-Rs and other digital forms.
+Deduplication note: The full open-pull-request patch was inspected for WREK and WPRB station names, call signs, domains, submission paths and purpose-specific mailboxes. No earlier canonical record or prior use of either submission mailbox was found. Each station's email and physical routes were consolidated into one opportunity.
 
-Contact-verification note: Both business addresses are published on official first-party pages, have valid syntax and align with official domains. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: Both business addresses are published in plaintext on official first-party submission pages, have valid syntax, are purpose-bound and align with official station domains. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Safety: No email, form field, audio file, attachment, download or streaming link, physical package, manufacturing order, customs declaration, login, CAPTCHA, consent or payment was entered or submitted. No adjacent mailbox was used as a workaround, no prohibited digital delivery was attempted, and no anti-bot, authentication, platform or payment restriction was bypassed.
+Safety: No email, form field, audio file, attachment, download or streaming link, physical package, manufacturing order, customs declaration, login, CAPTCHA, consent or payment was entered or submitted. No adjacent mailbox was used as a workaround, and no anti-bot, authentication, platform or payment restriction was bypassed.
