@@ -1,0 +1,83 @@
+{
+  "run": 378,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1699,
+  "pipelineEstimate": 1697,
+  "newPlatforms": [],
+  "canonicalPlatformsReverified": [
+    {
+      "platform": "KVRX 91.7 FM",
+      "canonicalRecord": "automation_run_112_public_research",
+      "websiteUrl": "https://www.kvrx.org/app/",
+      "submissionUrl": "mailto:music@kvrx.org",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Send eligible digital music submissions for airplay consideration to music@kvrx.org",
+        "Send eligible physical music submissions to the current official KVRX mailing address"
+      ],
+      "businessContact": {
+        "email": "music@kvrx.org",
+        "verification": "Published in plaintext on KVRX's official contact page, explicitly assigned to all music submissions and the Music Department, syntactically valid, and aligned with the official kvrx.org domain. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "currentPolicy": {
+        "physicalSubmissionsAccepted": true,
+        "digitalSubmissionsAccepted": true,
+        "aiOriginPolicy": "AI-assisted or AI-generated music will not be considered",
+        "formatsAndMetadata": "not fully specified publicly",
+        "internationalEligibility": "not expressly confirmed"
+      },
+      "manualReviewReason": "A human must document non-AI production provenance for the selected MarcsMusic release, confirm current digital or physical delivery specifications, international eligibility, metadata, rights and prior-submission status, and submit manually only if fully compliant."
+    },
+    {
+      "platform": "KALX 90.7 FM",
+      "canonicalRecord": "automation_run_39_public_research",
+      "websiteUrl": "https://kalx.berkeley.edu/",
+      "submissionUrl": "https://kalx.berkeley.edu/about/contact/",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Mail a professionally pressed CD or LP to KALX, Attn: Music Director, at the current official UC Berkeley postal address"
+      ],
+      "businessContact": {
+        "email": "music@kalx.berkeley.edu",
+        "verification": "Published in plaintext for KALX's Music Directors and aligned with the official kalx.berkeley.edu domain. The same page explicitly requires physical delivery, so the mailbox is not authorization to email music. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "currentPolicy": {
+        "physicalSubmissionsAccepted": true,
+        "acceptedFormats": "professionally pressed CD or LP only",
+        "digitalSubmissionsAccepted": false,
+        "explicitlyRejected": [
+          "downloads",
+          "file transfers",
+          "Bandcamp or Spotify links",
+          "YouTube videos",
+          "CD-Rs",
+          "other digital forms"
+        ],
+        "internationalEligibility": "not expressly confirmed"
+      },
+      "manualReviewReason": "A human must confirm international physical-submission eligibility, select an eligible professionally pressed release, approve manufacturing, postage and customs costs, verify rights and prior-submission status, prepare the package and mail it manually. Digital delivery must not be used."
+    }
+  ],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 2,
+    "duplicateQueueRowsRemoved": 2,
+    "retiredRun": 377,
+    "retiredItems": [
+      "KVRX 91.7 FM Authorized Music Department Submission",
+      "KALX 90.7 FM Authorized Physical Music Submission"
+    ],
+    "repositoryEvidence": "Full open-pull-request patch inspection found earlier canonical records for KALX in Run 39 and KVRX in Run 112, contradicting Run 377's no-prior-record conclusion.",
+    "historicalDuplicateBacklogObserved": true,
+    "historicalHandling": "Older generated run artifacts remain unchanged as audit evidence. This run removes the active Run 377 duplicate seeds and queue rows and corrects the current pipeline estimate by two."
+  },
+  "activeQueueRowsAdded": 0,
+  "notes": "No new opportunity was added. Both current routes remain legitimate and publicly authorized but already existed in the database. No email, form, file, link, physical package, login, CAPTCHA, consent or payment was entered or submitted, and no platform restriction was bypassed."
+}
