@@ -2,29 +2,28 @@
 
 Date: 2026-07-15
 
-Latest run: Run 375
+Latest run: Run 376
 
-New items added: 2
+New items added: 1
 
 Existing items materially corrected or enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1696
+Pipeline estimate: 1697
 
 Items:
 
-- RadioActive.FM 88.6 — dedicated music-submission email plus authorized postal route
-- Radio Control 99.4FM — dedicated music-submission email plus authorized snail-mail route
+- Flirt FM 101.3 — dedicated first-party Music Submission form in the official Contact the Studio interface
 
-Two new queue rows were created. Both routes are `needs_manual_review`; no auto-submit candidate was created.
+One new queue row was created. The route is `needs_manual_review`; no auto-submit candidate was created.
 
-Deduplication note: Repository code search and the complete open pull-request patch were checked for the station names, domains, official contact paths and dedicated music-submission mailboxes. No prior canonical record or previous use of either mailbox was found. Each station is stored once, with its email and authorized physical-delivery methods consolidated into one opportunity. General, staff, office, programme, bookings and advertising contacts were excluded as submission substitutes.
+Deduplication note: Default-branch repository code search and the complete open pull-request patch were checked for the station name, official domain and canonical homepage route. No prior canonical record was found. The first-party Music Submission interface is stored once. General Queries, Volunteering, studio-booking, telephone and location details were excluded as submission substitutes.
 
-Manual-review note: Neither station publicly specifies all accepted release types, track-count rules, file formats, attachment-versus-download-link rules, required metadata, release windows, international eligibility, physical-copy requirements, explicit-content handling or AI-origin policies. A human must recheck the current guidance, select a suitable MarcsMusic release, confirm it has not already been submitted, use one authorized route and send manually.
+Manual-review note: Passive rendering confirms the dedicated Music Submission option but does not expose its live fields, accepted release types, upload-versus-link rules, file requirements, metadata, release windows, international eligibility, explicit-content or AI-origin policies, privacy declarations, consent, CAPTCHA, login or payment controls. A human must inspect the first-party form without bypassing protections, select a suitable MarcsMusic release and submit manually only if permitted.
 
-Contact-verification note: `music@radioactive.fm` and `music@radiocontrol.org.nz` are published on their respective first-party official Contact pages, have valid syntax, align with the official station domains and are expressly designated for music submissions. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: No purpose-bound public music-submission email was exposed in passive first-party rendering. No address was stored, inferred, guessed or substituted, and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity note: RadioActive.FM's official site contains current July 2026 interviews, guest mixes and reviews plus an active specialist-programming schedule. Radio Control states that it broadcasts 24/7 and streams worldwide, and its official site contains current 2026 charts, live sessions and programming.
+Activity note: Flirt FM identifies itself as Galway's community-of-interest and student station, states that its webstream is online 24/7, carries current 2026 content and lists electronic, ambient, dub, reggae, hip-hop, afrobeat, alternative, indie and world-music programming categories.
 
-Safety: No email, form, streaming or download link, audio file, attachment, metadata, physical package, login, CAPTCHA, consent or payment was entered or submitted. No adjacent contact was used as a workaround, and no anti-bot, authentication, platform or payment restriction was bypassed.
+Safety: No form field, cookie choice, email, streaming or download link, audio file, attachment, metadata, login, CAPTCHA, consent or payment was entered or submitted. No adjacent contact was used as a workaround, and no anti-bot, authentication, platform or payment restriction was bypassed.
