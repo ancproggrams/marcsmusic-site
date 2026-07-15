@@ -55,6 +55,6 @@ COPY --from=build /app/ ./
 # service. Do not run both API and worker processes in one instance.
 EXPOSE 8080
 HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
-  CMD node -e "fetch('http://127.0.0.1:'+(process.env.PORT||8080)+'/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"
+  CMD sh -c 'case "$SERVICE" in worker) kill -0 1 ;; migrate) exit 0 ;; api|"") node -e "fetch(\"http://127.0.0.1:\"+(process.env.PORT||8080)+\"/health\").then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))" ;; *) exit 64 ;; esac'
 
 CMD ["sh", "-c", "case \"$SERVICE\" in migrate) exec yarn workspace @plunk/db migrate:prod ;; worker) exec node apps/api/dist/jobs/worker.js ;; api|'') exec node apps/api/dist/app.js ;; *) echo \"unknown SERVICE=$SERVICE\" >&2; exit 64 ;; esac"]
