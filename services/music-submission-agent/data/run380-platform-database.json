@@ -1,0 +1,88 @@
+{
+  "run": 380,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1699,
+  "pipelineEstimate": 1697,
+  "newPlatforms": [],
+  "canonicalPlatformsReverified": [
+    {
+      "platform": "WREK 91.1 FM",
+      "canonicalRecord": "automation_run_109_public_research",
+      "websiteUrl": "https://www.wrek.org/",
+      "submissionUrl": "mailto:music.director@wrek.org",
+      "submissionGuidanceUrl": "https://old.wrek.org/submissions/",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Email an eligible music submission to music.director@wrek.org after confirming current digital-delivery requirements",
+        "Send eligible physical media only after confirming WREK's current postal address and package requirements"
+      ],
+      "businessContact": {
+        "email": "music.director@wrek.org",
+        "verification": "Published in plaintext on WREK's official submission guidance, repeated as the preferred Music Director contact, syntactically valid, purpose-bound and aligned with the official wrek.org domain. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "currentPolicy": {
+        "independentMusicAccepted": true,
+        "physicalSubmissionsAccepted": true,
+        "digitalEmailRouteAccepted": true,
+        "mediaGuidance": "Common music media formats are accepted; CDs and LPs receive stronger consideration, while cassettes, DATs and other formats may receive less airplay.",
+        "receiptAcknowledgement": "not provided because of submission volume",
+        "internationalEligibility": "not expressly confirmed"
+      },
+      "manualReviewReason": "A human must confirm current attachment-versus-download-link handling, digital formats and size limits, release types, metadata, international eligibility, explicit-content and AI-origin policies, confirm the current physical address before mailing, select an eligible MarcsMusic release, verify rights and prior-submission status, and submit manually only if fully compliant."
+    },
+    {
+      "platform": "WPRB 103.3 FM",
+      "canonicalRecord": "automation_run_109_public_research",
+      "websiteUrl": "https://wprb.com/",
+      "submissionUrl": "mailto:music@wprb.com",
+      "submissionGuidanceUrl": "https://wprb.com/music-submissions/",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Email an eligible music submission to music@wprb.com after confirming current digital-delivery requirements",
+        "Mail CDs, CD-Rs, LPs, 12-inch, 10-inch or 7-inch releases to the official WPRB Music Director postal address"
+      ],
+      "businessContact": {
+        "email": "music@wprb.com",
+        "verification": "Published in plaintext on WPRB's official first-party Music Submissions page, syntactically valid, purpose-bound and aligned with the official wprb.com domain. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "currentPolicy": {
+        "physicalSubmissionsAccepted": true,
+        "acceptedPhysicalFormats": [
+          "CD",
+          "CD-R",
+          "LP",
+          "12-inch",
+          "10-inch",
+          "7-inch"
+        ],
+        "digitalEmailRouteAccepted": true,
+        "physicalSubmissionsPrioritized": true,
+        "digitalSpecifications": "not publicly specified",
+        "internationalEligibility": "not expressly confirmed"
+      },
+      "manualReviewReason": "A human must confirm attachments versus downloadable links, accepted digital formats and size limits, metadata, release-type and timing rules, international eligibility, explicit-content and AI-origin policies, select an eligible MarcsMusic release, verify rights and prior-submission status, and submit manually only if fully compliant. Physical manufacturing, postage and customs costs require separate approval."
+    }
+  ],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 2,
+    "duplicateQueueRowsRemoved": 2,
+    "retiredRun": 379,
+    "retiredItems": [
+      "WREK 91.1 FM Authorized Music Director Submission",
+      "WPRB 103.3 FM Authorized Music Director Submission"
+    ],
+    "repositoryEvidence": "Full open-pull-request patch inspection found both WREK and WPRB together in Run 109, including the same official submission paths and purpose-specific mailboxes. This contradicts Run 379's no-prior-record conclusion.",
+    "historicalDuplicateBacklogObserved": true,
+    "historicalHandling": "Older generated run artifacts remain unchanged as audit evidence. This run removes the active Run 379 duplicate seeds and queue rows and corrects the current pipeline estimate by two."
+  },
+  "activeQueueRowsAdded": 0,
+  "notes": "No new opportunity was added. Both current routes remain legitimate and publicly authorized but already existed in the database. No email, form, file, link, physical package, login, CAPTCHA, consent or payment was entered or submitted, and no platform restriction was bypassed."
+}
