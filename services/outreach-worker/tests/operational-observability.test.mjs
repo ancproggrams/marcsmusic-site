@@ -68,18 +68,18 @@ test("runtime configuration requires explicit approval and capacity headroom", (
   assert.equal(configured.observability.captureIntervalMs, 60_000);
   assert.equal(configured.observability.pruneIntervalMs, 300_000);
   assert.equal(configured.observability.capacityHeadroomSamples, 10);
-  assert.equal(configured.observability.alertRouter.reason, "external_alert_router_unconfigured");
+  assert.equal(configured.observability.alertRouter.reference, "change-observability-runtime-001");
   assert.deepEqual(configured.observability.alertRouter, {
-    mode: "external",
-    configured: false,
-    available: false,
-    reason: "external_alert_router_unconfigured"
+    mode: "durable_outbox",
+    configured: true,
+    available: true,
+    reference: "change-observability-runtime-001"
   });
   assert.deepEqual(configured.observability.dashboard, {
-    mode: "external",
-    configured: false,
-    available: false,
-    reason: "external_dashboard_unconfigured"
+    mode: "protected_prometheus",
+    configured: true,
+    available: true,
+    reference: "change-observability-runtime-001"
   });
   assert.doesNotMatch(
     JSON.stringify({

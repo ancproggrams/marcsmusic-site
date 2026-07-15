@@ -607,16 +607,16 @@ function validateObservabilityRuntime(data, policy) {
       maximumBacklog: data.OUTREACH_ALERT_OUTBOX_MAX_BACKLOG
     }),
     alertRouter: Object.freeze({
-      mode: "external",
-      configured: false,
-      available: false,
-      reason: "external_alert_router_unconfigured"
+      mode: "durable_outbox",
+      configured: policy.enabled === true,
+      available: policy.enabled === true,
+      ...(policy.enabled === true ? { reference: approvalReference } : { reason: "approved_policy_unconfigured" })
     }),
     dashboard: Object.freeze({
-      mode: "external",
-      configured: false,
-      available: false,
-      reason: "external_dashboard_unconfigured"
+      mode: "protected_prometheus",
+      configured: policy.enabled === true,
+      available: policy.enabled === true,
+      ...(policy.enabled === true ? { reference: approvalReference } : { reason: "approved_policy_unconfigured" })
     })
   };
   if (!policy.enabled) return Object.freeze(runtime);
