@@ -1,0 +1,80 @@
+{
+  "run": 387,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1704,
+  "pipelineEstimate": 1705,
+  "newPlatforms": [
+    {
+      "name": "Subcity Radio Programmes Team Music Submission Process Inquiry Route",
+      "websiteUrl": "https://subcity.org/",
+      "submissionUrl": "mailto:programmes@subcity.org",
+      "sourceUrl": "https://subcity.org/about/",
+      "sourceType": "automation_run_387_public_research",
+      "country": "United Kingdom / Glasgow volunteer-run freeform university radio",
+      "language": "en",
+      "genres": [
+        "student-radio",
+        "university-radio",
+        "freeform-radio",
+        "independent-music",
+        "electronic",
+        "bass",
+        "reggae",
+        "world-music",
+        "experimental",
+        "programmes-team",
+        "pre-submission-inquiry",
+        "manual-review"
+      ],
+      "submissionMethod": "official-public-programmes-team-asset-free-music-submission-process-inquiry",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party Programmes Team business email for an asset-free music-submission-process inquiry",
+        "namedRecipient": "Subcity Radio Programmes Team",
+        "explicitPurpose": "public programmes and station contact; suitable only for asking whether external-artist music submissions are accepted and where they should be routed",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Send only a concise asset-free inquiry asking whether external artists may submit music for presenter or programme consideration and requesting the current authorized route and requirements. Do not attach audio or include private track links until Subcity provides explicit delivery instructions.",
+        "audioDeliveryAuthorized": false,
+        "physicalDeliveryAuthorized": false
+      },
+      "businessContact": {
+        "email": "programmes@subcity.org",
+        "emailStatus": "verified first-party Programmes Team contact published in plaintext on Subcity Radio’s official About page",
+        "verification": "The official About page publishes programmes@subcity.org under Contact Us. The address has valid syntax and exact official subcity.org domain alignment. Because the page does not label it as a music-submission mailbox or publish an audio-delivery procedure, it is classified only as an authorized asset-free process-inquiry contact. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-15",
+        "evidence": "Subcity’s official site exposes schedule, shows, events, archive, listen-back and live-listening interfaces, identifies current managers and programme/support/comms/technical teams, states that it has more than 100 active contributors and keeps show applications open year round."
+      },
+      "genreFitEvidence": [
+        "Subcity describes itself as a freeform station with no prescribed playlist.",
+        "The official About page states that no genre or concept is off-limits and that the station seeks a diverse range of shows.",
+        "Selected clean MarcsMusic electronic, bass, reggae, world-fusion, experimental and crossover releases have plausible presenter or programme fit, subject to Subcity’s unpublished external-artist eligibility and delivery requirements."
+      ],
+      "manualReviewReason": "Subcity Radio’s official About page publishes programmes@subcity.org as its public station contact, but the page does not explicitly authorize unsolicited audio delivery or publish attachment-versus-link rules, accepted formats, file-size limits, metadata or EPK requirements, release windows, international eligibility, clean or explicit-content rules, AI-origin policy, response times or physical-delivery instructions. A human must re-open the official page, send only a concise asset-free inquiry asking whether external artists may submit music for presenter or programme consideration, wait for explicit routing and delivery instructions, permission-check the selected release and avoid parallel outreach to individual contributors or shows.",
+      "priority": 92,
+      "pricingModel": "free-first-programmes-team-inquiry/manual-presenter-routing-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Subcity Radio",
+      "Subcity",
+      "subcity.org",
+      "programmes@subcity.org",
+      "subcity.org/about"
+    ],
+    "repositoryEvidence": "The complete open pull-request patch was searched for Subcity Radio, Subcity, the canonical domain, the official About path and programmes@subcity.org. No previous music-submission-agent platform or queue record was found.",
+    "consolidation": "The official Programmes Team mailbox is stored once as an asset-free process-inquiry route. Individual contributors, shows, Instagram direct messages, show-application forms and general social routes are excluded as parallel music-submission methods."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first Programmes Team process-inquiry route was queued as needs_manual_review. No audio-delivery or physical-delivery method was inferred and no outbound action was taken."
+}
