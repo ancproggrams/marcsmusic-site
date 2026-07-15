@@ -1,5 +1,6 @@
-import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
-import { dirname, join, resolve } from "node:path";
+import { readFile } from "node:fs/promises";
+import { join, resolve } from "node:path";
+import { withExclusiveFileMutation, writeJsonAtomically } from "../storage/atomic-json-file.mjs";
 
 export class PlayerManifestClient {
   constructor(options = {}) {
@@ -17,14 +18,33 @@ export class PlayerManifestClient {
     this.artworkBaseUrl = stripTrailingSlash(
       options.artworkBaseUrl ?? process.env.MARCSMUSIC_ARTWORK_BASE_URL ?? "/assets/artwork"
     );
+    this.assetUrlSigner = options.assetUrlSigner;
+    this.lockOptions = {
+      lockTimeoutMs: options.lockTimeoutMs ?? process.env.MUSIC_FILE_LOCK_TIMEOUT_MS,
+      lockLeaseMs: options.lockLeaseMs ?? process.env.MUSIC_FILE_LOCK_LEASE_MS
+    };
   }
 
   createAudioUrl(asset) {
-    return asset ? `${this.downloadBaseUrl}/${encodeURIComponent(asset.storageFilename)}` : undefined;
+    return asset
+      ? this.signAssetPath(`${this.downloadBaseUrl}/${encodeURIComponent(asset.storageFilename)}`)
+      : undefined;
   }
 
   createArtworkUrl(asset) {
-    return asset ? `${this.artworkBaseUrl}/${encodeURIComponent(asset.storageFilename)}` : undefined;
+    return asset
+      ? this.signAssetPath(`${this.artworkBaseUrl}/${encodeURIComponent(asset.storageFilename)}`)
+      : undefined;
+  }
+
+  signAssetPath(pathname) {
+    if (!this.assetUrlSigner) {
+      throw Object.assign(new Error("Private asset URL signing is not configured safely."), {
+        statusCode: 503,
+        code: "ASSET_SIGNING_NOT_CONFIGURED"
+      });
+    }
+    return this.assetUrlSigner.signPath(pathname);
   }
 
   createPlayerUrl(release) {
@@ -49,29 +69,27 @@ export class PlayerManifestClient {
   }
 
   async upsertTrack(entry) {
-    const manifest = await this.readManifest();
-    const index = manifest.tracks.findIndex((track) => track.releaseId === entry.releaseId);
+    return withExclusiveFileMutation(this.manifestPath, async (lease) => {
+      const manifest = await this.readManifest();
+      const index = manifest.tracks.findIndex((track) => track.releaseId === entry.releaseId);
 
-    if (index >= 0) {
-      manifest.tracks[index] = {
-        ...manifest.tracks[index],
-        ...entry,
-        updatedAt: new Date().toISOString()
-      };
-    } else {
-      manifest.tracks.push(entry);
-    }
+      if (index >= 0) {
+        manifest.tracks[index] = {
+          ...manifest.tracks[index],
+          ...entry,
+          updatedAt: new Date().toISOString()
+        };
+      } else {
+        manifest.tracks.push(entry);
+      }
 
-    await mkdir(dirname(this.manifestPath), { recursive: true });
-    const tmpPath = `${this.manifestPath}.${process.pid}.tmp`;
-    await writeFile(tmpPath, JSON.stringify(manifest, null, 2), "utf8");
-    await rename(tmpPath, this.manifestPath);
+      await writeJsonAtomically(this.manifestPath, manifest, { assertLease: lease.assertOwned });
 
-    return manifest.tracks.find((track) => track.releaseId === entry.releaseId);
+      return manifest.tracks.find((track) => track.releaseId === entry.releaseId);
+    }, this.lockOptions);
   }
 }
 
 function stripTrailingSlash(value) {
   return String(value || "").replace(/\/+$/u, "");
 }
-

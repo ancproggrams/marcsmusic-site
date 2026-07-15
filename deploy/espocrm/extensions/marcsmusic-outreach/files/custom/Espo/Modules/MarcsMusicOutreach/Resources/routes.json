@@ -1,0 +1,7 @@
+[
+    {
+        "route": "/OutreachDailyReport/aggregate",
+        "method": "get",
+        "actionClassName": "Espo\\Modules\\MarcsMusicOutreach\\Api\\GetOutreachDailyReportAggregate"
+    }
+]

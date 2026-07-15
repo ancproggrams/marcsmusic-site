@@ -1,0 +1,70 @@
+{
+  "fields": {
+    "outreachProjectionKey": {
+      "type": "varchar",
+      "maxLength": 128,
+      "readOnlyAfterCreate": true,
+      "audited": true
+    },
+    "outreachManaged": {
+      "type": "bool",
+      "default": false,
+      "audited": true
+    },
+    "musicRelease": {
+      "type": "link",
+      "readOnlyAfterCreate": true,
+      "audited": true
+    },
+    "outreachCampaign": {
+      "type": "link",
+      "audited": true
+    },
+    "eligibilityPolicyVersion": {
+      "type": "varchar",
+      "maxLength": 80,
+      "audited": true
+    },
+    "membershipProjectedAt": {
+      "type": "datetime",
+      "audited": true
+    }
+  },
+  "links": {
+    "musicRelease": {
+      "type": "belongsTo",
+      "entity": "MusicRelease",
+      "foreign": "targetLists"
+    },
+    "outreachCampaign": {
+      "type": "belongsTo",
+      "entity": "Campaign",
+      "foreign": "outreachTargetList"
+    },
+    "mediaContacts": {
+      "type": "hasMany",
+      "entity": "MediaContact",
+      "foreign": "targetLists",
+      "additionalColumns": {
+        "optedOut": {
+          "type": "bool"
+        }
+      },
+      "columnAttributeMap": {
+        "optedOut": "isOptedOut"
+      }
+    }
+  },
+  "indexes": {
+    "outreachProjectionKey": {
+      "columns": ["outreachProjectionKey"],
+      "unique": true
+    },
+    "musicRelease": {
+      "columns": ["musicReleaseId"],
+      "unique": true
+    }
+  },
+  "optimisticConcurrencyControl": true,
+  "transactionalSave": true
+}

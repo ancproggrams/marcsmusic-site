@@ -31,7 +31,24 @@ export function requireHumanApproval(action: PublicAction): never {
 }
 
 export function assertReadOnlyResearch(url: string, method = "GET") {
-  if (!url.startsWith("https://api.soundcloud.com/")) {
+  const rawAuthority = /^https:\/\/([^/?#]*)/iu.exec(url)?.[1] ?? "";
+  let target: URL;
+  try {
+    target = new URL(url);
+  } catch {
+    throw new Error("SoundCloud Growth OS only uses the official SoundCloud API for SoundCloud data access.");
+  }
+
+  if (
+    target.protocol !== "https:" ||
+    !/^api\.soundcloud\.com(?::443)?$/iu.test(rawAuthority) ||
+    target.hostname !== "api.soundcloud.com" ||
+    target.username !== "" ||
+    target.password !== "" ||
+    (target.port !== "" && target.port !== "443") ||
+    !target.pathname.startsWith("/") ||
+    target.hash !== ""
+  ) {
     throw new Error("SoundCloud Growth OS only uses the official SoundCloud API for SoundCloud data access.");
   }
 

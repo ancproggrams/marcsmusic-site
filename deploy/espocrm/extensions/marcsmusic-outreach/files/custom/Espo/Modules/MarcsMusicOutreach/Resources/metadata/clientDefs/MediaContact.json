@@ -1,0 +1,11 @@
+{
+    "controller": "controllers/record",
+    "relationshipPanels": {
+        "outreachMatches": {"create": false},
+        "suppressionEntries": {"create": false}
+    },
+    "filterList": [{"name": "recentlyCreated"}],
+    "boolFilterList": ["onlyMy"],
+    "color": "#2d6a4f",
+    "iconClass": "fas fa-address-card"
+}

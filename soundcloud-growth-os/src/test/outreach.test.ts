@@ -1,14 +1,36 @@
+import { NextRequest } from "next/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { POST as postLegacyOutreachEmail } from "../app/api/outreach/email/route";
 import { getMailgunConfig, MailgunConfigurationError, sendMailgunOutreachEmail } from "../lib/outreach/mailgun";
 import {
   assertHumanApprovedOutreach,
+  assertLegacyOutreachProviderEnabled,
+  assertLegacyOutreachSendEnabled,
   assertOutreachRateLimit,
   assertRecipientAllowed,
   OutreachPolicyError,
+  isLegacyOutreachSendEnabled,
+  isProductionOrRailwayRuntime,
   requireOutreachMailToken,
   resetOutreachRateLimits
 } from "../lib/outreach/policy";
 import { defaultOutreachLinks, getOutreachTemplate, outreachTemplates, renderOutreachTemplate } from "../lib/outreach/templates";
+
+const productionRuntimeCases: Array<[string, Record<string, string>]> = [
+  ["NODE_ENV=production", { NODE_ENV: "production" }],
+  ["mixed-case NODE_ENV=production", { NODE_ENV: "  ProDucTion  " }],
+  ["RAILWAY_ENVIRONMENT", { NODE_ENV: "development", RAILWAY_ENVIRONMENT: "production" }],
+  ["RAILWAY_ENVIRONMENT_ID", { NODE_ENV: "development", RAILWAY_ENVIRONMENT_ID: "environment-id" }],
+  ["RAILWAY_ENVIRONMENT_NAME", { NODE_ENV: "test", RAILWAY_ENVIRONMENT_NAME: "staging" }],
+  ["mixed Railway markers", {
+    NODE_ENV: "development",
+    RAILWAY_ENVIRONMENT: "staging",
+    RAILWAY_ENVIRONMENT_ID: "environment-id",
+    RAILWAY_ENVIRONMENT_NAME: "staging",
+    RAILWAY_PROJECT_ID: "project-id",
+    RAILWAY_SERVICE_ID: "service-id"
+  }]
+];
 
 describe("Mailgun outreach configuration", () => {
   it("requires Mailgun secrets and sender configuration", () => {
@@ -29,10 +51,12 @@ describe("Mailgun outreach configuration", () => {
 
 describe("Mailgun outreach sending", () => {
   afterEach(() => {
+    vi.unstubAllEnvs();
     vi.unstubAllGlobals();
   });
 
   it("posts a single plain-text message to Mailgun with tracking disabled", async () => {
+    stubLegacyProviderEnv({ NODE_ENV: "development" });
     const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       void input;
       void init;
@@ -86,6 +110,7 @@ describe("Mailgun outreach sending", () => {
   });
 
   it("rejects header injection in subject fields", async () => {
+    stubLegacyProviderEnv({ NODE_ENV: "development" });
     await expect(
       sendMailgunOutreachEmail(
         {
@@ -106,6 +131,41 @@ describe("Mailgun outreach sending", () => {
 });
 
 describe("outreach policy", () => {
+  it.each([undefined, "false", "TRUE", "1", "invalid"])(
+    "keeps the legacy direct sender disabled for %s",
+    (value) => {
+      expect(() =>
+        assertLegacyOutreachSendEnabled({
+          LEGACY_OUTREACH_SEND_ENABLED: value
+        })
+      ).toThrow(
+        expect.objectContaining({
+          code: "LEGACY_OUTREACH_SEND_DISABLED",
+          status: 503
+        })
+      );
+    }
+  );
+
+  it("enables the legacy direct sender only for the exact reviewed value in development", () => {
+    expect(() =>
+      assertLegacyOutreachSendEnabled(developmentLegacyEnv())
+    ).not.toThrow();
+    expect(isLegacyOutreachSendEnabled(developmentLegacyEnv())).toBe(true);
+  });
+
+  it.each(productionRuntimeCases)("forces the legacy sender closed for %s", (_name, marker) => {
+    const env = { ...developmentLegacyEnv(), ...marker };
+    expect(isProductionOrRailwayRuntime(env)).toBe(true);
+    expect(isLegacyOutreachSendEnabled(env)).toBe(false);
+    expect(() => assertLegacyOutreachSendEnabled(env)).toThrow(
+      expect.objectContaining({ code: "LEGACY_OUTREACH_SEND_DISABLED", status: 503 })
+    );
+    expect(() => assertLegacyOutreachProviderEnabled(env)).toThrow(
+      expect.objectContaining({ code: "LEGACY_OUTREACH_SEND_DISABLED", status: 503 })
+    );
+  });
+
   it("requires the configured outreach token", () => {
     const headers = new Headers({ authorization: "Bearer secret-token" });
 
@@ -129,6 +189,95 @@ describe("outreach policy", () => {
     expect(() => assertOutreachRateLimit("token-a", { OUTREACH_MAX_EMAILS_PER_HOUR: "2" }, 60 * 60 * 1000 + 1001)).not.toThrow();
 
     resetOutreachRateLimits();
+  });
+});
+
+describe("legacy outreach route gate", () => {
+  afterEach(() => {
+    resetOutreachRateLimits();
+    vi.unstubAllEnvs();
+    vi.unstubAllGlobals();
+  });
+
+  it.each(["", "false", "TRUE", "1", "invalid"])(
+    "does not reach Mailgun when LEGACY_OUTREACH_SEND_ENABLED is %s",
+    async (value) => {
+      vi.stubEnv("LEGACY_OUTREACH_SEND_ENABLED", value);
+      vi.stubEnv("OUTREACH_MAIL_TOKEN", "test-token");
+      const providerFetch = vi.fn();
+      vi.stubGlobal("fetch", providerFetch);
+
+      const response = await postLegacyOutreachEmail(
+        new NextRequest("http://localhost/api/outreach/email", {
+          method: "POST",
+          headers: {
+            authorization: "Bearer test-token",
+            "content-type": "application/json"
+          },
+          body: JSON.stringify({
+            toEmail: "reviewer@example.com",
+            subject: "Reviewed subject",
+            text: "This body is intentionally long enough for the request contract.",
+            approved: true
+          })
+        })
+      );
+
+      expect(response.status).toBe(503);
+      await expect(response.json()).resolves.toMatchObject({
+        code: "LEGACY_OUTREACH_SEND_DISABLED"
+      });
+      expect(providerFetch).not.toHaveBeenCalled();
+    }
+  );
+
+  it.each(productionRuntimeCases)(
+    "does not reach Mailgun in %s even when every legacy variable is enabled",
+    async (_name, marker) => {
+      stubLegacyRouteEnv(marker);
+      const providerFetch = vi.fn();
+      vi.stubGlobal("fetch", providerFetch);
+
+      const response = await postLegacyOutreachEmail(validLegacyRouteRequest());
+
+      expect(response.status).toBe(503);
+      await expect(response.json()).resolves.toMatchObject({ code: "LEGACY_OUTREACH_SEND_DISABLED" });
+      expect(providerFetch).not.toHaveBeenCalled();
+    }
+  );
+
+  it("allows one explicitly enabled development request through both gates", async () => {
+    stubLegacyRouteEnv({ NODE_ENV: "development" });
+    const providerFetch = vi.fn(async () => new Response(
+      JSON.stringify({ id: "dev-message-id", message: "Queued" }),
+      { status: 200, headers: { "content-type": "application/json" } }
+    ));
+    vi.stubGlobal("fetch", providerFetch);
+
+    const response = await postLegacyOutreachEmail(validLegacyRouteRequest());
+
+    expect(response.status).toBe(200);
+    await expect(response.json()).resolves.toMatchObject({ status: "queued", id: "dev-message-id" });
+    expect(providerFetch).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("independent legacy Mailgun provider gate", () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.unstubAllGlobals();
+  });
+
+  it.each(productionRuntimeCases)("blocks direct provider invocation in %s", async (_name, marker) => {
+    stubLegacyProviderEnv(marker);
+    const providerFetch = vi.fn();
+    vi.stubGlobal("fetch", providerFetch);
+
+    await expect(sendMailgunOutreachEmail(
+      validMailgunConfig(),
+      validOutreachEmail()
+    )).rejects.toMatchObject({ code: "LEGACY_OUTREACH_SEND_DISABLED", status: 503 });
+    expect(providerFetch).not.toHaveBeenCalled();
   });
 });
 
@@ -160,3 +309,58 @@ describe("outreach templates", () => {
     expect(defaultOutreachLinks.soundcloudDownloadsUrl).toBe("https://soundcloud.com/artists");
   });
 });
+
+function developmentLegacyEnv() {
+  return { NODE_ENV: "development", LEGACY_OUTREACH_SEND_ENABLED: "true" };
+}
+
+function validMailgunConfig() {
+  return {
+    apiKey: "key-test",
+    baseUrl: "https://api.mailgun.net",
+    domain: "mg.example.com",
+    fromEmail: "outreach@mg.example.com",
+    fromName: "MarcsMusic"
+  };
+}
+
+function validOutreachEmail() {
+  return {
+    toEmail: "reviewer@example.com",
+    subject: "Reviewed subject",
+    text: "This body is intentionally long enough for the request contract."
+  };
+}
+
+function stubLegacyRouteEnv(marker: Record<string, string>) {
+  stubLegacyProviderEnv(marker);
+  vi.stubEnv("OUTREACH_MAIL_TOKEN", "test-token");
+  vi.stubEnv("MAILGUN_API_KEY", "key-test");
+  vi.stubEnv("MAILGUN_DOMAIN", "mg.example.com");
+  vi.stubEnv("MAILGUN_BASE_URL", "https://api.mailgun.net");
+  vi.stubEnv("OUTREACH_FROM_EMAIL", "outreach@mg.example.com");
+}
+
+function stubLegacyProviderEnv(marker: Record<string, string>) {
+  for (const name of [
+    "NODE_ENV",
+    "RAILWAY_ENVIRONMENT",
+    "RAILWAY_ENVIRONMENT_ID",
+    "RAILWAY_ENVIRONMENT_NAME",
+    "RAILWAY_PROJECT_ID",
+    "RAILWAY_SERVICE_ID"
+  ]) vi.stubEnv(name, "");
+  vi.stubEnv("LEGACY_OUTREACH_SEND_ENABLED", "true");
+  for (const [name, value] of Object.entries(marker)) vi.stubEnv(name, value);
+}
+
+function validLegacyRouteRequest() {
+  return new NextRequest("http://localhost/api/outreach/email", {
+    method: "POST",
+    headers: {
+      authorization: "Bearer test-token",
+      "content-type": "application/json"
+    },
+    body: JSON.stringify({ ...validOutreachEmail(), approved: true })
+  });
+}

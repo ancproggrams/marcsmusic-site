@@ -1,0 +1,10 @@
+[
+    {"name": "name", "link": true},
+    {"name": "outreachMatch"},
+    {"name": "mediaContact"},
+    {"name": "eventType"},
+    {"name": "eventDate"},
+    {"name": "providerMessageId"},
+    {"name": "responseClassification"},
+    {"name": "errorCode"}
+]

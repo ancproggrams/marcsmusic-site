@@ -1,0 +1,20 @@
+{
+    "scopeNames": {
+        "MusicRelease": "Music Release",
+        "MediaOutlet": "Media Outlet",
+        "MediaContact": "Media Contact",
+        "OutreachMatch": "Outreach Match",
+        "OutreachEvent": "Outreach Event",
+        "OutreachDailyReport": "Outreach Daily Report",
+        "OutreachSuppression": "Outreach Suppression"
+    },
+    "scopeNamesPlural": {
+        "MusicRelease": "Music Releases",
+        "MediaOutlet": "Media Outlets",
+        "MediaContact": "Media Contacts",
+        "OutreachMatch": "Outreach Matches",
+        "OutreachEvent": "Outreach Events",
+        "OutreachDailyReport": "Outreach Daily Reports",
+        "OutreachSuppression": "Outreach Suppressions"
+    }
+}

@@ -1,0 +1,117 @@
+{
+    "fields": {
+        "name": {
+            "type": "varchar",
+            "maxLength": 180,
+            "pattern": "$noBadCharacters"
+        },
+        "reportDate": {
+            "type": "date",
+            "required": true,
+            "readOnlyAfterCreate": true,
+            "audited": true
+        },
+        "status": {
+            "type": "enum",
+            "options": ["Generated", "Final", "Failed"],
+            "default": "Generated",
+            "style": {
+                "Generated": "info",
+                "Final": "success",
+                "Failed": "danger"
+            },
+            "displayAsLabel": true,
+            "labelType": "state",
+            "required": true,
+            "audited": true
+        },
+        "generatedAt": {
+            "type": "datetime",
+            "audited": true
+        },
+        "newContacts": {"type": "int", "default": 0, "min": 0},
+        "validatedContacts": {"type": "int", "default": 0, "min": 0},
+        "duplicateContacts": {"type": "int", "default": 0, "min": 0},
+        "eligibleContacts": {"type": "int", "default": 0, "min": 0},
+        "blockedContacts": {"type": "int", "default": 0, "min": 0},
+        "matchesCreated": {"type": "int", "default": 0, "min": 0},
+        "initialEmailsSent": {"type": "int", "default": 0, "min": 0},
+        "followUpsSent": {"type": "int", "default": 0, "min": 0},
+        "repliesReceived": {"type": "int", "default": 0, "min": 0},
+        "positiveReplies": {"type": "int", "default": 0, "min": 0},
+        "hardBounces": {"type": "int", "default": 0, "min": 0},
+        "softBounces": {"type": "int", "default": 0, "min": 0},
+        "optOuts": {"type": "int", "default": 0, "min": 0},
+        "placements": {"type": "int", "default": 0, "min": 0},
+        "failedJobs": {"type": "int", "default": 0, "min": 0},
+        "summary": {
+            "type": "jsonObject",
+            "audited": true
+        },
+        "assignedUser": {
+            "type": "link",
+            "view": "views/fields/assigned-user",
+            "audited": true
+        },
+        "teams": {
+            "type": "linkMultiple",
+            "view": "views/fields/teams",
+            "audited": true
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "createdBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "modifiedBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        }
+    },
+    "links": {
+        "assignedUser": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "teams": {
+            "type": "hasMany",
+            "entity": "Team",
+            "relationName": "entityTeam",
+            "layoutRelationshipsDisabled": true
+        },
+        "createdBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "modifiedBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        }
+    },
+    "indexes": {
+        "reportDate": {
+            "columns": ["reportDate"],
+            "unique": true
+        },
+        "statusReportDate": {
+            "columns": ["status", "reportDate", "deleted"]
+        }
+    },
+    "collection": {
+        "textFilterFields": ["name"],
+        "orderBy": "reportDate",
+        "order": "desc"
+    },
+    "optimisticConcurrencyControl": true,
+    "transactionalSave": true,
+    "entityClassName": "Espo\\Modules\\MarcsMusicOutreach\\Entities\\OutreachDailyReport"
+}

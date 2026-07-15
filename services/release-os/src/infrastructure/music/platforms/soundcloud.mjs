@@ -14,7 +14,7 @@ const DEFAULT_VISIBILITY = "private";
 
 export const soundCloudAdapter = Object.freeze({
   capability,
-  async publish({ release, artist, platformAccount, action, dryRun, env = process.env, fetch }) {
+  async publish({ release, artist, platformAccount, action, dryRun, env = process.env, fetch, mediaRootDir }) {
     const request = {
       method: "POST",
       url: "https://api.soundcloud.com/tracks",
@@ -55,7 +55,13 @@ export const soundCloudAdapter = Object.freeze({
       return missingCredentialResult(action, dryRun, "SOUNDCLOUD_ACCESS_TOKEN");
     }
 
-    const audioFile = await createMediaFile(release.audioSource, { fieldName: "audioSource" });
+    const audioFile = await createMediaFile(release.audioSource, {
+      fieldName: "audioSource",
+      rootDir: mediaRootDir,
+      env,
+      fetch,
+      requiredContentTypePrefix: "audio/"
+    });
     const form = new FormData();
     form.append("track[title]", release.title);
     form.append("track[asset_data]", audioFile.blob, audioFile.filename);
@@ -68,7 +74,9 @@ export const soundCloudAdapter = Object.freeze({
       headers: {
         Authorization: `OAuth ${accessToken}`
       },
-      body: form
+      body: form,
+      timeoutMs: env.MUSIC_PROVIDER_TIMEOUT_MS,
+      maxResponseBytes: env.MUSIC_PROVIDER_MAX_RESPONSE_BYTES
     });
 
     if (!providerResponse.ok) {
@@ -89,4 +97,3 @@ export const soundCloudAdapter = Object.freeze({
 function artistCredentialName(artist, suffix) {
   return artist?.slug ? `ARTIST_${artist.slug.toUpperCase().replace(/[^A-Z0-9]+/gu, "_")}_${suffix}` : suffix;
 }
-

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>MarcsMusic Outreach — Engineering Runbook</title>
+  <style>
+    :root {
+      --bg: #0b1015;
+      --surface: #121a22;
+      --surface-2: #18232e;
+      --line: #2a3947;
+      --text: #edf4f8;
+      --muted: #a9bac5;
+      --accent: #64d8cb;
+      --accent-2: #93b4ff;
+      --ok: #77d49b;
+      --warn: #ffc86b;
+      --danger: #ff8792;
+      --code: #080c10;
+      --shadow: 0 18px 50px rgb(0 0 0 / 0.22);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); line-height: 1.58; }
+    a { color: var(--accent-2); text-decoration-thickness: .08em; text-underline-offset: .18em; }
+    a:hover { color: var(--accent); }
+    header { border-bottom: 1px solid var(--line); background: linear-gradient(145deg, #14242b, #0b1015 68%); }
+    .wrap { width: min(1180px, calc(100% - 2rem)); margin-inline: auto; }
+    .hero { padding: 3rem 0 2.2rem; }
+    .eyebrow { margin: 0 0 .5rem; color: var(--accent); font: 700 .77rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .13em; text-transform: uppercase; }
+    h1, h2, h3 { line-height: 1.18; text-wrap: balance; }
+    h1 { margin: 0; max-width: 900px; font-size: clamp(2rem, 5vw, 4.2rem); letter-spacing: -.045em; }
+    h2 { margin: 0 0 1rem; font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -.025em; }
+    h3 { margin: 1.5rem 0 .6rem; font-size: 1.08rem; }
+    p { max-width: 82ch; }
+    .lede { color: var(--muted); font-size: 1.08rem; max-width: 78ch; }
+    .meta, .facts, .grid-2, .grid-3 { display: grid; gap: .85rem; }
+    .meta { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 1.8rem; }
+    .meta div, .fact, .card { background: color-mix(in srgb, var(--surface) 88%, transparent); border: 1px solid var(--line); border-radius: .75rem; }
+    .meta div { padding: .85rem 1rem; }
+    .meta dt { color: var(--muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; }
+    .meta dd { margin: .3rem 0 0; font-weight: 700; }
+    nav { position: sticky; top: 0; z-index: 10; overflow-x: auto; border-bottom: 1px solid var(--line); background: rgb(11 16 21 / .94); backdrop-filter: blur(12px); }
+    nav ul { display: flex; gap: 1.15rem; min-width: max-content; margin: 0; padding: .8rem 0; list-style: none; }
+    nav a { color: var(--muted); font-size: .88rem; font-weight: 650; text-decoration: none; }
+    main { padding: 2rem 0 5rem; }
+    section { scroll-margin-top: 4rem; padding: 2.25rem 0; border-bottom: 1px solid var(--line); }
+    section:last-child { border-bottom: 0; }
+    .facts { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 1.2rem 0; }
+    .fact { padding: 1rem; }
+    .fact strong { display: block; color: var(--accent); font-size: 1.35rem; }
+    .fact span { color: var(--muted); font-size: .85rem; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card { padding: 1rem 1.1rem; box-shadow: var(--shadow); }
+    .card h3 { margin-top: 0; }
+    .callout { margin: 1rem 0; padding: .9rem 1rem; border-left: .28rem solid var(--warn); background: color-mix(in srgb, var(--warn) 9%, var(--surface)); border-radius: .25rem .65rem .65rem .25rem; }
+    .callout.danger { border-color: var(--danger); background: color-mix(in srgb, var(--danger) 9%, var(--surface)); }
+    .callout.ok { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 9%, var(--surface)); }
+    .badge { display: inline-block; padding: .16rem .48rem; border: 1px solid currentColor; border-radius: 999px; font: 700 .72rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .035em; }
+    .sev1, .blocked { color: var(--danger); }
+    .sev2, .pending { color: var(--warn); }
+    .sev3 { color: var(--accent-2); }
+    .verified { color: var(--ok); }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .92rem; }
+    caption { margin-bottom: .55rem; color: var(--muted); text-align: left; }
+    th, td { padding: .72rem .75rem; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: var(--surface-2); color: var(--accent); }
+    tr:nth-child(even) td { background: color-mix(in srgb, var(--surface) 74%, transparent); }
+    code, pre, kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    code { color: #d2e5ee; }
+    pre { overflow-x: auto; margin: .8rem 0 1.4rem; padding: 1rem; border: 1px solid var(--line); border-radius: .65rem; background: var(--code); color: #e6f1f5; line-height: 1.48; box-shadow: inset 0 1px 0 rgb(255 255 255 / .03); }
+    ol.steps { padding-left: 0; counter-reset: step; }
+    ol.steps > li { position: relative; margin: 0 0 .75rem; padding: .75rem .85rem .75rem 3.15rem; list-style: none; border: 1px solid var(--line); border-radius: .65rem; background: var(--surface); }
+    ol.steps > li::before { counter-increment: step; content: counter(step); position: absolute; left: .8rem; top: .7rem; width: 1.6rem; height: 1.6rem; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: #071110; font-weight: 800; }
+    ul.checklist { padding: 0; list-style: none; }
+    ul.checklist li { margin: .45rem 0; padding-left: 1.8rem; }
+    ul.checklist li::before { content: "☐"; float: left; margin-left: -1.8rem; color: var(--accent); }
+    .placeholder { padding: .08rem .35rem; border: 1px dashed var(--warn); border-radius: .25rem; color: var(--warn); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    details { margin: .75rem 0; padding: .7rem .85rem; border: 1px solid var(--line); border-radius: .6rem; background: var(--surface); }
+    summary { cursor: pointer; font-weight: 750; }
+    footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .86rem; }
+    @media (max-width: 850px) {
+      .meta, .facts, .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-2 { grid-template-columns: 1fr; }
+      table { display: block; overflow-x: auto; white-space: normal; }
+    }
+    @media (max-width: 520px) {
+      .meta, .facts, .grid-3 { grid-template-columns: 1fr; }
+      .wrap { width: min(100% - 1rem, 1180px); }
+      .hero { padding-top: 2rem; }
+    }
+    @media print {
+      :root { --bg: #fff; --surface: #fff; --surface-2: #eef3f5; --line: #aab5ba; --text: #101820; --muted: #43525b; --code: #f2f4f5; --shadow: none; }
+      nav { display: none; }
+      section { break-inside: avoid; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <p class="eyebrow">Engineering · Reliability · Privacy</p>
+      <h1>MarcsMusic Outreach Runbook</h1>
+      <p class="lede">Operationeel handboek voor de fail-closed EspoCRM-, PostgreSQL- en Mailgun-outreachketen. Gebruik dit document voor staging, gecontroleerde cutover, incidenten en herstel. Een groene applicatietest alleen is geen productie-goedkeuring.</p>
+      <dl class="meta">
+        <div><dt>Owner</dt><dd>MarcsMusic Engineering</dd></div>
+        <div><dt>Escalatie</dt><dd>Platform + privacy/security</dd></div>
+        <div><dt>Tier</dt><dd>Tier 1 externe messaging</dd></div>
+        <div><dt>Runbookversie</dt><dd>1.1 · legacy-leads-v2</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <nav aria-label="Runbooknavigatie">
+    <div class="wrap">
+      <ul>
+        <li><a href="#status">Status</a></li>
+        <li><a href="#service">Service</a></li>
+        <li><a href="#gates">Release-gates</a></li>
+        <li><a href="#dashboards">Dashboards</a></li>
+        <li><a href="#alerts">Alerts</a></li>
+        <li><a href="#procedures">Procedures</a></li>
+        <li><a href="#staging">Staging &amp; cutover</a></li>
+        <li><a href="#recovery">Herstel</a></li>
+        <li><a href="#oncall">On-call</a></li>
+        <li><a href="#incident">Incident</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="status">
+      <p class="eyebrow">Huidige werkelijkheid · 15 juli 2026</p>
+      <h2>Status en bewezen feiten</h2>
+      <div class="facts">
+        <div class="fact"><strong>141</strong><span>tabellen in restored Railway staging-EspoCRM</span></div>
+        <div class="fact"><strong>2.815</strong><span>legacy Leads in de restored staging-baseline</span></div>
+        <div class="fact"><strong>/var/www/persistent</strong><span>vereiste Railway-volumemount voor EspoCRM-state</span></div>
+        <div class="fact"><strong>Fail-closed</strong><span>productieverzending blijft uitgeschakeld</span></div>
+      </div>
+      <div class="callout danger">
+        <strong>Geen production-ready verklaring.</strong> De restored database is nuttig stagingbewijs, maar productie blijft een no-go totdat de formele securityscan, restored-state E2E, provider/webhook-contracttest, getimede restore en alle release-gates aantoonbaar groen zijn.
+      </div>
+      <table>
+        <caption>Statuswaarden zijn release-inputs, geen certificerings- of beschikbaarheidsgaranties.</caption>
+        <thead><tr><th>Controle</th><th>Status</th><th>Interpretatie</th></tr></thead>
+        <tbody>
+          <tr><td>Restored staging-schema</td><td><span class="badge verified">BEWEZEN</span></td><td>141 tabellen en 2.815 Leads zijn als actuele baseline waargenomen; inhoudelijke reconciliatie blijft verplicht.</td></tr>
+          <tr><td>EspoCRM persistent state</td><td><span class="badge verified">GEDEFINIEERD</span></td><td>Volume hoort op <code>/var/www/persistent</code>; readiness moet data/custom/client-custom en stable config bewijzen.</td></tr>
+          <tr><td>Productieverzending</td><td><span class="badge verified">UIT</span></td><td><code>OUTREACH_KILL_SWITCH=true</code> en <code>OUTREACH_SEND_ENABLED=false</code> blijven de veilige uitgangspositie.</td></tr>
+          <tr><td>Securityscan</td><td><span class="badge blocked">NO-GO</span></td><td>Een afgeronde scan en afhandeling van bevindingen is verplicht vóór productie.</td></tr>
+          <tr><td>Restored-state E2E</td><td><span class="badge blocked">NO-GO</span></td><td>De volledige extensie-, worker-, webhook-, suppressie-, restore- en rollbackketen moet op de release candidate slagen.</td></tr>
+          <tr><td>RPO/RTO</td><td><span class="badge pending">DOEL</span></td><td>RPO ≤ 15 minuten en RTO ≤ 4 uur zijn voorlopige doelen, pas bewezen door een getimede geïsoleerde restore.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="service">
+      <p class="eyebrow">Servicekaart</p>
+      <h2>Doel, grenzen en afhankelijkheden</h2>
+      <p>De worker orkestreert deterministische matching, durable queues, beperkte copyselectie, Mailgun-transport, replies en reconciliatie. EspoCRM bezit business state; PostgreSQL bezit technische uitvoeringsstate. Geen van beide mag afwezigheid als toestemming interpreteren.</p>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Authoritative state</h3>
+          <ul>
+            <li><strong>EspoCRM:</strong> releases, outlets, contacts, evidence, matches, suppressions en human-readable events.</li>
+            <li><strong>PostgreSQL:</strong> encrypted inbox, queue, leases, attempts, idempotency, capacity, circuit, checkpoints en watermarks.</li>
+            <li><strong>Mailgun:</strong> uitsluitend transportuitkomsten, nooit eligibility.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Runtimeafhankelijkheden</h3>
+          <ul>
+            <li>Railway services, private networking, deployment history en persistent volumes.</li>
+            <li>EspoCRM 10.0.2 met gepinde image digest en Outreach-extensie; 10.0.0 is alleen de geattesteerde bronversie van de restore-upgrade.</li>
+            <li>Dedicated PostgreSQL met <code>pgcrypto</code>, backups en restorepad.</li>
+            <li>Mailgun EU, verified domain, signed events/replies, SPF/DKIM/DMARC.</li>
+            <li>Publieke TLS-route voor webhooks en POST-confirmed unsubscribe.</li>
+          </ul>
+        </article>
+      </div>
+      <div class="callout"><strong>Dependency failure:</strong> PostgreSQLverlies maakt de service not-ready. EspoCRM- of providerverlies leidt tot retry/backoff of <code>delivery_unknown</code>; nooit tot gate-bypass of blind resend.</div>
+    </section>
+
+    <section id="gates">
+      <p class="eyebrow">Stop-the-line</p>
+      <h2>Release-gates</h2>
+      <p>Elke gate heeft bewijs in één gecontroleerd change record. Eén mislukte of niet-gedocumenteerde gate is een no-go.</p>
+      <ul class="checklist">
+        <li>Exacte commit reviewed; <code>npm run verify</code> en PostgreSQL-integratietests groen.</li>
+        <li>Formele securityscan afgerond; kritieke/hoge bevindingen opgelost of expliciet door bevoegde risk owner geaccepteerd.</li>
+        <li>SBOM/dependency-resultaten en deployment provenance opgeslagen.</li>
+        <li>Productieachtige DB en volledige Espo-state geïsoleerd restored; 141-tabellen- en 2.815-Leads-baselines gereconcilieerd.</li>
+        <li>Restored-state E2E slaagt op extensie-install, daemon, queues, webhooks, suppressie, <code>delivery_unknown</code>, reconciliatie en rollback.</li>
+        <li>Staging gebruikt dedicated databases, providerstub/non-productiedomain en een harde test-recipient allowlist.</li>
+        <li>EspoCRM-volume is exact <code>/var/www/persistent</code>; cryptografische config is stabiel en recoverable zonder logoutput.</li>
+        <li>Backups van database + applicatiestate + PostgreSQL bestaan; getimede restore voldoet aan goedgekeurde RPO/RTO.</li>
+        <li>Least-privilege Espo API-role, Railway access en key owners zijn reviewed.</li>
+        <li>Webhook-signature-, replay- en unsubscribe-POST-tests zijn groen.</li>
+        <li><code>legacy-leads-v2</code>-rapport heeft gebalanceerde reconciliatie en geldige digestgebonden approvals.</li>
+        <li>Oude sendroute heeft geen schedule, actieve deploy of interne sendloop.</li>
+        <li>Productie begint met kill switch aan, send flag uit en global circuit open of anderszins blokkerend totdat canary is goedgekeurd.</li>
+        <li>Privacy/campaign owner heeft doel, basis, bewijsstandaard, retentie en rechtenproces goedgekeurd.</li>
+      </ul>
+    </section>
+
+    <section id="dashboards">
+      <p class="eyebrow">Operational visibility</p>
+      <h2>Dashboards en operatorlinks</h2>
+      <div class="grid-3">
+        <article class="card"><h3>Railway</h3><p>Deployments, logs, resources, variables en volumes.</p><p><a href="https://railway.app/dashboard">Open Railway dashboard</a></p></article>
+        <article class="card"><h3>EspoCRM</h3><p>Business state en auditprojecties.</p><p><a href="https://marcsmusic-crm-production.up.railway.app">Open productie-CRM</a> · gebruik staginghost uit het change record.</p></article>
+        <article class="card"><h3>Mailgun</h3><p>Provider acceptance en events voor gerichte reconciliatie.</p><p><a href="https://app.mailgun.com/">Open Mailgun console</a></p></article>
+        <article class="card"><h3>Worker metrics</h3><p><span class="placeholder">MONITORING_DASHBOARD_URL</span></p><p>Queue age/depth, caps, outcomes, signature rejects, circuit, reconcile age, latency en errors.</p></article>
+        <article class="card"><h3>PostgreSQL</h3><p><span class="placeholder">POSTGRES_OBSERVABILITY_URL</span></p><p>CPU, memory, connections, storage, locks, oldest transaction en query latency.</p></article>
+        <article class="card"><h3>Incident/change</h3><p><span class="placeholder">INCIDENT_AND_CHANGE_SYSTEM_URL</span></p><p>On-call identities, backup IDs, approvals en retained evidence horen hier, niet in Git.</p></article>
+      </div>
+      <h3>Minimale dashboardpanelen</h3>
+      <p>Work/event/send/response queue depth en oudste age; statusverdeling; send rate versus global/release/domain caps; retries en dead letters; <code>delivery_unknown</code>; webhook accepted/rejected/duplicate; provider outcomes; bounce/complaint/opt-out; circuit state; full/incremental reconcile freshness; HTTP p50/p95/p99; PostgreSQL CPU/memory/connections/storage.</p>
+    </section>
+
+    <section id="alerts">
+      <p class="eyebrow">Alerts</p>
+      <h2>Waarschuwingen en eerste respons</h2>
+      <table>
+        <thead><tr><th>Alert</th><th>Severity</th><th>Betekenis</th><th>Eerste respons</th></tr></thead>
+        <tbody>
+          <tr><td>Onbedoelde of dubbele ontvanger</td><td><span class="badge sev1">SEV-1</span></td><td>Eligibility, idempotency of migratiecontrole faalde.</td><td>Emergency stop; provider acceptance bewaren; ontvangers/scope bepalen; incident openen.</td></tr>
+          <tr><td>Send cap overschreden</td><td><span class="badge sev1">SEV-1</span></td><td>Capacitycontrole is ineffectief of fout geconfigureerd.</td><td>Beide flags blokkeren; circuit open; counters/reservations en actieve replicas onderzoeken.</td></tr>
+          <tr><td>Secret/key exposure</td><td><span class="badge sev1">SEV-1</span></td><td>Events kunnen worden vervalst of data is blootgesteld.</td><td>Sending stoppen, credential revoken/roteren, toegangsbewijs bewaren; nooit secret in incidentchat plakken.</td></tr>
+          <tr><td>Unsubscribe gevolgd door send</td><td><span class="badge sev1">SEV-1</span></td><td>Deny-wins invariant faalde.</td><td>Globaal stoppen, affected scope suppressen, privacy/security escaleren, volledige queue reconciliëren.</td></tr>
+          <tr><td>Complaint/harmful threshold</td><td><span class="badge sev1">SEV-1/2</span></td><td>Campaign/evidence is onveilig.</td><td>Circuit open houden, sending uit, scope suppressen, campaign/privacy review.</td></tr>
+          <tr><td><code>delivery_unknown &gt; 0</code></td><td><span class="badge sev2">SEV-2</span></td><td>Providerrequest kan zijn geaccepteerd zonder response.</td><td>Nooit retry; Message-ID/correlation ID en provider events handmatig reconciliëren.</td></tr>
+          <tr><td><code>/readyz</code> vijf minuten 503</td><td><span class="badge sev2">SEV-2</span></td><td>DB of startupcontract faalt.</td><td>Sending blijft uit; DB/network/deploy logs, volume en schema-attestation inspecteren.</td></tr>
+          <tr><td>Dead letter &gt; 0</td><td><span class="badge sev2">SEV-2</span></td><td>Bounded retrybudget uitgeput.</td><td>Systemisch? stoppen. Error classificeren; replay pas na fix + regressietest.</td></tr>
+          <tr><td>Signature rejects spike</td><td><span class="badge sev2">SEV-2</span></td><td>Key mismatch, replay/attack of klokprobleem.</td><td>Verificatie nooit versoepelen; webhook-ID/keyversie en timestamps vergelijken.</td></tr>
+          <tr><td>Queue age &gt; 5 minuten</td><td><span class="badge sev2">SEV-2</span></td><td>Worker/downstream/saturationprobleem.</td><td>Leases, DB, downstreamlatency, replicahealth en backpressure onderzoeken.</td></tr>
+          <tr><td>Full reconcile age &gt; 25 uur</td><td><span class="badge sev2">SEV-2</span></td><td>Webhook omissions zijn niet tijdig gerepareerd.</td><td>Sending uit wanneer businessstate niet actueel bewezen is; één idempotente full reconcile.</td></tr>
+          <tr><td>PostgreSQL storage/connections &gt; 80%</td><td><span class="badge sev2">SEV-2</span></td><td>Durable ingress en queues lopen risico.</td><td>Sendgroei stoppen, ingress behouden, retentie/capacity onderzoeken en reviewed schalen.</td></tr>
+          <tr><td>EspoCRM projectiedrift</td><td><span class="badge sev3">SEV-2/3</span></td><td>Durable outcome niet zichtbaar in businessstate.</td><td>Technische event bewaren; idempotente reconciliatie na dependencyherstel.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="procedures">
+      <p class="eyebrow">Copy-pasteable procedures</p>
+      <h2>Veelvoorkomende procedures</h2>
+      <p>Controleer vóór iedere mutatie project, environment en service. De voorbeelden tonen geen secretwaarden. Voer nooit <code>railway variable list --kv</code> of JSON-variable output uit in een gedeeld kanaal.</p>
+
+      <details open>
+        <summary>1. Emergency stop</summary>
+        <pre><code>export RAILWAY_ENVIRONMENT="production"
+export RAILWAY_SERVICE="outreach-worker"
+railway status
+
+railway variable set --environment "$RAILWAY_ENVIRONMENT" --service "$RAILWAY_SERVICE" \
+  OUTREACH_KILL_SWITCH=true OUTREACH_SEND_ENABLED=false
+
+railway logs --environment "$RAILWAY_ENVIRONMENT" --service "$RAILWAY_SERVICE" \
+  --since 30m --filter "@level:error OR @level:warn" --lines 200</code></pre>
+        <p>Laat webhook-ingress online zolang confidentiality en integrity intact zijn. Stop/isoleer het publieke endpoint wanneer credentials of request-integrity zijn gecompromitteerd.</p>
+      </details>
+
+      <details open>
+        <summary>2. Verify en deploy naar staging</summary>
+        <pre><code>cd services/outreach-worker
+npm ci
+npm run verify
+
+export RAILWAY_ENVIRONMENT="staging"
+export RAILWAY_SERVICE="outreach-worker"
+railway status
+railway variable set --environment "$RAILWAY_ENVIRONMENT" --service "$RAILWAY_SERVICE" \
+  OUTREACH_KILL_SWITCH=true OUTREACH_SEND_ENABLED=false
+
+cd ../..
+railway up ./services/outreach-worker --path-as-root \
+  --environment "$RAILWAY_ENVIRONMENT" --service "$RAILWAY_SERVICE" --detach
+railway deployment list --environment "$RAILWAY_ENVIRONMENT" \
+  --service "$RAILWAY_SERVICE" --limit 5
+railway logs --environment "$RAILWAY_ENVIRONMENT" \
+  --service "$RAILWAY_SERVICE" --latest --lines 100
+
+curl --fail --silent --show-error "https://STAGING_OUTREACH_HOST/livez"
+curl --fail --silent --show-error "https://STAGING_OUTREACH_HOST/readyz"</code></pre>
+        <p>Expected readiness: database up en sending disabled. Deploy EspoCRM vanuit <code>deploy/espocrm</code> alleen naar een service met een volume exact op <code>/var/www/persistent</code>.</p>
+      </details>
+
+      <details open>
+        <summary>3. Application rollback</summary>
+        <pre><code>export RAILWAY_ENVIRONMENT="production"
+export RAILWAY_SERVICE="outreach-worker"
+railway variable set --environment "$RAILWAY_ENVIRONMENT" --service "$RAILWAY_SERVICE" \
+  OUTREACH_KILL_SWITCH=true OUTREACH_SEND_ENABLED=false
+railway deployment list --environment "$RAILWAY_ENVIRONMENT" \
+  --service "$RAILWAY_SERVICE" --limit 10</code></pre>
+        <p>Railway CLI v5 heeft geen directe rollbackopdracht. Redeploy de vastgelegde last-known-good deployment in de Railway deployment view, of revert de slechte commit op <code>main</code> en deploy die compatibele commit. PostgreSQL-migraties zijn forward-only: drop geen tabellen/kolommen en uninstall de Espo-extensie niet tijdens een incident.</p>
+      </details>
+
+      <details open>
+        <summary>4. Circuit reset na incident review</summary>
+        <pre><code>cd services/outreach-worker
+export RAILWAY_ENVIRONMENT="production"
+export RAILWAY_SERVICE="outreach-worker"
+export OUTREACH_CIRCUIT_RESET_CONFIRM="reviewed-health-and-delivery-unknown"
+export OUTREACH_CIRCUIT_RESET_REASON="CHANGE-ID: root cause fixed and uncertain delivery reconciled"
+
+railway run --environment "$RAILWAY_ENVIRONMENT" --service "$RAILWAY_SERVICE" \
+  npm run circuit:reset
+
+unset OUTREACH_CIRCUIT_RESET_CONFIRM OUTREACH_CIRCUIT_RESET_REASON</code></pre>
+        <p>Reset alleen als het circuit open is, de reden 12–240 tekens bevat, healthresultaten zijn reviewed en alle onzekere deliveries zijn gereconcilieerd. Een gesloten circuit verzendt nog niets zolang de twee deploymentflags blokkeren.</p>
+      </details>
+
+      <details open>
+        <summary>5. Key rotation</summary>
+        <ol>
+          <li>Emergency stop; backup database/app-state/PostgreSQL; leg key owner en keyversie vast.</li>
+          <li>Genereer en plaats het nieuwe secret uitsluitend via de goedgekeurde Railway secret UI of secret automation. Zet de waarde niet in shell history, command arguments, Git, tickets of dit document.</li>
+          <li>Voor Espo-webhooks: accepteer tijdelijk old + new key-ID, switch producer, bewijs signatures/replay, revoke old.</li>
+          <li>Voor Mailgun: rotate via provider, update Railway secret, redeploy disabled, bewijs signed events, revoke old.</li>
+          <li>Voor unsubscribe/encryption: eerst dual-key/dual-read implementeren en een re-encryption/expiryplan testen. Direct vervangen kan links ongeldig of ciphertext onleesbaar maken.</li>
+        </ol>
+        <pre><code>export RAILWAY_ENVIRONMENT="production"
+export RAILWAY_SERVICE="outreach-worker"
+railway variable set --environment "$RAILWAY_ENVIRONMENT" --service "$RAILWAY_SERVICE" \
+  OUTREACH_KILL_SWITCH=true OUTREACH_SEND_ENABLED=false
+railway redeploy --environment "$RAILWAY_ENVIRONMENT" --service "$RAILWAY_SERVICE" --yes
+railway logs --environment "$RAILWAY_ENVIRONMENT" \
+  --service "$RAILWAY_SERVICE" --latest --lines 100</code></pre>
+        <p>Als de geïnstalleerde CLI geen <code>redeploy</code> ondersteunt, gebruik de Railway deployment view. Toon bij verificatie alleen key-ID/version en testresultaat, nooit de waarde.</p>
+      </details>
+    </section>
+
+    <section id="staging">
+      <p class="eyebrow">Promotion path</p>
+      <h2>Restored staging en productiecutover</h2>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Stagingrehearsal</h3>
+          <ol>
+            <li>Gebruik isolated Railway staging met dedicated EspoCRM, MySQL, PostgreSQL, volumes en niet-productieprovider/stub.</li>
+            <li>Herstel één consistente database + volledige applicatiestate op <code>/var/www/persistent</code>, inclusief stable key/config metadata.</li>
+            <li>Reconcileer minimaal 141 tabellen en 2.815 Leads; valideer login/API, schema, decryptie, attachments en daemon.</li>
+            <li>Installeer extensie onder advisory lock; bewijs <code>/readyz.php</code> en runtime attestation.</li>
+            <li>Deploy worker disabled; migrate PostgreSQL additive; run full reconcile.</li>
+            <li>Run restored-state E2E: duplicate webhooks, invalid signatures, suppressions, replies, uncertain delivery, dead letter, circuit, restore en rollback.</li>
+            <li>Herhaal restore vanaf nul. Handmatig gerepareerde staging is geen reproduceerbaar restorebewijs.</li>
+          </ol>
+        </article>
+        <article class="card">
+          <h3>Productiecutover</h3>
+          <ol>
+            <li>Tweede operator bevestigt project/environment/services; oude sender blijft gestopt.</li>
+            <li>Freeze relevante CRM-mutaties; beide sendflags blokkeren; geen in-flight providerrequests.</li>
+            <li>Maak verse consistente backups en leg immutable IDs/cutoff vast.</li>
+            <li>Deploy EspoCRM eerst op één replica; wacht op persistent-state-, schema-, daemon- en readinessbewijs.</li>
+            <li>Deploy exact de in staging bewezen workercommit; migrate additive; verify ingress, metrics en full reconcile.</li>
+            <li>Run en approve `legacy-leads-v2`; migratie houdt alle contacten quarantined.</li>
+            <li>Observeer één volledige reconcilecyclus. Sending blijft uit tot aparte vijf-recipient canary approval.</li>
+          </ol>
+        </article>
+      </div>
+      <div class="callout danger"><strong>Abort:</strong> schema drift, ontbrekend volume, regenerated keys, readinessfailure, count mismatch, signaturefailure, dead letter, uncertain delivery, securityfinding of suppression/evidence-disagreement. Verlaag nooit een gate om de cutover te laten slagen.</div>
+
+      <h3>Vijf-recipient canary</h3>
+      <p>Pas na alle gates: maximaal vijf afzonderlijk goedgekeurde, valide contacten; global cap 5 en domain cap 1. Laat een tweede operator de selectie en variabelen bevestigen.</p>
+      <pre><code>export RAILWAY_ENVIRONMENT="production"
+export RAILWAY_SERVICE="outreach-worker"
+railway status
+railway variable set --environment "$RAILWAY_ENVIRONMENT" --service "$RAILWAY_SERVICE" \
+  OUTREACH_KILL_SWITCH=false OUTREACH_SEND_ENABLED=true \
+  OUTREACH_DAILY_SEND_LIMIT=5 OUTREACH_DOMAIN_DAILY_LIMIT=1</code></pre>
+      <p>Observeer iedere provider acceptance, event, CRM-projectie en suppression. Iedere duplicate, complaint, onverwachte ontvanger, missing event of onzekere delivery stopt de canary. Uitbreiden is een aparte reviewed change.</p>
+    </section>
+
+    <section id="recovery">
+      <p class="eyebrow">Continuity</p>
+      <h2>Backup, restore, RPO en RTO</h2>
+      <table>
+        <thead><tr><th>Recoveryset</th><th>Voorlopig doel</th><th>Bewijs</th></tr></thead>
+        <tbody>
+          <tr><td>EspoCRM database</td><td>RPO ≤ 15 min; RTO ≤ 4 uur</td><td>Consistente DB-backup, integrity/schema/count checks en getimede isolated restore.</td></tr>
+          <tr><td>EspoCRM applicatiestate</td><td>Zelfde consistency point als DB</td><td><code>/var/www/persistent</code> data/custom/client-custom, uploadpad, versie/image en protected key/config metadata.</td></tr>
+          <tr><td>Worker PostgreSQL</td><td>RPO ≤ 15 min; RTO ≤ 4 uur</td><td>Queue/inbox/attempt/circuit/checkpoint integrity plus replay- en convergencecheck.</td></tr>
+          <tr><td>Mailgun events</td><td>Reconciliatiebron, geen backup</td><td>Signed provider query in exact loss window; nooit gebruiken als vervanging van CRM/workflowstate.</td></tr>
+        </tbody>
+      </table>
+      <p>Deze waarden zijn doelstellingen, niet bewezen prestaties. Een backup telt pas als evidence nadat login/API, decryptie, attachments, daemon, extensieschema, queue state en aggregate counts slagen binnen de gemeten tijd. Als platforminstellingen het doel niet halen, laat de business owner vóór productie een realistisch alternatief goedkeuren.</p>
+
+      <h3><code>delivery_unknown</code></h3>
+      <ol class="steps">
+        <li>Laat de queue row terminal en stop de sequence; niet opnieuw verzenden.</li>
+        <li>Zoek Mailgun met deterministic Message-ID, correlation ID en smal UTC-window.</li>
+        <li>Controleer encrypted webhook inbox en signed provider events op acceptance/delivery/failure.</li>
+        <li>Acceptance bewezen: projecteer idempotent naar sent. Definitieve non-acceptance bewezen: alleen een nieuwe reviewed recovery attempt.</li>
+        <li>Blijft het onzeker, behoud <code>delivery_unknown</code> en sluit de sequence. Duplicate voorkomen weegt zwaarder dan delivery.</li>
+      </ol>
+    </section>
+
+    <section id="oncall">
+      <p class="eyebrow">Role-based rotation</p>
+      <h2>On-call en escalatie</h2>
+      <p>Persoonsnamen, telefoonnummers en roosters staan in het restricted incident/contact system. Iedere periode moet daar een concrete identiteit aan elke onderstaande rol gekoppeld zijn.</p>
+      <table>
+        <thead><tr><th>Dekkingsperiode</th><th>Primary</th><th>Secondary</th><th>Backup / escalation</th></tr></thead>
+        <tbody>
+          <tr><td>Reguliere week</td><td>Outreach engineering duty role</td><td>Railway/platform duty role</td><td>Security/privacy duty role</td></tr>
+          <tr><td>Release- en migratievenster</td><td>Release operator role</td><td>Independent verifier role</td><td>Campaign/privacy approver role</td></tr>
+          <tr><td>SEV-1 messaging/privacy</td><td>Incident commander role</td><td>Technical operations lead role</td><td>Security/privacy decision owner role</td></tr>
+          <tr><td>Restore/continuity</td><td>Database recovery role</td><td>Application recovery role</td><td>Business continuity owner role</td></tr>
+        </tbody>
+      </table>
+      <p>Een release operator mag niet tegelijk de enige verifier zijn. Privacy/security beslist over notification obligations; engineering doet daar geen juridische aanname over.</p>
+    </section>
+
+    <section id="incident">
+      <p class="eyebrow">Incident response</p>
+      <h2>Vijfstappenchecklist</h2>
+      <ol class="steps">
+        <li><strong>Contain:</strong> zet beide sendcontrols in veilige staat, open/houd circuit open en stop de legacy sender. Verwijder geen queue rows.</li>
+        <li><strong>Preserve:</strong> leg deployment ID, commit, UTC-window, correlation/message IDs, counters en redacted logs vast. Exporteer geen bodies/adressen/secrets naar het incidentkanaal.</li>
+        <li><strong>Assess:</strong> bepaal affected recipients, duplicate/unauthorized count, provider acceptance versus delivery, suppression/rechtenimpact en escalatieplicht.</li>
+        <li><strong>Recover:</strong> fix root cause met regressietest, reconcile uncertain deliveries, herstel projecties en voer restored-state smoke/E2E uit. Canary opnieuw vanaf maximaal vijf goedgekeurde contacten.</li>
+        <li><strong>Close:</strong> incident-owner approval, post-incident review, risk/controlupdate, retained evidence en toegewezen corrective actions. Privacy/security beslist over notificaties.</li>
+      </ol>
+      <div class="callout ok"><strong>Veilige hervatting:</strong> een circuit reset is slechts één technische overgang. Hervatting vereist daarnaast groene dependencies, reconciliatie, gesloten incidentacties, beide expliciete sendcontrols en een opnieuw goedgekeurde canary.</div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Documentgrens:</strong> deze runbook ondersteunt beheerste engineering en ISO/NIS2-georiënteerde control evidence. Het is geen certificeringsclaim, juridisch advies, gemeten SLO-bewijs of zelfstandige productie-goedkeuring.</p>
+      <p>Bijbehorende documenten: <a href="railway-runbook.md">Railway runbook</a>, <a href="legacy-lead-migration.md">legacy-leads-v2 migration</a>, <a href="source-of-truth.md">source-of-truth</a>, <a href="state-machine.md">state machines</a> en <a href="compliance-evidence.md">compliance evidence limits</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

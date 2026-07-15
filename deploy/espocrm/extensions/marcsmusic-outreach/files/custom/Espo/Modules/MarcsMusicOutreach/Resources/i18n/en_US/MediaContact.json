@@ -1,0 +1,52 @@
+{
+    "fields": {
+        "name": "Name",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "showName": "Show Name",
+        "emailAddress": "Email Address",
+        "role": "Role",
+        "instagramUrl": "Instagram URL",
+        "linkedinUrl": "LinkedIn URL",
+        "soundcloudUrl": "SoundCloud URL",
+        "contactSourceUrl": "Contact Source URL",
+        "contactEvidence": "Contact Evidence",
+        "contactPurpose": "Contact Purpose",
+        "contactBasis": "Contact Basis",
+        "proofUrl": "Proof URL",
+        "proofText": "Proof Text",
+        "proofCapturedAt": "Proof Captured At",
+        "emailValidationStatus": "Email Validation Status",
+        "smtpValidationStatus": "SMTP Validation Status",
+        "lastValidatedAt": "Last Validated At",
+        "doNotContact": "Do Not Contact",
+        "optedOut": "Opted Out",
+        "hardBounced": "Hard Bounced",
+        "previousPositiveReply": "Previous Positive Reply",
+        "rejectedGenres": "Rejected Genres",
+        "rejectedGenresUpdatedAt": "Rejected Genres Updated At",
+        "rejectedGenresSourceEvent": "Rejected Genres Source Event",
+        "futureReleaseInterest": "Future Release Interest",
+        "futureReleaseGenres": "Future Release Genres",
+        "futureReleaseInterestAt": "Future Release Interest At",
+        "futureReleaseInterestEvent": "Future Release Interest Event",
+        "preferredLanguage": "Preferred Language",
+        "timezone": "Timezone",
+        "status": "Status",
+        "fingerprint": "Fingerprint",
+        "duplicateOf": "Duplicate Of",
+        "mediaOutlet": "Media Outlet"
+    },
+    "links": {
+        "mediaOutlet": "Media Outlet",
+        "outreachMatches": "Outreach Matches",
+        "suppressionEntries": "Suppression Entries",
+        "emails": "Emails",
+        "opportunities": "Opportunities",
+        "duplicateOf": "Duplicate Of",
+        "duplicates": "Duplicates"
+    },
+    "labels": {
+        "Create MediaContact": "Create Media Contact"
+    }
+}

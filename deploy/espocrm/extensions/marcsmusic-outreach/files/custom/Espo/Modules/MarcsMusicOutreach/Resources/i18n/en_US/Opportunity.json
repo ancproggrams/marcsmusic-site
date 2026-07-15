@@ -1,0 +1,14 @@
+{
+  "fields": {
+    "outreachProjectionKey": "Outreach Projection Key",
+    "outreachMatch": "Outreach Match",
+    "musicRelease": "Music Release",
+    "mediaContact": "Media Contact",
+    "mediaOutlet": "Media Outlet",
+    "sourceOutreachEvent": "Source Outreach Event",
+    "latestOutreachEvent": "Latest Stronger Outreach Event",
+    "outreachInterestStatus": "Outreach Interest",
+    "outreachInterestAt": "Interest Recorded At",
+    "outreachRevenueState": "Outreach Revenue State"
+  }
+}

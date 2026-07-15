@@ -1,0 +1,19 @@
+[
+    {
+        "label": "Overview",
+        "rows": [
+            [{"name": "name"}, {"name": "matchScore"}],
+            [{"name": "musicRelease"}, {"name": "mediaContact"}],
+            [{"name": "mediaOutlet"}, {"name": "campaign"}],
+            [{"name": "eligibilityStatus"}, {"name": "campaignStatus"}],
+            [{"name": "currentSequenceStep"}, {"name": "activeSequence"}],
+            [{"name": "replyStatus"}, {"name": "nextActionAt"}],
+            [{"name": "lastSentAt"}, {"name": "cooldownUntil"}],
+            [{"name": "lastProviderMessageId"}, false],
+            [{"name": "idempotencyKey"}, false],
+            [{"name": "matchReasons", "fullWidth": true}],
+            [{"name": "stopReason", "fullWidth": true}],
+            [{"name": "assignedUser"}, {"name": "teams"}]
+        ]
+    }
+]

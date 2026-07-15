@@ -14,7 +14,8 @@ The current implementation is a release control plane:
 - Capability registry: `src/domain/music/platform-capabilities.mjs`
 - Adapter registry: `src/domain/music/platform-registry.mjs`
 - Release planner: `src/application/music/release-planner.mjs`
-- Publication orchestrator: `src/application/music/publication-service.mjs`
+- Stateless adapter orchestrator: `src/application/music/publication-service.mjs`
+- Durable execution boundary: `src/application/music/durable-publication-service.mjs`
 - Provider/manual adapters: `src/infrastructure/music/platforms/*.mjs`
 
 It deliberately does not use stored passwords to drive browser automation.
@@ -35,6 +36,15 @@ Dry-run is the default. Real execution requires:
 - environment: `MUSIC_API_EXECUTION_TOKEN`
 - request header: `x-music-api-token: <same token>`
 - provider credentials for the selected executable adapter
+
+Real requests first persist a release/platform intent and payload digest. A
+lease and monotonic fence permit at most one active provider call. Completed
+successful and terminal results replay from the outbox. Provider-free blocked
+preconditions can be retried only by a new explicit request. Expired leases and
+uncertain provider outcomes enter `reconciliation_required`; they do not
+auto-retry. Operators use
+`POST /music/publications/:id/reconcile` with `submitted`, `failed`, or
+`not_submitted` evidence. Only `not_submitted` makes the record claimable again.
 
 ## Platform Capability Matrix
 
@@ -65,8 +75,8 @@ Use this gateway as the control plane:
 4. Create manual tasks for platforms without confirmed APIs.
 5. Send Spotify, Apple Music, Deezer, Tidal, Amazon Music, and Qobuz through a
    distributor path instead of direct API upload.
-6. Persist every platform attempt with request id, status, external URL, and
-   retry state before adding more real upload adapters.
+6. Keep every platform attempt, result, fence, external URL, and operator
+   reconciliation in the durable publication outbox.
 
 ## Add A Platform
 
@@ -84,7 +94,8 @@ Use this gateway as the control plane:
 Create a dry-run batch for the default 15 targets:
 
 ```bash
-curl -s http://127.0.0.1:8787/music/releases/publish \
+curl -s -u "$MUSIC_API_ADMIN_USERNAME:$MUSIC_API_ADMIN_PASSWORD" \
+  http://127.0.0.1:8787/music/releases/publish \
   -H 'content-type: application/json' \
   -d '{
     "title": "Curacao",
@@ -99,13 +110,14 @@ curl -s http://127.0.0.1:8787/music/releases/publish \
 Execute only SoundCloud for a local file:
 
 ```bash
-curl -s http://127.0.0.1:8787/music/releases/publish \
+curl -s -u "$MUSIC_API_ADMIN_USERNAME:$MUSIC_API_ADMIN_PASSWORD" \
+  http://127.0.0.1:8787/music/releases/publish \
   -H 'content-type: application/json' \
   -H "x-music-api-token: $MUSIC_API_EXECUTION_TOKEN" \
   -d '{
     "title": "Curacao",
     "artist": "Marc Rene",
-    "audioSource": "file:///absolute/path/curacao.mp3",
+    "audioSource": "/absolute/MUSIC_UPLOAD_DIR/audio/curacao.mp3",
     "description": "Radio edit",
     "genre": "Pop",
     "tags": ["dutch", "pop"],
@@ -114,9 +126,10 @@ curl -s http://127.0.0.1:8787/music/releases/publish \
   }'
 ```
 
-Executable uploads currently accept local absolute paths or `file://` URLs. S3,
-HTTP, and HTTPS media sources remain dry-run/planning inputs until a controlled
-asset-fetching layer is added.
+Executable uploads accept only canonical local files below `MUSIC_UPLOAD_DIR`.
+`file:` URLs, outside paths, and symlink escapes are rejected. Explicitly
+allow-listed HTTPS media is a non-production development feature and is always
+disabled on Railway and under `NODE_ENV=production`.
 
 ## GraphQL Examples
 
@@ -163,9 +176,9 @@ mutation {
 
 ## Adapter Roadmap
 
-1. Add persistence for publication attempts, external URLs, retries, and manual
-   task completion state.
-2. SoundCloud hardening: OAuth PKCE refresh, metadata update, duplicate
+1. Migrate the file-backed outbox to a transactional shared database before
+   horizontally scaling Release OS beyond one shared-volume writer.
+2. SoundCloud hardening: metadata update, provider-side duplicate
    detection, and track URL verification.
 3. Spreaker hardening: show lookup, scheduled publish support, duplicate
    detection, and episode URL verification.

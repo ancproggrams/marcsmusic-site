@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "postinstall": "prisma generate",
     "build": "next build",
     "start": "next start -p ${PORT:-3000}",
     "railway:start": "prisma migrate deploy && next start -p ${PORT:-3000}",
@@ -15,7 +16,9 @@
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "job:daily-snapshot": "tsx src/jobs/dailySnapshot.ts",
-    "job:weekly-report": "tsx src/jobs/weeklyReport.ts"
+    "job:weekly-report": "tsx src/jobs/weeklyReport.ts",
+    "job:reencrypt-soundcloud-tokens": "tsx src/jobs/reencryptSoundCloudTokens.ts",
+    "job:validate-soundcloud-token-constraint": "tsx src/jobs/validateSoundCloudTokenConstraint.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",

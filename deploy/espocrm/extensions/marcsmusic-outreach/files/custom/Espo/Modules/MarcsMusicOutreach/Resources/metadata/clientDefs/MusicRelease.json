@@ -1,0 +1,12 @@
+{
+    "controller": "controllers/record",
+    "relationshipPanels": {
+        "outreachMatches": {
+            "create": false
+        }
+    },
+    "filterList": [{"name": "recentlyCreated"}],
+    "boolFilterList": ["onlyMy"],
+    "color": "#6754c8",
+    "iconClass": "fas fa-compact-disc"
+}

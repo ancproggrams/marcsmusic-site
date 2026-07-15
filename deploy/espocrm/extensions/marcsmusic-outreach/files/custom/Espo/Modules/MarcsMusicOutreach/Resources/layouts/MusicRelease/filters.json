@@ -1,0 +1,17 @@
+[
+    "status",
+    "priority",
+    "releaseDate",
+    "campaignStartDate",
+    "campaignEndDate",
+    "genres",
+    "subGenres",
+    "languages",
+    "territories",
+    "instrumental",
+    "explicitLyrics",
+    "assignedUser",
+    "teams",
+    "createdAt",
+    "modifiedAt"
+]

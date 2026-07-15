@@ -1,33 +1,141 @@
+x-espocrm-runtime-environment: &espocrm-runtime-environment
+  ESPOCRM_VERSION: "10.0.2"
+  ESPOCRM_DATABASE_PLATFORM: Mysql
+  ESPOCRM_DATABASE_HOST: mysql
+  ESPOCRM_DATABASE_INSTANCE_ID: ${ESPOCRM_DATABASE_INSTANCE_ID:-compose-mysql}
+  ESPOCRM_DATABASE_PORT: "3306"
+  ESPOCRM_DATABASE_NAME: ${ESPOCRM_DB_NAME:-espocrm}
+  ESPOCRM_DATABASE_USER: ${ESPOCRM_DB_USER:-espocrm}
+  ESPOCRM_DATABASE_PASSWORD: ${ESPOCRM_DB_PASSWORD:?required}
+  ESPOCRM_SITE_URL: ${ESPOCRM_SITE_URL:?required}
+  ESPOCRM_CONFIG_PASSWORD_SALT: ${ESPOCRM_CONFIG_PASSWORD_SALT:?required}
+  ESPOCRM_CONFIG_CRYPT_KEY: ${ESPOCRM_CONFIG_CRYPT_KEY:?required}
+  ESPOCRM_CONFIG_HASH_SECRET_KEY: ${ESPOCRM_CONFIG_HASH_SECRET_KEY:?required}
+  ESPOCRM_RUNTIME_ATTESTATION_MAX_AGE_SECONDS: ${ESPOCRM_RUNTIME_ATTESTATION_MAX_AGE_SECONDS:-150}
+
+x-espocrm-image: &espocrm-image
+  image: marcsmusic/espocrm:10.0.2-outreach-1.2.2
+  build:
+    context: .
+
 services:
-  mariadb:
-    image: mariadb:11
+  mysql:
+    image: mysql:9.4@sha256:135bc87cce147c3d28cecb9ad270b814cb52805af7ddeea83bfcaf157d05a6b2
     restart: unless-stopped
+    stop_grace_period: 30s
     environment:
-      MARIADB_ROOT_PASSWORD: ${ESPOCRM_DB_ROOT_PASSWORD:-change-root-password}
-      MARIADB_DATABASE: ${ESPOCRM_DB_NAME:-espocrm}
-      MARIADB_USER: ${ESPOCRM_DB_USER:-espocrm}
-      MARIADB_PASSWORD: ${ESPOCRM_DB_PASSWORD:-change-db-password}
+      MYSQL_ROOT_PASSWORD: ${ESPOCRM_DB_ROOT_PASSWORD:?required}
+      MYSQL_DATABASE: ${ESPOCRM_DB_NAME:-espocrm}
+      MYSQL_USER: ${ESPOCRM_DB_USER:-espocrm}
+      MYSQL_PASSWORD: ${ESPOCRM_DB_PASSWORD:?required}
     volumes:
       - espocrm-db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping --host=127.0.0.1 --user=root --password=\"$${MYSQL_ROOT_PASSWORD}\" --silent"]
+      start_period: 20s
+      interval: 10s
+      timeout: 5s
+      retries: 12
 
   espocrm:
-    image: espocrm/espocrm:latest
+    <<: *espocrm-image
     restart: unless-stopped
+    stop_grace_period: 30s
+    command: ["apache2-foreground"]
     depends_on:
-      - mariadb
+      mysql:
+        condition: service_healthy
     ports:
       - "8080:80"
     environment:
-      ESPOCRM_DATABASE_HOST: mariadb
-      ESPOCRM_DATABASE_NAME: ${ESPOCRM_DB_NAME:-espocrm}
-      ESPOCRM_DATABASE_USER: ${ESPOCRM_DB_USER:-espocrm}
-      ESPOCRM_DATABASE_PASSWORD: ${ESPOCRM_DB_PASSWORD:-change-db-password}
+      <<: *espocrm-runtime-environment
       ESPOCRM_ADMIN_USERNAME: ${ESPOCRM_ADMIN_USERNAME:-admin}
-      ESPOCRM_ADMIN_PASSWORD: ${ESPOCRM_ADMIN_PASSWORD:-change-admin-password}
-      ESPOCRM_SITE_URL: ${ESPOCRM_SITE_URL:-https://crm.marcsmusic.nl}
+      ESPOCRM_ADMIN_PASSWORD: ${ESPOCRM_ADMIN_PASSWORD:?required}
+      ESPOCRM_EXTENSION_LOCK_TIMEOUT_SECONDS: ${ESPOCRM_EXTENSION_LOCK_TIMEOUT_SECONDS:-120}
+      ESPOCRM_EXPECT_EXTERNAL_DAEMON: "true"
+      ESPOCRM_EXPECT_EXTERNAL_WATCHDOG: "true"
+      ESPOCRM_DAEMON_STOP_TIMEOUT_SECONDS: ${ESPOCRM_DAEMON_STOP_TIMEOUT_SECONDS:-60}
+      ESPOCRM_CHANGE_ID: ${ESPOCRM_CHANGE_ID:-}
+      ESPOCRM_RECOVERY_POINT_ID: ${ESPOCRM_RECOVERY_POINT_ID:-}
+      ESPOCRM_RECOVERY_POINT_CREATED_AT: ${ESPOCRM_RECOVERY_POINT_CREATED_AT:-}
+      ESPOCRM_RECOVERY_POINT_DATABASE_SHA256: ${ESPOCRM_RECOVERY_POINT_DATABASE_SHA256:-}
+      ESPOCRM_RECOVERY_POINT_APPLICATION_SHA256: ${ESPOCRM_RECOVERY_POINT_APPLICATION_SHA256:-}
+      ESPOCRM_RESTORE_REHEARSAL_ID: ${ESPOCRM_RESTORE_REHEARSAL_ID:-}
+      ESPOCRM_RESTORE_REHEARSED_AT: ${ESPOCRM_RESTORE_REHEARSED_AT:-}
+      ESPOCRM_RESTORE_REHEARSAL_EVIDENCE_SHA256: ${ESPOCRM_RESTORE_REHEARSAL_EVIDENCE_SHA256:-}
+      ESPOCRM_RESTORE_REHEARSAL_EVIDENCE_JSON: ${ESPOCRM_RESTORE_REHEARSAL_EVIDENCE_JSON:-}
+      ESPOCRM_RESTORE_REHEARSAL_EVIDENCE_FILE: ${ESPOCRM_RESTORE_REHEARSAL_EVIDENCE_FILE:-}
+      ESPOCRM_RESTORE_REHEARSAL_SOURCE_VERSION: ${ESPOCRM_RESTORE_REHEARSAL_SOURCE_VERSION:-}
+      ESPOCRM_RECOVERY_MAX_AGE_SECONDS: ${ESPOCRM_RECOVERY_MAX_AGE_SECONDS:-86400}
+      ESPOCRM_RESTORE_REHEARSAL_MAX_AGE_SECONDS: ${ESPOCRM_RESTORE_REHEARSAL_MAX_AGE_SECONDS:-2592000}
     volumes:
-      - espocrm-data:/var/www/html
+      - espocrm-data:/var/www/html/data
+      - espocrm-custom:/var/www/html/custom
+      - espocrm-custom-client:/var/www/html/client/custom
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail --silent --show-error http://localhost/readyz.php >/dev/null"]
+      start_period: 30s
+      interval: 15s
+      timeout: 5s
+      retries: 20
+
+  espocrm-daemon:
+    <<: *espocrm-image
+    restart: unless-stopped
+    stop_grace_period: 30s
+    user: "33:33"
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    entrypoint: ["/usr/local/bin/tini", "-g", "--", "/usr/local/bin/run-shared-espocrm-daemon"]
+    command: []
+    depends_on:
+      espocrm:
+        condition: service_started
+        restart: true
+    environment:
+      <<: *espocrm-runtime-environment
+      ESPOCRM_WEB_READY_URL: http://espocrm/readyz.php
+    volumes:
+      - espocrm-data:/var/www/html/data
+      - espocrm-custom:/var/www/html/custom
+      - espocrm-custom-client:/var/www/html/client/custom
+    healthcheck:
+      test: ["CMD-SHELL", "test ! -e /var/www/html/data/marcsmusic-runtime-maintenance && test -s /tmp/marcsmusic-espocrm-daemon.pid && kill -0 $$(cat /tmp/marcsmusic-espocrm-daemon.pid)"]
+      start_period: 20s
+      interval: 180s
+      timeout: 20s
+      retries: 3
+
+  espocrm-watchdog:
+    <<: *espocrm-image
+    restart: unless-stopped
+    stop_grace_period: 30s
+    user: "33:33"
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    entrypoint: ["/usr/local/bin/tini", "-g", "--", "/usr/local/bin/run-espocrm-watchdog", "loop"]
+    command: []
+    depends_on:
+      espocrm:
+        condition: service_started
+        restart: true
+    environment:
+      <<: *espocrm-runtime-environment
+      ESPOCRM_RUNTIME_WATCHDOG_INTERVAL_SECONDS: ${ESPOCRM_RUNTIME_WATCHDOG_INTERVAL_SECONDS:-60}
+      ESPOCRM_RUNTIME_WATCHDOG_DEADLINE_SECONDS: ${ESPOCRM_RUNTIME_WATCHDOG_DEADLINE_SECONDS:-45}
+    volumes:
+      - espocrm-data:/var/www/html/data
+      - espocrm-custom:/var/www/html/custom
+      - espocrm-custom-client:/var/www/html/client/custom
+    healthcheck:
+      test: ["CMD-SHELL", "test ! -e /var/www/html/data/marcsmusic-runtime-maintenance && php /usr/local/bin/espocrm-runtime-attestation assert-current"]
+      start_period: 30s
+      interval: 60s
+      timeout: 10s
+      retries: 3
 
 volumes:
   espocrm-db:
   espocrm-data:
+  espocrm-custom:
+  espocrm-custom-client:

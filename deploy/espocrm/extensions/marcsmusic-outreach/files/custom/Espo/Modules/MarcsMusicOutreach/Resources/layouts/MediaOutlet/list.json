@@ -1,0 +1,11 @@
+[
+    {"name": "name", "link": true},
+    {"name": "type"},
+    {"name": "country"},
+    {"name": "language"},
+    {"name": "submissionPolicy"},
+    {"name": "acceptsEmail"},
+    {"name": "activityStatus"},
+    {"name": "qualityScore"},
+    {"name": "lastValidatedAt"}
+]

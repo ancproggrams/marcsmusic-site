@@ -1,8 +1,29 @@
 import { createReadStream, existsSync, statSync } from "node:fs";
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import { createServer } from "node:http";
-import { createHash, randomUUID } from "node:crypto";
+import { createHash, randomUUID, timingSafeEqual } from "node:crypto";
+import { BlockList, isIP } from "node:net";
 import { basename, dirname, extname, join, normalize, resolve, sep } from "node:path";
+import { createEpkService } from "./src/epk/epk-service.mjs";
+import { boundedFetch, boundedInteger, parseBoundedJson, UpstreamRequestError } from "./src/booking/bounded-http.mjs";
+import {
+  advanceMollieStatus,
+  requireCheckoutUrl,
+  requireMollieProfileId,
+  resolveBoundMolliePayment,
+  resolveMollieMode,
+  validateCreatedMolliePayment,
+  validateMolliePayment
+} from "./src/booking/mollie-policy.mjs";
+import {
+  claimCalendarFulfillment,
+  deterministicCalendarIdentity,
+  markCalendarConfirmed,
+  markCalendarManualReview,
+  markCalendarPutStarted,
+  markCalendarRetryable,
+  verifyCalendarEventIdentity
+} from "./src/booking/calendar-fulfillment.mjs";
 
 const root = resolve(".");
 const port = Number.parseInt(process.env.PORT || "3000", 10);
@@ -23,12 +44,53 @@ const crmBookingEntity = process.env.CRM_BOOKING_ENTITY || "DJBooking";
 const crmNewsletterList = process.env.CRM_NEWSLETTER_LIST || "MarcsMusic Newsletter";
 const newsletterFromEmail = process.env.NEWSLETTER_FROM_EMAIL || "noreply@marcsmusic.nl";
 const newsletterFromName = process.env.NEWSLETTER_FROM_NAME || "MarcsMusic";
+const mollieApiBaseUrl = getMollieApiBaseUrl();
+const mollieHttpTimeoutMs = boundedInteger(process.env.MOLLIE_HTTP_TIMEOUT_MS, 5_000, {
+  min: 100,
+  max: 60_000,
+  name: "MOLLIE_HTTP_TIMEOUT_MS"
+});
+const crmHttpTimeoutMs = boundedInteger(process.env.CRM_HTTP_TIMEOUT_MS, 5_000, {
+  min: 100,
+  max: 60_000,
+  name: "CRM_HTTP_TIMEOUT_MS"
+});
+const caldavHttpTimeoutMs = boundedInteger(process.env.CALDAV_HTTP_TIMEOUT_MS, 5_000, {
+  min: 100,
+  max: 60_000,
+  name: "CALDAV_HTTP_TIMEOUT_MS"
+});
+const caldavResponseMaxBytes = boundedInteger(process.env.CALDAV_RESPONSE_MAX_BYTES, 1024 * 1024, {
+  min: 1024,
+  max: 4 * 1024 * 1024,
+  name: "CALDAV_RESPONSE_MAX_BYTES"
+});
+const calendarFulfillmentLeaseMs = boundedInteger(process.env.CALENDAR_FULFILLMENT_LEASE_MS, 30_000, {
+  min: 1_000,
+  max: 300_000,
+  name: "CALENDAR_FULFILLMENT_LEASE_MS"
+});
+if (calendarFulfillmentLeaseMs <= crmHttpTimeoutMs + caldavHttpTimeoutMs + 1_000) {
+  throw new Error("CALENDAR_FULFILLMENT_LEASE_MS must exceed CRM_HTTP_TIMEOUT_MS + CALDAV_HTTP_TIMEOUT_MS by at least one second.");
+}
+const epkService = createEpkService({
+  manifestRoot: process.env.EPK_MANIFEST_ROOT,
+  manifestPath: process.env.EPK_MANIFEST_PATH,
+  siteOrigin: appBaseUrl,
+  allowedHttpsOrigins: process.env.EPK_ALLOWED_HTTPS_ORIGINS || "",
+  sameOriginAssetPrefixes: String(process.env.EPK_PUBLIC_ASSET_PREFIXES || "/assets/epk/")
+    .split(",")
+    .map((entry) => entry.trim())
+    .filter(Boolean)
+});
 
 if (process.env.RAILWAY_ENVIRONMENT && !process.env.PRIVACY_HASH_SALT) {
   throw new Error("PRIVACY_HASH_SALT must be set for Railway deployments.");
 }
 
 const privacyHashSalt = process.env.PRIVACY_HASH_SALT || "development-only-salt";
+const trustedProxyBlockList = createTrustedProxyBlockList(process.env.TRUSTED_PROXY_CIDRS);
+await epkService.initialize();
 
 const contentTypes = {
   ".html": "text/html; charset=utf-8",
@@ -48,6 +110,20 @@ const contentTypes = {
 };
 
 const downloadableAudioExtensions = new Set([".mp3", ".m4a", ".wav", ".ogg", ".flac"]);
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX_REQUESTS = 30;
+const RATE_LIMIT_RAILWAY_FALLBACK_MAX_REQUESTS = Math.max(
+  RATE_LIMIT_MAX_REQUESTS,
+  numberFromEnv("RATE_LIMIT_RAILWAY_FALLBACK_MAX_REQUESTS", 300)
+);
+const RATE_LIMIT_GLOBAL_MAX_REQUESTS = Math.max(
+  RATE_LIMIT_RAILWAY_FALLBACK_MAX_REQUESTS,
+  numberFromEnv("RATE_LIMIT_GLOBAL_MAX_REQUESTS", 1_000)
+);
+const RATE_LIMIT_MAX_BUCKETS = 10_000;
+const MIN_ADMIN_TOKEN_BYTES = 32;
+const MAX_ADMIN_TOKEN_BYTES = 512;
+const MAX_AUTHORIZATION_HEADER_BYTES = 1_024;
 
 const publicTrackIds = new Set([
   "curacao-radio-edit",
@@ -82,6 +158,7 @@ const bookingTypes = [
 
 let dbQueue = Promise.resolve();
 const rateLimitBuckets = new Map();
+let globalRateLimitBucket = { count: 0, resetAt: Date.now() + RATE_LIMIT_WINDOW_MS };
 
 function numberFromEnv(name, fallback) {
   const value = Number.parseInt(process.env[name] || "", 10);
@@ -90,6 +167,28 @@ function numberFromEnv(name, fallback) {
 
 function stripTrailingSlash(value) {
   return String(value || "").replace(/\/$/, "");
+}
+
+function getMollieApiBaseUrl() {
+  const configured = process.env.MOLLIE_API_BASE_URL || "https://api.mollie.com";
+  let url;
+  try {
+    url = new URL(configured);
+  } catch {
+    throw new Error("MOLLIE_API_BASE_URL is invalid.");
+  }
+  if (url.username || url.password || url.search || url.hash) {
+    throw new Error("MOLLIE_API_BASE_URL may not contain credentials, a query, or a fragment.");
+  }
+  const isTestRuntime = process.env.NODE_ENV === "test";
+  if ((!isTestRuntime && url.origin !== "https://api.mollie.com") || (!isTestRuntime && url.protocol !== "https:")) {
+    throw new Error("MOLLIE_API_BASE_URL must use the official Mollie HTTPS origin outside tests.");
+  }
+  return stripTrailingSlash(url.toString());
+}
+
+function isMollieConfigured() {
+  return Boolean(process.env.MOLLIE_API_KEY && process.env.MOLLIE_PROFILE_ID);
 }
 
 function getPublicConfig() {
@@ -115,7 +214,7 @@ function getPublicConfig() {
     integrations: {
       calendarConfigured: isCalendarConfigured(),
       crmConfigured: isCrmConfigured(),
-      mollieConfigured: Boolean(process.env.MOLLIE_API_KEY)
+      mollieConfigured: isMollieConfigured()
     }
   };
 }
@@ -188,10 +287,12 @@ async function writeDb(db) {
   await rename(tmpPath, bookingDbPath);
 }
 
-function withDb(work) {
+function queueDbWork(work, { expire = true } = {}) {
   const next = dbQueue.then(async () => {
     const db = await readDb();
-    expireOldPendingBookings(db);
+    if (expire) {
+      expireOldPendingBookings(db);
+    }
     const result = await work(db);
     await writeDb(db);
     return result;
@@ -199,6 +300,14 @@ function withDb(work) {
 
   dbQueue = next.catch(() => {});
   return next;
+}
+
+function withDb(work) {
+  return queueDbWork(work);
+}
+
+function withAuditDb(work) {
+  return queueDbWork(work, { expire: false });
 }
 
 function audit(db, action, details = {}) {
@@ -299,12 +408,69 @@ async function readFormBody(request) {
 }
 
 function getClientIp(request) {
-  return String(
-    request.headers["cf-connecting-ip"] ||
-      request.headers["x-forwarded-for"]?.split(",")[0]?.trim() ||
-      request.socket.remoteAddress ||
-      "unknown"
-  );
+  const peerAddress = normalizeIpAddress(request.socket.remoteAddress);
+  if (!peerAddress || !isTrustedProxy(peerAddress)) {
+    return peerAddress || "unknown";
+  }
+
+  return readForwardedClientIp(request.headers) ?? peerAddress;
+}
+
+function createTrustedProxyBlockList(value) {
+  const entries = String(value || "").split(",").map((entry) => entry.trim()).filter(Boolean);
+  if (!entries.length) return null;
+
+  const blockList = new BlockList();
+  for (const entry of entries) {
+    const [rawAddress, rawPrefix, ...extra] = entry.split("/");
+    const address = normalizeIpAddress(rawAddress);
+    const version = isIP(address);
+    const maximumPrefix = version === 4 ? 32 : version === 6 ? 128 : 0;
+    if (!version || extra.length > 0) {
+      throw new Error(`TRUSTED_PROXY_CIDRS contains an invalid address: ${entry}`);
+    }
+
+    if (rawPrefix === undefined) {
+      blockList.addAddress(address, version === 4 ? "ipv4" : "ipv6");
+      continue;
+    }
+
+    const prefix = Number(rawPrefix);
+    if (!Number.isInteger(prefix) || prefix < 0 || prefix > maximumPrefix) {
+      throw new Error(`TRUSTED_PROXY_CIDRS contains an invalid prefix: ${entry}`);
+    }
+    blockList.addSubnet(address, prefix, version === 4 ? "ipv4" : "ipv6");
+  }
+  return blockList;
+}
+
+function isTrustedProxy(address) {
+  if (!trustedProxyBlockList) return false;
+  const version = isIP(address);
+  return Boolean(version) && trustedProxyBlockList.check(address, version === 4 ? "ipv4" : "ipv6");
+}
+
+function readSingleForwardedIp(value) {
+  if (typeof value !== "string" || value.includes(",")) return undefined;
+  const address = normalizeIpAddress(value);
+  return isIP(address) ? address : undefined;
+}
+
+function readForwardedClientIp(headers) {
+  for (const name of ["x-real-ip", "cf-connecting-ip", "x-forwarded-for"]) {
+    if (headers[name] !== undefined) {
+      return readSingleForwardedIp(headers[name]);
+    }
+  }
+  return undefined;
+}
+
+function normalizeIpAddress(value) {
+  const address = String(value || "").trim().replace(/%.+$/u, "");
+  if (address.toLowerCase().startsWith("::ffff:") && isIP(address.slice(7)) === 4) {
+    return address.slice(7);
+  }
+  return address;
 }
 
 function hashIp(request) {
@@ -312,21 +478,43 @@ function hashIp(request) {
 }
 
 function enforceRateLimit(request, response) {
-  const key = getClientIp(request);
+  const key = hashIp(request);
   const now = Date.now();
-  const windowMs = 60 * 1000;
-  const maxRequests = 30;
-  const bucket = rateLimitBuckets.get(key) || { count: 0, resetAt: now + windowMs };
+  if (globalRateLimitBucket.resetAt <= now) {
+    globalRateLimitBucket = { count: 0, resetAt: now + RATE_LIMIT_WINDOW_MS };
+  }
+  globalRateLimitBucket.count += 1;
+  if (globalRateLimitBucket.count > RATE_LIMIT_GLOBAL_MAX_REQUESTS) {
+    sendJson(response, 429, { error: "Te veel aanvragen. Probeer het zo opnieuw." });
+    return false;
+  }
+
+  const existing = rateLimitBuckets.get(key);
+
+  if (!existing && rateLimitBuckets.size >= RATE_LIMIT_MAX_BUCKETS) {
+    for (const [candidateKey, candidate] of rateLimitBuckets) {
+      if (candidate.resetAt <= now) rateLimitBuckets.delete(candidateKey);
+    }
+    if (rateLimitBuckets.size >= RATE_LIMIT_MAX_BUCKETS) {
+      sendJson(response, 429, { error: "Te veel aanvragen. Probeer het zo opnieuw." });
+      return false;
+    }
+  }
+
+  const bucket = existing || { count: 0, resetAt: now + RATE_LIMIT_WINDOW_MS };
 
   if (bucket.resetAt <= now) {
     bucket.count = 0;
-    bucket.resetAt = now + windowMs;
+    bucket.resetAt = now + RATE_LIMIT_WINDOW_MS;
   }
 
   bucket.count += 1;
   rateLimitBuckets.set(key, bucket);
 
-  if (bucket.count > maxRequests) {
+  const maximumRequests = process.env.RAILWAY_ENVIRONMENT && !trustedProxyBlockList
+    ? RATE_LIMIT_RAILWAY_FALLBACK_MAX_REQUESTS
+    : RATE_LIMIT_MAX_REQUESTS;
+  if (bucket.count > maximumRequests) {
     sendJson(response, 429, { error: "Te veel aanvragen. Probeer het zo opnieuw." });
     return false;
   }
@@ -336,19 +524,23 @@ function enforceRateLimit(request, response) {
 
 async function handleApi(request, response, url) {
   if (request.method === "GET" && url.pathname === "/api/health") {
+    await epkService.refresh();
+    const epkCapability = epkService.capability();
     sendJson(response, 200, {
       status: "ok",
       service: "marcsmusic-booking",
-      environment: process.env.RAILWAY_ENVIRONMENT || "production",
-      uptimeSeconds: Math.round(process.uptime()),
-      storagePath: bookingDbPath,
-      integrations: getPublicConfig().integrations
+      capabilities: { epk: epkCapability.available, epkStale: epkCapability.stale }
     });
     return;
   }
 
   if (
-    (url.pathname.startsWith("/api/booking") || url.pathname.startsWith("/api/newsletter") || url.pathname.startsWith("/api/tracks")) &&
+    (
+      url.pathname.startsWith("/api/booking") ||
+      url.pathname.startsWith("/api/newsletter") ||
+      url.pathname.startsWith("/api/tracks") ||
+      url.pathname === "/api/webhooks/mollie"
+    ) &&
     !enforceRateLimit(request, response)
   ) {
     return;
@@ -461,18 +653,36 @@ async function recordTrackPlay(input) {
 }
 
 function requireAdmin(request, response) {
-  if (!process.env.ADMIN_TOKEN) {
+  const expectedToken = process.env.ADMIN_TOKEN;
+  if (!isValidAdminToken(expectedToken)) {
     sendJson(response, 503, { error: "ADMIN_TOKEN is nog niet ingesteld." });
     return false;
   }
 
-  const token = request.headers.authorization?.replace(/^Bearer\s+/i, "");
-  if (token !== process.env.ADMIN_TOKEN) {
+  const authorization = request.headers.authorization;
+  const match = typeof authorization === "string" &&
+    Buffer.byteLength(authorization) <= MAX_AUTHORIZATION_HEADER_BYTES
+    ? /^Bearer ([^\s]+)$/u.exec(authorization)
+    : null;
+  const token = match?.[1] || "";
+  if (!safeTokenEquals(token, expectedToken)) {
     sendJson(response, 401, { error: "Ongeldige admin token." });
     return false;
   }
 
   return true;
+}
+
+function isValidAdminToken(value) {
+  if (typeof value !== "string") return false;
+  const length = Buffer.byteLength(value);
+  return length >= MIN_ADMIN_TOKEN_BYTES && length <= MAX_ADMIN_TOKEN_BYTES && !/[\u0000-\u0020\u007f]/u.test(value);
+}
+
+function safeTokenEquals(provided, expected) {
+  const providedDigest = createHash("sha256").update(String(provided)).digest();
+  const expectedDigest = createHash("sha256").update(String(expected)).digest();
+  return timingSafeEqual(providedDigest, expectedDigest);
 }
 
 function redactCustomerForAdmin(customer) {
@@ -743,6 +953,9 @@ async function createBooking(input) {
         molliePaymentId: payment.id,
         status: payment.status || "open",
         amountCents: created.priceCents,
+        currency: payment.currency,
+        profileId: payment.profileId,
+        mode: payment.mode,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
       });
@@ -777,7 +990,7 @@ function requireBookingIntegrations() {
   if (!isCrmConfigured()) {
     throw Object.assign(new Error("EspoCRM is nog niet geconfigureerd."), { statusCode: 503 });
   }
-  if (!process.env.MOLLIE_API_KEY) {
+  if (!isMollieConfigured()) {
     throw Object.assign(new Error("Mollie is nog niet geconfigureerd."), { statusCode: 503 });
   }
 }
@@ -857,11 +1070,11 @@ function calculateBookingQuote(type, slotCount, travelHours) {
 }
 
 async function createMolliePayment(booking) {
-  if (!process.env.MOLLIE_API_KEY) {
+  if (!isMollieConfigured()) {
     throw Object.assign(new Error("Mollie is nog niet geconfigureerd."), { statusCode: 503 });
   }
-
-  const response = await fetch("https://api.mollie.com/v2/payments", {
+  const config = getMollieIntegrityConfig();
+  const response = await boundedFetch(`${mollieApiBaseUrl}/v2/payments`, {
     method: "POST",
     headers: {
       authorization: `Bearer ${process.env.MOLLIE_API_KEY}`,
@@ -882,43 +1095,54 @@ async function createMolliePayment(booking) {
         crmBookingId: booking.crmBookingId || ""
       }
     })
+  }, {
+    timeoutMs: mollieHttpTimeoutMs,
+    maxResponseBytes: 256 * 1024
   });
-
-  const payload = await response.json().catch(() => ({}));
+  const payload = parseBoundedJson(response, "MOLLIE_RESPONSE_INVALID_JSON");
   if (!response.ok) {
-    throw Object.assign(new Error(payload.detail || "Mollie payment kon niet worden aangemaakt."), {
-      statusCode: 502
+    throw Object.assign(new Error("MOLLIE_PAYMENT_CREATE_REJECTED"), {
+      code: "MOLLIE_PAYMENT_CREATE_REJECTED",
+      statusCode: response.status >= 500 || response.status === 429 ? 502 : 409
     });
   }
-
-  const checkoutUrl = payload?._links?.checkout?.href;
-  if (!payload.id || !checkoutUrl) {
-    throw Object.assign(new Error("Mollie response mist checkout URL."), { statusCode: 502 });
-  }
+  const verified = validateCreatedMolliePayment(payload, booking, {
+    apiKey: process.env.MOLLIE_API_KEY,
+    profileId: config.profileId,
+    mode: config.mode
+  });
+  const checkoutUrl = requireCheckoutUrl(payload?._links?.checkout?.href);
 
   return {
-    id: payload.id,
-    status: payload.status,
-    checkoutUrl
+    id: verified.id,
+    status: verified.status,
+    checkoutUrl,
+    currency: verified.currency,
+    profileId: verified.profileId,
+    mode: verified.mode
   };
 }
 
 async function getMolliePayment(paymentId) {
-  if (!process.env.MOLLIE_API_KEY) {
+  if (!isMollieConfigured()) {
     throw Object.assign(new Error("Mollie is nog niet geconfigureerd."), { statusCode: 503 });
   }
-
-  const response = await fetch(`https://api.mollie.com/v2/payments/${encodeURIComponent(paymentId)}`, {
+  const response = await boundedFetch(`${mollieApiBaseUrl}/v2/payments/${encodeURIComponent(paymentId)}`, {
     headers: {
       authorization: `Bearer ${process.env.MOLLIE_API_KEY}`,
       "content-type": "application/json"
     }
+  }, {
+    timeoutMs: mollieHttpTimeoutMs,
+    maxResponseBytes: 256 * 1024
   });
-  const payload = await response.json().catch(() => ({}));
+  const payload = parseBoundedJson(response, "MOLLIE_RESPONSE_INVALID_JSON");
 
   if (!response.ok) {
-    throw Object.assign(new Error(payload.detail || "Mollie payment kon niet worden opgehaald."), {
-      statusCode: 502
+    throw Object.assign(new Error("MOLLIE_PAYMENT_LOOKUP_REJECTED"), {
+      code: "MOLLIE_PAYMENT_LOOKUP_REJECTED",
+      statusCode: response.status >= 500 || response.status === 429 ? 502 : 409,
+      retryable: response.status >= 500 || response.status === 429
     });
   }
 
@@ -926,151 +1150,267 @@ async function getMolliePayment(paymentId) {
 }
 
 async function handleMollieWebhook(payload) {
-  const paymentId = cleanText(payload.id, 80);
-  if (!paymentId) {
-    throw Object.assign(new Error("Webhook mist Mollie payment id."), { statusCode: 400 });
+  let binding;
+  try {
+    binding = resolveBoundMolliePayment(await readDb(), payload?.id);
+  } catch (error) {
+    await recordMollieWebhookReason(error, "MOLLIE_WEBHOOK_BINDING_REJECTED");
+    throw error;
   }
 
-  const payment = await getMolliePayment(paymentId);
-  const bookingId = cleanText(payment.metadata?.bookingId, 80);
+  let payment;
+  const config = getMollieIntegrityConfig();
+  try {
+    payment = await getMolliePayment(binding.paymentId);
+    validateMolliePayment(payment, binding.expected, config);
+  } catch (error) {
+    await recordMollieWebhookReason(error, "MOLLIE_WEBHOOK_PROVIDER_REJECTED");
+    throw error;
+  }
 
-  const booking = await withDb(async (db) => {
-    const found =
-      db.bookings.find((entry) => entry.id === bookingId) ||
-      db.bookings.find((entry) => entry.molliePaymentId === paymentId);
+  let committed;
+  try {
+    committed = await withDb(async (db) => {
+      const current = resolveBoundMolliePayment(db, binding.paymentId);
+      const currentVerified = validateMolliePayment(payment, current.expected, config);
+      const effectiveStatus = advanceMollieStatus(current.paymentEntry.status, currentVerified.status);
+      const now = new Date().toISOString();
+      current.paymentEntry.status = effectiveStatus;
+      current.paymentEntry.updatedAt = now;
 
-    if (!found) {
-      audit(db, "mollie.webhook_without_booking", { paymentId });
-      return null;
-    }
+      const protectedStatus = new Set(["confirmed", "paid_calendar_pending", "manual_review"]);
+      if (["canceled", "expired", "failed"].includes(effectiveStatus) && !protectedStatus.has(current.booking.status)) {
+        current.booking.status = effectiveStatus === "canceled" ? "cancelled" : `payment_${effectiveStatus}`;
+        current.booking.updatedAt = now;
+      }
 
-    found.molliePaymentId = paymentId;
-    found.updatedAt = new Date().toISOString();
-    const paymentEntry = db.payments.find((entry) => entry.molliePaymentId === paymentId);
-    if (paymentEntry) {
-      paymentEntry.status = payment.status;
-      paymentEntry.updatedAt = new Date().toISOString();
-    } else {
-      db.payments.unshift({
-        id: randomUUID(),
-        bookingId: found.id,
-        molliePaymentId: paymentId,
-        status: payment.status,
-        amountCents: found.priceCents,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
+      audit(db, "mollie.webhook_verified", {
+        bookingId: current.booking.id,
+        reasonCode: "MOLLIE_PAYMENT_VERIFIED",
+        paymentStatus: effectiveStatus
       });
-    }
-
-    audit(db, "mollie.webhook_received", { bookingId: found.id, paymentId, status: payment.status });
-    return { ...found };
-  });
-
-  if (!booking) {
-    return;
+      return {
+        booking: structuredClone(current.booking),
+        paymentStatus: effectiveStatus,
+        paymentId: current.paymentId
+      };
+    });
+  } catch (error) {
+    await recordMollieWebhookReason(error, "MOLLIE_WEBHOOK_COMMIT_REJECTED");
+    throw error;
   }
 
-  await updateCrmBookingRecord(booking, { molliePaymentId: paymentId, molliePaymentStatus: payment.status }).catch((error) => {
+  await updateCrmBookingRecord(committed.booking, {
+    molliePaymentId: committed.paymentId,
+    molliePaymentStatus: committed.paymentStatus
+  }).catch((error) => {
     console.error(`CRM payment status sync failed: ${publicErrorMessage(error)}`);
   });
 
-  if (payment.status === "paid") {
-    await confirmPaidBooking(booking.id);
+  if (committed.paymentStatus === "paid") {
+    await confirmPaidBooking(committed.booking.id);
     return;
   }
 
-  if (["canceled", "expired", "failed"].includes(payment.status)) {
-    const status = payment.status === "canceled" ? "cancelled" : `payment_${payment.status}`;
-    await withDb(async (db) => {
-      const found = db.bookings.find((entry) => entry.id === booking.id);
-      if (!found || found.status === "confirmed") {
-        return;
-      }
-      found.status = status;
-      found.updatedAt = new Date().toISOString();
-      audit(db, "booking.payment_not_paid", { bookingId: found.id, paymentStatus: payment.status });
-    });
-    await updateCrmBookingRecord(booking, { status, molliePaymentStatus: payment.status }).catch((error) => {
+  if (["canceled", "expired", "failed"].includes(committed.paymentStatus)) {
+    await updateCrmBookingRecord(committed.booking, {
+      status: committed.booking.status,
+      molliePaymentStatus: committed.paymentStatus
+    }).catch((error) => {
       console.error(`CRM non-paid status sync failed: ${publicErrorMessage(error)}`);
     });
   }
 }
 
+function getMollieIntegrityConfig() {
+  return {
+    profileId: requireMollieProfileId(process.env.MOLLIE_PROFILE_ID),
+    mode: resolveMollieMode(process.env.MOLLIE_API_KEY, process.env.MOLLIE_MODE)
+  };
+}
+
+async function recordMollieWebhookReason(error, fallback) {
+  const candidate = typeof error?.code === "string" ? error.code : "";
+  const reasonCode = /^[A-Z0-9_]{3,80}$/.test(candidate) ? candidate : fallback;
+  await withAuditDb(async (db) => {
+    audit(db, "mollie.webhook_rejected", { reasonCode });
+  }).catch((auditError) => {
+    console.error(`Mollie audit write failed: ${publicErrorMessage(auditError)}`);
+  });
+}
+
 async function confirmPaidBooking(bookingId) {
-  const snapshot = await withDb(async (db) => {
+  const claimed = await withDb(async (db) => {
     const booking = db.bookings.find((entry) => entry.id === bookingId);
     if (!booking) {
       return null;
     }
-
-    if (booking.status === "confirmed" && booking.caldavEventUid) {
-      return { booking: { ...booking }, alreadyConfirmed: true };
+    const identity = deterministicCalendarIdentity(booking.id, getCalendarUrl());
+    const token = randomUUID();
+    const decision = claimCalendarFulfillment(booking, identity, {
+      token,
+      now: new Date(),
+      leaseMs: calendarFulfillmentLeaseMs
+    });
+    if (decision.kind !== "claimed") {
+      return { kind: decision.kind };
     }
-
+    booking.calendarFulfillment = decision.fulfillment;
     booking.status = "paid_calendar_pending";
     booking.updatedAt = new Date().toISOString();
-    audit(db, "booking.payment_paid", { bookingId });
-    return { booking: { ...booking }, alreadyConfirmed: false };
+    audit(db, "calendar.fulfillment_claimed", {
+      bookingId,
+      reasonCode: decision.operation === "reconcile" ? "CALENDAR_RECONCILIATION_CLAIMED" : "CALENDAR_PUT_CLAIMED"
+    });
+    return {
+      kind: "claimed",
+      operation: decision.operation,
+      claim: { token: decision.token, version: decision.version },
+      identity,
+      booking: structuredClone(booking)
+    };
   });
 
-  if (!snapshot?.booking || snapshot.alreadyConfirmed) {
+  if (!claimed || claimed.kind !== "claimed") {
     return;
   }
 
-  const booking = snapshot.booking;
+  const { booking, claim, identity } = claimed;
   await updateCrmBookingRecord(booking, { status: "paid" }).catch((error) => {
     console.error(`CRM paid status sync failed: ${publicErrorMessage(error)}`);
   });
 
-  const available = await isSlotStillFreeForConfirmation(booking);
-  if (!available.ok) {
-    await withDb(async (db) => {
-      const found = db.bookings.find((entry) => entry.id === booking.id);
-      if (!found) {
-        return;
-      }
-      found.status = "manual_review";
-      found.updatedAt = new Date().toISOString();
-      audit(db, "booking.calendar_conflict_after_payment", { bookingId: booking.id, reason: available.reason });
-    });
-    await updateCrmBookingRecord(booking, { status: "manual_review" }).catch((error) => {
-      console.error(`CRM manual review status sync failed: ${publicErrorMessage(error)}`);
-    });
+  if (claimed.operation === "reconcile") {
+    await reconcileCalendarFulfillment(booking, claim, identity);
     return;
   }
 
+  const available = await isSlotStillFreeForConfirmation(booking);
+  if (!available.ok) {
+    if (available.retryable) {
+      await finalizeCalendarRetryable(booking.id, claim, "CALENDAR_AVAILABILITY_UNAVAILABLE");
+    } else {
+      await finalizeCalendarManualReview(booking.id, claim, "CALENDAR_SLOT_CONFLICT");
+    }
+    return;
+  }
+
+  const started = await withDb(async (db) => {
+    const found = db.bookings.find((entry) => entry.id === booking.id);
+    if (!found?.calendarFulfillment) return null;
+    const transition = markCalendarPutStarted(
+      found.calendarFulfillment,
+      claim,
+      new Date(),
+      calendarFulfillmentLeaseMs
+    );
+    if (!transition.applied) return null;
+    found.calendarFulfillment = transition.fulfillment;
+    found.updatedAt = new Date().toISOString();
+    audit(db, "calendar.put_started", { bookingId: found.id, reasonCode: "CALENDAR_PUT_STARTED" });
+    return structuredClone(found);
+  });
+  if (!started) return;
+
   try {
-    const event = await createCalDavEvent(booking);
-    await withDb(async (db) => {
-      const found = db.bookings.find((entry) => entry.id === booking.id);
-      if (!found) {
-        return;
-      }
-      found.status = "confirmed";
-      found.caldavEventUid = event.uid;
-      found.calendarUrl = event.url;
-      found.updatedAt = new Date().toISOString();
-      audit(db, "caldav.event_created", { bookingId: booking.id, caldavEventUid: event.uid });
-    });
-    await updateCrmBookingRecord(booking, {
-      status: "confirmed",
-      caldavEventUid: event.uid,
-      calendarUrl: event.url
-    }).catch((error) => {
-      console.error(`CRM calendar event sync failed: ${publicErrorMessage(error)}`);
-    });
+    const result = await putCalDavEvent(started, identity);
+    if ([200, 201, 204].includes(result.status)) {
+      await finalizeCalendarConfirmed(booking.id, claim, identity);
+      return;
+    }
+    if (result.status === 412 || result.status === 409 || result.status >= 500) {
+      await reconcileCalendarFulfillment(started, claim, identity);
+      return;
+    }
+    await finalizeCalendarRetryable(booking.id, claim, "CALENDAR_PUT_REJECTED");
   } catch (error) {
-    await withDb(async (db) => {
-      const found = db.bookings.find((entry) => entry.id === booking.id);
-      if (!found) {
-        return;
-      }
-      found.status = "calendar_failed";
-      found.updatedAt = new Date().toISOString();
-      audit(db, "caldav.event_failed", { bookingId: booking.id, error: publicErrorMessage(error) });
+    if (error instanceof UpstreamRequestError && error.ambiguous) {
+      await reconcileCalendarFulfillment(started, claim, identity);
+      return;
+    }
+    await finalizeCalendarRetryable(booking.id, claim, "CALENDAR_PUT_UNAVAILABLE", { reconcileFirst: true });
+  }
+}
+
+async function reconcileCalendarFulfillment(booking, claim, identity) {
+  try {
+    const exact = await getExactCalDavEvent(identity, booking.id);
+    if (exact.found) {
+      await finalizeCalendarConfirmed(booking.id, claim, identity);
+      return;
+    }
+    await finalizeCalendarRetryable(booking.id, claim, "CALENDAR_EVENT_NOT_FOUND_AFTER_RECONCILIATION");
+  } catch (error) {
+    if (error?.code === "CALENDAR_EVENT_IDENTITY_MISMATCH") {
+      await finalizeCalendarManualReview(booking.id, claim, "CALENDAR_EVENT_IDENTITY_MISMATCH");
+      return;
+    }
+    await finalizeCalendarRetryable(booking.id, claim, "CALENDAR_RECONCILIATION_UNAVAILABLE", {
+      reconcileFirst: true
     });
-    await updateCrmBookingRecord(booking, { status: "calendar_failed" }).catch((crmError) => {
-      console.error(`CRM calendar failure sync failed: ${publicErrorMessage(crmError)}`);
+  }
+}
+
+async function finalizeCalendarConfirmed(bookingId, claim, identity) {
+  const result = await withDb(async (db) => {
+    const booking = db.bookings.find((entry) => entry.id === bookingId);
+    if (!booking?.calendarFulfillment) return null;
+    const transition = markCalendarConfirmed(booking.calendarFulfillment, claim, new Date());
+    if (!transition.applied) return { applied: false, booking: structuredClone(booking) };
+    booking.calendarFulfillment = transition.fulfillment;
+    booking.status = "confirmed";
+    booking.caldavEventUid = identity.uid;
+    booking.calendarUrl = identity.url;
+    booking.updatedAt = new Date().toISOString();
+    audit(db, "calendar.fulfillment_confirmed", {
+      bookingId,
+      reasonCode: "CALENDAR_EVENT_CONFIRMED"
+    });
+    return { applied: true, booking: structuredClone(booking) };
+  });
+  if (result?.applied) {
+    await updateCrmBookingRecord(result.booking, {
+      status: "confirmed",
+      caldavEventUid: identity.uid,
+      calendarUrl: identity.url
+    }).catch((error) => console.error(`CRM calendar event sync failed: ${publicErrorMessage(error)}`));
+  }
+}
+
+async function finalizeCalendarRetryable(bookingId, claim, reasonCode, options = {}) {
+  const result = await withDb(async (db) => {
+    const booking = db.bookings.find((entry) => entry.id === bookingId);
+    if (!booking?.calendarFulfillment) return null;
+    const transition = markCalendarRetryable(booking.calendarFulfillment, claim, reasonCode, new Date(), options);
+    if (!transition.applied) return { applied: false, booking: structuredClone(booking) };
+    booking.calendarFulfillment = transition.fulfillment;
+    booking.status = "paid_calendar_pending";
+    booking.updatedAt = new Date().toISOString();
+    audit(db, "calendar.fulfillment_retryable", { bookingId, reasonCode });
+    return { applied: true, booking: structuredClone(booking) };
+  });
+  if (result?.applied) {
+    await updateCrmBookingRecord(result.booking, { status: "paid_calendar_pending" }).catch((error) => {
+      console.error(`CRM calendar retry sync failed: ${publicErrorMessage(error)}`);
+    });
+  }
+}
+
+async function finalizeCalendarManualReview(bookingId, claim, reasonCode) {
+  const result = await withDb(async (db) => {
+    const booking = db.bookings.find((entry) => entry.id === bookingId);
+    if (!booking?.calendarFulfillment) return null;
+    const transition = markCalendarManualReview(booking.calendarFulfillment, claim, reasonCode, new Date());
+    if (!transition.applied) return { applied: false, booking: structuredClone(booking) };
+    booking.calendarFulfillment = transition.fulfillment;
+    booking.status = "manual_review";
+    booking.updatedAt = new Date().toISOString();
+    audit(db, "calendar.fulfillment_manual_review", { bookingId, reasonCode });
+    return { applied: true, booking: structuredClone(booking) };
+  });
+  if (result?.applied) {
+    await updateCrmBookingRecord(result.booking, { status: "manual_review" }).catch((error) => {
+      console.error(`CRM manual review status sync failed: ${publicErrorMessage(error)}`);
     });
   }
 }
@@ -1086,7 +1426,7 @@ async function isBookingWindowAvailable(start, end, excludeBookingId = null) {
   const protectedEnd = new Date(end.getTime() + bookingBufferMinutes * 60 * 1000);
   const calendarResult = await getCalDavBusyIntervals(protectedStart, protectedEnd);
   if (calendarResult.status === "error") {
-    return { ok: false, reason: calendarResult.message };
+    return { ok: false, retryable: true, reason: calendarResult.message };
   }
 
   const db = await readDb();
@@ -1097,7 +1437,7 @@ async function isBookingWindowAvailable(start, end, excludeBookingId = null) {
   );
 
   if (hasConflict) {
-    return { ok: false, reason: "Het gekozen tijdsblok overlapt met een bestaande agenda-afspraak." };
+    return { ok: false, retryable: false, reason: "Het gekozen tijdsblok overlapt met een bestaande agenda-afspraak." };
   }
 
   return { ok: true };
@@ -1121,19 +1461,26 @@ function getReservedIntervals(db, excludeBookingId = null) {
 
 function getCalendarUrl() {
   const base = stripTrailingSlash(process.env.CALDAV_BASE_URL || "");
+  const baseUrl = new URL(`${base}/`);
+  if (baseUrl.username || baseUrl.password || (!new Set(["https:", ...(process.env.NODE_ENV === "test" ? ["http:"] : [])]).has(baseUrl.protocol))) {
+    throw new Error("CALDAV_BASE_URL must be a credential-free HTTPS URL.");
+  }
   const path = String(process.env.CALDAV_CALENDAR_PATH || "").replace(/^\/?/, "/").replace(/\/?$/, "/");
-  return new URL(path, `${base}/`).toString();
+  return new URL(path, baseUrl).toString();
 }
 
 async function caldavRequest(method, url, { body = null, headers = {} } = {}) {
   const auth = Buffer.from(`${process.env.CALDAV_USERNAME}:${process.env.CALDAV_PASSWORD}`).toString("base64");
-  return fetch(url, {
+  return boundedFetch(url, {
     method,
     headers: {
       authorization: `Basic ${auth}`,
       ...headers
     },
     body
+  }, {
+    timeoutMs: caldavHttpTimeoutMs,
+    maxResponseBytes: caldavResponseMaxBytes
   });
 }
 
@@ -1176,7 +1523,7 @@ async function getCalDavBusyIntervals(startUtc, endUtc) {
         "content-type": "application/xml; charset=utf-8"
       }
     });
-    const text = await response.text();
+    const text = response.text;
 
     if (![200, 207].includes(response.status)) {
       if (response.status === 405) {
@@ -1187,7 +1534,7 @@ async function getCalDavBusyIntervals(startUtc, endUtc) {
             "content-type": "application/xml; charset=utf-8"
           }
         });
-        const fallbackText = await fallback.text();
+        const fallbackText = fallback.text;
 
         if ([200, 207].includes(fallback.status)) {
           return {
@@ -1228,27 +1575,40 @@ function parseBusyIntervalsFromCalendarXml(xml, rangeStart, rangeEnd) {
     .filter((interval) => intervalsOverlap(rangeStart, rangeEnd, interval.start, interval.end));
 }
 
-async function createCalDavEvent(booking) {
+async function putCalDavEvent(booking, identity) {
   if (!isCalendarConfigured()) {
     throw new Error("Agenda is nog niet geconfigureerd.");
   }
-
-  const uid = booking.caldavEventUid || `marcsmusic-${booking.id}@marcsmusic.nl`;
-  const url = new URL(`${encodeURIComponent(uid)}.ics`, getCalendarUrl()).toString();
-  const response = await caldavRequest("PUT", url, {
-    body: buildIcsEvent(booking, uid),
+  return caldavRequest("PUT", identity.url, {
+    body: buildIcsEvent(booking, identity.uid),
     headers: {
       "content-type": "text/calendar; charset=utf-8",
       "if-none-match": "*"
     }
   });
+}
 
-  if (![200, 201, 204].includes(response.status)) {
-    const text = await response.text().catch(() => "");
-    throw new Error(`Agenda-event kon niet worden aangemaakt (${response.status}). ${text}`.trim());
+async function getExactCalDavEvent(identity, bookingId) {
+  const response = await caldavRequest("GET", identity.url, {
+    headers: { accept: "text/calendar" }
+  });
+  if (response.status === 404) {
+    return { found: false };
   }
-
-  return { uid, url };
+  if (response.status !== 200) {
+    throw new UpstreamRequestError("CALENDAR_RECONCILIATION_REJECTED", {
+      retryable: response.status >= 500 || response.status === 429,
+      statusCode: 502
+    });
+  }
+  if (!verifyCalendarEventIdentity(response.text, identity, bookingId)) {
+    throw Object.assign(new Error("CALENDAR_EVENT_IDENTITY_MISMATCH"), {
+      code: "CALENDAR_EVENT_IDENTITY_MISMATCH",
+      statusCode: 409,
+      retryable: false
+    });
+  }
+  return { found: true };
 }
 
 async function deleteCalDavEvent(eventUid) {
@@ -1261,16 +1621,6 @@ async function deleteCalDavEvent(eventUid) {
   if (![200, 202, 204, 404].includes(response.status)) {
     throw new Error(`Agenda-event kon niet worden verwijderd (${response.status}).`);
   }
-}
-
-async function findEventByBookingId(bookingId) {
-  const now = new Date();
-  const rangeEnd = new Date(now.getTime() + 3 * 365 * 24 * 60 * 60 * 1000);
-  const result = await getCalDavBusyIntervals(now, rangeEnd);
-  if (result.status === "error") {
-    return null;
-  }
-  return result.busy.find((event) => event.bookingId === bookingId) || null;
 }
 
 function buildIcsEvent(booking, uid) {
@@ -1394,24 +1744,31 @@ async function crmRequest(method, path, body = null) {
     throw Object.assign(new Error("EspoCRM is nog niet geconfigureerd."), { statusCode: 503 });
   }
 
-  const base = stripTrailingSlash(process.env.ESPOCRM_BASE_URL);
+  const base = new URL(`${stripTrailingSlash(process.env.ESPOCRM_BASE_URL)}/`);
+  if (base.username || base.password || (!new Set(["https:", ...(process.env.NODE_ENV === "test" ? ["http:"] : [])]).has(base.protocol))) {
+    throw Object.assign(new Error("ESPOCRM_BASE_URL must be a credential-free HTTPS URL."), { statusCode: 503 });
+  }
   const apiPath = path.replace(/^\/+/, "");
-  const response = await fetch(`${base}/api/v1/${apiPath}`, {
+  const response = await boundedFetch(new URL(`api/v1/${apiPath}`, base), {
     method,
     headers: {
       "X-Api-Key": process.env.ESPOCRM_API_KEY,
       "content-type": "application/json"
     },
     body: body ? JSON.stringify(body) : null
+  }, {
+    timeoutMs: crmHttpTimeoutMs,
+    maxResponseBytes: 512 * 1024
   });
-  const text = await response.text();
-  const payload = text ? JSON.parse(text) : {};
 
   if (!response.ok) {
-    throw new Error(payload.message || payload.error?.message || `EspoCRM request mislukt (${response.status}).`);
+    throw Object.assign(new Error("CRM_REQUEST_REJECTED"), {
+      code: "CRM_REQUEST_REJECTED",
+      statusCode: response.status >= 500 || response.status === 429 ? 502 : 409,
+      retryable: response.status >= 500 || response.status === 429
+    });
   }
-
-  return payload;
+  return parseBoundedJson(response, "CRM_RESPONSE_INVALID_JSON");
 }
 
 async function findCrmContactByEmail(email) {
@@ -1799,6 +2156,10 @@ function parseByteRange(value, fileSize) {
 const server = createServer(async (request, response) => {
   try {
     const url = new URL(request.url || "/", request.headers.host ? `http://${request.headers.host}` : appBaseUrl);
+
+    if (await epkService.handle(request, response, url)) {
+      return;
+    }
 
     if (url.pathname.startsWith("/api/")) {
       await handleApi(request, response, url);

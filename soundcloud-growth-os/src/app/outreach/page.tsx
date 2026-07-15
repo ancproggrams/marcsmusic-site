@@ -1,9 +1,16 @@
 import { OutreachMailForm } from "./OutreachMailForm";
+import { isLegacyOutreachSendEnabled } from "@/lib/outreach/policy";
 
 export const dynamic = "force-dynamic";
 
 function mailgunStatus() {
-  const configured = Boolean(process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN && process.env.OUTREACH_FROM_EMAIL && process.env.OUTREACH_MAIL_TOKEN);
+  const configured = Boolean(
+    isLegacyOutreachSendEnabled(process.env) &&
+      process.env.MAILGUN_API_KEY &&
+      process.env.MAILGUN_DOMAIN &&
+      process.env.OUTREACH_FROM_EMAIL &&
+      process.env.OUTREACH_MAIL_TOKEN
+  );
   const domain = process.env.MAILGUN_DOMAIN || "Not configured";
   const baseUrl = process.env.MAILGUN_BASE_URL || "https://api.mailgun.net";
 

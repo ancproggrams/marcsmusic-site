@@ -377,17 +377,28 @@
       const health = await api("/health");
       document.getElementById("health").textContent = health.status;
       const artists = await api("/music/artists");
-      document.getElementById("artistSelect").innerHTML = artists.artists
-        .map((artist) => `<option value="${artist.id}">${artist.displayName}</option>`)
-        .join("");
+      const artistSelect = document.getElementById("artistSelect");
+      artistSelect.replaceChildren(...artists.artists.map((artist) => {
+        const option = document.createElement("option");
+        option.value = artist.id;
+        option.textContent = artist.displayName;
+        return option;
+      }));
       const platforms = await api("/music/platforms");
       state.platforms = platforms.platforms
         .filter((platform) => [
           "audiomack","audius","bandcamp","bandlab","drooble","hearthis","hypeddit","jamendo","linktree","n1m","podomatic","reverbnation","soundclick","soundcloud","spreaker"
         ].includes(platform.id));
-      document.getElementById("platformChecks").innerHTML = state.platforms
-        .map((platform) => `<label><input type="checkbox" value="${platform.id}" checked> ${platform.name}</label>`)
-        .join("");
+      const platformChecks = document.getElementById("platformChecks");
+      platformChecks.replaceChildren(...state.platforms.map((platform) => {
+        const label = document.createElement("label");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.value = platform.id;
+        checkbox.checked = true;
+        label.append(checkbox, document.createTextNode(` ${platform.name}`));
+        return label;
+      }));
     }
 
     document.getElementById("artistForm").addEventListener("submit", async (event) => {

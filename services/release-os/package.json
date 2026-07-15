@@ -13,7 +13,8 @@
     "verify": "npm run check && npm test",
     "start": "node scripts/music-api-server.mjs",
     "mailgun:send-test": "node scripts/send-test-email.mjs",
-    "music-api:start": "node scripts/music-api-server.mjs"
+    "music-api:start": "node scripts/music-api-server.mjs",
+    "outreach-source:recover": "node scripts/recover-source-outbox.mjs"
   },
   "dependencies": {
     "graphql": "^16.14.2"

@@ -1,5 +1,6 @@
 import { Buffer } from "node:buffer";
 import type { PreparedOutreachAttachment } from "./attachments";
+import { assertLegacyOutreachProviderEnabled, type OutreachEnv } from "./policy";
 
 export type MailgunConfig = {
   apiKey: string;
@@ -9,8 +10,6 @@ export type MailgunConfig = {
   fromName: string;
   replyTo?: string;
 };
-
-type Env = Record<string, string | undefined>;
 
 export type OutreachEmail = {
   toEmail: string;
@@ -45,7 +44,7 @@ export class MailgunSendError extends Error {
   }
 }
 
-function requiredEnv(env: Env, key: string) {
+function requiredEnv(env: OutreachEnv, key: string) {
   const value = env[key]?.trim();
   if (!value) {
     throw new MailgunConfigurationError(`${key} is required before outreach email can be sent.`);
@@ -53,7 +52,7 @@ function requiredEnv(env: Env, key: string) {
   return value;
 }
 
-export function getMailgunConfig(env: Env = process.env): MailgunConfig {
+export function getMailgunConfig(env: OutreachEnv = process.env): MailgunConfig {
   const baseUrl = (env.MAILGUN_BASE_URL?.trim() || "https://api.eu.mailgun.net").replace(/\/+$/, "");
 
   return {
@@ -91,6 +90,9 @@ export async function sendMailgunOutreachEmail(
   email: OutreachEmail,
   options: { timeoutMs?: number } = {}
 ): Promise<MailgunSendResult> {
+  // Defense in depth: callers cannot bypass the route-level legacy gate by
+  // invoking this provider directly.
+  assertLegacyOutreachProviderEnabled(process.env);
   rejectHeaderInjection(email.subject, "subject");
   const timeoutMs = options.timeoutMs ?? 15_000;
   const controller = new AbortController();

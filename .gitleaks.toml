@@ -1,0 +1,18 @@
+title = "MarcsMusic secret scanning policy"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Exact deterministic unsubscribe-key fixtures in named test files"
+condition = "AND"
+targetRules = ["generic-api-key"]
+regexTarget = "secret"
+paths = [
+  '''^services/outreach-worker/tests/(?:adversarial-contracts|key-rotation|replies-and-security|source-ingestion)\.test\.mjs$'''
+]
+regexes = [
+  '''^unsubscribe-key-for-tests-at-least-32-characters$''',
+  '''^unsubscribe-signing-key-for-tests-32-chars$''',
+  '''^unsubscribe-signing-key-1234567890$'''
+]

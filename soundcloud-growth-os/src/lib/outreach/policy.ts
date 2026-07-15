@@ -12,7 +12,38 @@ export class OutreachPolicyError extends Error {
   }
 }
 
-type Env = Record<string, string | undefined>;
+export type OutreachEnv = Record<string, string | undefined>;
+
+const railwayRuntimeMarkers = [
+  "RAILWAY_ENVIRONMENT",
+  "RAILWAY_ENVIRONMENT_ID",
+  "RAILWAY_ENVIRONMENT_NAME",
+  "RAILWAY_PROJECT_ID",
+  "RAILWAY_SERVICE_ID"
+] as const;
+
+export function isProductionOrRailwayRuntime(env: OutreachEnv = process.env) {
+  if (env.NODE_ENV?.trim().toLowerCase() === "production") return true;
+  return railwayRuntimeMarkers.some((name) => Boolean(env[name]?.trim()));
+}
+
+export function isLegacyOutreachSendEnabled(env: OutreachEnv = process.env) {
+  return env.LEGACY_OUTREACH_SEND_ENABLED === "true" && !isProductionOrRailwayRuntime(env);
+}
+
+export function assertLegacyOutreachSendEnabled(env: OutreachEnv = process.env) {
+  if (!isLegacyOutreachSendEnabled(env)) {
+    throw new OutreachPolicyError(
+      "Direct legacy outreach sending is disabled; use the central outreach worker.",
+      503,
+      "LEGACY_OUTREACH_SEND_DISABLED"
+    );
+  }
+}
+
+export function assertLegacyOutreachProviderEnabled(env: OutreachEnv = process.env) {
+  assertLegacyOutreachSendEnabled(env);
+}
 
 function digest(value: string) {
   return createHash("sha256").update(value).digest();
@@ -26,7 +57,7 @@ function constantTimeEquals(actual: string, expected: string) {
   return timingSafeEqual(digest(actual), digest(expected));
 }
 
-export function requireOutreachMailToken(headers: Headers, env: Env = process.env) {
+export function requireOutreachMailToken(headers: Headers, env: OutreachEnv = process.env) {
   const expectedToken = env.OUTREACH_MAIL_TOKEN?.trim();
   if (!expectedToken) {
     throw new OutreachPolicyError("Outreach mail token is not configured.", 503, "OUTREACH_TOKEN_NOT_CONFIGURED");
@@ -75,7 +106,7 @@ type RateLimitWindow = {
 const rateLimitWindowMs = 60 * 60 * 1000;
 const outreachRateLimits = new Map<string, RateLimitWindow>();
 
-function parseHourlyLimit(env: Env) {
+function parseHourlyLimit(env: OutreachEnv) {
   const rawLimit = env.OUTREACH_MAX_EMAILS_PER_HOUR?.trim();
   if (!rawLimit) return 20;
 
@@ -87,7 +118,7 @@ function parseHourlyLimit(env: Env) {
   return parsed;
 }
 
-export function assertOutreachRateLimit(identifier: string, env: Env = process.env, now = Date.now()) {
+export function assertOutreachRateLimit(identifier: string, env: OutreachEnv = process.env, now = Date.now()) {
   const limit = parseHourlyLimit(env);
   const key = digestHex(identifier);
   const current = outreachRateLimits.get(key);

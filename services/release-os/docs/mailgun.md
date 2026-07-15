@@ -11,27 +11,36 @@ Copy `.env.example` to `.env` and fill in:
 - `MAILGUN_REGION`: `us` or `eu`.
 - `MAILGUN_FROM`: default sender address.
 - `MAILGUN_TEST_TO`: recipient for the smoke-test script.
+- `MAILGUN_TIMEOUT_MS`: deadline for headers and complete response-body read.
+- `MAILGUN_MAX_RESPONSE_BYTES`: hard response-body cap (default 65,536 bytes).
+- `LEGACY_OUTREACH_SEND_ENABLED`: must be exactly `true` in an isolated
+  non-production runtime. Production/Railway markers always deny before
+  provider I/O, even when this flag is set.
 
 Use a domain sending key for production sending when possible. It limits the key to Mailgun's message send endpoints for one domain.
 
 ## Local Smoke Test
 
 ```bash
-npm run mailgun:send-test
+LEGACY_OUTREACH_SEND_ENABLED=true npm run mailgun:send-test
 ```
 
-The script loads `.env` when present, sends one transactional smoke-test email, and prints only Mailgun's message ID and queue message. It does not print API keys or request headers.
+Run this only with isolated non-production credentials and an approved test recipient. The script loads `.env` when present, sends one transactional smoke-test email, and prints only Mailgun's message ID and queue message. It does not print API keys or request headers.
 
 ## Runtime Boundary
 
-Application code should depend on `createEmailService`, not directly on Mailgun. Mailgun-specific request construction, authentication, retries, timeouts, and response normalization stay inside `MailgunClient`.
+This client is a deprecated integration boundary retained for isolated tests. Production outreach must use `services/outreach-worker`; it is the only path that enforces EspoCRM authority, suppressions, durable idempotency, capacity controls and delivery-uncertainty handling. `MailgunClient` also enforces the legacy gate as defense in depth.
 
 ```js
 import { resolveMailgunConfig } from "../src/config/env.mjs";
+import { isLegacyOutreachSendEnabled } from "../src/domain/legacy-outreach-send-policy.mjs";
 import { createEmailService } from "../src/application/email/email-service.mjs";
 import { createMailgunClient } from "../src/infrastructure/mailgun/mailgun-client.mjs";
 
-const mailgunClient = createMailgunClient(resolveMailgunConfig());
+const mailgunClient = createMailgunClient({
+  ...resolveMailgunConfig(),
+  legacyOutreachSendEnabled: isLegacyOutreachSendEnabled(process.env)
+});
 const emailService = createEmailService({ mailProvider: mailgunClient });
 
 await emailService.sendTransactionalEmail({

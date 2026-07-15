@@ -1,0 +1,16 @@
+[
+    "subjectType",
+    "emailAddress",
+    "domain",
+    "mediaContact",
+    "mediaOutlet",
+    "reason",
+    "source",
+    "active",
+    "suppressedAt",
+    "expiresAt",
+    "assignedUser",
+    "teams",
+    "createdAt",
+    "modifiedAt"
+]

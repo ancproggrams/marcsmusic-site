@@ -1,0 +1,16 @@
+[
+    {
+        "label": "Suppression",
+        "rows": [
+            [{"name": "name"}, {"name": "active"}],
+            [{"name": "subjectType"}, {"name": "subjectHash"}],
+            [{"name": "emailAddress"}, {"name": "domain"}],
+            [{"name": "mediaContact"}, {"name": "mediaOutlet"}],
+            [{"name": "reason"}, {"name": "source"}],
+            [{"name": "suppressedAt"}, {"name": "expiresAt"}],
+            [{"name": "providerEventId"}, {"name": "evidenceUrl"}],
+            [{"name": "evidenceText", "fullWidth": true}],
+            [{"name": "assignedUser"}, {"name": "teams"}]
+        ]
+    }
+]

@@ -1,0 +1,386 @@
+{
+    "fields": {
+        "name": {
+            "type": "personName",
+            "required": true,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "firstName": {
+            "type": "varchar",
+            "maxLength": 100,
+            "isPersonalData": true
+        },
+        "lastName": {
+            "type": "varchar",
+            "maxLength": 100,
+            "isPersonalData": true
+        },
+        "showName": {
+            "type": "varchar",
+            "maxLength": 180,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "emailAddress": {
+            "type": "email",
+            "required": true,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "role": {
+            "type": "varchar",
+            "maxLength": 160,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "instagramUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "linkedinUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "soundcloudUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "contactSourceUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "contactEvidence": {
+            "type": "text",
+            "audited": true,
+            "isPersonalData": true
+        },
+        "contactPurpose": {
+            "type": "enum",
+            "options": ["Explicit Music Submission", "Promo Contact", "Press Contact", "Bookings Only", "General Contact", "Unknown", "Blocked"],
+            "default": "Unknown",
+            "displayAsLabel": true,
+            "required": true,
+            "audited": true
+        },
+        "contactBasis": {
+            "type": "enum",
+            "options": ["Opt In", "Existing Relationship", "Explicit Submission Address", "Blocked", "Unknown"],
+            "default": "Unknown",
+            "displayAsLabel": true,
+            "required": true,
+            "audited": true
+        },
+        "proofUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "proofText": {
+            "type": "text",
+            "audited": true,
+            "isPersonalData": true
+        },
+        "proofCapturedAt": {
+            "type": "datetime",
+            "audited": true
+        },
+        "emailValidationStatus": {
+            "type": "enum",
+            "options": ["Unknown", "Pending", "Valid", "Invalid", "Risky"],
+            "default": "Unknown",
+            "displayAsLabel": true,
+            "required": true,
+            "audited": true
+        },
+        "smtpValidationStatus": {
+            "type": "enum",
+            "options": ["Unknown", "Pending", "Valid", "Invalid", "Risky"],
+            "default": "Unknown",
+            "displayAsLabel": true,
+            "required": true,
+            "audited": true
+        },
+        "lastValidatedAt": {
+            "type": "datetime",
+            "audited": true
+        },
+        "doNotContact": {
+            "type": "bool",
+            "default": false,
+            "required": true,
+            "audited": true
+        },
+        "optedOut": {
+            "type": "bool",
+            "default": false,
+            "required": true,
+            "audited": true
+        },
+        "hardBounced": {
+            "type": "bool",
+            "default": false,
+            "required": true,
+            "audited": true
+        },
+        "previousPositiveReply": {
+            "type": "bool",
+            "default": false,
+            "required": true,
+            "audited": true
+        },
+        "rejectedGenres": {
+            "type": "multiEnum",
+            "options": ["Ambient", "Dance", "Electronic", "Hip Hop", "Indie", "Latin", "Pop", "Reggae", "Rock", "World", "Other"],
+            "audited": true,
+            "isPersonalData": true
+        },
+        "rejectedGenresUpdatedAt": {
+            "type": "datetime",
+            "audited": true
+        },
+        "rejectedGenresSourceEvent": {
+            "type": "link",
+            "audited": true,
+            "isPersonalData": true
+        },
+        "futureReleaseInterest": {
+            "type": "enum",
+            "options": ["Unknown", "Interested", "Declined"],
+            "default": "Unknown",
+            "required": true,
+            "audited": true,
+            "displayAsLabel": true
+        },
+        "futureReleaseGenres": {
+            "type": "multiEnum",
+            "options": ["Ambient", "Dance", "Electronic", "Hip Hop", "Indie", "Latin", "Pop", "Reggae", "Rock", "World", "Other"],
+            "audited": true,
+            "isPersonalData": true
+        },
+        "futureReleaseInterestAt": {
+            "type": "datetime",
+            "audited": true
+        },
+        "futureReleaseInterestEvent": {
+            "type": "link",
+            "audited": true,
+            "isPersonalData": true
+        },
+        "preferredLanguage": {
+            "type": "enum",
+            "options": ["nl", "en", "de", "fr", "es", "pt", "other"],
+            "audited": true
+        },
+        "timezone": {
+            "type": "varchar",
+            "maxLength": 80,
+            "default": "Europe/Amsterdam",
+            "audited": true
+        },
+        "status": {
+            "type": "enum",
+            "options": ["New", "Needs Validation", "Ready for Matching", "Active", "Inactive", "Blocked"],
+            "default": "New",
+            "style": {
+                "New": "info",
+                "Needs Validation": "warning",
+                "Ready for Matching": "primary",
+                "Active": "success",
+                "Inactive": "info",
+                "Blocked": "danger"
+            },
+            "displayAsLabel": true,
+            "labelType": "state",
+            "required": true,
+            "audited": true
+        },
+        "fingerprint": {
+            "type": "varchar",
+            "maxLength": 64
+        },
+        "duplicateOf": {
+            "type": "link",
+            "audited": true,
+            "isPersonalData": true
+        },
+        "mediaOutlet": {
+            "type": "link",
+            "required": true,
+            "audited": true
+        },
+        "assignedUser": {
+            "type": "link",
+            "view": "views/fields/assigned-user",
+            "audited": true
+        },
+        "teams": {
+            "type": "linkMultiple",
+            "view": "views/fields/teams",
+            "audited": true
+        },
+        "targetLists": {
+            "type": "linkMultiple",
+            "layoutDetailDisabled": true,
+            "layoutListDisabled": true,
+            "importDisabled": true,
+            "directAccessDisabled": true,
+            "filtersEnabled": true,
+            "directUpdateEnabled": true,
+            "noLoad": true
+        },
+        "targetList": {
+            "type": "link",
+            "notStorable": true,
+            "orderDisabled": true,
+            "layoutDetailDisabled": true,
+            "layoutListDisabled": true,
+            "layoutMassUpdateDisabled": true,
+            "layoutFiltersDisabled": true,
+            "exportDisabled": true,
+            "entity": "TargetList",
+            "directAccessDisabled": true,
+            "importEnabled": true
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "createdBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "modifiedBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        }
+    },
+    "links": {
+        "mediaOutlet": {
+            "type": "belongsTo",
+            "entity": "MediaOutlet",
+            "foreign": "mediaContacts"
+        },
+        "outreachMatches": {
+            "type": "hasMany",
+            "entity": "OutreachMatch",
+            "foreign": "mediaContact"
+        },
+        "outreachEvents": {
+            "type": "hasMany",
+            "entity": "OutreachEvent",
+            "foreign": "mediaContact"
+        },
+        "suppressionEntries": {
+            "type": "hasMany",
+            "entity": "OutreachSuppression",
+            "foreign": "mediaContact"
+        },
+        "emails": {
+            "type": "hasMany",
+            "entity": "Email",
+            "foreign": "mediaContact"
+        },
+        "opportunities": {
+            "type": "hasMany",
+            "entity": "Opportunity",
+            "foreign": "mediaContact"
+        },
+        "targetLists": {
+            "type": "hasMany",
+            "entity": "TargetList",
+            "foreign": "mediaContacts",
+            "columnAttributeMap": {
+                "optedOut": "targetListIsOptedOut"
+            }
+        },
+        "rejectedGenresSourceEvent": {
+            "type": "belongsTo",
+            "entity": "OutreachEvent"
+        },
+        "futureReleaseInterestEvent": {
+            "type": "belongsTo",
+            "entity": "OutreachEvent"
+        },
+        "duplicateOf": {
+            "type": "belongsTo",
+            "entity": "MediaContact",
+            "foreign": "duplicates"
+        },
+        "duplicates": {
+            "type": "hasMany",
+            "entity": "MediaContact",
+            "foreign": "duplicateOf"
+        },
+        "assignedUser": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "teams": {
+            "type": "hasMany",
+            "entity": "Team",
+            "relationName": "entityTeam",
+            "layoutRelationshipsDisabled": true
+        },
+        "createdBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "modifiedBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        }
+    },
+    "indexes": {
+        "fingerprint": {
+            "columns": ["fingerprint"],
+            "unique": true
+        },
+        "outletStatus": {
+            "columns": ["mediaOutletId", "status", "deleted"]
+        },
+        "statusValidation": {
+            "columns": ["status", "lastValidatedAt", "deleted"]
+        },
+        "duplicateOf": {
+            "columns": ["duplicateOfId", "deleted"]
+        },
+        "futureReleaseInterest": {
+            "columns": ["futureReleaseInterest", "modifiedAt", "deleted"]
+        },
+        "modifiedAtCursor": {
+            "columns": ["modifiedAt", "id"]
+        },
+        "createdAtCursor": {
+            "columns": ["createdAt", "id"]
+        }
+    },
+    "collection": {
+        "textFilterFields": ["name", "emailAddress", "role", "contactEvidence", "proofText"],
+        "orderBy": "modifiedAt",
+        "order": "desc"
+    },
+    "optimisticConcurrencyControl": true,
+    "transactionalSave": true,
+    "entityClassName": "Espo\\Modules\\MarcsMusicOutreach\\Entities\\MediaContact"
+}

@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { dirname, resolve } from "node:path";
+import { join, resolve } from "node:path";
+import { ensurePrivateDirectory, writePrivateFileAtomic } from "../src/film-leads/private-files.mjs";
+import { fetchPublicText, normalizePublicUrl } from "../src/film-leads/public-http.mjs";
 
 const DEFAULT_SEED_CSV_PATH = "data/film-director-leads-2026-07-06.csv";
 const DEFAULT_SOURCE_CONFIG_PATH = "data/film-director-discovery-sources.json";
 const DEFAULT_COUNTRY_SHARDS_PATH = "data/film-director-country-shards.json";
-const DEFAULT_OUTPUT_CSV_PATH = `${tmpdir()}/marcsmusic-film-director-leads-combined.csv`;
+const DEFAULT_RUNTIME_DIRECTORY = join(tmpdir(), "marcsmusic-film-director");
+const DEFAULT_OUTPUT_CSV_PATH = join(DEFAULT_RUNTIME_DIRECTORY, "combined-leads.csv");
 const DEFAULT_MAX_SOURCE_ITEMS = 12;
 const DEFAULT_SHARDS_PER_RUN = 8;
 const DEFAULT_SEARCH_ITEMS_PER_QUERY = 2;
@@ -15,6 +18,7 @@ const DEFAULT_SEARCH_TEMPLATES_PER_SHARD = 2;
 const DEFAULT_SEARCH_MAX_PAGE_FETCHES = 32;
 const DEFAULT_SHARD_INTERVAL_MS = 5 * 60 * 1000;
 const DEFAULT_FETCH_TIMEOUT_MS = 15000;
+const DEFAULT_FETCH_MAX_BYTES = 2 * 1024 * 1024;
 const DEFAULT_FETCH_DELAY_MS = 250;
 const DEFAULT_MIN_CONFIDENCE = 6;
 const USER_AGENT = "MarcsMusicLeadResearchBot/1.0 (+https://www.marcsmusic.nl)";
@@ -148,6 +152,12 @@ const fetchTimeoutMs = parsePositiveInteger(
   process.env.FILM_DIRECTOR_FETCH_TIMEOUT_MS,
   DEFAULT_FETCH_TIMEOUT_MS
 );
+const fetchMaxBytes = parseBoundedInteger(
+  process.env.FILM_DIRECTOR_FETCH_MAX_BYTES,
+  DEFAULT_FETCH_MAX_BYTES,
+  1024,
+  8 * 1024 * 1024
+);
 const fetchDelayMs = parsePositiveInteger(
   process.env.FILM_DIRECTOR_FETCH_DELAY_MS,
   DEFAULT_FETCH_DELAY_MS
@@ -156,6 +166,11 @@ const defaultMinimumConfidence = parsePositiveInteger(
   process.env.FILM_DIRECTOR_MIN_CONFIDENCE,
   DEFAULT_MIN_CONFIDENCE
 );
+
+await ensurePrivateDirectory(DEFAULT_RUNTIME_DIRECTORY);
+if (resolve(outputCsvPath) === resolve(seedCsvPath)) {
+  throw new Error("FILM_DIRECTOR_SEARCH_OUTPUT_CSV must not overwrite the seed CSV.");
+}
 
 const seedRows = await readCsvRows(seedCsvPath);
 const sources = await readJson(sourceConfigPath);
@@ -182,7 +197,7 @@ for (const source of sources.filter((item) => item.enabled !== false)) {
       source: source.name,
       candidates: 0,
       status: "failed",
-      error: error instanceof Error ? error.message : String(error)
+      reasonCode: discoveryReasonCode(error)
     });
   }
 }
@@ -209,20 +224,14 @@ for (const candidate of discoveredCandidates) {
 const combinedRows = [...seedRows.map(normalizeCsvRow), ...newRows];
 await writeCsvRows(outputCsvPath, combinedRows);
 
-for (const row of newRows) {
-  if (dryRun) {
-    console.log(`[discovery] ${row.name} | ${row.recent_project} | ${row.website}`);
-  }
-}
-
 log("info", "Film director discovery completed", {
   seedRecords: seedRows.length,
   discoveredCandidates: discoveredCandidates.length,
   newRecords: newRows.length,
   totalRecords: combinedRows.length,
-  outputCsvPath,
   activeCountryShards: activeCountryShards.map((shard) => shard.country),
   pageFetchCount,
+  dryRun,
   sourceResults
 });
 
@@ -287,8 +296,7 @@ async function discoverShortOfTheWeek(source) {
     } catch (error) {
       log("warn", "Could not process Short of the Week item", {
         source: source.name,
-        url: item.link,
-        error: error instanceof Error ? error.message : String(error)
+        reasonCode: discoveryReasonCode(error)
       });
     }
   }
@@ -638,8 +646,7 @@ async function fetchPageWithBudget(url, sourceName) {
   } catch (error) {
     log("warn", "Could not fetch candidate source page", {
       source: sourceName,
-      url,
-      error: error instanceof Error ? error.message : String(error)
+      reasonCode: discoveryReasonCode(error)
     });
     return "";
   }
@@ -788,26 +795,15 @@ function readBalancedJson(input, startIndex) {
 }
 
 async function fetchText(url) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), fetchTimeoutMs);
-
-  try {
-    const response = await fetch(url, {
-      headers: {
-        accept: "application/rss+xml, application/atom+xml, text/html, */*;q=0.8",
-        "user-agent": USER_AGENT
-      },
-      signal: controller.signal
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
+  return fetchPublicText(url, {
+    timeoutMs: fetchTimeoutMs,
+    maxBytes: fetchMaxBytes,
+    maxRedirects: 3,
+    headers: {
+      accept: "application/rss+xml, application/atom+xml, text/html, */*;q=0.8",
+      "user-agent": USER_AGENT
     }
-
-    return await response.text();
-  } finally {
-    clearTimeout(timeout);
-  }
+  });
 }
 
 async function readCsvRows(path) {
@@ -820,12 +816,11 @@ async function readJson(path) {
 }
 
 async function writeCsvRows(path, rows) {
-  await mkdir(dirname(resolve(path)), { recursive: true });
   const csv = [
     CSV_HEADERS.join(","),
     ...rows.map((row) => CSV_HEADERS.map((header) => csvEscape(row[header] || "")).join(","))
   ].join("\n");
-  await writeFile(resolve(path), `${csv}\n`, "utf8");
+  await writePrivateFileAtomic(resolve(path), `${csv}\n`);
 }
 
 function parseCsv(input) {
@@ -1109,21 +1104,7 @@ function decodeHtml(value) {
 }
 
 function normalizeUrl(value) {
-  const cleaned = cleanText(decodeHtml(value), 500);
-
-  if (!cleaned) {
-    return "";
-  }
-
-  if (cleaned.startsWith("//")) {
-    return `https:${cleaned}`;
-  }
-
-  if (!/^https?:\/\//i.test(cleaned)) {
-    return "";
-  }
-
-  return cleaned.replace(/[),.;]+$/u, "");
+  return normalizePublicUrl(cleanText(decodeHtml(value), 2_048).replace(/[),.;]+$/u, ""));
 }
 
 function cleanText(value, maxLength) {
@@ -1147,6 +1128,20 @@ function getArgValue(name) {
 function parsePositiveInteger(value, fallback) {
   const parsed = Number.parseInt(value || "", 10);
   return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+function parseBoundedInteger(value, fallback, minimum, maximum) {
+  const parsed = Number.parseInt(value || "", 10);
+  const selected = Number.isSafeInteger(parsed) ? parsed : fallback;
+  if (selected < minimum || selected > maximum) {
+    throw new Error(`Configured integer must be between ${minimum} and ${maximum}.`);
+  }
+  return selected;
+}
+
+function discoveryReasonCode(error) {
+  const candidate = typeof error?.code === "string" ? error.code : "";
+  return /^[A-Z0-9_]{3,80}$/.test(candidate) ? candidate : "DISCOVERY_SOURCE_FAILED";
 }
 
 function delay(ms) {

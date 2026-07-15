@@ -29,10 +29,16 @@ cp soundcloud-growth-os/.env.example soundcloud-growth-os/.env
 ```bash
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/soundcloud_growth_os?schema=public"
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
+GROWTH_OS_ADMIN_USERNAME="growth-admin"
+GROWTH_OS_ADMIN_PASSWORD=""
 SOUNDCLOUD_CLIENT_ID=""
 SOUNDCLOUD_CLIENT_SECRET=""
 SOUNDCLOUD_REDIRECT_URI="http://localhost:3000/api/auth/soundcloud/callback"
+SOUNDCLOUD_TOKEN_ACTIVE_KID="local-2026-01"
+SOUNDCLOUD_TOKEN_KEYS_JSON='{"local-2026-01":"replace-with-canonical-base64-32-byte-key"}'
 ```
+
+The empty admin password and placeholder encryption value are intentionally invalid. Generate the admin password with `openssl rand -base64 48` and a 32-byte encryption key with `openssl rand -base64 32`; keep both in the environment/secret store only. The browser uses its native Basic-auth prompt; never put credentials in a URL. All pages and application APIs require admin authentication except exact `/api/health`, Next static assets, and the separately protected deprecated outreach endpoint. Public `/api/health` is a readiness check: it validates SoundCloud configuration, the encryption keyring, bounded runtime settings, and a deadline-bounded database transaction, but returns only `ready` or `not_ready` without dependency details.
 
 Optional Mailgun outreach settings:
 
@@ -44,6 +50,7 @@ OUTREACH_FROM_EMAIL="outreach@mg.marcsmusic.nl"
 OUTREACH_FROM_NAME="Marc Rene"
 OUTREACH_REPLY_TO="marc@marcsmusic.nl"
 OUTREACH_MAIL_TOKEN=""
+LEGACY_OUTREACH_SEND_ENABLED="false"
 OUTREACH_MAX_EMAILS_PER_HOUR="20"
 OUTREACH_MP3_ROOT="outreach-mp3"
 OUTREACH_ALLOWED_RECIPIENT_DOMAINS=""
@@ -80,6 +87,8 @@ Generate a weekly report:
 npm run growth:weekly-report
 ```
 
+OAuth access/refresh tokens are always written as versioned AES-256-GCM envelopes. For the bounded dry-run/apply migration and key-rotation procedure, follow [docs/security-runbook.md](docs/security-runbook.md). Do not enable legacy plaintext migration on the long-running web process.
+
 Weekly reports are written to `soundcloud-growth-os/reports/` and ignored by git because they may contain private account performance data.
 
 ## Railway Deploy
@@ -100,24 +109,25 @@ Required Railway variables:
 ```bash
 DATABASE_URL="${{Postgres.DATABASE_URL}}"
 NEXT_PUBLIC_APP_URL="https://your-railway-domain.up.railway.app"
+GROWTH_OS_ADMIN_USERNAME="growth-admin"
+GROWTH_OS_ADMIN_PASSWORD="..."
 SOUNDCLOUD_CLIENT_ID="..."
 SOUNDCLOUD_CLIENT_SECRET="..."
 SOUNDCLOUD_REDIRECT_URI="https://your-railway-domain.up.railway.app/api/auth/soundcloud/callback"
-MAILGUN_API_KEY="..."
-MAILGUN_DOMAIN="mg.marcsmusic.nl"
-MAILGUN_BASE_URL="https://api.eu.mailgun.net"
-OUTREACH_FROM_EMAIL="outreach@mg.marcsmusic.nl"
-OUTREACH_FROM_NAME="Marc Rene"
-OUTREACH_REPLY_TO="marc@marcsmusic.nl"
-OUTREACH_MAIL_TOKEN="generate-a-long-random-token"
-OUTREACH_MAX_EMAILS_PER_HOUR="20"
-OUTREACH_MP3_ROOT="outreach-mp3"
-OUTREACH_ALLOWED_RECIPIENT_DOMAINS=""
+SOUNDCLOUD_TOKEN_ACTIVE_KID="prod-2026-01"
+SOUNDCLOUD_TOKEN_KEYS_JSON='{"prod-2026-01":"..."}'
+SOUNDCLOUD_REFRESH_LOCK_WAIT_MS="1500"
+SOUNDCLOUD_API_DEADLINE_MS="15000"
+SOUNDCLOUD_API_MAX_RESPONSE_BYTES="1048576"
+SOUNDCLOUD_HEALTH_DB_TIMEOUT_MS="2000"
+LEGACY_OUTREACH_SEND_ENABLED="false"
 ```
 
 After Railway creates the public domain, update `NEXT_PUBLIC_APP_URL` and `SOUNDCLOUD_REDIRECT_URI`, then add the same callback URL in the official SoundCloud developer app settings.
 
-The `/outreach` page includes reusable templates for playlist curators, blogs/channels, radio/DJ contacts, label/sync contacts, and follow-ups. It can optionally attach selected MP3s from `OUTREACH_MP3_ROOT`, with a conservative server-side bundle size limit. The production deploy expects the six approved MP3s in `outreach-mp3/`; use a mounted directory only when you intentionally manage the audio files outside the deploy bundle. It sends one human-approved plain-text email at a time through `/api/outreach/email`. The API requires `OUTREACH_MAIL_TOKEN` in an `Authorization: Bearer ...` header, applies `OUTREACH_MAX_EMAILS_PER_HOUR`, and keeps `MAILGUN_API_KEY` server-side only. Mailgun tracking is disabled by default.
+OAuth refresh is serialized per artist across Railway replicas with a bounded PostgreSQL transaction-scoped advisory lease. The winning replica rereads and decrypts under the lease before calling SoundCloud, then persists behind revision/row fencing; queued replicas reuse the winner and never submit the same single-use refresh token twice. Lock contention returns a short `503` instead of starting unsafe provider I/O. Official API reads enforce an exact parsed `https://api.soundcloud.com` origin, reject redirects and credential/authority tricks, use an overall deadline plus per-attempt abort, cap decoded response bytes, and retry only classified transient failures with bounded `Retry-After` and jitter.
+
+The `/outreach` page and `/api/outreach/email` route are retained only as a deprecated local/manual interface. Exact `LEGACY_OUTREACH_SEND_ENABLED="true"` works only in a non-production, non-Railway development/test runtime. `NODE_ENV=production` or any Railway environment/project/service marker forces both the route gate and the independent Mailgun provider gate closed, regardless of all other variables. Production must remove Mailgun send credentials from this service and use `services/outreach-worker` as the only outreach send authority so EspoCRM decisions, suppressions, durable idempotency, capacity controls and audit events cannot be bypassed.
 
 ## Safety Rules
 
@@ -143,7 +153,10 @@ Implemented:
 - project scaffold;
 - Prisma schema;
 - SoundCloud OAuth PKCE skeleton;
-- read-only SoundCloud API client;
+- fail-closed admin authentication at proxy and sensitive API route boundaries;
+- versioned AES-256-GCM OAuth token envelopes, bounded key rotation, cross-replica refresh serialization with fencing, and a migration job;
+- read-only SoundCloud API client with exact-origin enforcement, deadlines, response caps, and classified bounded retries;
+- non-diagnostic configuration/keyring/database readiness;
 - `/dashboard`;
 - `/tracks`;
 - `/api/tracks/sync`;
@@ -155,9 +168,7 @@ Implemented:
 
 Still needed before production:
 
-- encrypted token storage;
 - database-backed OAuth state instead of short-lived cookies only;
-- migrations committed after a real database is selected;
 - structured logging, metrics, alerting, and job scheduling;
 - comment ingestion and manual reply-draft workflow;
 - smartlink redirect endpoint and click tracking;

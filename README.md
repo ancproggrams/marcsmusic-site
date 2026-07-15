@@ -11,6 +11,7 @@ This project serves the MarcsMusic site and a server-side booking flow with a se
 - Server-side Mollie Payments API integration and webhook verification
 - Newsletter endpoint at `/api/newsletter/subscribe`
 - Admin page at `/admin`
+- Optional manifest-backed public EPK at `/epk/:slug` with JSON at `/api/epk/:slug`
 - Deployment starter files for EspoCRM and Radicale
 
 ## Architecture
@@ -38,8 +39,22 @@ Important production values:
 - `CALDAV_PASSWORD`
 - `CALDAV_CALENDAR_PATH`
 - `MOLLIE_API_KEY`
-- `ADMIN_TOKEN`
+- `MOLLIE_PROFILE_ID`
+- `MOLLIE_MODE` (`test` or `live`, matching the API key)
+- `ADMIN_TOKEN` (32–512 random bytes, no whitespace)
 - `PRIVACY_HASH_SALT`
+
+`TRUSTED_PROXY_CIDRS` is empty by default, so client-supplied `X-Real-IP`,
+`CF-Connecting-IP` and `X-Forwarded-For` values cannot rotate rate-limit
+buckets. Set it only to staged and attested IP/CIDR ranges of the reverse proxy
+that sanitizes those headers. `X-Real-IP` has precedence for Railway; an
+ambiguous highest-priority value falls back to the socket peer instead of a
+weaker header. On Railway with no attested range, requests share a bounded
+300/minute peer bucket and remain subject to the independent 1,000/minute
+global cap. This preserves a fail-safe capacity floor without trusting an
+unverified network range.
+
+The EPK is intentionally disabled when its manifest is absent. See [the public EPK contract and activation runbook](docs/epk.md) for its Railway variables, atomic builder and the release-activation blocker.
 
 ## EspoCRM setup
 
@@ -112,7 +127,10 @@ Run the film director outreach search/import as a separate Railway cron service,
    FILM_DIRECTOR_SEARCH_ITEMS_PER_QUERY=2
    FILM_DIRECTOR_SEARCH_MAX_PAGE_FETCHES=32
    FILM_DIRECTOR_MIN_CONFIDENCE=6
-   FILM_DIRECTOR_SEARCH_OUTPUT_CSV=/tmp/marcsmusic-film-director-leads-combined.csv
+   FILM_DIRECTOR_FETCH_TIMEOUT_MS=15000
+   FILM_DIRECTOR_FETCH_MAX_BYTES=2097152
+   FILM_DIRECTOR_SEARCH_OUTPUT_CSV=/tmp/marcsmusic-film-director/combined-leads.csv
+   FILM_DIRECTOR_RETAIN_DISCOVERY_OUTPUT=false
    SEARCH_ACTION_LOCK_TTL_MS=600000
    ```
 
@@ -139,6 +157,15 @@ The cron run now has two stages:
 2. Import the seed leads plus discovered leads into EspoCRM with upsert-by-name behavior.
 
 Discovery sources are configured in `data/film-director-discovery-sources.json`. `Short of the Week RSS` is enabled by default because its public pages expose film title, filmmaker, genre, country and project website metadata. `Shortverse New Films Feed` is present but disabled by default because the raw feed is noisier and needs stricter review before enabling.
+
+Discovery accepts only credential-free public HTTPS URLs. DNS results and every
+redirect are checked against loopback, private, link-local and reserved address
+ranges, and the validated address is pinned for the connection. Fetch duration,
+redirect count and response size are bounded. Runtime CSV files are written
+atomically as mode `0600` inside a mode `0700` directory and are deleted after
+import unless `FILM_DIRECTOR_RETAIN_DISCOVERY_OUTPUT=true` is explicitly set.
+Dry-run and failure logs contain counts and reason codes, never lead names,
+contact URLs or upstream response bodies.
 
 Country shards are configured in `data/film-director-country-shards.json`. The cron rotates through the country list instead of querying the whole world in one run. With `FILM_DIRECTOR_SHARDS_PER_RUN=8`, the 197-country shard list cycles roughly every two hours while each 5-minute run stays bounded.
 
@@ -188,6 +215,9 @@ CALDAV_BASE_URL=https://marcsmusic-calendar-production.up.railway.app
 CALDAV_USERNAME=marcsmusic
 CALDAV_PASSWORD=...
 CALDAV_CALENDAR_PATH=/marcsmusic/bookings/
+CALDAV_HTTP_TIMEOUT_MS=5000
+CALDAV_RESPONSE_MAX_BYTES=1048576
+CALENDAR_FULFILLMENT_LEASE_MS=30000
 ```
 
 ## iPhone Calendar connection
@@ -213,11 +243,24 @@ Use DAVx5:
 
 1. Create or open the Mollie website profile for MarcsMusic.
 2. Use a test API key first, then replace it with the live key.
-3. Set `MOLLIE_API_KEY` server-side only.
+3. Set `MOLLIE_API_KEY`, the matching `MOLLIE_PROFILE_ID`, and `MOLLIE_MODE`
+   (`test` or `live`) server-side only. Keep `MOLLIE_API_BASE_URL` on
+   `https://api.mollie.com` outside tests.
 4. The app sends Mollie this webhook URL per payment:
    - `https://www.marcsmusic.nl/api/webhooks/mollie`
 
-Mollie webhooks are not trusted blindly. The backend receives the payment id and fetches the payment status from Mollie before confirming the booking.
+Mollie webhooks are not trusted blindly. Before making any provider request, the
+backend requires the strict payment ID to be uniquely and durably bound to both
+one local booking and one payment-ledger entry. It then validates the returned
+ID, booking metadata, exact EUR amount, profile and test/live mode. Provider,
+CRM and CalDAV calls have bounded deadlines, response sizes, and no redirects.
+`CALENDAR_FULFILLMENT_LEASE_MS` must exceed the combined CRM and CalDAV
+deadlines by at least one second; startup fails closed on an unsafe lease.
+
+Payment-ledger rows created before this integrity contract may lack stored
+currency, profile, or mode evidence. Such pending payments intentionally fail
+closed and must be reconciled manually against Mollie before their ledger data
+is repaired; do not bulk-backfill identity fields without provider evidence.
 
 ## Booking flow
 
@@ -228,7 +271,11 @@ Mollie webhooks are not trusted blindly. The backend receives the payment id and
 5. Backend creates EspoCRM `DJBooking`.
 6. Backend creates Mollie payment.
 7. Mollie webhook is verified server-side.
-8. Only when Mollie says `paid`, backend creates CalDAV event.
+8. Only when a fully validated Mollie payment says `paid`, a durable fenced
+   claim creates the deterministic CalDAV event. Concurrent or replayed
+   webhooks cannot issue competing PUTs; ambiguous timeouts, crashes and `412`
+   responses are reconciled by an exact event-URL GET and UID/booking marker
+   verification.
 9. CRM booking is updated to `confirmed`.
 
 ## Admin
@@ -239,7 +286,10 @@ Open:
 https://www.marcsmusic.nl/admin
 ```
 
-Use `ADMIN_TOKEN` in the admin form. Admin can view bookings and cancel a booking. If a booking has a CalDAV event, cancellation deletes that event.
+Use a randomly generated 32–512 byte `ADMIN_TOKEN` in the admin form. Missing or
+weak server configuration keeps `/api/admin/*` unavailable; invalid credentials
+return `401`. Admin can view bookings and cancel a booking. If a booking has a
+CalDAV event, cancellation deletes that event.
 
 ## Railway data storage
 

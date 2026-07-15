@@ -1,0 +1,12 @@
+[
+    {"name": "name", "link": true},
+    {"name": "reportDate"},
+    {"name": "status"},
+    {"name": "newContacts"},
+    {"name": "validatedContacts"},
+    {"name": "matchesCreated"},
+    {"name": "initialEmailsSent"},
+    {"name": "followUpsSent"},
+    {"name": "repliesReceived"},
+    {"name": "failedJobs"}
+]

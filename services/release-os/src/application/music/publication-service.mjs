@@ -5,6 +5,36 @@ import { defaultPlatformRegistry } from "../../domain/music/platform-registry.mj
 const DEFAULT_VISIBILITY = "private";
 
 export async function publishRelease(input, options = {}) {
+  const prepared = preparePublication(input, options);
+  const registry = options.platformRegistry ?? defaultPlatformRegistry;
+  const artist = options.artist;
+  const platformAccounts = options.platformAccounts ?? {};
+  const results = [];
+
+  for (const action of prepared.plan.actions) {
+    try {
+      const adapter = registry.requireAdapter(action.platformId);
+      results.push(
+        await adapter.publish({
+          release: prepared.release,
+          artist,
+          platformAccount: platformAccounts[action.platformId],
+          action,
+          dryRun: prepared.dryRun,
+          env: options.env,
+          fetch: options.fetch,
+          mediaRootDir: options.mediaRootDir
+        })
+      );
+    } catch (error) {
+      results.push(createExecutionFailure(action, prepared.dryRun, error));
+    }
+  }
+
+  return buildPublicationBatch(prepared, results);
+}
+
+export function preparePublication(input, options = {}) {
   if (!input || typeof input !== "object") {
     throw new TypeError("release input is required");
   }
@@ -13,41 +43,20 @@ export async function publishRelease(input, options = {}) {
   const dryRun = normalizeDryRun(input, options);
   const plan = createReleasePlan({ ...input, targetPlatforms }, { observedOnly: false });
   const release = normalizePublicationRelease(input, plan);
-  const registry = options.platformRegistry ?? defaultPlatformRegistry;
-  const artist = options.artist;
-  const platformAccounts = options.platformAccounts ?? {};
-  const results = [];
+  return Object.freeze({ dryRun, plan, release });
+}
 
-  for (const action of plan.actions) {
-    try {
-      const adapter = registry.requireAdapter(action.platformId);
-      results.push(
-        await adapter.publish({
-          release,
-          artist,
-          platformAccount: platformAccounts[action.platformId],
-          action,
-          dryRun,
-          env: options.env,
-          fetch: options.fetch
-        })
-      );
-    } catch (error) {
-      results.push(createExecutionFailure(action, dryRun, error));
-    }
-  }
-
+export function buildPublicationBatch(prepared, results) {
   const summary = summarizeResults(results);
-
   return Object.freeze({
-    releaseId: release.releaseId,
-    title: release.title,
-    artist: release.artist,
-    dryRun,
+    releaseId: prepared.release.releaseId,
+    title: prepared.release.title,
+    artist: prepared.release.artist,
+    dryRun: prepared.dryRun,
     status: createBatchStatus(summary),
-    targetPlatforms: Object.freeze(plan.actions.map((action) => action.platformId)),
+    targetPlatforms: Object.freeze(prepared.plan.actions.map((action) => action.platformId)),
     summary,
-    plan,
+    plan: prepared.plan,
     results: Object.freeze(results)
   });
 }
@@ -88,7 +97,9 @@ function summarizeResults(results) {
     submitted: 0,
     manualTask: 0,
     blocked: 0,
-    failed: 0
+    failed: 0,
+    inProgress: 0,
+    reconciliationRequired: 0
   };
 
   for (const result of results) {
@@ -102,6 +113,10 @@ function summarizeResults(results) {
       summary.blocked += 1;
     } else if (result.status === "failed") {
       summary.failed += 1;
+    } else if (result.status === "in_progress") {
+      summary.inProgress += 1;
+    } else if (result.status === "reconciliation_required") {
+      summary.reconciliationRequired += 1;
     }
   }
 
@@ -109,6 +124,14 @@ function summarizeResults(results) {
 }
 
 function createBatchStatus(summary) {
+  if (summary.reconciliationRequired > 0) {
+    return "reconciliation_required";
+  }
+
+  if (summary.inProgress > 0) {
+    return "in_progress";
+  }
+
   if (summary.failed > 0) {
     return "failed";
   }
@@ -138,9 +161,20 @@ function createExecutionFailure(action, dryRun, error) {
     status: "failed",
     dryRun,
     message: error.message,
+    errorCode: typeof error?.code === "string" ? error.code : "PUBLICATION_EXECUTION_FAILED",
+    retryable: Boolean(error?.retryable),
+    outcomeUncertain: isOutcomeUncertain(error),
     requiredCredentialEnv: action.requiredCredentialEnv,
     requirements: action.requirements
   });
+}
+
+function isOutcomeUncertain(error) {
+  return (
+    error?.outcomeUncertain === true ||
+    error?.code === "PROVIDER_REQUEST_TIMEOUT" ||
+    error?.code === "PROVIDER_REQUEST_FAILED"
+  );
 }
 
 function normalizeTags(value) {

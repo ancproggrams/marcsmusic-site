@@ -1,0 +1,40 @@
+[
+    {
+        "label": "Overview",
+        "rows": [
+            [{"name": "name"}, {"name": "artistName"}],
+            [{"name": "status"}, {"name": "priority"}],
+            [{"name": "releaseDate"}, {"name": "dailySendLimit"}],
+            [{"name": "campaignStartDate"}, {"name": "campaignEndDate"}],
+            [{"name": "description", "fullWidth": true}]
+        ]
+    },
+    {
+        "label": "Targeting",
+        "rows": [
+            [{"name": "genres"}, {"name": "subGenres"}],
+            [{"name": "languages"}, {"name": "territories"}],
+            [{"name": "moods"}, {"name": "bpm"}],
+            [{"name": "instrumental"}, {"name": "explicitLyrics"}]
+        ]
+    },
+    {
+        "label": "Assets",
+        "rows": [
+            [{"name": "spotifyUrl"}, {"name": "websiteUrl"}],
+            [{"name": "epkUrl"}, {"name": "privateStreamUrl"}],
+            [{"name": "downloadUrl"}, {"name": "radioEditUrl"}],
+            [{"name": "artworkUrl"}, {"name": "isrc"}],
+            [{"name": "assignedUser"}, {"name": "teams"}]
+        ]
+    },
+    {
+        "label": "EPK Verification",
+        "rows": [
+            [{"name": "epkAttestationState"}, {"name": "epkVerifiedAt"}],
+            [{"name": "epkManifestSha256"}, {"name": "epkEvidenceReference"}],
+            [{"name": "sourceEvidenceCapturedAt"}, {"name": "sourceEvidenceDigest"}],
+            [{"name": "sourceEvidenceReference", "fullWidth": true}]
+        ]
+    }
+]

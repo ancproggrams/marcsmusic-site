@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
-import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
+import { mkdir } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
+import { readJsonFile, withExclusiveFileMutation, writeJsonAtomically } from "./atomic-json-file.mjs";
 
 const DEFAULT_STORE_FILE = "marcsmusic-release-os.json";
 
@@ -8,43 +9,56 @@ export class JsonStore {
   constructor(options = {}) {
     this.filePath = resolve(options.filePath ?? join(process.cwd(), "data", DEFAULT_STORE_FILE));
     this.initialState = options.initialState ?? {};
-    this.queue = Promise.resolve();
+    this.lockOptions = {
+      lockTimeoutMs: options.lockTimeoutMs ?? process.env.MUSIC_FILE_LOCK_TIMEOUT_MS,
+      lockLeaseMs: options.lockLeaseMs ?? process.env.MUSIC_FILE_LOCK_LEASE_MS
+    };
   }
 
   async read() {
     await mkdir(dirname(this.filePath), { recursive: true });
 
     try {
-      const raw = await readFile(this.filePath, "utf8");
-      return normalizeState(JSON.parse(raw), this.initialState);
+      return normalizeState(await readJsonFile(this.filePath), this.initialState);
     } catch (error) {
       if (error.code !== "ENOENT") {
         throw error;
       }
 
-      const state = normalizeState({}, this.initialState);
-      await this.write(state);
-      return state;
+      return withExclusiveFileMutation(this.filePath, async (lease) => {
+        try {
+          return normalizeState(await readJsonFile(this.filePath), this.initialState);
+        } catch (currentError) {
+          if (currentError.code !== "ENOENT") throw currentError;
+          const state = normalizeState({}, this.initialState);
+          await writeJsonAtomically(this.filePath, state, { assertLease: lease.assertOwned });
+          return state;
+        }
+      }, this.lockOptions);
     }
   }
 
   async write(state) {
-    await mkdir(dirname(this.filePath), { recursive: true });
-    const tmpPath = `${this.filePath}.${process.pid}.tmp`;
-    await writeFile(tmpPath, JSON.stringify(state, null, 2), "utf8");
-    await rename(tmpPath, this.filePath);
+    return withExclusiveFileMutation(
+      this.filePath,
+      (lease) => writeJsonAtomically(this.filePath, state, { assertLease: lease.assertOwned }),
+      this.lockOptions
+    );
   }
 
   async update(work) {
-    const next = this.queue.then(async () => {
-      const state = await this.read();
+    return withExclusiveFileMutation(this.filePath, async (lease) => {
+      let state;
+      try {
+        state = normalizeState(await readJsonFile(this.filePath), this.initialState);
+      } catch (error) {
+        if (error.code !== "ENOENT") throw error;
+        state = normalizeState({}, this.initialState);
+      }
       const result = await work(state);
-      await this.write(state);
+      await writeJsonAtomically(this.filePath, state, { assertLease: lease.assertOwned });
       return result;
-    });
-
-    this.queue = next.catch(() => {});
-    return next;
+    }, this.lockOptions);
   }
 }
 
@@ -53,10 +67,13 @@ export function createDefaultState() {
     artists: [],
     releases: [],
     assets: [],
+    publicationOutbox: [],
     publicationAttempts: [],
     playerEntries: [],
     emailCampaigns: [],
     emailCampaignRecipients: [],
+    outreachSourceOutbox: null,
+    outreachSourceCheckpoint: null,
     audit: []
   };
 }

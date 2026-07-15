@@ -1,0 +1,45 @@
+{
+  "name": "@marcsmusic/outreach-worker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Fail-closed autonomous outreach orchestration for EspoCRM and Mailgun.",
+  "engines": {
+    "node": ">=20.12.0"
+  },
+  "scripts": {
+    "check": "find src tests -name '*.mjs' -print0 | xargs -0 -n1 node --check",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "node --test tests/*.test.mjs",
+    "test:integration": "node --test --test-concurrency=1 tests/*.integration.mjs",
+    "test:load": "node --test tests/load-chaos.integration.mjs",
+    "verify": "npm run check && npm test",
+    "start": "node src/main.mjs",
+    "start:api": "OUTREACH_PROCESS_MODE=api node src/main.mjs",
+    "start:worker": "OUTREACH_PROCESS_MODE=worker node src/main.mjs",
+    "run:reconcile": "node src/jobs/reconcile-once.mjs",
+    "run:reconcile-outcomes": "node src/jobs/reconcile-outcomes-once.mjs",
+    "run:health": "node src/jobs/health-check-once.mjs",
+    "circuit:reset": "node src/jobs/reset-circuit.mjs",
+    "migrate:legacy": "node src/jobs/migrate-legacy-leads.mjs",
+    "migrate:legacy:canary": "node src/jobs/migrate-legacy-canary.mjs",
+    "source:publish": "node src/jobs/publish-source-snapshot.mjs",
+    "epk:verify": "node src/jobs/verify-epk.mjs",
+    "crypto:reencrypt": "node src/jobs/reencrypt-data.mjs",
+    "privacy:retention": "node src/jobs/privacy-retention.mjs",
+    "privacy:index": "node src/jobs/privacy-index-backfill.mjs",
+    "privacy:dsar": "node src/jobs/privacy-dsar.mjs",
+    "privacy:legal-hold": "node src/jobs/privacy-legal-hold.mjs",
+    "db:migrate": "node src/jobs/migrate.mjs"
+  },
+  "dependencies": {
+    "@fastify/formbody": "^8.0.0",
+    "@fastify/multipart": "^9.0.0",
+    "dotenv": "^17.0.0",
+    "fastify": "^5.0.0",
+    "luxon": "^3.0.0",
+    "pg": "^8.0.0",
+    "pino": "^9.0.0",
+    "zod": "^4.0.0"
+  }
+}

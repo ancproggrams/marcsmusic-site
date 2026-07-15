@@ -3,11 +3,34 @@ import { describe, it } from "node:test";
 import { MailgunClient, MailgunClientError } from "../src/infrastructure/mailgun/mailgun-client.mjs";
 
 describe("MailgunClient", () => {
+  for (const value of [undefined, false, "false", "true", "invalid"]) {
+    it(`does not call Mailgun when the legacy send gate is ${String(value)}`, async () => {
+      let calls = 0;
+      const client = new MailgunClient({
+        apiKey: "secret",
+        domain: "mg.example.com",
+        defaultFrom: "MarcsMusic <postmaster@mg.example.com>",
+        legacyOutreachSendEnabled: value,
+        fetch: async () => {
+          calls += 1;
+          return jsonResponse(200, { id: "unexpected", message: "unexpected" });
+        }
+      });
+
+      await assert.rejects(
+        () => client.sendMessage({ to: "fan@example.com", subject: "Blocked", text: "Body" }),
+        (error) => error?.code === "LEGACY_OUTREACH_SEND_DISABLED" && error?.statusCode === 503
+      );
+      assert.equal(calls, 0);
+    });
+  }
+
   it("sends multipart form data to the Mailgun messages endpoint", async () => {
     const requests = [];
     const client = new MailgunClient({
       apiKey: "secret",
       domain: "mg.example.com",
+      legacyOutreachSendEnabled: true,
       baseUrl: "https://api.mailgun.net/",
       defaultFrom: "MarcsMusic <postmaster@mg.example.com>",
       fetch: async (url, request) => {
@@ -47,10 +70,27 @@ describe("MailgunClient", () => {
     assert.equal(requests[0].request.body.get("v:correlation-id"), "corr-123");
   });
 
+  it("keeps the direct client disabled when a production runtime requests the legacy override", async () => {
+    let calls = 0;
+    const client = new MailgunClient({
+      apiKey: "secret",
+      domain: "mg.example.com",
+      legacyOutreachSendEnabled: true,
+      env: { NODE_ENV: "production" },
+      fetch: async () => { calls += 1; return jsonResponse(200, {}); }
+    });
+    await assert.rejects(
+      () => client.sendMessage({ to: "fan@example.com", subject: "Blocked", text: "Body" }),
+      (error) => error?.code === "LEGACY_OUTREACH_SEND_DISABLED"
+    );
+    assert.equal(calls, 0);
+  });
+
   it("rejects messages without a body source", async () => {
     const client = new MailgunClient({
       apiKey: "secret",
       domain: "mg.example.com",
+      legacyOutreachSendEnabled: true,
       defaultFrom: "MarcsMusic <postmaster@mg.example.com>",
       fetch: async () => jsonResponse(200, {})
     });
@@ -70,6 +110,7 @@ describe("MailgunClient", () => {
     const client = new MailgunClient({
       apiKey: "secret",
       domain: "mg.example.com",
+      legacyOutreachSendEnabled: true,
       defaultFrom: "MarcsMusic <postmaster@mg.example.com>",
       retryPolicy: {
         attempts: 3,
@@ -105,6 +146,7 @@ describe("MailgunClient", () => {
     const client = new MailgunClient({
       apiKey: "secret",
       domain: "mg.example.com",
+      legacyOutreachSendEnabled: true,
       defaultFrom: "MarcsMusic <postmaster@mg.example.com>",
       retryPolicy: {
         attempts: 3,
@@ -144,6 +186,7 @@ describe("MailgunClient", () => {
     const client = new MailgunClient({
       apiKey: "secret",
       domain: "mg.example.com",
+      legacyOutreachSendEnabled: true,
       defaultFrom: "MarcsMusic <postmaster@mg.example.com>",
       retryPolicy: {
         attempts: 2,
@@ -184,10 +227,49 @@ describe("MailgunClient", () => {
     assert.deepEqual(delays, [10]);
   });
 
+  it("keeps the deadline active while reading the response body", async () => {
+    const client = new MailgunClient({
+      apiKey: "secret",
+      domain: "mg.example.com",
+      legacyOutreachSendEnabled: true,
+      defaultFrom: "MarcsMusic <postmaster@mg.example.com>",
+      timeoutMs: 25,
+      retryPolicy: { attempts: 1, baseDelayMs: 0, maxDelayMs: 0 },
+      fetch: async () => new Response(new ReadableStream({ start() {} }), {
+        status: 200,
+        headers: { "content-type": "application/json" }
+      })
+    });
+    await assert.rejects(
+      () => client.sendMessage({ to: "fan@example.com", subject: "Timeout", text: "Body" }),
+      (error) => error instanceof MailgunClientError && error.code === "MAILGUN_TIMEOUT"
+    );
+  });
+
+  it("rejects provider responses above the configured byte limit", async () => {
+    const client = new MailgunClient({
+      apiKey: "secret",
+      domain: "mg.example.com",
+      legacyOutreachSendEnabled: true,
+      defaultFrom: "MarcsMusic <postmaster@mg.example.com>",
+      maxResponseBytes: 32,
+      retryPolicy: { attempts: 1, baseDelayMs: 0, maxDelayMs: 0 },
+      fetch: async () => new Response(JSON.stringify({ message: "x".repeat(80) }), {
+        status: 200,
+        headers: { "content-type": "application/json", "content-length": "100" }
+      })
+    });
+    await assert.rejects(
+      () => client.sendMessage({ to: "fan@example.com", subject: "Oversize", text: "Body" }),
+      (error) => error instanceof MailgunClientError && error.code === "MAILGUN_RESPONSE_TOO_LARGE" && error.retryable === false
+    );
+  });
+
   it("rejects unsafe header names", async () => {
     const client = new MailgunClient({
       apiKey: "secret",
       domain: "mg.example.com",
+      legacyOutreachSendEnabled: true,
       defaultFrom: "MarcsMusic <postmaster@mg.example.com>",
       fetch: async () => jsonResponse(200, {})
     });
@@ -210,6 +292,7 @@ describe("MailgunClient", () => {
     const client = new MailgunClient({
       apiKey: "secret",
       domain: "mg.example.com",
+      legacyOutreachSendEnabled: true,
       defaultFrom: "MarcsMusic <postmaster@mg.example.com>",
       fetch: async () => jsonResponse(200, {})
     });

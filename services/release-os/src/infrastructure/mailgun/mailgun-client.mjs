@@ -1,3 +1,8 @@
+import {
+  isProductionRuntime,
+  LegacyOutreachSendDisabledError
+} from "../../domain/legacy-outreach-send-policy.mjs";
+
 const DEFAULT_RETRY_POLICY = Object.freeze({
   attempts: 3,
   baseDelayMs: 250,
@@ -5,6 +10,7 @@ const DEFAULT_RETRY_POLICY = Object.freeze({
 });
 
 const RETRYABLE_STATUS_CODES = new Set([408, 409, 425, 429, 500, 502, 503, 504]);
+const DEFAULT_MAX_RESPONSE_BYTES = 64 * 1024;
 
 export class MailgunClientError extends Error {
   constructor(message, options = {}) {
@@ -29,9 +35,15 @@ export class MailgunClient {
     this.baseUrl = normalizeBaseUrl(options.baseUrl ?? "https://api.mailgun.net");
     this.defaultFrom = optionalString(options.defaultFrom);
     this.timeoutMs = options.timeoutMs ?? 10_000;
+    this.maxResponseBytes = options.maxResponseBytes ?? configuredPositiveInteger(
+      (options.env ?? process.env).MAILGUN_MAX_RESPONSE_BYTES,
+      DEFAULT_MAX_RESPONSE_BYTES
+    );
     this.fetch = options.fetch ?? globalThis.fetch;
     this.sleep = options.sleep ?? sleep;
     this.retryPolicy = normalizeRetryPolicy(options.retryPolicy ?? DEFAULT_RETRY_POLICY);
+    this.legacyOutreachSendEnabled = options.legacyOutreachSendEnabled === true &&
+      !isProductionRuntime(options.env ?? process.env);
 
     if (typeof this.fetch !== "function") {
       throw new TypeError("A fetch implementation is required");
@@ -40,9 +52,15 @@ export class MailgunClient {
     if (!Number.isSafeInteger(this.timeoutMs) || this.timeoutMs <= 0) {
       throw new TypeError("timeoutMs must be a positive integer");
     }
+    if (!Number.isSafeInteger(this.maxResponseBytes) || this.maxResponseBytes <= 0) {
+      throw new TypeError("maxResponseBytes must be a positive integer");
+    }
   }
 
   async sendMessage(message) {
+    if (!this.legacyOutreachSendEnabled) {
+      throw new LegacyOutreachSendDisabledError();
+    }
     const payload = normalizeMessage(message, this.defaultFrom);
     const url = `${this.baseUrl}/v3/${encodeURIComponent(this.domain)}/messages`;
     const response = await this.#requestWithRetry(url, {
@@ -74,38 +92,45 @@ export class MailgunClient {
   }
 
   async #request(url, request) {
-    const response = await this.#fetchWithTimeout(url, {
-      ...request,
-      headers: {
-        Authorization: `Basic ${Buffer.from(`api:${this.apiKey}`).toString("base64")}`,
-        ...(request.headers ?? {})
-      }
-    });
-
-    const body = await readResponseBody(response);
-
-    if (!response.ok) {
-      throw new MailgunClientError(readErrorMessage(body, response.status), {
-        status: response.status,
-        response: body,
-        rateLimitResetMs: readRateLimitResetMs(response.headers),
-        retryable: RETRYABLE_STATUS_CODES.has(response.status)
-      });
-    }
-
-    return body;
-  }
-
-  async #fetchWithTimeout(url, request) {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), this.timeoutMs);
-
-    try {
-      return await this.fetch(url, {
+    let timeout;
+    const operation = (async () => {
+      const response = await this.fetch(url, {
         ...request,
+        headers: {
+          Authorization: `Basic ${Buffer.from(`api:${this.apiKey}`).toString("base64")}`,
+          ...(request.headers ?? {})
+        },
+        redirect: "error",
         signal: controller.signal
       });
+      const body = await readResponseBody(response, this.maxResponseBytes);
+      if (!response.ok) {
+        throw new MailgunClientError(readErrorMessage(body, response.status), {
+          status: response.status,
+          response: body,
+          rateLimitResetMs: readRateLimitResetMs(response.headers),
+          retryable: RETRYABLE_STATUS_CODES.has(response.status)
+        });
+      }
+      return body;
+    })();
+
+    try {
+      return await Promise.race([
+        operation,
+        new Promise((_, reject) => {
+          timeout = setTimeout(() => {
+            controller.abort();
+            reject(new MailgunClientError("Mailgun request timed out", {
+              code: "MAILGUN_TIMEOUT",
+              retryable: true
+            }));
+          }, this.timeoutMs);
+        })
+      ]);
     } catch (error) {
+      if (error instanceof MailgunClientError) throw error;
       if (error?.name === "AbortError") {
         throw new MailgunClientError("Mailgun request timed out", {
           code: "MAILGUN_TIMEOUT",
@@ -274,14 +299,34 @@ function normalizeSendResponse(response) {
   };
 }
 
-async function readResponseBody(response) {
-  const contentType = response.headers?.get?.("content-type") ?? "";
-
-  if (contentType.includes("application/json")) {
-    return response.json();
+async function readResponseBody(response, maximumBytes) {
+  const declared = Number(response.headers?.get?.("content-length"));
+  if (Number.isFinite(declared) && declared > maximumBytes) throw mailgunResponseTooLarge();
+  let bytes;
+  if (response.body?.getReader) {
+    const reader = response.body.getReader();
+    const chunks = [];
+    let total = 0;
+    try {
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        total += value.byteLength;
+        if (total > maximumBytes) {
+          await reader.cancel().catch(() => {});
+          throw mailgunResponseTooLarge();
+        }
+        chunks.push(Buffer.from(value));
+      }
+    } finally {
+      reader.releaseLock?.();
+    }
+    bytes = Buffer.concat(chunks, total);
+  } else {
+    bytes = Buffer.from(await response.text(), "utf8");
+    if (bytes.byteLength > maximumBytes) throw mailgunResponseTooLarge();
   }
-
-  const text = await response.text();
+  const text = bytes.toString("utf8");
 
   if (!text) {
     return {};
@@ -292,6 +337,13 @@ async function readResponseBody(response) {
   } catch {
     return { message: text };
   }
+}
+
+function mailgunResponseTooLarge() {
+  return new MailgunClientError("Mailgun response exceeded the configured byte limit", {
+    code: "MAILGUN_RESPONSE_TOO_LARGE",
+    retryable: false
+  });
 }
 
 function readErrorMessage(body, status) {
@@ -352,6 +404,11 @@ function parsePositiveInteger(value, fieldName) {
   }
 
   return value;
+}
+
+function configuredPositiveInteger(value, fallback) {
+  const number = Number(value);
+  return Number.isSafeInteger(number) && number > 0 ? number : fallback;
 }
 
 function parseNonNegativeInteger(value, fieldName) {

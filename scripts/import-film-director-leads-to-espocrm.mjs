@@ -1,17 +1,33 @@
 #!/usr/bin/env node
 
-import { readFile } from "node:fs/promises";
+import { lstat, readFile } from "node:fs/promises";
 import { resolve } from "node:path";
+import { boundedFetch, boundedInteger, parseBoundedJson } from "../src/booking/bounded-http.mjs";
 
 const DEFAULT_CSV_PATH = "data/film-director-leads-2026-07-06.csv";
+const MAX_CSV_BYTES = 10 * 1024 * 1024;
+const MAX_CSV_ROWS = 10_000;
+const REQUIRED_CSV_HEADERS = [
+  "name", "type_genre", "location", "recent_project", "website", "public_contact",
+  "social", "interest_reason", "opening_line", "lead_temperature"
+];
 
 const args = new Set(process.argv.slice(2));
 const dryRun = args.has("--dry-run");
 const csvPath = process.argv.slice(2).find((arg) => !arg.startsWith("--")) || DEFAULT_CSV_PATH;
 
-const baseUrl = stripTrailingSlash(process.env.ESPOCRM_BASE_URL || "");
+const baseUrl = validateCrmBaseUrl(process.env.ESPOCRM_BASE_URL || "", { required: !dryRun });
 const apiKey = process.env.ESPOCRM_API_KEY || "";
 const entityName = process.env.ESPOCRM_IMPORT_ENTITY || "Contact";
+const crmTimeoutMs = boundedInteger(process.env.CRM_HTTP_TIMEOUT_MS, 5_000, {
+  min: 100,
+  max: 60_000,
+  name: "CRM_HTTP_TIMEOUT_MS"
+});
+
+if (!/^[A-Za-z][A-Za-z0-9_]{0,63}$/u.test(entityName)) {
+  throw new Error("ESPOCRM_IMPORT_ENTITY is invalid.");
+}
 
 if (!baseUrl || !apiKey) {
   if (!dryRun) {
@@ -20,11 +36,16 @@ if (!baseUrl || !apiKey) {
   }
 }
 
-const csv = await readFile(resolve(csvPath), "utf8");
+const resolvedCsvPath = resolve(csvPath);
+const csvDetails = await lstat(resolvedCsvPath);
+if (!csvDetails.isFile() || csvDetails.isSymbolicLink() || csvDetails.size > MAX_CSV_BYTES) {
+  throw new Error("CSV_INPUT_INVALID");
+}
+const csv = await readFile(resolvedCsvPath, "utf8");
 const rows = parseCsv(csv);
 
-if (rows.length === 0) {
-  console.error(`No rows found in ${csvPath}`);
+if (rows.length === 0 || rows.length > MAX_CSV_ROWS) {
+  console.error("CSV must contain between 1 and 10,000 lead records.");
   process.exit(1);
 }
 
@@ -35,8 +56,6 @@ for (const row of rows) {
   const payload = buildContactPayload(row);
 
   if (dryRun) {
-    const displayName = [payload.firstName, payload.lastName].filter(Boolean).join(" ");
-    console.log(`[dry-run] ${displayName}`);
     continue;
   }
 
@@ -53,7 +72,7 @@ for (const row of rows) {
 
 console.log(
   dryRun
-    ? `Validated ${rows.length} film director leads from ${csvPath}.`
+    ? `Validated ${rows.length} film director lead records without emitting personal data.`
     : `Imported ${rows.length} film director leads into EspoCRM ${entityName}: ${created} created, ${updated} updated.`
 );
 
@@ -109,23 +128,25 @@ async function findExistingContact(firstName, lastName) {
 }
 
 async function crmRequest(method, path, body = null) {
-  const response = await fetch(`${baseUrl}/api/v1/${path.replace(/^\/+/, "")}`, {
+  const response = await boundedFetch(new URL(`api/v1/${path.replace(/^\/+/, "")}`, `${baseUrl}/`), {
     method,
     headers: {
       "X-Api-Key": apiKey,
       "content-type": "application/json"
     },
     body: body ? JSON.stringify(body) : null
+  }, {
+    timeoutMs: crmTimeoutMs,
+    maxResponseBytes: 512 * 1024
   });
 
-  const text = await response.text();
-  const payload = text ? JSON.parse(text) : {};
-
   if (!response.ok) {
-    throw new Error(payload.message || payload.error?.message || `EspoCRM request failed (${response.status})`);
+    throw Object.assign(new Error("CRM_IMPORT_REQUEST_REJECTED"), {
+      code: "CRM_IMPORT_REQUEST_REJECTED",
+      retryable: response.status === 429 || response.status >= 500
+    });
   }
-
-  return payload;
+  return parseBoundedJson(response, "CRM_IMPORT_RESPONSE_INVALID_JSON");
 }
 
 function splitName(fullName) {
@@ -195,7 +216,18 @@ function parseCsv(input) {
     records.push(record);
   }
 
+  if (inQuotes) {
+    throw new Error("CSV_QUOTING_INVALID");
+  }
+
   const [headers, ...rows] = records;
+  if (
+    !Array.isArray(headers) ||
+    new Set(headers).size !== headers.length ||
+    REQUIRED_CSV_HEADERS.some((header) => !headers.includes(header))
+  ) {
+    throw new Error("CSV_HEADERS_INVALID");
+  }
 
   return rows.map((row) =>
     Object.fromEntries(headers.map((header, index) => [header, cleanText(row[index] || "", 5000)]))
@@ -212,4 +244,19 @@ function cleanText(value, maxLength) {
 
 function stripTrailingSlash(value) {
   return String(value || "").replace(/\/+$/u, "");
+}
+
+function validateCrmBaseUrl(value, { required }) {
+  if (!value && !required) return "";
+  let url;
+  try {
+    url = new URL(value);
+  } catch {
+    throw new Error("ESPOCRM_BASE_URL is invalid.");
+  }
+  const allowedProtocols = process.env.NODE_ENV === "test" ? new Set(["https:", "http:"]) : new Set(["https:"]);
+  if (!allowedProtocols.has(url.protocol) || url.username || url.password || url.search || url.hash) {
+    throw new Error("ESPOCRM_BASE_URL must be a credential-free HTTPS URL.");
+  }
+  return stripTrailingSlash(url.toString());
 }

@@ -1,0 +1,97 @@
+{
+  "fields": {
+    "musicRelease": {
+      "type": "link",
+      "readOnlyAfterCreate": true,
+      "audited": true
+    },
+    "outreachProjectionKey": {
+      "type": "varchar",
+      "maxLength": 128,
+      "readOnlyAfterCreate": true,
+      "audited": true
+    },
+    "outreachManaged": {
+      "type": "bool",
+      "default": false,
+      "audited": true
+    },
+    "outreachTargetList": {
+      "type": "link",
+      "audited": true
+    },
+    "targetMembershipProjectionState": {
+      "type": "enum",
+      "options": ["Not Evaluated", "Blocked Unsupported", "Review Pending", "Adapter Verified", "Projected", "Drifted", "Failed"],
+      "default": "Not Evaluated",
+      "audited": true,
+      "displayAsLabel": true
+    },
+    "targetMembershipReasonCode": {
+      "type": "varchar",
+      "maxLength": 120,
+      "audited": true
+    },
+    "targetMembershipReviewId": {
+      "type": "varchar",
+      "maxLength": 64,
+      "audited": true
+    },
+    "targetMembershipCheckedAt": {
+      "type": "datetime",
+      "audited": true
+    },
+    "targetMembershipProjectedAt": {
+      "type": "datetime",
+      "audited": true
+    },
+    "targetMembershipCount": {
+      "type": "int",
+      "min": 0,
+      "default": 0,
+      "audited": true
+    }
+  },
+  "links": {
+    "musicRelease": {
+      "type": "belongsTo",
+      "entity": "MusicRelease",
+      "foreign": "campaigns"
+    },
+    "outreachTargetList": {
+      "type": "belongsTo",
+      "entity": "TargetList",
+      "foreign": "outreachCampaign"
+    },
+    "outreachMatches": {
+      "type": "hasMany",
+      "entity": "OutreachMatch",
+      "foreign": "campaign"
+    },
+    "outreachEmails": {
+      "type": "hasMany",
+      "entity": "Email",
+      "foreign": "outreachCampaign"
+    },
+    "outreachEvents": {
+      "type": "hasMany",
+      "entity": "OutreachEvent",
+      "foreign": "campaign"
+    }
+  },
+  "indexes": {
+    "outreachProjectionKey": {
+      "columns": ["outreachProjectionKey"],
+      "unique": true
+    },
+    "musicRelease": {
+      "columns": ["musicReleaseId"],
+      "unique": true
+    },
+    "targetProjectionState": {
+      "columns": ["targetMembershipProjectionState", "modifiedAt", "deleted"]
+    }
+  },
+  "optimisticConcurrencyControl": true,
+  "transactionalSave": true
+}

@@ -1,0 +1,19 @@
+[
+    {
+        "label": "Event",
+        "rows": [
+            [{"name": "name"}, {"name": "eventType"}],
+            [{"name": "outreachMatch"}, {"name": "campaign"}],
+            [{"name": "musicRelease"}, {"name": "mediaContact"}],
+            [{"name": "mediaOutlet"}, {"name": "email"}],
+            [{"name": "eventDate"}, {"name": "correlationId"}],
+            [{"name": "messageId"}, {"name": "providerMessageId"}],
+            [{"name": "externalEventId"}, false],
+            [{"name": "subject"}, {"name": "responseClassification"}],
+            [{"name": "templateVersion"}, {"name": "aiPromptVersion"}],
+            [{"name": "errorCode"}, {"name": "assignedUser"}],
+            [{"name": "details", "fullWidth": true}],
+            [{"name": "teams", "fullWidth": true}]
+        ]
+    }
+]

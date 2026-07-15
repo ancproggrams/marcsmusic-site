@@ -1,0 +1,14 @@
+{
+    "module": "MarcsMusicOutreach",
+    "entity": true,
+    "object": true,
+    "acl": true,
+    "tab": true,
+    "layouts": true,
+    "stream": true,
+    "notifications": true,
+    "importable": true,
+    "customizable": false,
+    "hasPersonalData": false,
+    "lockable": true
+}

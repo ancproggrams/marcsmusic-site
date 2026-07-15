@@ -2,7 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { OutreachAttachmentError, prepareOutreachAttachments } from "@/lib/outreach/attachments";
 import { getMailgunConfig, MailgunConfigurationError, MailgunSendError, sendMailgunOutreachEmail } from "@/lib/outreach/mailgun";
-import { assertHumanApprovedOutreach, assertOutreachRateLimit, assertRecipientAllowed, OutreachPolicyError, requireOutreachMailToken } from "@/lib/outreach/policy";
+import {
+  assertHumanApprovedOutreach,
+  assertLegacyOutreachSendEnabled,
+  assertOutreachRateLimit,
+  assertRecipientAllowed,
+  OutreachPolicyError,
+  requireOutreachMailToken
+} from "@/lib/outreach/policy";
 
 export const runtime = "nodejs";
 
@@ -20,6 +27,9 @@ export async function POST(request: NextRequest) {
   let tokenFingerprint: string;
 
   try {
+    // This historical endpoint bypasses the authoritative EspoCRM/PostgreSQL
+    // workflow. Keep it fail-closed before parsing, attachments, counters or I/O.
+    assertLegacyOutreachSendEnabled();
     tokenFingerprint = requireOutreachMailToken(request.headers);
   } catch (error) {
     if (error instanceof OutreachPolicyError) {

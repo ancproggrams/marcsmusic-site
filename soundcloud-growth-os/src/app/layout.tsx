@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { headers } from "next/headers";
+import { assertAdminPageAuth } from "@/lib/security/adminAuth";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -8,7 +10,9 @@ export const metadata: Metadata = {
   description: "White-hat SoundCloud growth operating system for analytics, releases, comments, metadata, scene research, and experiments."
 };
 
-export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+  assertAdminPageAuth(await headers());
+
   return (
     <html lang="en">
       <body>

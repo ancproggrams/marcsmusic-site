@@ -1,0 +1,275 @@
+{
+  "schemaVersion": 1,
+  "contractId": "marcsmusic-espocrm-railway-v1",
+  "release": {
+    "coreVersion": "10.0.2",
+    "extensionVersion": "1.2.2",
+    "runtimeImage": "marcsmusic/espocrm:10.0.2-outreach-1.2.2",
+    "baseImage": "espocrm/espocrm:10.0.2-apache@sha256:ee13cdbcf52dc032d1e50a9b15d8774d2633c71dce4b2a9d208e3af6fbf40e35",
+    "databaseImage": "mysql:9.4@sha256:135bc87cce147c3d28cecb9ad270b814cb52805af7ddeea83bfcaf157d05a6b2",
+    "allowedCoreSourceVersions": [
+      "10.0.0",
+      "10.0.2"
+    ],
+    "coreUpgradeIncluded": true,
+    "extensionDowngradeAllowed": false,
+    "upgradePath": {
+      "source": "10.0.0",
+      "target": "10.0.2",
+      "requiresBoundRestoreEvidence": true,
+      "rollbackUnit": "database plus data/custom/client-custom plus stable secrets from one recovery point"
+    }
+  },
+  "railway": {
+    "rootDirectory": "deploy/espocrm",
+    "dockerfilePath": "Dockerfile",
+    "replicas": 1,
+    "horizontalScalingPolicy": "forbidden for the singleton-volume topology; redesign external shared state and daemon leadership before changing replica count",
+    "startCommand": null,
+    "imageEntrypoint": [
+      "/usr/local/bin/tini",
+      "-g",
+      "--",
+      "/usr/local/bin/start-railway-espocrm"
+    ],
+    "imageCommand": [
+      "run-railway-espocrm"
+    ],
+    "healthcheck": {
+      "path": "/readyz.php",
+      "timeoutSeconds": 300,
+      "drainingSeconds": 45
+    },
+    "databaseTransport": {
+      "requiredHostnameSuffix": ".railway.internal",
+      "publicDatabaseEndpointAllowed": false,
+      "transportControl": "Railway environment-isolated encrypted private network"
+    }
+  },
+  "persistentVolume": {
+    "mountPath": "/var/www/persistent",
+    "requiredSubdirectories": {
+      "data": "/var/www/html/data",
+      "custom": "/var/www/html/custom",
+      "client-custom": "/var/www/html/client/custom"
+    },
+    "layoutLock": ".marcsmusic-layout.lock",
+    "completionMarker": ".marcsmusic-layout-v1",
+    "acceptedCompletionValues": [
+      "layout-v1:bootstrap",
+      "layout-v1:restored-and-validated"
+    ],
+    "initializationModes": {
+      "fresh": "All three required subdirectories are absent and no restore-pending marker exists.",
+      "restored": "All three required subdirectories exist and no completion marker exists; startup validates the restored application and database before sealing it.",
+      "sealed": "All three required subdirectories and a valid completion marker exist."
+    },
+    "partialLayoutPolicy": "reject",
+    "symbolicLinkPolicy": "reject"
+  },
+  "environment": {
+    "imageProvided": {
+      "ESPOCRM_VERSION": "10.0.2"
+    },
+    "required": [
+      "ESPOCRM_DATABASE_HOST",
+      "ESPOCRM_DATABASE_INSTANCE_ID",
+      "ESPOCRM_DATABASE_NAME",
+      "ESPOCRM_DATABASE_USER",
+      "ESPOCRM_SITE_URL"
+    ],
+    "requiredSecretOneOf": [
+      {
+        "logicalName": "databasePassword",
+        "variables": [
+          "ESPOCRM_DATABASE_PASSWORD",
+          "ESPOCRM_DATABASE_PASSWORD_FILE"
+        ]
+      },
+      {
+        "logicalName": "passwordSalt",
+        "variables": [
+          "ESPOCRM_CONFIG_PASSWORD_SALT",
+          "ESPOCRM_CONFIG_PASSWORD_SALT_FILE"
+        ],
+        "minimumLength": 16
+      },
+      {
+        "logicalName": "cryptKey",
+        "variables": [
+          "ESPOCRM_CONFIG_CRYPT_KEY",
+          "ESPOCRM_CONFIG_CRYPT_KEY_FILE"
+        ],
+        "minimumLength": 32
+      },
+      {
+        "logicalName": "hashSecretKey",
+        "variables": [
+          "ESPOCRM_CONFIG_HASH_SECRET_KEY",
+          "ESPOCRM_CONFIG_HASH_SECRET_KEY_FILE"
+        ],
+        "minimumLength": 32
+      }
+    ],
+    "freshDatabaseOnly": {
+      "ESPOCRM_ADMIN_USERNAME": {
+        "default": "admin",
+        "allowedValues": [
+          "admin"
+        ]
+      },
+      "ESPOCRM_ADMIN_PASSWORD_OR_FILE": {
+        "variables": [
+          "ESPOCRM_ADMIN_PASSWORD",
+          "ESPOCRM_ADMIN_PASSWORD_FILE"
+        ],
+        "minimumLength": 16,
+        "removeAfterSuccessfulBootstrap": true,
+        "requiresRedeployAfterRemoval": true,
+        "pid1EnvironmentBoundary": "A direct Railway environment value is visible to the pinned init process for that deployment. Remove it and redeploy immediately after fresh bootstrap; existing-database deployments must set neither admin password variable."
+      }
+    },
+    "optional": {
+      "ESPOCRM_DATABASE_PLATFORM": {
+        "default": "Mysql",
+        "allowedValues": [
+          "Mysql"
+        ]
+      },
+      "ESPOCRM_DATABASE_PORT": {
+        "default": 3306,
+        "minimum": 1,
+        "maximum": 65535
+      },
+      "ESPOCRM_DATABASE_CONNECT_ATTEMPTS": {
+        "default": 12,
+        "minimum": 1,
+        "maximum": 30
+      },
+      "ESPOCRM_LAYOUT_LOCK_TIMEOUT_SECONDS": {
+        "default": 120,
+        "minimum": 1,
+        "maximum": 600
+      },
+      "ESPOCRM_DEPLOYMENT_LOCK_TIMEOUT_SECONDS": {
+        "default": 600,
+        "minimum": 1,
+        "maximum": 600
+      },
+      "ESPOCRM_EXTENSION_LOCK_TIMEOUT_SECONDS": {
+        "default": 120,
+        "minimum": 1,
+        "maximum": 600
+      },
+      "ESPOCRM_EXPECT_EXTERNAL_DAEMON": {
+        "default": "auto",
+        "allowedValues": [
+          "auto",
+          "true",
+          "false"
+        ]
+      },
+      "ESPOCRM_EXPECT_EXTERNAL_WATCHDOG": {
+        "default": "auto",
+        "allowedValues": [
+          "auto",
+          "true",
+          "false"
+        ]
+      },
+      "ESPOCRM_DAEMON_STOP_TIMEOUT_SECONDS": {
+        "default": 60,
+        "minimum": 1,
+        "maximum": 120
+      },
+      "ESPOCRM_RUNTIME_WATCHDOG_INTERVAL_SECONDS": {
+        "default": 60,
+        "minimum": 30,
+        "maximum": 300
+      },
+      "ESPOCRM_RUNTIME_WATCHDOG_DEADLINE_SECONDS": {
+        "default": 45,
+        "minimum": 15,
+        "maximum": 120
+      },
+      "ESPOCRM_RUNTIME_ATTESTATION_MAX_AGE_SECONDS": {
+        "default": 150,
+        "minimum": 15,
+        "maximum": 900,
+        "constraint": "Must be at least watchdog interval + deadline + 15 seconds."
+      },
+      "ESPOCRM_RUNTIME_PEER_MAX_AGE_SECONDS": {
+        "default": 180,
+        "minimum": 15,
+        "maximum": 900
+      },
+      "ESPOCRM_RECOVERY_MAX_AGE_SECONDS": {
+        "default": 86400,
+        "minimum": 900,
+        "maximum": 604800
+      },
+      "ESPOCRM_RESTORE_REHEARSAL_MAX_AGE_SECONDS": {
+        "default": 2592000,
+        "minimum": 3600,
+        "maximum": 7776000
+      }
+    }
+  },
+  "existingDatabaseMutationGate": {
+    "condition": "Required when the existing database needs an outreach extension install, repair, or upgrade.",
+    "requiredEvidence": [
+      "ESPOCRM_CHANGE_ID",
+      "ESPOCRM_RECOVERY_POINT_ID",
+      "ESPOCRM_RECOVERY_POINT_CREATED_AT",
+      "ESPOCRM_RECOVERY_POINT_DATABASE_SHA256",
+      "ESPOCRM_RECOVERY_POINT_APPLICATION_SHA256",
+      "ESPOCRM_RESTORE_REHEARSAL_ID",
+      "ESPOCRM_RESTORE_REHEARSED_AT",
+      "ESPOCRM_RESTORE_REHEARSAL_EVIDENCE_SHA256",
+      "exactly one of ESPOCRM_RESTORE_REHEARSAL_EVIDENCE_JSON or ESPOCRM_RESTORE_REHEARSAL_EVIDENCE_FILE",
+      "ESPOCRM_RESTORE_REHEARSAL_SOURCE_VERSION"
+    ],
+    "timestampFormat": "RFC3339 without fractional seconds",
+    "digestFormat": "lowercase SHA-256",
+    "evidenceDigestScope": "Canonical JSON (recursively sorted object keys, compact UTF-8, unescaped slashes/unicode) whose identifiers, timestamps, backup digests, source version, passed result, 141-table count, core manifest digest, and restored-config check are bound to the deployment variables.",
+    "evidenceTrustBoundary": "The runtime recomputes and binds the evidence artifact digest. It cannot prove that an external backup exists without an external trust root; Railway configuration access control, retained backup custody, and independent change approval remain required. A principal able to replace both artifact and expected digest is inside this trust boundary.",
+    "applicationRecoveryPointScope": [
+      "/var/www/persistent/data",
+      "/var/www/persistent/custom",
+      "/var/www/persistent/client-custom"
+    ],
+    "acceptedRestoreRehearsalSourceVersions": [
+      "10.0.0",
+      "10.0.2"
+    ]
+  },
+  "rollback": {
+    "codeOnlyRollbackAllowedAfterMutation": false,
+    "requiredAction": "Restore the database and all three persistent application trees from the same recovery point, then redeploy the matching immutable image.",
+    "recoveryUnit": [
+      "database",
+      "data",
+      "custom",
+      "client-custom",
+      "stable EspoCRM secrets"
+    ]
+  },
+  "startupSafety": {
+    "databaseAdvisoryLock": true,
+    "databaseAdvisoryLockIdentity": "ESPOCRM_DATABASE_INSTANCE_ID plus ESPOCRM_DATABASE_NAME; never a resolvable hostname alias",
+    "maintenanceAcknowledgements": [
+      "daemon",
+      "watchdog"
+    ],
+    "railwayVolumePeerPolicy": "An attached Railway volume is singleton-mounted; stale peer attestations are ignored during bootstrap and the in-container supervisor starts daemon/watchdog only after commit.",
+    "runtimeUsers": {
+      "webBootstrap": "root then Apache-managed identity",
+      "daemon": "www-data",
+      "watchdog": "www-data"
+    },
+    "runtimeCapabilities": "none for daemon and watchdog",
+    "failClosedOnInterruptedVolumeCopy": true,
+    "failClosedOnMissingOriginalConfiguration": true,
+    "failClosedOnSchemaFingerprintMismatch": true
+  }
+}

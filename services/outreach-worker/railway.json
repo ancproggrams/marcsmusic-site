@@ -1,0 +1,18 @@
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "builder": "RAILPACK",
+    "watchPatterns": [
+      "services/outreach-worker/**"
+    ]
+  },
+  "deploy": {
+    "startCommand": "npm start",
+    "preDeployCommand": "npm run db:migrate",
+    "healthcheckPath": "/readyz",
+    "healthcheckTimeout": 60,
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10,
+    "drainingSeconds": 30
+  }
+}

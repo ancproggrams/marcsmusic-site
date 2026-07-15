@@ -1,0 +1,256 @@
+{
+    "fields": {
+        "name": {
+            "type": "varchar",
+            "required": true,
+            "maxLength": 180,
+            "pattern": "$noBadCharacters"
+        },
+        "musicRelease": {
+            "type": "link",
+            "required": true,
+            "audited": true,
+            "readOnlyAfterCreate": true
+        },
+        "mediaContact": {
+            "type": "link",
+            "required": true,
+            "audited": true,
+            "isPersonalData": true,
+            "readOnlyAfterCreate": true
+        },
+        "mediaOutlet": {
+            "type": "link",
+            "required": true,
+            "audited": true,
+            "readOnlyAfterCreate": true
+        },
+        "campaign": {
+            "type": "link",
+            "audited": true
+        },
+        "matchScore": {
+            "type": "int",
+            "default": 0,
+            "min": -100,
+            "max": 100,
+            "required": true,
+            "audited": true
+        },
+        "matchReasons": {
+            "type": "text",
+            "audited": true,
+            "isPersonalData": true
+        },
+        "eligibilityStatus": {
+            "type": "enum",
+            "options": ["Eligible", "Waitlist", "Skipped", "Blocked"],
+            "default": "Skipped",
+            "displayAsLabel": true,
+            "required": true,
+            "audited": true
+        },
+        "campaignStatus": {
+            "type": "enum",
+            "options": ["New", "Active", "Eligible", "Ready", "Waitlist", "Skipped", "Blocked", "Sent 1", "Follow-Up 1", "Follow-Up 2", "Completed", "Replied", "Rejected", "Unsubscribed", "Stopped", "Placement Confirmed", "Needs Attention", "Paused", "Interested", "Warm", "Future Releases", "Failed"],
+            "default": "New",
+            "style": {
+                "New": "info",
+                "Active": "primary",
+                "Eligible": "primary",
+                "Ready": "primary",
+                "Waitlist": "warning",
+                "Skipped": "info",
+                "Blocked": "danger",
+                "Sent 1": "success",
+                "Follow-Up 1": "success",
+                "Follow-Up 2": "success",
+                "Completed": "success",
+                "Replied": "success",
+                "Rejected": "danger",
+                "Unsubscribed": "danger",
+                "Stopped": "danger",
+                "Placement Confirmed": "success",
+                "Needs Attention": "warning",
+                "Paused": "warning",
+                "Interested": "success",
+                "Warm": "success",
+                "Future Releases": "success",
+                "Failed": "danger"
+            },
+            "displayAsLabel": true,
+            "labelType": "state",
+            "required": true,
+            "audited": true
+        },
+        "currentSequenceStep": {
+            "type": "int",
+            "default": 0,
+            "min": 0,
+            "max": 2,
+            "required": true,
+            "audited": true
+        },
+        "nextActionAt": {
+            "type": "datetime",
+            "audited": true
+        },
+        "lastSentAt": {
+            "type": "datetime",
+            "audited": true
+        },
+        "cooldownUntil": {
+            "type": "datetime",
+            "audited": true
+        },
+        "lastProviderMessageId": {
+            "type": "varchar",
+            "maxLength": 255,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "replyStatus": {
+            "type": "enum",
+            "options": ["None", "Interested", "Send MP3/WAV", "Send Clean Version", "Placement Confirmed", "Will Consider", "Not Suitable", "Not Accepting Music", "Wrong Person", "Unsubscribe", "Out Of Office", "Future Releases", "Ambiguous"],
+            "default": "None",
+            "displayAsLabel": true,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "stopReason": {
+            "type": "text",
+            "audited": true,
+            "isPersonalData": true
+        },
+        "idempotencyKey": {
+            "type": "varchar",
+            "maxLength": 128,
+            "required": true,
+            "readOnlyAfterCreate": true
+        },
+        "activeSequence": {
+            "type": "bool",
+            "default": false,
+            "required": true,
+            "audited": true
+        },
+        "assignedUser": {
+            "type": "link",
+            "view": "views/fields/assigned-user",
+            "audited": true
+        },
+        "teams": {
+            "type": "linkMultiple",
+            "view": "views/fields/teams",
+            "audited": true
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "createdBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "modifiedBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        }
+    },
+    "links": {
+        "musicRelease": {
+            "type": "belongsTo",
+            "entity": "MusicRelease",
+            "foreign": "outreachMatches"
+        },
+        "mediaContact": {
+            "type": "belongsTo",
+            "entity": "MediaContact",
+            "foreign": "outreachMatches"
+        },
+        "mediaOutlet": {
+            "type": "belongsTo",
+            "entity": "MediaOutlet",
+            "foreign": "outreachMatches"
+        },
+        "campaign": {
+            "type": "belongsTo",
+            "entity": "Campaign",
+            "foreign": "outreachMatches"
+        },
+        "outreachEvents": {
+            "type": "hasMany",
+            "entity": "OutreachEvent",
+            "foreign": "outreachMatch"
+        },
+        "emails": {
+            "type": "hasMany",
+            "entity": "Email",
+            "foreign": "outreachMatch"
+        },
+        "opportunities": {
+            "type": "hasMany",
+            "entity": "Opportunity",
+            "foreign": "outreachMatch"
+        },
+        "assignedUser": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "teams": {
+            "type": "hasMany",
+            "entity": "Team",
+            "relationName": "entityTeam",
+            "layoutRelationshipsDisabled": true
+        },
+        "createdBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "modifiedBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        }
+    },
+    "indexes": {
+        "idempotencyKey": {
+            "columns": ["idempotencyKey"],
+            "unique": true
+        },
+        "statusNextAction": {
+            "columns": ["campaignStatus", "nextActionAt", "deleted"]
+        },
+        "contactCampaignStatus": {
+            "columns": ["mediaContactId", "campaignStatus", "deleted"]
+        },
+        "outletLastSent": {
+            "columns": ["mediaOutletId", "lastSentAt", "deleted"]
+        },
+        "releaseEligibility": {
+            "columns": ["musicReleaseId", "eligibilityStatus", "deleted"]
+        },
+        "campaignStatus": {
+            "columns": ["campaignId", "campaignStatus", "deleted"]
+        },
+        "modifiedAtCursor": {
+            "columns": ["modifiedAt", "id"]
+        },
+        "createdAtCursor": {
+            "columns": ["createdAt", "id"]
+        }
+    },
+    "collection": {
+        "textFilterFields": ["name", "stopReason", "idempotencyKey", "lastProviderMessageId"],
+        "orderBy": "nextActionAt",
+        "order": "asc"
+    },
+    "optimisticConcurrencyControl": true,
+    "transactionalSave": true,
+    "entityClassName": "Espo\\Modules\\MarcsMusicOutreach\\Entities\\OutreachMatch"
+}

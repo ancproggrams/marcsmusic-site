@@ -1,0 +1,32 @@
+{
+    "fields": {
+        "name": "Event",
+        "outreachMatch": "Outreach Match",
+        "musicRelease": "Music Release",
+        "mediaContact": "Media Contact",
+        "mediaOutlet": "Media Outlet",
+        "campaign": "Campaign",
+        "email": "Email",
+        "eventType": "Event Type",
+        "eventDate": "Event Date",
+        "messageId": "Message ID",
+        "providerMessageId": "Provider Message ID",
+        "externalEventId": "External Event ID",
+        "correlationId": "Correlation ID",
+        "subject": "Subject",
+        "templateVersion": "Template Version",
+        "aiPromptVersion": "AI Prompt Version",
+        "responseClassification": "Response Classification",
+        "errorCode": "Error Code",
+        "details": "Details"
+    },
+    "links": {
+        "outreachMatch": "Outreach Match",
+        "campaign": "Campaign",
+        "email": "Email",
+        "opportunities": "Opportunities"
+    },
+    "labels": {
+        "Create OutreachEvent": "Create Outreach Event"
+    }
+}

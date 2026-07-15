@@ -1,0 +1,13 @@
+{
+  "fields": {
+    "outreachProjectionKey": "Outreach Projection Key",
+    "outreachManaged": "Outreach Managed",
+    "musicRelease": "Music Release",
+    "outreachCampaign": "Outreach Campaign",
+    "eligibilityPolicyVersion": "Eligibility Policy Version",
+    "membershipProjectedAt": "Membership Projected At"
+  },
+  "links": {
+    "mediaContacts": "Eligible Media Contacts"
+  }
+}

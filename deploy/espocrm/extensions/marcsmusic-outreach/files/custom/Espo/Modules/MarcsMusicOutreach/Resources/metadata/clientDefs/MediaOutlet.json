@@ -1,0 +1,12 @@
+{
+    "controller": "controllers/record",
+    "relationshipPanels": {
+        "mediaContacts": {},
+        "outreachMatches": {"create": false},
+        "suppressionEntries": {"create": false}
+    },
+    "filterList": [{"name": "recentlyCreated"}],
+    "boolFilterList": ["onlyMy"],
+    "color": "#0f8b8d",
+    "iconClass": "fas fa-broadcast-tower"
+}

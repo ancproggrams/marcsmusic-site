@@ -1,0 +1,229 @@
+{
+    "fields": {
+        "name": {
+            "type": "varchar",
+            "required": true,
+            "maxLength": 180,
+            "pattern": "$noBadCharacters"
+        },
+        "outreachMatch": {
+            "type": "link",
+            "readOnlyAfterCreate": true,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "mediaContact": {
+            "type": "link",
+            "readOnlyAfterCreate": true,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "musicRelease": {
+            "type": "link",
+            "readOnlyAfterCreate": true,
+            "audited": true
+        },
+        "mediaOutlet": {
+            "type": "link",
+            "readOnlyAfterCreate": true,
+            "audited": true
+        },
+        "campaign": {
+            "type": "link",
+            "readOnlyAfterCreate": true,
+            "audited": true
+        },
+        "email": {
+            "type": "link",
+            "readOnlyAfterCreate": true,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "eventType": {
+            "type": "enum",
+            "options": ["Discovered", "Validated", "Matched", "Queued", "Sent", "Delivered", "Opened", "Clicked", "Replied", "Soft Bounced", "Hard Bounced", "Opted Out", "Spam Complaint", "Unauthorized Recipient Confirmed", "Skipped", "Failed", "Delivery Unknown"],
+            "displayAsLabel": true,
+            "required": true,
+            "audited": true
+        },
+        "eventDate": {
+            "type": "datetime",
+            "required": true,
+            "audited": true
+        },
+        "messageId": {
+            "type": "varchar",
+            "maxLength": 255,
+            "isPersonalData": true
+        },
+        "providerMessageId": {
+            "type": "varchar",
+            "maxLength": 255,
+            "isPersonalData": true
+        },
+        "externalEventId": {
+            "type": "varchar",
+            "maxLength": 255,
+            "readOnlyAfterCreate": true
+        },
+        "correlationId": {
+            "type": "varchar",
+            "maxLength": 128
+        },
+        "subject": {
+            "type": "varchar",
+            "maxLength": 255,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "templateVersion": {
+            "type": "varchar",
+            "maxLength": 80,
+            "audited": true
+        },
+        "aiPromptVersion": {
+            "type": "varchar",
+            "maxLength": 80,
+            "audited": true
+        },
+        "responseClassification": {
+            "type": "enum",
+            "options": ["None", "Interested", "Send MP3/WAV", "Send Clean Version", "Placement Confirmed", "Will Consider", "Not Suitable", "Not Accepting Music", "Wrong Person", "Unsubscribe", "Out Of Office", "Future Releases", "Ambiguous"],
+            "default": "None",
+            "displayAsLabel": true,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "errorCode": {
+            "type": "varchar",
+            "maxLength": 120,
+            "audited": true
+        },
+        "details": {
+            "type": "text",
+            "audited": true,
+            "isPersonalData": true
+        },
+        "assignedUser": {
+            "type": "link",
+            "view": "views/fields/assigned-user",
+            "audited": true
+        },
+        "teams": {
+            "type": "linkMultiple",
+            "view": "views/fields/teams",
+            "audited": true
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "createdBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "modifiedBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        }
+    },
+    "links": {
+        "outreachMatch": {
+            "type": "belongsTo",
+            "entity": "OutreachMatch",
+            "foreign": "outreachEvents"
+        },
+        "mediaContact": {
+            "type": "belongsTo",
+            "entity": "MediaContact",
+            "foreign": "outreachEvents"
+        },
+        "musicRelease": {
+            "type": "belongsTo",
+            "entity": "MusicRelease"
+        },
+        "mediaOutlet": {
+            "type": "belongsTo",
+            "entity": "MediaOutlet"
+        },
+        "campaign": {
+            "type": "belongsTo",
+            "entity": "Campaign",
+            "foreign": "outreachEvents"
+        },
+        "email": {
+            "type": "belongsTo",
+            "entity": "Email",
+            "foreign": "outreachEvents"
+        },
+        "opportunities": {
+            "type": "hasMany",
+            "entity": "Opportunity",
+            "foreign": "sourceOutreachEvent"
+        },
+        "latestInterestOpportunities": {
+            "type": "hasMany",
+            "entity": "Opportunity",
+            "foreign": "latestOutreachEvent"
+        },
+        "assignedUser": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "teams": {
+            "type": "hasMany",
+            "entity": "Team",
+            "relationName": "entityTeam",
+            "layoutRelationshipsDisabled": true
+        },
+        "createdBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "modifiedBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        }
+    },
+    "indexes": {
+        "externalEventId": {
+            "columns": ["externalEventId"],
+            "unique": true
+        },
+        "providerMessage": {
+            "columns": ["providerMessageId", "deleted"]
+        },
+        "matchEventDate": {
+            "columns": ["outreachMatchId", "eventDate", "deleted"]
+        },
+        "contactEventDate": {
+            "columns": ["mediaContactId", "eventDate", "deleted"]
+        },
+        "typeEventDate": {
+            "columns": ["eventType", "eventDate", "deleted"]
+        },
+        "correlationId": {
+            "columns": ["correlationId", "deleted"]
+        },
+        "emailEventDate": {
+            "columns": ["emailId", "eventDate", "deleted"]
+        },
+        "campaignEventDate": {
+            "columns": ["campaignId", "eventDate", "deleted"]
+        }
+    },
+    "collection": {
+        "textFilterFields": ["name", "messageId", "providerMessageId", "externalEventId", "correlationId", "subject", "errorCode"],
+        "orderBy": "eventDate",
+        "order": "desc"
+    },
+    "optimisticConcurrencyControl": true,
+    "transactionalSave": true,
+    "entityClassName": "Espo\\Modules\\MarcsMusicOutreach\\Entities\\OutreachEvent"
+}

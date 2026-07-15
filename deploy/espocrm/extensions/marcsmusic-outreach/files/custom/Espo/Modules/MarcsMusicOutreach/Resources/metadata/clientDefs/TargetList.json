@@ -1,0 +1,11 @@
+{
+  "relationshipPanels": {
+    "mediaContacts": {
+      "actionList": [],
+      "rowActionsView": "crm:views/target-list/record/row-actions/default",
+      "view": "crm:views/target-list/record/panels/relationship",
+      "removeDisabled": true,
+      "massSelect": false
+    }
+  }
+}

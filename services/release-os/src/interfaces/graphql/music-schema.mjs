@@ -101,6 +101,8 @@ const schema = buildSchema(`
     manualTask: Int!
     blocked: Int!
     failed: Int!
+    inProgress: Int!
+    reconciliationRequired: Int!
   }
 
   type PublicationRequest {
@@ -151,6 +153,10 @@ const schema = buildSchema(`
     message: String!
     externalId: String
     externalUrl: String
+    errorCode: String
+    retryable: Boolean
+    outcomeUncertain: Boolean
+    reconciled: Boolean
     requiredCredentialEnv: [String!]!
     requirements: [String!]!
     request: PublicationRequest
@@ -198,10 +204,12 @@ const rootValue = Object.freeze({
       throw new Error("Real music publication requires a valid x-music-api-token header.");
     }
 
-    return executePublication(input, {
+    const publicationExecutor = context.publicationService?.publish ?? executePublication;
+    return publicationExecutor(input, {
       dryRun,
       env: context.env,
-      fetch: context.fetch
+      fetch: context.fetch,
+      mediaRootDir: context.mediaRootDir
     });
   }
 });

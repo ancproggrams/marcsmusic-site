@@ -1,0 +1,15 @@
+{
+  "fields": {
+    "outreachProjectionKey": "Outreach Projection Key",
+    "outreachCorrelationId": "Outreach Correlation ID",
+    "outreachProviderMessageId": "Provider Message ID",
+    "outreachDeterministicMessageId": "Deterministic Message ID",
+    "outreachAcceptedAt": "Provider Accepted At",
+    "outreachAutomaticResponse": "Automatic Response",
+    "outreachMatch": "Outreach Match",
+    "outreachCampaign": "Outreach Campaign",
+    "musicRelease": "Music Release",
+    "mediaContact": "Media Contact",
+    "mediaOutlet": "Media Outlet"
+  }
+}

@@ -1,6 +1,8 @@
-import type { PrismaClient, Track } from "@prisma/client";
+import type { PrismaClient, SoundCloudToken, Track } from "@prisma/client";
 import { SoundCloudClient } from "../soundcloud/client";
 import { refreshAccessToken } from "../soundcloud/oauth";
+import { withSoundCloudRefreshLease } from "../soundcloud/refreshLease";
+import { decryptSoundCloudTokenRow, encryptSoundCloudTokenPair, type PlaintextSoundCloudToken } from "../soundcloud/tokenStore";
 import type { SoundCloudTrack } from "../soundcloud/types";
 import { engagementRate, roundScore } from "./scoring";
 
@@ -46,34 +48,138 @@ function getTrackMetrics(track: SoundCloudTrack) {
   };
 }
 
-async function getFreshToken(prisma: PrismaClient) {
-  const token = await prisma.soundCloudToken.findFirst({
-    orderBy: { updatedAt: "desc" }
+function tokenVersionChanged(previous: SoundCloudToken, current: SoundCloudToken) {
+  return (
+    previous.revision !== current.revision ||
+    previous.updatedAt.getTime() !== current.updatedAt.getTime() ||
+    previous.accessToken !== current.accessToken ||
+    previous.refreshToken !== current.refreshToken
+  );
+}
+
+function tokenIsFresh(token: SoundCloudToken, now: number) {
+  return token.expiresAt.getTime() > now + 60 * 1_000;
+}
+
+export async function getFreshToken(
+  prisma: PrismaClient,
+  options: {
+    now?: () => number;
+    refresh?: typeof refreshAccessToken;
+    env?: Record<string, string | undefined>;
+  } = {}
+): Promise<PlaintextSoundCloudToken> {
+  const now = options.now ?? Date.now;
+  const refresh = options.refresh ?? refreshAccessToken;
+  const env = options.env ?? process.env;
+  const candidate = await prisma.soundCloudToken.findFirst({
+    orderBy: { updatedAt: "desc" },
+    select: { id: true, artistId: true }
   });
 
-  if (!token) {
+  if (!candidate) {
     throw new SoundCloudConnectionRequiredError();
   }
 
-  const refreshSkewMs = 60 * 1000;
-  if (token.expiresAt.getTime() > Date.now() + refreshSkewMs) {
-    return token;
-  }
+  return withSoundCloudRefreshLease(prisma, candidate.artistId, async (transaction) => {
+    // This reread is deliberately inside the cross-replica lease. No token is
+    // decrypted and no provider I/O starts from the stale pre-lock snapshot.
+    const token = await transaction.soundCloudToken.findUnique({ where: { id: candidate.id } });
+    if (!token) throw new SoundCloudConnectionRequiredError();
 
-  if (!token.refreshToken) {
-    throw new SoundCloudConnectionRequiredError("SoundCloud token expired. Reconnect SoundCloud.");
-  }
+    const decrypted = decryptSoundCloudTokenRow(token, env);
+    const currentTime = now();
+    if (tokenIsFresh(token, currentTime)) return decrypted;
 
-  const refreshed = await refreshAccessToken(token.refreshToken);
-  return prisma.soundCloudToken.update({
-    where: { id: token.id },
-    data: {
-      accessToken: refreshed.access_token,
-      refreshToken: refreshed.refresh_token ?? token.refreshToken,
-      expiresAt: new Date(Date.now() + refreshed.expires_in * 1000),
-      scope: refreshed.scope ?? token.scope
+    if (!decrypted.refreshToken) {
+      throw new SoundCloudConnectionRequiredError("SoundCloud token expired. Reconnect SoundCloud.");
     }
-  });
+
+    let refreshed;
+    try {
+      refreshed = await refresh(decrypted.refreshToken);
+    } catch (error) {
+      const current = await transaction.soundCloudToken.findUnique({ where: { id: token.id } });
+      if (current && tokenVersionChanged(token, current) && tokenIsFresh(current, now())) {
+        return decryptSoundCloudTokenRow(current, env);
+      }
+      throw error;
+    }
+
+    const nextRefreshToken = refreshed.refresh_token ?? decrypted.refreshToken;
+    const encrypted = encryptSoundCloudTokenPair(token.artistId, refreshed.access_token, nextRefreshToken, env);
+    const expiresAt = new Date(now() + refreshed.expires_in * 1_000);
+    const update = await transaction.soundCloudToken.updateMany({
+      where: {
+        id: token.id,
+        revision: token.revision,
+        updatedAt: token.updatedAt,
+        accessToken: token.accessToken,
+        refreshToken: token.refreshToken
+      },
+      data: {
+        ...encrypted,
+        expiresAt,
+        scope: refreshed.scope ?? token.scope,
+        revision: { increment: 1 }
+      }
+    });
+
+    if (update.count === 1) {
+      const persisted = await transaction.soundCloudToken.findUnique({ where: { id: token.id } });
+      if (!persisted) throw new SoundCloudConnectionRequiredError();
+      return decryptSoundCloudTokenRow(persisted, env);
+    }
+
+    // The revision and encrypted row values form the fencing condition. A
+    // non-participating writer can win, but this lease holder cannot overwrite
+    // that newer credential after provider I/O.
+    const winner: SoundCloudToken | null = await transaction.soundCloudToken.findUnique({ where: { id: token.id } });
+    if (winner && tokenVersionChanged(token, winner) && tokenIsFresh(winner, now())) {
+      return decryptSoundCloudTokenRow(winner, env);
+    }
+    if (winner && tokenVersionChanged(token, winner)) {
+      const winnerPlaintext = decryptSoundCloudTokenRow(winner, env);
+      const keyRotationOnly =
+        winnerPlaintext.accessToken === decrypted.accessToken &&
+        winnerPlaintext.refreshToken === decrypted.refreshToken &&
+        winner.expiresAt.getTime() === token.expiresAt.getTime() &&
+        winner.scope === token.scope;
+
+      if (keyRotationOnly) {
+        // A key-rotation worker may have re-encrypted the same credential while
+        // the provider request was in flight. Re-fence and persist the already
+        // obtained provider response without making a second refresh call.
+        const rotatedEncryption = encryptSoundCloudTokenPair(
+          winner.artistId,
+          refreshed.access_token,
+          nextRefreshToken,
+          env
+        );
+        const rotationAwareUpdate = await transaction.soundCloudToken.updateMany({
+          where: {
+            id: winner.id,
+            revision: winner.revision,
+            updatedAt: winner.updatedAt,
+            accessToken: winner.accessToken,
+            refreshToken: winner.refreshToken
+          },
+          data: {
+            ...rotatedEncryption,
+            expiresAt,
+            scope: refreshed.scope ?? winner.scope,
+            revision: { increment: 1 }
+          }
+        });
+        if (rotationAwareUpdate.count === 1) {
+          const persisted = await transaction.soundCloudToken.findUnique({ where: { id: winner.id } });
+          if (!persisted) throw new SoundCloudConnectionRequiredError();
+          return decryptSoundCloudTokenRow(persisted, env);
+        }
+      }
+    }
+    throw new SoundCloudConnectionRequiredError("SoundCloud credential refresh conflicted. Retry the operation.");
+  }, env);
 }
 
 async function upsertTrackFromSoundCloud(prisma: PrismaClient, artistId: string, track: SoundCloudTrack): Promise<Track> {

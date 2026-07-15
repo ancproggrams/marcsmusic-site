@@ -1,0 +1,13 @@
+[
+    {"name": "name", "link": true},
+    {"name": "showName"},
+    {"name": "emailAddress"},
+    {"name": "mediaOutlet"},
+    {"name": "role"},
+    {"name": "status"},
+    {"name": "contactPurpose"},
+    {"name": "emailValidationStatus"},
+    {"name": "doNotContact"},
+    {"name": "lastValidatedAt"},
+    {"name": "duplicateOf"}
+]

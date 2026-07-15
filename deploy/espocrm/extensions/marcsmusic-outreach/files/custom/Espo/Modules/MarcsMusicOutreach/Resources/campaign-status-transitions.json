@@ -1,0 +1,27 @@
+{
+  "createStates": ["New", "Eligible", "Waitlist", "Skipped", "Blocked", "Completed", "Replied", "Rejected", "Unsubscribed", "Stopped", "Placement Confirmed", "Needs Attention", "Interested", "Warm", "Future Releases", "Failed"],
+  "transitions": {
+    "New": ["Eligible", "Waitlist", "Skipped", "Blocked", "Ready"],
+    "Active": ["Eligible", "Ready", "Stopped", "Unsubscribed", "Failed"],
+    "Eligible": ["Ready", "Waitlist", "Skipped", "Blocked", "Stopped", "Failed"],
+    "Waitlist": ["Eligible", "Skipped", "Blocked", "Stopped", "Failed"],
+    "Skipped": ["Eligible", "Waitlist", "Blocked", "Stopped", "Failed"],
+    "Blocked": ["Eligible", "Waitlist", "Skipped", "Stopped", "Failed"],
+    "Ready": ["Sent 1", "Completed", "Stopped", "Unsubscribed", "Failed"],
+    "Sent 1": ["Follow-Up 1", "Completed", "Replied", "Rejected", "Unsubscribed", "Stopped", "Placement Confirmed", "Needs Attention", "Paused", "Interested", "Warm", "Future Releases", "Failed"],
+    "Follow-Up 1": ["Follow-Up 2", "Completed", "Replied", "Rejected", "Unsubscribed", "Stopped", "Placement Confirmed", "Needs Attention", "Paused", "Interested", "Warm", "Future Releases", "Failed"],
+    "Follow-Up 2": ["Completed", "Replied", "Rejected", "Unsubscribed", "Stopped", "Placement Confirmed", "Needs Attention", "Paused", "Interested", "Warm", "Future Releases", "Failed"],
+    "Paused": ["Sent 1", "Follow-Up 1", "Follow-Up 2", "Completed", "Replied", "Rejected", "Unsubscribed", "Stopped", "Placement Confirmed", "Needs Attention", "Interested", "Warm", "Future Releases", "Failed"],
+    "Completed": ["Replied", "Rejected", "Unsubscribed", "Stopped", "Placement Confirmed", "Needs Attention", "Interested", "Warm", "Future Releases"],
+    "Replied": ["Rejected", "Unsubscribed", "Stopped", "Placement Confirmed", "Needs Attention", "Interested", "Warm", "Future Releases"],
+    "Rejected": ["Unsubscribed", "Stopped", "Placement Confirmed", "Needs Attention", "Interested", "Warm", "Future Releases"],
+    "Interested": ["Rejected", "Unsubscribed", "Stopped", "Placement Confirmed", "Needs Attention", "Warm", "Future Releases"],
+    "Warm": ["Rejected", "Unsubscribed", "Stopped", "Placement Confirmed", "Needs Attention", "Interested", "Future Releases"],
+    "Future Releases": ["Rejected", "Unsubscribed", "Stopped", "Placement Confirmed", "Needs Attention", "Interested", "Warm"],
+    "Placement Confirmed": ["Unsubscribed", "Stopped", "Needs Attention"],
+    "Needs Attention": ["Rejected", "Unsubscribed", "Stopped", "Placement Confirmed", "Interested", "Warm", "Future Releases", "Failed"],
+    "Stopped": ["Unsubscribed", "Placement Confirmed", "Needs Attention", "Interested", "Warm", "Future Releases"],
+    "Failed": ["Unsubscribed", "Stopped", "Needs Attention"],
+    "Unsubscribed": []
+  }
+}

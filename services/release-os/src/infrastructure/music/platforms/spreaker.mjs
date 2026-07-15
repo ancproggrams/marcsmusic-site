@@ -13,7 +13,7 @@ const capability = getPlatformCapability("spreaker");
 
 export const spreakerAdapter = Object.freeze({
   capability,
-  async publish({ release, artist, platformAccount, action, dryRun, env = process.env, fetch }) {
+  async publish({ release, artist, platformAccount, action, dryRun, env = process.env, fetch, mediaRootDir }) {
     const request = {
       method: "POST",
       url: "https://api.spreaker.com/v2/shows/${SPREAKER_SHOW_ID}/episodes",
@@ -52,7 +52,13 @@ export const spreakerAdapter = Object.freeze({
       return missingCredentialResult(action, dryRun, "SPREAKER_SHOW_ID");
     }
 
-    const audioFile = await createMediaFile(release.audioSource, { fieldName: "audioSource" });
+    const audioFile = await createMediaFile(release.audioSource, {
+      fieldName: "audioSource",
+      rootDir: mediaRootDir,
+      env,
+      fetch,
+      requiredContentTypePrefix: "audio/"
+    });
     const form = new FormData();
     form.append("media_file", audioFile.blob, audioFile.filename);
     form.append("title", release.title);
@@ -65,7 +71,9 @@ export const spreakerAdapter = Object.freeze({
         headers: {
           Authorization: `Bearer ${accessToken}`
         },
-        body: form
+        body: form,
+        timeoutMs: env.MUSIC_PROVIDER_TIMEOUT_MS,
+        maxResponseBytes: env.MUSIC_PROVIDER_MAX_RESPONSE_BYTES
       }
     );
 
@@ -89,4 +97,3 @@ export const spreakerAdapter = Object.freeze({
 function artistCredentialName(artist, suffix) {
   return artist?.slug ? `ARTIST_${artist.slug.toUpperCase().replace(/[^A-Z0-9]+/gu, "_")}_${suffix}` : suffix;
 }
-

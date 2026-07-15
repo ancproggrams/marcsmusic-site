@@ -1,0 +1,34 @@
+{
+    "fields": {
+        "name": "Outlet",
+        "type": "Type",
+        "website": "Website",
+        "normalizedDomain": "Normalized Domain",
+        "fingerprint": "Identity Fingerprint",
+        "country": "Country",
+        "language": "Language",
+        "timezone": "Timezone",
+        "genres": "Genres",
+        "subGenres": "Subgenres",
+        "formatGenres": "Format Genres",
+        "submissionPolicy": "Submission Policy",
+        "submissionUrl": "Submission URL",
+        "submissionEvidence": "Submission Evidence",
+        "acceptsEmail": "Accepts Email",
+        "acceptsForms": "Accepts Forms",
+        "acceptsUnreleased": "Accepts Unreleased Music",
+        "activityStatus": "Activity Status",
+        "lastValidatedAt": "Last Validated At",
+        "sourceUrl": "Source URL",
+        "qualityScore": "Quality Score",
+        "description": "Description"
+    },
+    "links": {
+        "mediaContacts": "Media Contacts",
+        "outreachMatches": "Outreach Matches",
+        "suppressionEntries": "Suppression Entries"
+    },
+    "labels": {
+        "Create MediaOutlet": "Create Media Outlet"
+    }
+}
