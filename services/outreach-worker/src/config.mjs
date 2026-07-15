@@ -25,6 +25,15 @@ const positiveInteger = (fallback) =>
 const boundedRate = (fallback) =>
   z.coerce.number().min(0).max(1).default(fallback);
 
+function currentBusinessDate() {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Europe/Amsterdam",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).format(new Date());
+}
+
 const schema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
   PORT: z.coerce.number().int().min(1).max(65_535).default(8080),
@@ -61,6 +70,7 @@ const schema = z.object({
     .or(z.literal("")),
   OUTREACH_KILL_SWITCH: booleanString("true"),
   OUTREACH_SEND_ENABLED: booleanString(),
+  OUTREACH_NEW_CONTACTS_ONLY_FROM: z.string().regex(/^\d{4}-\d{2}-\d{2}$/u).default(currentBusinessDate()),
   OUTREACH_PUBLIC_BASE_URL: z.string().url(),
   OUTREACH_DAILY_SEND_LIMIT: positiveInteger(40),
   OUTREACH_DOMAIN_DAILY_LIMIT: positiveInteger(2),
@@ -253,6 +263,12 @@ export function loadConfig(env = process.env) {
     throw new ConfigurationError([{
       path: ["MAILGUN_INBOUND_ROUTE_EVIDENCE"],
       message: "Configured inbound-route evidence is required before sending can be enabled"
+    }]);
+  }
+  if (parsed.data.OUTREACH_SEND_ENABLED && !parsed.data.OUTREACH_NEW_CONTACTS_ONLY_FROM) {
+    throw new ConfigurationError([{
+      path: ["OUTREACH_NEW_CONTACTS_ONLY_FROM"],
+      message: "A new-contact start date is required before sending can be enabled"
     }]);
   }
   if (parsed.data.OUTREACH_SEND_ENABLED && !parsed.data.EMAIL_VALIDATION_PROVIDER_ENABLED) {
@@ -451,6 +467,7 @@ export function loadConfig(env = process.env) {
     safety: Object.freeze({
       killSwitch: parsed.data.OUTREACH_KILL_SWITCH,
       sendEnabled: parsed.data.OUTREACH_SEND_ENABLED,
+      newContactsOnlyFrom: parsed.data.OUTREACH_NEW_CONTACTS_ONLY_FROM,
       dailySendLimit: parsed.data.OUTREACH_DAILY_SEND_LIMIT,
       domainDailyLimit: parsed.data.OUTREACH_DOMAIN_DAILY_LIMIT,
       automaticResponseDailyLimit: parsed.data.OUTREACH_AUTOMATIC_RESPONSE_DAILY_LIMIT,

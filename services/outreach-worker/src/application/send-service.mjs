@@ -158,6 +158,16 @@ export function createSendService({ espocrm, repository, contactIntakeRepository
     const release = normalizeRelease(releaseRaw);
     const contact = normalizeContact({ ...contactRaw, evidenceAttestation: contactEvidenceAttestation });
     const outlet = normalizeOutlet({ ...outletRaw, evidenceAttestation: outletEvidenceAttestation });
+    if (config.safety.newContactsOnlyFrom) {
+      const createdAt = contact.createdAt ?? item.created_at;
+      const createdDate = createdAt ? businessDate(new Date(createdAt)) : "";
+      if (!createdDate || createdDate < config.safety.newContactsOnlyFrom) {
+        throw Object.assign(new Error("Only contacts discovered on or after the configured activation date may be sent"), {
+          code: "CONTACT_DISCOVERED_BEFORE_ACTIVATION_DATE",
+          retryable: false
+        });
+      }
+    }
     assertAuthorizationIdentityUnchanged(authorizationIdentity, contact, outlet);
     if (isTerminalCampaignStatus(matchRaw.campaignStatus)) {
       await repository.cancelClaimedSend(item.id, "terminal_match_state");
