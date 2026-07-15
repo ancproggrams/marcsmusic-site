@@ -2,7 +2,7 @@
 
 Date: 2026-07-15
 
-Latest run: Run 383
+Latest run: Run 384
 
 New items added: 1
 
@@ -10,22 +10,22 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1701
+Pipeline estimate: 1702
 
 Items:
 
-- WONY 90.9FM at SUNY Oneonta — official Music Director route explicitly authorizes music submissions for airplay; protected or non-plaintext destination queued for manual review
+- Insanity Radio 103.2FM, Egham — official Head of Music route invites local or up-and-coming artists seeking exposure; queued for an asset-free process inquiry and manual review
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-WONY note: The official Music Department page identifies Jesse Woodhouse as Music Director and expressly directs artists to contact Jesse to submit music for airplay. The contact destination is exposed through a protected or non-plaintext link and was not decoded, guessed or stored. A human must use the official link, confirm current delivery requirements and complete any submission manually.
+Insanity Radio note: The official Production Board page identifies Eoin Moffatt as Head of Music, explains that the role curates the station playlist and invites local or up-and-coming artists seeking exposure to make contact. Because no complete audio-delivery workflow is published, the first contact must contain no audio attachment or private track link and may only ask for the current submission procedure.
 
-Contact-verification note: WONY’s official Contact page publishes `wonygm@gmail.com` as a general station mailbox. It was verified through plaintext first-party publication, valid syntax and stated general purpose, but excluded as a music-submission substitute because the station provides a dedicated Music Director route. The station postal address was not interpreted as authorization for physical delivery. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: The official page publishes `music@insanityradio` and explicitly instructs readers to append `.com` to all `@insanityradio` contacts. This yields `music@insanityradio.com` without guessing. The address has valid syntax, official-domain alignment and a purpose-specific Head of Music context. The separately published named-recipient mailbox was consolidated rather than queued as a second route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: The official site exposes live listening and currently playing, identifies the 2025–2026 Executive Board, states that more than two dozen DJs host live shows each week and describes Music Department review of new albums for possible playlist addition. Selected independent electronic, alternative, hip-hop-adjacent and global-fusion MarcsMusic releases have plausible college-radio fit, subject to current editorial requirements.
+Activity and fit note: The official homepage and player displayed an operational ON AIR state, the schedule and current Production Board were accessible, and the playlist page says the Music Team meets weekly to compile the playlist. Selected clean MarcsMusic electronic, alternative, bass, hip-hop-adjacent and crossover releases have plausible fit, subject to current editorial and international-eligibility requirements.
 
-Manual-review note: The official pages do not publish attachment-versus-link rules, accepted formats, metadata, release timing, international eligibility, explicit-content handling or AI-origin policy. These requirements, the current named recipient and asset permissions must be confirmed before outreach.
+Manual-review note: The official pages do not publish attachment-versus-link rules, accepted formats, metadata, release timing, international eligibility, explicit-content handling or AI-origin policy. A human must send only an asset-free inquiry, wait for authorization, confirm the current role holder and requirements, and permission-check the selected release before supplying assets.
 
-Deduplication note: The complete open pull-request patch was searched for WONY, WONY 90.9FM, the canonical domain, Music Department path and named Music Director. No prior music-submission-agent record was found. The Music Director route is stored once; the general mailbox and postal address are excluded.
+Deduplication note: The complete open pull-request patch was searched for Insanity Radio, Insanity Radio 103.2FM, the canonical domain, Production Board path and Head of Music role mailbox. No prior music-submission-agent record was found. The role mailbox is stored once; the named recipient, general contact, other board contacts and postal address are excluded.
 
-Safety: No email, form field, audio file, attachment, stream or download link, biography, metadata, personal information, physical package, login, CAPTCHA, consent or payment was entered or submitted. No protected contact was decoded or guessed, and no anti-bot, authentication, platform or payment restriction was bypassed.
+Safety: No email, form field, audio file, attachment, stream or download link, biography, metadata, personal information, physical package, login, CAPTCHA, consent or payment was entered or submitted. No mailbox pattern was guessed, and no anti-bot, authentication, platform or payment restriction was bypassed.
