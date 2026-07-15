@@ -1,0 +1,80 @@
+{
+  "run": 384,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1701,
+  "pipelineEstimate": 1702,
+  "newPlatforms": [
+    {
+      "name": "Insanity Radio 103.2FM Head of Music Exposure Inquiry Route",
+      "websiteUrl": "https://insanityradio.com/",
+      "submissionUrl": "https://insanityradio.com/about/board/",
+      "sourceUrl": "https://insanityradio.com/about/board/",
+      "sourceType": "automation_run_384_public_research",
+      "country": "United Kingdom / Egham, Surrey student and community radio",
+      "language": "en",
+      "genres": [
+        "student-radio",
+        "community-radio",
+        "new-music",
+        "up-and-coming-artists",
+        "electronic",
+        "alternative",
+        "hip-hop",
+        "bass",
+        "playlist-consideration",
+        "head-of-music",
+        "manual-review"
+      ],
+      "submissionMethod": "official-public-head-of-music-exposure-pre-submission-inquiry-email",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party Head of Music role email for artists seeking exposure",
+        "namedRecipient": "Eoin Moffatt, Head of Music",
+        "explicitPurpose": "contact from local or up-and-coming artists seeking exposure, and from PR or labels seeking artist interviews",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Send only a concise asset-free inquiry to the published Head of Music role mailbox asking for the current airplay or review submission procedure. Do not attach audio or include private track links until Insanity Radio confirms an authorized delivery method.",
+        "audioDeliveryAuthorized": false,
+        "physicalDeliveryAuthorized": false
+      },
+      "businessContact": {
+        "email": "music@insanityradio.com",
+        "emailStatus": "verified first-party Head of Music role mailbox, published through an explicit anti-spam domain-completion instruction",
+        "namedRecipientEmailExcludedAsDuplicate": "eoin.moffatt@insanityradio.com",
+        "verification": "The official Production Board page publishes `music@insanityradio` for the Head of Music and explicitly instructs readers to append `.com` to every `@insanityradio` contact. This yields music@insanityradio.com without guessing a pattern. The address has valid syntax, matches the official domain and is purpose-specific. The named recipient address was not queued separately. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-15",
+        "evidence": "The official website presented a live ON AIR state, an operational schedule and player, a current Production Board, and a Music Team that meets weekly to compile the station playlist."
+      },
+      "genreFitEvidence": [
+        "The Head of Music curates and updates the station playlists and leads the Music Team.",
+        "The official page invites local or up-and-coming artists seeking exposure to contact the Head of Music.",
+        "Selected clean MarcsMusic electronic, alternative, bass, hip-hop-adjacent and crossover releases have plausible fit, subject to the station's current editorial criteria."
+      ],
+      "manualReviewReason": "Insanity Radio publicly invites local or up-and-coming artists seeking exposure to contact its Head of Music, but it does not publish authorization to send audio immediately or state attachment-versus-link rules, formats, file sizes, metadata, release windows, international eligibility, clean or explicit-content requirements, AI-origin policy or response expectations. A human must confirm that Eoin Moffatt or the current role holder still manages the mailbox, send only an asset-free process inquiry, wait for explicit delivery instructions, permission-check the selected release and avoid duplicate outreach to the named-recipient address.",
+      "priority": 95,
+      "pricingModel": "free-first-head-of-music-inquiry/manual-delivery-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Insanity Radio",
+      "Insanity Radio 103.2FM",
+      "insanityradio.com",
+      "music@insanityradio.com",
+      "insanityradio.com/about/board"
+    ],
+    "repositoryEvidence": "The complete open pull-request patch was searched separately for the station name, frequency, canonical domain, Production Board path and Head of Music role mailbox. No previous music-submission-agent platform or queue record was found.",
+    "consolidation": "The Head of Music role mailbox is stored as the single canonical route. The named Head of Music mailbox, general contact route, other board contacts and postal address are excluded as parallel submission methods."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first Head of Music exposure inquiry route was queued as needs_manual_review. No audio-delivery method was inferred and no outbound action was taken."
+}
