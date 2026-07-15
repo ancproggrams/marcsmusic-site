@@ -1,0 +1,77 @@
+{
+  "run": 386,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1703,
+  "pipelineEstimate": 1704,
+  "newPlatforms": [
+    {
+      "name": "University Radio York Music Team Airplay Process Inquiry Route",
+      "websiteUrl": "https://ury.org.uk/",
+      "submissionUrl": "mailto:music@ury.org.uk",
+      "sourceUrl": "https://ury.org.uk/contact/",
+      "sourceType": "automation_run_386_public_research",
+      "country": "United Kingdom / York student-run university radio",
+      "language": "en",
+      "genres": [
+        "student-radio",
+        "university-radio",
+        "independent-music",
+        "new-music",
+        "specialist-music",
+        "live-sessions",
+        "music-team",
+        "airplay-inquiry",
+        "manual-review"
+      ],
+      "submissionMethod": "official-public-music-team-airplay-pre-submission-inquiry-email",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party Music Team business email for an asset-free airplay-process inquiry",
+        "namedRecipient": "University Radio York Music Team",
+        "explicitPurpose": "musicians and up-and-coming bands seeking airtime",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Send only a concise asset-free inquiry asking for URY’s current airplay or music-submission procedure. Do not attach audio or include private track links until the Music Team confirms an authorized delivery method.",
+        "audioDeliveryAuthorized": false,
+        "physicalDeliveryAuthorized": false
+      },
+      "businessContact": {
+        "email": "music@ury.org.uk",
+        "emailStatus": "verified first-party Music Team contact published in plaintext on University Radio York’s official Contact page",
+        "verification": "The official Contact page publishes music@ury.org.uk under Music Team and explicitly invites musicians and up-and-coming bands seeking airtime to contact the team. The address has valid syntax, uses the official ury.org.uk domain and has a clear music and airplay purpose. It is not classified as authorization to send audio assets because no delivery specification is published. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-15",
+        "evidence": "URY’s official homepage lists Open Days broadcasts on June 20-21, 2026 and podcasts through June 30, 2026. Its About page states that it broadcasts 24 hours a day during term time on FM and digital radio in York and worldwide online."
+      },
+      "genreFitEvidence": [
+        "URY describes its output as a mixture of different genres and tailor-made shows.",
+        "The official Music Team description covers specialist genre shows, music journalism, live sessions by local and touring musicians and a large vinyl collection.",
+        "Selected clean MarcsMusic electronic, bass, reggae-adjacent, world-fusion and crossover releases have plausible specialist-show or airplay fit, subject to URY’s unpublished current eligibility and delivery requirements."
+      ],
+      "manualReviewReason": "University Radio York’s official Contact page publishes music@ury.org.uk for its Music Team and explicitly invites musicians or up-and-coming bands seeking airtime to contact the team. The page does not publish attachment-versus-link rules, accepted formats, file-size limits, metadata or EPK requirements, release windows, international eligibility, clean or explicit-content rules, AI-origin policy, response times or physical-delivery instructions. A human must re-open the current page, send only a concise asset-free process inquiry, wait for explicit delivery instructions, permission-check the selected release and avoid parallel outreach to management, programme, newsroom, production or general contacts.",
+      "priority": 94,
+      "pricingModel": "free-first-music-team-airplay-inquiry/manual-delivery-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "University Radio York",
+      "URY",
+      "ury.org.uk",
+      "music@ury.org.uk",
+      "ury.org.uk/contact"
+    ],
+    "repositoryEvidence": "The complete open pull-request patch was searched for University Radio York, the URY name, the canonical domain and the purpose-specific Music Team mailbox. No previous music-submission-agent platform or queue record was found.",
+    "consolidation": "The purpose-bound Music Team mailbox is stored as one inquiry route. Management, Programme Controller, Newsroom, Production Team, general office and postal contacts are excluded as parallel submission methods."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first Music Team airplay-process inquiry route was queued as needs_manual_review. No audio-delivery or physical-delivery method was inferred and no outbound action was taken."
+}
