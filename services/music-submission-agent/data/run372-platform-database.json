@@ -1,0 +1,136 @@
+{
+  "run": 372,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1708,
+  "pipelineEstimate": 1710,
+  "newPlatforms": [
+    {
+      "platform": "Local 107.3 FM / CFMH",
+      "canonicalName": "Local 107.3 FM CFMH Digital Music Submission Route",
+      "websiteUrl": "https://localfm.ca/",
+      "submissionUrl": "https://localfm.ca/contact/",
+      "country": "Canada",
+      "category": "campus and community radio airplay consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Send digital music submissions directly to manager@cfmh.ca under the official Contact-page instruction"
+      ],
+      "eligibility": {
+        "digitalSubmissionsAccepted": true,
+        "acceptedFormats": "not publicly specified",
+        "attachmentOrDownloadLinkRules": "not publicly specified",
+        "minimumTrackCount": "not publicly specified",
+        "metadataRequirements": "not publicly specified",
+        "releaseWindow": "not publicly specified",
+        "internationalEligibility": "not expressly confirmed",
+        "explicitContentPolicy": "not publicly specified",
+        "aiOriginPolicy": "not publicly specified"
+      },
+      "businessContact": {
+        "type": "verified_public_official_domain_station_manager_submission_mailbox",
+        "name": "Brandon Logan / Station Manager",
+        "email": "manager@cfmh.ca",
+        "verification": "Local 107.3 FM's official Contact page names Brandon Logan as Station Manager and directly states that digital music submissions may be sent to manager@cfmh.ca. Verification covered first-party publication, valid syntax, cfmh.ca domain alignment and explicit digital-music-submission purpose. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "emailRouteObserved": true,
+        "physicalStationAddressObserved": true,
+        "physicalMusicSubmissionAuthorized": false
+      },
+      "activityVerification": "Local 107.3 FM's official homepage remains active with a live-listening link, a current schedule link, an Earth Day post dated April 21, 2026 and a 25th-anniversary broadcasting post dated January 12, 2026.",
+      "genreFit": [
+        "independent",
+        "alternative",
+        "electronic",
+        "electronica",
+        "experimental",
+        "ambient",
+        "dub",
+        "reggae",
+        "hip-hop",
+        "global-music"
+      ],
+      "manualReviewReason": "A human must recheck Local 107.3 FM's current requirements, confirm international eligibility and any file, link, metadata, release-age, explicit-content or AI-origin rules, select a suitable MarcsMusic release, send manually only to manager@cfmh.ca, avoid assuming that the general postal address is an authorized physical-music route, and stop if a login, CAPTCHA, mandatory payment, consent request or updated restriction appears."
+    },
+    {
+      "platform": "Radio Western 94.9 FM / CHRW",
+      "canonicalName": "Radio Western 94.9 FM Dedicated Music Submission Email Route",
+      "websiteUrl": "https://radiowestern.ca/",
+      "submissionUrl": "https://radiowestern.ca/",
+      "country": "Canada",
+      "category": "campus and community radio airplay consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Send new music submissions and promotion to music@radiowestern.ca as directed by the official temporary station page"
+      ],
+      "eligibility": {
+        "digitalSubmissionsAccepted": true,
+        "acceptedFormats": "not currently available because the main site is offline",
+        "attachmentOrDownloadLinkRules": "not currently available because the main site is offline",
+        "minimumTrackCount": "not currently available because the main site is offline",
+        "metadataRequirements": "not currently available because the main site is offline",
+        "releaseWindow": "not currently available because the main site is offline",
+        "internationalEligibility": "not expressly confirmed",
+        "explicitContentPolicy": "not currently available because the main site is offline",
+        "aiOriginPolicy": "not currently available because the main site is offline"
+      },
+      "businessContact": {
+        "type": "verified_public_official_domain_dedicated_music_submission_mailbox",
+        "name": "Radio Western Music Department",
+        "email": "music@radiowestern.ca",
+        "verification": "Radio Western's official temporary status page explicitly publishes music@radiowestern.ca for new music submissions and promotion and expressly excludes the general someone@radiowestern.ca address from that purpose. Verification covered first-party publication, valid syntax, radiowestern.ca domain alignment and explicit music-submission purpose. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "emailRouteObserved": true,
+        "temporaryServiceOutageObserved": true,
+        "generalMailboxExcluded": true
+      },
+      "activityVerification": "Radio Western's official temporary page reports a web-server hardware failure while stating that the station stream remains available through radio applications and Apple Music and that programme archives continue to be created. This confirms continuing station operations while the complete website is unavailable.",
+      "genreFit": [
+        "independent",
+        "alternative",
+        "electronic",
+        "electronica",
+        "experimental",
+        "ambient",
+        "dub",
+        "reggae",
+        "hip-hop",
+        "global-music"
+      ],
+      "manualReviewReason": "A human must recheck whether Radio Western's full website and guidelines have returned, confirm current formats, attachment or download-link rules, metadata, release timing, international eligibility, explicit-content and AI-origin policies, use only music@radiowestern.ca rather than the excluded general mailbox, send manually, and stop if a login, CAPTCHA, mandatory payment, consent request or updated restriction appears."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "Local 107.3 FM",
+      "CFMH",
+      "localfm.ca",
+      "localfm.ca/contact",
+      "manager@cfmh.ca",
+      "Radio Western",
+      "CHRW",
+      "radiowestern.ca",
+      "music@radiowestern.ca"
+    ],
+    "result": "Repository code search and the complete open pull-request patch were checked for Local 107.3 FM, CFMH, localfm.ca, manager@cfmh.ca, Radio Western, CHRW, radiowestern.ca and music@radiowestern.ca. No prior canonical music-submission-agent record or previous use of either dedicated submission mailbox was found. Each station is stored once. Local 107.3 FM's general postal address remains adjacent information rather than an inferred physical music-submission route. Radio Western's general someone@radiowestern.ca address is explicitly excluded by the station and was not queued as a duplicate or substitute."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Both opportunities are publicly authorized and free-first but remain needs_manual_review because detailed delivery rules and international eligibility are not expressly confirmed. Local 107.3 FM publishes an official-domain Station Manager mailbox specifically for digital music submissions. Radio Western publishes an official-domain dedicated music mailbox on its temporary outage page and expressly excludes its general address. No email, form, file, link, attachment, login, CAPTCHA, payment or consent was submitted or bypassed."
+}
