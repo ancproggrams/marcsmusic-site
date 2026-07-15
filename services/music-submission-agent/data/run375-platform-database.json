@@ -1,0 +1,141 @@
+{
+  "run": 375,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1694,
+  "pipelineEstimate": 1696,
+  "newPlatforms": [
+    {
+      "platform": "RadioActive.FM 88.6",
+      "canonicalName": "RadioActive.FM 88.6 Music Submission Email and Postal Route",
+      "websiteUrl": "https://www.radioactive.fm/",
+      "submissionUrl": "https://www.radioactive.fm/contact/",
+      "country": "New Zealand",
+      "category": "independent community radio airplay consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Email the dedicated Music Submissions mailbox at music@radioactive.fm",
+        "Use the station-authorized postal music route at the published Wellington address"
+      ],
+      "eligibility": {
+        "digitalSubmissionsAccepted": true,
+        "acceptedReleaseTypes": "not publicly specified",
+        "acceptedFormats": "not publicly specified",
+        "attachmentOrDownloadLinkRules": "not publicly specified",
+        "metadataRequirements": "not publicly specified",
+        "releaseWindow": "not publicly specified",
+        "internationalEligibility": "not expressly confirmed",
+        "physicalSubmissionsAccepted": true,
+        "physicalCopyRequirements": "not publicly specified",
+        "explicitContentPolicy": "not publicly specified",
+        "aiOriginPolicy": "not publicly specified"
+      },
+      "businessContact": {
+        "type": "verified_public_official_domain_music_submission_mailbox",
+        "name": "RadioActive.FM Music Submissions",
+        "email": "music@radioactive.fm",
+        "verification": "RadioActive.FM's official Contact page publishes the mailbox under Music Submissions. Verification covered first-party publication, valid syntax, official radioactive.fm domain alignment and explicit submission purpose. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "emailRouteObserved": true,
+        "physicalMusicSubmissionAuthorized": true
+      },
+      "activityVerification": "The official site carried current interviews, guest mixes, reviews and programming dated through July 13, 2026, including July 8 and July 2 items, and exposes a current weekly schedule. The station states that it has more than 100 volunteer DJs and a wide specialist-music remit.",
+      "genreFit": [
+        "alternative",
+        "independent",
+        "electronic",
+        "electronica",
+        "house",
+        "techno",
+        "bass-music",
+        "dubstep",
+        "drum-and-bass",
+        "dub",
+        "reggae",
+        "hip-hop",
+        "global-music"
+      ],
+      "manualReviewReason": "A human must recheck the current submission instruction, confirm international eligibility and all release, file, link, metadata, release-age, physical-copy, explicit-content and AI-origin rules, verify that the selected MarcsMusic release has not already been submitted, choose one authorized delivery route, send manually only to music@radioactive.fm or the published postal route, and stop if a login, CAPTCHA, mandatory payment, consent request or updated restriction appears."
+    },
+    {
+      "platform": "Radio Control 99.4FM",
+      "canonicalName": "Radio Control 99.4FM Music Submission Email and Snail-Mail Route",
+      "websiteUrl": "https://www.radiocontrol.org.nz/",
+      "submissionUrl": "https://www.radiocontrol.org.nz/contact",
+      "country": "New Zealand",
+      "category": "student radio airplay consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Email the dedicated Music Submissions mailbox at music@radiocontrol.org.nz",
+        "Use the station-authorized snail-mail route at the published Palmerston North address"
+      ],
+      "eligibility": {
+        "digitalSubmissionsAccepted": true,
+        "acceptedReleaseTypes": "not publicly specified",
+        "acceptedFormats": "not publicly specified",
+        "attachmentOrDownloadLinkRules": "not publicly specified",
+        "metadataRequirements": "not publicly specified",
+        "releaseWindow": "not publicly specified",
+        "internationalEligibility": "not expressly confirmed for submissions",
+        "physicalSubmissionsAccepted": true,
+        "physicalCopyRequirements": "not publicly specified",
+        "explicitContentPolicy": "not publicly specified",
+        "aiOriginPolicy": "not publicly specified"
+      },
+      "businessContact": {
+        "type": "verified_public_official_domain_music_submission_mailbox",
+        "name": "Radio Control Music Submissions",
+        "email": "music@radiocontrol.org.nz",
+        "verification": "Radio Control's official Contact page publishes the mailbox under Music Submissions. Verification covered first-party publication, valid syntax, official radiocontrol.org.nz domain alignment and explicit submission purpose. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "emailRouteObserved": true,
+        "physicalMusicSubmissionAuthorized": true
+      },
+      "activityVerification": "Radio Control's official homepage states that the station broadcasts 24/7 and streams worldwide. It documents 2026 programming, including 100% NZ Music Week from May 25 through May 31, weekly charts, live sessions and current alternative music from Aotearoa and abroad.",
+      "genreFit": [
+        "alternative",
+        "independent",
+        "electronic",
+        "electronica",
+        "experimental",
+        "ambient",
+        "bass-music",
+        "dub",
+        "reggae",
+        "hip-hop",
+        "global-music"
+      ],
+      "manualReviewReason": "A human must recheck the current submission instruction, confirm overseas eligibility and all release, track-count, file, link, metadata, release-age, physical-copy, explicit-content and AI-origin rules, verify that the selected MarcsMusic release has not already been submitted, choose one authorized delivery route, send manually only to music@radiocontrol.org.nz or the published snail-mail route, and stop if a login, CAPTCHA, mandatory payment, consent request or updated restriction appears."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "RadioActive.FM",
+      "radioactive.fm",
+      "music@radioactive.fm",
+      "Radio Control 99.4FM",
+      "radiocontrol.org.nz",
+      "music@radiocontrol.org.nz"
+    ],
+    "result": "Repository code search and the complete open pull-request patch were checked for both station names, domains, official contact paths and dedicated music-submission mailboxes. No previous canonical music-submission-agent record or earlier use of either mailbox was found. Each station is stored once. General staff, bookings, advertising, programme and office contacts were excluded as submission substitutes, and each station's email and physical delivery methods were consolidated into one opportunity."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Both opportunities are publicly authorized and free-first but remain needs_manual_review because detailed delivery requirements and international eligibility are not expressly confirmed. No email, form, file, link, physical package, login, CAPTCHA, payment or consent was submitted or bypassed."
+}
