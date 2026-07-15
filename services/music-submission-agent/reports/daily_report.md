@@ -2,28 +2,28 @@
 
 Date: 2026-07-15
 
-Latest run: Run 373
+Latest run: Run 374
 
-New items added: 1
+New items added: 0
 
-Existing items materially corrected or enriched: 0
+Existing items materially corrected or enriched: 1
 
-Duplicate items removed: 0
+Duplicate opportunity counts retired: 17
 
-Pipeline estimate: 1711
+Pipeline estimate: 1694
 
 Items:
 
-- CIUT 89.5 FM — official-domain new-music mailbox explicitly authorized for music submissions
+- KEXP — canonical Music Director rotation-consideration route retained and freshly reverified
 
-One new queue row was created and marked `needs_manual_review`. No auto-submit candidate was created.
+No new queue row was created. The existing canonical KEXP route remains `needs_manual_review`; no auto-submit candidate was created.
 
-Deduplication note: Repository code search and the complete open pull-request patch were checked for CIUT, CIUT 89.5 FM, `ciut.fm`, the official Contact page and `newmusic@ciut.fm`. No prior canonical record or previous use of the mailbox was found. CIUT is stored once. Its general postal address was not inferred to authorize physical music submissions.
+Deduplication note: The complete open pull-request patch contained eighteen KEXP entries describing the same `kexp.org` organization, `md@kexp.org` Music Department destination and streaming/WAV-link rotation-consideration workflow. Run 39 remains canonical. Duplicate counts from Runs 51, 68, 78, 94, 110, 126, 143, 159, 176, 192, 210, 228, 248, 291, 313, 334 and 353 were retired, reducing the pipeline estimate by seventeen. The duplicate KEXP seed records and queue rows in Runs 51, 68 and 78 were removed from the currently imported runtime seed surface.
 
-Manual-review note: CIUT expressly accepts music submissions through `newmusic@ciut.fm`, but does not publish current release-type, file, link, metadata, release-window, international, explicit-content or AI-origin requirements. A human must recheck the route, select suitable MarcsMusic material, confirm all current requirements and send manually.
+Manual-review note: KEXP requires a streaming link, downloadable WAV link, release metadata, focus tracks, clean/FCC review, lyrics, credits and a bio or one-sheet. Audio attachments and physical submissions are not accepted. A human must select the release, verify rights and production origin, check for a prior submission and email `md@kexp.org` manually.
 
-Contact-verification note: The address is published on CIUT's first-party official Contact page, has valid syntax, aligns with the official `ciut.fm` domain and is explicitly purpose-bound to music submissions. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
+Contact-verification note: `md@kexp.org` is published on KEXP's first-party Contact and Submission Guidelines pages, has valid syntax, aligns with the official `kexp.org` domain and is expressly purpose-bound to rotation consideration. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed.
 
-Activity note: CIUT's official weekly schedule remains populated with current programming including The New Music Hour, Global Rhythms, Electric Sense, DJ Mixes, Reggae Riddims and related shows. Its About page states that the station broadcasts 24 hours a day, seven days a week, all year.
+Activity note: KEXP's official site provides live listening, current playlists, streaming archives, charts, reviews and an active weekly schedule with electronic, world and eclectic programming. KEXP describes its community and music-discovery remit as international and global.
 
-Safety: No email, form, download link, audio file, attachment, metadata, login, CAPTCHA, consent or payment was entered or submitted. No physical music route was inferred from a general postal address, and no anti-bot, authentication, platform or payment restriction was bypassed.
+Safety: No email, form, streaming link, WAV file, attachment, lyric sheet, metadata, physical package, login, CAPTCHA, consent or payment was entered or submitted. No contact was guessed or decoded, and no anti-bot, authentication, platform or payment restriction was bypassed.
