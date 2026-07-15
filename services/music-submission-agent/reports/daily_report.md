@@ -2,29 +2,29 @@
 
 Date: 2026-07-15
 
-Latest run: Run 377
+Latest run: Run 378
 
-New items added: 2
+New items added: 0
 
-Existing items materially corrected or enriched: 0
+Existing items materially corrected or enriched: 2
 
-Duplicate opportunity counts retired: 0
+Duplicate opportunity counts retired: 2
 
-Pipeline estimate: 1699
+Pipeline estimate: 1697
 
 Items:
 
-- KVRX 91.7 FM — authorized Music Department email plus physical-submission route; AI-assisted/generated music is explicitly ineligible
-- KALX 90.7 FM — authorized physical-only route for professionally pressed CDs or LPs; digital delivery is explicitly rejected
+- KVRX 91.7 FM — canonical Run 112 record reverified; duplicate Run 377 seed and queue row retired
+- KALX 90.7 FM — canonical Run 39 record reverified; duplicate Run 377 seed and queue row retired
 
-Two new queue rows were created. Both routes are `needs_manual_review`; no auto-submit candidate was created.
+No new queue rows were created. Both canonical routes remain `needs_manual_review`, and no auto-submit candidate was created.
 
-Deduplication note: Default-branch repository code search and the complete open pull-request patch were checked for both station names, official domains and public Music Department addresses. No prior canonical KVRX or KALX record was found. KVRX's digital and physical methods were consolidated into one opportunity. KALX's verified Music Department email was not classified as a digital submission route because the station authorizes physical professionally pressed CDs or LPs only.
+Deduplication note: Full open-pull-request patch inspection found earlier canonical KVRX and KALX records, contradicting Run 377's no-prior-record conclusion. Run 377's two duplicate runtime seeds and two review-queue rows were removed. Older generated reports remain as audit evidence and are not treated as active new queue items.
 
-Manual-review note: KVRX requires a documented human determination that the selected MarcsMusic release is not AI-assisted or AI-generated, plus confirmation of current file/link, metadata, release-type and international rules. KALX requires confirmation of international eligibility, selection of a professionally pressed CD or LP, and human approval of manufacturing, postage and possible customs costs.
+KVRX note: `music@kvrx.org` remains the official plaintext Music Department submission route. Physical and digital submissions are accepted, but AI-assisted or AI-generated music is expressly ineligible. File, metadata, release-type and international requirements remain incomplete and require human confirmation.
 
-Contact-verification note: `music@kvrx.org` is published in plaintext on KVRX's official contact page for all music submissions. `music@kalx.berkeley.edu` is published for KALX's Music Directors, but the official policy explicitly rejects digital music delivery, so it is retained as a verified business contact rather than used to email music. Both addresses have valid syntax and official-domain alignment. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+KALX note: `music@kalx.berkeley.edu` is a verified Music Director business contact, but it is not a digital submission route. KALX accepts only professionally pressed physical CDs or LPs and rejects downloads, file transfers, streaming links, YouTube, CD-Rs and other digital forms.
 
-Activity note: KVRX's official site displayed a live on-air state and describes continuous underground, live and local programming. KALX's official site displayed a current live playlist, daily schedule and July 2026 station activity, with specialty programming relevant to electronic, jungle, techno, house, experimental, world and underground hip-hop releases.
+Contact-verification note: Both business addresses are published on official first-party pages, have valid syntax and align with official domains. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
 Safety: No email, form field, audio file, attachment, download or streaming link, physical package, manufacturing order, customs declaration, login, CAPTCHA, consent or payment was entered or submitted. No adjacent mailbox was used as a workaround, no prohibited digital delivery was attempted, and no anti-bot, authentication, platform or payment restriction was bypassed.
