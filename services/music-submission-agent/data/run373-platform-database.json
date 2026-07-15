@@ -1,0 +1,77 @@
+{
+  "run": 373,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1710,
+  "pipelineEstimate": 1711,
+  "newPlatforms": [
+    {
+      "platform": "CIUT 89.5 FM",
+      "canonicalName": "CIUT 89.5 FM New Music Submission Email Route",
+      "websiteUrl": "https://ciut.fm/",
+      "submissionUrl": "https://ciut.fm/contact/",
+      "country": "Canada",
+      "category": "campus and community radio airplay consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Send music submissions to newmusic@ciut.fm under the official Contact-page instruction"
+      ],
+      "eligibility": {
+        "digitalSubmissionsAccepted": true,
+        "acceptedReleaseTypes": "not publicly specified",
+        "acceptedFormats": "not publicly specified",
+        "attachmentOrDownloadLinkRules": "not publicly specified",
+        "minimumTrackCount": "not publicly specified",
+        "metadataRequirements": "not publicly specified",
+        "releaseWindow": "not publicly specified",
+        "internationalEligibility": "not expressly confirmed",
+        "explicitContentPolicy": "not publicly specified",
+        "aiOriginPolicy": "not publicly specified"
+      },
+      "businessContact": {
+        "type": "verified_public_official_domain_new_music_submission_mailbox",
+        "name": "CIUT New Music",
+        "email": "newmusic@ciut.fm",
+        "verification": "CIUT-FM's official Contact page explicitly states that newmusic@ciut.fm is the route to submit music. Verification covered first-party publication, valid syntax, ciut.fm domain alignment and explicit submission purpose. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "emailRouteObserved": true,
+        "physicalStationAddressObserved": true,
+        "physicalMusicSubmissionAuthorized": false
+      },
+      "activityVerification": "CIUT's official Schedule page publishes a full seven-day schedule with current programming including The New Music Hour, Global Rhythms, Electric Sense, DJ Mixes, Reggae Riddims, Groove Concept Radio and Sticky Icky Reggae. Its About page states that CIUT broadcasts 24 hours a day, seven days a week, all year, and the site carries a 2026 copyright notice.",
+      "genreFit": [
+        "independent",
+        "alternative",
+        "electronic",
+        "electronica",
+        "experimental",
+        "ambient",
+        "dub",
+        "reggae",
+        "hip-hop",
+        "global-music"
+      ],
+      "manualReviewReason": "A human must recheck CIUT's current submission instruction, confirm international eligibility and all release-type, file, link, metadata, release-age, explicit-content and AI-origin rules, select a suitable MarcsMusic release, send manually only to newmusic@ciut.fm, avoid assuming that the general postal address is an authorized physical music-submission route, and stop if a login, CAPTCHA, mandatory payment, consent request or updated restriction appears."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "CIUT",
+      "CIUT 89.5 FM",
+      "ciut.fm",
+      "ciut.fm/contact",
+      "newmusic@ciut.fm"
+    ],
+    "result": "Repository code search and the complete open pull-request patch were checked for CIUT, CIUT 89.5 FM, ciut.fm, the official Contact path and newmusic@ciut.fm. No prior canonical music-submission-agent record or previous use of the dedicated submission mailbox was found. CIUT is stored once. The general station postal address remains adjacent contact information because the official page does not expressly authorize physical music submissions."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "The opportunity is publicly authorized and free-first but remains needs_manual_review because detailed delivery rules and international eligibility are not expressly confirmed. CIUT publishes an official-domain mailbox specifically for music submissions. No email, form, file, link, attachment, login, CAPTCHA, payment or consent was submitted or bypassed."
+}
