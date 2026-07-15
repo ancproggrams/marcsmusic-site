@@ -1,0 +1,102 @@
+{
+  "run": 381,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1697,
+  "pipelineEstimate": 1698,
+  "newPlatforms": [
+    {
+      "name": "BayFM 99.9 Byron Bay Music Contact Form Pre-Submission Inquiry Route",
+      "websiteUrl": "https://www.bayfm.org/",
+      "submissionUrl": "https://www.bayfm.org/about/contact/",
+      "sourceUrl": "https://www.bayfm.org/about/contact/",
+      "sourceType": "automation_run_381_public_research",
+      "country": "Australia / Byron Bay, New South Wales community radio",
+      "language": "en",
+      "genres": [
+        "community-radio",
+        "independent",
+        "electronic",
+        "electronica",
+        "house",
+        "techno",
+        "dance",
+        "lofi",
+        "dub",
+        "reggae",
+        "dancehall",
+        "world-music",
+        "digital-beats",
+        "multicultural",
+        "manual-review"
+      ],
+      "submissionMethod": "official-public-contact-form-music-category-asset-free-pre-submission-inquiry",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": true,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party contact form",
+        "formCategory": "Music",
+        "permittedAutomatedScope": "discovery and queueing only",
+        "safeHumanAction": "Submit an asset-free inquiry asking for BayFM's current music or airplay submission process after manually completing the CAPTCHA.",
+        "audioDeliveryAuthorized": false,
+        "physicalDeliveryAuthorized": false
+      },
+      "businessContact": {
+        "email": null,
+        "verification": "No purpose-bound public music-submission email was observed on the reviewed official pages. The first-party form itself was verified as the only public Music-category contact route. No address was guessed, decoded or substituted, and no SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formAssessment": {
+        "fieldsObserved": [
+          "name",
+          "email",
+          "phone",
+          "subject",
+          "genre",
+          "message",
+          "CAPTCHA"
+        ],
+        "musicCategoryObserved": true,
+        "captchaObserved": true,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "fileUploadObserved": false,
+        "explicitMusicSubmissionInstructionsObserved": false
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-15",
+        "evidence": "The official homepage exposes a live-listening surface and current station content, while the current Program Guide lists active weekly music programming."
+      },
+      "genreFitEvidence": [
+        "Sounds From The Largo: lofi, dance and abstract",
+        "Funk Me! Radio Show: soul, funk, disco, nu-disco, nu-funk and house",
+        "Backyard Paradise: Balearic, cosmic, dub and disco",
+        "The Shizzle: electronica, techno and world beats",
+        "Submerged: deep electronica and beyond",
+        "Roots 'n' KulJah: reggae, dub, ska, rocksteady and dancehall",
+        "The Tiki Lounge Remix: world music, contemporary jazz and digital beats"
+      ],
+      "manualReviewReason": "The form has a Music category and CAPTCHA but does not expressly authorize unsolicited audio delivery or disclose accepted file/link formats, metadata, release age, international eligibility, explicit-content rules or AI-origin policy. A human must use it only for an asset-free inquiry, solve the CAPTCHA manually, wait for an authorized response, and avoid sending music or private links unless BayFM confirms the route.",
+      "priority": 91,
+      "pricingModel": "free-contact-form-inquiry/manual-captcha-and-policy-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "BayFM",
+      "BayFM 99.9",
+      "bayfm.org",
+      "bayfm.org/about/contact",
+      "Byron Bay Music contact form"
+    ],
+    "repositoryEvidence": "Repository code search and full open-pull-request patch inspection returned no existing BayFM, bayfm.org or canonical Contact-path music opportunity.",
+    "consolidation": "The Music subject, genre field and general contact workflow are stored as one pre-submission inquiry opportunity. The station street address is not treated as a physical music route, and no adjacent general subject category is counted separately."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first first-party Music-category inquiry route was queued. It remains needs_manual_review because the form contains CAPTCHA and does not publish a direct music-delivery policy. No outbound action was taken."
+}
