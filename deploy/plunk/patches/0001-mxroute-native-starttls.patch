@@ -1074,10 +1074,10 @@ index c73c9ad..0000000
 -};
 diff --git a/apps/api/src/services/SMTPService.ts b/apps/api/src/services/SMTPService.ts
 new file mode 100644
-index 0000000..b12f303
+index 0000000..d3763fa
 --- /dev/null
 +++ b/apps/api/src/services/SMTPService.ts
-@@ -0,0 +1,503 @@
+@@ -0,0 +1,512 @@
 +import {createHash, randomUUID} from 'node:crypto';
 +import {promises as dns} from 'node:dns';
 +import net from 'node:net';
@@ -1222,6 +1222,15 @@ index 0000000..b12f303
 +  return value;
 +}
 +
++/** Encode non-ASCII display headers using RFC 2047 UTF-8 base64 words. */
++function encodeMimeHeader(value: string, name: string): string {
++  const normalized = normalizeHeaderValue(value, name);
++  if (/^[\x20-\x7E]*$/u.test(normalized)) return normalized;
++  const encoded = `=?UTF-8?B?${Buffer.from(normalized, 'utf8').toString('base64')}?=`;
++  if (encoded.length > 4096) throw new SmtpProviderError('SMTP_HEADER_TOO_LARGE', `header ${name} is too long`);
++  return encoded;
++}
++
 +function buildRawMessage({from, to, content, reply, headers, attachments}: SendRawEmailParams): {raw: string; id: string} {
 +  const messageId = headers && Object.entries(headers).find(([name]) => name.toLowerCase() === 'message-id')?.[1];
 +  const id = messageId?.trim() || `<${randomUUID()}@${SMTP_ALLOWED_FROM_DOMAIN}>`;
@@ -1235,7 +1244,7 @@ index 0000000..b12f303
 +  const toHeader = to
 +    .map(recipient => {
 +      if (typeof recipient === 'string') return recipient;
-+      const name = recipient.name ? normalizeHeaderValue(recipient.name, 'recipient name') : '';
++      const name = recipient.name ? encodeMimeHeader(recipient.name, 'recipient name') : '';
 +      return name ? `${name} <${recipient.email}>` : recipient.email;
 +    })
 +    .join(', ');
@@ -1254,10 +1263,10 @@ index 0000000..b12f303
 +  assertNoHeaderInjection(replyTo, 'reply-to');
 +  assertNoHeaderInjection(content.subject, 'subject');
 +
-+  let raw = `From: ${normalizeHeaderValue(from.name, 'from name')} <${from.email}>\r\n`;
++  let raw = `From: ${encodeMimeHeader(from.name, 'from name')} <${from.email}>\r\n`;
 +  raw += `To: ${toHeader}\r\n`;
 +  raw += `Reply-To: ${replyTo}\r\n`;
-+  raw += `Subject: ${normalizeHeaderValue(content.subject, 'subject')}\r\n`;
++  raw += `Subject: ${encodeMimeHeader(content.subject, 'subject')}\r\n`;
 +  raw += `Date: ${new Date().toUTCString()}\r\n`;
 +  raw += `Message-ID: ${id}\r\n`;
 +  raw += `MIME-Version: 1.0\r\n`;
@@ -1807,10 +1816,10 @@ index 1d5a1e0..7214e99 100644
      const [headerSection, ...bodyParts] = rawMessage.split('\n\n');
 diff --git a/apps/api/src/services/__tests__/SMTPService.test.ts b/apps/api/src/services/__tests__/SMTPService.test.ts
 new file mode 100644
-index 0000000..24ceb35
+index 0000000..972ce29
 --- /dev/null
 +++ b/apps/api/src/services/__tests__/SMTPService.test.ts
-@@ -0,0 +1,58 @@
+@@ -0,0 +1,74 @@
 +import {beforeAll, describe, expect, it, vi} from 'vitest';
 +
 +vi.hoisted(() => {
@@ -1840,6 +1849,7 @@ index 0000000..24ceb35
 +  messageIdFingerprint,
 +  sendRawEmail,
 +  SmtpDeliveryUncertainError,
++  smtpTestTransport,
 +} from '../SMTPService.js';
 +
 +describe('native MXRoute SMTP transport', () => {
@@ -1860,6 +1870,21 @@ index 0000000..24ceb35
 +        content: {subject: 'test', html: '<p>test</p>'},
 +      }),
 +    ).rejects.toMatchObject({code: 'SMTP_FROM_NOT_ALLOWED'});
++  });
++
++  it('encodes the non-ASCII production-test subject as an RFC 2047 header', async () => {
++    smtpTestTransport.calls.length = 0;
++    const subject = 'MarcsMusic – Plunk/MXRoute productietest';
++    await sendRawEmail({
++      from: {name: 'MarcsMusic', email: 'noreply@marcsmusic.nl'},
++      to: ['test@example.com'],
++      content: {subject, html: '<p>test</p>'},
++    });
++
++    const raw = smtpTestTransport.calls.at(-1)?.raw ?? '';
++    const encoded = `=?UTF-8?B?${Buffer.from(subject, 'utf8').toString('base64')}?=`;
++    expect(raw).toContain(`Subject: ${encoded}`);
++    expect(raw).not.toContain(`Subject: ${subject}`);
 +  });
 +
 +  it('produces a stable bounded reconciliation fingerprint', () => {
