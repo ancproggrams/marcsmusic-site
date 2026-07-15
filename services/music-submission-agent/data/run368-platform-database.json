@@ -1,0 +1,150 @@
+{
+  "run": 368,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1700,
+  "pipelineEstimate": 1702,
+  "newPlatforms": [
+    {
+      "platform": "CKUW 95.9 FM",
+      "canonicalName": "CKUW 95.9 FM Digital Download-Link and Physical Media Submission Route",
+      "websiteUrl": "https://ckuw.ca/",
+      "submissionUrl": "https://ckuw.ca/contact",
+      "country": "Canada / Winnipeg, Manitoba",
+      "category": "non-profit campus and community radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Use CKUW's official Music Director email route with a high-quality downloadable link suitable for broadcast",
+        "Contact the Music Director through the first-party route for current digital-submission instructions",
+        "Mail cassette, CD, vinyl or reel-to-reel media to the published CKUW station address"
+      ],
+      "eligibility": {
+        "releaseTypes": "not explicitly limited on the reviewed first-party pages",
+        "digitalDelivery": "High-quality downloadable link suitable for broadcast",
+        "unsolicitedAudioAttachmentsAccepted": false,
+        "physicalFormats": [
+          "cassette",
+          "CD",
+          "vinyl",
+          "reel-to-reel"
+        ],
+        "internationalEligibility": "not expressly stated",
+        "metadataRequirements": "not expressly stated"
+      },
+      "businessContact": {
+        "type": "verified_first_party_music_director_mailbox",
+        "name": "David Tymoshchuk, Music Director",
+        "email": "music@ckuw.ca",
+        "verification": "CKUW's official Staff page identifies the current Music Director and displays music@ckuw.ca. Its official Contact page links the same purpose-bound Music Director route for digital submissions and high-quality download links. Verification covered first-party publication, valid syntax, official-domain alignment and explicit Music Director purpose. No SMTP, MX, catch-all or mailbox-level probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "adjacentContactRouteExcluded": "The general office, request, interview and listener-feedback routes were not used as music-submission substitutes."
+      },
+      "activityVerification": "CKUW's official site exposed live schedule and now-playing data when reviewed on July 15, 2026, official posts through June 9, 2026 and current program archives. Its active taxonomy and schedule include electronic/exploratory, ambient/down-tempo, electronica, hip-hop, world and dancehall/reggae programming.",
+      "genreFit": [
+        "independent",
+        "alternative",
+        "electronic",
+        "electronica",
+        "electronic-exploratory",
+        "ambient",
+        "downtempo",
+        "experimental",
+        "hip-hop",
+        "world-music",
+        "dancehall",
+        "reggae",
+        "dub",
+        "dance"
+      ],
+      "manualReviewReason": "A human must choose the release, prepare a stable broadcast-quality download link rather than unsolicited MP3 attachments, verify current metadata and international-eligibility requirements, use the official Music Director route manually and handle any physical package. Stop if a CAPTCHA, login, payment or new restriction appears."
+    },
+    {
+      "platform": "101.5 UMFM / CJUM",
+      "canonicalName": "101.5 UMFM / CJUM Digital Download-Link and CD Submission Route",
+      "websiteUrl": "https://umfm.com/",
+      "submissionUrl": "https://umfm.com/about/music-faq",
+      "country": "Canada / Winnipeg, Manitoba",
+      "category": "volunteer-driven campus radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Send a secure downloadable link through the official Program Director email action",
+        "Use WeTransfer, Dropbox, Google Drive, Bandcamp, DISCO or an embedded-download route",
+        "Mail or drop off a CD to the published Music Director address"
+      ],
+      "eligibility": {
+        "digitalDelivery": "Secure downloadable link only; individual audio-file attachments are rejected",
+        "acceptedLinkExamples": [
+          "WeTransfer",
+          "Dropbox",
+          "Google Drive",
+          "Bandcamp",
+          "DISCO",
+          "embedded link"
+        ],
+        "physicalSinglesAccepted": false,
+        "epMinimumTracks": 4,
+        "digitalSingleEligibility": "not explicitly stated",
+        "internationalEligibility": "not explicitly stated"
+      },
+      "businessContact": {
+        "type": "protected_first_party_program_director_submission_route",
+        "name": "Michael Elves, Program Director",
+        "email": null,
+        "verification": "UMFM's official Music Department FAQ identifies Michael Elves and provides a purpose-bound email action for downloadable-link music submissions and tracking questions. The address is Cloudflare-protected in passive rendering and was not decoded, inferred or stored. No SMTP, MX, catch-all or mailbox-level probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "protectedEmailActionObserved": true,
+        "adjacentRoutesExcluded": "General information, public-service-announcement, advertising, sponsorship and live-session contacts were not used as submission substitutes."
+      },
+      "activityVerification": "UMFM's official homepage contained news dated July 6, 2026, current events and live schedule data. Its charts page listed weekly charts through June 29, 2026, and its active program directory includes electronic, breakbeat, UK garage, bass-house, hip-hop and world programming.",
+      "genreFit": [
+        "independent",
+        "alternative",
+        "electronic",
+        "breakbeat",
+        "uk-garage",
+        "house",
+        "bass-music",
+        "hip-hop",
+        "world-music",
+        "indie-rock",
+        "funk",
+        "soul"
+      ],
+      "manualReviewReason": "A human must select an eligible release, confirm whether digital singles and international submissions are accepted, prepare a secure downloadable link, avoid direct audio attachments, use the official protected Program Director email action without decoding or guessing the address, and send manually. Physical submissions require an eligible CD, postage and customs handling. Stop if a CAPTCHA, login, mandatory payment or new restriction appears."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "CKUW",
+      "CKUW 95.9 FM",
+      "ckuw.ca",
+      "ckuw.ca/contact",
+      "music@ckuw.ca",
+      "UMFM",
+      "101.5 UMFM",
+      "CJUM",
+      "umfm.com",
+      "umfm.com/about/music-faq"
+    ],
+    "result": "Repository code searches returned no prior canonical CKUW or UMFM/CJUM submission opportunity. CKUW's digital Music Director route and four physical formats were consolidated into one record; general office, request, interview and feedback contacts were excluded. UMFM's multiple approved download-link services and physical-CD route were consolidated into one record; general, PSA, advertising, sponsorship and live-session contacts were excluded."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Both opportunities are free-first, first-party radio-airplay routes and remain needs_manual_review. CKUW provides one verified public Music Director mailbox plus a high-quality download-link route and four physical formats. UMFM provides a protected first-party Program Director email action for secure download links and an authorized CD route; its address was not decoded or guessed. No email, form, audio attachment, download link, physical package, login, CAPTCHA or payment was submitted or bypassed."
+}
