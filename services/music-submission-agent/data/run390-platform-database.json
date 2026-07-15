@@ -1,0 +1,124 @@
+{
+  "run": 390,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1707,
+  "pipelineEstimate": 1708,
+  "newPlatforms": [
+    {
+      "name": "KLSU 91.1 FM Music Director Pre-Submission Inquiry Route",
+      "websiteUrl": "https://lsureveille.com/klsu/",
+      "submissionUrl": "https://lsureveille.com/staff_name/anh-tu-nguyen/",
+      "sourceUrl": "https://lsureveille.com/staff_name/anh-tu-nguyen/",
+      "sourceType": "automation_run_390_public_research",
+      "country": "United States / Baton Rouge, Louisiana college radio",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "alternative",
+        "freeform-radio",
+        "independent-music",
+        "underground-hip-hop",
+        "funk",
+        "new-music",
+        "music-director",
+        "protected-email",
+        "pre-submission-inquiry",
+        "manual-review"
+      ],
+      "submissionMethod": "official-current-music-director-protected-email-asset-free-process-inquiry-route",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "protected first-party email action on the current KLSU Music Director profile",
+        "namedRecipient": "Anh-Tu Nguyen, KLSU Music Director",
+        "explicitPurpose": "contacting the current official Music Director; used only to request KLSU's current artist and airplay-submission procedure",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the current first-party Music Director profile, use only the email action displayed there and send a concise asset-free inquiry asking whether and how external artists may submit music for airplay consideration.",
+        "audioDeliveryAuthorized": false,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedDirectSubmissionRequirements": "none",
+        "safeInquiryScope": [
+          "ask whether KLSU currently accepts unsolicited music from external and international artists",
+          "ask for the authorized delivery route and accepted file or download-link format",
+          "ask for required metadata, release timing and clean or explicit-content rules",
+          "ask whether AI-assisted or AI-generated releases are eligible"
+        ],
+        "mustNotIncludeUntilAuthorized": [
+          "audio attachment",
+          "private streaming link",
+          "download link",
+          "EPK or one-sheet attachment",
+          "artwork file",
+          "physical music package"
+        ],
+        "unresolvedEligibility": [
+          "international artists",
+          "singles, EPs and albums",
+          "accepted codecs and file sizes",
+          "attachment versus cloud-link delivery",
+          "required metadata",
+          "release-date window",
+          "explicit-content and clean-edit handling",
+          "AI-origin policy",
+          "follow-up timing"
+        ]
+      },
+      "businessContact": {
+        "email": null,
+        "emailStatus": "protected first-party current Music Director email action observed but not decoded or stored",
+        "verification": "KLSU's official current staff directory identifies Anh-Tu Nguyen as Music Director, and the corresponding first-party profile provides a Send an email action. The role, station context and contact action are all published on LSU Student Media's official KLSU surface. Because the destination is not shown in plaintext in passive rendering, exact mailbox syntax and domain were not asserted. The link was not decoded, guessed, contacted or probed, and no SMTP, MX, catch-all, mailbox-level or deliverability testing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "musicCategoryInquiryFormIdentified": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "adjacentRoutesExcluded": [
+          "KLSU Station Manager contact",
+          "general LSU Student Media contacts",
+          "news-tip form",
+          "advertising or underwriting contact",
+          "social-media direct messages",
+          "station postal address"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "KLSU's official site showed current playlists dated July 11, July 10, July 5 and July 4, 2026, a current staff directory naming the Music Director, a live-listening surface and a 2026 site footer. The station states that it broadcasts 24/7 and streams worldwide."
+      },
+      "genreFitEvidence": [
+        "KLSU describes its core format as college-rock alternative and new music.",
+        "Its specialty programming is freeform and may include any form of music.",
+        "The official About page specifically names underground hip-hop, folk and contemporary funk among specialty formats.",
+        "Selected MarcsMusic alternative-electronic, hip-hop-crossover and experimental releases may have plausible programme fit, subject to the Music Director's current policy."
+      ],
+      "manualReviewReason": "KLSU publishes a current Music Director and a protected first-party email action, but does not publish an unsolicited-music delivery policy or asset specifications. A human must reopen the current Music Director profile, verify that Anh-Tu Nguyen still holds the role, use only the displayed destination, send an asset-free process inquiry, confirm international eligibility and obtain explicit delivery instructions before providing any audio, private link, attachment, EPK or physical package. The human must also verify release-type eligibility, formats, metadata, release timing, clean or explicit-content rules and AI-origin policy. General staff, station-management, social-media, news-tip and postal routes must not be used as workarounds.",
+      "priority": 88,
+      "pricingModel": "free-first/protected-music-director-process-inquiry/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KLSU",
+      "KLSU 91.1 FM",
+      "klsuradio.fm",
+      "lsureveille.com/klsu",
+      "Anh-Tu Nguyen",
+      "KLSU Music Director"
+    ],
+    "repositoryEvidence": "The complete open pull-request patch and repository code index were searched for KLSU, its frequency, former canonical domain, current LSU Student Media station path and current Music Director role. No prior music-submission-agent platform, runtime seed or queue record was found.",
+    "consolidation": "The current Music Director contact is stored once as an asset-free process-inquiry route. The Station Manager contact, general Student Media contacts, social accounts, news-tip form, advertising route and postal address are retained only as excluded context and are not counted as separate submission opportunities."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first Music Director process-inquiry route was queued as needs_manual_review. No email, form, file, link or physical package was submitted."
+}
