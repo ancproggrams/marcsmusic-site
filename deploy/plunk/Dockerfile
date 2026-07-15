@@ -15,6 +15,13 @@ RUN apt-get update \
     && git -C /src checkout --detach "$UPSTREAM_REF" \
     && test "$(git -C /src rev-parse HEAD)" = "$UPSTREAM_REF"
 
+# Remove upstream example credentials before applying the reviewed patch. The
+# runtime receives real values only through Railway variables/secrets.
+RUN awk '/^(DB_PASSWORD|MINIO_ROOT_PASSWORD|S3_ACCESS_KEY_SECRET)=/ { sub(/=.*/, "=") } { print }' \
+      /src/.env.self-host.example > /tmp/.env.self-host.example \
+    && chmod 0644 /tmp/.env.self-host.example \
+    && mv /tmp/.env.self-host.example /src/.env.self-host.example
+
 COPY patches/0001-mxroute-native-starttls.patch /tmp/0001-mxroute-native-starttls.patch
 RUN git -C /src apply --check /tmp/0001-mxroute-native-starttls.patch \
     && git -C /src apply /tmp/0001-mxroute-native-starttls.patch \
