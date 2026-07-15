@@ -1,0 +1,120 @@
+{
+  "run": 379,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1697,
+  "pipelineEstimate": 1699,
+  "newPlatforms": [
+    {
+      "platform": "WREK 91.1 FM",
+      "record": "automation_run_379_public_research",
+      "websiteUrl": "https://www.wrek.org/",
+      "submissionUrl": "mailto:music.director@wrek.org",
+      "submissionGuidanceUrl": "https://old.wrek.org/submissions/",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Email an eligible music submission to music.director@wrek.org after confirming current digital-delivery requirements",
+        "Send eligible physical media only after confirming WREK's current postal address"
+      ],
+      "businessContact": {
+        "email": "music.director@wrek.org",
+        "verification": "Published in plaintext on WREK's official submission guidance, repeated as the preferred Music Director contact, syntactically valid, purpose-bound and aligned with the official wrek.org domain. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "currentPolicy": {
+        "independentMusicAccepted": true,
+        "physicalSubmissionsAccepted": true,
+        "digitalEmailRouteAccepted": true,
+        "mediaGuidance": "Common music media formats are accepted; CDs and LPs receive stronger consideration, while cassettes, DATs and other formats may receive less airplay.",
+        "internationalEligibility": "not expressly confirmed",
+        "postalAddressState": "manual confirmation required because the linked guidance and current site display different Ferst Drive street numbers"
+      },
+      "activityVerification": "Current first-party site operates a live player and 24/7 schedule and published playlists dated through July 10, 2026.",
+      "genreFit": [
+        "electronic",
+        "ambient",
+        "experimental",
+        "house",
+        "techno",
+        "breaks",
+        "EDM",
+        "reggae",
+        "dub",
+        "hip-hop",
+        "international",
+        "Afrobeat"
+      ],
+      "manualReviewReason": "A human must confirm current attachment-versus-download-link handling, digital formats and size limits, release types, metadata, international eligibility, explicit-content and AI-origin policies, resolve the physical-address mismatch, select an eligible MarcsMusic release, verify rights and prior-submission status, and submit manually only if fully compliant."
+    },
+    {
+      "platform": "WPRB 103.3 FM",
+      "record": "automation_run_379_public_research",
+      "websiteUrl": "https://wprb.com/",
+      "submissionUrl": "mailto:music@wprb.com",
+      "submissionGuidanceUrl": "https://wprb.com/music-submissions/",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Email an eligible music submission to music@wprb.com after confirming current digital-delivery requirements",
+        "Mail CDs, CD-Rs, LPs, 12-inch, 10-inch or 7-inch releases to the official WPRB Music Director postal address"
+      ],
+      "businessContact": {
+        "email": "music@wprb.com",
+        "verification": "Published in plaintext on WPRB's official first-party Music Submissions page, syntactically valid, purpose-bound and aligned with the official wprb.com domain. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "currentPolicy": {
+        "physicalSubmissionsAccepted": true,
+        "acceptedPhysicalFormats": [
+          "CD",
+          "CD-R",
+          "LP",
+          "12-inch",
+          "10-inch",
+          "7-inch"
+        ],
+        "digitalEmailRouteAccepted": true,
+        "physicalSubmissionsPrioritized": true,
+        "digitalSpecifications": "not publicly specified",
+        "internationalEligibility": "not expressly confirmed"
+      },
+      "activityVerification": "Current first-party site displayed live now-playing information, an active summer schedule, recent playlists dated July 13, 2026 and upcoming July 2026 events.",
+      "genreFit": [
+        "independent",
+        "new music",
+        "electronic",
+        "experimental",
+        "reggae",
+        "world",
+        "hip-hop",
+        "freeform"
+      ],
+      "manualReviewReason": "A human must confirm attachments versus downloadable links, accepted digital formats and size limits, metadata, release-type and timing rules, international eligibility, explicit-content and AI-origin policies, select an eligible MarcsMusic release, verify rights and prior-submission status, and submit manually only if fully compliant. Physical manufacturing, postage and customs costs require separate approval."
+    }
+  ],
+  "deduplication": {
+    "keysChecked": [
+      "normalized platform and call-sign names",
+      "canonical domains",
+      "official submission paths",
+      "purpose-specific submission emails"
+    ],
+    "fullPullRequestPatchInspected": true,
+    "matchesFound": 0,
+    "terms": [
+      "WREK",
+      "wrek.org",
+      "music.director@wrek.org",
+      "WPRB",
+      "wprb.com",
+      "music@wprb.com"
+    ],
+    "result": "No earlier canonical WREK or WPRB opportunity, domain or purpose-specific mailbox was found in the full open-pull-request patch. Each station is stored once, with its email and physical methods consolidated into one opportunity."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Two legitimate, active, first-party-authorized opportunities were added. Both remain needs_manual_review because material submission specifications or eligibility conditions are incomplete. No email, form, file, link, physical package, login, CAPTCHA, consent or payment was entered or submitted, and no platform restriction was bypassed."
+}
