@@ -1,0 +1,112 @@
+{
+  "run": 374,
+  "date": "2026-07-15",
+  "pipelineEstimateBeforeCorrection": 1711,
+  "pipelineEstimate": 1694,
+  "newPlatforms": [],
+  "enrichedExistingPlatforms": [
+    {
+      "platform": "KEXP",
+      "canonicalName": "KEXP Rotation Consideration",
+      "canonicalRun": 39,
+      "websiteUrl": "https://www.kexp.org/",
+      "submissionUrl": "https://www.kexp.org/about/submission-guidelines/",
+      "country": "United States / global audience",
+      "category": "listener-powered public radio airplay consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Email the KEXP Music Director and Music Department at md@kexp.org",
+        "Provide streaming and downloadable WAV links; do not attach audio files"
+      ],
+      "eligibility": {
+        "digitalSubmissionsAccepted": true,
+        "acceptedReleaseTypes": "singles, albums and EPs",
+        "acceptedFormats": "streaming link plus downloadable WAV link",
+        "attachmentsAllowed": false,
+        "requiredMetadata": [
+          "artist name and member pronouns",
+          "album or EP title and label when applicable",
+          "phonetic spellings when applicable",
+          "focus tracks",
+          "release dates",
+          "clean edits for FCC violations",
+          "lyric sheet",
+          "song, album or EP credits",
+          "bio, one-sheet or press release",
+          "optional Pacific Northwest or Bay Area show information"
+        ],
+        "internationalEligibility": "KEXP describes itself as an international/global music community and publishes no geographic submission restriction",
+        "physicalSubmissionsAccepted": false,
+        "payForAirplayAvailable": false,
+        "aiOriginPolicy": "not publicly specified"
+      },
+      "businessContact": {
+        "type": "verified_public_official_domain_music_department_submission_mailbox",
+        "name": "KEXP Music Director and Music Department",
+        "email": "md@kexp.org",
+        "verification": "The mailbox is published on both KEXP's official Contact and Submission Guidelines pages, has valid syntax, aligns with the official kexp.org domain and is expressly designated for rotation consideration. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "emailRouteObserved": true,
+        "physicalMusicSubmissionAuthorized": false
+      },
+      "activityVerification": "KEXP's official site exposes live listening, current playlist, streaming archive, charts, reviews and a populated weekly schedule. The current schedule includes electronic and world programming alongside eclectic rotation.",
+      "genreFit": [
+        "electronic",
+        "electronica",
+        "ambient",
+        "dub",
+        "reggae",
+        "bass-music",
+        "hip-hop",
+        "world-music",
+        "independent"
+      ],
+      "manualReviewReason": "A human must select a suitable MarcsMusic release, verify rights and production origin, prepare the required streaming and downloadable WAV links, complete metadata and FCC-clean review, avoid attachments and physical media, draft a concise non-repetitive pitch, confirm the track has not already been submitted, send manually only to md@kexp.org and stop if the published rules change or any login, CAPTCHA, consent or payment boundary appears."
+    }
+  ],
+  "deduplication": {
+    "canonicalRunRetained": 39,
+    "duplicateRunsRetiredFromPipeline": [
+      51,
+      68,
+      78,
+      94,
+      110,
+      126,
+      143,
+      159,
+      176,
+      192,
+      210,
+      228,
+      248,
+      291,
+      313,
+      334,
+      353
+    ],
+    "duplicateItemsRemoved": 17,
+    "activeImportedSeedCorrections": [51, 68, 78],
+    "repositorySearchTerms": [
+      "KEXP",
+      "kexp.org",
+      "md@kexp.org",
+      "submission-guidelines",
+      "rotation consideration",
+      "Music Director"
+    ],
+    "result": "The open pull-request patch contained eighteen records describing the same KEXP Music Director rotation-consideration route. Run 39 is retained as the canonical opportunity and seventeen later rediscoveries are retired from the cumulative pipeline count. The three duplicate KEXP records and queue rows on the currently imported runtime seed surface (Runs 51, 68 and 78) were removed. Later historical run files remain as an audit trail and are not counted as distinct opportunities."
+  },
+  "activeQueueRowsAdded": 0,
+  "canonicalExistingNeedsManualReview": 1,
+  "notes": "This is a deduplication and enrichment run. No new platform was added. The KEXP business route was freshly reverified from first-party pages and the cumulative pipeline estimate was reduced by seventeen."
+}
