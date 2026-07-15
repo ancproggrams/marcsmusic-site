@@ -2,28 +2,31 @@
 
 Date: 2026-07-15
 
-Latest run: Run 381
+Latest run: Run 382
 
-New items added: 1
+New items added: 2
 
 Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1698
+Pipeline estimate: 1700
 
 Items:
 
-- BayFM 99.9 Byron Bay — official first-party Music-category contact form queued as an asset-free pre-submission inquiry
+- Eastside Radio 89.7FM Sydney — verified public Music-enquiries mailbox queued for an asset-free pre-submission inquiry
+- Northside Radio 99.3FM Chatswood — official Music-category contact form queued for an asset-free pre-submission inquiry
 
-One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
+Two new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-BayFM note: The official Contact page exposes a public form with a dedicated **Music** subject, optional genre field, message field and CAPTCHA. The page does not expressly authorize unsolicited audio delivery or publish attachment, stream/download-link, metadata, international-eligibility, explicit-content or AI-origin rules. The safe action is therefore limited to a human-reviewed, asset-free inquiry asking for the current airplay-submission process. Music, files and private links must not be sent until BayFM confirms an authorized route.
+Eastside note: The official Contact page publishes `music@eastsidefm.org` specifically for Music enquiries. The address was verified through first-party plaintext publication, valid syntax, exact purpose and `eastsidefm.org` domain alignment. The page does not authorize direct audio delivery or publish attachment/link, metadata, release-timing, international-eligibility, explicit-content or AI-origin requirements. A human may first send only an asset-free process inquiry. Separate general, Music Interviews, programming, review, arts and show contacts are excluded.
 
-Activity and fit note: BayFM's official homepage and current Program Guide were active on July 15, 2026. Relevant programmes cover lofi and dance, house, Balearic and dub, electronica and techno, reggae, dub, ska and dancehall, multicultural and world music, and digital beats.
+Northside note: The official first-party Contact page provides required name, email, subject and message fields, an optional phone field and a dedicated **Music** subject. No file upload, CAPTCHA, login or payment step was exposed in passive rendering, but live validation, privacy and anti-spam controls must be rechecked manually. The form may be used only for an asset-free inquiry until Northside confirms an authorized audio-delivery process.
 
-Deduplication note: Repository code search and full open-pull-request patch inspection found no previous BayFM, bayfm.org or canonical Contact-path music opportunity. The Music category and genre field are consolidated into one inquiry route. The published street address is not treated as authorization for physical music delivery.
+Activity and fit note: Eastside states that it broadcasts 24/7, published dated material on June 30, 2026 and lists electronic, dub, reggae, hip-hop and world programmes. Northside's official site exposes Listen Live, Program Guide, Listen Again, Song History and News surfaces and an active station-support campaign. Programme-level and overseas eligibility must be confirmed before any MarcsMusic assets are supplied.
 
-Contact-verification note: No purpose-specific public music-submission mailbox was observed. No email was guessed, decoded, substituted or subjected to SMTP, MX, catch-all, mailbox-level or deliverability probing.
+Deduplication note: The complete open pull-request patch was searched for both station names, domains, Eastside's purpose-specific mailbox and Northside's Contact path. No prior music-submission-agent records were found. Each station is stored once through its canonical inquiry route.
 
-Safety: No form field, CAPTCHA, email, audio file, attachment, stream or download link, biography, metadata, physical package, login, consent or payment was entered or submitted. No anti-bot, authentication, platform or payment restriction was bypassed.
+Contact-verification note: Eastside's Music-enquiries address was not subjected to SMTP, MX, catch-all, mailbox-level or deliverability probing. Northside did not expose a purpose-specific public music-submission email. No address was guessed, decoded or substituted.
+
+Safety: No email, form field, audio file, attachment, stream or download link, biography, metadata, personal information, physical package, login, CAPTCHA, consent or payment was entered or submitted. No anti-bot, authentication, platform or payment restriction was bypassed.
