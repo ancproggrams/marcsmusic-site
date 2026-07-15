@@ -1,0 +1,110 @@
+{
+  "run": 389,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1706,
+  "pipelineEstimate": 1707,
+  "newPlatforms": [
+    {
+      "name": "KKFI 90.1 FM Protected Music Librarian Digital Submission Route",
+      "websiteUrl": "https://kkfi.org/",
+      "submissionUrl": "https://kkfi.org/new-music-submissions/",
+      "sourceUrl": "https://kkfi.org/new-music-submissions/",
+      "sourceType": "automation_run_389_public_research",
+      "country": "United States / Kansas City, Missouri community radio",
+      "language": "en",
+      "genres": [
+        "community-radio",
+        "freeform-radio",
+        "independent-music",
+        "electronic",
+        "hip-hop",
+        "reggae",
+        "world-music",
+        "dub",
+        "digital-download-link",
+        "protected-email",
+        "manual-review"
+      ],
+      "submissionMethod": "official-protected-music-librarian-email-digital-download-or-small-attachment-route",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "protected first-party Music Librarian email route for digital music delivery",
+        "namedRecipient": "KKFI Music Librarian",
+        "explicitPurpose": "digital music submission for routing to relevant volunteer show hosts and airplay consideration",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the current official page, use only the protected email destination displayed there, provide a compliant digital package and send manually after final rights, eligibility and content-policy review.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "preferredAudio": "MP3 encoded at 300 kbps constant bitrate",
+        "preferredDelivery": [
+          "Google Drive",
+          "Dropbox",
+          "OneDrive",
+          "another accessible cloud-storage download link"
+        ],
+        "otherNamedServices": [
+          "Bandcamp",
+          "PlayMPE",
+          "AllMusic",
+          "SoundCloud"
+        ],
+        "attachmentLimit": "less than 8 MB total",
+        "rejectedOrDiscouragedDelivery": [
+          "link requiring a separate player",
+          "physical media from a non-local artist",
+          "multiple physical copies of the same release"
+        ],
+        "routingContext": "A stream or accessible preview helps KKFI determine the appropriate show host; downloadable files are preferred.",
+        "physicalPolicy": "Effective May 1, 2026, physical media is accepted only from artists within KKFI's listening area. Non-local physical submissions are returned to sender."
+      },
+      "businessContact": {
+        "email": null,
+        "emailStatus": "protected first-party Music Librarian email link observed but not decoded or stored",
+        "verification": "KKFI's official New Music Submissions and Contact pages publish a protected email link for the Music Librarian and explicitly associate it with digital submissions and follow-up. Because the destination is protected in passive rendering, its exact syntax and domain were not asserted. The link was not decoded, guessed, contacted or probed, and no SMTP, MX, catch-all, mailbox-level or deliverability testing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "javascriptContactWidgetObserved": true,
+        "widgetStatus": "The official pages expose JavaScript-dependent contact widgets, but the passive Contact representation reports no fields and the widgets were not treated as the canonical music-delivery route.",
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "KKFI's official homepage carried content dated July 8, 2026, current upcoming episodes, a recently played section, active programme navigation and a current event announcement."
+      },
+      "genreFitEvidence": [
+        "KKFI's official programme taxonomy includes Hip-Hop / Electronic and Reggae / World.",
+        "Current specialist shows include Dub's Groove, Galactic Supermarket, Global Roots Radio, HipHop Chronicles, Nocturnal Frequencies, Roots-Wise Reggae, Sunset Reggae and World Sound Radio.",
+        "Selected MarcsMusic electronic, bass, dub, reggae, world-fusion, hip-hop and crossover releases have plausible editorial fit."
+      ],
+      "manualReviewReason": "KKFI expressly accepts digital music through its Music Librarian route, but the destination is published through a protected first-party email link and was not decoded, guessed or copied into the automated dataset. A human must open the current official page, use only the displayed destination, choose a rights-cleared MarcsMusic release, prepare the preferred 300 kbps constant-bitrate MP3 or a supported cloud-download link, keep any direct attachments below 8 MB total, confirm that no separate player is required, add accurate release and routing context, verify international eligibility and the unpublished explicit-content and AI-origin rules, and send manually. KKFI's updated May 2026 policy limits physical submissions to artists within its listening area, so MarcsMusic must not use the postal route.",
+      "priority": 94,
+      "pricingModel": "free-first-protected-email/manual-digital-package-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KKFI",
+      "KKFI 90.1 FM",
+      "kkfi.org",
+      "kkfi.org/new-music-submissions",
+      "KKFI Music Librarian"
+    ],
+    "repositoryEvidence": "The complete open pull-request patch and repository code index were searched for KKFI, its frequency, canonical domain, current submission path and Music Librarian role. No prior music-submission-agent platform, seed or queue record was found.",
+    "consolidation": "KKFI's digital Music Librarian route is stored once. The protected destination is retained as route metadata rather than decoded. The local-only physical route, generic JavaScript contact widgets, individual hosts and the older broad physical-mail wording are not counted as separate MarcsMusic opportunities."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first digital music-submission route was queued as needs_manual_review. No email, file, link, form or physical package was submitted."
+}
