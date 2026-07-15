@@ -12,6 +12,9 @@ override suppressions or send mail.
 
 This service is a production candidate, not evidence of a completed production rollout. Keep sending disabled until the deployment and canary gates in the [Railway runbook](../../docs/outreach/railway-runbook.md) have passed.
 
+The Plunk/MXRoute rollout, DNS, secret rotation and rollback contract is
+documented in the [production runbook](../../docs/plunk-mxroute-runbook.md).
+
 ## Architecture
 
 ```mermaid

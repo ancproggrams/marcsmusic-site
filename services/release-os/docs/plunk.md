@@ -1,5 +1,8 @@
 # Plunk transactionele e-mail
 
+Voor de volledige Railway-, DNS-, rollout- en rotatieprocedure: zie het
+[Plunk/MXRoute productie-runbook](../../../docs/plunk-mxroute-runbook.md).
+
 Release OS gebruikt Plunk als de enige applicatieprovider voor transactionele
 e-mail. De provider wordt aangeroepen via `POST /v1/send` met een server-side
 Bearer secret. De vaste afzender is `MarcsMusic <noreply@marcsmusic.nl>`.

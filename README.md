@@ -194,6 +194,7 @@ Transactionele e-mail uses Plunk as the application provider and MXRoute as
 the SMTP relay. Keep `noreply@marcsmusic.nl` fixed and verify SPF/DKIM/DMARC
 for `marcsmusic.nl` before enabling a controlled campaign. See
 [`services/release-os/docs/plunk.md`](services/release-os/docs/plunk.md).
+Voor Railway/DNS-rollout en secretrotatie: [`docs/plunk-mxroute-runbook.md`](docs/plunk-mxroute-runbook.md).
 
 ## Radicale CalDAV setup on Railway
 
