@@ -2,7 +2,7 @@
 
 Date: 2026-07-15
 
-Latest run: Run 384
+Latest run: Run 385
 
 New items added: 1
 
@@ -10,22 +10,22 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1702
+Pipeline estimate: 1703
 
 Items:
 
-- Insanity Radio 103.2FM, Egham — official Head of Music route invites local or up-and-coming artists seeking exposure; queued for an asset-free process inquiry and manual review
+- KSDT Radio, La Jolla — official current Music contact published on the first-party About page; queued for an asset-free process inquiry and manual review
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Insanity Radio note: The official Production Board page identifies Eoin Moffatt as Head of Music, explains that the role curates the station playlist and invites local or up-and-coming artists seeking exposure to make contact. Because no complete audio-delivery workflow is published, the first contact must contain no audio attachment or private track link and may only ask for the current submission procedure.
+KSDT note: The official About page identifies Sabrina Arruda under Music and publishes `sabrina@ksdt.org`. Because KSDT does not publish a complete unsolicited-music or audio-delivery workflow, the first contact must contain no audio attachment or private track link and may only ask for the current submission procedure.
 
-Contact-verification note: The official page publishes `music@insanityradio` and explicitly instructs readers to append `.com` to all `@insanityradio` contacts. This yields `music@insanityradio.com` without guessing. The address has valid syntax, official-domain alignment and a purpose-specific Head of Music context. The separately published named-recipient mailbox was consolidated rather than queued as a second route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: The Music address is published in plaintext on KSDT Radio’s official site, has valid syntax, uses the station-branded `ksdt.org` domain and is explicitly tied to the current Music role. General management, programming, media, events, creative, audio and other staff contacts were excluded. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: The official homepage and player displayed an operational ON AIR state, the schedule and current Production Board were accessible, and the playlist page says the Music Team meets weekly to compile the playlist. Selected clean MarcsMusic electronic, alternative, bass, hip-hop-adjacent and crossover releases have plausible fit, subject to current editorial and international-eligibility requirements.
+Activity and fit note: KSDT’s official homepage contains current 2026 live reviews, recurring Fresh Picks and Pop Drop release features, album reviews and artist coverage. Selected clean MarcsMusic electronic, bass, reggae-adjacent, hip-hop-adjacent and global-fusion releases have plausible fit, subject to KSDT’s unpublished current editorial and international-eligibility requirements.
 
-Manual-review note: The official pages do not publish attachment-versus-link rules, accepted formats, metadata, release timing, international eligibility, explicit-content handling or AI-origin policy. A human must send only an asset-free inquiry, wait for authorization, confirm the current role holder and requirements, and permission-check the selected release before supplying assets.
+Manual-review note: The official pages do not publish attachment-versus-link rules, accepted formats, metadata, release timing, international eligibility, explicit-content handling or AI-origin policy. A human must send only an asset-free inquiry, wait for authorization, confirm the current Music role holder and permission-check the selected release before supplying assets.
 
-Deduplication note: The complete open pull-request patch was searched for Insanity Radio, Insanity Radio 103.2FM, the canonical domain, Production Board path and Head of Music role mailbox. No prior music-submission-agent record was found. The role mailbox is stored once; the named recipient, general contact, other board contacts and postal address are excluded.
+Deduplication note: The complete open pull-request patch was searched for KSDT, KSDT Radio, the canonical website domain, station email domain, current Music mailbox and About path. No prior music-submission-agent record was found. The Music contact is stored once; all adjacent staff contacts are excluded.
 
-Safety: No email, form field, audio file, attachment, stream or download link, biography, metadata, personal information, physical package, login, CAPTCHA, consent or payment was entered or submitted. No mailbox pattern was guessed, and no anti-bot, authentication, platform or payment restriction was bypassed.
+Safety: No email, form field, audio file, attachment, stream or download link, biography, metadata, personal information, physical package, login, CAPTCHA, consent or payment was entered or submitted. No address pattern was guessed, and no anti-bot, authentication, platform or payment restriction was bypassed.
