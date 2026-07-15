@@ -1,24 +1,8 @@
 import type { PlatformInput } from '../models/types.js';
 
+// Run 374 deduplication correction:
+// KEXP is retained once through its canonical Run 39 route.
 export const run78SeedPlatforms: PlatformInput[] = [
-  {
-    name: "KEXP Airplay Submission Guidelines",
-    websiteUrl: "https://www.kexp.org/",
-    submissionUrl: "https://www.kexp.org/about/submission-guidelines/",
-    sourceUrl: "https://www.kexp.org/about/submission-guidelines/",
-    sourceType: "automation_run_78_public_research",
-    country: "United States / Seattle and Bay Area listener-powered non-commercial radio digital airplay submission route",
-    language: "en",
-    genres: ["kexp", "non-commercial-radio", "public-radio", "radio-airplay", "music-director-email", "digital-submission", "electronic", "dub", "reggae", "world", "bass-music", "indie", "alternative", "free", "manual-review"],
-    submissionMethod: "official-kexp-digital-airplay-submission-guidelines-email-route",
-    feeRequired: false,
-    loginRequired: false,
-    captchaDetected: false,
-    paymentRequired: false,
-    manualReviewRequired: true,
-    manualReviewReason: "Human review is required for outbound email drafting, stream/download WAV link permissions, artist metadata, focus tracks, release dates, clean edits, lyric sheet, credits, bio/one-sheet and station/DJ fit.",
-    notes: "Public research confirmed KEXP's updated Getting Airplay and Submission Guidelines pages and official digital submission instructions. No email was sent, no file was transferred and no SMTP/MX probing was performed."
-  },
   {
     name: "KVRX 91.7 FM Music Department Submissions",
     websiteUrl: "https://www.kvrx.org/",
