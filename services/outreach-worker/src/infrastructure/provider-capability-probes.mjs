@@ -1,4 +1,5 @@
 import { createAbortScope } from "./abort-signal.mjs";
+import { resolveMx as dnsResolveMx } from "node:dns/promises";
 import { readBoundedResponseText, ResponseSizeLimitError } from "./bounded-response.mjs";
 
 const DEFAULT_CACHE_TTL_MS = 30_000;
@@ -21,6 +22,7 @@ export class MailgunDomainHealthProbe {
       DEFAULT_MAX_RESPONSE_BYTES
     );
     this.fetch = options.fetch ?? globalThis.fetch;
+    this.resolveMx = options.resolveMx ?? dnsResolveMx;
     this.signal = options.signal;
     const clock = options.now ?? Date.now;
     this.now = () => epochMilliseconds(clock());
@@ -136,6 +138,7 @@ export class EmailValidationHealthProbe {
   constructor(config, options = {}) {
     this.enabled = config.enabled === true;
     this.type = config.type;
+    this.heloDomain = config.heloDomain;
     this.healthUrl = config.healthUrl;
     this.token = config.token;
     this.timeoutMs = boundedPositiveInteger(config.healthTimeoutMs, DEFAULT_TIMEOUT_MS);
@@ -166,6 +169,9 @@ export class EmailValidationHealthProbe {
         type: this.type
       });
     }
+    if (this.type === "smtp") {
+      return this.smtpProbe();
+    }
     if (this.type !== "http" || !this.healthUrl) {
       return providerResult({
         configured: true,
@@ -176,6 +182,19 @@ export class EmailValidationHealthProbe {
       });
     }
     return this.cache.get(() => this.probe());
+  }
+
+  async smtpProbe() {
+    const checkedAt = isoTimestamp(this.now());
+    const domain = String(this.heloDomain ?? "").trim();
+    if (!domain) return providerResult({ configured: true, available: false, health: "unknown", reason: "email_validation_health_unknown", type: this.type });
+    try {
+      const records = await this.resolveMx("gmail.com");
+      if (!Array.isArray(records) || records.length === 0) throw new Error("no MX records");
+      return providerResult({ configured: true, available: true, health: "available", reason: "smtp_mx_resolution_available", type: this.type, checkedAt });
+    } catch {
+      return providerResult({ configured: true, available: false, health: "unavailable", reason: "email_validation_mx_unavailable", type: this.type, checkedAt });
+    }
   }
 
   async probe() {
