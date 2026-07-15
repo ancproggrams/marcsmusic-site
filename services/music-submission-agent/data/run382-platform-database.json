@@ -1,0 +1,154 @@
+{
+  "run": 382,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1698,
+  "pipelineEstimate": 1700,
+  "newPlatforms": [
+    {
+      "name": "Eastside Radio 89.7FM Music Enquiries Pre-Submission Email Route",
+      "websiteUrl": "https://eastsidefm.org/",
+      "submissionUrl": "mailto:music@eastsidefm.org",
+      "sourceUrl": "https://eastsidefm.org/contact/",
+      "sourceType": "automation_run_382_public_research",
+      "country": "Australia / Sydney, New South Wales community radio",
+      "language": "en",
+      "genres": [
+        "community-radio",
+        "independent",
+        "electronic",
+        "dub",
+        "reggae",
+        "hip-hop",
+        "world-music",
+        "african",
+        "soul",
+        "future-rnb",
+        "jazz",
+        "manual-review"
+      ],
+      "submissionMethod": "official-public-music-enquiries-email-asset-free-pre-submission-inquiry",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party purpose-specific business email",
+        "emailPurpose": "Music enquiries",
+        "permittedAutomatedScope": "discovery and queueing only",
+        "safeHumanAction": "Send an asset-free inquiry asking for Eastside Radio's current music or airplay submission process.",
+        "audioDeliveryAuthorized": false,
+        "physicalDeliveryAuthorized": false
+      },
+      "businessContact": {
+        "email": "music@eastsidefm.org",
+        "verification": "Verified through plaintext publication on Eastside Radio's official Contact page, valid syntax, exact Music-enquiries purpose and first-party eastsidefm.org domain alignment. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-15",
+        "evidence": "The official site states that Eastside Radio is on air 24 hours a day, exposes live listening and a current programme catalogue, and published dated editorial material on June 30, 2026."
+      },
+      "genreFitEvidence": [
+        "Across the Universe: electronic and world music",
+        "BOSH: electronic, future R&B, neo-soul and dub",
+        "Bambu Hut: Jamaican jazz, ska, rocksteady and reggae",
+        "Boondi Nights: hip-hop and world music",
+        "Dial Afrika: African music",
+        "Album of the Week states that new music arrives from artists around the world"
+      ],
+      "manualReviewReason": "The official page authorizes Music enquiries but does not publish current unsolicited-audio delivery rules, accepted attachments or links, formats, metadata, release timing, overseas eligibility, explicit-content handling or AI-origin policy. A human must first send only an asset-free process inquiry, wait for an authorized response and avoid supplying music, files or private links until requirements are confirmed.",
+      "priority": 92,
+      "pricingModel": "free-purpose-specific-email-inquiry/manual-policy-review"
+    },
+    {
+      "name": "Northside Radio 99.3FM Music Contact Form Pre-Submission Inquiry Route",
+      "websiteUrl": "https://www.northsideradio.com.au/",
+      "submissionUrl": "https://www.northsideradio.com.au/contact/",
+      "sourceUrl": "https://www.northsideradio.com.au/contact/",
+      "sourceType": "automation_run_382_public_research",
+      "country": "Australia / Chatswood, Sydney, New South Wales community radio",
+      "language": "en",
+      "genres": [
+        "community-radio",
+        "independent",
+        "electronic",
+        "dance",
+        "soul",
+        "funk",
+        "jazz",
+        "blues",
+        "latin",
+        "world-music",
+        "manual-review"
+      ],
+      "submissionMethod": "official-public-contact-form-music-category-asset-free-pre-submission-inquiry",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party contact form",
+        "formCategory": "Music",
+        "permittedAutomatedScope": "discovery and queueing only",
+        "safeHumanAction": "Submit an asset-free inquiry asking for Northside Radio's current airplay-submission process after rechecking live validation and anti-spam controls.",
+        "audioDeliveryAuthorized": false,
+        "physicalDeliveryAuthorized": false
+      },
+      "businessContact": {
+        "email": null,
+        "verification": "No purpose-bound public music-submission email was observed on the reviewed official pages. The first-party Music-category form was verified as the authorized public inquiry route. No address was guessed, decoded or substituted, and no SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formAssessment": {
+        "fieldsObserved": [
+          "first name",
+          "last name",
+          "email",
+          "phone",
+          "subject",
+          "message"
+        ],
+        "musicCategoryObserved": true,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "fileUploadObserved": false,
+        "explicitMusicSubmissionInstructionsObserved": false,
+        "liveValidationOrAntiSpamState": "not fully exposed in passive rendering; must be rechecked manually"
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-15",
+        "evidence": "The official homepage exposes Listen Live, Program Guide, Listen Again, Song History and News surfaces and an active station-support campaign."
+      },
+      "genreFitEvidence": [
+        "The public station navigation exposes an active programme guide and song-history surface",
+        "The Music category establishes an authorized route for a policy inquiry",
+        "Electronic, dance, soul, funk, jazz, blues, Latin and world programming are plausible catalogue-fit areas, subject to programme-level confirmation"
+      ],
+      "manualReviewReason": "The first-party form has a Music subject but does not expressly authorize unsolicited audio delivery or disclose accepted files or links, metadata, release timing, international eligibility, explicit-content rules or AI-origin policy. A human must inspect the current form for validation, privacy and anti-spam controls, use it only for an asset-free process inquiry and avoid sending music or private links unless Northside confirms an authorized route.",
+      "priority": 90,
+      "pricingModel": "free-contact-form-inquiry/manual-form-and-policy-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Eastside Radio",
+      "Eastside Radio 89.7FM",
+      "eastsidefm.org",
+      "music@eastsidefm.org",
+      "Northside Radio",
+      "Northside Radio 99.3FM",
+      "northsideradio.com.au",
+      "northsideradio.com.au/contact"
+    ],
+    "repositoryEvidence": "The complete open-pull-request patch was searched for both station names, canonical domains, Eastside's purpose-specific mailbox and Northside's Contact path. No prior music-submission-agent opportunity or queue record was found for either station.",
+    "consolidation": "Eastside's Music enquiries mailbox is stored once; its separate general, Music Interviews, programming, reviews, arts and show contacts are excluded. Northside's Music subject and enquiry form are stored as one route; other subject categories and the published street address are not counted as music-submission methods."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Two new free-first, first-party inquiry routes were queued. Both remain needs_manual_review because neither official page currently authorizes direct audio delivery or publishes complete submission requirements. No outbound action was taken."
+}
