@@ -1816,18 +1816,16 @@ index 1d5a1e0..7214e99 100644
      const [headerSection, ...bodyParts] = rawMessage.split('\n\n');
 diff --git a/apps/api/src/services/__tests__/SMTPService.test.ts b/apps/api/src/services/__tests__/SMTPService.test.ts
 new file mode 100644
-index 0000000..eab3790
+index 0000000..883279e
 --- /dev/null
 +++ b/apps/api/src/services/__tests__/SMTPService.test.ts
-@@ -0,0 +1,76 @@
-+import {randomUUID} from 'node:crypto';
-+
+@@ -0,0 +1,74 @@
 +import {beforeAll, describe, expect, it, vi} from 'vitest';
 +
 +vi.hoisted(() => {
 +  Object.assign(process.env, {
 +    NODE_ENV: 'test',
-+    JWT_SECRET: randomUUID(),
++    JWT_SECRET: globalThis.crypto.randomUUID(),
 +    API_URI: 'http://localhost:8080',
 +    DASHBOARD_URI: 'http://localhost:3000',
 +    LANDING_URI: 'http://localhost:4000',
@@ -1838,7 +1836,7 @@ index 0000000..eab3790
 +    SMTP_HOST: 'tuesday.mxrouting.net',
 +    SMTP_PORT: '587',
 +    SMTP_USER: 'smtp-test-user',
-+    SMTP_PASSWORD: randomUUID(),
++    SMTP_PASSWORD: globalThis.crypto.randomUUID(),
 +    SMTP_SECURE: 'false',
 +    SMTP_FROM_ADDRESS: 'noreply@marcsmusic.nl',
 +    SMTP_ALLOWED_FROM_ADDRESS: 'noreply@marcsmusic.nl',
