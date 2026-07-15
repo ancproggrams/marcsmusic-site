@@ -309,10 +309,14 @@ function normalizeObservability(value) {
 function normalizeExternalCapability(value, unavailableReason) {
   const configured = value?.configured === true;
   const available = configured && value?.available === true;
+  const mode = value?.mode === "durable_outbox" || value?.mode === "protected_prometheus"
+    ? value.mode
+    : "external";
   return {
-    mode: "external",
+    mode,
     configured,
     available,
+    ...(typeof value?.reference === "string" && value.reference.length > 0 ? { reference: value.reference } : {}),
     ...(!available ? { reason: publicReason(value?.reason ?? unavailableReason) } : {})
   };
 }
