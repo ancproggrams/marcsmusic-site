@@ -1,0 +1,128 @@
+{
+  "run": 388,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1705,
+  "pipelineEstimate": 1706,
+  "newPlatforms": [
+    {
+      "name": "4ZZZ Music Department Online Airplay Submission Form",
+      "websiteUrl": "https://4zzz.org.au/",
+      "submissionUrl": "https://jeff.4zzz.org.au/form/submit-your-music-to-4zzz",
+      "sourceUrl": "https://4zzz.org.au/music-submissions",
+      "sourceType": "automation_run_388_public_research",
+      "country": "Australia / Brisbane independent community radio",
+      "language": "en",
+      "genres": [
+        "community-radio",
+        "independent-music",
+        "new-music",
+        "electronic",
+        "dance",
+        "hip-hop",
+        "beats",
+        "experimental",
+        "world-music",
+        "downloadable-audio-link",
+        "javascript-form",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-javascript-dependent-downloadable-audio-airplay-submission-form",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party Music Department airplay-submission form",
+        "namedRecipient": "4ZZZ Music Department",
+        "explicitPurpose": "submit music for consideration for inclusion in 4ZZZ's digital library and possible airplay",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the JavaScript-dependent canonical form, verify that no new CAPTCHA, login, payment or session boundary is present, review all fields and permissions, provide a rights-cleared downloadable WAV or 320 kbps MP3 link, complete the airplay-permission acknowledgement and submit manually.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorized": false
+      },
+      "submissionRequirements": {
+        "audioDelivery": "downloadable link required; non-downloadable streams are rejected",
+        "acceptedAudio": [
+          "WAV",
+          "MP3 at 320 kbps"
+        ],
+        "acceptedLinkExamples": [
+          "download-enabled public or private SoundCloud link",
+          "Google Drive",
+          "Dropbox",
+          "OneDrive",
+          "Bandcamp with download code",
+          "Apple Music with download code"
+        ],
+        "rejectedLinkExamples": [
+          "Spotify-only link",
+          "non-downloadable stream"
+        ],
+        "requestedInformation": [
+          "contact email",
+          "subscriber-band status and subscriber number when applicable",
+          "artist name and location",
+          "release name and release date",
+          "pre-release airplay permission",
+          "release genres",
+          "label or distributor",
+          "member names and pronouns",
+          "optional identity information",
+          "artist biography, release information or press-pack link",
+          "language or content warnings",
+          "downloadable release link",
+          "download code when applicable",
+          "cover-art link",
+          "social links",
+          "Brisbane-area show information",
+          "final airplay-permission acknowledgement"
+        ]
+      },
+      "businessContact": {
+        "email": "music-department@4zzz.org.au",
+        "emailStatus": "verified first-party Music Department follow-up mailbox published in plaintext on the official Contact page",
+        "verification": "The official Contact page publishes music-department@4zzz.org.au specifically to follow up an existing music submission. The address has valid syntax and exact official 4zzz.org.au domain alignment. It is not classified as the initial delivery route because the same page instructs artists to complete the online form. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "javascriptRequired": true,
+        "captchaObservedInPassiveRepresentation": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "permissionAcknowledgementObserved": true,
+        "optionalSensitiveIdentityFieldsObserved": true,
+        "liveValidationAndSessionState": "must be rechecked by a human before submission"
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-15",
+        "evidence": "4ZZZ's official site exposes active FM and Zed Digital streams, a populated current schedule, weekly New Releases programming, reviews, July/August/October event sections and news content dated through April 28, 2026."
+      },
+      "genreFitEvidence": [
+        "The current official schedule includes Full Of Air for electronic, femme and dance music.",
+        "No Guitars Allowed covers jazz, hip-hop, electronic and experimental music.",
+        "Pass The Aux! covers hip-hop, electronic music and beats.",
+        "The station's wider freeform and specialist schedule provides plausible fit for selected MarcsMusic electronic, bass, reggae, global-fusion and crossover releases."
+      ],
+      "manualReviewReason": "4ZZZ explicitly authorizes music submissions through its canonical first-party form, but the form requires JavaScript and a final airplay-permission acknowledgement. A human must re-open the form, confirm that no CAPTCHA, session, consent or validation boundary has appeared, choose the correct MarcsMusic release, verify international eligibility, provide a downloadable WAV or 320 kbps MP3 link rather than Spotify, verify download permissions and metadata, review the optional identity fields and privacy implications, disclose any language or content warning, check the AI-origin policy and submit only after final rights and consent approval. The published music-department@4zzz.org.au mailbox is for following up an existing submission and must not replace the form for an initial pitch.",
+      "priority": 96,
+      "pricingModel": "free-first-official-form/manual-rights-consent-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "4ZZZ",
+      "4ZZZ Music Department",
+      "4zzz.org.au",
+      "jeff.4zzz.org.au/form/submit-your-music-to-4zzz",
+      "music-department@4zzz.org.au"
+    ],
+    "repositoryEvidence": "The complete open pull-request patch and repository code search were checked for 4ZZZ, the canonical domain, the canonical form path and the Music Department follow-up mailbox. No prior music-submission-agent platform or queue record was found.",
+    "consolidation": "The canonical Music Department form is stored once as the initial submission route. The follow-up mailbox is retained only as verified business-contact metadata. Direct service to individual announcers and the separate Australian-only Album of the Week form are excluded as parallel MarcsMusic submission routes."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first first-party airplay-submission form was queued as needs_manual_review. The form was not completed or submitted."
+}
