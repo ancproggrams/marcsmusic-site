@@ -1,0 +1,79 @@
+{
+  "run": 385,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1702,
+  "pipelineEstimate": 1703,
+  "newPlatforms": [
+    {
+      "name": "KSDT Radio Music Department Pre-Submission Inquiry Route",
+      "websiteUrl": "https://www.ksdtradio.com/",
+      "submissionUrl": "https://www.ksdtradio.com/about",
+      "sourceUrl": "https://www.ksdtradio.com/about",
+      "sourceType": "automation_run_385_public_research",
+      "country": "United States / La Jolla, California student-run college radio",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "student-radio",
+        "independent-music",
+        "new-music",
+        "electronic",
+        "experimental",
+        "hip-hop",
+        "pop",
+        "music-department",
+        "manual-review"
+      ],
+      "submissionMethod": "official-public-current-music-staff-pre-submission-inquiry-email",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party current Music staff business email for an asset-free process inquiry",
+        "namedRecipient": "Sabrina Arruda, Music",
+        "explicitPurpose": "current KSDT Music department contact",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Send only a concise asset-free inquiry asking for KSDT’s current airplay, playlist or review submission procedure. Do not attach audio or include private track links until KSDT confirms an authorized delivery method.",
+        "audioDeliveryAuthorized": false,
+        "physicalDeliveryAuthorized": false
+      },
+      "businessContact": {
+        "email": "sabrina@ksdt.org",
+        "emailStatus": "verified first-party current Music contact published in plaintext on KSDT Radio’s official About page",
+        "verification": "The official About page identifies Sabrina Arruda under Music and publishes sabrina@ksdt.org. The address has valid syntax, uses KSDT’s station-branded domain and is explicitly associated with the Music role. It is not classified as authorization to email music because the page publishes no submission policy. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-15",
+        "evidence": "KSDT’s official homepage publishes active 2026 music coverage, including an April 1, 2026 live review and recurring January–March 2026 Fresh Picks and Pop Drop new-release features; the About page lists the current operating team."
+      },
+      "genreFitEvidence": [
+        "The official homepage actively covers new music, album reviews, live performances and artist interviews.",
+        "Recent and recurring coverage includes electronic, experimental, hip-hop, pop, indie and crossover releases.",
+        "Selected clean MarcsMusic electronic, bass, reggae-adjacent, hip-hop-adjacent and global-fusion releases have plausible editorial or airplay fit, subject to KSDT’s unpublished current criteria."
+      ],
+      "manualReviewReason": "KSDT’s official About page publishes Sabrina Arruda as the current Music contact and provides a public station-domain mailbox, but the page does not explicitly authorize unsolicited audio delivery or publish attachment-versus-link rules, accepted formats, file-size limits, metadata or EPK requirements, release windows, international eligibility, clean or explicit-content rules, AI-origin policy, response times or physical-delivery instructions. A human must recheck the current role holder, send only a concise asset-free process inquiry, wait for explicit delivery instructions, permission-check the selected release and avoid parallel outreach to general, programming, media, events or other staff contacts.",
+      "priority": 93,
+      "pricingModel": "free-first-music-department-inquiry/manual-delivery-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KSDT",
+      "KSDT Radio",
+      "ksdtradio.com",
+      "ksdt.org",
+      "sabrina@ksdt.org",
+      "ksdtradio.com/about"
+    ],
+    "repositoryEvidence": "The complete open pull-request patch was searched separately for KSDT, KSDT Radio, the canonical website domain, the station email domain, the current Music contact mailbox and the About path. No previous music-submission-agent platform or queue record was found.",
+    "consolidation": "The current Music contact is stored as one inquiry route. General management, programming, media, events, creative, audio, news, sports and other staff contacts are excluded as parallel submission methods."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first Music department process-inquiry route was queued as needs_manual_review. No audio-delivery method was inferred and no outbound action was taken."
+}
