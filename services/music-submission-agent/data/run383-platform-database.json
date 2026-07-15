@@ -1,0 +1,79 @@
+{
+  "run": 383,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1700,
+  "pipelineEstimate": 1701,
+  "newPlatforms": [
+    {
+      "name": "WONY 90.9FM Music Director Airplay Submission Route",
+      "websiteUrl": "https://www.wonyfm.org/",
+      "submissionUrl": "https://www.wonyfm.org/music-department",
+      "sourceUrl": "https://www.wonyfm.org/music-department",
+      "sourceType": "automation_run_383_public_research",
+      "country": "United States / Oneonta, New York SUNY student-run college radio",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "student-radio",
+        "independent-music",
+        "new-music",
+        "electronic",
+        "alternative",
+        "hip-hop",
+        "world-music",
+        "music-director",
+        "manual-review"
+      ],
+      "submissionMethod": "official-public-protected-music-director-contact-route",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party protected or non-plaintext Music Director contact link",
+        "namedRecipient": "Jesse Woodhouse, Music Director",
+        "explicitPurpose": "submit music for airplay and other music-related inquiries",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the official Music Department page, use the displayed Music Director contact without decoding or guessing it, confirm the current delivery requirements and complete any submission manually.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorized": false
+      },
+      "businessContact": {
+        "email": null,
+        "emailStatus": "purpose-specific destination present through official contact link but not exposed as plaintext in passive rendering",
+        "generalEmailExcluded": "wonygm@gmail.com",
+        "verification": "WONY’s official Music Department page expressly authorizes contacting the named Music Director to submit music for airplay. The destination was not decoded, inferred or stored. The plaintext general-station Gmail address was verified as a current station contact but excluded as a substitute submission route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-15",
+        "evidence": "WONY’s official site exposes a live and currently-playing surface, identifies its 2025–2026 Executive Board, states that more than two dozen DJs broadcast live each week and carries © 2026 site content."
+      },
+      "genreFitEvidence": [
+        "The station describes its programming as a variety of music selected by its DJs.",
+        "The Music Department reviews new albums for potential addition to the automation playlist.",
+        "The route is appropriate for selected independent electronic, alternative, hip-hop-adjacent and global-fusion MarcsMusic releases, subject to the Music Director’s current programming criteria."
+      ],
+      "manualReviewReason": "WONY expressly authorizes music-for-airplay contact through its current Music Director, but the destination is non-plaintext and the official pages do not publish attachment-versus-download-link rules, formats, bitrate, file size, release type, metadata, release timing, international eligibility, clean or explicit-content handling, AI-origin policy or response expectations. A human must use the official contact link without decoding or guessing it, confirm the current requirements, select and permission-check the release and complete any outreach manually. The general station mailbox and postal address must not be substituted.",
+      "priority": 93,
+      "pricingModel": "free-first-protected-music-director-route/manual-package-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "WONY",
+      "WONY 90.9FM",
+      "wonyfm.org",
+      "wonyfm.org/music-department",
+      "Jesse Woodhouse"
+    ],
+    "repositoryEvidence": "The complete open-pull-request patch was searched for the WONY call sign, station name, canonical domain, Music Department path and named Music Director. No previous music-submission-agent platform or queue record was found.",
+    "consolidation": "The named Music Director contact and Music Department airplay invitation are stored as one canonical opportunity. The general station Gmail address and postal address are excluded as alternate music-submission methods."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first first-party music-airplay route was queued as needs_manual_review. The protected or non-plaintext destination was not decoded or stored, and no outbound action was taken."
+}
