@@ -2,29 +2,28 @@
 
 Date: 2026-07-15
 
-Latest run: Run 380
+Latest run: Run 381
 
-New items added: 0
+New items added: 1
 
-Existing items reverified and materially corrected or enriched: 2
+Existing items reverified or materially enriched: 0
 
-Duplicate opportunity counts retired: 2
+Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1697
+Pipeline estimate: 1698
 
 Items:
 
-- WREK 91.1 FM — canonical Run 109 record reverified; duplicate Run 379 seed and queue row retired
-- WPRB 103.3 FM — canonical Run 109 record reverified; duplicate Run 379 seed and queue row retired
+- BayFM 99.9 Byron Bay — official first-party Music-category contact form queued as an asset-free pre-submission inquiry
 
-No new queue rows were created, and no auto-submit candidate was created. Both legitimate routes retain their existing `needs_manual_review` classification under the canonical Run 109 records.
+One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-WREK note: The official guidance publishes `music.director@wrek.org`, authorizes email and physical delivery, accepts independently produced music and common media formats, and gives CDs and LPs stronger consideration. Current digital specifications, international eligibility, content policies and the physical address still require confirmation before use.
+BayFM note: The official Contact page exposes a public form with a dedicated **Music** subject, optional genre field, message field and CAPTCHA. The page does not expressly authorize unsolicited audio delivery or publish attachment, stream/download-link, metadata, international-eligibility, explicit-content or AI-origin rules. The safe action is therefore limited to a human-reviewed, asset-free inquiry asking for the current airplay-submission process. Music, files and private links must not be sent until BayFM confirms an authorized route.
 
-WPRB note: The official Music Submissions page publishes `music@wprb.com`, authorizes CDs, CD-Rs, LPs, 12-inch, 10-inch and 7-inch physical submissions, and prioritizes physical media. Current digital-delivery specifications, international eligibility and content policies remain incomplete.
+Activity and fit note: BayFM's official homepage and current Program Guide were active on July 15, 2026. Relevant programmes cover lofi and dance, house, Balearic and dub, electronica and techno, reggae, dub, ska and dancehall, multicultural and world music, and digital beats.
 
-Deduplication note: Full open-pull-request patch inspection located both WREK and WPRB together in Run 109, including the same official submission paths and purpose-specific mailboxes. Run 379's two runtime seeds and two review-queue rows were therefore retired. Older generated artifacts remain as audit evidence.
+Deduplication note: Repository code search and full open-pull-request patch inspection found no previous BayFM, bayfm.org or canonical Contact-path music opportunity. The Music category and genre field are consolidated into one inquiry route. The published street address is not treated as authorization for physical music delivery.
 
-Contact-verification note: Both business addresses are published in plaintext on official first-party submission pages, have valid syntax, are purpose-bound and align with official station domains. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: No purpose-specific public music-submission mailbox was observed. No email was guessed, decoded, substituted or subjected to SMTP, MX, catch-all, mailbox-level or deliverability probing.
 
-Safety: No email, form field, audio file, attachment, download or streaming link, physical package, manufacturing order, customs declaration, login, CAPTCHA, consent or payment was entered or submitted. No adjacent mailbox was used as a workaround, and no anti-bot, authentication, platform or payment restriction was bypassed.
+Safety: No form field, CAPTCHA, email, audio file, attachment, stream or download link, biography, metadata, physical package, login, consent or payment was entered or submitted. No anti-bot, authentication, platform or payment restriction was bypassed.
