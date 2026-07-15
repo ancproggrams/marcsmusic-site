@@ -1,24 +1,8 @@
 import type { PlatformInput } from '../models/types.js';
 
+// Run 374 deduplication correction:
+// KEXP is retained once through its canonical Run 39 route.
 export const run51SeedPlatforms: PlatformInput[] = [
-  {
-    name: 'KEXP Seattle Music Director Airplay Consideration',
-    websiteUrl: 'https://www.kexp.org/',
-    submissionUrl: 'https://www.kexp.org/about/submission-guidelines/',
-    sourceUrl: 'https://www.kexp.org/about/submission-guidelines/',
-    sourceType: 'automation_run_51_public_research',
-    country: 'United States / Seattle and Bay Area public radio',
-    language: 'en',
-    genres: ['public-radio', 'noncommercial-radio', 'independent', 'eclectic', 'electronic', 'world', 'reggae', 'latin', 'afrobeat', 'ambient', 'hip-hop', 'radio-airplay', 'music-director-route', 'email-submission', 'download-link'],
-    submissionMethod: 'official-public-music-director-email-route-with-digital-download-guidelines',
-    feeRequired: false,
-    loginRequired: false,
-    captchaDetected: false,
-    paymentRequired: false,
-    manualReviewRequired: true,
-    manualReviewReason: 'Official KEXP Submission Guidelines route music to the Music Director address for airplay consideration, but human review is required for freeform email outreach, streaming and downloadable WAV link preparation, release metadata, clean radio edits and lyric review, rights verification, DJ/show targeting, station fit and contact validation before any Mailgun/SMTP-verified outreach.',
-    notes: 'Official KEXP contact and Submission Guidelines pages list md@kexp.org for rotation consideration, recommend streaming links and downloadable WAV files, and explicitly reject pay-to-play. No email, file link, upload or physical package was sent.'
-  },
   {
     name: 'WXPN 88.5 Music Director and Local Show Submissions',
     websiteUrl: 'https://xpn.org/',
