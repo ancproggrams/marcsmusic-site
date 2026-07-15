@@ -1,0 +1,1982 @@
+diff --git a/.env.self-host.example b/.env.self-host.example
+index 2de89b4..6f1cf56 100644
+--- a/.env.self-host.example
++++ b/.env.self-host.example
+@@ -37,27 +37,20 @@ NEXT_PUBLIC_WIKI_URI=https://next-wiki.useplunk.com
+ USE_HTTPS=false
+
+ # ========================================
+-# REQUIRED: AWS SES (Email Sending)
+-# ========================================
+-AWS_SES_REGION=us-east-1
+-AWS_SES_ACCESS_KEY_ID=
+-AWS_SES_SECRET_ACCESS_KEY=
+-
+-# Configuration sets for email tracking
+-# SES_CONFIGURATION_SET: Default configuration with open/click tracking enabled
+-SES_CONFIGURATION_SET=plunk-configuration-set
+-
+-# SES_CONFIGURATION_SET_NO_TRACKING: Optional configuration without tracking
+-# If not set, the tracking toggle will be hidden in project settings
+-# When set, projects can choose to disable email tracking
+-SES_CONFIGURATION_SET_NO_TRACKING=plunk-no-tracking-configuration-set
+-
+-# Custom MAIL FROM subdomain — used to construct `<subdomain>.<your-domain>`
+-# when a domain is added. Defaults to `plunk`. Override when `plunk.<your-domain>`
+-# is already used for something else (e.g. an R2/CDN custom domain), since the
+-# MAIL FROM hostname needs MX + TXT records that can't coexist with a CNAME.
+-# Example: MAIL_FROM_SUBDOMAIN=emails  →  emails.<your-domain>
+-# MAIL_FROM_SUBDOMAIN=
++# REQUIRED: MXRoute SMTP (Email Sending)
++# ========================================
++SMTP_HOST=tuesday.mxrouting.net
++SMTP_PORT=587
++SMTP_USER=
++SMTP_PASSWORD=
++SMTP_SECURE=false
++SMTP_TIMEOUT_MS=15000
++SMTP_FROM_ADDRESS=noreply@marcsmusic.nl
++SMTP_FROM_NAME=MarcsMusic
++SMTP_ALLOWED_FROM_ADDRESS=noreply@marcsmusic.nl
++SMTP_ALLOWED_FROM_DOMAIN=marcsmusic.nl
++# Keep disabled until an authenticated provider event contract is configured.
++SMTP_TRACKING_ENABLED=false
+
+ # ========================================
+ # OPTIONAL: OAuth Login
+@@ -106,7 +99,7 @@ NTFY_PORT=8080
+ NTFY_URL=http://ntfy/plunk-notifications
+
+ # ========================================
+-# OPTIONAL: SMTP Server
++# OPTIONAL: Inbound SMTP server
+ # ========================================
+ # The SMTP relay server allows sending emails via SMTP protocol
+ # TLS certificates can be mounted via:
+@@ -163,26 +156,22 @@ SMTP_DOMAIN=smtp.example.com
+ # DISABLE_SIGNUPS=false
+
+ # ========================================
+-# OPTIONAL: SES Sending Rate
++# OPTIONAL: SMTP Sending Rate
+ # ========================================
+-# Caps the email-worker's send rate (messages per second) for the SES sandbox or
+-# manually-throttled accounts. When unset, the worker probes the AWS account at
+-# startup via ses:GetSendQuota; if that call is denied or transiently fails,
+-# the worker silently falls back to 14/sec which may exceed sandbox limits and
+-# trigger SES throttling errors. Set this explicitly to avoid the silent fallback.
+-# Default: unset (auto-detect, falls back to 14)
+-# EMAIL_RATE_LIMIT_PER_SECOND=1
++# Caps the email-worker's send rate (messages per second) for the MXRoute relay.
++# MXRoute quota is not queried at runtime, so this must be an explicit bounded
++# operator setting. Default is 5/sec in production constants.
++# EMAIL_RATE_LIMIT_PER_SECOND=5
+
+ # Number of emails the worker processes in parallel. When unset, concurrency is
+-# derived from the effective rate limit (~ rate * 0.5, min 5, capped by
+-# EMAIL_WORKER_MAX_CONCURRENCY) so a higher SES quota translates into higher
+-# throughput automatically. Pin this only when the Prisma pool or memory is the
+-# binding constraint.
++# derived from the bounded SMTP rate (~ rate * 0.5, min 5, capped by
++# EMAIL_WORKER_MAX_CONCURRENCY). Pin this only when the Prisma pool or memory is
++# the binding constraint.
+ # Default: unset (auto-derived)
+ # EMAIL_WORKER_CONCURRENCY=10
+
+-# Upper bound applied to the auto-derived concurrency. Raise this when your SES
+-# quota is high AND the Prisma connection pool has been sized for it.
++# Upper bound applied to the auto-derived concurrency. Raise only after the
++# SMTP relay and Prisma connection pool have been measured.
+ # Default: 50
+ # EMAIL_WORKER_MAX_CONCURRENCY=50
+
+diff --git a/apps/api/package.json b/apps/api/package.json
+index 1efb51c..85466fc 100644
+--- a/apps/api/package.json
++++ b/apps/api/package.json
+@@ -15,7 +15,6 @@
+   },
+   "dependencies": {
+     "@aws-sdk/client-s3": "^3.937.0",
+-    "@aws-sdk/client-ses": "^3.937.0",
+     "@overnightjs/core": "^1.7.6",
+     "@plunk/db": "*",
+     "@plunk/email": "*",
+diff --git a/apps/api/src/__tests__/integration/domains.test.ts b/apps/api/src/__tests__/integration/domains.test.ts
+index 8907ceb..834e27a 100644
+--- a/apps/api/src/__tests__/integration/domains.test.ts
++++ b/apps/api/src/__tests__/integration/domains.test.ts
+@@ -1,7 +1,7 @@
+ import {beforeEach, describe, expect, it, vi} from 'vitest';
+ import {factories, getPrismaClient} from '../../../../../test/helpers';
+ import {DomainService} from '../../services/DomainService.js';
+-import * as SESService from '../../services/SESService.js';
++import * as SMTPService from '../../services/SMTPService.js';
+
+ /**
+  * Integration tests for Domain verification and ownership checks
+@@ -11,10 +11,10 @@ import * as SESService from '../../services/SESService.js';
+ describe('Domain Verification and Ownership Tests', () => {
+   const prisma = getPrismaClient();
+
+-  // Mock SES service to avoid external AWS calls
++  // Mock SMTP service to avoid external AWS calls
+   beforeEach(() => {
+-    vi.spyOn(SESService, 'verifyDomain').mockResolvedValue(['token1', 'token2', 'token3']);
+-    vi.spyOn(SESService, 'getDomainVerificationAttributes').mockResolvedValue({
++    vi.spyOn(SMTPService, 'verifyDomain').mockResolvedValue(['token1', 'token2', 'token3']);
++    vi.spyOn(SMTPService, 'getDomainVerificationAttributes').mockResolvedValue({
+       status: 'Success',
+       tokens: ['token1', 'token2', 'token3'],
+     });
+diff --git a/apps/api/src/app/constants.ts b/apps/api/src/app/constants.ts
+index e4261ba..a2bf08e 100644
+--- a/apps/api/src/app/constants.ts
++++ b/apps/api/src/app/constants.ts
+@@ -20,8 +20,34 @@ export function validateEnv<T extends string = string>(key: keyof NodeJS.Process
+   return value;
+ }
+
++function positiveNumber(key: keyof NodeJS.ProcessEnv, defaultValue: string, minimum: number, maximum: number): number {
++  const parsed = Number(validateEnv(key, defaultValue));
++  if (!Number.isFinite(parsed) || parsed < minimum || parsed > maximum) {
++    throw new Error(`${key} must be a finite number between ${minimum} and ${maximum}`);
++  }
++  return parsed;
++}
++
++function emailAddress(key: keyof NodeJS.ProcessEnv, defaultValue: string): string {
++  const value = validateEnv(key, defaultValue).trim().toLowerCase();
++  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(value)) throw new Error(`${key} must be a valid email address`);
++  return value;
++}
++
++function strictBoolean(key: keyof NodeJS.ProcessEnv, defaultValue: string): boolean {
++  const value = validateEnv<string>(key, defaultValue).trim().toLowerCase();
++  if (value !== 'true' && value !== 'false') throw new Error(`${key} must be either true or false`);
++  return value === 'true';
++}
++
++function nonEmptySingleLine(key: keyof NodeJS.ProcessEnv): string {
++  const value = validateEnv(key).trim();
++  if (!value || /\r|\n/u.test(value)) throw new Error(`${key} must be a non-empty single-line value`);
++  return value;
++}
++
+ // Environment
+-export const NODE_ENV = validateEnv('NODE_ENV', 'development');
++export const NODE_ENV = validateEnv<string>('NODE_ENV', 'development');
+ export const JWT_SECRET = validateEnv('JWT_SECRET');
+ export const PORT = Number(validateEnv('PORT', '8080'));
+
+@@ -40,34 +66,53 @@ export const S3_PUBLIC_URL = validateEnv('S3_PUBLIC_URL', '');
+ export const S3_FORCE_PATH_STYLE = validateEnv('S3_FORCE_PATH_STYLE', 'true') === 'true';
+ export const S3_ENABLED = S3_ACCESS_KEY_ID !== '' && S3_ACCESS_KEY_SECRET !== '';
+
+-// AWS SES (required for email sending)
+-export const AWS_SES_REGION = validateEnv('AWS_SES_REGION');
+-export const AWS_SES_ACCESS_KEY_ID = validateEnv('AWS_SES_ACCESS_KEY_ID');
+-export const AWS_SES_SECRET_ACCESS_KEY = validateEnv('AWS_SES_SECRET_ACCESS_KEY');
+-
+-// Custom MAIL FROM subdomain used to construct `<subdomain>.<your-domain>`
+-// when a domain is added. Defaults to `plunk`. Override when `plunk.<your-domain>`
+-// is already used for something else (e.g. a CDN), since the MAIL FROM hostname
+-// needs MX + TXT records that can't coexist with a CNAME.
+-export const MAIL_FROM_SUBDOMAIN = validateEnv('MAIL_FROM_SUBDOMAIN', '').trim() || 'plunk';
++// MXRoute SMTP transport (required for outbound email). The password is read
++// from a Railway secret and is never logged. `SMTP_SECURE=false` on port 587
++// means explicit STARTTLS; there is no plaintext fallback when TLS fails.
++export const SMTP_HOST = validateEnv('SMTP_HOST').trim();
++if (!/^[a-z0-9.-]+$/iu.test(SMTP_HOST)) throw new Error('SMTP_HOST must be a DNS hostname');
++export const SMTP_PORT = positiveNumber('SMTP_PORT', '587', 1, 65535);
++export const SMTP_USER = nonEmptySingleLine('SMTP_USER');
++export const SMTP_PASSWORD = validateEnv('SMTP_PASSWORD');
++export const SMTP_SECURE = strictBoolean('SMTP_SECURE', 'false');
++export const SMTP_TIMEOUT_MS = positiveNumber('SMTP_TIMEOUT_MS', '15000', 1000, 60000);
++export const SMTP_FROM_ADDRESS = emailAddress('SMTP_FROM_ADDRESS', 'noreply@marcsmusic.nl');
++export const SMTP_FROM_NAME = validateEnv('SMTP_FROM_NAME', 'MarcsMusic');
++export const SMTP_ALLOWED_FROM_ADDRESS = emailAddress('SMTP_ALLOWED_FROM_ADDRESS', SMTP_FROM_ADDRESS);
++export const SMTP_ALLOWED_FROM_DOMAIN = validateEnv(
++  'SMTP_ALLOWED_FROM_DOMAIN',
++  SMTP_ALLOWED_FROM_ADDRESS.split('@')[1] ?? 'marcsmusic.nl',
++).trim().toLowerCase();
++if (SMTP_ALLOWED_FROM_ADDRESS !== SMTP_FROM_ADDRESS) {
++  throw new Error('SMTP_ALLOWED_FROM_ADDRESS must equal SMTP_FROM_ADDRESS');
++}
++if (SMTP_ALLOWED_FROM_DOMAIN !== SMTP_ALLOWED_FROM_ADDRESS.split('@')[1]) {
++  throw new Error('SMTP_ALLOWED_FROM_DOMAIN must match SMTP_ALLOWED_FROM_ADDRESS');
++}
++if (
++  NODE_ENV === 'production' &&
++  (SMTP_FROM_ADDRESS !== 'noreply@marcsmusic.nl' || SMTP_ALLOWED_FROM_ADDRESS !== 'noreply@marcsmusic.nl')
++) {
++  throw new Error('Production SMTP sender must be noreply@marcsmusic.nl');
++}
++if (NODE_ENV === 'production' && (SMTP_PORT !== 587 || SMTP_SECURE)) {
++  throw new Error('Production MXRoute transport requires SMTP_PORT=587 with explicit STARTTLS (SMTP_SECURE=false)');
++}
+
+-// Email Processing Rate Limit (optional override)
+-// If not set, will automatically fetch from AWS SES account quota
+-// Set this to override AWS quota (useful for setting lower limits or testing)
++// Email Processing Rate Limit. SMTP relays do not expose an SES quota API, so
++// use an explicit bounded operator setting and fail closed on invalid values.
+ export const EMAIL_RATE_LIMIT_PER_SECOND = process.env.EMAIL_RATE_LIMIT_PER_SECOND
+-  ? Number(process.env.EMAIL_RATE_LIMIT_PER_SECOND)
+-  : undefined;
++  ? positiveNumber('EMAIL_RATE_LIMIT_PER_SECOND', '5', 1, 100)
++  : 5;
+
+-// Email Worker Concurrency (optional override)
+-// If not set, concurrency is derived from the effective rate limit so a higher
+-// SES quota actually translates into higher throughput. Set this to pin a fixed
+-// value (useful when Prisma pool size or memory is the binding constraint).
++// Email Worker Concurrency (optional override). The default is derived from the
++// bounded SMTP rate, not from a provider quota lookup.
+ export const EMAIL_WORKER_CONCURRENCY = process.env.EMAIL_WORKER_CONCURRENCY
+   ? Number(process.env.EMAIL_WORKER_CONCURRENCY)
+   : undefined;
+
+-// Upper bound for auto-derived concurrency. Raise this if you have a large SES
+-// quota AND have sized the Prisma connection pool accordingly.
++// Upper bound for auto-derived concurrency. Raise only after SMTP capacity and
++// the Prisma pool have been measured.
+ export const EMAIL_WORKER_MAX_CONCURRENCY = process.env.EMAIL_WORKER_MAX_CONCURRENCY
+   ? Number(process.env.EMAIL_WORKER_MAX_CONCURRENCY)
+   : 50;
+@@ -96,14 +141,9 @@ export const STRIPE_PRICE_ONBOARDING = validateEnv('STRIPE_PRICE_ONBOARDING', ''
+ export const STRIPE_PRICE_EMAIL_USAGE = validateEnv('STRIPE_PRICE_EMAIL_USAGE', ''); // Metered usage price for pay-per-email
+ export const STRIPE_METER_EVENT_NAME = validateEnv('STRIPE_METER_EVENT_NAME', 'emails'); // Meter event name (API key in Stripe)
+
+-// Email Tracking
+-export const SES_CONFIGURATION_SET = validateEnv('SES_CONFIGURATION_SET', 'plunk-configuration-set');
+-export const SES_CONFIGURATION_SET_NO_TRACKING = validateEnv(
+-  'SES_CONFIGURATION_SET_NO_TRACKING',
+-  'plunk-configuration-set-no-tracking',
+-);
+-// Check if no-tracking configuration set was explicitly provided (not using default)
+-export const TRACKING_TOGGLE_ENABLED = process.env.SES_CONFIGURATION_SET_NO_TRACKING !== undefined;
++// Tracking remains explicit. SMTP acceptance alone is not a delivery-event
++// contract, so tracking is disabled unless a separate webhook contract exists.
++export const TRACKING_TOGGLE_ENABLED = process.env.SMTP_TRACKING_ENABLED === 'true';
+
+ // SMTP Server Configuration (optional)
+ // SMTP server can run with or without a domain (runs without TLS in dev mode)
+@@ -131,7 +171,7 @@ export const DISABLE_SIGNUPS = process.env.DISABLE_SIGNUPS === 'true';
+ export const VERIFY_EMAIL_ON_SIGNUP = process.env.VERIFY_EMAIL_ON_SIGNUP === 'true';
+
+ // Attachment Limits (optional)
+-// Maximum total attachment size in MB (default: 10). AWS SES supports up to 40 MB.
++// Maximum total attachment size in MB (default: 10).
+ export const MAX_ATTACHMENT_SIZE_MB = Number(validateEnv('MAX_ATTACHMENT_SIZE_MB', '10'));
+ // Maximum number of attachments per email (default: 10)
+ export const MAX_ATTACHMENTS_COUNT = Number(validateEnv('MAX_ATTACHMENTS_COUNT', '10'));
+diff --git a/apps/api/src/controllers/Config.ts b/apps/api/src/controllers/Config.ts
+index 637755e..d1f2acf 100644
+--- a/apps/api/src/controllers/Config.ts
++++ b/apps/api/src/controllers/Config.ts
+@@ -3,17 +3,19 @@ import type {Request, Response} from 'express';
+
+ import {
+   API_URI,
+-  AWS_SES_REGION,
+   DASHBOARD_URI,
+   DISABLE_SIGNUPS,
+   GITHUB_OAUTH_ENABLED,
+   GOOGLE_OAUTH_ENABLED,
+   LANDING_URI,
+-  MAIL_FROM_SUBDOMAIN,
+   NODE_ENV,
+   S3_ENABLED,
+   SMTP_DOMAIN,
++  SMTP_FROM_ADDRESS,
++  SMTP_HOST,
+   SMTP_ENABLED,
++  SMTP_PORT,
++  SMTP_SECURE,
+   SMTP_PORT_SECURE,
+   SMTP_PORT_SUBMISSION,
+   STRIPE_ENABLED,
+@@ -65,9 +67,12 @@ export class Config {
+             : null,
+         },
+       },
+-      aws: {
+-        sesRegion: AWS_SES_REGION,
+-        mailFromSubdomain: MAIL_FROM_SUBDOMAIN,
++      outboundSmtp: {
++        enabled: true,
++        host: SMTP_HOST,
++        port: SMTP_PORT,
++        secure: SMTP_SECURE,
++        from: SMTP_FROM_ADDRESS,
+       },
+     });
+   }
+diff --git a/apps/api/src/jobs/domain-verification.ts b/apps/api/src/jobs/domain-verification.ts
+index f8d2cc2..262937b 100644
+--- a/apps/api/src/jobs/domain-verification.ts
++++ b/apps/api/src/jobs/domain-verification.ts
+@@ -1,6 +1,6 @@
+ /**
+  * Background Job: Domain Verification Checker
+- * Checks domain verification status with AWS SES
++ * Checks domain verification status with MXRoute SMTP
+  *
+  * This is processed by BullMQ workers (see domain-verification-processor.ts)
+  * Scheduled to run every 5 minutes via repeatable jobs
+@@ -14,7 +14,7 @@ import {DASHBOARD_URI, LANDING_URI} from '../app/constants.js';
+ import {prisma} from '../database/prisma.js';
+ import {redis} from '../database/redis.js';
+ import {MembershipService} from '../services/MembershipService.js';
+-import {disableFeedbackForwarding, getIdentities, verifyDomain} from '../services/SESService.js';
++import {disableFeedbackForwarding, getIdentities, verifyDomain} from '../services/SMTPService.js';
+ import {Keys} from '../services/keys.js';
+
+ /**
+@@ -27,7 +27,7 @@ export async function checkDomainVerifications() {
+     const count = await prisma.domain.count();
+     signale.info(`[DOMAIN-VERIFICATION] Found ${count} domains to check`);
+
+-    // Process domains in batches of 99 (AWS SES limit is 100)
++    // Process domains in bounded batches to protect the resolver.
+     for (let i = 0; i < count; i += 99) {
+       const domains = await prisma.domain.findMany({
+         select: {
+@@ -47,22 +47,22 @@ export async function checkDomainVerifications() {
+         continue;
+       }
+
+-      // Get verification status from AWS SES
+-      const sesIdentities = await getIdentities(domains.map(d => d.domain));
++      // Get verification status from the configured SMTP policy
++      const smtpIdentities = await getIdentities(domains.map(d => d.domain));
+
+-      // Update each domain based on SES status
+-      for (const sesIdentity of sesIdentities) {
+-        const dbDomain = domains.find(d => d.domain === sesIdentity.domain);
++      // Update each domain based on MX evidence.
++      for (const smtpIdentity of smtpIdentities) {
++        const dbDomain = domains.find(d => d.domain === smtpIdentity.domain);
+
+         if (!dbDomain) {
+           continue;
+         }
+
+-        const isVerified = sesIdentity.status === 'Success';
++        const isVerified = smtpIdentity.status === 'Success';
+
+         // If domain failed verification, retry
+-        if (sesIdentity.status === 'Failed') {
+-          signale.warn(`[DOMAIN-VERIFICATION] Restarting verification for ${sesIdentity.domain}`);
++        if (smtpIdentity.status === 'Failed') {
++          signale.warn(`[DOMAIN-VERIFICATION] Rechecking MX evidence for ${smtpIdentity.domain}`);
+
+           let attempt = 0;
+           const maxAttempts = 5;
+@@ -71,25 +71,25 @@ export async function checkDomainVerifications() {
+
+           while (attempt < maxAttempts && !success) {
+             try {
+-              await verifyDomain(sesIdentity.domain);
++              await verifyDomain(smtpIdentity.domain);
+               success = true;
+-              signale.success(`[DOMAIN-VERIFICATION] Restarted verification for ${sesIdentity.domain}`);
++              signale.success(`[DOMAIN-VERIFICATION] Rechecked MX evidence for ${smtpIdentity.domain}`);
+             } catch (e: unknown) {
+               const error = e as {Code?: string; name?: string; message?: string};
+               if (
+                 error?.Code === 'Throttling' ||
+                 error?.name === 'Throttling' ||
+-                error?.message?.includes('Throttling')
++                  error?.message?.includes('resolver')
+               ) {
+                 signale.warn(
+-                  `[DOMAIN-VERIFICATION] Throttling detected, waiting ${delay / 1000} seconds (attempt ${attempt + 1})`,
++                  `[DOMAIN-VERIFICATION] Resolver throttling detected, waiting ${delay / 1000} seconds (attempt ${attempt + 1})`,
+                 );
+                 await new Promise(r => setTimeout(r, delay));
+                 delay *= 2; // Exponential backoff
+                 attempt++;
+               } else {
+                 signale.error(
+-                  `[DOMAIN-VERIFICATION] Error restarting verification: ${error?.message || 'Unknown error'}`,
++                  `[DOMAIN-VERIFICATION] Error rechecking MX evidence: ${error?.message || 'Unknown error'}`,
+                 );
+                 throw e;
+               }
+@@ -98,7 +98,7 @@ export async function checkDomainVerifications() {
+
+           if (!success) {
+             signale.error(
+-              `[DOMAIN-VERIFICATION] Failed to verify ${sesIdentity.domain} after ${maxAttempts} attempts due to throttling`,
++              `[DOMAIN-VERIFICATION] Failed to recheck ${smtpIdentity.domain} after ${maxAttempts} attempts`,
+             );
+           }
+         }
+@@ -111,11 +111,11 @@ export async function checkDomainVerifications() {
+
+         // If domain was just verified, disable feedback forwarding
+         if (!dbDomain.verified && isVerified) {
+-          signale.success(`[DOMAIN-VERIFICATION] Domain ${sesIdentity.domain} is now verified!`);
++          signale.success(`[DOMAIN-VERIFICATION] Domain ${smtpIdentity.domain} is now verified!`);
+
+           try {
+-            await disableFeedbackForwarding(sesIdentity.domain);
+-            signale.info(`[DOMAIN-VERIFICATION] Disabled feedback forwarding for ${sesIdentity.domain}`);
++            await disableFeedbackForwarding(smtpIdentity.domain);
++            signale.info(`[DOMAIN-VERIFICATION] Feedback forwarding is managed by MXRoute for ${smtpIdentity.domain}`);
+           } catch (error) {
+             signale.error(`[DOMAIN-VERIFICATION] Error disabling feedback forwarding: ${error}`);
+           }
+@@ -135,7 +135,7 @@ export async function checkDomainVerifications() {
+                 const template = React.createElement(DomainVerifiedEmail, {
+                   projectName: dbDomain.project.name,
+                   projectId: dbDomain.projectId,
+-                  domain: sesIdentity.domain,
++                  domain: smtpIdentity.domain,
+                   dashboardUrl: DASHBOARD_URI,
+                   landingUrl: LANDING_URI,
+                 });
+@@ -155,7 +155,7 @@ export async function checkDomainVerifications() {
+
+         // If domain was unverified, invalidate cache
+         if (dbDomain.verified && !isVerified) {
+-          signale.warn(`[DOMAIN-VERIFICATION] Domain ${sesIdentity.domain} is no longer verified`);
++          signale.warn(`[DOMAIN-VERIFICATION] Domain ${smtpIdentity.domain} is no longer verified`);
+
+           // Send email notification about domain verification failed
+           try {
+@@ -176,7 +176,7 @@ export async function checkDomainVerifications() {
+                 const template = React.createElement(DomainUnverifiedEmail, {
+                   projectName: dbDomain.project.name,
+                   projectId: dbDomain.projectId,
+-                  domain: sesIdentity.domain,
++                  domain: smtpIdentity.domain,
+                   dashboardUrl: DASHBOARD_URI,
+                   landingUrl: LANDING_URI,
+                 });
+diff --git a/apps/api/src/jobs/email-processor.ts b/apps/api/src/jobs/email-processor.ts
+index 6d8b4a6..20f53f6 100644
+--- a/apps/api/src/jobs/email-processor.ts
++++ b/apps/api/src/jobs/email-processor.ts
+@@ -22,43 +22,22 @@ import {EventService} from '../services/EventService.js';
+ import {MeterService} from '../services/MeterService.js';
+ import {emailQueue} from '../services/QueueService.js';
+ import {SecurityService} from '../services/SecurityService.js';
+-import {getSendingQuota, sendRawEmail} from '../services/SESService.js';
++import {isSmtpDeliveryUnknown, SmtpProviderError, sendRawEmail} from '../services/SMTPService.js';
+
+ /**
+  * Determine the email sending rate limit (emails per second)
+- * Priority: ENV variable > AWS SES quota > Safe default (14)
++ * The SMTP relay has no quota endpoint. The operator-provided rate is bounded
++ * in constants.ts and is the only source of truth.
+  */
+ async function getEmailRateLimit(): Promise<number> {
+-  const DEFAULT_RATE_LIMIT = 14; // AWS SES sandbox limit - safe default
+-
+-  // If env variable is set, use it (override)
+-  if (EMAIL_RATE_LIMIT_PER_SECOND !== undefined) {
+-    signale.info(`[EMAIL-PROCESSOR] Using rate limit from environment: ${EMAIL_RATE_LIMIT_PER_SECOND} emails/second`);
+-    return EMAIL_RATE_LIMIT_PER_SECOND;
+-  }
+-
+-  // Try to fetch from AWS SES
+-  signale.info('[EMAIL-PROCESSOR] Fetching rate limit from AWS SES...');
+-  const quota = await getSendingQuota();
+-
+-  if (quota) {
+-    signale.info(
+-      `[EMAIL-PROCESSOR] AWS SES quota: ${quota.maxSendRate} emails/second (${quota.sentLast24Hours}/${quota.max24HourSend} emails sent today)`,
+-    );
+-    return quota.maxSendRate;
+-  }
+-
+-  // Fallback to safe default
+-  signale.warn(`[EMAIL-PROCESSOR] Failed to fetch AWS quota, using safe default: ${DEFAULT_RATE_LIMIT} emails/second`);
+-  return DEFAULT_RATE_LIMIT;
++  signale.info(`[EMAIL-PROCESSOR] Using bounded MXRoute SMTP rate: ${EMAIL_RATE_LIMIT_PER_SECOND} emails/second`);
++  return EMAIL_RATE_LIMIT_PER_SECOND;
+ }
+
+ /**
+- * Derive worker concurrency from the rate limit so a higher SES quota actually
+- * translates into higher throughput. The mean job duration is ~0.5s (Prisma
+- * reads + HTML compile + SES call + writes), so `rate * 0.5` gives ~2× headroom
+- * over the per-second cap. Clamped to keep sandbox accounts useful and to
+- * protect the Prisma pool on very large quotas.
++ * Derive worker concurrency from the bounded SMTP rate. The mean job duration
++ * is ~0.5s (Prisma reads + HTML compile + SMTP call + writes), so `rate * 0.5`
++ * gives headroom over the per-second cap.
+  */
+ function deriveWorkerConcurrency(rateLimit: number): number {
+   if (EMAIL_WORKER_CONCURRENCY !== undefined) {
+@@ -72,7 +51,7 @@ function deriveWorkerConcurrency(rateLimit: number): number {
+ }
+
+ export async function createEmailWorker() {
+-  // Fetch the rate limit (from env, AWS, or default)
++  // Fetch the bounded rate limit from configuration.
+   const rateLimit = await getEmailRateLimit();
+   const concurrency = deriveWorkerConcurrency(rateLimit);
+   signale.info(
+@@ -121,11 +100,17 @@ export async function createEmailWorker() {
+       }
+
+       try {
+-        // Update status to sending
+-        await prisma.email.update({
+-          where: {id: emailId},
++        // Claim the pending intent atomically before doing any rendering or
++        // network I/O. A plain read followed by an unconditional update lets
++        // two workers send the same email when they race on PENDING.
++        const claim = await prisma.email.updateMany({
++          where: {id: emailId, status: EmailStatus.PENDING},
+           data: {status: EmailStatus.SENDING},
+         });
++        if (claim.count !== 1) {
++          signale.info(`[EMAIL-PROCESSOR] Email ${emailId} was already claimed; skipping duplicate job`);
++          return;
++        }
+
+         // Format template variables in subject and body
+         const contactData = (email.contact.data as Record<string, unknown>) || {};
+@@ -227,7 +212,7 @@ export async function createEmailWorker() {
+           throw new Error(`Project ${email.projectId} has been disabled due to a policy violation`);
+         }
+
+-        // Send via AWS SES
++        // Send via the configured MXRoute SMTP relay.
+         const result = await sendRawEmail({
+           from: {
+             name: fromName,
+@@ -244,7 +229,7 @@ export async function createEmailWorker() {
+           attachments: email.attachments as {filename: string; content: string; contentType: string}[] | null,
+         });
+
+-        // Mark as sent with SES message ID
++        // Mark as sent with the deterministic SMTP Message-ID.
+         await prisma.email.update({
+           where: {id: emailId},
+           data: {
+@@ -280,6 +265,32 @@ export async function createEmailWorker() {
+           await CampaignService.finalizeIfDone(email.campaignId);
+         }
+       } catch (error) {
++        if (isSmtpDeliveryUnknown(error)) {
++          // The relay may have accepted DATA before a timeout/connection loss.
++          // Do not let BullMQ retry and create a duplicate; leave a durable
++          // operator-visible marker for reconciliation instead.
++          signale.error(`[EMAIL-PROCESSOR] SMTP delivery outcome unknown for ${emailId}; reconciliation required`);
++          await prisma.email.update({
++            where: {id: emailId},
++            data: {status: EmailStatus.FAILED, error: 'SMTP_DELIVERY_UNKNOWN_RECONCILE_REQUIRED'},
++          });
++          return;
++        }
++
++        const attempts = job.opts.attempts ?? 1;
++        const hasRetry = error instanceof SmtpProviderError && error.retryable && job.attemptsMade + 1 < attempts;
++        if (hasRetry) {
++          // Pre-DATA SMTP rejections are safe to retry. Restore PENDING before
++          // rethrowing so the next BullMQ attempt is not short-circuited by the
++          // idempotent status guard at the top of this handler.
++          await prisma.email.update({
++            where: {id: emailId},
++            data: {status: EmailStatus.PENDING, error: null},
++          });
++          signale.warn(`[EMAIL-PROCESSOR] Retryable SMTP rejection for ${emailId}; retry ${job.attemptsMade + 1}/${attempts}`);
++          throw error;
++        }
++
+         signale.error(`[EMAIL-PROCESSOR] Failed to send email ${emailId}:`, error);
+
+         // Mark as failed
+@@ -291,14 +302,14 @@ export async function createEmailWorker() {
+           },
+         });
+
+-        throw error; // Re-throw to trigger retry
++        throw error; // Re-throw explicit pre-DATA failures to trigger bounded retry
+       }
+     },
+     {
+       connection: emailQueue.opts.connection,
+       concurrency,
+       limiter: {
+-        max: rateLimit, // Max emails per second (from env, AWS SES quota, or default)
++        max: rateLimit, // Max emails per second for the configured SMTP relay
+         duration: 1000,
+       },
+     },
+diff --git a/apps/api/src/services/CampaignService.ts b/apps/api/src/services/CampaignService.ts
+index deb80c8..c1bfc7a 100644
+--- a/apps/api/src/services/CampaignService.ts
++++ b/apps/api/src/services/CampaignService.ts
+@@ -17,7 +17,7 @@ import {NtfyService} from './NtfyService.js';
+ import {QueueService} from './QueueService.js';
+ import {SegmentService} from './SegmentService.js';
+ import {DASHBOARD_URI, STRIPE_ENABLED} from '../app/constants.js';
+-import {sendRawEmail} from './SESService.js';
++import {sendRawEmail} from './SMTPService.js';
+
+ const BATCH_SIZE = 500; // Number of emails to process per batch (increased for better performance)
+
+diff --git a/apps/api/src/services/DomainService.ts b/apps/api/src/services/DomainService.ts
+index 17189ab..7f642ca 100644
+--- a/apps/api/src/services/DomainService.ts
++++ b/apps/api/src/services/DomainService.ts
+@@ -13,7 +13,7 @@ import {
+   disableFeedbackForwarding,
+   getDomainVerificationAttributes,
+   verifyDomain,
+-} from './SESService.js';
++} from './SMTPService.js';
+
+ export class DomainService {
+   /**
+@@ -41,7 +41,7 @@ export class DomainService {
+    * Add a new domain to a project and start verification
+    */
+   public static async addDomain(projectId: string, domain: string) {
+-    // Start verification process with AWS SES
++    // Start verification process with MXRoute SMTP
+     const dkimTokens = await verifyDomain(domain);
+
+     // Create domain record
+@@ -306,18 +306,18 @@ export class DomainService {
+       },
+     });
+
+-    // If domain is not used by any other project, remove it from AWS SES
++    // If domain is not used by any other project, remove it from the configured SMTP policy
+     if (!domainExistsElsewhere) {
+       try {
+         await deleteIdentity(domainName);
+-        signale.info(`[DOMAIN] Removed AWS SES identity for ${domainName} (no longer used by any project)`);
++        signale.info(`[DOMAIN] Removed MXRoute sender policy for ${domainName} (no longer used by any project)`);
+       } catch (error) {
+-        // Log error but don't fail the domain removal if AWS cleanup fails
+-        signale.error(`[DOMAIN] Failed to remove AWS SES identity for ${domainName}:`, error);
++        // Log error but don't fail the domain removal if SMTP policy cleanup fails
++        signale.error(`[DOMAIN] Failed to remove MXRoute sender policy for ${domainName}:`, error);
+       }
+     } else {
+       signale.info(
+-        `[DOMAIN] Keeping AWS SES identity for ${domainName} (still used by project ${domainExistsElsewhere.projectId})`,
++        `[DOMAIN] Keeping MXRoute sender policy for ${domainName} (still used by project ${domainExistsElsewhere.projectId})`,
+       );
+     }
+
+diff --git a/apps/api/src/services/EmailService.ts b/apps/api/src/services/EmailService.ts
+index 51ae7ef..cab2daf 100644
+--- a/apps/api/src/services/EmailService.ts
++++ b/apps/api/src/services/EmailService.ts
+@@ -13,7 +13,7 @@ import {DomainService} from './DomainService.js';
+ import {bodyHasListManagementLink, buildEmailHeaders, classifyEmail} from './EmailHeaderService.js';
+ import {EventService} from './EventService.js';
+ import {QueueService} from './QueueService.js';
+-import {sendRawEmail} from './SESService.js';
++import {isSmtpDeliveryUnknown, sendRawEmail} from './SMTPService.js';
+
+ interface Attachment {
+   filename: string;
+@@ -285,7 +285,7 @@ export class EmailService {
+   }
+
+   /**
+-   * Actually send the email via AWS SES
++   * Actually send the email via the configured MXRoute SMTP relay
+    * This is called by the email processor worker
+    */
+   public static async sendEmail(emailId: string): Promise<void> {
+@@ -417,7 +417,7 @@ export class EmailService {
+       // Determine tracking based on project settings and email type
+       const shouldTrack = this.shouldTrackEmail(email.project.tracking, email.sourceType);
+
+-      // Send via AWS SES
++      // Send via the configured MXRoute SMTP relay
+       const result = await sendRawEmail({
+         from: {
+           name: fromName,
+@@ -434,7 +434,7 @@ export class EmailService {
+         tracking: shouldTrack,
+       });
+
+-      // Mark as sent with SES message ID
++      // Mark as sent with the SMTP Message-ID.
+       await prisma.email.update({
+         where: {id: emailId},
+         data: {
+@@ -456,6 +456,16 @@ export class EmailService {
+         sentAt: new Date().toISOString(),
+       });
+     } catch (error) {
++      if (isSmtpDeliveryUnknown(error)) {
++        // A timeout after DATA may mean MXRoute accepted the message. Keep a
++        // durable reconciliation marker and never issue a blind retry.
++        signale.error(`[EMAIL] SMTP delivery outcome unknown for ${emailId}; reconciliation required`);
++        await prisma.email.update({
++          where: {id: emailId},
++          data: {status: EmailStatus.FAILED, error: 'SMTP_DELIVERY_UNKNOWN_RECONCILE_REQUIRED'},
++        });
++        return;
++      }
+       signale.error(`[EMAIL] Failed to send email ${emailId}:`, error);
+
+       // Mark as failed
+diff --git a/apps/api/src/services/SESService.ts b/apps/api/src/services/SESService.ts
+deleted file mode 100644
+index c73c9ad..0000000
+--- a/apps/api/src/services/SESService.ts
++++ /dev/null
+@@ -1,324 +0,0 @@
+-import {SES} from '@aws-sdk/client-ses';
+-import signale from 'signale';
+-
+-import {
+-  AWS_SES_ACCESS_KEY_ID,
+-  AWS_SES_REGION,
+-  AWS_SES_SECRET_ACCESS_KEY,
+-  MAIL_FROM_SUBDOMAIN,
+-  SES_CONFIGURATION_SET,
+-  SES_CONFIGURATION_SET_NO_TRACKING,
+-  TRACKING_TOGGLE_ENABLED,
+-} from '../app/constants.js';
+-
+-/**
+- * AWS SES Client
+- */
+-export const ses = new SES({
+-  apiVersion: '2010-12-01',
+-  region: AWS_SES_REGION,
+-  credentials: {
+-    accessKeyId: AWS_SES_ACCESS_KEY_ID,
+-    secretAccessKey: AWS_SES_SECRET_ACCESS_KEY,
+-  },
+-});
+-
+-interface SendRawEmailParams {
+-  from: {
+-    name: string;
+-    email: string;
+-  };
+-  to: string[] | {name?: string; email: string}[];
+-  content: {
+-    subject: string;
+-    html: string;
+-  };
+-  reply?: string;
+-  headers?: Record<string, string> | null;
+-  attachments?:
+-    | {
+-        filename: string;
+-        content: string; // Base64 encoded
+-        contentType: string;
+-        contentId?: string;
+-        disposition?: 'attachment' | 'inline';
+-      }[]
+-    | null;
+-  tracking?: boolean;
+-}
+-
+-/**
+- * Break long lines to comply with email RFC standards
+- */
+-function breakLongLines(input: string, maxLineLength: number, isBase64 = false): string {
+-  if (isBase64) {
+-    // For base64 content, break at exact intervals without looking for spaces
+-    const result = [];
+-    for (let i = 0; i < input.length; i += maxLineLength) {
+-      result.push(input.substring(i, i + maxLineLength));
+-    }
+-    return result.join('\n');
+-  } else {
+-    // For text content, break at spaces when possible
+-    const lines = input.split('\n');
+-    const result = [];
+-    for (let line of lines) {
+-      while (line.length > maxLineLength) {
+-        let pos = maxLineLength;
+-        while (pos > 0 && line[pos] !== ' ') {
+-          pos--;
+-        }
+-        if (pos === 0) {
+-          pos = maxLineLength;
+-        }
+-        result.push(line.substring(0, pos));
+-        line = line.substring(pos).trim();
+-      }
+-      result.push(line);
+-    }
+-    return result.join('\n');
+-  }
+-}
+-
+-/**
+- * Send a raw email via AWS SES with full MIME formatting
+- */
+-export async function sendRawEmail({
+-  from,
+-  to,
+-  content,
+-  reply,
+-  headers,
+-  attachments,
+-  tracking = true,
+-}: SendRawEmailParams): Promise<{messageId: string}> {
+-  // Generate unique boundaries for multipart messages
+-  const altBoundary = `----=_AltPart_${Math.random().toString(36).substring(2)}`;
+-  const mixedBoundary = attachments?.some(a => (a.disposition ?? 'attachment') === 'attachment')
+-    ? `----=_MixedPart_${Math.random().toString(36).substring(2)}`
+-    : null;
+-  const relatedBoundary = attachments?.some(a => a.disposition === 'inline')
+-    ? `----=_RelatedPart_${Math.random().toString(36).substring(2)}`
+-    : null;
+-
+-  // Format To header with names if provided
+-  const toHeader = to
+-    .map(recipient => {
+-      if (typeof recipient === 'string') {
+-        return recipient;
+-      } else {
+-        return recipient.name ? `${recipient.name} <${recipient.email}>` : recipient.email;
+-      }
+-    })
+-    .join(', ');
+-
+-  // Extract just email addresses for Destinations (SES requirement)
+-  const destinations = to.map(recipient => (typeof recipient === 'string' ? recipient : recipient.email));
+-
+-  // Determine root content type
+-  let rootContentType = `multipart/alternative; boundary="${altBoundary}"`;
+-  if (mixedBoundary) {
+-    rootContentType = `multipart/mixed; boundary="${mixedBoundary}"`;
+-  } else if (relatedBoundary) {
+-    rootContentType = `multipart/related; boundary="${relatedBoundary}"`;
+-  }
+-
+-  // Serialize the caller-provided headers (built by buildEmailHeaders), filtering
+-  // out empties so we never emit a blank line inside the header section.
+-  // Per RFC 5322 §2.1, a blank line terminates the header section, so any blank
+-  // line here would push subsequent headers (notably List-Unsubscribe) into the body.
+-  const extraHeaderLines = headers ? Object.entries(headers).map(([key, value]) => `${key}: ${value}`) : [];
+-  const extraHeaders = extraHeaderLines.length > 0 ? `\n${extraHeaderLines.join('\n')}` : '';
+-
+-  // Build raw MIME message
+-  let rawMessage = `From: ${from.name} <${from.email}>
+-To: ${toHeader}
+-Reply-To: ${reply || from.email}
+-Subject: ${content.subject}
+-MIME-Version: 1.0
+-Content-Type: ${rootContentType}${extraHeaders}
+-
+-`;
+-
+-  // building the body
+-  if (mixedBoundary) {
+-    rawMessage += `--${mixedBoundary}\n`;
+-    if (relatedBoundary) {
+-      rawMessage += `Content-Type: multipart/related; boundary="${relatedBoundary}"\n\n`;
+-      rawMessage += `--${relatedBoundary}\n`;
+-    }
+-  } else if (relatedBoundary) {
+-    rawMessage += `--${relatedBoundary}\n`;
+-  }
+-
+-  // If we are nested, we need to specify that this next part is the alternative container
+-  if (mixedBoundary || relatedBoundary) {
+-    rawMessage += `Content-Type: multipart/alternative; boundary="${altBoundary}"\n\n`;
+-  }
+-
+-  // The alternative part content (always contains HTML)
+-  rawMessage += `--${altBoundary}
+-Content-Type: text/html; charset=utf-8
+-Content-Transfer-Encoding: 7bit
+-
+-${breakLongLines(content.html, 500)}
+---${altBoundary}--
+-`;
+-
+-  // Add inline attachments to the related container
+-  if (relatedBoundary) {
+-    const inlineAttachments = attachments?.filter(a => a.disposition === 'inline') ?? [];
+-    for (const attachment of inlineAttachments) {
+-      rawMessage += `\n--${relatedBoundary}
+-Content-Type: ${attachment.contentType}
+-Content-Transfer-Encoding: base64
+-Content-ID: <${attachment.contentId || attachment.filename}>
+-Content-Disposition: inline; filename="${attachment.filename}"
+-
+-${breakLongLines(attachment.content, 76, true)}`;
+-    }
+-    rawMessage += `\n--${relatedBoundary}--`;
+-  }
+-
+-  // Add regular attachments to the mixed container
+-  if (mixedBoundary) {
+-    const regularAttachments = attachments?.filter(a => (a.disposition ?? 'attachment') === 'attachment') ?? [];
+-    for (const attachment of regularAttachments) {
+-      rawMessage += `\n--${mixedBoundary}
+-Content-Type: ${attachment.contentType}
+-Content-Transfer-Encoding: base64
+-Content-Disposition: attachment; filename="${attachment.filename}"
+-
+-${breakLongLines(attachment.content, 76, true)}`;
+-    }
+-    rawMessage += `\n--${mixedBoundary}--`;
+-  }
+-
+-  // Determine which configuration set to use
+-  // Only use NO_TRACKING if tracking toggle is enabled AND tracking is disabled
+-  const configurationSetName =
+-    TRACKING_TOGGLE_ENABLED && !tracking ? SES_CONFIGURATION_SET_NO_TRACKING : SES_CONFIGURATION_SET;
+-
+-  // Send via SES
+-  const response = await ses.sendRawEmail({
+-    Destinations: destinations,
+-    ConfigurationSetName: configurationSetName,
+-    RawMessage: {
+-      Data: new TextEncoder().encode(rawMessage),
+-    },
+-    Source: `${from.name} <${from.email}>`,
+-  });
+-
+-  if (!response.MessageId) {
+-    throw new Error('Could not send email');
+-  }
+-
+-  return {messageId: response.MessageId};
+-}
+-
+-/**
+- * Get verification attributes for multiple domain identities
+- */
+-export const getIdentities = async (domains: string[]): Promise<{domain: string; status: string}[]> => {
+-  const res = await ses.getIdentityVerificationAttributes({
+-    Identities: domains,
+-  });
+-
+-  const parsedResult = Object.entries(res.VerificationAttributes ?? {});
+-  return parsedResult.map(obj => {
+-    return {domain: obj[0], status: obj[1].VerificationStatus ?? 'NotStarted'};
+-  });
+-};
+-
+-/**
+- * Verify a domain and get DKIM tokens for DNS configuration
+- */
+-export const verifyDomain = async (domain: string): Promise<string[]> => {
+-  // Verify DKIM for the domain
+-  const DKIM = await ses.verifyDomainDkim({Domain: domain});
+-
+-  // Set custom MAIL FROM domain. The subdomain defaults to `plunk` and can be
+-  // overridden via the MAIL_FROM_SUBDOMAIN env var — useful when `plunk.<domain>`
+-  // is already in use for something else (e.g., a CNAME to a CDN), since the
+-  // MAIL FROM subdomain needs MX + TXT records that conflict with a CNAME.
+-  await ses.setIdentityMailFromDomain({
+-    Identity: domain,
+-    MailFromDomain: `${MAIL_FROM_SUBDOMAIN}.${domain}`,
+-  });
+-
+-  return DKIM.DkimTokens ?? [];
+-};
+-
+-/**
+- * Get DKIM verification attributes for a domain
+- */
+-export const getDomainVerificationAttributes = async (domain: string) => {
+-  const attributes = await ses.getIdentityDkimAttributes({
+-    Identities: [domain],
+-  });
+-
+-  const parsedAttributes = Object.entries(attributes.DkimAttributes ?? {});
+-
+-  if (parsedAttributes.length === 0) {
+-    return {
+-      domain,
+-      tokens: [],
+-      status: 'NotStarted',
+-    };
+-  }
+-
+-  const firstAttribute = parsedAttributes[0];
+-  if (!firstAttribute) {
+-    return {
+-      domain,
+-      tokens: [],
+-      status: 'NotStarted',
+-    };
+-  }
+-
+-  return {
+-    domain: firstAttribute[0],
+-    tokens: firstAttribute[1].DkimTokens ?? [],
+-    status: firstAttribute[1].DkimVerificationStatus ?? 'NotStarted',
+-  };
+-};
+-
+-/**
+- * Disable bounce/complaint forwarding for a verified domain
+- */
+-export const disableFeedbackForwarding = async (domain: string): Promise<void> => {
+-  await ses.setIdentityFeedbackForwardingEnabled({
+-    Identity: domain,
+-    ForwardingEnabled: false,
+-  });
+-};
+-
+-/**
+- * Delete a verified domain identity from AWS SES
+- */
+-export const deleteIdentity = async (domain: string): Promise<void> => {
+-  await ses.deleteIdentity({Identity: domain});
+-};
+-
+-/**
+- * Get AWS SES account sending quota and rate limit
+- * @returns MaxSendRate (emails per second) or null if the call fails
+- */
+-export const getSendingQuota = async (): Promise<{
+-  maxSendRate: number;
+-  max24HourSend: number;
+-  sentLast24Hours: number;
+-} | null> => {
+-  try {
+-    const quota = await ses.getSendQuota({});
+-
+-    return {
+-      maxSendRate: quota.MaxSendRate ?? 14, // Default to sandbox limit if not provided
+-      max24HourSend: quota.Max24HourSend ?? 200, // Default sandbox daily limit
+-      sentLast24Hours: quota.SentLast24Hours ?? 0,
+-    };
+-  } catch (error) {
+-    signale.error('[SES] Failed to fetch sending quota:', error);
+-    return null;
+-  }
+-};
+diff --git a/apps/api/src/services/SMTPService.ts b/apps/api/src/services/SMTPService.ts
+new file mode 100644
+index 0000000..b12f303
+--- /dev/null
++++ b/apps/api/src/services/SMTPService.ts
+@@ -0,0 +1,503 @@
++import {createHash, randomUUID} from 'node:crypto';
++import {promises as dns} from 'node:dns';
++import net from 'node:net';
++import tls from 'node:tls';
++import signale from 'signale';
++
++import {
++  EMAIL_RATE_LIMIT_PER_SECOND,
++  NODE_ENV,
++  SMTP_ALLOWED_FROM_ADDRESS,
++  SMTP_ALLOWED_FROM_DOMAIN,
++  SMTP_FROM_ADDRESS,
++  SMTP_FROM_NAME,
++  SMTP_HOST,
++  SMTP_PASSWORD,
++  SMTP_PORT,
++  SMTP_SECURE,
++  SMTP_TIMEOUT_MS,
++  SMTP_USER,
++  TRACKING_TOGGLE_ENABLED,
++} from '../app/constants.js';
++
++type Recipient = string | {name?: string; email: string};
++
++interface SendRawEmailParams {
++  from: {name: string; email: string};
++  to: Recipient[];
++  content: {subject: string; html: string};
++  reply?: string;
++  headers?: Record<string, string> | null;
++  attachments?:
++    | {
++        filename: string;
++        content: string;
++        contentType: string;
++        contentId?: string;
++        disposition?: 'attachment' | 'inline';
++      }[]
++    | null;
++  tracking?: boolean;
++}
++
++export class SmtpDeliveryUncertainError extends Error {
++  readonly code = 'SMTP_DELIVERY_UNKNOWN';
++  readonly deliveryUnknown = true;
++  readonly retryable = false;
++
++  constructor(message = 'SMTP delivery outcome is unknown; reconcile before retrying') {
++    super(message);
++    this.name = 'SmtpDeliveryUncertainError';
++  }
++}
++
++export function isSmtpDeliveryUnknown(error: unknown): error is SmtpDeliveryUncertainError {
++  return Boolean(error && typeof error === 'object' && (error as {code?: string}).code === 'SMTP_DELIVERY_UNKNOWN');
++}
++
++export class SmtpProviderError extends Error {
++  readonly code: string;
++  readonly statusCode?: number;
++  readonly retryable: boolean;
++
++  constructor(code: string, message: string, options: {statusCode?: number; retryable?: boolean} = {}) {
++    super(message);
++    this.name = 'SmtpProviderError';
++    this.code = code;
++    this.statusCode = options.statusCode;
++    this.retryable = options.retryable ?? false;
++  }
++}
++
++interface SmtpReply {
++  code: number;
++  lines: string[];
++}
++
++type SmtpSocket = net.Socket | tls.TLSSocket;
++
++const MAX_RESPONSE_LINE_BYTES = 8 * 1024;
++const MAX_RESPONSE_LINES = 100;
++const MAX_MESSAGE_BYTES = 25 * 1024 * 1024;
++
++export interface SmtpTestCall {
++  from: string;
++  to: string[];
++  raw: string;
++}
++
++/** In-memory transport used only by the no-network SMTP unit tests. */
++export const smtpTestTransport: {calls: SmtpTestCall[]} = {calls: []};
++
++function assertNoHeaderInjection(value: string, field: string): void {
++  if (/\r|\n/u.test(value)) throw new SmtpProviderError('SMTP_HEADER_INJECTION', `${field} contains a newline`);
++}
++
++function assertFromPolicy(from: {name: string; email: string}): void {
++  assertNoHeaderInjection(from.name, 'from.name');
++  assertNoHeaderInjection(from.email, 'from.email');
++  if (from.email.toLowerCase() !== SMTP_ALLOWED_FROM_ADDRESS.toLowerCase()) {
++    throw new SmtpProviderError('SMTP_FROM_NOT_ALLOWED', 'The configured sender address is not allowed');
++  }
++  const domain = from.email.split('@')[1]?.toLowerCase();
++  if (!domain || domain !== SMTP_ALLOWED_FROM_DOMAIN.toLowerCase()) {
++    throw new SmtpProviderError('SMTP_FROM_DOMAIN_NOT_ALLOWED', 'The configured sender domain is not allowed');
++  }
++}
++
++function assertRecipient(value: Recipient): string {
++  const email = typeof value === 'string' ? value : value.email;
++  assertNoHeaderInjection(email, 'recipient');
++  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(email)) {
++    throw new SmtpProviderError('SMTP_RECIPIENT_INVALID', 'The recipient address is invalid');
++  }
++  return email;
++}
++
++function breakLongLines(input: string, maxLineLength: number, isBase64 = false): string {
++  if (isBase64) {
++    const result: string[] = [];
++    for (let i = 0; i < input.length; i += maxLineLength) result.push(input.substring(i, i + maxLineLength));
++    return result.join('\r\n');
++  }
++
++  const lines = input.split(/\r?\n/u);
++  const result: string[] = [];
++  for (let line of lines) {
++    while (line.length > maxLineLength) {
++      let pos = maxLineLength;
++      while (pos > 0 && line[pos] !== ' ') pos -= 1;
++      if (pos === 0) pos = maxLineLength;
++      result.push(line.substring(0, pos));
++      line = line.substring(pos).trim();
++    }
++    result.push(line);
++  }
++  return result.join('\r\n');
++}
++
++function normalizeHeaderValue(value: string, name: string): string {
++  assertNoHeaderInjection(value, `header ${name}`);
++  if (value.length > 4096) throw new SmtpProviderError('SMTP_HEADER_TOO_LARGE', `header ${name} is too long`);
++  return value;
++}
++
++function buildRawMessage({from, to, content, reply, headers, attachments}: SendRawEmailParams): {raw: string; id: string} {
++  const messageId = headers && Object.entries(headers).find(([name]) => name.toLowerCase() === 'message-id')?.[1];
++  const id = messageId?.trim() || `<${randomUUID()}@${SMTP_ALLOWED_FROM_DOMAIN}>`;
++  if (!/^<[^<>\s@]+@[^<>\s]+>$/u.test(id)) throw new SmtpProviderError('SMTP_MESSAGE_ID_INVALID', 'Message-ID is invalid');
++
++  const altBoundary = `----=_AltPart_${randomUUID()}`;
++  const mixedBoundary = attachments?.some(a => (a.disposition ?? 'attachment') === 'attachment')
++    ? `----=_MixedPart_${randomUUID()}`
++    : null;
++  const relatedBoundary = attachments?.some(a => a.disposition === 'inline') ? `----=_RelatedPart_${randomUUID()}` : null;
++  const toHeader = to
++    .map(recipient => {
++      if (typeof recipient === 'string') return recipient;
++      const name = recipient.name ? normalizeHeaderValue(recipient.name, 'recipient name') : '';
++      return name ? `${name} <${recipient.email}>` : recipient.email;
++    })
++    .join(', ');
++
++  let rootContentType = `multipart/alternative; boundary="${altBoundary}"`;
++  if (mixedBoundary) rootContentType = `multipart/mixed; boundary="${mixedBoundary}"`;
++  else if (relatedBoundary) rootContentType = `multipart/related; boundary="${relatedBoundary}"`;
++
++  const extraHeaderLines = headers
++    ? Object.entries(headers)
++        .filter(([name]) => !/^message-id$/iu.test(name))
++        .map(([name, value]) => `${normalizeHeaderValue(name, 'name')}: ${normalizeHeaderValue(value, name)}`)
++    : [];
++  const extraHeaders = extraHeaderLines.length > 0 ? `\r\n${extraHeaderLines.join('\r\n')}` : '';
++  const replyTo = reply || from.email;
++  assertNoHeaderInjection(replyTo, 'reply-to');
++  assertNoHeaderInjection(content.subject, 'subject');
++
++  let raw = `From: ${normalizeHeaderValue(from.name, 'from name')} <${from.email}>\r\n`;
++  raw += `To: ${toHeader}\r\n`;
++  raw += `Reply-To: ${replyTo}\r\n`;
++  raw += `Subject: ${normalizeHeaderValue(content.subject, 'subject')}\r\n`;
++  raw += `Date: ${new Date().toUTCString()}\r\n`;
++  raw += `Message-ID: ${id}\r\n`;
++  raw += `MIME-Version: 1.0\r\n`;
++  raw += `Content-Type: ${rootContentType}${extraHeaders}\r\n\r\n`;
++
++  if (mixedBoundary) {
++    raw += `--${mixedBoundary}\r\n`;
++    if (relatedBoundary) raw += `Content-Type: multipart/related; boundary="${relatedBoundary}"\r\n\r\n--${relatedBoundary}\r\n`;
++  } else if (relatedBoundary) {
++    raw += `--${relatedBoundary}\r\n`;
++  }
++  if (mixedBoundary || relatedBoundary) raw += `Content-Type: multipart/alternative; boundary="${altBoundary}"\r\n\r\n`;
++  raw += `--${altBoundary}\r\nContent-Type: text/html; charset=utf-8\r\nContent-Transfer-Encoding: 7bit\r\n\r\n`;
++  raw += `${breakLongLines(content.html, 500)}\r\n--${altBoundary}--\r\n`;
++
++  if (relatedBoundary) {
++    for (const attachment of attachments?.filter(a => a.disposition === 'inline') ?? []) {
++      assertNoHeaderInjection(attachment.filename, 'attachment filename');
++      raw += `\r\n--${relatedBoundary}\r\nContent-Type: ${normalizeHeaderValue(attachment.contentType, 'attachment type')}\r\n`;
++      raw += `Content-Transfer-Encoding: base64\r\nContent-ID: <${attachment.contentId || attachment.filename}>\r\n`;
++      raw += `Content-Disposition: inline; filename="${attachment.filename}"\r\n\r\n`;
++      raw += `${breakLongLines(attachment.content, 76, true)}\r\n`;
++    }
++    raw += `--${relatedBoundary}--\r\n`;
++  }
++  if (mixedBoundary) {
++    for (const attachment of attachments?.filter(a => (a.disposition ?? 'attachment') === 'attachment') ?? []) {
++      assertNoHeaderInjection(attachment.filename, 'attachment filename');
++      raw += `\r\n--${mixedBoundary}\r\nContent-Type: ${normalizeHeaderValue(attachment.contentType, 'attachment type')}\r\n`;
++      raw += `Content-Transfer-Encoding: base64\r\nContent-Disposition: attachment; filename="${attachment.filename}"\r\n\r\n`;
++      raw += `${breakLongLines(attachment.content, 76, true)}\r\n`;
++    }
++    raw += `--${mixedBoundary}--\r\n`;
++  }
++
++  const size = Buffer.byteLength(raw, 'utf8');
++  if (size > MAX_MESSAGE_BYTES) throw new SmtpProviderError('SMTP_MESSAGE_TOO_LARGE', 'Message exceeds SMTP size limit');
++  return {raw, id};
++}
++
++class SmtpSession {
++  private buffer = '';
++  private waiter: {resolve: () => void; reject: (error: Error) => void} | null = null;
++  private closed = false;
++
++  private constructor(private readonly socket: SmtpSocket) {
++    socket.setEncoding('utf8');
++    socket.on('data', data => {
++      this.buffer += String(data);
++      if (this.buffer.length > MAX_RESPONSE_LINE_BYTES * MAX_RESPONSE_LINES) {
++        this.fail(new SmtpProviderError('SMTP_RESPONSE_TOO_LARGE', 'SMTP response exceeded limits'));
++        return;
++      }
++      this.waiter?.resolve();
++      this.waiter = null;
++    });
++    socket.on('error', error => this.fail(error instanceof Error ? error : new Error('SMTP socket error')));
++    socket.on('close', () => {
++      this.closed = true;
++      this.fail(new SmtpDeliveryUncertainError('SMTP connection closed before a final response'));
++    });
++  }
++
++  static async connect(): Promise<SmtpSession> {
++    const socket = await new Promise<SmtpSocket>((resolve, reject) => {
++      const onError = (error: Error) => reject(error);
++      const connected = SMTP_SECURE ? tls.connect({host: SMTP_HOST, port: SMTP_PORT, servername: SMTP_HOST, rejectUnauthorized: true}) : net.connect({host: SMTP_HOST, port: SMTP_PORT});
++      connected.once('error', onError);
++      const event = SMTP_SECURE ? 'secureConnect' : 'connect';
++      connected.once(event, () => {
++        // The protocol methods enforce per-response deadlines. Clear the
++        // connection-level idle timer once the socket is established so it
++        // cannot destroy a healthy session while it is between commands.
++        connected.setTimeout(0);
++        connected.removeListener('error', onError);
++        resolve(connected);
++      });
++      connected.setTimeout(SMTP_TIMEOUT_MS, () => connected.destroy(new SmtpProviderError('SMTP_TIMEOUT', 'SMTP connection timed out')));
++    });
++    return new SmtpSession(socket);
++  }
++
++  private fail(error: Error): void {
++    if (this.waiter) {
++      const waiter = this.waiter;
++      this.waiter = null;
++      waiter.reject(error);
++    }
++  }
++
++  private detach(): void {
++    this.socket.removeAllListeners('data');
++    this.socket.removeAllListeners('error');
++    this.socket.removeAllListeners('close');
++    this.waiter = null;
++  }
++
++  private async line(): Promise<string> {
++    const deadline = Date.now() + SMTP_TIMEOUT_MS;
++    while (true) {
++      const end = this.buffer.indexOf('\n');
++      if (end >= 0) {
++        const line = this.buffer.slice(0, end).replace(/\r$/u, '');
++        this.buffer = this.buffer.slice(end + 1);
++        if (Buffer.byteLength(line, 'utf8') > MAX_RESPONSE_LINE_BYTES) throw new SmtpProviderError('SMTP_RESPONSE_LINE_TOO_LARGE', 'SMTP response line exceeded limits');
++        return line;
++      }
++      if (this.closed) throw new SmtpDeliveryUncertainError();
++      const remaining = Math.max(1, deadline - Date.now());
++      await new Promise<void>((resolve, reject) => {
++        this.waiter = {resolve, reject};
++        const timeout = setTimeout(() => {
++          this.waiter = null;
++          reject(new SmtpDeliveryUncertainError('SMTP response timed out'));
++        }, remaining);
++        const previous = this.waiter;
++        this.waiter = {
++          resolve: () => {
++            clearTimeout(timeout);
++            previous.resolve();
++          },
++          reject: error => {
++            clearTimeout(timeout);
++            previous.reject(error);
++          },
++        };
++      });
++    }
++  }
++
++  async reply(): Promise<SmtpReply> {
++    const first = await this.line();
++    const match = /^(\d{3})([- ])(.*)$/u.exec(first);
++    if (!match) throw new SmtpProviderError('SMTP_PROTOCOL_ERROR', 'Malformed SMTP response');
++    const code = Number(match[1]);
++    const lines = [match[3] ?? ''];
++    while (match[2] === '-') {
++      const line = await this.line();
++      const next = /^(\d{3})([- ])(.*)$/u.exec(line);
++      if (!next || Number(next[1]) !== code) throw new SmtpProviderError('SMTP_PROTOCOL_ERROR', 'Malformed multiline SMTP response');
++      lines.push(next[3] ?? '');
++      if (next[2] === ' ') break;
++    }
++    return {code, lines};
++  }
++
++  async command(command: string): Promise<SmtpReply> {
++    assertNoHeaderInjection(command, 'SMTP command');
++    this.socket.write(`${command}\r\n`);
++    return this.reply();
++  }
++
++  async data(raw: string): Promise<SmtpReply> {
++    const normalized = raw.replace(/\r?\n/gu, '\r\n');
++    const stuffed = normalized
++      .split('\r\n')
++      .map(line => (line.startsWith('.') ? `.${line}` : line))
++      .join('\r\n');
++    this.socket.write(`${stuffed}\r\n.\r\n`);
++    return this.reply();
++  }
++
++  async startTls(): Promise<SmtpSession> {
++    // The pre-TLS session must release its data/error listeners. Keeping them
++    // attached would race the new TLS session and consume encrypted bytes.
++    this.detach();
++    const secure = await new Promise<tls.TLSSocket>((resolve, reject) => {
++      const upgraded = tls.connect({socket: this.socket, servername: SMTP_HOST, rejectUnauthorized: true});
++      upgraded.once('error', reject);
++      upgraded.once('secureConnect', () => {
++        upgraded.setTimeout(0);
++        resolve(upgraded);
++      });
++      upgraded.setTimeout(SMTP_TIMEOUT_MS, () => upgraded.destroy(new SmtpDeliveryUncertainError('SMTP STARTTLS timed out')));
++    });
++    return new SmtpSession(secure);
++  }
++
++  close(): void {
++    this.socket.end();
++  }
++}
++
++function expect(reply: SmtpReply, allowed: number[], operation: string): void {
++  if (allowed.includes(reply.code)) return;
++  const retryable = reply.code >= 400 && reply.code < 500;
++  throw new SmtpProviderError(`SMTP_${reply.code}`, `${operation} rejected by SMTP relay`, {
++    statusCode: reply.code,
++    retryable,
++  });
++}
++
++function capability(reply: SmtpReply, name: string): string | undefined {
++  const line = reply.lines.find(value => value.toUpperCase().startsWith(name.toUpperCase()));
++  return line?.slice(name.length).trim();
++}
++
++async function authenticate(session: SmtpSession, ehlo: SmtpReply): Promise<void> {
++  const auth = capability(ehlo, 'AUTH');
++  const mechanisms = auth?.split(/\s+/u).map(value => value.toUpperCase()) ?? [];
++  if (mechanisms.includes('PLAIN')) {
++    const payload = Buffer.from(`\0${SMTP_USER}\0${SMTP_PASSWORD}`, 'utf8').toString('base64');
++    expect(await session.command(`AUTH PLAIN ${payload}`), [235], 'SMTP authentication');
++    return;
++  }
++  if (!mechanisms.includes('LOGIN')) throw new SmtpProviderError('SMTP_AUTH_UNSUPPORTED', 'SMTP relay did not advertise AUTH PLAIN or LOGIN');
++  expect(await session.command('AUTH LOGIN'), [334], 'SMTP authentication');
++  expect(await session.command(Buffer.from(SMTP_USER, 'utf8').toString('base64')), [334], 'SMTP username');
++  expect(await session.command(Buffer.from(SMTP_PASSWORD, 'utf8').toString('base64')), [235], 'SMTP password');
++}
++
++async function sendViaSmtp({from, to, raw}: {from: string; to: string[]; raw: string}): Promise<void> {
++  if (NODE_ENV === 'test' && process.env.SMTP_TEST_TRANSPORT !== 'network') {
++    smtpTestTransport.calls.push({from, to: [...to], raw});
++    return;
++  }
++  let session: SmtpSession | null = null;
++  let dataStarted = false;
++  try {
++    session = await SmtpSession.connect();
++    expect(await session.reply(), [220], 'SMTP greeting');
++    let ehlo = await session.command(`EHLO marcsmusic.nl`);
++    expect(ehlo, [250], 'EHLO');
++    if (!SMTP_SECURE) {
++      const startTls = capability(ehlo, 'STARTTLS');
++      if (!startTls) throw new SmtpProviderError('SMTP_STARTTLS_REQUIRED', 'SMTP relay did not advertise STARTTLS');
++      expect(await session.command('STARTTLS'), [220], 'STARTTLS');
++      session = await session.startTls();
++      ehlo = await session.command(`EHLO marcsmusic.nl`);
++      expect(ehlo, [250], 'EHLO after STARTTLS');
++    }
++    await authenticate(session, ehlo);
++    expect(await session.command(`MAIL FROM:<${from}>`), [250], 'MAIL FROM');
++    for (const recipient of to) expect(await session.command(`RCPT TO:<${recipient}>`), [250, 251], 'RCPT TO');
++    expect(await session.command('DATA'), [354], 'DATA');
++    dataStarted = true;
++    expect(await session.data(raw), [250], 'message data');
++  } catch (error) {
++    if (dataStarted && !(error instanceof SmtpProviderError && error.statusCode)) {
++      throw new SmtpDeliveryUncertainError();
++    }
++    if (error instanceof SmtpDeliveryUncertainError) {
++      throw new SmtpProviderError('SMTP_PRE_DATA_TIMEOUT', 'SMTP relay did not respond before DATA', {retryable: true});
++    }
++    throw error;
++  } finally {
++    session?.close();
++  }
++}
++
++/** Send one raw message through MXRoute using explicit STARTTLS. */
++export async function sendRawEmail(params: SendRawEmailParams): Promise<{messageId: string}> {
++  assertFromPolicy(params.from);
++  if (params.to.length === 0 || params.to.length > 100) throw new SmtpProviderError('SMTP_RECIPIENT_COUNT_INVALID', 'Recipient count is outside the supported range');
++  const recipients = params.to.map(assertRecipient);
++  const {raw, id} = buildRawMessage(params);
++  await sendViaSmtp({from: params.from.email, to: recipients, raw});
++  return {messageId: id};
++}
++
++/**
++ * MXRoute controls DKIM and feedback. Plunk's original SES identity API is
++ * replaced by a bounded sender-domain policy plus an MX lookup. The lookup is
++ * evidence that the configured From domain is a real mail domain; it does not
++ * claim DKIM alignment without provider DNS evidence.
++ */
++export async function getIdentities(domains: string[]): Promise<{domain: string; status: string}[]> {
++  return Promise.all(
++    domains.map(async domain => ({domain, status: (await getDomainVerificationAttributes(domain)).status})),
++  );
++}
++
++export async function verifyDomain(domain: string): Promise<string[]> {
++  if (domain.toLowerCase() !== SMTP_ALLOWED_FROM_DOMAIN.toLowerCase()) {
++    throw new SmtpProviderError('SMTP_DOMAIN_NOT_ALLOWED', 'Only the configured MXRoute sender domain is allowed');
++  }
++  const mx = await resolveMx(domain);
++  if (!mx) throw new SmtpProviderError('SMTP_DOMAIN_MX_MISSING', 'Configured sender domain has no public MX record');
++  return [`mx:${mx}`];
++}
++
++export async function getDomainVerificationAttributes(domain: string): Promise<{domain: string; tokens: string[]; status: string}> {
++  if (domain.toLowerCase() !== SMTP_ALLOWED_FROM_DOMAIN.toLowerCase()) return {domain, tokens: [], status: 'NotStarted'};
++  const mx = await resolveMx(domain);
++  return {domain, tokens: mx ? [`mx:${mx}`] : [], status: mx ? 'Success' : 'Failed'};
++}
++
++export async function disableFeedbackForwarding(_domain: string): Promise<void> {
++  // MXRoute feedback handling is outside Plunk's SES contract. Keep this
++  // function as a no-op so domain verification never calls AWS at runtime.
++}
++
++export async function deleteIdentity(_domain: string): Promise<void> {
++  // Sender authorization is configuration-owned; no provider identity exists
++  // to delete from Plunk.
++}
++
++/** Return the explicitly bounded SMTP rate; MXRoute has no quota API here. */
++export async function getSendingQuota(): Promise<{maxSendRate: number; max24HourSend: number; sentLast24Hours: number}> {
++  return {maxSendRate: EMAIL_RATE_LIMIT_PER_SECOND, max24HourSend: Number.MAX_SAFE_INTEGER, sentLast24Hours: 0};
++}
++
++async function resolveMx(domain: string): Promise<string | null> {
++  try {
++    const records = await dns.resolveMx(domain);
++    const sorted = records.sort((left, right) => left.priority - right.priority);
++    return sorted[0]?.exchange ?? null;
++  } catch (error) {
++    signale.warn(`[SMTP-DOMAIN] MX lookup failed for configured sender domain: ${error instanceof Error ? error.name : 'unknown'}`);
++    return null;
++  }
++}
++
++// Keep an exported helper for deterministic message-id reconciliation tooling.
++export function messageIdFingerprint(messageId: string): string {
++  return createHash('sha256').update(messageId).digest('hex').slice(0, 32);
++}
++
++// Compile-time references make the sender policy explicit in generated type
++// declarations even when callers use only sendRawEmail.
++void SMTP_FROM_ADDRESS;
++void SMTP_FROM_NAME;
++void TRACKING_TOGGLE_ENABLED;
+diff --git a/apps/api/src/services/__tests__/DomainService.test.ts b/apps/api/src/services/__tests__/DomainService.test.ts
+index 1d441fd..b6e945b 100644
+--- a/apps/api/src/services/__tests__/DomainService.test.ts
++++ b/apps/api/src/services/__tests__/DomainService.test.ts
+@@ -2,7 +2,7 @@ import {beforeEach, describe, expect, it, vi} from 'vitest';
+ import {factories, getPrismaClient} from '../../../../../test/helpers';
+ import {DomainService} from '../DomainService.js';
+ import {HttpException} from '../../exceptions/index.js';
+-import * as SESService from '../SESService.js';
++import * as SMTPService from '../SMTPService.js';
+
+ /**
+  * Unit tests for DomainService
+@@ -12,9 +12,9 @@ describe('DomainService', () => {
+   const prisma = getPrismaClient();
+
+   beforeEach(() => {
+-    // Mock SES service calls to avoid AWS API calls
+-    vi.spyOn(SESService, 'verifyDomain').mockResolvedValue(['token1', 'token2', 'token3']);
+-    vi.spyOn(SESService, 'getDomainVerificationAttributes').mockResolvedValue({
++    // Mock SMTP service calls to avoid SMTP API calls
++    vi.spyOn(SMTPService, 'verifyDomain').mockResolvedValue(['token1', 'token2', 'token3']);
++    vi.spyOn(SMTPService, 'getDomainVerificationAttributes').mockResolvedValue({
+       status: 'Success',
+       tokens: ['token1', 'token2', 'token3'],
+     });
+@@ -34,7 +34,7 @@ describe('DomainService', () => {
+       expect(result.projectId).toBe(project.id);
+       expect(result.verified).toBe(false);
+       expect(result.dkimTokens).toEqual(['token1', 'token2', 'token3']);
+-      expect(SESService.verifyDomain).toHaveBeenCalledWith(domain);
++      expect(SMTPService.verifyDomain).toHaveBeenCalledWith(domain);
+     });
+
+     it('should call AWS SES to initiate verification', async () => {
+@@ -43,7 +43,7 @@ describe('DomainService', () => {
+
+       await DomainService.addDomain(project.id, domain);
+
+-      expect(SESService.verifyDomain).toHaveBeenCalledWith(domain);
++      expect(SMTPService.verifyDomain).toHaveBeenCalledWith(domain);
+     });
+   });
+
+@@ -313,7 +313,7 @@ describe('DomainService', () => {
+       expect(result.status).toBe('Success');
+       expect(result.verified).toBe(true);
+
+-      expect(SESService.getDomainVerificationAttributes).toHaveBeenCalledWith('check-verification.com');
++      expect(SMTPService.getDomainVerificationAttributes).toHaveBeenCalledWith('check-verification.com');
+     });
+
+     it('should update domain to verified when SES returns Success', async () => {
+@@ -339,8 +339,8 @@ describe('DomainService', () => {
+         data: {verified: true},
+       });
+
+-      // Mock SES to return Pending
+-      vi.spyOn(SESService, 'getDomainVerificationAttributes').mockResolvedValueOnce({
++      // Mock SMTP to return Pending
++      vi.spyOn(SMTPService, 'getDomainVerificationAttributes').mockResolvedValueOnce({
+         status: 'Pending',
+         tokens: ['token1', 'token2', 'token3'],
+       });
+diff --git a/apps/api/src/services/__tests__/EmailService.test.ts b/apps/api/src/services/__tests__/EmailService.test.ts
+index 1d5a1e0..7214e99 100644
+--- a/apps/api/src/services/__tests__/EmailService.test.ts
++++ b/apps/api/src/services/__tests__/EmailService.test.ts
+@@ -1,33 +1,12 @@
+-import {beforeEach, describe, expect, it, vi, type Mock} from 'vitest';
++import {beforeEach, describe, expect, it, vi} from 'vitest';
+ import {EmailSourceType, EmailStatus, TemplateType} from '@plunk/db';
+ import {ActionSchemas} from '@plunk/shared';
+ import {EmailService} from '../EmailService';
+-import {sendRawEmail} from '../SESService';
++import {sendRawEmail} from '../SMTPService';
+ import {factories, getPrismaClient} from '../../../../../test/helpers';
+
+-// Mock AWS SDK globally (used by real SESService calls in MIME tests)
+-vi.mock('@aws-sdk/client-ses', () => {
+-  const SESMock = vi.fn();
+-  SESMock.prototype.sendRawEmail = vi.fn().mockResolvedValue({MessageId: 'test-message-id'});
+-  return {SES: SESMock};
+-});
+-
+-// Mock constants to provide AWS credentials for SESService, preserving other exports
+-vi.mock('../../app/constants.js', async (importOriginal) => {
+-  const actual = await importOriginal<typeof import('../../app/constants.js')>();
+-  return {
+-    ...actual,
+-    AWS_SES_ACCESS_KEY_ID: 'test-key-id',
+-    AWS_SES_REGION: 'us-east-1',
+-    AWS_SES_SECRET_ACCESS_KEY: 'test-secret',
+-    SES_CONFIGURATION_SET: 'test-config-set',
+-    SES_CONFIGURATION_SET_NO_TRACKING: 'test-no-tracking-set',
+-    TRACKING_TOGGLE_ENABLED: true,
+-  };
+-});
+-
+-// Mock SES service (default behavior for most tests)
+-vi.mock('../SESService', () => ({
++// Mock SMTP service (default behavior for most tests)
++vi.mock('../SMTPService', () => ({
+   sendRawEmail: vi.fn(),
+ }));
+
+@@ -967,22 +946,22 @@ describe('EmailService', () => {
+ });
+
+ // ========================================
+-// SES MIME BOUNDARY STRUCTURE
++// SMTP MIME BOUNDARY STRUCTURE
+ // ========================================
+ // These tests verify the raw MIME assembly logic inside sendRawEmail.
+-// They need the REAL sendRawEmail (not the mock above), so we mock
+-// at the AWS SDK level instead.
++// They use the in-memory SMTP test transport, so no external email is sent.
+
+-describe('SES MIME Boundary Structure', () => {
++describe('SMTP MIME Boundary Structure', () => {
+   beforeEach(() => {
+     vi.clearAllMocks();
+   });
+
+   it('should correctly structure MIME boundaries for mixed content (attachments)', async () => {
+-    const {sendRawEmail: realSendRawEmail, ses} = await vi.importActual<typeof import('../SESService')>('../SESService');
++    const {sendRawEmail: realSendRawEmail, smtpTestTransport} = await vi.importActual<typeof import('../SMTPService')>('../SMTPService');
++    smtpTestTransport.calls.length = 0;
+
+     const params = {
+-      from: {name: 'Sender', email: 'sender@example.com'},
++      from: {name: 'Sender', email: 'noreply@marcsmusic.nl'},
+       to: ['recipient@example.com'],
+       content: {subject: 'Test Subject', html: '<p>Hello world</p>'},
+       attachments: [
+@@ -997,9 +976,8 @@ describe('SES MIME Boundary Structure', () => {
+
+     await realSendRawEmail(params);
+
+-    expect(ses.sendRawEmail).toHaveBeenCalled();
+-    const callArgs = (ses.sendRawEmail as Mock).mock.calls[0][0];
+-    const rawMessage = new TextDecoder().decode(callArgs.RawMessage.Data);
++    expect(smtpTestTransport.calls).toHaveLength(1);
++    const rawMessage = smtpTestTransport.calls[0]?.raw.replace(/\r\n/gu, '\n') ?? '';
+
+     // Verify boundary hierarchy: Mixed -> Alternative
+     expect(rawMessage).toMatch(/^From:.*Content-Type: multipart\/mixed; boundary="([^"]+)"/s);
+@@ -1013,10 +991,11 @@ describe('SES MIME Boundary Structure', () => {
+   });
+
+   it('should correctly structure MIME boundaries for related content (inline images)', async () => {
+-    const {sendRawEmail: realSendRawEmail, ses} = await vi.importActual<typeof import('../SESService')>('../SESService');
++    const {sendRawEmail: realSendRawEmail, smtpTestTransport} = await vi.importActual<typeof import('../SMTPService')>('../SMTPService');
++    smtpTestTransport.calls.length = 0;
+
+     const params = {
+-      from: {name: 'Sender', email: 'sender@example.com'},
++      from: {name: 'Sender', email: 'noreply@marcsmusic.nl'},
+       to: ['recipient@example.com'],
+       content: {subject: 'Test Subject', html: '<p>Hello world <img src="cid:image1"></p>'},
+       attachments: [
+@@ -1033,8 +1012,7 @@ describe('SES MIME Boundary Structure', () => {
+
+     await realSendRawEmail(params);
+
+-    const callArgs = (ses.sendRawEmail as Mock).mock.calls[0][0];
+-    const rawMessage = new TextDecoder().decode(callArgs.RawMessage.Data);
++    const rawMessage = smtpTestTransport.calls[0]?.raw.replace(/\r\n/gu, '\n') ?? '';
+
+     // Verify boundary hierarchy: Related -> Alternative
+     expect(rawMessage).toMatch(/^From:.*Content-Type: multipart\/related; boundary="([^"]+)"/s);
+@@ -1048,10 +1026,11 @@ describe('SES MIME Boundary Structure', () => {
+   });
+
+   it('should correctly nest mixed > related > alternative boundaries', async () => {
+-    const {sendRawEmail: realSendRawEmail, ses} = await vi.importActual<typeof import('../SESService')>('../SESService');
++    const {sendRawEmail: realSendRawEmail, smtpTestTransport} = await vi.importActual<typeof import('../SMTPService')>('../SMTPService');
++    smtpTestTransport.calls.length = 0;
+
+     const params = {
+-      from: {name: 'Sender', email: 'sender@example.com'},
++      from: {name: 'Sender', email: 'noreply@marcsmusic.nl'},
+       to: ['recipient@example.com'],
+       content: {subject: 'Test Subject', html: '<p>Hello world <img src="cid:image1"></p>'},
+       attachments: [
+@@ -1074,8 +1053,7 @@ describe('SES MIME Boundary Structure', () => {
+
+     await realSendRawEmail(params);
+
+-    const callArgs = (ses.sendRawEmail as Mock).mock.calls[0][0];
+-    const rawMessage = new TextDecoder().decode(callArgs.RawMessage.Data);
++    const rawMessage = smtpTestTransport.calls[0]?.raw.replace(/\r\n/gu, '\n') ?? '';
+
+     // Root should be mixed
+     expect(rawMessage).toMatch(/^From:.*Content-Type: multipart\/mixed; boundary="([^"]+)"/s);
+@@ -1102,23 +1080,23 @@ describe('SES MIME Boundary Structure', () => {
+   });
+ });
+
+-describe('SES header serialization', () => {
++describe('SMTP header serialization', () => {
+   beforeEach(() => {
+     vi.clearAllMocks();
+   });
+
+   async function sendWithHeaders(headers: Record<string, string> | undefined) {
+-    const {sendRawEmail: realSendRawEmail, ses} = await vi.importActual<typeof import('../SESService')>('../SESService');
++    const {sendRawEmail: realSendRawEmail, smtpTestTransport} = await vi.importActual<typeof import('../SMTPService')>('../SMTPService');
++    smtpTestTransport.calls.length = 0;
+
+     await realSendRawEmail({
+-      from: {name: 'Sender', email: 'sender@example.com'},
++      from: {name: 'Sender', email: 'noreply@marcsmusic.nl'},
+       to: ['recipient@example.com'],
+       content: {subject: 'Test Subject', html: '<p>Hello world</p>'},
+       headers,
+     });
+
+-    const callArgs = (ses.sendRawEmail as Mock).mock.calls[0][0];
+-    const rawMessage = new TextDecoder().decode(callArgs.RawMessage.Data);
++    const rawMessage = smtpTestTransport.calls[0]?.raw.replace(/\r\n/gu, '\n') ?? '';
+
+     // Per RFC 5322 the first blank line separates the header section from the body.
+     const [headerSection, ...bodyParts] = rawMessage.split('\n\n');
+diff --git a/apps/api/src/services/__tests__/SMTPService.test.ts b/apps/api/src/services/__tests__/SMTPService.test.ts
+new file mode 100644
+index 0000000..24ceb35
+--- /dev/null
++++ b/apps/api/src/services/__tests__/SMTPService.test.ts
+@@ -0,0 +1,58 @@
++import {beforeAll, describe, expect, it, vi} from 'vitest';
++
++vi.hoisted(() => {
++  Object.assign(process.env, {
++    NODE_ENV: 'test',
++    JWT_SECRET: 'smtp-test-jwt-secret',
++    API_URI: 'http://localhost:8080',
++    DASHBOARD_URI: 'http://localhost:3000',
++    LANDING_URI: 'http://localhost:4000',
++    WIKI_URI: 'http://localhost:1000',
++    REDIS_URL: 'redis://localhost:6379',
++    DATABASE_URL: 'postgresql://localhost/plunk_test',
++    DIRECT_DATABASE_URL: 'postgresql://localhost/plunk_test',
++    SMTP_HOST: 'tuesday.mxrouting.net',
++    SMTP_PORT: '587',
++    SMTP_USER: 'smtp-test-user',
++    SMTP_PASSWORD: 'smtp-test-password',
++    SMTP_SECURE: 'false',
++    SMTP_FROM_ADDRESS: 'noreply@marcsmusic.nl',
++    SMTP_ALLOWED_FROM_ADDRESS: 'noreply@marcsmusic.nl',
++    SMTP_ALLOWED_FROM_DOMAIN: 'marcsmusic.nl',
++  });
++});
++
++import {
++  isSmtpDeliveryUnknown,
++  messageIdFingerprint,
++  sendRawEmail,
++  SmtpDeliveryUncertainError,
++} from '../SMTPService.js';
++
++describe('native MXRoute SMTP transport', () => {
++  beforeAll(() => vi.restoreAllMocks());
++
++  it('classifies timeout-after-DATA as uncertain and never retryable', () => {
++    const error = new SmtpDeliveryUncertainError();
++    expect(isSmtpDeliveryUnknown(error)).toBe(true);
++    expect(error.retryable).toBe(false);
++    expect(error.deliveryUnknown).toBe(true);
++  });
++
++  it('rejects a sender override before opening the SMTP socket', async () => {
++    await expect(
++      sendRawEmail({
++        from: {name: 'MarcsMusic', email: 'spoof@example.com'},
++        to: ['test@example.com'],
++        content: {subject: 'test', html: '<p>test</p>'},
++      }),
++    ).rejects.toMatchObject({code: 'SMTP_FROM_NOT_ALLOWED'});
++  });
++
++  it('produces a stable bounded reconciliation fingerprint', () => {
++    const first = messageIdFingerprint('<message@example.test>');
++    expect(first).toHaveLength(32);
++    expect(messageIdFingerprint('<message@example.test>')).toBe(first);
++    expect(messageIdFingerprint('<other@example.test>')).not.toBe(first);
++  });
++});
+diff --git a/apps/api/src/services/__tests__/WorkflowExecutionService.integration.test.ts b/apps/api/src/services/__tests__/WorkflowExecutionService.integration.test.ts
+index 5caedc1..acdb974 100644
+--- a/apps/api/src/services/__tests__/WorkflowExecutionService.integration.test.ts
++++ b/apps/api/src/services/__tests__/WorkflowExecutionService.integration.test.ts
+@@ -28,11 +28,9 @@ vi.mock('../QueueService', () => ({
+   },
+ }));
+
+-// Mock SES for email sending
+-vi.mock('../../services/ses', () => ({
+-  ses: {
+-    sendEmail: vi.fn(async () => ({MessageId: 'mock-message-id'})),
+-  },
++// Mock SMTP for email sending when a workflow reaches a send step.
++vi.mock('../SMTPService', () => ({
++  sendRawEmail: vi.fn(async () => ({messageId: 'mock-message-id'})),
+ }));
+
+ describe('WorkflowExecutionService - Integration Tests', () => {
+diff --git a/docker-compose.yml b/docker-compose.yml
+index 18c0524..160d511 100644
+--- a/docker-compose.yml
++++ b/docker-compose.yml
+@@ -147,12 +147,18 @@ services:
+       LANDING_URI: ${LANDING_URI:-}
+       WIKI_URI: ${WIKI_URI:-}
+
+-      # AWS SES (for sending emails)
+-      AWS_SES_REGION: ${AWS_SES_REGION}
+-      AWS_SES_ACCESS_KEY_ID: ${AWS_SES_ACCESS_KEY_ID}
+-      AWS_SES_SECRET_ACCESS_KEY: ${AWS_SES_SECRET_ACCESS_KEY}
+-      SES_CONFIGURATION_SET: ${SES_CONFIGURATION_SET}
+-      SES_CONFIGURATION_SET_NO_TRACKING: ${SES_CONFIGURATION_SET_NO_TRACKING:-}
++      # MXRoute SMTP (outbound delivery; password must be a secret)
++      SMTP_HOST: ${SMTP_HOST:?SMTP_HOST is required}
++      SMTP_PORT: ${SMTP_PORT:-587}
++      SMTP_USER: ${SMTP_USER:?SMTP_USER is required}
++      SMTP_PASSWORD: ${SMTP_PASSWORD:?SMTP_PASSWORD is required}
++      SMTP_SECURE: ${SMTP_SECURE:-false}
++      SMTP_TIMEOUT_MS: ${SMTP_TIMEOUT_MS:-15000}
++      SMTP_FROM_ADDRESS: ${SMTP_FROM_ADDRESS:-noreply@marcsmusic.nl}
++      SMTP_FROM_NAME: ${SMTP_FROM_NAME:-MarcsMusic}
++      SMTP_ALLOWED_FROM_ADDRESS: ${SMTP_ALLOWED_FROM_ADDRESS:-noreply@marcsmusic.nl}
++      SMTP_ALLOWED_FROM_DOMAIN: ${SMTP_ALLOWED_FROM_DOMAIN:-marcsmusic.nl}
++      SMTP_TRACKING_ENABLED: ${SMTP_TRACKING_ENABLED:-false}
+
+       # Custom MAIL FROM subdomain (defaults to 'plunk'; override when
+       # plunk.<your-domain> is already used for something else, e.g. a CDN)
+@@ -198,9 +204,8 @@ services:
+       # and read by apps/api/src/app/constants.ts at import time)
+       DISABLE_SIGNUPS: ${DISABLE_SIGNUPS:-false}
+
+-      # Explicit SES sending rate (avoid silent fallback to 14/sec when
+-      # ses:GetSendQuota is denied or transiently fails at worker startup)
+-      EMAIL_RATE_LIMIT_PER_SECOND: ${EMAIL_RATE_LIMIT_PER_SECOND:-}
++      # Explicit bounded MXRoute sending rate (no quota API is queried)
++      EMAIL_RATE_LIMIT_PER_SECOND: ${EMAIL_RATE_LIMIT_PER_SECOND:-5}
+
+     volumes:
+       # Persistent storage for application data
+diff --git a/yarn.lock b/yarn.lock
+index 27fade4..663767a 100644
+--- a/yarn.lock
++++ b/yarn.lock
+@@ -167,54 +167,6 @@ __metadata:
+   languageName: node
+   linkType: hard
+
+-"@aws-sdk/client-ses@npm:^3.937.0":
+-  version: 3.948.0
+-  resolution: "@aws-sdk/client-ses@npm:3.948.0"
+-  dependencies:
+-    "@aws-crypto/sha256-browser": "npm:5.2.0"
+-    "@aws-crypto/sha256-js": "npm:5.2.0"
+-    "@aws-sdk/core": "npm:3.947.0"
+-    "@aws-sdk/credential-provider-node": "npm:3.948.0"
+-    "@aws-sdk/middleware-host-header": "npm:3.936.0"
+-    "@aws-sdk/middleware-logger": "npm:3.936.0"
+-    "@aws-sdk/middleware-recursion-detection": "npm:3.948.0"
+-    "@aws-sdk/middleware-user-agent": "npm:3.947.0"
+-    "@aws-sdk/region-config-resolver": "npm:3.936.0"
+-    "@aws-sdk/types": "npm:3.936.0"
+-    "@aws-sdk/util-endpoints": "npm:3.936.0"
+-    "@aws-sdk/util-user-agent-browser": "npm:3.936.0"
+-    "@aws-sdk/util-user-agent-node": "npm:3.947.0"
+-    "@smithy/config-resolver": "npm:^4.4.3"
+-    "@smithy/core": "npm:^3.18.7"
+-    "@smithy/fetch-http-handler": "npm:^5.3.6"
+-    "@smithy/hash-node": "npm:^4.2.5"
+-    "@smithy/invalid-dependency": "npm:^4.2.5"
+-    "@smithy/middleware-content-length": "npm:^4.2.5"
+-    "@smithy/middleware-endpoint": "npm:^4.3.14"
+-    "@smithy/middleware-retry": "npm:^4.4.14"
+-    "@smithy/middleware-serde": "npm:^4.2.6"
+-    "@smithy/middleware-stack": "npm:^4.2.5"
+-    "@smithy/node-config-provider": "npm:^4.3.5"
+-    "@smithy/node-http-handler": "npm:^4.4.5"
+-    "@smithy/protocol-http": "npm:^5.3.5"
+-    "@smithy/smithy-client": "npm:^4.9.10"
+-    "@smithy/types": "npm:^4.9.0"
+-    "@smithy/url-parser": "npm:^4.2.5"
+-    "@smithy/util-base64": "npm:^4.3.0"
+-    "@smithy/util-body-length-browser": "npm:^4.2.0"
+-    "@smithy/util-body-length-node": "npm:^4.2.1"
+-    "@smithy/util-defaults-mode-browser": "npm:^4.3.13"
+-    "@smithy/util-defaults-mode-node": "npm:^4.2.16"
+-    "@smithy/util-endpoints": "npm:^3.2.5"
+-    "@smithy/util-middleware": "npm:^4.2.5"
+-    "@smithy/util-retry": "npm:^4.2.5"
+-    "@smithy/util-utf8": "npm:^4.2.0"
+-    "@smithy/util-waiter": "npm:^4.2.5"
+-    tslib: "npm:^2.6.2"
+-  checksum: 10c0/0bb323773f1b71064f23b4cbb3d9d93c4f6d27c3d52a029feb6a41e82de0c93093c166eb886d709db6013ed0039f49c49608d1407f52e4f838f7f17ef755d87f
+-  languageName: node
+-  linkType: hard
+-
+ "@aws-sdk/client-sesv2@npm:^3.839.0":
+   version: 3.950.0
+   resolution: "@aws-sdk/client-sesv2@npm:3.950.0"
+@@ -7918,7 +7870,6 @@ __metadata:
+   resolution: "api@workspace:apps/api"
+   dependencies:
+     "@aws-sdk/client-s3": "npm:^3.937.0"
+-    "@aws-sdk/client-ses": "npm:^3.937.0"
+     "@overnightjs/core": "npm:^1.7.6"
+     "@plunk/db": "npm:*"
+     "@plunk/email": "npm:*"
