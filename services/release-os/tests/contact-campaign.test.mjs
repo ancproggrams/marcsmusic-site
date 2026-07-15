@@ -110,6 +110,36 @@ describe("contacts and campaigns", () => {
       /English subject and message/u
     );
   });
+
+  it("parks uncertain Plunk outcomes for reconciliation instead of treating them as safe failures", async () => {
+    const dir = await mkdtemp(join(tmpdir(), "marcsmusic-campaign-"));
+    const store = new JsonStore({ filePath: join(dir, "store.json"), initialState: createDefaultState() });
+    const campaignService = createNewMusicCampaignService({
+      store,
+      contactSegmentService: createContactSegmentService({
+        espocrmClient: new EspoCrmClient({ contacts: fixtureContacts().slice(0, 1) })
+      }),
+      emailProvider: {
+        async sendMessage() {
+          const error = new Error("provider timeout");
+          error.outcomeUncertain = true;
+          throw error;
+        }
+      }
+    });
+
+    const result = await campaignService.sendCampaign({
+      release: { id: "rel-uncertain", title: "Track", artistDisplayName: "Artist" },
+      artist: { slug: "marc-rene", displayName: "Artist" },
+      input: { selectedTypes: ["radio_station"] }
+    });
+
+    assert.equal(result.sent, 0);
+    assert.equal(result.failed, 0);
+    assert.equal(result.reconciliationRequired, 1);
+    assert.equal(result.campaign.status, "sent_with_uncertainty");
+    assert.equal(result.recipients[0].status, "reconcile_required");
+  });
 });
 
 function fixtureContacts() {
@@ -154,4 +184,3 @@ function fixtureContacts() {
     }
   ];
 }
-

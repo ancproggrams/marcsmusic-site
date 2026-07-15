@@ -22,8 +22,8 @@ import { ReleaseAssetStorage } from "../../infrastructure/storage/release-asset-
 import { AssetUrlSigner } from "../../infrastructure/security/asset-url-signer.mjs";
 import { PlayerManifestClient } from "../../infrastructure/marcsmusic-site/player-client.mjs";
 import { EspoCrmClient } from "../../infrastructure/espocrm/espocrm-client.mjs";
-import { MailgunClient } from "../../infrastructure/mailgun/mailgun-client.mjs";
-import { resolveMailgunConfig } from "../../config/env.mjs";
+import { PlunkClient } from "../../infrastructure/plunk/plunk-client.mjs";
+import { resolvePlunkConfig } from "../../config/env.mjs";
 
 const MAX_JSON_BODY_BYTES = 1_000_000;
 const MAX_AUTHORIZATION_HEADER_BYTES = 1_024;
@@ -98,13 +98,13 @@ export function createMusicApiServer(options = {}) {
     });
   const contactSegmentService =
     options.contactSegmentService ?? createContactSegmentService({ espocrmClient });
-  const mailProvider = options.mailProvider ?? createOptionalMailgunProvider(env, fetch);
+  const emailProvider = options.emailProvider ?? options.mailProvider ?? createOptionalPlunkProvider(env, fetch);
   const campaignService =
     options.campaignService ??
     createNewMusicCampaignService({
       store,
       contactSegmentService,
-      mailProvider
+      emailProvider
     });
   const publicationService =
     options.publicationService ??
@@ -488,13 +488,14 @@ async function routeRequest(request, response, context) {
   });
 }
 
-function createOptionalMailgunProvider(env, fetch) {
-  if (!env.MAILGUN_API_KEY || !env.MAILGUN_DOMAIN) {
+function createOptionalPlunkProvider(env, fetch) {
+  const providerRequested = env.EMAIL_PROVIDER || env.PLUNK_SECRET_KEY || env.PLUNK_BASE_URL;
+  if (!providerRequested) {
     return undefined;
   }
 
-  return new MailgunClient({
-    ...resolveMailgunConfig(env),
+  return new PlunkClient({
+    ...resolvePlunkConfig(env),
     env,
     legacyOutreachSendEnabled: isLegacyOutreachSendEnabled(env),
     fetch

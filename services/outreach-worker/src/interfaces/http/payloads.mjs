@@ -50,6 +50,28 @@ export async function parseMailgunRequest(request) {
   });
 }
 
+export function parsePlunkRequest(body) {
+  if (!isPlainObject(body)) {
+    throw new HttpError(400, "PLUNK_PAYLOAD_INVALID", "Invalid webhook payload.");
+  }
+  const event = body.event && isPlainObject(body.event) ? body.event : undefined;
+  const data = body.data && isPlainObject(body.data) ? body.data : undefined;
+  const eventType = cleanScalar(
+    body.eventType ?? body.type ?? body.name ?? event?.type ?? data?.eventType ?? data?.type ?? data?.name,
+    120
+  );
+  const eventId = cleanScalar(
+    event?.emailId ?? event?.email_id ?? event?.id ?? event?.messageId
+      ?? data?.emailId ?? data?.email_id ?? data?.id ?? data?.messageId
+      ?? body.id,
+    500
+  );
+  if (!eventType || !eventId) {
+    throw new HttpError(400, "PLUNK_EVENT_IDENTITY_INVALID", "Webhook event identity is required.");
+  }
+  return Object.freeze({ eventType, eventId });
+}
+
 function removeAuthenticationFields(raw) {
   const eventData = { ...raw };
   delete eventData.signature;

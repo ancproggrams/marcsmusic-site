@@ -1,31 +1,29 @@
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
-import { requireEnv, resolveMailgunConfig } from "../src/config/env.mjs";
+import { requireEnv, resolvePlunkConfig } from "../src/config/env.mjs";
 import { createEmailService } from "../src/application/email/email-service.mjs";
-import { createMailgunClient } from "../src/infrastructure/mailgun/mailgun-client.mjs";
-import { assertLegacyOutreachSendEnabled } from "../src/domain/legacy-outreach-send-policy.mjs";
+import { createPlunkClient } from "../src/infrastructure/plunk/plunk-client.mjs";
 
 loadLocalEnvFile();
-assertLegacyOutreachSendEnabled(process.env);
 
-const config = resolveMailgunConfig();
-const to = requireEnv(process.env, "MAILGUN_TEST_TO");
+const config = resolvePlunkConfig();
+const to = requireEnv(process.env, "EMAIL_TEST_TO");
 
-if (!config.defaultFrom) {
-  throw new Error("MAILGUN_FROM is required for the send-test script");
+if (!config.sendEnabled) {
+  throw new Error("PLUNK_SEND_ENABLED=true is required for the controlled send-test script");
 }
 
-const mailgunClient = createMailgunClient({ ...config, legacyOutreachSendEnabled: true });
-const emailService = createEmailService({ mailProvider: mailgunClient });
+const plunkClient = createPlunkClient({ ...config, env: process.env });
+const emailService = createEmailService({ emailProvider: plunkClient });
 
 const result = await emailService.sendTransactionalEmail({
   from: config.defaultFrom,
   to,
-  subject: "MarcsMusic Mailgun test",
-  text: "Mailgun API integration is configured for MarcsMusic.",
-  html: "<p>Mailgun API integration is configured for MarcsMusic.</p>",
+  subject: "MarcsMusic – Plunk/MXRoute productietest",
+  text: "MarcsMusic Plunk/MXRoute delivery test.",
+  html: "<p>MarcsMusic Plunk/MXRoute delivery test.</p>",
   tags: ["smoke-test"],
-  correlationId: `mailgun-smoke-${Date.now()}`
+  correlationId: `plunk-smoke-${Date.now()}`
 });
 
 console.log(JSON.stringify(result, null, 2));

@@ -33,21 +33,31 @@ export function createEventService({ espocrm, repository, outcomeReconcileReposi
   }
 
   async function processMailgunEvent(workItem) {
+    return processProviderEvent(workItem, "mailgun");
+  }
+
+  async function processPlunkEvent(workItem) {
+    return processProviderEvent(workItem, "plunk");
+  }
+
+  async function processProviderEvent(workItem, source) {
     const inbox = await requiredInbox(workItem);
-    const data = inbox.payload?.["event-data"] ?? inbox.payload ?? {};
+    const data = source === "mailgun"
+      ? inbox.payload?.["event-data"] ?? inbox.payload ?? {}
+      : normalizePlunkEventPayload(inbox.payload);
     const eventName = String(data.event ?? inbox.event_type ?? "inbound").toLowerCase();
     const occurredAt = providerDate(data.timestamp, inbox.created_at);
 
     if (isInboundReply(data, eventName)) {
-      await processInboundReply(data, inbox.external_id, occurredAt, { projectIncomingEmail: true });
+      await processInboundReply(data, inbox.external_id, occurredAt, { projectIncomingEmail: true, providerSource: source });
       await repository.markEventProcessed(inbox.id);
-      metrics.increment("outreach_webhook_events_processed_total", { source: "mailgun", eventType: "reply" });
+      metrics.increment("outreach_webhook_events_processed_total", { source, eventType: "reply" });
       return;
     }
 
     let queueItem = await findOriginatingSend(data);
     if (!queueItem) {
-      logger.warn({ externalEventId: inbox.external_id, eventName }, "Mailgun event did not correlate to an outreach send");
+      logger.warn({ externalEventId: inbox.external_id, eventName }, "Provider event did not correlate to an outreach send");
       await repository.markEventProcessed(inbox.id);
       metrics.increment("outreach_provider_events_unmatched_total", { eventType: eventName });
       return;
@@ -63,7 +73,7 @@ export function createEventService({ espocrm, repository, outcomeReconcileReposi
       });
       if (recovered?.recovered) {
         queueItem = await repository.getSend(recovered.sendQueueId) ?? queueItem;
-        metrics.increment("outreach_delivery_unknown_recovered_total", { source: "mailgun_accepted" });
+        metrics.increment("outreach_delivery_unknown_recovered_total", { source: `${source}_accepted` });
       }
     } else if (eventName === "delivered") {
       await recordProviderOutcome(queueItem, inbox.external_id, "delivered", "Delivered", occurredAt);
@@ -75,20 +85,20 @@ export function createEventService({ espocrm, repository, outcomeReconcileReposi
       const permanent = data.severity === "permanent" || String(data["delivery-status"]?.code ?? "").startsWith("5");
       await recordProviderOutcome(queueItem, inbox.external_id, permanent ? "hard_bounce" : "soft_bounce", permanent ? "Hard Bounced" : "Soft Bounced", occurredAt);
       if (permanent) {
-        await suppressContactForQueue(queueItem, "hard_bounce", inbox.external_id, { hardBounced: true, emailValidationStatus: "Invalid" }, occurredAt);
+        await suppressContactForQueue(queueItem, "hard_bounce", inbox.external_id, { hardBounced: true, emailValidationStatus: "Invalid" }, occurredAt, source);
       } else {
         await stopForSoftBounce(queueItem, inbox.external_id, occurredAt);
       }
     } else if (eventName === "complained") {
       await recordProviderOutcome(queueItem, inbox.external_id, "complained", "Spam Complaint", occurredAt);
-      await suppressContactForQueue(queueItem, "spam_complaint", inbox.external_id, { doNotContact: true }, occurredAt);
+      await suppressContactForQueue(queueItem, "spam_complaint", inbox.external_id, { doNotContact: true }, occurredAt, source);
     } else if (eventName === "unsubscribed") {
       await recordProviderOutcome(queueItem, inbox.external_id, "unsubscribed", "Opted Out", occurredAt);
-      await suppressContactForQueue(queueItem, "unsubscribed", inbox.external_id, { optedOut: true, doNotContact: true }, occurredAt);
+      await suppressContactForQueue(queueItem, "unsubscribed", inbox.external_id, { optedOut: true, doNotContact: true }, occurredAt, source);
     }
 
     await repository.markEventProcessed(inbox.id);
-    metrics.increment("outreach_webhook_events_processed_total", { source: "mailgun", eventType: eventName });
+    metrics.increment("outreach_webhook_events_processed_total", { source, eventType: eventName });
   }
 
   async function processUnsubscribeEvent(workItem) {
@@ -135,7 +145,7 @@ export function createEventService({ espocrm, repository, outcomeReconcileReposi
     }, externalEventId, occurredAt);
   }
 
-  async function processInboundReply(data, externalEventId, occurredAt, { projectIncomingEmail = false } = {}) {
+  async function processInboundReply(data, externalEventId, occurredAt, { projectIncomingEmail = false, providerSource = "mailgun" } = {}) {
     const stableOccurredAt = requiredEventDate(occurredAt, "REPLY_EVENT_DATE_MISSING");
     const inReplyTo = firstMessageId(data["In-Reply-To"] ?? data["in-reply-to"] ?? data.message?.headers?.["in-reply-to"]);
     let queueItem = await repository.findSendByMessageId(inReplyTo);
@@ -200,7 +210,8 @@ export function createEventService({ espocrm, repository, outcomeReconcileReposi
         incomingMessageId,
         replyText,
         externalEventId,
-        occurredAt: stableOccurredAt
+        occurredAt: stableOccurredAt,
+        providerSource
       });
     }
     const suppressed = await repository.isSuppressed({
@@ -389,7 +400,7 @@ export function createEventService({ espocrm, repository, outcomeReconcileReposi
         contactId: queueItem.contact_id,
         outletId: queueItem.outlet_id,
         idempotencyKey: responseKey,
-        deterministicMessageId: deterministicMessageId(responseKey, config.mailgun.domain),
+        deterministicMessageId: deterministicMessageId(responseKey, providerDomain(config)),
         payload: {
           to: contact.email,
           subject: replySubject(data.subject ?? data.message?.headers?.subject),
@@ -411,7 +422,8 @@ export function createEventService({ espocrm, repository, outcomeReconcileReposi
     incomingMessageId,
     replyText,
     externalEventId,
-    occurredAt
+    occurredAt,
+    providerSource = "mailgun"
   }) {
     const stableIdentity = incomingMessageId ?? externalEventId;
     const digest = createHash("sha256")
@@ -420,9 +432,9 @@ export function createEventService({ espocrm, repository, outcomeReconcileReposi
     const projectionKey = `inbound:${digest}`;
     const recipient = normalizeEmail(firstAddress(
       data.recipient ?? data.To ?? data.to ?? data.envelope?.targets?.[0]
-    )) ?? normalizeEmail(config.mailgun.replyTo);
+    )) ?? normalizeEmail(config.plunk?.replyTo ?? config.mailgun.replyTo);
     if (!recipient) throw permanentError("INBOUND_EMAIL_RECIPIENT_INVALID");
-    const providerMessageId = incomingMessageId ?? `mailgun-event:${externalEventId}`;
+    const providerMessageId = incomingMessageId ?? `${providerSource}-event:${externalEventId}`;
     await espocrm.upsertByUnique("Email", "outreachProjectionKey", projectionKey, {
       name: safeIncomingSubject(data.subject ?? data.message?.headers?.subject),
       status: "Received",
@@ -448,7 +460,7 @@ export function createEventService({ espocrm, repository, outcomeReconcileReposi
       mediaContactId: contact.id,
       ...(queueItem.outlet_id ? { mediaOutletId: queueItem.outlet_id } : {})
     });
-    metrics.increment("outreach_inbound_email_projections_total", { source: "mailgun" });
+    metrics.increment("outreach_inbound_email_projections_total", { source: providerSource });
   }
 
   async function recordProviderOutcome(queueItem, externalEventId, outcomeType, crmEventType, occurredAt) {
@@ -456,14 +468,14 @@ export function createEventService({ espocrm, repository, outcomeReconcileReposi
     await createOutreachEvent({ matchId: queueItem.match_id, eventType: crmEventType, externalEventId, providerMessageId: queueItem.provider_message_id, eventDate: occurredAt });
   }
 
-  async function suppressContactForQueue(queueItem, reason, providerEventId, contactPatch, occurredAt) {
+  async function suppressContactForQueue(queueItem, reason, providerEventId, contactPatch, occurredAt, providerSource = "mailgun") {
     const [contactRaw, match] = await Promise.all([
       espocrm.get("MediaContact", queueItem.contact_id),
       espocrm.get("OutreachMatch", queueItem.match_id)
     ]);
     const contact = normalizeContact(contactRaw);
-    await createAuthoritativeSuppression({ subjectType: "contact", subject: contact.id, reason, source: "mailgun", providerEventId, contact, matchId: queueItem.match_id, occurredAt });
-    if (contact.email) await repository.suppress({ subjectType: "email", subject: contact.email, reason, source: "mailgun" });
+    await createAuthoritativeSuppression({ subjectType: "contact", subject: contact.id, reason, source: providerSource, providerEventId, contact, matchId: queueItem.match_id, occurredAt });
+    if (contact.email) await repository.suppress({ subjectType: "email", subject: contact.email, reason, source: providerSource });
     await repository.cancelPendingForContact(contact.id, reason);
     await updateEntityConditional("MediaContact", contactRaw, { ...contactPatch, status: "Blocked" });
     await updateMatchConditional(match, {
@@ -633,7 +645,82 @@ export function createEventService({ espocrm, repository, outcomeReconcileReposi
     });
   }
 
-  return Object.freeze({ processEspoEvent, processMailgunEvent, processUnsubscribeEvent, syncSuppression, syncMatchState });
+  return Object.freeze({ processEspoEvent, processMailgunEvent, processPlunkEvent, processUnsubscribeEvent, syncSuppression, syncMatchState });
+}
+
+export function normalizePlunkEventPayload(payload) {
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    throw permanentError("PLUNK_EVENT_PAYLOAD_INVALID");
+  }
+  const rawType = payload.eventType
+    ?? payload.type
+    ?? payload.name
+    ?? payload.event?.type
+    ?? payload.data?.eventType
+    ?? payload.data?.type
+    ?? payload.data?.name;
+  const eventType = String(rawType ?? "").trim().toLowerCase();
+  const event = payload.event && typeof payload.event === "object" && !Array.isArray(payload.event)
+    ? payload.event
+    : payload.data && typeof payload.data === "object" && !Array.isArray(payload.data)
+      ? payload.data
+      : payload;
+  const id = scalar(event.emailId ?? event.email_id ?? event.id ?? event.messageId ?? payload.id, 500);
+  if (!eventType || !id) throw permanentError("PLUNK_EVENT_IDENTITY_INVALID");
+  const mappedEvent = {
+    "email.sent": "accepted",
+    "email.delivery": "delivered",
+    "email.delivered": "delivered",
+    "email.open": "opened",
+    "email.opened": "opened",
+    "email.click": "clicked",
+    "email.clicked": "clicked",
+    "email.bounce": "failed",
+    "email.bounced": "failed",
+    "email.complaint": "complained",
+    "email.complained": "complained",
+    "contact.unsubscribed": "unsubscribed",
+    "email.unsubscribed": "unsubscribed",
+    "email.received": "inbound"
+  }[eventType];
+  if (!mappedEvent) throw permanentError("PLUNK_EVENT_TYPE_UNSUPPORTED");
+  const messageId = scalar(event.messageId ?? event.message_id, 500);
+  const inbound = mappedEvent === "inbound";
+  const body = inbound ? scalar(event.body ?? event.bodyPlain ?? event.text, 524_288) : undefined;
+  return {
+    ...event,
+    event: mappedEvent,
+    timestamp: event.timestamp
+      ?? event.sentAt
+      ?? event.deliveredAt
+      ?? event.openedAt
+      ?? event.clickedAt
+      ?? event.bouncedAt
+      ?? event.complainedAt,
+    ...(eventType === "email.bounce" || eventType === "email.bounced"
+      ? { severity: String(event.bounceType ?? "").toLowerCase() === "permanent" ? "permanent" : "temporary" }
+      : {}),
+    ...(messageId ? { "message-id": messageId } : {}),
+    // Plunk's email id is the stable provider identity returned by /v1/send.
+    // Binding it as message-id lets the existing repository lookup correlate
+    // webhook receipts without relying on recipient addresses or timestamps.
+    "user-variables": event.data && typeof event.data === "object" ? event.data : {},
+    ...(body ? { "body-plain": body } : {}),
+    // Sender/subject are safe context on lifecycle events, but body and
+    // In-Reply-To remain inbound-only above so an outbound body cannot be
+    // mistaken for a received reply by isInboundReply().
+    ...(event.from ? { sender: event.from } : {}),
+    ...(event.subject ? { subject: event.subject } : {}),
+    "message-id": id,
+    ...(inbound && (event.inReplyTo || event.in_reply_to)
+      ? { "In-Reply-To": event.inReplyTo ?? event.in_reply_to }
+      : {})
+  };
+}
+
+function providerDomain(config) {
+  const from = String(config.plunk?.from ?? "").match(/@([^>\s]+)>?$/u)?.[1];
+  return from || config.mailgun.domain;
 }
 
 function entityTypeFromEvent(eventName) {
@@ -649,6 +736,10 @@ function providerDate(value, persistedFallback) {
       : Number.NaN;
   const milliseconds = providerTimestamp * 1_000;
   if (Number.isFinite(milliseconds) && milliseconds > 0) return new Date(milliseconds);
+  if (typeof value === "string" && value.trim() !== "") {
+    const parsed = new Date(value);
+    if (Number.isFinite(parsed.getTime())) return parsed;
+  }
   return requiredEventDate(persistedFallback, "PROVIDER_EVENT_DATE_MISSING");
 }
 
@@ -707,6 +798,12 @@ function statusForStep(sequenceStep) {
 
 function permanentError(code) {
   return Object.assign(new Error(code), { code, retryable: false });
+}
+
+function scalar(value, maximum) {
+  if (typeof value !== "string" && typeof value !== "number") return undefined;
+  const normalized = String(value).trim();
+  return normalized ? normalized.slice(0, maximum) : undefined;
 }
 
 function requiredEventDate(value, code) {

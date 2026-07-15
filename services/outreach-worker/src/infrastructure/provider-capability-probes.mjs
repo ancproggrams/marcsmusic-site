@@ -7,6 +7,80 @@ const DEFAULT_TIMEOUT_MS = 3_000;
 const DEFAULT_MAX_RESPONSE_BYTES = 16_384;
 
 /**
+ * Non-mutating Plunk health probe. This endpoint does not enqueue a message
+ * and therefore proves only that the configured self-hosted API is reachable;
+ * sender verification and MXRoute delivery still require a controlled test.
+ */
+export class PlunkHealthProbe {
+  constructor(config = {}, options = {}) {
+    this.baseUrl = stripTrailingSlash(config.baseUrl ?? "");
+    this.apiKey = config.apiKey;
+    this.configured = Boolean(this.baseUrl && this.apiKey && config.from);
+    this.timeoutMs = boundedPositiveInteger(config.healthTimeoutMs, DEFAULT_TIMEOUT_MS);
+    this.maxResponseBytes = boundedPositiveInteger(config.maxResponseBytes, DEFAULT_MAX_RESPONSE_BYTES);
+    this.fetch = options.fetch ?? globalThis.fetch;
+    this.signal = options.signal;
+    const clock = options.now ?? Date.now;
+    this.now = () => epochMilliseconds(clock());
+    this.cache = new SingleFlightTtlCache({
+      ttlMs: boundedPositiveInteger(options.cacheTtlMs, DEFAULT_CACHE_TTL_MS),
+      now: this.now
+    });
+    if (this.configured && typeof this.fetch !== "function") throw new TypeError("A fetch implementation is required");
+  }
+
+  async check() {
+    if (!this.configured) {
+      return providerResult({
+        configured: false,
+        available: false,
+        health: "unknown",
+        reason: "plunk_not_configured"
+      });
+    }
+    return this.cache.get(() => this.probe());
+  }
+
+  async probe() {
+    const checkedAt = isoTimestamp(this.now());
+    const abortScope = createAbortScope({ signals: [this.signal], timeoutMs: this.timeoutMs });
+    try {
+      throwIfAborted(abortScope.signal);
+      const response = await raceWithAbort(this.fetch(`${this.baseUrl}/health`, {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          // The health endpoint is intentionally safe without auth; sending
+          // the key also supports deployments that protect it at the proxy.
+          authorization: `Bearer ${this.apiKey}`
+        },
+        redirect: "error",
+        signal: abortScope.signal
+      }), abortScope.signal);
+      if (!response.ok) {
+        await cancelResponseBody(response);
+        return providerResult({ configured: true, available: false, health: "unavailable", reason: plunkStatusReason(response.status), checkedAt });
+      }
+      const body = await readProbeJson(response, this.maxResponseBytes, abortScope.signal);
+      if (!isPlainObject(body) || body.status !== "ok") {
+        return providerResult({ configured: true, available: false, health: "unavailable", reason: "plunk_response_invalid", checkedAt });
+      }
+      return providerResult({ configured: true, available: true, health: "available", checkedAt });
+    } catch (error) {
+      return providerResult({
+        configured: true,
+        available: false,
+        health: "unavailable",
+        reason: probeFailureReason("plunk", error, abortScope),
+        checkedAt
+      });
+    } finally {
+      abortScope.cleanup();
+    }
+  }
+}
+
+/**
  * Non-mutating Mailgun control-plane probe. It only reads the configured
  * domain resource; it never calls a message, event, route, or validation
  * endpoint. Results are sanitized before they enter the cache.
@@ -16,6 +90,10 @@ export class MailgunDomainHealthProbe {
     this.baseUrl = stripTrailingSlash(config.baseUrl);
     this.apiKey = config.apiKey;
     this.domain = config.domain;
+    // Mailgun is retained only as a legacy inbound/reconciliation boundary
+    // during the Plunk migration.  A Plunk-only deployment must not attempt
+    // to call the Mailgun control plane with undefined credentials.
+    this.configured = Boolean(this.baseUrl && this.apiKey && this.domain);
     this.timeoutMs = boundedPositiveInteger(config.healthTimeoutMs, DEFAULT_TIMEOUT_MS);
     this.maxResponseBytes = boundedPositiveInteger(
       config.healthMaxResponseBytes,
@@ -34,6 +112,14 @@ export class MailgunDomainHealthProbe {
   }
 
   async check() {
+    if (!this.configured) {
+      return providerResult({
+        configured: false,
+        available: false,
+        health: "disabled",
+        reason: "mailgun_not_configured"
+      });
+    }
     return this.cache.get(() => this.probe());
   }
 
@@ -322,6 +408,14 @@ function mailgunStatusReason(status) {
   if (status === 429) return "mailgun_rate_limited";
   if (status >= 500) return "mailgun_unavailable";
   return undefined;
+}
+
+function plunkStatusReason(status) {
+  if (status === 401 || status === 403) return "plunk_auth_rejected";
+  if (status === 404) return "plunk_health_not_found";
+  if (status === 429) return "plunk_rate_limited";
+  if (status >= 500) return "plunk_unavailable";
+  return "plunk_unavailable";
 }
 
 function emailValidationStatusReason(status) {

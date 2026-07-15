@@ -93,6 +93,8 @@ deploy/dj-finder-worker/**/*.py[cod]
 !deploy/radicale/users.example
 !deploy/radicale/README.md
 !deploy/radicale/Procfile
+!deploy/plunk/
+!deploy/plunk/**
 !services/
 !services/release-os/
 !services/release-os/**

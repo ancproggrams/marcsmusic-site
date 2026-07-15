@@ -6,6 +6,7 @@ import { HttpError, publicError } from "./http-error.mjs";
 import { registerEspoWebhookRoute } from "./routes/espocrm-webhook.mjs";
 import { registerHealthRoutes } from "./routes/health.mjs";
 import { registerMailgunWebhookRoute } from "./routes/mailgun-webhook.mjs";
+import { registerPlunkWebhookRoute } from "./routes/plunk-webhook.mjs";
 import { registerMetricsRoute } from "./routes/metrics.mjs";
 import { registerSourceIngestionRoute } from "./routes/source-ingestion.mjs";
 import { registerUnsubscribeRoutes } from "./routes/unsubscribe.mjs";
@@ -53,6 +54,7 @@ export async function buildServer({
   registerMetricsRoute(server, dependencies);
   registerEspoWebhookRoute(server, dependencies);
   registerMailgunWebhookRoute(server, dependencies);
+  registerPlunkWebhookRoute(server, dependencies);
   registerUnsubscribeRoutes(server, dependencies);
   if (sourceIngestionRepository && sourceIngestionService) {
     registerSourceIngestionRoute(server, { config, sourceIngestionRepository, sourceIngestionService });
@@ -175,8 +177,11 @@ function installErrorHandling(server, metrics) {
 }
 
 function assertDependencies({ config, repository, metrics }) {
-  if (!config?.espocrm?.webhookSecrets || !config?.mailgun?.webhookSigningKey) {
-    throw new TypeError("config with webhook secrets is required");
+  if (
+    !config?.espocrm?.webhookSecrets
+    || (!config?.mailgun?.webhookSigningKey && !config?.plunk?.webhookSecret)
+  ) {
+    throw new TypeError("config with CRM and provider webhook secrets is required");
   }
   if (!config?.crypto?.unsubscribeSigning?.active?.key || !config?.metricsToken || !config?.safety) {
     throw new TypeError("config with safety and HTTP secrets is required");

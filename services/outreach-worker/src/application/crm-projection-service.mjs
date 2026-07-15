@@ -431,7 +431,7 @@ export function createCrmProjectionService({ espocrm, repository, config, logger
     campaign,
     automaticResponse = false
   }) {
-    const from = safeMailbox(config.mailgun.from, "CRM_SENDER_ADDRESS_INVALID");
+    const from = safeMailbox(config.plunk?.from ?? config.mailgun.from, "CRM_SENDER_ADDRESS_INVALID");
     const to = safeMailbox(contact.email, "CRM_RECIPIENT_ADDRESS_INVALID");
     return espocrm.upsertByUnique("Email", "outreachProjectionKey", projectionKey, {
       name: safeHeader(subject, "Outreach message"),

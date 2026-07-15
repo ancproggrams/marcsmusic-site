@@ -20,7 +20,17 @@ const RESPONSE_BLOCKED_MATCH_STATUSES = new Set(["Completed", "Rejected", "Unsub
 const RESPONSE_BLOCKED_CONTACT_STATUSES = new Set(["Inactive", "Blocked"]);
 const RESPONSE_DEFERRED_PREFLIGHT_CODES = new Set(["circuit_open", "circuit_state_unavailable"]);
 
-export function createSendService({ espocrm, repository, contactIntakeRepository, mailgun, config, logger, metrics }) {
+export function createSendService({ espocrm, repository, contactIntakeRepository, mailProvider, mailgun, config, logger, metrics }) {
+  // Keep the legacy `mailgun` injection name as a compatibility seam for
+  // existing tests and staged deployments. New callers must provide the
+  // provider-neutral `mailProvider` port. Both send paths use the same
+  // authorization fence and durable delivery-attempt state, so changing the
+  // provider cannot change recipient eligibility or duplicate suppression.
+  const provider = mailProvider ?? mailgun;
+  if (!provider || typeof provider.send !== "function") {
+    throw new TypeError("A provider-neutral mailProvider with send() is required");
+  }
+
   async function sendOne(workerId, { signal } = {}) {
     if (config.safety.killSwitch || !config.safety.sendEnabled) {
       return Object.freeze({ processed: false, reason: "sending_disabled" });
@@ -65,7 +75,7 @@ export function createSendService({ espocrm, repository, contactIntakeRepository
         correlationId = await repository.beginDeliveryAttempt(item);
         let result;
         try {
-          result = await mailgun.send({
+          result = await provider.send({
             to: authorized.contact.email,
             subject: authorized.copy.subject,
             text: authorized.copy.bodyText,
@@ -336,7 +346,7 @@ export function createSendService({ espocrm, repository, contactIntakeRepository
           return Object.freeze({ processed: true, sent: false, reason: rateAuthorization.reason });
         }
         correlationId = await repository.beginResponseAttempt(item);
-        const result = await mailgun.send({
+        const result = await provider.send({
           to: authorization.contact.email,
           subject: payload.subject,
           text: payload.bodyText,

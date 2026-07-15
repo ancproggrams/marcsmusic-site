@@ -26,6 +26,15 @@ export function createWorkService({ repository, contactIntakeService, matchServi
         case "process_mailgun_event":
           await eventService.processMailgunEvent(item);
           break;
+        case "process_plunk_event":
+          if (typeof eventService.processPlunkEvent !== "function") {
+            throw Object.assign(new Error("Plunk event processor is unavailable"), {
+              code: "PLUNK_EVENT_PROCESSOR_UNAVAILABLE",
+              retryable: false
+            });
+          }
+          await eventService.processPlunkEvent(item);
+          break;
         case "process_unsubscribe_event":
           await eventService.processUnsubscribeEvent(item);
           break;

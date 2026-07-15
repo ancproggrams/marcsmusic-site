@@ -190,7 +190,10 @@ NEWSLETTER_FROM_EMAIL=noreply@marcsmusic.nl
 NEWSLETTER_FROM_NAME=MarcsMusic
 ```
 
-Make sure `noreply@marcsmusic.nl` exists in your mail provider and that SPF/DKIM/DMARC are configured for `marcsmusic.nl` before sending campaigns.
+Transactionele e-mail uses Plunk as the application provider and MXRoute as
+the SMTP relay. Keep `noreply@marcsmusic.nl` fixed and verify SPF/DKIM/DMARC
+for `marcsmusic.nl` before enabling a controlled campaign. See
+[`services/release-os/docs/plunk.md`](services/release-os/docs/plunk.md).
 
 ## Radicale CalDAV setup on Railway
 

@@ -54,12 +54,23 @@ const schema = z.object({
   ESPOCRM_MAX_PAGE_SIZE: z.coerce.number().int().min(1).max(200).default(200),
   ESPOCRM_WEBHOOK_SECRETS_JSON: z.string().default("{}"),
   PROVIDER_CAPABILITY_CACHE_TTL_MS: z.coerce.number().int().min(1_000).max(300_000).default(30_000),
-  MAILGUN_API_KEY: z.string().min(1),
-  MAILGUN_DOMAIN: z.string().trim().min(1).max(253),
+  // Outbound mail is explicitly Plunk. Legacy MAILGUN_* values below remain
+  // only for the staged inbound/outcome-reconciliation boundary and are never
+  // used by the send service.
+  EMAIL_PROVIDER: z.literal("plunk").default("plunk"),
+  PLUNK_BASE_URL: z.string().url().default("https://mail.marcsmusic.nl"),
+  PLUNK_SECRET_KEY: z.string().trim().min(1).optional().or(z.literal("")),
+  PLUNK_FROM: z.string().trim().min(3).optional().or(z.literal("")),
+  PLUNK_REPLY_TO: z.string().email().optional().or(z.literal("")),
+  PLUNK_WEBHOOK_SECRET: z.string().trim().min(16).optional().or(z.literal("")),
+  PLUNK_TIMEOUT_MS: z.coerce.number().int().min(250).max(30_000).default(15_000),
+  PLUNK_MAX_RESPONSE_BYTES: z.coerce.number().int().min(1_024).max(4_194_304).default(65_536),
+  MAILGUN_API_KEY: z.string().trim().min(1).optional().or(z.literal("")),
+  MAILGUN_DOMAIN: z.string().trim().min(1).max(253).optional().or(z.literal("")),
   MAILGUN_BASE_URL: z.string().url().default("https://api.eu.mailgun.net"),
-  MAILGUN_FROM: z.string().min(3),
-  MAILGUN_REPLY_TO: z.string().email(),
-  MAILGUN_WEBHOOK_SIGNING_KEY: z.string().min(16),
+  MAILGUN_FROM: z.string().min(3).optional().or(z.literal("")),
+  MAILGUN_REPLY_TO: z.string().email().optional().or(z.literal("")),
+  MAILGUN_WEBHOOK_SIGNING_KEY: z.string().min(16).optional().or(z.literal("")),
   MAILGUN_HEALTH_TIMEOUT_MS: z.coerce.number().int().min(250).max(10_000).default(3_000),
   MAILGUN_HEALTH_MAX_RESPONSE_BYTES: z.coerce.number().int().min(1_024).max(65_536).default(16_384),
   MAILGUN_INBOUND_ROUTE_EVIDENCE: z.enum(["unknown", "configured"]).default("unknown"),
@@ -207,10 +218,16 @@ export function loadConfig(env = process.env) {
     throw new ConfigurationError([{ path: ["SOURCE_INGESTION_KEYRINGS_JSON"], message: "At least one source keyring is required when ingestion is enabled" }]);
   }
 
-  if (!isDnsHostname(parsed.data.MAILGUN_DOMAIN)) {
+  if (parsed.data.MAILGUN_DOMAIN && !isDnsHostname(parsed.data.MAILGUN_DOMAIN)) {
     throw new ConfigurationError([{ path: ["MAILGUN_DOMAIN"], message: "A DNS hostname is required" }]);
   }
 
+  if (parsed.data.EMAIL_PROVIDER !== "plunk") {
+    throw new ConfigurationError([{
+      path: ["EMAIL_PROVIDER"],
+      message: "Outbound email provider must be explicitly set to plunk"
+    }]);
+  }
   const inboundRouteEvidenceReference = parsed.data.MAILGUN_INBOUND_ROUTE_EVIDENCE_REFERENCE || undefined;
   if (parsed.data.MAILGUN_INBOUND_ROUTE_EVIDENCE === "configured" && !inboundRouteEvidenceReference) {
     throw new ConfigurationError([{
@@ -278,6 +295,25 @@ export function loadConfig(env = process.env) {
     }]);
   }
 
+  if (parsed.data.PLUNK_SECRET_KEY && !parsed.data.PLUNK_FROM) {
+    throw new ConfigurationError([{
+      path: ["PLUNK_FROM"],
+      message: "PLUNK_FROM is required when PLUNK_SECRET_KEY is configured"
+    }]);
+  }
+  if (parsed.data.OUTREACH_SEND_ENABLED && (!parsed.data.PLUNK_SECRET_KEY || !parsed.data.PLUNK_FROM)) {
+    throw new ConfigurationError([{
+      path: ["PLUNK_SECRET_KEY"],
+      message: "A Plunk secret and fixed sender are required before sending can be enabled"
+    }]);
+  }
+  if (parsed.data.OUTREACH_SEND_ENABLED && !parsed.data.PLUNK_WEBHOOK_SECRET) {
+    throw new ConfigurationError([{
+      path: ["PLUNK_WEBHOOK_SECRET"],
+      message: "A shared Plunk webhook secret is required before sending can be enabled"
+    }]);
+  }
+
   const smtpHeloDomain = parsed.data.EMAIL_VALIDATION_SMTP_HELO_DOMAIN
     || new URL(parsed.data.OUTREACH_PUBLIC_BASE_URL).hostname;
   if (
@@ -302,6 +338,12 @@ export function loadConfig(env = process.env) {
       throw new ConfigurationError([{
         path: ["OUTREACH_OUTCOME_RECONCILE_ENABLED"],
         message: "At least one bounded reconciliation route must be enabled"
+      }]);
+    }
+    if (parsed.data.OUTREACH_OUTCOME_RECONCILE_MAILGUN_ENABLED && (!parsed.data.MAILGUN_API_KEY || !parsed.data.MAILGUN_DOMAIN)) {
+      throw new ConfigurationError([{
+        path: ["MAILGUN_API_KEY"],
+        message: "Mailgun reconciliation requires the legacy Mailgun API key and domain"
       }]);
     }
     if (
@@ -358,6 +400,7 @@ export function loadConfig(env = process.env) {
   if (parsed.data.NODE_ENV === "production") {
     for (const [path, value] of [
       ["ESPOCRM_BASE_URL", parsed.data.ESPOCRM_BASE_URL],
+      ["PLUNK_BASE_URL", parsed.data.PLUNK_BASE_URL],
       ["MAILGUN_BASE_URL", parsed.data.MAILGUN_BASE_URL],
       ["OUTREACH_PUBLIC_BASE_URL", parsed.data.OUTREACH_PUBLIC_BASE_URL],
       ...(parsed.data.EMAIL_VALIDATION_PROVIDER_ENABLED && parsed.data.EMAIL_VALIDATION_PROVIDER_TYPE === "http"
@@ -385,6 +428,19 @@ export function loadConfig(env = process.env) {
       throw new ConfigurationError([{
         path: ["MAILGUN_BASE_URL"],
         message: "Production Mailgun traffic must use an exact official US or EU API origin"
+      }]);
+    }
+    const plunkBaseUrl = new URL(parsed.data.PLUNK_BASE_URL);
+    if (
+      plunkBaseUrl.protocol !== "https:"
+      || plunkBaseUrl.username
+      || plunkBaseUrl.password
+      || plunkBaseUrl.search
+      || plunkBaseUrl.hash
+    ) {
+      throw new ConfigurationError([{
+        path: ["PLUNK_BASE_URL"],
+        message: "Production Plunk traffic must use an HTTPS origin without credentials or query parameters"
       }]);
     }
     if (parsed.data.EMAIL_VALIDATION_PROVIDER_ENABLED && parsed.data.EMAIL_VALIDATION_PROVIDER_TYPE === "http") {
@@ -449,12 +505,12 @@ export function loadConfig(env = process.env) {
       cacheTtlMs: parsed.data.PROVIDER_CAPABILITY_CACHE_TTL_MS
     }),
     mailgun: Object.freeze({
-      apiKey: parsed.data.MAILGUN_API_KEY,
-      domain: parsed.data.MAILGUN_DOMAIN,
+      apiKey: parsed.data.MAILGUN_API_KEY || undefined,
+      domain: parsed.data.MAILGUN_DOMAIN || undefined,
       baseUrl: stripTrailingSlash(parsed.data.MAILGUN_BASE_URL),
-      from: parsed.data.MAILGUN_FROM,
-      replyTo: parsed.data.MAILGUN_REPLY_TO,
-      webhookSigningKey: parsed.data.MAILGUN_WEBHOOK_SIGNING_KEY,
+      from: parsed.data.MAILGUN_FROM || undefined,
+      replyTo: parsed.data.MAILGUN_REPLY_TO || undefined,
+      webhookSigningKey: parsed.data.MAILGUN_WEBHOOK_SIGNING_KEY || undefined,
       healthTimeoutMs: parsed.data.MAILGUN_HEALTH_TIMEOUT_MS,
       healthMaxResponseBytes: parsed.data.MAILGUN_HEALTH_MAX_RESPONSE_BYTES,
       inboundRouteEvidence: parsed.data.MAILGUN_INBOUND_ROUTE_EVIDENCE,
@@ -463,6 +519,15 @@ export function loadConfig(env = process.env) {
         maxResponseBytes: parsed.data.OUTREACH_OUTCOME_RECONCILE_MAX_RESPONSE_BYTES,
         storageMaxResponseBytes: parsed.data.OUTREACH_OUTCOME_RECONCILE_STORAGE_MAX_RESPONSE_BYTES
       })
+    }),
+    plunk: Object.freeze({
+      baseUrl: stripTrailingSlash(parsed.data.PLUNK_BASE_URL),
+      apiKey: parsed.data.PLUNK_SECRET_KEY || undefined,
+      from: parsed.data.PLUNK_FROM || undefined,
+      replyTo: parsed.data.PLUNK_REPLY_TO || undefined,
+      webhookSecret: parsed.data.PLUNK_WEBHOOK_SECRET || undefined,
+      timeoutMs: parsed.data.PLUNK_TIMEOUT_MS,
+      maxResponseBytes: parsed.data.PLUNK_MAX_RESPONSE_BYTES
     }),
     safety: Object.freeze({
       killSwitch: parsed.data.OUTREACH_KILL_SWITCH,

@@ -23,12 +23,22 @@ const PUBLIC_REASON_CODES = new Set([
   "mailgun_domain_inactive",
   "mailgun_domain_mismatch",
   "mailgun_domain_not_found",
+  "mailgun_not_configured",
   "mailgun_probe_aborted",
   "mailgun_rate_limited",
   "mailgun_response_invalid",
   "mailgun_response_too_large",
   "mailgun_timeout",
   "mailgun_unavailable",
+  "plunk_auth_rejected",
+  "plunk_health_not_found",
+  "plunk_not_configured",
+  "plunk_probe_aborted",
+  "plunk_rate_limited",
+  "plunk_response_invalid",
+  "plunk_response_too_large",
+  "plunk_timeout",
+  "plunk_unavailable",
   "outcome_reconciliation_disabled",
   "postgres_or_schema_unavailable",
   "provider_recovery_unavailable",
@@ -80,7 +90,9 @@ export function registerHealthRoutes(server, { config, repository, readinessChec
         sending: normalizeCapability(result.sending),
         outcome_recovery: normalizeOutcomeRecovery(result.outcomeRecovery)
       };
+      const hasPlunkProvider = Object.hasOwn(result.providers ?? {}, "plunk");
       const providers = {
+        ...(hasPlunkProvider ? { plunk: normalizeProvider(result.providers?.plunk) } : {}),
         mailgun: normalizeProvider(result.providers?.mailgun, { includeInboundRoute: true }),
         email_validation: normalizeProvider(result.providers?.emailValidation)
       };
@@ -89,8 +101,10 @@ export function registerHealthRoutes(server, { config, repository, readinessChec
         && capabilities.matching.available
         && capabilities.sending.available
         && (!capabilities.outcome_recovery.configured || capabilities.outcome_recovery.available);
-      const providersAvailable = Object.values(providers).every(({ available }) => available)
-        && providers.mailgun.inbound_route.status === "configured";
+      const providersAvailable = hasPlunkProvider
+        ? providers.plunk.available && providers.email_validation.available
+        : Object.values(providers).every(({ available }) => available)
+          && providers.mailgun.inbound_route.status === "configured";
       const observabilityAvailable = observability.available
         && observability.alert_router.available
         && observability.dashboard.available;
@@ -125,6 +139,14 @@ export function registerHealthRoutes(server, { config, repository, readinessChec
           dashboard: config.observability?.dashboard
         }),
         providers: {
+          ...(config.plunk ? {
+            plunk: {
+              configured: Boolean(config.plunk.apiKey && config.plunk.from),
+              available: false,
+              health: "unknown",
+              reason: "capability_check_failed"
+            }
+          } : {}),
           mailgun: {
             configured: false,
             available: false,

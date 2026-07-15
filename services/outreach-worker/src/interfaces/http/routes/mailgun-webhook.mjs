@@ -5,6 +5,9 @@ import { extractMailgunEvent, parseMailgunRequest } from "../payloads.mjs";
 
 export function registerMailgunWebhookRoute(server, { config, repository, metrics }) {
   server.post("/webhooks/mailgun", async (request, reply) => {
+    if (!config.mailgun?.webhookSigningKey) {
+      throw new HttpError(503, "MAILGUN_WEBHOOK_NOT_CONFIGURED", "Legacy Mailgun webhook authentication is not configured.");
+    }
     const payload = await parseMailgunRequest(request);
     const verification = verifyMailgunWebhook({
       timestamp: payload.timestamp,

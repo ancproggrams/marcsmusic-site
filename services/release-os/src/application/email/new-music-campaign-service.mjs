@@ -3,10 +3,11 @@ import { audit } from "../../infrastructure/storage/json-store.mjs";
 
 const DEFAULT_LANGUAGES = ["nl", "en", "de", "fr", "es"];
 
-export function createNewMusicCampaignService({ store, contactSegmentService, mailProvider }) {
+export function createNewMusicCampaignService({ store, contactSegmentService, emailProvider, mailProvider }) {
   if (!store || !contactSegmentService) {
     throw new TypeError("campaign service requires store and contactSegmentService");
   }
+  const provider = emailProvider ?? mailProvider;
 
   return Object.freeze({
     async previewCampaign({ release, playerEntry, artist, input }) {
@@ -32,10 +33,10 @@ export function createNewMusicCampaignService({ store, contactSegmentService, ma
     },
 
     async sendTest({ release, playerEntry, artist, input }) {
-      if (!mailProvider || typeof mailProvider.sendMessage !== "function") {
-        throw Object.assign(new Error("Mailgun provider is not configured"), {
+      if (!provider || typeof provider.sendMessage !== "function") {
+        throw Object.assign(new Error("Email provider is not configured"), {
           statusCode: 503,
-          code: "MAILGUN_NOT_CONFIGURED"
+          code: "EMAIL_PROVIDER_NOT_CONFIGURED"
         });
       }
 
@@ -53,7 +54,7 @@ export function createNewMusicCampaignService({ store, contactSegmentService, ma
         templates: normalizeTemplates(input),
         campaignId: preview.campaign.id
       });
-      const result = await mailProvider.sendMessage(message);
+      const result = await provider.sendMessage(message);
       return Object.freeze({
         campaign: preview.campaign,
         result
@@ -61,10 +62,10 @@ export function createNewMusicCampaignService({ store, contactSegmentService, ma
     },
 
     async sendCampaign({ release, playerEntry, artist, input }) {
-      if (!mailProvider || typeof mailProvider.sendMessage !== "function") {
-        throw Object.assign(new Error("Mailgun provider is not configured"), {
+      if (!provider || typeof provider.sendMessage !== "function") {
+        throw Object.assign(new Error("Email provider is not configured"), {
           statusCode: 503,
-          code: "MAILGUN_NOT_CONFIGURED"
+          code: "EMAIL_PROVIDER_NOT_CONFIGURED"
         });
       }
 
@@ -87,7 +88,7 @@ export function createNewMusicCampaignService({ store, contactSegmentService, ma
         });
 
         try {
-          const result = await mailProvider.sendMessage(message);
+          const result = await provider.sendMessage(message);
           recipients.push({
             id: `campaign_recipient_${randomUUID()}`,
             campaignId: campaign.id,
@@ -95,33 +96,41 @@ export function createNewMusicCampaignService({ store, contactSegmentService, ma
             email: recipient.email,
             language: recipient.language,
             status: "sent",
-            mailgunMessageId: result.id,
+            provider: result.provider ?? "email",
+            providerMessageId: result.providerMessageId ?? result.id,
+            idempotencyKey: result.idempotencyKey ?? message.idempotencyKey ?? message.correlationId,
             sentAt: new Date().toISOString()
           });
         } catch (error) {
+          const outcomeUncertain = error?.outcomeUncertain === true || error?.deliveryUnknown === true;
           recipients.push({
             id: `campaign_recipient_${randomUUID()}`,
             campaignId: campaign.id,
             contactId: recipient.id,
             email: recipient.email,
             language: recipient.language,
-            status: "failed",
+            status: outcomeUncertain ? "reconcile_required" : "failed",
+            outcomeUncertain,
             errorMessage: error.message
           });
         }
       }
 
+      const reconciliationRequired = recipients.filter((recipient) => recipient.status === "reconcile_required").length;
+      const campaignStatus = reconciliationRequired > 0 ? "sent_with_uncertainty" : "sent";
+
       await store.update((state) => {
-        state.emailCampaigns.push({ ...campaign, status: "sent" });
+        state.emailCampaigns.push({ ...campaign, status: campaignStatus });
         state.emailCampaignRecipients.push(...recipients);
         audit(state, "campaign.sent", { campaignId: campaign.id, releaseId: release.id, count: recipients.length });
       });
 
       return Object.freeze({
-        campaign: Object.freeze({ ...campaign, status: "sent" }),
+        campaign: Object.freeze({ ...campaign, status: campaignStatus }),
         recipients: Object.freeze(recipients),
         sent: recipients.filter((recipient) => recipient.status === "sent").length,
-        failed: recipients.filter((recipient) => recipient.status === "failed").length
+        failed: recipients.filter((recipient) => recipient.status === "failed").length,
+        reconciliationRequired
       });
     },
 
@@ -253,4 +262,3 @@ function requireString(value, fieldName) {
   }
   return value.trim();
 }
-

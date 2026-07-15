@@ -5,10 +5,45 @@ import { ConfigurationError, loadConfig } from "../src/config.mjs";
 import {
   configuredInboundRouteEvidence,
   EmailValidationHealthProbe,
-  MailgunDomainHealthProbe
+  MailgunDomainHealthProbe,
+  PlunkHealthProbe
 } from "../src/infrastructure/provider-capability-probes.mjs";
 
 const FIXED_TIME = Date.parse("2026-07-15T10:00:00.000Z");
+
+test("Plunk health probe is non-mutating, bounded and sanitized", async () => {
+  const requests = [];
+  const probe = new PlunkHealthProbe({
+    baseUrl: "https://mail.example.test",
+    apiKey: "sk-test-secret",
+    from: "noreply@marcsmusic.nl"
+  }, {
+    now: () => FIXED_TIME,
+    fetch: async (url, options) => {
+      requests.push({ url, options });
+      return jsonResponse({ status: "ok", secret: "must-not-be-returned" });
+    }
+  });
+
+  assert.deepEqual(await probe.check(), {
+    configured: true,
+    available: true,
+    health: "available",
+    checkedAt: "2026-07-15T10:00:00.000Z"
+  });
+  assert.equal(requests.length, 1);
+  assert.equal(requests[0].url, "https://mail.example.test/health");
+  assert.equal(requests[0].options.method, "GET");
+  assert.equal(requests[0].options.body, undefined);
+
+  const missing = await new PlunkHealthProbe({ baseUrl: "https://mail.example.test" }).check();
+  assert.deepEqual(missing, {
+    configured: false,
+    available: false,
+    health: "unknown",
+    reason: "plunk_not_configured"
+  });
+});
 
 test("Mailgun capability probe performs one non-mutating domain GET and returns sanitized health", async () => {
   const requests = [];
@@ -43,6 +78,26 @@ test("Mailgun capability probe performs one non-mutating domain GET and returns 
   assert.equal(requests[0].options.headers.authorization, `Basic ${Buffer.from("api:test-mailgun-key").toString("base64")}`);
   assert.doesNotMatch(JSON.stringify(result), /smtp_password|must-never|test-mailgun-key/u);
   assert.doesNotMatch(requests[0].url, /messages|routes/u);
+});
+
+test("Mailgun capability probe stays disabled when legacy credentials are absent", async () => {
+  let requests = 0;
+  const probe = new MailgunDomainHealthProbe({
+    baseUrl: "https://api.eu.mailgun.net"
+  }, {
+    fetch: async () => {
+      requests += 1;
+      throw new Error("Mailgun must not be contacted in a Plunk-only deployment");
+    }
+  });
+
+  assert.deepEqual(await probe.check(), {
+    configured: false,
+    available: false,
+    health: "disabled",
+    reason: "mailgun_not_configured"
+  });
+  assert.equal(requests, 0);
 });
 
 test("Mailgun revoked key and 401 fail closed with a cached redacted reason code", async () => {

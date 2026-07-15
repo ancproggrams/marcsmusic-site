@@ -46,3 +46,19 @@ export function verifyMailgunWebhook({ timestamp, token, signature, signingKey, 
   const valid = safeEqualText(signatureText, expected);
   return Object.freeze({ valid, reason: valid ? undefined : "signature_mismatch" });
 }
+
+/**
+ * Plunk webhooks are workflow-generated requests and use an operator-supplied
+ * shared header (Plunk does not add a provider signature). Keep the check
+ * explicit and constant-time; query-string tokens are never accepted.
+ */
+export function verifyPlunkWebhook({ authorization, sharedSecret }) {
+  const supplied = typeof authorization === "string" && authorization.startsWith("Bearer ")
+    ? authorization.slice("Bearer ".length).trim()
+    : "";
+  if (!supplied || !sharedSecret || supplied.length > 512) {
+    return Object.freeze({ valid: false, reason: "signature_missing" });
+  }
+  const valid = safeEqualText(supplied, String(sharedSecret));
+  return Object.freeze({ valid, reason: valid ? undefined : "signature_mismatch" });
+}

@@ -7,7 +7,7 @@ const WORK_LANES = Object.freeze([
   Object.freeze({
     name: "safety-events",
     concurrencyKey: "safetyEvents",
-    kinds: Object.freeze(["process_mailgun_event", "process_unsubscribe_event", "process_espocrm_event", "sync_suppression", "sync_match_state"])
+    kinds: Object.freeze(["process_mailgun_event", "process_plunk_event", "process_unsubscribe_event", "process_espocrm_event", "sync_suppression", "sync_match_state"])
   }),
   Object.freeze({
     name: "projections",

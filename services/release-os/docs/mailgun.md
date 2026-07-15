@@ -1,4 +1,9 @@
-# Mailgun API Integration
+# Legacy Mailgun compatibility boundary
+
+This document describes the retained Mailgun client only for historical
+inbound/outcome-reconciliation fixtures. It is not an outbound production
+sender. New transactionele e-mail uses [Plunk](plunk.md) and the MXRoute
+transport.
 
 MarcsMusic sends email through Mailgun's REST API using a small internal client in `src/infrastructure/mailgun`.
 

@@ -2,7 +2,13 @@
 
 Database timeouts, webhook failure/dead-letter state, keyset pagination and fenced reconciliation are defined in [the database and reconciliation safety contract](../../docs/outreach/db-workflow-hardening.md).
 
-The outreach worker is the fail-closed orchestration layer between EspoCRM and Mailgun. EspoCRM owns business records and decisions; PostgreSQL owns transient workflow, idempotency and delivery-attempt state. AI, when enabled, may propose copy only. It cannot select recipients, change eligibility, override suppressions or send mail.
+The outreach worker is the fail-closed orchestration layer between EspoCRM and
+self-hosted Plunk. Plunk delivers through the approved MXRoute SMTP transport;
+PostgreSQL owns transient workflow, idempotency and delivery-attempt state.
+Legacy Mailgun handling remains only for staged inbound/reconciliation
+compatibility until Plunk workflow webhooks are configured. AI, when enabled,
+may propose copy only. It cannot select recipients, change eligibility,
+override suppressions or send mail.
 
 This service is a production candidate, not evidence of a completed production rollout. Keep sending disabled until the deployment and canary gates in the [Railway runbook](../../docs/outreach/railway-runbook.md) have passed.
 
@@ -11,7 +17,7 @@ This service is a production candidate, not evidence of a completed production r
 ```mermaid
 flowchart LR
     CRM["EspoCRM\nbusiness source of truth"] -->|"signed webhooks"| API["Outreach API"]
-    MG["Mailgun\ndelivery provider"] -->|"signed events"| API
+    MG["Plunk\ndelivery provider"] -->|"authenticated workflow events"| API
     U["Recipient"] -->|"confirmed POST unsubscribe"| API
     SRC["DJ Finder / Submission Agent / Release OS"] -->|"signed v1 artifacts"| API
     API --> PG["PostgreSQL\nencrypted inbox + queues"]
@@ -32,7 +38,7 @@ The worker is deliberately a modular monolith. The current workload does not jus
 - One contact can have only one active sequence. A release/contact/sequence-step has one deterministic idempotency key.
 - At most one first email per outlet may be reserved in any 14-day window; PostgreSQL rechecks this atomically immediately before provider dispatch.
 - Tuesday–Thursday, 09:30–11:30 in the recipient timezone is the only scheduling window. Follow-ups use the later of the immutable day-5/day-11 sequence offset, the preceding provider acceptance plus exactly four elapsed days, and the current time; deterministic jitter then moves forward to the next valid local slot and never into the past.
-- A network timeout after the Mailgun POST produces `delivery_unknown`; it is never blindly retried.
+- A network timeout after the Plunk POST produces `delivery_unknown`; it is never blindly retried.
 - A reply, unsubscribe, hard bounce, complaint or terminal match state cancels remaining messages. A generic `Auto Reply` pauses indefinitely without counting as a response. `Out Of Office` resumes only from one unambiguous explicit return date; missing, ambiguous, invalid or stale dates pause indefinitely and never receive a guessed seven-day resume.
 - A signed complaint, or an EspoCRM `Unauthorized Recipient Confirmed` event, opens the durable circuit in the same transaction as ingress and before HTTP acknowledgement.
 - EPK verification is a separate default-off one-shot job for `Draft`/`Paused` releases. It checks the live public contract and OCC-writes only four attestation fields; it never changes `status` or activates a release.
@@ -51,7 +57,7 @@ services/outreach-worker/
 ├── migrations/             PostgreSQL schema; forward-only and additive
 ├── src/application/        Use-case orchestration
 ├── src/domain/             Pure policy, scoring and safety rules
-├── src/infrastructure/     EspoCRM, Mailgun, PostgreSQL, crypto, logging
+├── src/infrastructure/     EspoCRM, Plunk, PostgreSQL, crypto, logging
 ├── src/interfaces/http/    Signed webhooks, health, metrics, unsubscribe
 ├── src/jobs/               One-shot operational entry points
 └── tests/                  Hermetic node:test regression suite
@@ -94,12 +100,15 @@ Store generated values only in the local `.env` or the deployment secret store; 
 | `GET /capabilities` | none | Sanitized CRM/workflow and durable-observability capabilities, including explicit external alert-router/dashboard gates, plus separate provider health. |
 | `GET /metrics` | bearer `METRICS_TOKEN` | Prometheus text metrics; never expose publicly without access control. |
 | `POST /webhooks/espocrm/:event` | EspoCRM webhook HMAC | Encrypted, replay-safe CRM event ingestion. |
-| `POST /webhooks/mailgun` | Mailgun timestamp/token HMAC | Encrypted, replay-safe delivery/reply ingestion. |
+| `POST /webhooks/plunk` | Plunk workflow Bearer secret | Encrypted, replay-safe delivery/reply ingestion. |
+| `POST /webhooks/mailgun` | Legacy Mailgun timestamp/token HMAC | Compatibility ingestion only. |
 | `GET /unsubscribe?token=…` | signed token | Non-mutating confirmation page. |
 | `POST /unsubscribe` | signed token | Deny-wins suppression and sequence cancellation. |
 | `POST /api/v1/source-ingestion/:sourceId` | source-specific HMAC + timestamp + nonce | Idempotent, evidence-bearing discovery/release ingestion. |
 
-Webhook bodies are limited to 1 MiB. EspoCRM requests must use JSON. Mailgun may use its supported form or multipart webhook formats, but file parts are rejected.
+Webhook bodies are limited to 1 MiB. EspoCRM, Plunk and webhook requests use
+bounded JSON payloads; legacy Mailgun may use its supported form or multipart
+format, but file parts are rejected.
 
 ## Configuration groups
 
@@ -107,7 +116,8 @@ Webhook bodies are limited to 1 MiB. EspoCRM requests must use JSON. Mailgun may
 - `HTTP_MAX_IN_FLIGHT_REQUESTS`: per-replica admission bound for every route except `/livez`; overflow receives retryable `429`, while readiness and capability checks are single-flight cached for five seconds.
 - `ESPOCRM_*`: least-privilege API identity and a versioned map of webhook IDs to secrets.
 - `PROVIDER_CAPABILITY_CACHE_TTL_MS`: bounded 1–300 second cache with single-flight request coalescing for external capability probes.
-- `MAILGUN_*`: EU endpoint by default, sending identity, webhook signing key, bounded domain/auth health probe and explicit inbound-route evidence state.
+- `PLUNK_*`: self-hosted API origin, fixed sender, API secret and workflow webhook secret. These are the only outbound provider settings.
+- `MAILGUN_*`: legacy inbound/reconciliation compatibility only; never an outbound send path.
 - `OUTREACH_KILL_SWITCH` and `OUTREACH_SEND_ENABLED`: independent fail-closed controls.
 - `OUTREACH_*_LIMIT`, thresholds and cooldowns: deterministic policy controls.
 - `OUTREACH_OUTCOME_RECONCILE_*`: default-off missed-webhook recovery with one fenced PostgreSQL owner, a fixed upper watermark, an exact five-minute overlap, bounded page/backlog/response limits, and crash-resumable `(timestamp,id)` plus opaque-token checkpoints. Mailgun Logs is the default; deprecated Events is explicit compatibility mode only.

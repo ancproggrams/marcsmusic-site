@@ -1,11 +1,12 @@
-export function createEmailService({ mailProvider }) {
-  if (!mailProvider || typeof mailProvider.sendMessage !== "function") {
-    throw new TypeError("mailProvider with sendMessage(message) is required");
+export function createEmailService({ emailProvider, mailProvider }) {
+  const provider = emailProvider ?? mailProvider;
+  if (!provider || typeof provider.sendMessage !== "function") {
+    throw new TypeError("emailProvider with sendMessage(message) is required");
   }
 
   return Object.freeze({
     sendTransactionalEmail(message) {
-      return mailProvider.sendMessage({
+      return provider.sendMessage({
         ...message,
         tags: ["transactional", ...(message.tags ?? [])]
       });

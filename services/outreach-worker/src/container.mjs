@@ -5,6 +5,7 @@ import { OutreachRepository } from "./infrastructure/outreach-repository.mjs";
 import { OutcomeReconcileRepository } from "./infrastructure/outcome-reconcile-repository.mjs";
 import { EspoCrmClient } from "./infrastructure/espocrm-client.mjs";
 import { MailgunClient } from "./infrastructure/mailgun-client.mjs";
+import { PlunkClient, UnconfiguredPlunkClient } from "./infrastructure/plunk-client.mjs";
 import { HttpCopyProvider } from "./infrastructure/copy-provider.mjs";
 import { ReleaseLinkReachabilityChecker } from "./infrastructure/release-link-reachability-checker.mjs";
 import {
@@ -15,7 +16,8 @@ import {
 import {
   configuredInboundRouteEvidence,
   EmailValidationHealthProbe,
-  MailgunDomainHealthProbe
+  MailgunDomainHealthProbe,
+  PlunkHealthProbe
 } from "./infrastructure/provider-capability-probes.mjs";
 import { Metrics } from "./infrastructure/metrics.mjs";
 import { OperationalAlertDeliveryRepository } from "./infrastructure/operational-alert-delivery-repository.mjs";
@@ -66,7 +68,14 @@ export function createContainer({ env = process.env, fetch, signal } = {}) {
     ? new OperationalAlertDeliveryRepository({ pool })
     : undefined;
   const espocrm = new EspoCrmClient(config.espocrm, { fetch, signal });
+  // Mailgun remains a legacy inbound/reconciliation adapter only. It is
+  // intentionally never passed to the send service. Outbound delivery uses
+  // Plunk exclusively; absent Plunk credentials are represented by a
+  // fail-closed provider so startup cannot silently fall back to Mailgun.
   const mailgun = new MailgunClient(config.mailgun, { fetch, signal });
+  const mailProvider = config.plunk?.apiKey && config.plunk?.from
+    ? new PlunkClient(config.plunk, { fetch, signal })
+    : new UnconfiguredPlunkClient();
   const copyProvider = new HttpCopyProvider(config.copyProvider, { fetch, signal });
   const releaseLinkChecker = new ReleaseLinkReachabilityChecker(config.copyLinkCheck, { signal });
   const emailValidationProvider = !config.emailValidation.enabled
@@ -75,6 +84,11 @@ export function createContainer({ env = process.env, fetch, signal } = {}) {
       ? new SmtpMxEmailValidationProvider(config.emailValidation, { signal })
       : new HttpEmailValidationProvider(config.emailValidation, { fetch, signal });
   const mailgunHealthProbe = new MailgunDomainHealthProbe(config.mailgun, {
+    fetch,
+    signal,
+    cacheTtlMs: config.providerCapabilities.cacheTtlMs
+  });
+  const plunkHealthProbe = new PlunkHealthProbe(config.plunk, {
     fetch,
     signal,
     cacheTtlMs: config.providerCapabilities.cacheTtlMs
@@ -101,7 +115,7 @@ export function createContainer({ env = process.env, fetch, signal } = {}) {
     espocrm,
     repository,
     contactIntakeRepository,
-    mailgun,
+    mailProvider,
     config,
     logger,
     metrics
@@ -177,6 +191,7 @@ export function createContainer({ env = process.env, fetch, signal } = {}) {
       crmSchemaResult,
       circuitResult,
       mailgunHealthResult,
+      plunkHealthResult,
       emailValidationHealthResult,
       alertDeliveryStateResult
     ] = await Promise.allSettled([
@@ -185,6 +200,7 @@ export function createContainer({ env = process.env, fetch, signal } = {}) {
       espocrm.probeEntity("MusicRelease"),
       repository.getCircuit(),
       mailgunHealthProbe.check(),
+      plunkHealthProbe.check(),
       emailValidationHealthProbe.check(),
       operationalAlertDeliveryRepository?.status()
     ]);
@@ -203,6 +219,11 @@ export function createContainer({ env = process.env, fetch, signal } = {}) {
           configured: config.emailValidation.enabled,
           type: config.emailValidation.type
         });
+    const plunkHealth = plunkHealthResult.status === "fulfilled"
+      ? plunkHealthResult.value
+      : providerCapability(false, "unavailable", "plunk_unavailable", {
+          configured: Boolean(config.plunk?.apiKey && config.plunk?.from)
+        });
     const durableObservabilityAvailable = config.observability.enabled && ingressAvailable;
     const alertDeliveryState = alertDeliveryStateResult.status === "fulfilled"
       ? alertDeliveryStateResult.value
@@ -220,8 +241,8 @@ export function createContainer({ env = process.env, fetch, signal } = {}) {
           ? capability(false, circuit?.state === "open" ? "safety_circuit_open" : "safety_circuit_unavailable")
           : !crmAvailable
             ? capability(false, "espocrm_unavailable")
-            : !mailgunHealth.available
-              ? capability(false, mailgunHealth.reason ?? "mailgun_unavailable")
+            : !plunkHealth.available
+              ? capability(false, plunkHealth.reason ?? "plunk_unavailable")
               : capability(true);
     return Object.freeze({
       ingress: capability(ingressAvailable, ingressAvailable ? undefined : "postgres_or_schema_unavailable"),
@@ -258,6 +279,7 @@ export function createContainer({ env = process.env, fetch, signal } = {}) {
       }),
       providers: Object.freeze({
         mailgun: Object.freeze({ ...mailgunHealth, inboundRoute: inboundRouteEvidence }),
+        plunk: Object.freeze(plunkHealth),
         emailValidation: emailValidationHealth
       })
     });
@@ -278,10 +300,12 @@ export function createContainer({ env = process.env, fetch, signal } = {}) {
     operationalAlertDeliveryRepository,
     espocrm,
     mailgun,
+    mailProvider,
     copyProvider,
     releaseLinkChecker,
     emailValidationProvider,
     mailgunHealthProbe,
+    plunkHealthProbe,
     emailValidationHealthProbe,
     copyService,
     contactIntakeService,

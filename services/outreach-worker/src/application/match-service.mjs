@@ -254,7 +254,7 @@ export function createMatchService({ espocrm, repository, contactIntakeService, 
       outletId: candidate.outlet.id,
       sequenceStep,
       idempotencyKey,
-      deterministicMessageId: deterministicMessageId(idempotencyKey, config.mailgun.domain),
+      deterministicMessageId: deterministicMessageId(idempotencyKey, providerDomain(config)),
       copyArtifactId: artifactId,
       sendAt
     });
@@ -361,7 +361,7 @@ export function createMatchService({ espocrm, repository, contactIntakeService, 
       outletId: outlet.id,
       sequenceStep,
       idempotencyKey,
-      deterministicMessageId: deterministicMessageId(idempotencyKey, config.mailgun.domain),
+      deterministicMessageId: deterministicMessageId(idempotencyKey, providerDomain(config)),
       copyArtifactId: artifactId,
       sendAt
     });
@@ -410,6 +410,11 @@ export function sendKey(releaseId, contactId, sequenceStep) {
 export function deterministicMessageId(idempotencyKey, domain) {
   const safeDomain = String(domain ?? "invalid.local").toLowerCase().replace(/[^a-z0-9.-]/gu, "");
   return `<outreach-${String(idempotencyKey).slice(0, 48)}@${safeDomain || "invalid.local"}>`;
+}
+
+function providerDomain(config) {
+  const from = String(config.plunk?.from ?? "").match(/@([^>\s]+)>?$/u)?.[1];
+  return from || config.mailgun.domain;
 }
 
 function toEspoDateTime(value) {

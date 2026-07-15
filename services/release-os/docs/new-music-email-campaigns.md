@@ -1,6 +1,8 @@
 # New Music Email Campaigns
 
-Mailgun is the only sender. EspoCRM is the only contact source.
+Plunk is the application sender and EspoCRM is the only contact source. Plunk
+delivery must use the approved MXRoute SMTP transport; AWS SES is not allowed.
+See [the Plunk delivery runbook](plunk.md).
 
 ## Flow
 
@@ -36,4 +38,3 @@ fall back to English. Missing English subject/body fails before sending.
 - `campaign:<campaignId>`
 - `type:<contactType>`
 - `language:<language>`
-
