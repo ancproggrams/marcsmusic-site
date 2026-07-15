@@ -1,0 +1,161 @@
+{
+  "run": 371,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1706,
+  "pipelineEstimate": 1708,
+  "newPlatforms": [
+    {
+      "platform": "CFRU 93.3 FM",
+      "canonicalName": "CFRU 93.3 FM Digital EP and Album Submission Route",
+      "websiteUrl": "https://www.cfru.ca/",
+      "submissionUrl": "https://www.cfru.ca/music/",
+      "country": "Canada",
+      "category": "campus and community radio airplay consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Email a download link to music@cfru.ca using the official Music Department guidance",
+        "Submit an EP or album containing at least three different songs",
+        "Include artist and album information, a track listing and contact details"
+      ],
+      "eligibility": {
+        "releaseType": "EP or album",
+        "minimumDistinctTracks": 3,
+        "digitalOnly": true,
+        "rarePhysicalExceptions": true,
+        "preferredAudio": "high-quality MP3, preferably 320 kbps",
+        "downloadLinkRequired": true,
+        "artistAlbumInfoRequired": true,
+        "trackListingRequired": true,
+        "contactInfoRequired": true,
+        "internationalEligibility": "not expressly confirmed",
+        "localFormEligibility": "reserved for musicians within 50 km of Guelph and excluded for MarcsMusic"
+      },
+      "businessContact": {
+        "type": "verified_public_official_domain_music_director_mailbox",
+        "name": "CFRU Music Director / Alexandra Rimmington",
+        "email": "music@cfru.ca",
+        "verification": "CFRU's official Music page names the Music Director and repeatedly publishes music@cfru.ca for submission guidance, questions and download-link delivery. Verification covered first-party publication, valid syntax, cfru.ca domain alignment and explicit Music Department purpose. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": true,
+        "canonicalFormEligibleForMarcsMusic": false,
+        "excludedFormReason": "The upload form is expressly limited to musicians within 50 km of Guelph.",
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "emailRouteObserved": true
+      },
+      "activityVerification": "CFRU's official site is active with live programming, 2026 event and performance archives, and charts dated July 7, 2026. The Music page remains linked from the current main navigation and identifies the current Music Director.",
+      "genreFit": [
+        "independent",
+        "alternative",
+        "electronic",
+        "electronica",
+        "experimental",
+        "ambient",
+        "drum-and-bass",
+        "dub",
+        "reggae",
+        "hip-hop",
+        "global-music"
+      ],
+      "manualReviewReason": "A human must select an eligible MarcsMusic EP or album with at least three distinct tracks, prepare a persistent high-quality download link and the required release metadata, confirm international eligibility and current delivery expectations, email the public Music Director mailbox manually, avoid the local-only upload form, and stop if any login, CAPTCHA, payment, attachment request or updated restriction appears."
+    },
+    {
+      "platform": "CJAM 99.1 FM",
+      "canonicalName": "CJAM 99.1 FM Digital Four-Track Release Submission Route",
+      "websiteUrl": "https://www.cjam.ca/",
+      "submissionUrl": "https://www.cjam.ca/submit/",
+      "country": "Canada",
+      "category": "campus and community radio airplay consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Email the Music Director at cjammd@gmail.com using the official digital-submission guidance",
+        "Provide a reliable download link rather than Spotify or direct MP3 attachments",
+        "Submit a release containing at least four original tracks with complete metadata"
+      ],
+      "eligibility": {
+        "digitalOnly": true,
+        "minimumOriginalTracks": 4,
+        "spotifyOnlyAccepted": false,
+        "directMp3AttachmentsAccepted": false,
+        "preferredLinkHosts": [
+          "Dropbox",
+          "WeTransfer",
+          "Google Drive"
+        ],
+        "minimumAudioQuality": "192 kbps",
+        "acceptedFormats": [
+          "MP3",
+          "AAC",
+          "FLAC"
+        ],
+        "idTagsRequired": [
+          "artist name",
+          "song title",
+          "album",
+          "track number",
+          "composer name",
+          "genre"
+        ],
+        "artistReleaseInformationRequired": true,
+        "epkAccepted": true,
+        "internationalEligibility": "not expressly confirmed"
+      },
+      "businessContact": {
+        "type": "verified_public_purpose_bound_gmail_music_director_mailbox",
+        "name": "CJAM Music Director",
+        "email": "cjammd@gmail.com",
+        "verification": "CJAM's official Submit page directly and repeatedly publishes cjammd@gmail.com for digital music submissions and specifies the release, link, quality, metadata and artist-information requirements. Verification covered first-party publication, valid syntax and explicit Music Director purpose. The mailbox uses Gmail, so official-domain alignment is absent. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "emailRouteObserved": true,
+        "directAttachmentRestrictionObserved": true,
+        "streamingOnlyRestrictionObserved": true
+      },
+      "activityVerification": "CJAM's official homepage published Singles Club material for July 2026 and charts covering June 29 through July 5, 2026. Recent specialty charts include electronic programming, and the Submit page remains linked in the current Music navigation.",
+      "genreFit": [
+        "independent",
+        "alternative",
+        "electronic",
+        "electronica",
+        "experimental",
+        "ambient",
+        "dub",
+        "reggae",
+        "hip-hop",
+        "global-music"
+      ],
+      "manualReviewReason": "A human must select a qualifying MarcsMusic release with at least four original tracks, prepare a non-Spotify persistent download link, encode and tag the files according to CJAM's guidance, include artist and release information or an EPK, confirm international eligibility and any current link-expiry limits, send manually to the published Music Director mailbox, and stop if any login, CAPTCHA, payment, consent or updated restriction appears."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "CFRU",
+      "CFRU 93.3 FM",
+      "cfru.ca",
+      "cfru.ca/music",
+      "music@cfru.ca",
+      "CJAM",
+      "CJAM 99.1 FM",
+      "cjam.ca",
+      "cjam.ca/submit",
+      "cjammd@gmail.com"
+    ],
+    "result": "Repository code searches returned no prior canonical CFRU or CJAM submission record and no previous use of either published music-submission mailbox. Each station is stored once with its official digital route. CFRU's local-only form is excluded because MarcsMusic is outside the stated 50-km eligibility area. CJAM's general contact, advertising and festival routes are excluded because the station publishes a dedicated Music Director mailbox and submission page."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Both opportunities are publicly authorized and free-first but remain needs_manual_review because MarcsMusic must supply a qualifying multi-track release and international eligibility is not expressly confirmed. CFRU uses an official-domain Music Director mailbox and requires at least three tracks. CJAM uses a purpose-bound Gmail mailbox, requires at least four original tracks, rejects Spotify-only links and direct MP3 attachments, and requires tagged audio files. No email, form, file, download link, attachment, login, CAPTCHA or payment was submitted or bypassed."
+}
