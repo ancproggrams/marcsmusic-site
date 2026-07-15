@@ -1,0 +1,145 @@
+{
+  "run": 370,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1704,
+  "pipelineEstimate": 1706,
+  "newPlatforms": [
+    {
+      "platform": "Fresh On The Net",
+      "canonicalName": "Fresh On The Net Weekly SoundCloud Submission and Listening Post Route",
+      "websiteUrl": "https://freshonthenet.co.uk/",
+      "submissionUrl": "https://freshonthenet.co.uk/submit/",
+      "country": "United Kingdom / global",
+      "category": "independent-music blog, listening platform and editorial discovery",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Use the official first-party Send Us A Track form only",
+        "Submit one public, full, worldwide and embeddable SoundCloud track URL",
+        "Accept the current published terms only after human review"
+      ],
+      "eligibility": {
+        "artistEligibility": "Any artist is welcome",
+        "trackLimit": "One track per artist each week",
+        "weeklyWindow": "Opens Monday and closes at 200 submissions or Wednesday evening, whichever comes first",
+        "requiredDelivery": "Public, full, worldwide and embeddable SoundCloud track URL",
+        "privateTracksAccepted": false,
+        "soundCloudGoAccepted": false,
+        "territoryRestrictedTracksAccepted": false,
+        "repeatTrackAccepted": false,
+        "previouslySubmittedRemixOrAlternateVersionAccepted": false,
+        "freshFavesCooldown": "Three months before another submission after a Fresh Faves feature",
+        "aiGeneratedTracksAccepted": false,
+        "termsConsentRequired": true,
+        "votingManipulationProhibited": true
+      },
+      "businessContact": {
+        "type": "first_party_submission_form",
+        "name": "Fresh On The Net Send Us A Track",
+        "email": null,
+        "verification": "Fresh On The Net's current Submit, Submit Help, About and Contact pages consistently direct artists to the first-party form. The Contact page explicitly says music is not considered by direct email or CD. No email address was inferred or used as an alternative submission route."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": true,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "termsCheckboxObserved": true,
+        "capacityAndScheduleGateObserved": true,
+        "liveStatus": "DROPBOX OPEN when reviewed on 2026-07-15",
+        "fieldsObserved": [
+          "artist name",
+          "track name",
+          "SoundCloud track URL",
+          "terms acceptance"
+        ]
+      },
+      "activityVerification": "Fresh On The Net displayed an open inbox when reviewed on July 15, 2026 and published current posts through July 14, 2026. Its About page describes the active weekly volunteer-listening, Listening Post and Fresh Faves workflow.",
+      "genreFit": [
+        "independent",
+        "alternative",
+        "electronic",
+        "electronica",
+        "experimental",
+        "ambient",
+        "dub",
+        "reggae",
+        "bass-music",
+        "hip-hop",
+        "global-music"
+      ],
+      "manualReviewReason": "A human must verify the weekly inbox is still open, select one eligible never-before-submitted non-remix track, confirm the track is not AI-generated, provide a public full worldwide embeddable SoundCloud URL, review and accept the live terms, avoid any vote solicitation if selected, and stop if a CAPTCHA, login, payment or new restriction appears."
+    },
+    {
+      "platform": "Exile FM / Del Osei-Owusu",
+      "canonicalName": "Exile FM Del Osei-Owusu Conditional Clean-Radio-Edit Submission Route",
+      "websiteUrl": "https://freshonthenet.co.uk/",
+      "submissionUrl": "https://freshonthenet.co.uk/submit/",
+      "country": "United Kingdom",
+      "category": "conditional radio-show airplay consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "First complete an eligible Fresh On The Net submission",
+        "Then email a clean radio-edit audio file and biography to the publicly stated Exile FM route",
+        "Use the subject line guidance radio submission"
+      ],
+      "eligibility": {
+        "prerequisite": "The same track must first be submitted to Fresh On The Net",
+        "cleanRadioEditRequired": true,
+        "audioFileRequired": true,
+        "biographyRequired": true,
+        "subjectGuidance": "radio submission",
+        "internationalEligibility": "not expressly restricted by geography, but must be confirmed manually",
+        "currentProgrammeSchedule": "not independently confirmed from a first-party Exile FM page"
+      },
+      "businessContact": {
+        "type": "verified_public_purpose_bound_gmail_submission_mailbox",
+        "name": "Del Osei-Owusu / Exile FM radio submissions",
+        "email": "del.owusu@gmail.com",
+        "verification": "The current Fresh On The Net official Submit page directly publishes this address for Exile FM radio consideration and specifies the required file, biography, subject and Fresh On The Net prerequisite. Verification covered first-party publication, valid syntax and explicit business purpose. It is a Gmail address, so official-domain alignment is absent. No SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "conditionalDependencyObserved": true,
+        "attachmentAndMailboxLimitsUnconfirmed": true
+      },
+      "activityVerification": "The route remains publicly displayed on Fresh On The Net's active official Submit page, which carried July 2026 content and an open weekly inbox when reviewed. A current independent Exile FM programme schedule was not verified, so human confirmation is required before sending.",
+      "genreFit": [
+        "independent",
+        "alternative",
+        "electronic",
+        "electronica",
+        "experimental",
+        "dub",
+        "reggae",
+        "bass-music",
+        "hip-hop",
+        "global-music"
+      ],
+      "manualReviewReason": "A human must first complete and document an eligible Fresh On The Net submission, confirm the Exile FM route remains active, verify international eligibility and attachment limits, prepare a clean radio edit and biography, use the required subject guidance, send manually to the published mailbox, and stop if any login, CAPTCHA, payment, consent or updated restriction appears."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "Fresh On The Net",
+      "freshonthenet.co.uk",
+      "freshonthenet.co.uk/submit",
+      "Exile FM",
+      "Del Osei-Owusu",
+      "del.owusu@gmail.com"
+    ],
+    "result": "Repository code searches returned no prior canonical Fresh On The Net, Exile FM or del.owusu@gmail.com submission record. The Fresh On The Net form is stored as the primary editorial-listening opportunity. The Exile FM mailbox is stored separately because it is a distinct conditional radio-show destination with its own required audio file, biography and subject, while its mandatory Fresh On The Net prerequisite is preserved to prevent premature or duplicate outreach. General webmaster, Tom Robinson, team-member and comment routes were excluded."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Both opportunities are publicly authorized and free-first but remain needs_manual_review. Fresh On The Net uses a timed and capacity-limited first-party form with explicit terms, SoundCloud and AI-origin restrictions. Exile FM uses a public purpose-bound mailbox but only after a valid Fresh On The Net submission and requires a clean radio edit plus biography. No form, checkbox, SoundCloud URL, email, audio file, biography, login, CAPTCHA or payment was submitted or bypassed."
+}
