@@ -1,0 +1,78 @@
+{
+  "run": 376,
+  "date": "2026-07-15",
+  "pipelineEstimateBefore": 1696,
+  "pipelineEstimate": 1697,
+  "newPlatforms": [
+    {
+      "platform": "Flirt FM 101.3",
+      "canonicalName": "Flirt FM 101.3 First-Party Music Submission Form",
+      "websiteUrl": "https://flirtfm.ie/",
+      "submissionUrl": "https://flirtfm.ie/",
+      "country": "Ireland",
+      "category": "student and community-of-interest radio airplay consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoutes": [
+        "Use the dedicated Music Submission option in the Contact the Studio section of Flirt FM's first-party homepage"
+      ],
+      "eligibility": {
+        "digitalSubmissionsAccepted": true,
+        "acceptedReleaseTypes": "not passively exposed",
+        "acceptedFormats": "not passively exposed",
+        "attachmentOrDownloadLinkRules": "not passively exposed",
+        "metadataRequirements": "not passively exposed",
+        "releaseWindow": "not publicly specified",
+        "internationalEligibility": "not expressly confirmed",
+        "physicalSubmissionsAccepted": false,
+        "physicalSubmissionStatus": "no public authorization observed",
+        "explicitContentPolicy": "not publicly specified",
+        "aiOriginPolicy": "not publicly specified"
+      },
+      "businessContact": {
+        "type": "official_first_party_music_submission_form_no_public_submission_email_observed",
+        "name": "Flirt FM Music Submission",
+        "email": null,
+        "verification": "Flirt FM's official homepage exposes a dedicated Music Submission option in its first-party Contact the Studio interface. Passive rendering did not expose a purpose-bound submission email. No address was inferred, guessed or substituted, and no SMTP, MX, catch-all, mailbox-level or deliverability probe was performed."
+      },
+      "formControls": {
+        "publicSubmissionFormObserved": true,
+        "canonicalSubmissionFormObserved": true,
+        "fieldsPassivelyExposed": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "cookieConsentInterfaceObserved": true,
+        "emailRouteObserved": false,
+        "physicalMusicSubmissionAuthorized": false,
+        "controlStatus": "CAPTCHA, authentication, payment, consent and validation controls remain unconfirmed until human inspection"
+      },
+      "activityVerification": "Flirt FM's official site identifies the service as Galway's community-of-interest and student station, states that its webstream is online 24/7, carries 2026 station content and exposes current programming categories including electronic, ambient, dub, reggae, hip-hop, afrobeat, alternative, indie and world music.",
+      "genreFit": [
+        "alternative",
+        "independent",
+        "electronic",
+        "ambient",
+        "dub",
+        "reggae",
+        "hip-hop",
+        "afrobeat",
+        "world-music"
+      ],
+      "manualReviewReason": "A human must open the official first-party Music Submission interface, inspect every live field and control without bypassing cookie, consent, validation or anti-bot mechanisms, confirm international eligibility and all release, file, link, metadata, release-age, explicit-content and AI-origin rules, verify that the selected MarcsMusic release has not already been submitted, and submit manually only if permitted. Stop if CAPTCHA, login, payment, mandatory consent or any platform restriction appears."
+    }
+  ],
+  "deduplication": {
+    "repositorySearchTerms": [
+      "Flirt FM",
+      "flirtfm.ie",
+      "https://flirtfm.ie/"
+    ],
+    "result": "Default-branch repository code search and the complete open pull-request patch were checked for the station name, official domain and canonical homepage route. No previous canonical music-submission-agent record was found. The dedicated first-party Music Submission interface is stored once. General Queries, Volunteering, studio-booking, telephone and other adjacent contact routes were excluded rather than counted as submission opportunities."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "The opportunity is publicly authorized and free-first but remains needs_manual_review because the live form fields and controls, detailed delivery requirements and international eligibility are not passively confirmed. No form, cookie choice, email, file, link, login, CAPTCHA, payment or consent was entered, submitted or bypassed."
+}
