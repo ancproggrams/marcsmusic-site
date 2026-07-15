@@ -1,24 +1,8 @@
 import type { PlatformInput } from '../models/types.js';
 
+// Run 374 deduplication correction:
+// KEXP is retained once through its canonical Run 39 route.
 export const run68SeedPlatforms: PlatformInput[] = [
-  {
-    name: "KEXP Music Director Rotation Consideration",
-    websiteUrl: "https://www.kexp.org/",
-    submissionUrl: "https://kexp.org/contact/",
-    sourceUrl: "https://kexp.org/contact/",
-    sourceType: "automation_run_68_public_research",
-    country: "United States / Seattle and San Francisco listener-powered public music radio with global streaming",
-    language: "en",
-    genres: ["kexp", "public-radio", "radio-airplay", "independent-artists", "electronic", "world", "reggae", "hip-hop", "ambient", "latin", "free", "music-director-email", "manual-review"],
-    submissionMethod: "official-kexp-contact-route-for-music-director-and-music-department-rotation-consideration-via-md-email",
-    feeRequired: false,
-    loginRequired: false,
-    captchaDetected: false,
-    paymentRequired: false,
-    manualReviewRequired: true,
-    manualReviewReason: "KEXP publishes a Music Director/Music Department route for rotation consideration; human review is required for targeted email preparation, release-link selection, metadata, clean/radio-edit labeling, rights/originality assertions and KEXP programming fit before any outreach.",
-    notes: "Public research confirmed the official KEXP contact page, current 2026 site activity, Music Director/Music Department email route for rotation consideration and station programming breadth. No email was sent, no file was transferred, no account was created and no SMTP/MX probe was performed."
-  },
   {
     name: "WPRB Princeton Music Submissions",
     websiteUrl: "https://wprb.com/",
