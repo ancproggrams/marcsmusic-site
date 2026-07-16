@@ -3,8 +3,9 @@
 Dit runbook beschrijft de gecontroleerde uitrol van transactionele e-mail voor
 MarcsMusic. De Railway-deployment bouwt de gepinde Plunk-bron met de
 reviewde native MXRoute-patch. De applicatieprovider is Plunk; MXRoute blijft
-de SMTP-relay. De send-gates blijven dicht totdat de eerste gecontroleerde
-delivery is bewezen.
+de SMTP-relay. De bulk-send-gates blijven dicht totdat alle CRM-, matching- en
+observability-gates groen zijn. Een gecontroleerde Plunk/MXRoute-test is
+eenmalig uitgevoerd; de ontvanger moet inboxplaatsing nog bevestigen.
 
 ## Eigenaarschap en topologie
 
@@ -88,7 +89,7 @@ recordnamen en niet-gevoelige waarden vast.
 1. Haal `origin/main` opnieuw op en maak een schone checkout/worktree.
 2. Bouw de gepinde Plunk-fork; controleer Dockerfile, upstream commit en
    patchdigest in de deploymentmetadata.
-3. Deploy de Plunk-service met beide send gates uit. Controleer migrations,
+3. Deploy de Plunk-service met beide application-send gates uit. Controleer migrations,
    `/health`, Redis/Postgres-connectiviteit en SMTP STARTTLS zonder `DATA`.
 4. Controleer dat pending, failed en onzekere Plunk-mails bekend zijn. Oude
    pending records worden niet automatisch vrijgegeven.
@@ -99,8 +100,9 @@ recordnamen en niet-gevoelige waarden vast.
    `POST /webhooks/plunk` met een constant `eventType`, stabiele
    `event.emailId` en de gedeelde webhook-secret.
 7. Stuur één beheerde test naar een expliciet goedgekeurd testaccount. Bewijs
-   Plunk-acceptatie, MXRoute-delivery, inbox, SPF, DKIM, DMARC en één
-   provider-ID zonder duplicaat.
+   Plunk-acceptatie, de MXRoute SMTP-250 na `DATA`, inbox, SPF, DKIM, DMARC en
+   één provider-ID zonder duplicaat. `SENT` in Plunk bewijst relay-acceptatie;
+   het is geen zelfstandig bewijs van inboxplaatsing.
 8. Schakel pas daarna de Plunk-gate in. Outreach blijft geblokkeerd zolang
    EspoCRM-schema/API en alle observability-gates niet groen zijn.
 
@@ -125,12 +127,17 @@ handshake uit; log de credential nooit.
   secret op de consumers. Een dashboard-owneraccount ontbreekt nog en moet
   met een expliciet aangewezen beheerder worden gekoppeld voordat dashboard-
   beheer wordt gebruikt.
-- De MXRoute-authenticatie geeft momenteel `535`; de exacte MXRoute-user en
-  het wachtwoord moeten rechtstreeks in Railway worden gecorrigeerd. Zet geen
-  SMTP-wachtwoord in chat, Git, logs of commando-argumenten.
+- De MXRoute-authenticatie is gevalideerd met de Railway-secret en de
+  geconfigureerde SMTP-user. De zichtbare afzender blijft
+  `noreply@marcsmusic.nl`; roteer de SMTP-secret uitsluitend via Railway.
 - Het productie-EspoCRM weigert momenteel te starten wegens een
   ontbrekend herstel-/rehearsal-attest voor een bestaande database. De
   schema-contractfix staat op `main`, maar mag de migratie-evidence niet
   omzeilen; matching en outreach blijven daarom geblokkeerd.
-- Er is nog geen gecontroleerd testmailadres verstrekt. Er is geen echte
-  productiemail door deze wijziging verstuurd.
+- De gecontroleerde test naar `marc@marcrene.com` is door Plunk geaccepteerd en
+  door de worker als `SENT` opgeslagen met een SMTP Message-ID. Laat de
+  ontvanger de inbox en authenticatieheaders (SPF/DKIM/DMARC) bevestigen; die
+  mailboxcontrole is niet door Railway uitgevoerd.
+- `plunk-worker` moet worden uitgerold met `deploy/plunk/railway-worker.json`;
+  de API-configuratie `deploy/plunk/railway.json` bevat bewust `/health` en is
+  niet geschikt voor de queue-worker.

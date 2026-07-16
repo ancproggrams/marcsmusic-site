@@ -21,13 +21,19 @@ accepted or required.
 
 ## Railway services
 
-Use three separate services, all built from this directory:
+Use three separate services, all built from this directory. The API and worker
+must use their service-specific Railway manifests:
 
 | Service | `SERVICE` | Responsibility |
 | --- | --- | --- |
 | `plunk-api` | `api` | HTTPS API and health endpoint |
 | `plunk-worker` | `worker` | BullMQ email/background workers |
 | `plunk-migrate` | `migrate` | The single migration owner; run once per release |
+
+Deploy `plunk-api` with `railway.json` (it exposes `/health`) and deploy
+`plunk-worker` with `railway-worker.json` (no HTTP healthcheck; it is a queue
+worker). Applying the API manifest to the worker causes a false healthcheck
+failure after the container has started.
 
 The API and worker use the same Postgres and Redis instances. Only
 `plunk-migrate` runs `yarn workspace @plunk/db migrate:prod`; never add the
@@ -81,7 +87,9 @@ renamed during a controlled migration.
    bootstrap. Put that secret in the application Railway services as
    `PLUNK_SECRET_KEY`; never invent a key or place it in source control.
 5. Keep application and send gates disabled until a controlled test proves
-   Plunk acceptance, MXRoute delivery and SPF/DKIM/DMARC alignment.
+   Plunk acceptance, MXRoute delivery and SPF/DKIM/DMARC alignment. A Plunk
+   `SENT` row proves the relay returned SMTP `250` after `DATA`; verify inbox
+   placement and authentication headers separately.
 
 Before enabling any dispatcher, inspect pending, failed and
 `reconcile_required` records. Old pending records must not be released merely

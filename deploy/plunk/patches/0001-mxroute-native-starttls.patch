@@ -1468,6 +1468,10 @@ index 0000000..d3763fa
 +  return line === undefined ? undefined : line.slice(name.length).trim();
 +}
 +
++export function hasSmtpCapability(reply: SmtpReply, name: string): boolean {
++  return capability(reply, name) !== undefined;
++}
++
 +async function authenticate(session: SmtpSession, ehlo: SmtpReply): Promise<void> {
 +  const auth = capability(ehlo, 'AUTH');
 +  const mechanisms = auth?.split(/\s+/u).map(value => value.toUpperCase()) ?? [];
@@ -1495,10 +1499,8 @@ index 0000000..d3763fa
 +    let ehlo = await session.command(`EHLO marcsmusic.nl`);
 +    expect(ehlo, [250], 'EHLO');
 +    if (!SMTP_SECURE) {
-+      const startTls = capability(ehlo, 'STARTTLS');
-+      // STARTTLS is a flag-style EHLO capability and therefore has no value;
-+      // an empty string still proves that the relay advertised it.
-+      if (startTls === undefined) throw new SmtpProviderError('SMTP_STARTTLS_REQUIRED', 'SMTP relay did not advertise STARTTLS');
++      // STARTTLS is a flag-style EHLO capability and therefore has no value.
++      if (!hasSmtpCapability(ehlo, 'STARTTLS')) throw new SmtpProviderError('SMTP_STARTTLS_REQUIRED', 'SMTP relay did not advertise STARTTLS');
 +      expect(await session.command('STARTTLS'), [220], 'STARTTLS');
 +      session = await session.startTls();
 +      ehlo = await session.command(`EHLO marcsmusic.nl`);
@@ -1851,6 +1853,7 @@ index 0000000..883279e
 +});
 +
 +import {
++  hasSmtpCapability,
 +  isSmtpDeliveryUnknown,
 +  messageIdFingerprint,
 +  sendRawEmail,
@@ -1860,6 +1863,13 @@ index 0000000..883279e
 +
 +describe('native MXRoute SMTP transport', () => {
 +  beforeAll(() => vi.restoreAllMocks());
++
++  it('recognizes flag-only STARTTLS EHLO capabilities', () => {
++    const ehlo = {code: 250, lines: ['tuesday.mxrouting.net', 'AUTH PLAIN LOGIN', 'STARTTLS']};
++    expect(hasSmtpCapability(ehlo, 'STARTTLS')).toBe(true);
++    expect(hasSmtpCapability(ehlo, 'AUTH')).toBe(true);
++    expect(hasSmtpCapability(ehlo, 'STARTTLSX')).toBe(false);
++  });
 +
 +  it('classifies timeout-after-DATA as uncertain and never retryable', () => {
 +    const error = new SmtpDeliveryUncertainError();
