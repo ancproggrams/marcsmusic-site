@@ -1,0 +1,150 @@
+{
+  "run": 397,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1714,
+  "pipelineEstimate": 1715,
+  "newPlatforms": [
+    {
+      "name": "KQAL 89.5 FM Music Director Process Inquiry Route",
+      "websiteUrl": "https://www.kqal.org/",
+      "submissionUrl": "https://www.kqal.org/contact/",
+      "sourceUrl": "https://www.kqal.org/contact/kqal-staff-directory/",
+      "sourceType": "automation_run_397_public_research",
+      "country": "United States / Winona, Minnesota university-operated college radio",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "community-radio",
+        "independent-music",
+        "eclectic",
+        "alternative",
+        "latin-alternative",
+        "cross-genre",
+        "public-business-email",
+        "captcha-contact-form-adjacent",
+        "asset-free-inquiry",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-station-email-addressed-to-current-music-director-asset-free-process-inquiry",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": true,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party station contact email for a Music Director process inquiry",
+        "email": "kqalfm@winona.edu",
+        "emailProtection": "The address is published in plaintext on KQAL's official Contact page and was not inferred, decoded or guessed.",
+        "explicitPurpose": "The mailbox is KQAL's public station contact. The official staff directory separately identifies the current Music Director; the mailbox is authorized for an asset-free inquiry requesting the station's music-submission procedure, not for unconfirmed audio delivery.",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Send one concise asset-free email asking to be routed to the current Music Director and requesting KQAL's authorized music-submission procedure before supplying audio, links, artwork or metadata.",
+        "audioDeliveryAuthorized": "Not confirmed. The reviewed first-party pages do not expressly authorize unsolicited audio files, attachments, private links or cloud downloads.",
+        "physicalDeliveryAuthorizedForMarcsMusic": false,
+        "physicalRoute": null
+      },
+      "submissionRequirements": {
+        "publishedDirectSubmissionRequirements": [
+          "use the public station mailbox kqalfm@winona.edu for a process inquiry",
+          "address the inquiry to or request routing to the current Music Director listed by KQAL",
+          "do not automate the adjacent CAPTCHA-protected contact form",
+          "no public submission fee, account, login or mandatory payment requirement is stated"
+        ],
+        "safeReviewScope": [
+          "send an asset-free process inquiry because no direct music-delivery specification is published",
+          "confirm whether KQAL currently accepts external and international independent artists",
+          "confirm whether the authorized route uses attachments, downloadable cloud links, public streaming links or another method",
+          "confirm accepted audio formats, file-size limits and download-permission requirements",
+          "confirm required biography, artwork, release date, label and contact metadata",
+          "confirm release-type and release-window restrictions",
+          "confirm clean-edit and explicit-content requirements",
+          "confirm KQAL's current policy for AI-assisted or AI-generated music",
+          "select only a MarcsMusic release that fits current KQAL programming",
+          "retain needs_manual_review because human editorial judgment and live-policy confirmation are required"
+        ],
+        "unresolvedEligibility": [
+          "whether unsolicited music submissions are currently accepted",
+          "international artist eligibility",
+          "accepted release types such as singles, EPs or albums",
+          "attachment versus downloadable-link procedure",
+          "accepted audio formats and maximum file size",
+          "metadata, artwork and release-window requirements",
+          "explicit-content and clean-edit rules",
+          "AI-assisted or AI-generated music policy",
+          "follow-up timing and resubmission policy"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "kqalfm@winona.edu",
+            "purpose": "public KQAL station contact and Music Director process inquiry",
+            "verificationStatus": "source-verified",
+            "verificationEvidence": "Published in plaintext on KQAL's official Contact page; valid email syntax and alignment with Winona State University's official winona.edu domain. The official KQAL staff directory separately identifies Jayley Andersen as Music Director."
+          }
+        ],
+        "emailStatus": "usable first-party station mailbox for a manual asset-free process inquiry; not a confirmed direct audio-delivery mailbox",
+        "verification": "The mailbox was verified through first-party plaintext publication, valid syntax and official institutional-domain alignment. No personal Music Director address was guessed or inferred. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "musicCategoryInquiryFormIdentified": false,
+        "generalContactFormIdentified": true,
+        "formFieldsPassivelyVisible": true,
+        "visibleFields": [
+          "first name",
+          "last name",
+          "email",
+          "phone",
+          "message",
+          "CAPTCHA"
+        ],
+        "captchaObserved": true,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The general first-party contact form visibly contains CAPTCHA and is not a canonical music-submission form. It must not be automated. The public station email may be used only for an asset-free inquiry, and a human must stop if the resulting workflow introduces login, payment, consent, authentication or another protected step.",
+        "adjacentRoutesExcluded": [
+          "CAPTCHA-protected general contact form as an automated route",
+          "personal email addresses guessed from the Music Director's name",
+          "individual student DJs and programme hosts",
+          "event-submission form",
+          "student-volunteer route",
+          "sports contacts and programme staff",
+          "telephone number",
+          "postal address not expressly designated for music submissions"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "KQAL's official site showed an active live-player surface, a 2026 copyright notice, a populated weekly programme schedule, a current staff directory naming the Music Director, and calendar entries through September 2026. The linked KQAL Spinitron page displayed station programming and track history dated June 26, 2026."
+      },
+      "genreFitEvidence": [
+        "KQAL describes itself as The Winona Music Experience and publishes a broad weekly music schedule.",
+        "Current programme names include The Rock Pile, The Late Shift and The Latin Alternative, indicating varied college-radio programming rather than a narrow commercial format.",
+        "Selected MarcsMusic electronic, world-fusion, reggae-adjacent or crossover releases may have plausible fit, subject to direct confirmation and human track selection."
+      ],
+      "manualReviewReason": "KQAL is active and publishes a source-verified station mailbox plus a current Music Director identity, but it does not publish an authorized unsolicited-audio workflow. A human must send one asset-free process inquiry, confirm eligibility and technical requirements, and avoid automating the visible CAPTCHA form. No audio, private link, EPK, artwork or physical package may be supplied until KQAL confirms the route.",
+      "priority": 84,
+      "pricingModel": "free-first/public-station-email/asset-free-music-director-process-inquiry/captcha-adjacent/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KQAL",
+      "KQAL 89.5 FM",
+      "The Winona Music Experience",
+      "kqal.org",
+      "kqalfm@winona.edu",
+      "kqal.org/contact",
+      "Jayley Andersen"
+    ],
+    "repositoryEvidence": "The repository code index and current open pull-request context were searched for KQAL, KQAL 89.5 FM, The Winona Music Experience, kqal.org, kqalfm@winona.edu and the current Music Director name. No prior music-submission-agent platform, runtime seed or queue record was found.",
+    "consolidation": "The public station mailbox and current Music Director identity are stored as one canonical process-inquiry opportunity. The CAPTCHA form, event form, volunteer route, individual programmes, student DJs, telephone number and postal address are excluded as parallel or substitute music-delivery routes."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first KQAL opportunity was queued as needs_manual_review for an asset-free Music Director process inquiry. The station contact mailbox is source-verified, while the adjacent general form contains CAPTCHA and was not automated. No email, form field, CAPTCHA, audio asset, attachment, link, login or payment was submitted."
+}
