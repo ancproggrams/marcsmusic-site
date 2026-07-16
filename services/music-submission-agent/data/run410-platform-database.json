@@ -1,0 +1,163 @@
+{
+  "run": 410,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1727,
+  "pipelineEstimate": 1728,
+  "newPlatforms": [
+    {
+      "name": "KZYX One-Selection Digital and Physical Music Submission Route",
+      "websiteUrl": "https://www.kzyx.org/",
+      "submissionUrl": "https://www.kzyx.org/how-to-submit-music",
+      "sourceUrl": "https://www.kzyx.org/how-to-submit-music",
+      "sourceType": "automation_run_410_public_research",
+      "country": "United States / Mendocino County, California community radio with international eligibility not explicitly stated",
+      "language": "en",
+      "genres": [
+        "community-radio",
+        "public-radio",
+        "independent-music",
+        "electronic",
+        "edm",
+        "reggae",
+        "world-music",
+        "latinx",
+        "alternative",
+        "groove",
+        "cross-genre",
+        "public-business-email",
+        "authorized-digital-submission-route",
+        "authorized-physical-submission-alternative",
+        "single-selection-only",
+        "streaming-link-or-wav",
+        "dj-or-show-routing-requested",
+        "capacity-gated",
+        "international-eligibility-unconfirmed",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-music-department-email-with-one-streaming-link-or-wav-selection-and-optional-physical-media",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public Music Department mailbox for one streaming link or WAV musical selection, with an optional vinyl/CD alternative",
+        "contactEmail": "music@kzyx.org",
+        "contactPerson": "Katharine Cole, Music Director",
+        "contactPublication": "The official How to Submit Music page publishes music@kzyx.org in plaintext and directs one musical selection to that mailbox. The official staff page identifies Katharine Cole as Music Director.",
+        "explicitPurpose": "Music submission for possible KZYX airplay.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Reopen the official page, select one suitable MarcsMusic track, identify relevant KZYX programmes, use either one streaming link or a manually confirmed compliant WAV file, and send one reviewed email manually.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": true
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "forward one musical selection by email to music@kzyx.org",
+          "use either a streaming link or WAV file",
+          "use the subject format MUSIC SUBMISSION/*DJ or show name and/or genre",
+          "include sender contact information",
+          "include website, social-media or Linktree information",
+          "include radio-promotion company or label information when applicable",
+          "include a one-to-two-sentence music description",
+          "include the release date",
+          "review KZYX's schedule and suggest relevant programmers or shows",
+          "submission does not guarantee airplay",
+          "KZYX responds for more information only when interested",
+          "vinyl and CDs may alternatively be mailed to the Music Director",
+          "no account login, CAPTCHA or mandatory payment is published"
+        ],
+        "safeReviewScope": [
+          "select exactly one MarcsMusic track with clear programme fit",
+          "identify only genuinely relevant DJs or shows from the current KZYX schedule",
+          "prefer a permissioned streaming link unless KZYX confirms the exact WAV specification",
+          "confirm the streaming link is accessible without login, expiry or password barriers",
+          "verify release date, artist links, contact details and short description",
+          "confirm whether international artists are eligible because the page does not state a territory rule",
+          "confirm current explicit-content and clean-edit expectations",
+          "confirm the current AI-assisted or AI-generated music policy",
+          "confirm ownership and permission for all submitted material",
+          "choose digital or physical delivery rather than sending both by default",
+          "retain needs_manual_review until all content and eligibility checks are complete"
+        ],
+        "unresolvedEligibility": [
+          "international and non-local artist eligibility",
+          "whether singles, EPs, albums and previously released tracks are treated differently",
+          "the intended meaning of the published WAV wording 'ADPCM or ACM 44.1KB, 16-bit stereo WAV'",
+          "maximum attachment size if a WAV file is used",
+          "whether downloadable files are preferred over non-downloadable streams",
+          "explicit-content and clean-edit requirements",
+          "AI-assisted or AI-generated music policy",
+          "release-recency window",
+          "rights and territorial-clearance declarations",
+          "follow-up timing or receipt-confirmation policy"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "music@kzyx.org",
+            "purpose": "music submissions for possible airplay",
+            "source": "https://www.kzyx.org/how-to-submit-music",
+            "verification": "first-party plaintext publication, explicit submission purpose, valid syntax and exact kzyx.org domain alignment"
+          }
+        ],
+        "emailStatus": "one source-verified public Music Department mailbox stored",
+        "verification": "The mailbox is published in plaintext on KZYX's official submission page and is explicitly assigned to music submissions. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed, and no message was sent."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "generalContactFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "musicDepartmentSelectorIdentified": false,
+        "officialGuidelineWorkflowIdentified": true,
+        "javascriptRequired": false,
+        "temporaryCookieRequired": false,
+        "secureSessionObserved": false,
+        "captchaObserved": false,
+        "captchaType": null,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The canonical route is a public Music Department email requiring a human-selected track, programme routing and final review of unresolved international, content, WAV-format and AI-origin rules.",
+        "adjacentRoutesExcluded": [
+          "general contact and staff mailboxes as substitutes for music@kzyx.org",
+          "individual programmer outreach without a genuine show fit",
+          "donation, membership and underwriting routes",
+          "PSA and community-calendar forms",
+          "newsletter signup",
+          "bulk catalogue delivery",
+          "third-party directories and copied contact details"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "KZYX's first-party site displayed a live-radio interface, current programme and playlist surfaces, a July 9, 2026 newsletter, an August 30, 2026 KZYX Summer Music Festival notice, a current staff page and 2026 copyright notices."
+      },
+      "genreFitEvidence": [
+        "KZYX's submission page states that its programmers cover genres including Reggae, EDM, Latinx, Groove, Alternative, Rock, Jazz and other formats.",
+        "The current programme directory includes World Tour, Heavyweight Sounds, DJ Filthy D's Dance Therapy, FutuRetro, Alma Latina, Redwood Soul Shakedown and other broad music shows.",
+        "Selected MarcsMusic electronic, reggae, world-fusion, bass, dance or cross-genre material has plausible fit after exact track-to-show matching."
+      ],
+      "manualReviewReason": "KZYX provides a legitimate free-first public Music Department email route for one musical selection and an authorized physical alternative. A human must select one track, identify appropriate programmes, clarify the unusual published WAV wording, confirm international eligibility, content and AI-origin rules, and manually send one reviewed submission.",
+      "priority": 93,
+      "pricingModel": "free/public-music-department-email/one-selection/streaming-link-or-wav/optional-physical/capacity-gated/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KZYX",
+      "kzyx.org",
+      "music@kzyx.org",
+      "https://www.kzyx.org/how-to-submit-music"
+    ],
+    "repositoryEvidence": "Repository code search and the full open pull-request patch were checked before creation for KZYX, kzyx.org, music@kzyx.org and the canonical submission path; no existing music-submission-agent platform, seed or queue record was found.",
+    "consolidation": "The digital email route and optional physical-media route are stored as one canonical KZYX opportunity. General contacts, individual hosts, donations, membership, underwriting, PSA, community-calendar and third-party-directory routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new KZYX community-radio opportunity was queued as needs_manual_review. The official route accepts one musical selection through a verified public Music Department mailbox using a streaming link or WAV file, with optional physical delivery. No submission was made."
+}
