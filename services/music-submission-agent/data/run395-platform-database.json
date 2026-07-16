@@ -1,0 +1,132 @@
+{
+  "run": 395,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1712,
+  "pipelineEstimate": 1713,
+  "newPlatforms": [
+    {
+      "name": "Radio K KUOM Official Digital Music Submission Route",
+      "websiteUrl": "https://radiok.org/",
+      "submissionUrl": "https://radiok.org/submitting-music",
+      "sourceUrl": "https://radiok.org/submitting-music",
+      "sourceType": "automation_run_395_public_research",
+      "country": "United States / Minneapolis, Minnesota student-run college radio",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "independent-music",
+        "alternative",
+        "electronic",
+        "hip-hop",
+        "world-music",
+        "reggae-adjacent",
+        "digital-download-link",
+        "protected-business-email",
+        "physical-media-alternative",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-protected-music-department-email-with-download-link",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party Music Department email route for downloadable digital release files",
+        "email": null,
+        "emailProtection": "The designated Music Department address is linked through first-party Cloudflare email protection and was not decoded, guessed or stored.",
+        "explicitPurpose": "Submit a release for consideration of airplay on Radio K.",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the official submission page in a normal browser, use the designated Music Department email link, and send one suitable release with an accessible download package and concise metadata only after the unresolved policy checks are completed.",
+        "audioDeliveryAuthorized": "Yes. Radio K expressly authorizes a downloadable digital release package by email to its Music Department.",
+        "physicalDeliveryAuthorizedForMarcsMusic": true,
+        "physicalRoute": "One unwrapped CD may be mailed to Radio K - KUOM, University of Minnesota, 610 Rarig Center, 330 21st Ave. S, Minneapolis, MN 55455. The digital route is queued first because it is free-first and avoids international postage."
+      },
+      "submissionRequirements": {
+        "publishedDirectSubmissionRequirements": [
+          "email the designated Music Department route from the official submission page",
+          "provide a downloadable .zip file through Google Drive, Dropbox or a similar service",
+          "prefer the highest-quality files available, especially lossless WAV or FLAC",
+          "Bandcamp download codes or links to releases that are free to download are accepted",
+          "include one concise information sheet with a short bio and contact information",
+          "identify genuinely similar artists",
+          "list tracks that are not FCC-friendly",
+          "recommend two or three tracks suitable for radio",
+          "local artists should mark LOCAL in the email subject or package",
+          "do not request tracking information after submission",
+          "do not send more than one physical CD or unnecessary promotional paper"
+        ],
+        "safeReviewScope": [
+          "select a MarcsMusic release that fits Radio K's independent and eclectic programming rather than Top 40 or classical",
+          "confirm the cloud or Bandcamp link downloads without login, permission requests or expiry",
+          "confirm all files and artwork are authorized for station review and airplay",
+          "confirm international eligibility before sending",
+          "identify any non-FCC-friendly tracks and provide clean alternatives where available",
+          "confirm Radio K's current AI-assisted or AI-generated music policy",
+          "use the protected Music Department link only through the official page and do not decode it",
+          "retain needs_manual_review because the final email and release selection require human editorial judgment"
+        ],
+        "unresolvedEligibility": [
+          "explicit confirmation that international artists are eligible",
+          "AI-assisted or AI-generated music policy",
+          "whether cover artwork or additional metadata fields are required for digital submissions",
+          "maximum .zip size or cloud-link retention period",
+          "whether singles, EPs and albums receive different handling",
+          "whether explicit releases require radio edits beyond identifying non-FCC-friendly tracks"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "emailStatus": "designated first-party Music Department email route is publicly linked but protected and not visible in plaintext",
+        "verification": "The official Radio K Contact and Submitting Music pages both link the Music Department for music delivery. The exact destination is protected by Cloudflare and was not decoded, guessed, copied from third parties or probed. No SMTP, MX, catch-all, mailbox-level or deliverability testing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "musicCategoryInquiryFormIdentified": false,
+        "formFieldsPassivelyVisible": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "No web submission form is used. A human must open the official page and use its protected Music Department mail link. Stop if the live route introduces login, CAPTCHA, payment, permission-gated storage or another protected workflow.",
+        "adjacentRoutesExcluded": [
+          "general inquiries, requests, website feedback and DMCA contacts",
+          "individual staff and specialty-show contacts",
+          "Off The Record live-performance booking contact",
+          "phone requests and front-desk numbers",
+          "promotion companies mentioned as optional third-party services",
+          "tracking or follow-up requests after submission"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "Radio K's official homepage showed current rotation additions, July 2026 events and editorial posts dated through July 2, 2026. The official About and Contact pages identify current terrestrial and online broadcasting, while playlist and schedule surfaces remain live."
+      },
+      "genreFitEvidence": [
+        "Radio K describes its programming as an eclectic variety of independent music, old and new.",
+        "Its submission guidance says it plays many genres, generally excluding classical and Top 40, and maintains specialty shows for records outside general rotation.",
+        "Current homepage additions include electronic, sound-collage and rap releases, supporting plausible fit for selected MarcsMusic electronic, bass, hip-hop-adjacent and world-fusion tracks."
+      ],
+      "manualReviewReason": "Radio K expressly authorizes digital music delivery, but the Music Department destination is protected and the final submission requires human release selection, accessible download-link verification, metadata preparation and unresolved international, explicit-content and AI-origin checks. The protected address must not be decoded or guessed. Do not automate the email, request tracking, use adjacent staff contacts or send inaccessible streaming-only links.",
+      "priority": 94,
+      "pricingModel": "free-first/authorized-digital-download-link/protected-music-department-email/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Radio K",
+      "KUOM",
+      "Radio K - KUOM",
+      "radiok.org",
+      "radiok.org/submitting-music"
+    ],
+    "repositoryEvidence": "The complete open pull-request patch and repository code index were searched for Radio K, KUOM, Radio K - KUOM, radiok.org and the canonical submitting-music path. No prior music-submission-agent platform, runtime seed or queue record was found.",
+    "consolidation": "Radio K's digital and physical options are stored as one canonical platform opportunity. The digital Music Department route is queued first; the physical CD address is retained only as an authorized alternative and is not counted as a second opportunity. General contacts, individual staff, specialty shows, the live-performance route and promotion companies are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first Radio K opportunity was queued as needs_manual_review for its explicitly authorized digital Music Department route. The protected email was not decoded. No email, form field, audio asset, download link, package, login, CAPTCHA or payment was submitted."
+}
