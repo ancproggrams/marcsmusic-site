@@ -45,6 +45,11 @@ OUTREACH_SEND_ENABLED=false
 OUTREACH_KILL_SWITCH=true
 ```
 
+Actuele productie-status na de gecontroleerde provider-test: `PLUNK_SEND_ENABLED=true`
+op `marcsmusic-release-os`. De outreach-worker blijft fail-closed met
+`OUTREACH_SEND_ENABLED=false` en `OUTREACH_KILL_SWITCH=true` zolang EspoCRM niet
+veilig uit een echte volume/config-backup of Railway-volume snapshot is hersteld.
+
 De Plunk-service gebruikt voor de geteste fork:
 
 ```text
@@ -85,6 +90,20 @@ incident.
 
 Controleer na elke wijziging met publieke DNS-lookups en leg alleen
 recordnamen en niet-gevoelige waarden vast.
+
+Read-only baseline, gecontroleerd via publieke resolvers op 16 juli 2026:
+
+- `marcsmusic.nl` MX: `10 tuesday.mxrouting.net`, `20 tuesday-relay.mxrouting.net`.
+- `marcsmusic.nl` SPF: één record, `v=spf1 include:mxroute.com -all`.
+- `x._domainkey.marcsmusic.nl`: MXRoute-DKIM-record aanwezig; de sleutel wordt
+  hier bewust niet herhaald.
+- `_dmarc.marcsmusic.nl`: strict alignment (`adkim=s`, `aspf=s`) met
+  `p=reject` en Cloudflare-rapportageadres.
+- `mail.marcsmusic.nl` CNAME: `tuesday.mxrouting.net` (DNS-only gedrag).
+
+Deze records autoriseren MXRoute al voor beide From-adressen binnen
+`marcsmusic.nl`; er is daarom geen DNS-mutatie nodig. Een extra SPF-record of
+fictieve Plunk/SES-DKIM-record zou de productieconfiguratie juist breken.
 
 ## Uitrolvolgorde
 
@@ -139,10 +158,12 @@ handshake uit; log de credential nooit.
 - Benodigd om dit af te ronden: een echte EspoCRM-volume/config-backup of
   Railway-volume snapshot. Zonder die backup mag de bestaande database niet
   veilig worden gereconstrueerd.
-- De gecontroleerde test naar `marc@marcrene.com` is door Plunk geaccepteerd en
-  door de worker als `SENT` opgeslagen met een SMTP Message-ID. Laat de
-  ontvanger de inbox en authenticatieheaders (SPF/DKIM/DMARC) bevestigen; die
-  mailboxcontrole is niet door Railway uitgevoerd.
+- De gecontroleerde outreach-test naar `marc@marcrene.com` is door Plunk
+  geaccepteerd en als `SENT` opgeslagen vanuit `marc@marcsmusic.nl` met
+  Message-ID `<marcsmusic-outreach-test-20260716-c087a788-fc7b-4715-95fc-b89b9a6ee15a@marcsmusic.nl>`.
+  De SMTP-relay gaf `250` voor `MAIL FROM`; dezelfde idempotency-key gaf bij
+  herhaling `409`, dus er is geen duplicaat. Inboxplaatsing en
+  SPF/DKIM/DMARC-headers moeten nog in de doelmailbox worden bevestigd.
 - `plunk-worker` moet worden uitgerold met `deploy/plunk/railway-worker.json`;
   de API-configuratie `deploy/plunk/railway.json` bevat bewust `/health` en is
   niet geschikt voor de queue-worker.
