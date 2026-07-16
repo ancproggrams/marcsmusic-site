@@ -2,7 +2,7 @@
 
 Date: 2026-07-16
 
-Latest run: Run 390
+Latest run: Run 391
 
 New items added: 1
 
@@ -10,26 +10,28 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1708
+Pipeline estimate: 1709
 
 Items:
 
-- KLSU 91.1 FM — current protected Music Director contact route; queued only for an asset-free inquiry requesting the station's current external-artist and airplay-submission procedure
+- WXCU Radio — explicit original-music airplay route through the first-party homepage form or the published `wxcuradio@capital.edu` station mailbox
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-KLSU route note: The official KLSU staff directory identifies Anh-Tu Nguyen as Music Director, and the corresponding first-party profile provides a protected `Send an email` action. KLSU does not publish a dedicated music-submissions page or current audio-delivery requirements, so the queued action is restricted to a concise process inquiry without music assets.
+WXCU route note: The official homepage displays `Get YOUR Music On Air!`, asks artists whether they have original music they want played over WXCU's airwaves and directs them to fill out the form below or contact `wxcuradio@capital.edu`. The form and email alternative are consolidated into one opportunity and must not both be used for the same release.
 
-Contact-verification note: The current role, profile and email action are published on KLSU's official LSU Student Media surface. The destination is not shown in plaintext in passive rendering, so exact mailbox syntax and domain were not asserted. The address was not decoded, guessed, stored, contacted or probed. No SMTP, MX, catch-all, mailbox-level or deliverability testing was performed.
+Contact-verification note: The station mailbox is published in plaintext on both the official homepage and Contact page, has valid syntax and uses Capital University's institutional `capital.edu` domain. No SMTP, MX, catch-all, mailbox-level or deliverability testing was performed.
 
-Asset boundary note: Do not include audio, attachments, private streaming or download links, an EPK, artwork or a physical package unless KLSU replies with explicit authorization and current requirements. The Station Manager, general Student Media contacts, news-tip form, advertising route, social accounts and postal address are excluded as substitutes.
+Form and access note: A public first-party music form is identified, but its fields, upload or link method, validation, consent and anti-spam state are not exposed in passive rendering. No login, mandatory payment or textual CAPTCHA was visible. A human must inspect the live form before use and stop if a protected boundary appears.
 
-Form and access note: No canonical public music-submission form was identified. No CAPTCHA, login, account or mandatory-payment requirement was observed on the Music Director route. A human must recheck the live profile before use.
+Requirements note: WXCU expressly requests original music for airplay, but the visible pages do not specify international eligibility, accepted release types, formats, file sizes, attachment-versus-link rules, metadata, release windows, clean-edit handling, explicit-content policy, AI-origin policy or follow-up timing.
 
-Activity and fit note: KLSU's official site contains playlists dated July 11, July 10, July 5 and July 4, 2026, a current staff directory and a live-listening surface. KLSU states that it broadcasts 24/7 and streams worldwide. Its core format is college-rock alternative and new music, with freeform specialty programming that may include any form of music; underground hip-hop, folk and contemporary funk are specifically named.
+Activity and fit note: WXCU's official site links a live stream and contains a current 2026 management roster. Colt Fyffe is named Music Director and Studio Manager and is described as joining management in spring 2026. Current team interests cover alternative rock, hip-hop, pop, indie and crossover music. The latest visible blog posts are dated November 9, 2025.
 
-Manual-review note: A human must confirm the Music Director remains current, use only the destination displayed on the first-party profile, ask whether external and international artists are eligible, obtain delivery and metadata requirements, and confirm release-type, explicit-content, clean-edit and AI-origin rules before providing any assets.
+Manual-review note: A human must reopen the homepage, inspect the form without bypassing controls, confirm requirements and eligibility, select a rights-cleared MarcsMusic release and use either the form or station email once. Individual DJs, management members, social accounts and the postal address are excluded as substitutes.
 
-Deduplication note: The complete open pull-request patch and repository code index were searched for KLSU, KLSU 91.1 FM, klsuradio.fm, the current LSU Student Media KLSU path, Anh-Tu Nguyen and the KLSU Music Director role. No prior music-submission-agent platform, runtime seed or queue record was found. The current Music Director inquiry route is stored once.
+Deduplication note: The complete open pull-request patch and repository code index were searched for WXCU, WXCU Radio, wxcuradio.com, wxcuradio@capital.edu, Capital University radio and the official airplay invitation. No prior music-submission-agent platform, runtime seed or queue record was found. The form and mailbox are stored once as one canonical opportunity.
 
-Safety: No email, form field, direct message, stream, download link, attachment, audio file, metadata, EPK, artwork, physical package, login, CAPTCHA, consent or payment was entered or submitted. The protected destination was not decoded, no contact was guessed, and no anti-bot, authentication, platform or payment restriction was bypassed.
+Runtime-linkage note: Run 390's seed is linked into the recursive seed chain, and Run 391 is chained after it. This corrects the missing Run 390 runtime linkage without altering its opportunity count.
+
+Safety: No email, form field, direct message, stream, download link, attachment, audio file, metadata, personal information, physical package, login, CAPTCHA, consent or payment was entered or submitted. No anti-bot, authentication, platform or payment restriction was bypassed.
