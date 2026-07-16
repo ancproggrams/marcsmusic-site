@@ -1,0 +1,125 @@
+{
+  "run": 391,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1708,
+  "pipelineEstimate": 1709,
+  "newPlatforms": [
+    {
+      "name": "WXCU Radio Original Music Airplay Submission Route",
+      "websiteUrl": "https://www.wxcuradio.com/",
+      "submissionUrl": "https://www.wxcuradio.com/",
+      "sourceUrl": "https://www.wxcuradio.com/",
+      "sourceType": "automation_run_391_public_research",
+      "country": "United States / Bexley, Ohio college radio",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "independent-music",
+        "original-music",
+        "alternative",
+        "electronic",
+        "hip-hop",
+        "rock",
+        "music-director",
+        "public-form",
+        "public-business-email",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-music-airplay-form-or-station-email-route",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party original-music airplay form with an explicitly published station-email alternative",
+        "email": "wxcuradio@capital.edu",
+        "explicitPurpose": "artists with original music seeking airplay on WXCU",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the current official WXCU homepage, inspect the music form and any live controls, then use either the form or wxcuradio@capital.edu once, following the current requirements. Do not contact both routes for the same release.",
+        "audioDeliveryAuthorized": "The station expressly invites original-music submissions, but the passive representation does not expose the current form fields or specify whether audio must be uploaded, attached or linked.",
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedDirectSubmissionRequirements": [
+          "the submitted material must be original music",
+          "the purpose is consideration for play over WXCU's airwaves",
+          "use the first-party homepage form or the published wxcuradio@capital.edu alternative"
+        ],
+        "liveFormFieldsPassivelyExposed": false,
+        "safeReviewScope": [
+          "inspect the current first-party form fields and validation without entering or submitting data",
+          "confirm whether WXCU requests an upload, attachment, streaming link or downloadable link",
+          "confirm accepted formats, file sizes, metadata and release timing",
+          "confirm international eligibility and whether MarcsMusic releases are eligible",
+          "confirm explicit-content, clean-edit and AI-origin policy",
+          "choose one route only and retain the final submission evidence"
+        ],
+        "unresolvedEligibility": [
+          "international artists",
+          "singles, EPs and albums",
+          "accepted audio codecs and file sizes",
+          "upload versus attachment versus link delivery",
+          "required biography, artwork and metadata",
+          "release-date window",
+          "explicit-content and clean-edit handling",
+          "AI-assisted or AI-generated music policy",
+          "follow-up timing"
+        ]
+      },
+      "businessContact": {
+        "email": "wxcuradio@capital.edu",
+        "emailStatus": "source-verified public station mailbox",
+        "verification": "WXCU's official homepage explicitly presents wxcuradio@capital.edu as the alternative contact for artists seeking to get original music played, and the official Contact page republishes the same address in plaintext. The address has valid syntax and uses Capital University's institutional capital.edu domain. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "musicCategoryInquiryFormIdentified": true,
+        "formFieldsPassivelyVisible": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The homepage states that a form appears below the invitation, but passive rendering does not expose the fields, upload/link controls, validation, consent, CAPTCHA or anti-spam state.",
+        "adjacentRoutesExcluded": [
+          "individual WXCU DJs",
+          "individual management-team members",
+          "faculty-advisor contact",
+          "social-media direct messages",
+          "general postal address"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "WXCU's official site exposes a live listening stream, a current 2026 management roster and current-semester station language. The management page names Colt Fyffe as Music Director and Studio Manager and states that he joined management in spring 2026; other current team biographies also reference 2026. The latest visible blog posts are dated November 9, 2025."
+      },
+      "genreFitEvidence": [
+        "WXCU is an open college-radio environment centered on music discovery and original artist airplay.",
+        "The current Music Director's role includes updating the station catalog.",
+        "The current management team's stated music interests span alternative rock, hip-hop, pop, indie and crossover music.",
+        "Selected MarcsMusic electronic, alternative, hip-hop-crossover and world-fusion releases have plausible fit, subject to the current form and Music Director review."
+      ],
+      "manualReviewReason": "WXCU explicitly authorizes original-music airplay submissions through its homepage form or published station mailbox, but passive rendering does not reveal the current form fields or delivery specifications. A human must reopen the official homepage, inspect the form and any CAPTCHA, anti-spam, validation or consent controls, confirm international and release eligibility, verify the requested upload, attachment or link method, check formats, file sizes, metadata, release timing, explicit-content and AI-origin rules, select one rights-cleared MarcsMusic release and submit through only one authorized route. Individual DJs, management members, social accounts and the postal address must not be used as parallel or substitute routes.",
+      "priority": 91,
+      "pricingModel": "free-first/first-party-airplay-form-or-station-email/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "WXCU",
+      "WXCU Radio",
+      "wxcuradio.com",
+      "wxcuradio@capital.edu",
+      "Capital University radio",
+      "Get YOUR Music On Air"
+    ],
+    "repositoryEvidence": "The complete open pull-request patch and repository code index were searched for WXCU, WXCU Radio, wxcuradio.com, wxcuradio@capital.edu, Capital University radio and the official airplay invitation. No prior music-submission-agent platform, runtime seed or queue record was found.",
+    "consolidation": "The first-party homepage form and the explicitly published station-email alternative are stored as one canonical WXCU opportunity. The queue requires choosing one route only; individual DJs, management contacts, social accounts and the postal address are excluded as parallel opportunities."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first WXCU original-music airplay opportunity was queued as needs_manual_review. No form field, email, file, link or physical package was submitted."
+}
