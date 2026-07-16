@@ -28,30 +28,30 @@
         "cross-genre",
         "public-business-email",
         "authorized-email-submission-route",
-        "authorized-physical-submission-alternative",
+        "published-postal-contact-unconfirmed-for-music-delivery",
         "manual-review"
       ],
-      "submissionMethod": "official-first-party-music-department-email-or-postal-route",
+      "submissionMethod": "official-first-party-music-department-email-with-unconfirmed-postal-contact",
       "status": "needs_manual_review",
       "feeRequired": false,
       "loginRequired": false,
       "captchaDetected": false,
       "paymentRequired": false,
       "authorizedRoute": {
-        "routeType": "public first-party Music Department email for music submissions or distribution concerns, with a published Music Department postal alternative",
+        "routeType": "public first-party Music Department email for music submissions or distribution concerns; separate published postal contact not treated as authorized music delivery",
         "contactEmail": "md@wxyc.org",
         "contactPerson": "WXYC Music Department",
-        "contactPublication": "WXYC's official Contact page publishes md@wxyc.org in plaintext and explicitly directs music submissions or distribution concerns to it.",
-        "explicitPurpose": "Music submissions and distribution concerns for airplay consideration by WXYC's Music Department.",
+        "contactPublication": "WXYC's official Contact page publishes md@wxyc.org in plaintext and explicitly directs music submissions or distribution concerns to it. The page also publishes a Music Department postal address, but does not explicitly authorize sending physical music media.",
+        "explicitPurpose": "Music submissions and distribution concerns through the Music Department email.",
         "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
-        "safeHumanAction": "Confirm the current preferred digital delivery method and unresolved eligibility requirements, then send one individually selected MarcsMusic release through the Music Department email or use the postal alternative, not both.",
+        "safeHumanAction": "Confirm the current preferred digital delivery method and unresolved eligibility requirements, then send one individually selected MarcsMusic release through the Music Department email. Use the postal contact only after WXYC expressly confirms that physical music delivery is accepted.",
         "audioDeliveryAuthorized": true,
-        "physicalDeliveryAuthorizedForMarcsMusic": true
+        "physicalDeliveryAuthorizedForMarcsMusic": false
       },
       "submissionRequirements": {
         "publishedRequirements": [
           "email music submissions or distribution concerns to md@wxyc.org",
-          "a WXYC Music Department postal address is published as an alternative contact route",
+          "a WXYC Music Department postal contact address is published, without explicit physical-media submission instructions",
           "the station operates as a student-run freeform outlet and favors music receiving limited airplay elsewhere",
           "no submission fee, account, login, CAPTCHA or mandatory-payment requirement is published for the email route"
         ],
@@ -62,7 +62,7 @@
           "confirm audio formats, file-size limits, metadata, artwork, release timing, explicit-content and AI-origin requirements",
           "keep the pitch concise and identify the artist, track or release, genre fit and contact details",
           "avoid oversized unsolicited attachments until limits are confirmed",
-          "use either email or physical delivery for one release, not simultaneous duplicate delivery",
+          "do not mail physical music to the published postal contact unless WXYC expressly authorizes that delivery method",
           "do not use outreach@wxyc.org, info@wxyc.org, psa@wxyc.org, individual DJs or social-media messages as submission substitutes",
           "retain needs_manual_review until the current live requirements are checked"
         ],
@@ -75,6 +75,7 @@
           "release-date, previously released material and recency rules",
           "explicit-content, FCC-safe and clean-edit requirements",
           "AI-assisted or AI-generated music policy",
+          "whether the published postal contact accepts physical music media",
           "follow-up and resubmission timing"
         ]
       },
@@ -108,7 +109,7 @@
           "general information mailbox",
           "individual DJs and specialty programmes",
           "social-media direct messages",
-          "simultaneous duplicate email and postal delivery"
+          "published postal contact unless physical music delivery is expressly confirmed"
         ]
       },
       "activityVerification": {
@@ -122,9 +123,9 @@
         "New Science Experience explicitly includes house, techno, hip-hop, ambient and underground dance.",
         "A selected MarcsMusic electronic, bass, reggae, world-fusion, ambient or experimental release has plausible fit, subject to human track selection and current submission requirements."
       ],
-      "manualReviewReason": "WXYC explicitly authorizes music submissions by public Music Department email and publishes a physical alternative, but digital-delivery mechanics, international eligibility, accepted release types, formats, file limits, metadata, release timing, explicit-content rules and AI-origin policy remain unpublished. Human review is required before one non-duplicative delivery.",
+      "manualReviewReason": "WXYC explicitly authorizes music submissions by public Music Department email, but digital-delivery mechanics, international eligibility, accepted release types, formats, file limits, metadata, release timing, explicit-content rules and AI-origin policy remain unpublished. The separately published postal address is not treated as authorization to send physical music. Human review is required before one compliant email delivery.",
       "priority": 90,
-      "pricingModel": "free-first/plaintext-first-party-email/authorized-physical-alternative/manual-review"
+      "pricingModel": "free-first/plaintext-first-party-email/postal-contact-unconfirmed/manual-review"
     }
   ],
   "canonicalPlatformsReverified": [],
@@ -138,9 +139,9 @@
       "md@wxyc.org",
       "https://wxyc.org/contact"
     ],
-    "repositoryEvidence": "Repository code search was performed for WXYC before creation and returned no existing music-submission-agent platform, seed or queue record. The public submission mailbox and physical Music Department address are stored once as one canonical opportunity.",
-    "consolidation": "The Music Department email and postal address are one opportunity. The outreach, general-information and PSA contacts, individual DJs, specialty programmes and social-media routes are excluded as duplicates or unauthorized substitutes."
+    "repositoryEvidence": "Repository code search was performed for WXYC before creation and returned no existing music-submission-agent platform, seed or queue record. The public submission mailbox is stored once as the canonical route; the postal address is retained only as an unconfirmed contact boundary.",
+    "consolidation": "The Music Department email is the canonical opportunity. The published postal contact is not counted as a physical submission route without explicit confirmation. The outreach, general-information and PSA contacts, individual DJs, specialty programmes and social-media routes are excluded as duplicates or unauthorized substitutes."
   },
   "activeQueueRowsAdded": 1,
-  "notes": "One new free-first WXYC opportunity was queued as needs_manual_review. The official Contact page explicitly authorizes md@wxyc.org for music submissions or distribution concerns and publishes a Music Department postal alternative. No submission was made."
+  "notes": "One new free-first WXYC opportunity was queued as needs_manual_review. The official Contact page explicitly authorizes md@wxyc.org for music submissions or distribution concerns. A separately published Music Department postal address was recorded as an unconfirmed contact point, not as authorization to send physical media. No submission was made."
 }
