@@ -196,7 +196,8 @@ const MARCSMUSIC_ESPOCRM_CORE_SCHEMA = [
     ],
     'campaign' => ['id', 'name', 'status', 'deleted'],
     'target_list' => ['id', 'name', 'deleted'],
-    'opportunity' => ['id', 'name', 'stage', 'deleted'],
+    // campaign_id is a pinned EspoCRM core relation, not an outreach field.
+    'opportunity' => ['id', 'name', 'stage', 'campaign_id', 'deleted'],
     'email_address' => ['id', 'name', 'lower', 'invalid', 'opt_out', 'deleted'],
     'note' => ['id', 'type', 'parent_id', 'parent_type', 'deleted'],
     'auth_token' => ['id', 'token', 'user_id', 'is_active', 'deleted'],
@@ -248,7 +249,6 @@ const MARCSMUSIC_OUTREACH_CORE_SCHEMA = [
         'membership_projected_at',
     ],
     'opportunity' => [
-        'campaign_id',
         'outreach_projection_key',
         'outreach_match_id',
         'music_release_id',
