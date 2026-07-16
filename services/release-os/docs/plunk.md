@@ -12,7 +12,8 @@ Bearer secret. De vaste afzender is `MarcsMusic <noreply@marcsmusic.nl>`.
 Zet deze waarden uitsluitend in Railway variables (secrets blijven secrets):
 
 - `EMAIL_PROVIDER=plunk`
-- `PLUNK_BASE_URL=https://mail.marcsmusic.nl` (of de gecontroleerde Plunk API-origin)
+- `PLUNK_BASE_URL=https://plunk-api-production.up.railway.app` (of een later
+  gecontroleerd Plunk API-origin; `mail.marcsmusic.nl` blijft MXRoute)
 - `PLUNK_SECRET_KEY` (Railway secret)
 - `PLUNK_SEND_ENABLED=false` totdat de gecontroleerde productiegate is goedgekeurd
 - `EMAIL_FROM=MarcsMusic <noreply@marcsmusic.nl>`
@@ -34,11 +35,11 @@ MarcsMusic app / outreach-worker
         -> ontvanger
 ```
 
-De upstream Plunk v0.12.0-release gebruikt voor delivery standaard AWS SES en
-documenteert `SMTP_DOMAIN` alleen voor de inkomende Plunk SMTP-relay. Daarom
-mag de Railway-service niet als productie-groen worden gemarkeerd totdat de
-gepinde MXRoute-transportfork is uitgerold en getest. AWS SES-credentials
-mogen niet worden toegevoegd.
+De self-hosted Plunk-build is op een vaste upstream commit gepind en bevat de
+reviewde MXRoute-transportpatch. Delivery gebruikt uitsluitend
+`tuesday.mxrouting.net:587` met STARTTLS; AWS SES-credentials mogen niet worden
+toegevoegd. De service blijft operationeel geblokkeerd totdat SMTP-authenticatie
+en echte inboxdelivery zijn bewezen.
 
 ## Smoke test
 

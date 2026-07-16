@@ -49,7 +49,7 @@ De Plunk-service gebruikt voor de geteste fork:
 SMTP_HOST=tuesday.mxrouting.net
 SMTP_PORT=587
 SMTP_SECURE=false
-SMTP_USER=noreply@marcsmusic.nl
+SMTP_USER=<MXROUTE_USERNAME>
 SMTP_PASSWORD=<Railway secret>
 SMTP_FROM_ADDRESS=noreply@marcsmusic.nl
 SMTP_FROM_NAME=MarcsMusic
@@ -120,11 +120,17 @@ handshake uit; log de credential nooit.
 
 ## Resterende productie-gates
 
-- Het eerste Plunk-project/API-secret moet via de beschermde self-hosted
-  bootstrap worden aangemaakt en uitsluitend als Railway-secret bij de
-  applicatieservices worden gezet.
+- Het Plunk-project en domeinrecord zijn eenmalig transactioneel gebootstrapt
+  in de dedicated Plunk-database; de secret staat uitsluitend als Railway
+  secret op de consumers. Een dashboard-owneraccount ontbreekt nog en moet
+  met een expliciet aangewezen beheerder worden gekoppeld voordat dashboard-
+  beheer wordt gebruikt.
+- De MXRoute-authenticatie geeft momenteel `535`; de exacte MXRoute-user en
+  het wachtwoord moeten rechtstreeks in Railway worden gecorrigeerd. Zet geen
+  SMTP-wachtwoord in chat, Git, logs of commando-argumenten.
 - Het productie-EspoCRM weigert momenteel te starten wegens een
-  schema-fingerprint mismatch. Dat mag niet met een bypass of lege database
-  worden omzeild; matching en outreach blijven daarom geblokkeerd.
+  ontbrekend herstel-/rehearsal-attest voor een bestaande database. De
+  schema-contractfix staat op `main`, maar mag de migratie-evidence niet
+  omzeilen; matching en outreach blijven daarom geblokkeerd.
 - Er is nog geen gecontroleerd testmailadres verstrekt. Er is geen echte
   productiemail door deze wijziging verstuurd.
