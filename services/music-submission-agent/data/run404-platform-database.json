@@ -1,0 +1,145 @@
+{
+  "run": 404,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1721,
+  "pipelineEstimate": 1722,
+  "newPlatforms": [
+    {
+      "name": "KSPC 88.7 FM Album and EP Submission Route",
+      "websiteUrl": "https://kspc.org/",
+      "submissionUrl": "https://kspc.org/contact/music-submissions/",
+      "sourceUrl": "https://kspc.org/contact/music-submissions/",
+      "sourceType": "automation_run_404_public_research",
+      "country": "United States / Claremont, California college and community radio with worldwide online streaming",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "community-radio",
+        "freeform-radio",
+        "independent-music",
+        "all-genres",
+        "electronic",
+        "hip-hop",
+        "reggae",
+        "world-music",
+        "experimental",
+        "cross-genre",
+        "album-ep-only",
+        "protected-first-party-email",
+        "authorized-digital-submission-route",
+        "authorized-physical-submission-alternative",
+        "ai-provenance-restricted",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-protected-email-album-ep-download-or-physical-delivery-route",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "protected first-party email for digital album or EP files or a downloadable cloud-storage link, with an authorized physical CD or record alternative",
+        "contactEmail": null,
+        "contactPerson": "KSPC Music Director / music-submission team",
+        "contactPublication": "KSPC's official Music Submissions page publishes protected email actions for digital submissions and follow-up. The destinations are masked by Cloudflare in passive retrieval and were not decoded or stored.",
+        "explicitPurpose": "Airplay consideration for albums and EPs from artists of all genres; singles, demos and substantially AI-generated works are expressly excluded.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the official Music Submissions page, use the designated protected email action, and submit one eligible album or EP by approved file attachment or permissioned downloadable cloud link after confirming unresolved requirements.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": true
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "artists from all genres may submit music for airplay consideration",
+          "only albums and EPs are accepted; singles and demos are not accepted",
+          "digital submissions may use attached files or a cloud-storage link from which KSPC can download the music",
+          "YouTube or SoundCloud is not accepted unless the supplied site also provides a download method",
+          "Spotify and iTunes links are not accepted",
+          "CDs and records are accepted by mail, but not singles",
+          "cassette tapes are not accepted",
+          "work substantially generated through AI is not accepted",
+          "KSPC does not accept payment in exchange for airplay",
+          "airplay is not guaranteed and the station may not respond because of submission volume"
+        ],
+        "safeReviewScope": [
+          "select one complete album or EP rather than a single, demo or alternate single-version campaign",
+          "confirm that the release is not substantially generated through AI and document provenance before delivery",
+          "open the first-party page and use only its protected submission destination",
+          "provide attached files or a permissioned downloadable cloud-storage link rather than a streaming-only link",
+          "do not use Spotify, iTunes or a non-downloadable YouTube or SoundCloud link as the delivery method",
+          "confirm international eligibility, accepted file types, file-size limits, metadata, artwork and explicit-content requirements before sending",
+          "use either the digital or physical method for one release, not simultaneous duplicate delivery",
+          "do not offer payment or use pay-for-play services",
+          "retain needs_manual_review until the exact live destination and unresolved requirements are checked"
+        ],
+        "unresolvedEligibility": [
+          "international and non-local artist eligibility for the digital route",
+          "exact protected mailbox syntax and domain",
+          "accepted audio formats, bitrate, sample rate and attachment-size limits",
+          "preferred cloud-storage providers, permissions and link-expiry requirements",
+          "required artist, album, track, label, biography, contact and artwork metadata",
+          "release-date, previously released material and recency rules",
+          "explicit-content, FCC-safe and clean-edit requirements",
+          "the operational definition and evidence threshold for work substantially generated through AI",
+          "follow-up and resubmission timing"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "emailStatus": "protected first-party digital-submission and follow-up email actions verified by publication and purpose; exact destinations not passively available and not stored",
+        "verification": "KSPC's official Music Submissions page explicitly directs digital music submissions to a protected email action and separately publishes a protected follow-up email action. Both resolve through Cloudflare email protection in passive retrieval, so syntax, local part and domain were not asserted. No address was decoded, guessed, inferred from naming patterns, taken from a third-party source or subjected to SMTP, MX, catch-all, mailbox-level or deliverability probing."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "generalContactFormIdentified": true,
+        "dedicatedMusicFormIdentified": false,
+        "musicDepartmentSelectorIdentified": false,
+        "javascriptRequired": false,
+        "captchaObserved": false,
+        "captchaType": null,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The canonical route is a protected email action rather than a public form. A human must reveal and use the destination through the official page without decoding protected markup and must stop if the live route presents login, CAPTCHA, consent, payment or other protected controls.",
+        "adjacentRoutesExcluded": [
+          "general contact form with an anti-spam validation or honeypot field",
+          "community-message and PSA submission form",
+          "individual DJs and programme contacts",
+          "request and business phone lines",
+          "social-media direct messages",
+          "Spotify, iTunes and non-downloadable streaming links",
+          "simultaneous duplicate digital and physical delivery"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "KSPC's official site exposed live-listening, current-playlist and programme interfaces, a first-party article dated March 30, 2026 and a 2026 copyright footer. Its first-party-linked Spinitron page displayed on-air, upcoming and recent programming dated July 16, 2026."
+      },
+      "genreFitEvidence": [
+        "KSPC's official submission policy welcomes music from artists of all genres.",
+        "KSPC describes its mission as promoting innovation and discovery while platforming new, local and underrepresented voices and sounds.",
+        "The current Spinitron surface includes Underground and Specialty programming, consistent with independent and cross-genre discovery.",
+        "A complete eligible MarcsMusic album or EP spanning electronic, bass, reggae, dub or world-fusion material has plausible fit, subject to the no-singles, no-demos and AI-provenance restrictions."
+      ],
+      "manualReviewReason": "KSPC provides an authorized digital and physical submission policy, but the digital destination is Cloudflare-protected and international eligibility, technical formats, file limits, metadata and explicit-content requirements remain unpublished. Only albums and EPs are eligible, singles and demos are prohibited, and substantially AI-generated work is excluded. Human review is mandatory before one compliant delivery.",
+      "priority": 91,
+      "pricingModel": "free-first/protected-first-party-email/digital-download/album-ep-only/no-singles/no-demos/ai-restricted/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KSPC",
+      "KSPC 88.7 FM",
+      "kspc.org",
+      "https://kspc.org/contact/music-submissions/"
+    ],
+    "repositoryEvidence": "Repository code search was performed for KSPC, kspc.org and the official Music Submissions URL before creation. No previous music-submission-agent platform, runtime seed, protected-contact or queue record was found.",
+    "consolidation": "The protected digital-submission email, follow-up action and physical CD or record alternative are stored once as one canonical opportunity. The general contact form, PSA route, individual DJs, social accounts, phone lines and streaming platforms are excluded as duplicate or unauthorized substitutes."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first KSPC album or EP opportunity was queued as needs_manual_review. The official policy authorizes downloadable digital delivery and a physical alternative, excludes singles, demos, pay-for-play and substantially AI-generated work, and exposes the email destination only through protected first-party actions. No protected address was decoded and no submission was made."
+}
