@@ -4,7 +4,7 @@ import { calculateMatchScore } from "../domain/match-score.mjs";
 import { normalizeContact, normalizeDomain, normalizeEmail, normalizeOutlet, normalizeRelease } from "../domain/normalization.mjs";
 import { sendAuthorizationSnapshotDigest, sendAuthorizationSnapshotVersion } from "../domain/send-authorization-snapshot.mjs";
 import { errorCode } from "../errors.mjs";
-import { businessDate, businessDayUtcRange } from "./date-utils.mjs";
+import { businessDate, businessDayUtcRange, isContactNewSince } from "./date-utils.mjs";
 
 const DEFERRED_PREFLIGHT_CODES = new Set([
   "PREVIOUS_SEQUENCE_STEP_NOT_CONFIRMED",
@@ -168,15 +168,13 @@ export function createSendService({ espocrm, repository, contactIntakeRepository
     const release = normalizeRelease(releaseRaw);
     const contact = normalizeContact({ ...contactRaw, evidenceAttestation: contactEvidenceAttestation });
     const outlet = normalizeOutlet({ ...outletRaw, evidenceAttestation: outletEvidenceAttestation });
-    if (config.safety.newContactsOnlyFrom) {
-      const createdAt = contact.createdAt ?? item.created_at;
-      const createdDate = createdAt ? businessDate(new Date(createdAt)) : "";
-      if (!createdDate || createdDate < config.safety.newContactsOnlyFrom) {
-        throw Object.assign(new Error("Only contacts discovered on or after the configured activation date may be sent"), {
-          code: "CONTACT_DISCOVERED_BEFORE_ACTIVATION_DATE",
-          retryable: false
-        });
-      }
+    if (
+      config.safety.newContactsOnlyFrom
+      && !isContactNewSince(contact, config.safety.newContactsOnlyFrom)
+    ) {
+      return denyClaimedSend(item, "contact_before_activation_date", {
+        activationDate: config.safety.newContactsOnlyFrom
+      });
     }
     assertAuthorizationIdentityUnchanged(authorizationIdentity, contact, outlet);
     if (isTerminalCampaignStatus(matchRaw.campaignStatus)) {
@@ -398,6 +396,12 @@ export function createSendService({ espocrm, repository, contactIntakeRepository
     const contact = normalizeContact(contactRaw);
     const outlet = outletRaw ? normalizeOutlet(outletRaw) : undefined;
     assertAuthorizationIdentityUnchanged(authorizationIdentity, contact, outlet);
+    if (
+      config.safety.newContactsOnlyFrom
+      && !isContactNewSince(contact, config.safety.newContactsOnlyFrom)
+    ) {
+      return Object.freeze({ allowed: false, reason: "response_contact_before_activation_date" });
+    }
     if (!originatingSend || originatingSend.status !== "sent" || originatingSend.match_id !== item.match_id) {
       return Object.freeze({ allowed: false, reason: "response_origin_not_confirmed" });
     }

@@ -5,7 +5,7 @@ import { calculateMatchScore, classifyMatch } from "../domain/match-score.mjs";
 import { allocateBestMatches } from "../domain/campaign-allocator.mjs";
 import { normalizeContact, normalizeOutlet, normalizeRelease } from "../domain/normalization.mjs";
 import { scheduleSequenceStep } from "../domain/scheduler.mjs";
-import { subtractDays } from "./date-utils.mjs";
+import { isContactNewSince, subtractDays } from "./date-utils.mjs";
 
 const ACTIVE_CAMPAIGN_STATUSES = ["Ready", "Active", "Sent 1", "Follow-Up 1", "Follow-Up 2", "Paused"];
 const RECALCULABLE_CAMPAIGN_STATUSES = new Set(["New", "Eligible", "Waitlist", "Skipped", "Blocked"]);
@@ -32,6 +32,19 @@ export function createMatchService({ espocrm, repository, contactIntakeService, 
     const contactId = intake.canonicalId;
     const contactRecord = { ...intake.record, evidenceAttestation: intake.attestation };
     const contact = normalizeContact(contactRecord);
+    if (
+      config.safety?.newContactsOnlyFrom
+      && !isContactNewSince(contactRecord, config.safety.newContactsOnlyFrom)
+    ) {
+      metrics.increment("outreach_match_skipped_total", { reason: "contact_before_activation_date" });
+      logger.info({ contactId }, "contact excluded because its discovery predates the activation fence");
+      return Object.freeze({
+        matched: 0,
+        allocated: 0,
+        blocked: 1,
+        skipped: "contact_before_activation_date"
+      });
+    }
     if (!contact.mediaOutletId) {
       await recordBlockedWithoutOutlet(contact);
       return Object.freeze({ matched: 0, allocated: 0, blocked: 1 });
@@ -333,6 +346,15 @@ export function createMatchService({ espocrm, repository, contactIntakeService, 
     const release = normalizeRelease(releaseRaw);
     const contact = normalizeContact(contactRaw);
     const outlet = normalizeOutlet(outletRaw);
+    if (
+      config.safety?.newContactsOnlyFrom
+      && !isContactNewSince({ ...contactRaw, evidenceAttestation: undefined }, config.safety.newContactsOnlyFrom)
+    ) {
+      throw Object.assign(new Error("Only contacts discovered on or after the configured activation date may be scheduled"), {
+        code: "CONTACT_DISCOVERED_BEFORE_ACTIVATION_DATE",
+        retryable: false
+      });
+    }
     const idempotencyKey = sendKey(release.id, contact.id, sequenceStep);
     const existingQueueItem = await repository.getSendByIdempotencyKey(idempotencyKey);
     if (existingQueueItem) return;

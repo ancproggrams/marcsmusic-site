@@ -273,15 +273,6 @@ export function loadConfig(env = process.env) {
     }
   }
 
-  if (
-    parsed.data.OUTREACH_SEND_ENABLED
-    && parsed.data.MAILGUN_INBOUND_ROUTE_EVIDENCE !== "configured"
-  ) {
-    throw new ConfigurationError([{
-      path: ["MAILGUN_INBOUND_ROUTE_EVIDENCE"],
-      message: "Configured inbound-route evidence is required before sending can be enabled"
-    }]);
-  }
   if (parsed.data.OUTREACH_SEND_ENABLED && !parsed.data.OUTREACH_NEW_CONTACTS_ONLY_FROM) {
     throw new ConfigurationError([{
       path: ["OUTREACH_NEW_CONTACTS_ONLY_FROM"],

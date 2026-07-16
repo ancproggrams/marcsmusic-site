@@ -232,6 +232,56 @@ test("matching integration cannot promote main-genre-only CRM records to auto-se
   ]);
 });
 
+test("matching excludes contacts discovered before the activation fence", async () => {
+  const calls = { outlet: 0, releases: 0, allocations: 0 };
+  const contactIntakeService = {
+    async processContact() {
+      return {
+        canonicalId: "contact-before-fence",
+        record: {
+          id: "contact-before-fence",
+          createdAt: "2026-07-16 08:00:00",
+          proofCapturedAt: "2026-07-15 21:59:59",
+          mediaOutletId: "outlet-before-fence"
+        },
+        attestation: { evidenceCapturedAt: "2026-07-15T21:59:59.000Z" }
+      };
+    },
+    async processOutlet() {
+      calls.outlet += 1;
+      throw new Error("an old contact must be rejected before outlet processing");
+    }
+  };
+  const service = createMatchService({
+    espocrm: {
+      async list(entityType) {
+        calls.releases += 1;
+        throw new Error(`unexpected CRM list ${entityType}`);
+      }
+    },
+    contactIntakeService,
+    repository: {
+      async withContactAllocationFence(_contactId, work) { return work(); },
+      async isSuppressed() { calls.allocations += 1; return false; }
+    },
+    copyService: {},
+    config: {
+      safety: { newContactsOnlyFrom: "2026-07-16" },
+      policy: { outletCooldownDays: 14, matchThreshold: 80, waitlistThreshold: 65 }
+    },
+    logger: { info() {} },
+    metrics: { increment() {} }
+  });
+
+  assert.deepEqual(await service.processContact("contact-before-fence"), {
+    matched: 0,
+    allocated: 0,
+    blocked: 1,
+    skipped: "contact_before_activation_date"
+  });
+  assert.deepEqual(calls, { outlet: 0, releases: 0, allocations: 0 });
+});
+
 test("allocator enforces contact, pair, outlet cooldown and outlet count constraints", () => {
   const candidates = [
     { releaseId: "release-a", releasePriority: 10, contactId: "contact-1", outletId: "outlet-1", score: 95, eligible: true },

@@ -59,6 +59,81 @@ test("send and automatic-response queues fail closed before claiming work", asyn
   }
 });
 
+test("an old queued address is canceled before the provider is called", async () => {
+  const queueItem = Object.freeze({
+    id: "send-old",
+    match_id: "match-old",
+    release_id: "release-old",
+    contact_id: "contact-old",
+    outlet_id: "outlet-old",
+    copy_artifact_id: "copy-old",
+    sequence_step: 0,
+    attempts: 1
+  });
+  const records = {
+    OutreachMatch: {
+      id: "match-old",
+      musicReleaseId: "release-old",
+      mediaContactId: "contact-old",
+      mediaOutletId: "outlet-old",
+      campaignStatus: "Ready",
+      activeSequence: true
+    },
+    MusicRelease: { id: "release-old", status: "Active", epkUrl: "https://artist.example.test/epk" },
+    MediaContact: {
+      id: "contact-old",
+      createdAt: "2026-07-16 08:00:00",
+      proofCapturedAt: "2026-07-15 21:59:59",
+      status: "Active",
+      mediaOutletId: "outlet-old",
+      emailAddress: "old@radio.example.test"
+    },
+    MediaOutlet: {
+      id: "outlet-old",
+      website: "https://radio.example.test",
+      activityStatus: "Active",
+      submissionPolicy: "Explicit",
+      acceptsEmail: true
+    }
+  };
+  const calls = { provider: 0, canceled: [], work: [] };
+  const repository = {
+    async claimSend() { return queueItem; },
+    async withSendAuthorizationFence(_identity, work) { return work(); },
+    async readCopyArtifact() { return { subject: "Old", bodyText: "Must not send" }; },
+    async cancelClaimedSend(id, reason) { calls.canceled.push(["queue", id, reason]); },
+    async cancelPendingForMatch(id, reason) { calls.canceled.push(["match", id, reason]); },
+    async enqueueWork(item) { calls.work.push(item); }
+  };
+  const service = createSendService({
+    espocrm: { async get(entityType) { return records[entityType]; } },
+    repository,
+    contactIntakeRepository: {
+      async getEvidenceAttestation(entityType) {
+        return entityType === "MediaContact"
+          ? { evidenceCapturedAt: "2026-07-15T21:59:59.000Z" }
+          : undefined;
+      }
+    },
+    mailProvider: { async send() { calls.provider += 1; return { id: "must-not-exist" }; } },
+    config: sendConfig({ newContactsOnlyFrom: "2026-07-16" }),
+    logger,
+    metrics: new Metrics()
+  });
+
+  assert.deepEqual(await service.sendOne("worker-old"), {
+    processed: true,
+    sent: false,
+    reason: "contact_before_activation_date"
+  });
+  assert.equal(calls.provider, 0);
+  assert.deepEqual(calls.canceled, [
+    ["queue", "send-old", "contact_before_activation_date"],
+    ["match", "match-old", "contact_before_activation_date"]
+  ]);
+  assert.equal(calls.work[0].payload.reason, "contact_before_activation_date");
+});
+
 test("a follow-up cannot send until the previous CRM sequence state is confirmed", async () => {
   const queueItem = Object.freeze({
     id: "send-1",

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Fail-closed autonomous outreach orchestration for EspoCRM and Mailgun.",
+  "description": "Fail-closed autonomous outreach orchestration for EspoCRM with Plunk outbound delivery.",
   "engines": {
     "node": ">=20.12.0"
   },

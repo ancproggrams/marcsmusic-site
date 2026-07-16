@@ -45,6 +45,8 @@ export function normalizeContact(raw) {
   return Object.freeze({
     id: requireId(raw.id, "MediaContact"),
     versionNumber: Number.isInteger(raw.versionNumber) ? raw.versionNumber : undefined,
+    createdAt: optionalText(raw.createdAt),
+    modifiedAt: optionalText(raw.modifiedAt),
     name: optionalText(raw.name) ?? optionalText(`${raw.firstName ?? ""} ${raw.lastName ?? ""}`),
     firstName: optionalText(raw.firstName),
     lastName: optionalText(raw.lastName),

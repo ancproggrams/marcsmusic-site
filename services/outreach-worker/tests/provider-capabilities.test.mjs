@@ -296,7 +296,7 @@ test("inbound routing is never inferred from Mailgun domain health", () => {
   });
 });
 
-test("provider capability configuration is bounded and requires inbound evidence", () => {
+test("provider capability configuration is bounded and Plunk sending does not require legacy inbound evidence", () => {
   const configured = loadConfig({
     ...validEnvironment(),
     PROVIDER_CAPABILITY_CACHE_TTL_MS: "45000",
@@ -365,14 +365,20 @@ test("provider capability configuration is bounded and requires inbound evidence
       && error.issues.some(({ path }) => path[0] === "EMAIL_VALIDATION_PROVIDER_URL")
   );
 
-  assert.throws(
-    () => loadConfig({
-      ...validEnvironment(),
-      OUTREACH_SEND_ENABLED: "true"
-    }),
-    (error) => error instanceof ConfigurationError
-      && error.issues.some(({ path }) => path[0] === "MAILGUN_INBOUND_ROUTE_EVIDENCE")
-  );
+  const plunkSendConfig = loadConfig({
+    ...validEnvironment(),
+    OUTREACH_SEND_ENABLED: "true",
+    PLUNK_SECRET_KEY: "plunk-test-secret",
+    PLUNK_FROM: "noreply@marcsmusic.nl",
+    PLUNK_WEBHOOK_SECRET: "plunk-webhook-secret-for-tests",
+    EMAIL_VALIDATION_PROVIDER_ENABLED: "true",
+    EMAIL_VALIDATION_PROVIDER_TYPE: "http",
+    EMAIL_VALIDATION_PROVIDER_URL: "https://validator.example.test/validate",
+    EMAIL_VALIDATION_PROVIDER_TOKEN: "validation-test-token"
+  });
+  assert.equal(plunkSendConfig.safety.sendEnabled, true);
+  assert.equal(plunkSendConfig.plunk.from, "noreply@marcsmusic.nl");
+  assert.equal(plunkSendConfig.mailgun.inboundRouteEvidence, "unknown");
 
   assert.throws(
     () => loadConfig({

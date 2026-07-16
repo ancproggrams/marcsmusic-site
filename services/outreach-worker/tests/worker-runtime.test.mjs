@@ -2,7 +2,13 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { setTimeout as delay } from "node:timers/promises";
 
-import { businessDate, businessDayUtcRange } from "../src/application/date-utils.mjs";
+import {
+  businessDate,
+  businessDayUtcRange,
+  contactDiscoveryInstant,
+  isContactNewSince,
+  parseInstant
+} from "../src/application/date-utils.mjs";
 import { MailgunClient } from "../src/infrastructure/mailgun-client.mjs";
 import { Metrics } from "../src/infrastructure/metrics.mjs";
 import { startWorker } from "../src/worker.mjs";
@@ -15,6 +21,24 @@ test("Amsterdam business dates and DST day windows are explicit", () => {
   const autumn = businessDayUtcRange("2026-10-25");
   assert.equal((spring.end - spring.start) / 3_600_000, 23);
   assert.equal((autumn.end - autumn.start) / 3_600_000, 25);
+});
+
+test("the new-contact fence uses source evidence, not queue creation time", () => {
+  const activationDate = "2026-07-16";
+  const localMidnight = "2026-07-15T22:00:00.000Z";
+
+  assert.equal(parseInstant("2026-07-16 08:30:00").toISOString(), "2026-07-16T08:30:00.000Z");
+  assert.equal(contactDiscoveryInstant({
+    proofCapturedAt: "2026-07-15 23:59:59",
+    createdAt: "2026-07-16 08:00:00"
+  }).toISOString(), "2026-07-15T23:59:59.000Z");
+  assert.equal(isContactNewSince({ proofCapturedAt: "2026-07-15T21:59:59.999Z" }, activationDate), false);
+  assert.equal(isContactNewSince({ proofCapturedAt: localMidnight }, activationDate), true);
+  assert.equal(isContactNewSince({ proofCapturedAt: "2026-07-16T21:59:59.999Z" }, activationDate), true);
+  assert.equal(isContactNewSince({ createdAt: "2026-07-16 08:00:00" }, activationDate), true);
+  assert.equal(isContactNewSince({ createdAt: "2026-07-15 21:59:59", created_at: "2026-07-16 09:00:00" }, activationDate), false);
+  assert.equal(isContactNewSince({ createdAt: "not-a-timestamp" }, activationDate), false);
+  assert.equal(isContactNewSince({}, activationDate), false);
 });
 
 test("worker shutdown stops claiming and relinquishes every lane within its bounded budget", async () => {
