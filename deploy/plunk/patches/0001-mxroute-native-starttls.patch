@@ -1460,8 +1460,12 @@ index 0000000..d3763fa
 +}
 +
 +function capability(reply: SmtpReply, name: string): string | undefined {
-+  const line = reply.lines.find(value => value.toUpperCase().startsWith(name.toUpperCase()));
-+  return line?.slice(name.length).trim();
++  const line = reply.lines.find(value => {
++    const normalized = value.toUpperCase();
++    const capabilityName = name.toUpperCase();
++    return normalized === capabilityName || normalized.startsWith(`${capabilityName} `);
++  });
++  return line === undefined ? undefined : line.slice(name.length).trim();
 +}
 +
 +async function authenticate(session: SmtpSession, ehlo: SmtpReply): Promise<void> {
@@ -1492,7 +1496,9 @@ index 0000000..d3763fa
 +    expect(ehlo, [250], 'EHLO');
 +    if (!SMTP_SECURE) {
 +      const startTls = capability(ehlo, 'STARTTLS');
-+      if (!startTls) throw new SmtpProviderError('SMTP_STARTTLS_REQUIRED', 'SMTP relay did not advertise STARTTLS');
++      // STARTTLS is a flag-style EHLO capability and therefore has no value;
++      // an empty string still proves that the relay advertised it.
++      if (startTls === undefined) throw new SmtpProviderError('SMTP_STARTTLS_REQUIRED', 'SMTP relay did not advertise STARTTLS');
 +      expect(await session.command('STARTTLS'), [220], 'STARTTLS');
 +      session = await session.startTls();
 +      ehlo = await session.command(`EHLO marcsmusic.nl`);
