@@ -1,0 +1,161 @@
+{
+  "run": 409,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1726,
+  "pipelineEstimate": 1727,
+  "newPlatforms": [
+    {
+      "name": "Wild Dogs Radio Global Free Single-Song Submission Route",
+      "websiteUrl": "https://wilddogsradio.com/",
+      "submissionUrl": "https://wilddogsradio.com/music-submissions/",
+      "sourceUrl": "https://wilddogsradio.com/music-submissions/",
+      "sourceType": "automation_run_409_public_research",
+      "country": "United States-based internet radio serving and accepting artists from all corners of the world",
+      "language": "en",
+      "genres": [
+        "internet-radio",
+        "independent-music",
+        "all-genres",
+        "electronic",
+        "bass-music",
+        "hip-hop",
+        "reggae",
+        "world-music",
+        "experimental",
+        "cross-genre",
+        "public-business-email",
+        "authorized-digital-submission-route",
+        "single-song-submission",
+        "audio-attachment-required",
+        "artwork-required",
+        "isrc-required",
+        "international-artists-explicitly-supported",
+        "capacity-gated",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-business-email-with-single-mp3-or-wav-attachment-song-art-and-release-metadata",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public business mailbox for one MP3 or WAV song attachment with artwork and required release metadata",
+        "contactEmail": "office@wilddogsradio.com",
+        "contactPerson": "Wild Dogs Radio submissions office",
+        "contactPublication": "The official Music Submissions page publishes office@wilddogsradio.com in plaintext and directly instructs artists to use it for single-song submissions.",
+        "explicitPurpose": "Free single-song submission for possible Wild Dogs Radio airplay.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Reopen the official page, select one suitable MarcsMusic track, verify its ISRC and metadata, attach one compliant MP3 or WAV file plus song art, and send manually only after checking current attachment limits and AI-origin policy.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "single-song submissions are always free",
+          "all music genres are accepted",
+          "send the submission to office@wilddogsradio.com",
+          "attach an MP3 or WAV music file",
+          "include song artwork",
+          "include artist or band name",
+          "include song title",
+          "include the single or album/EP name",
+          "include the year the song was released",
+          "include the track ISRC",
+          "accepted tracks receive 30 days of periodical airplay with a few plays per week",
+          "response time may be up to 90 days because of submission volume",
+          "the station states that it supports artists from all corners of the world",
+          "no account login, CAPTCHA or mandatory payment is published"
+        ],
+        "safeReviewScope": [
+          "select exactly one MarcsMusic track with strong programme fit",
+          "confirm the correct ISRC for the exact submitted master",
+          "verify artist name, title, release container and release year",
+          "prepare one MP3 or WAV file and matching song artwork",
+          "confirm the current maximum attachment size and whether download links are accepted as an alternative",
+          "confirm the current AI-assisted or AI-generated music policy because none is published",
+          "confirm that the sender owns or controls all required rights",
+          "avoid repeated follow-up during the published 90-day response window",
+          "retain needs_manual_review until the file, artwork, metadata and policy checks are complete"
+        ],
+        "unresolvedEligibility": [
+          "maximum audio and artwork attachment size",
+          "preferred MP3 bitrate, WAV sample rate and bit depth",
+          "accepted artwork file formats and dimensions",
+          "whether a permissioned download link may replace attachments",
+          "whether previously released tracks or remixes are eligible",
+          "preferred release timing or recency",
+          "AI-assisted or AI-generated music policy",
+          "territorial or rights-clearance declarations",
+          "whether receipt confirmation is provided before the stated response window ends"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "office@wilddogsradio.com",
+            "purpose": "single-song music submissions and station correspondence",
+            "source": "https://wilddogsradio.com/music-submissions/",
+            "verification": "first-party plaintext publication, explicit submission purpose, valid syntax and exact wilddogsradio.com domain alignment"
+          }
+        ],
+        "emailStatus": "one source-verified public business mailbox stored",
+        "verification": "The mailbox is published in plaintext on the official Music Submissions page and repeated on the official privacy-policy contact section. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed, and no message was sent."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "generalContactFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "musicDepartmentSelectorIdentified": false,
+        "officialGuidelineWorkflowIdentified": true,
+        "javascriptRequired": false,
+        "temporaryCookieRequired": false,
+        "secureSessionObserved": false,
+        "captchaObserved": false,
+        "captchaType": null,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The canonical route is a public business email requiring audio, artwork and release metadata. A human must inspect the selected assets, confirm unpublished attachment and AI-origin rules and manually send one submission.",
+        "adjacentRoutesExcluded": [
+          "Facebook Total Request Live interaction as a substitute for the canonical submission route",
+          "donation and PayPal routes",
+          "merchandise storefront",
+          "Wild Dogs Promotions and advertising services",
+          "newsletter or unrelated general forms",
+          "bulk catalogue delivery",
+          "third-party submission directories and copied contact details"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "Wild Dogs Radio's first-party site displayed 2026 copyright notices, a live-listening interface, recently aired music, current and upcoming show modules, music-news items and a populated seven-day programme schedule."
+      },
+      "genreFitEvidence": [
+        "The official submission page states that all genres are accepted.",
+        "The homepage says the station supports artists from all corners of the world and broadcasts music without radio-edit censorship.",
+        "The current schedule includes Best of World Indie, alternative, metal, punk, funk, underground, record-label and live-request programming.",
+        "Selected MarcsMusic electronic, bass, hip-hop, reggae, world-fusion or experimental material has plausible fit after exact track selection."
+      ],
+      "manualReviewReason": "Wild Dogs Radio provides a legitimate free global single-song submission route and a source-verified business mailbox, but submission requires sending copyrighted audio and artwork attachments plus an exact ISRC. Attachment limits, technical file specifications, release-recency rules and AI-origin policy are unpublished. A human must inspect and select one track and send it manually.",
+      "priority": 92,
+      "pricingModel": "free/public-email/single-song/audio-and-artwork-attachment/isrc-required/capacity-gated/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Wild Dogs Radio",
+      "wilddogsradio.com",
+      "office@wilddogsradio.com",
+      "https://wilddogsradio.com/music-submissions/"
+    ],
+    "repositoryEvidence": "Repository code search was performed before creation for Wild Dogs Radio, wilddogsradio.com and office@wilddogsradio.com; no existing music-submission-agent platform, seed or queue record was found.",
+    "consolidation": "The public email route and the separate Facebook request interaction are not counted separately. Only the canonical free email-submission route is stored. Donation, merchandise, promotion, advertising and third-party-directory routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free global Wild Dogs Radio opportunity was queued as needs_manual_review. The official route accepts one MP3 or WAV song with artwork and required release metadata through a verified public business mailbox. No submission was made."
+}
