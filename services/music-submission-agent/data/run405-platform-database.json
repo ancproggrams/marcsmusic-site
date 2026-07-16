@@ -1,0 +1,146 @@
+{
+  "run": 405,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1722,
+  "pipelineEstimate": 1723,
+  "newPlatforms": [
+    {
+      "name": "WXYC 89.3 FM Music Department Email Submission Route",
+      "websiteUrl": "https://wxyc.org/",
+      "submissionUrl": "https://wxyc.org/contact",
+      "sourceUrl": "https://wxyc.org/contact",
+      "sourceType": "automation_run_405_public_research",
+      "country": "United States / Chapel Hill, North Carolina student-run freeform college radio with worldwide online listening",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "freeform-radio",
+        "independent-music",
+        "electronic",
+        "hip-hop",
+        "reggae",
+        "world-music",
+        "house",
+        "techno",
+        "ambient",
+        "underground-dance",
+        "experimental",
+        "cross-genre",
+        "public-business-email",
+        "authorized-email-submission-route",
+        "authorized-physical-submission-alternative",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-music-department-email-or-postal-route",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "public first-party Music Department email for music submissions or distribution concerns, with a published Music Department postal alternative",
+        "contactEmail": "md@wxyc.org",
+        "contactPerson": "WXYC Music Department",
+        "contactPublication": "WXYC's official Contact page publishes md@wxyc.org in plaintext and explicitly directs music submissions or distribution concerns to it.",
+        "explicitPurpose": "Music submissions and distribution concerns for airplay consideration by WXYC's Music Department.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Confirm the current preferred digital delivery method and unresolved eligibility requirements, then send one individually selected MarcsMusic release through the Music Department email or use the postal alternative, not both.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": true
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "email music submissions or distribution concerns to md@wxyc.org",
+          "a WXYC Music Department postal address is published as an alternative contact route",
+          "the station operates as a student-run freeform outlet and favors music receiving limited airplay elsewhere",
+          "no submission fee, account, login, CAPTCHA or mandatory-payment requirement is published for the email route"
+        ],
+        "safeReviewScope": [
+          "select one genuinely relevant MarcsMusic release rather than bulk-delivering a catalogue",
+          "confirm whether WXYC currently prefers attachments, public streams, private streams or permissioned downloadable links",
+          "confirm international and non-local artist eligibility before sending",
+          "confirm audio formats, file-size limits, metadata, artwork, release timing, explicit-content and AI-origin requirements",
+          "keep the pitch concise and identify the artist, track or release, genre fit and contact details",
+          "avoid oversized unsolicited attachments until limits are confirmed",
+          "use either email or physical delivery for one release, not simultaneous duplicate delivery",
+          "do not use outreach@wxyc.org, info@wxyc.org, psa@wxyc.org, individual DJs or social-media messages as submission substitutes",
+          "retain needs_manual_review until the current live requirements are checked"
+        ],
+        "unresolvedEligibility": [
+          "international and non-local artist eligibility",
+          "accepted release types, including whether singles, EPs and albums are all eligible",
+          "attachment versus streaming-link versus downloadable-link preference",
+          "accepted audio formats, bitrate, sample rate and file-size limits",
+          "required artist, track, release, label, biography, contact and artwork metadata",
+          "release-date, previously released material and recency rules",
+          "explicit-content, FCC-safe and clean-edit requirements",
+          "AI-assisted or AI-generated music policy",
+          "follow-up and resubmission timing"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "md@wxyc.org",
+            "purpose": "music submissions and distribution concerns",
+            "source": "https://wxyc.org/contact",
+            "verification": "first-party plaintext publication, explicit music-submission purpose, valid syntax and exact official-domain alignment"
+          }
+        ],
+        "emailStatus": "one usable public Music Department submission mailbox verified from the official Contact page",
+        "verification": "The official WXYC Contact page explicitly states that music submissions or distribution concerns should be emailed to md@wxyc.org. The address has valid syntax and matches the official wxyc.org domain. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "generalContactFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "musicDepartmentSelectorIdentified": false,
+        "javascriptRequired": false,
+        "captchaObserved": false,
+        "captchaType": null,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The canonical route is a public email address rather than a submission form. A human must verify the live page and current delivery requirements and must stop if any linked workflow introduces authentication, CAPTCHA, consent, payment or other protected controls.",
+        "adjacentRoutesExcluded": [
+          "PSA form available only by contacting the Communications Manager",
+          "outreach mailbox for event coordination, promotion or artist contacts",
+          "general information mailbox",
+          "individual DJs and specialty programmes",
+          "social-media direct messages",
+          "simultaneous duplicate email and postal delivery"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "WXYC's official Programming page states that the station broadcasts 24 hours a day, 365 days a year. The official site published a summer-DJ recruitment notice dated May 11, 2026, an artist interview dated June 7, 2026 and a festival review dated June 8, 2026. Its Archive page contains programming through the week of May 31, 2026."
+      },
+      "genreFitEvidence": [
+        "WXYC describes its regular schedule as a freeform mix of any and all types of twentieth- and twenty-first-century music.",
+        "The station says it tends to favor music that receives limited airplay elsewhere in the Triangle area.",
+        "New Science Experience explicitly includes house, techno, hip-hop, ambient and underground dance.",
+        "A selected MarcsMusic electronic, bass, reggae, world-fusion, ambient or experimental release has plausible fit, subject to human track selection and current submission requirements."
+      ],
+      "manualReviewReason": "WXYC explicitly authorizes music submissions by public Music Department email and publishes a physical alternative, but digital-delivery mechanics, international eligibility, accepted release types, formats, file limits, metadata, release timing, explicit-content rules and AI-origin policy remain unpublished. Human review is required before one non-duplicative delivery.",
+      "priority": 90,
+      "pricingModel": "free-first/plaintext-first-party-email/authorized-physical-alternative/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "WXYC",
+      "WXYC 89.3 FM",
+      "wxyc.org",
+      "md@wxyc.org",
+      "https://wxyc.org/contact"
+    ],
+    "repositoryEvidence": "Repository code search was performed for WXYC before creation and returned no existing music-submission-agent platform, seed or queue record. The public submission mailbox and physical Music Department address are stored once as one canonical opportunity.",
+    "consolidation": "The Music Department email and postal address are one opportunity. The outreach, general-information and PSA contacts, individual DJs, specialty programmes and social-media routes are excluded as duplicates or unauthorized substitutes."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first WXYC opportunity was queued as needs_manual_review. The official Contact page explicitly authorizes md@wxyc.org for music submissions or distribution concerns and publishes a Music Department postal alternative. No submission was made."
+}
