@@ -2,7 +2,7 @@
 
 Date: 2026-07-16
 
-Latest run: Run 404
+Latest run: Run 405
 
 New items added: 1
 
@@ -10,32 +10,30 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1722
+Pipeline estimate: 1723
 
 Items:
 
-- KSPC 88.7 FM — protected first-party digital album-or-EP route with downloadable-delivery, no-singles and AI-provenance restrictions
+- WXYC 89.3 FM — public first-party Music Department email route with a consolidated physical alternative
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Route note: KSPC's official Music Submissions page welcomes artists from all genres and authorizes digital album or EP delivery using attached files or a downloadable cloud-storage link. It also authorizes a CD or record alternative. The digital and physical methods are one canonical opportunity and must not be used as duplicate routes.
+Route note: WXYC's official Contact page explicitly directs music submissions or distribution concerns to `md@wxyc.org` and publishes a WXYC Music Department postal address. Email and postal delivery are one canonical opportunity and must not be used as duplicate routes.
 
-Release-type note: Singles, demos and cassettes are not accepted. Spotify and iTunes links are not accepted, and YouTube or SoundCloud is insufficient unless the supplied site also provides a download method. A MarcsMusic release must be a complete eligible album or EP.
+Email-verification note: `md@wxyc.org` was verified through first-party plaintext publication, explicit music-submission purpose, valid syntax and exact `wxyc.org` domain alignment. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-AI-policy note: KSPC excludes work substantially generated through AI and warns against falsely claiming work was created without artificial generation. A human must document production provenance and block any release that is substantially AI-generated, ambiguous or misrepresented.
+Delivery-boundary note: WXYC does not publish current international eligibility, accepted release types, attachment-versus-link instructions, formats, file-size limits, metadata, artwork, release timing, explicit-content requirements or AI-origin policy. A human must confirm these requirements before one delivery and avoid oversized unsolicited attachments.
 
-Email-verification note: The official page publishes protected first-party email actions for digital submission and follow-up, but Cloudflare masks the destinations in passive retrieval. No address was decoded, guessed, inferred from naming patterns or taken from a third-party source. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Form note: No dedicated public music-submission form was identified. The Contact page references a PSA form available through the Communications Manager, but that route is unrelated to music submissions and was excluded. No canonical CAPTCHA, login, account or mandatory-payment requirement was observed.
 
-Delivery-boundary note: International eligibility, exact mailbox syntax, formats, bitrate, sample rate, file-size limits, metadata, artwork, release timing and explicit-content requirements remain unpublished. A human must open the official page, use its protected action and confirm unresolved requirements before delivery.
+Payment note: WXYC publishes no submission fee or mandatory-payment requirement for the Music Department email route. Email is free-first; physical production and international postage remain sender costs.
 
-Payment note: KSPC states that it is noncommercial and does not accept payment in exchange for airplay. No submission fee, account or login requirement is published. Digital delivery is free-first; physical production and international postage remain sender costs.
+Activity and fit note: WXYC states that it broadcasts 24 hours a day, 365 days a year. Its official site published current material dated May 11, June 7 and June 8, 2026 and archive content through the week of May 31, 2026. WXYC's freeform format and New Science Experience coverage of house, techno, hip-hop, ambient and underground dance provide plausible fit for a carefully selected MarcsMusic electronic, bass, reggae, world-fusion, ambient or experimental release.
 
-Activity and fit note: KSPC's official site exposed live-listening and current-playlist functions, a March 30, 2026 article and a 2026 footer. Its first-party-linked Spinitron page displayed on-air, upcoming and recent programming dated July 16, 2026. KSPC welcomes all genres and promotes innovative, new and underrepresented sounds, providing plausible fit for a compliant MarcsMusic electronic, bass, reggae, dub or world-fusion album or EP.
+Manual-review note: Confirm international eligibility, release type, delivery method, technical requirements, content rules and AI-origin policy. Use only `md@wxyc.org` or the published postal route once, not both. Do not substitute outreach, general-information, PSA, individual-DJ or social-media routes.
 
-Manual-review note: Confirm album-or-EP status, non-substantial-AI provenance, international eligibility and technical requirements. Use approved attachments or a permissioned downloadable cloud link, select only one delivery method, and retain `needs_manual_review` until the live route is checked. Do not bypass Cloudflare protection or any CAPTCHA, login, consent, payment or anti-bot control.
+Deduplication note: Repository code search was completed for WXYC before creation and returned no previous music-submission-agent platform, runtime seed or queue record. The Music Department email and postal address are stored once as one canonical opportunity.
 
-Deduplication note: Repository code search was completed for KSPC, `kspc.org` and the official Music Submissions path. No prior music-submission-agent platform, runtime seed, protected-contact or queue record was found.
+Runtime-linkage note: Run 405's seed is chained after Run 404 in the active recursive seed chain.
 
-Runtime-linkage note: Run 404's seed is chained after Run 403 in the active recursive seed chain.
-
-Safety: No email, protected destination, audio file, attachment, cloud-storage link, physical package, form field, login, CAPTCHA, consent or payment was entered or submitted. No Cloudflare protection, anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No email, audio file, attachment, link, physical package, form field, login, CAPTCHA, consent or payment was entered or submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
