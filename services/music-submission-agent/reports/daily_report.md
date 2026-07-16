@@ -2,7 +2,7 @@
 
 Date: 2026-07-16
 
-Latest run: Run 402
+Latest run: Run 403
 
 New items added: 1
 
@@ -10,30 +10,30 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1720
+Pipeline estimate: 1721
 
 Items:
 
-- KVRX 91.7 FM — source-verified Music Department email route with a consolidated physical alternative and a strict AI-provenance exclusion
+- KGNU Community Radio — reCAPTCHA-protected first-party contact form with a Music department selector, queued only for an asset-free routing inquiry
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Route note: KVRX's official Contact page directs all music submissions for airplay consideration to `music@kvrx.org`, repeats it as the Music Department address, and states that both digital and physical submissions are currently accepted. `operations@kvrx.org` is published only for questions about submissions and is not a second delivery route.
+Route note: KGNU's official Contact Us page provides a Contact Staff or DJ form with Music as a selectable department. Its official Team page identifies Indra Raj as Music Director. The route is legitimate for a process inquiry but is not a dedicated music-submission form and does not authorize direct audio, attachment, streaming-link or download-link delivery.
 
-AI-policy note: KVRX explicitly states that AI-assisted or AI-generated music will not be considered. A human must verify the full production provenance of the selected MarcsMusic track. No track with AI-assisted or AI-generated elements may be submitted through this route.
+CAPTCHA note: The form displays reCAPTCHA v3. It must be completed manually and must not be automated, decoded, simulated or bypassed. A human must stop if the live route presents additional authentication, consent, payment, session or protected controls.
 
-Delivery-boundary note: KVRX does not publish current attachment-versus-link instructions, formats, bitrate, sample rate, file-size limits, metadata, international eligibility, release timing or explicit-content requirements. These must be confirmed before music is supplied. The digital email route is free-first; physical delivery remains unapproved for MarcsMusic until international eligibility and procedure are confirmed.
+Email-verification note: No public plaintext Music Department or Music Director business mailbox was found on the reviewed first-party pages. No address was guessed, inferred from naming patterns, decoded or obtained from a third-party source. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Form note: No dedicated music-submission form, CAPTCHA, account, login or mandatory payment requirement was identified for the email route. The newsletter form and website login are unrelated and were excluded.
+Delivery-boundary note: The reviewed pages do not confirm whether unsolicited or international submissions are open and do not publish accepted delivery methods, formats, file limits, metadata, release timing, explicit-content or AI-origin rules. The first message must therefore be one concise asset-free inquiry with Music selected. No audio or music link may be included until KGNU returns an authorized procedure.
 
-Activity and fit note: KVRX's first-party site exposed a live now-playing interface, Spring and interim 2026 schedules, freeform and specialty programming, and official blog content dated through June 2, 2026. Its freeform model and official Hip Hop / Rap and World / Reggae review categories create plausible fit for selected eligible electronic, experimental, reggae, world-fusion and cross-genre releases.
+Activity and fit note: KGNU's first-party homepage displayed a live broadcast interface and content dated July 14-15, 2026. Current official programmes include Reggae Bloodlines for reggae, ska, rock steady, dub and dancehall; TerraSonic for international hybrids including Asian dub and Afro-beat; and Musica Mundi for global music. Selected MarcsMusic reggae, dub and electronic-world-fusion releases have plausible fit, subject to process confirmation.
 
-Email-verification note: `music@kvrx.org` and `operations@kvrx.org` are published in plaintext on KVRX's official page, have valid syntax and exact official-domain alignment. The first is the canonical submission destination; the second is informational only. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Form note: The public form requests first name, last name, valid email, phone, department and a message of up to 500 characters. The newsletter and event forms, unrelated departments, individual DJs, phone lines, social accounts and postal addresses were excluded as submission substitutes.
 
-Manual-review note: A human must confirm non-AI provenance, accepted digital delivery method, formats, file limits, international eligibility, metadata, release timing and content requirements, then submit once through the Music Department route. Programming, booking, production, newsletter, login, social and physical routes must not be used as duplicate delivery paths or workarounds.
+Manual-review note: A human must open the official form, select Music, complete reCAPTCHA, send one asset-free inquiry and retain `needs_manual_review` until KGNU confirms eligibility and an authorized delivery method. Do not infer a Music Director email, contact individual DJs or use unrelated departments as workarounds.
 
-Deduplication note: Repository code search was completed for KVRX, `kvrx.org`, `music@kvrx.org` and `operations@kvrx.org`. No prior music-submission-agent platform, runtime seed, business-contact or queue record was found.
+Deduplication note: Repository code search was completed for KGNU, `kgnu.org`, the official contact path and Indra Raj. No prior music-submission-agent platform, runtime seed, business-contact or queue record was found.
 
-Runtime-linkage note: Run 402's seed is chained after Run 401 in the active recursive seed chain.
+Runtime-linkage note: Run 403's seed is chained after Run 402 in the active recursive seed chain.
 
-Safety: No email, form field, newsletter signup, website login, audio file, attachment, streaming or download link, biography, metadata, artwork, personal information, physical package, account, CAPTCHA, consent or payment was entered or submitted. No AI-policy, anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No form field, reCAPTCHA response, email, audio file, attachment, streaming or download link, biography, metadata, artwork, personal information, account, login, consent or payment was entered or submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
