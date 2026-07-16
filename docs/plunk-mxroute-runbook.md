@@ -31,16 +31,27 @@ marcsmusic-release-os / outreach-worker
 Zet secrets uitsluitend via Railway Variables. Nooit in Git, Docker build
 arguments, shell history, logs of fixtures.
 
-Applicatieservices (`marcsmusic-release-os` en `outreach-worker-production`):
+Gedeelde applicatievariabelen:
 
 ```text
 EMAIL_PROVIDER=plunk
 PLUNK_BASE_URL=https://plunk-api-production.up.railway.app
 PLUNK_SECRET_KEY=<Railway secret>
-EMAIL_FROM=MarcsMusic <noreply@marcsmusic.nl>
-PLUNK_FROM=MarcsMusic <marc@marcsmusic.nl>  # outreach-worker-production
 PLUNK_WEBHOOK_SECRET=<Railway secret>
-PLUNK_SEND_ENABLED=false
+```
+
+`marcsmusic-release-os` (transactionele mail):
+
+```text
+EMAIL_FROM=MarcsMusic <noreply@marcsmusic.nl>
+PLUNK_FROM=MarcsMusic <noreply@marcsmusic.nl>
+PLUNK_SEND_ENABLED=true
+```
+
+`outreach-worker-production` (outreach, standaard fail-closed):
+
+```text
+PLUNK_FROM=MarcsMusic <marc@marcsmusic.nl>
 OUTREACH_SEND_ENABLED=false
 OUTREACH_KILL_SWITCH=true
 ```
