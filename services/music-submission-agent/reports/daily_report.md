@@ -2,7 +2,7 @@
 
 Date: 2026-07-16
 
-Latest run: Run 411
+Latest run: Run 412
 
 New items added: 1
 
@@ -10,32 +10,32 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1729
+Pipeline estimate: 1730
 
 Items:
 
-- KWDC 93.5 FM — free-first clean-MP3 music-submission route through a verified public station mailbox, requiring a signed music consent form or manually completed digital-signature workflow
+- Camaradio 101.3 FM — free-first one-song submission route through a dedicated first-party form using either a permissioned downloadable file link or a compliant WAV/MP3 upload
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Route note: KWDC's official Music Submissions page directs independent and unsigned-artist music to `kwdc@deltacollege.edu`. The email must use the subject `Music Submission` and include sender and artist names, song title, a professional short description, social or website links, a signed consent form or digital-sign completion notice, and an MP3 stereo master at -3 dB.
+Route note: Camaradio's official Submit Your Music page requests one song for possible airplay. The route accepts a downloadable music-file link or direct file upload. WAV and MP3 are accepted at 44.1 or 48 kHz, 16-bit stereo; direct uploads must be under 10 MB.
 
-Contact-verification note: The mailbox is published in plaintext on the official submission page, explicitly assigned to music and consent delivery, and repeated across official KWDC pages. Its source, purpose, syntax and exact `deltacollege.edu` institutional-domain alignment were verified. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Form and CAPTCHA note: The form requests submitter, artist, email, location, song and release data, and displays a changing arithmetic human-verification question. The challenge must be completed personally and must not be automated or bypassed.
 
-Consent and form note: A signed music consent is mandatory. KWDC provides a downloadable consent document and a linked optional digital-signature workflow. Neither was opened for completion, accepted or signed. The digital-sign route must be inspected manually and abandoned if CAPTCHA, login, payment, terms, session or other protected controls appear.
+Rights note: Submission requires an affirmation that the submitter holds the necessary rights and authorizes Camaradio to air the track if selected. A human must verify ownership, contributors, publishing, neighbouring rights and territorial permissions before accepting this declaration.
 
-Format and content note: KWDC accepts MP3 only, requests a stereo master at -3 dB and requires clean content with no vulgarity, discrimination or explicit material. Bitrate, sample rate, exact -3 dB measurement and attachment-size limits are not published.
+Contact-verification note: No dedicated public music-submission mailbox was found. `hello@camaradio.org` is published in plaintext on the official Support page for sponsorship enquiries, has valid syntax and exact `camaradio.org` domain alignment, and was excluded as a music-submission substitute. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Free and payment note: No submission fee, account login, CAPTCHA or mandatory payment was identified for the canonical public email route. Underwriting and advertising are separate adjacent routes and were excluded.
+Free and payment note: No submission fee, account login or mandatory payment was identified for the canonical form. Donation, sponsorship, shop and newsletter routes are separate and excluded.
 
-Eligibility note: International eligibility, release-recency requirements, rights beyond the consent, additional metadata and artwork expectations, and AI-origin policy are not published. These unresolved points keep the route in `needs_manual_review`.
+Eligibility note: The form allows artists to answer No when asked whether they are based in Ventura County, but it does not expressly confirm international eligibility. Explicit-content rules, release-window requirements, additional metadata expectations and AI-origin policy are also unpublished. These unresolved points keep the route in `needs_manual_review`.
 
-Activity and fit note: KWDC's first-party site displayed a Summer 2026 24/7 schedule, current faculty and staff, live and worldwide online listening, The Underground Hour for unsigned artists, and current Hip-Hop, R&B/Soul and varied music programming. Potential MarcsMusic fits include selected clean electronic, dance, hip-hop, R&B/soul-adjacent and cross-genre material.
+Activity and fit note: Camaradio's first-party site exposes live listening, recently played content, a populated seven-day schedule, current 2026 station information and events including a July 11, 2026 fundraiser. Potential MarcsMusic fits include selected electronic, dance, reggae, world-fusion, indie-adjacent and cross-genre material.
 
-Manual-review note: Reopen the official page, confirm international eligibility, select one clean track, review and sign the current consent, inspect any digital-sign workflow manually, validate the MP3 master and attachment size, verify rights, release and AI-origin requirements, and manually send one reviewed email. Stop if authentication, CAPTCHA, payment, terms, session or another protected control appears.
+Manual-review note: Reopen the official form, confirm international eligibility, select exactly one suitable track, verify rights and broadcast authorization, validate the direct-download link or WAV/MP3 file, check explicit-content and AI-origin rules, complete the arithmetic challenge personally and submit manually. Stop if authentication, payment, additional consent, session or another protected control appears.
 
-Deduplication note: Repository code search and the complete open pull-request patch returned no previous KWDC, `kwdc.fm`, `deltacollege.edu`, `kwdc@deltacollege.edu`, runtime seed or queue record. The email route, mandatory consent document and optional digital-signature workflow are stored once; general contacts, staff mailboxes, show-pitch, shout-out, underwriting, IBS, social and third-party routes are excluded.
+Deduplication note: Repository code search and the complete open pull-request patch returned no previous Camaradio, Camarillo Community Radio, `camaradio.org`, canonical submissions path, `hello@camaradio.org`, runtime seed or queue record. The download-link and upload alternatives, rights affirmation and CAPTCHA are stored once; the general contact form, sponsorship mailbox, phone and text route, donations, newsletter, shop, social media and third-party contacts are excluded.
 
-Runtime-linkage note: Run 411's seed is chained after Run 410 in the active recursive seed chain.
+Runtime-linkage note: Run 412's seed is chained after Run 411 in the active recursive seed chain.
 
-Safety: No email, consent form, digital signature, audio file, attachment, form field, account, login, CAPTCHA, social message, underwriting request or payment was entered or submitted. No anti-bot, authentication, payment, legal-consent or platform restriction was bypassed.
+Safety: No form field, CAPTCHA response, audio file, downloadable link, rights affirmation, email, text message, newsletter signup, donation, account, login or payment was entered or submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
