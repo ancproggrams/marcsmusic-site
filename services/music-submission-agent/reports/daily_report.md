@@ -2,7 +2,7 @@
 
 Date: 2026-07-16
 
-Latest run: Run 401
+Latest run: Run 402
 
 New items added: 1
 
@@ -10,28 +10,30 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1719
+Pipeline estimate: 1720
 
 Items:
 
-- Overview Music — source-verified public label mailbox restricted to an asset-free demo-routing inquiry
+- KVRX 91.7 FM — source-verified Music Department email route with a consolidated physical alternative and a strict AI-provenance exclusion
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Route note: Overview Music's official site publishes `info@overviewmusic.co.uk` in plaintext. The mailbox is a valid first-party business contact, but it is not described as a dedicated unsolicited-demo destination and no current demo procedure is published.
+Route note: KVRX's official Contact page directs all music submissions for airplay consideration to `music@kvrx.org`, repeats it as the Music Department address, and states that both digital and physical submissions are currently accepted. `operations@kvrx.org` is published only for questions about submissions and is not a second delivery route.
 
-Delivery-boundary note: The only safe first action is one concise asset-free inquiry asking whether demos are open and requesting the authorized form, platform, mailbox, formats and eligibility rules. Do not attach music or include streaming, download or private track links unless Overview Music explicitly authorizes delivery.
+AI-policy note: KVRX explicitly states that AI-assisted or AI-generated music will not be considered. A human must verify the full production provenance of the selected MarcsMusic track. No track with AI-assisted or AI-generated elements may be submitted through this route.
 
-Form note: No dedicated public demo form, CAPTCHA, login, account or mandatory payment requirement was identified. The site's storefront and checkout are unrelated commerce functions and were excluded from the submission workflow.
+Delivery-boundary note: KVRX does not publish current attachment-versus-link instructions, formats, bitrate, sample rate, file-size limits, metadata, international eligibility, release timing or explicit-content requirements. These must be confirmed before music is supplied. The digital email route is free-first; physical delivery remains unapproved for MarcsMusic until international eligibility and procedure are confirmed.
 
-Activity and fit note: Overview Music's official storefront was live and functional on July 16, 2026, promoted Overview100, and exposed a populated catalogue plus artist, event and radio/podcast sections. The catalogue includes Klinical, Molecular, Emperor, Trex, Skylark, Creatures and Wingz and is centred on drum-and-bass and adjacent bass music.
+Form note: No dedicated music-submission form, CAPTCHA, account, login or mandatory payment requirement was identified for the email route. The newsletter form and website login are unrelated and were excluded.
 
-Email-verification note: `info@overviewmusic.co.uk` is published on Overview Music's official first-party site, has valid syntax and exact official-domain alignment. It was not treated as direct demo authorization. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Activity and fit note: KVRX's first-party site exposed a live now-playing interface, Spring and interim 2026 schedules, freeform and specialty programming, and official blog content dated through June 2, 2026. Its freeform model and official Hip Hop / Rap and World / Reggae review categories create plausible fit for selected eligible electronic, experimental, reggae, world-fusion and cross-genre releases.
 
-Manual-review note: A human must confirm whether unsolicited demos are open, international eligibility, genre and release-status fit, the authorized delivery route, accepted formats, file limits, metadata, rights, sample-clearance, explicit-content and AI-origin requirements before supplying any music.
+Email-verification note: `music@kvrx.org` and `operations@kvrx.org` are published in plaintext on KVRX's official page, have valid syntax and exact official-domain alignment. The first is the canonical submission destination; the second is informational only. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Deduplication note: The complete active pull-request patch resource and repository code search were checked for Overview Music, `overviewmusic.co.uk` and `info@overviewmusic.co.uk`. No prior music-submission-agent platform, runtime seed or queue record was found.
+Manual-review note: A human must confirm non-AI provenance, accepted digital delivery method, formats, file limits, international eligibility, metadata, release timing and content requirements, then submit once through the Music Department route. Programming, booking, production, newsletter, login, social and physical routes must not be used as duplicate delivery paths or workarounds.
 
-Runtime-linkage note: Run 401's seed is chained after Run 400 in the active recursive seed chain.
+Deduplication note: Repository code search was completed for KVRX, `kvrx.org`, `music@kvrx.org` and `operations@kvrx.org`. No prior music-submission-agent platform, runtime seed, business-contact or queue record was found.
 
-Safety: No email, form field, newsletter signup, storefront checkout, audio file, attachment, streaming or download link, biography, metadata, artwork, personal information, account, login, CAPTCHA, consent or payment was entered or submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
+Runtime-linkage note: Run 402's seed is chained after Run 401 in the active recursive seed chain.
+
+Safety: No email, form field, newsletter signup, website login, audio file, attachment, streaming or download link, biography, metadata, artwork, personal information, physical package, account, CAPTCHA, consent or payment was entered or submitted. No AI-policy, anti-bot, authentication, payment or platform restriction was bypassed.
