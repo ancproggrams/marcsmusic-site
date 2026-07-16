@@ -1,0 +1,129 @@
+{
+  "run": 392,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1709,
+  "pipelineEstimate": 1710,
+  "newPlatforms": [
+    {
+      "name": "CJSF 90.1 FM National Music Director Submission Route",
+      "websiteUrl": "https://www.cjsf.ca/",
+      "submissionUrl": "https://www.cjsf.ca/contact-us/departments/music-department",
+      "sourceUrl": "https://www.cjsf.ca/contact-us/departments/music-department",
+      "sourceType": "automation_run_392_public_research",
+      "country": "Canada / Burnaby, British Columbia campus-community radio",
+      "language": "en",
+      "genres": [
+        "campus-radio",
+        "community-radio",
+        "independent-music",
+        "electronic",
+        "hip-hop",
+        "world-music",
+        "experimental",
+        "national-distribution",
+        "public-form",
+        "public-business-email",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-national-music-director-form-or-music-coordinator-email-route",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party National Music Director submission form with an explicitly published Music Coordinator email alternative",
+        "email": "cjsfmusc@sfu.ca",
+        "explicitPurpose": "music submissions to CJSF and its National Music Director partnership workflow",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the current official CJSF Music Department page, inspect the live form and rights language, confirm international and release eligibility, then use either the form or cjsfmusc@sfu.ca once in the format CJSF currently requests.",
+        "audioDeliveryAuthorized": "Yes, CJSF expressly requests music through its Music Department form or music-submission mailbox, but the current upload, attachment or link specifications are not fully exposed passively.",
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedDirectSubmissionRequirements": [
+          "the submitter must hold the rights needed to grant broadcast rights",
+          "submitted releases may be made available to CJSF programmers and participating non-profit Canadian campus and community stations",
+          "CJSF does not accept singles into its local library",
+          "singles may only be shared through the partner distribution workflow subject to its separate eligibility and controls",
+          "non-local physical submissions are not accepted",
+          "use the first-party National Music Director form or the published cjsfmusc@sfu.ca music route"
+        ],
+        "liveFormFieldsPassivelyExposed": false,
+        "safeReviewScope": [
+          "inspect the current first-party form fields, broadcast-rights acknowledgement and validation without submitting",
+          "confirm whether a Netherlands-based artist may use CJSF's direct route",
+          "select an EP or album rather than a single for CJSF local-library consideration",
+          "confirm whether CJSF requests an upload, attachment, streaming link or downloadable link",
+          "confirm accepted codecs, bitrate, file sizes, metadata, artwork and release timing",
+          "confirm explicit-content, clean-edit and AI-origin policy",
+          "choose one route only and retain final submission evidence"
+        ],
+        "unresolvedEligibility": [
+          "non-Canadian and international artists",
+          "EP and album minimum track or duration requirements",
+          "accepted audio codecs, bitrate and file-size limits",
+          "upload versus attachment versus link delivery",
+          "required biography, artwork, identity labels and metadata",
+          "release-date window",
+          "explicit-content and clean-edit handling",
+          "AI-assisted or AI-generated music policy",
+          "follow-up timing"
+        ]
+      },
+      "businessContact": {
+        "email": "cjsfmusc@sfu.ca",
+        "emailStatus": "source-verified public Music Coordinator mailbox",
+        "verification": "CJSF's official Submissions, Music Department and Contact pages publish cjsfmusc@sfu.ca for music submissions and identify the current Music Coordinator. The address has valid syntax and uses Simon Fraser University's institutional sfu.ca domain. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "musicCategoryInquiryFormIdentified": true,
+        "formFieldsPassivelyVisible": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The official page instructs artists to complete a National Music Director submission form, but passive rendering does not expose the live fields, upload/link controls, validation, consent, CAPTCHA or anti-spam state. The separately promoted !earshot Distro platform is account-gated, paid and currently described as available to the Canadian music industry, so it is excluded from this free-first queue item.",
+        "adjacentRoutesExcluded": [
+          "paid and account-gated !earshot Distro platform",
+          "non-local physical submissions",
+          "Arts and Entertainment Coordinator",
+          "Programming Coordinator",
+          "individual programme hosts",
+          "social-media direct messages"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "CJSF's official homepage exposes live listening and programme pages aired through July 15, 2026. It also carries a Summer 2026 recruitment notice, current programme listings and active Music Department, chart and library surfaces."
+      },
+      "genreFitEvidence": [
+        "CJSF describes a diverse non-commercial campus-community mandate and maintains a Music Department for independent releases.",
+        "Current programme pages include independent and unreleased electronic music, old-school and new-school hip-hop, Latin alternative, West Indies music, experimental listening and jazz-funk crossover.",
+        "Selected MarcsMusic electronic, bass, reggae, world-fusion, hip-hop-crossover and experimental releases have plausible fit, subject to the current submission and international-eligibility rules."
+      ],
+      "manualReviewReason": "CJSF explicitly authorizes music submissions through its first-party National Music Director form or published Music Coordinator mailbox. A human must confirm that a non-Canadian MarcsMusic EP or album is eligible, inspect the current form and rights acknowledgement, verify the requested upload, attachment or link method, check formats, file sizes, metadata, artwork, release timing, identity-label fields, explicit-content and AI-origin rules, and submit through only one authorized route. CJSF's local library does not accept singles, non-local physical submissions are prohibited, and the separately promoted paid/account-gated !earshot Distro route must not be used without separate eligibility and payment approval.",
+      "priority": 92,
+      "pricingModel": "free-first/first-party-national-music-director-form-or-music-email/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "CJSF",
+      "CJSF 90.1 FM",
+      "cjsf.ca",
+      "cjsfmusc@sfu.ca",
+      "Simon Fraser campus radio",
+      "National Music Director Partnership"
+    ],
+    "repositoryEvidence": "The complete open pull-request patch and repository code index were searched for CJSF, CJSF 90.1 FM, cjsf.ca, cjsfmusc@sfu.ca, Simon Fraser campus radio and National Music Director Partnership. No prior music-submission-agent platform, runtime seed or queue record was found.",
+    "consolidation": "The first-party National Music Director form and the published Music Coordinator mailbox are stored as one canonical CJSF opportunity. The paid/account-gated !earshot Distro route, non-local physical delivery, adjacent staff contacts and individual programmes are excluded as parallel opportunities."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first CJSF music-submission opportunity was queued as needs_manual_review. No form field, email, file, link, account or physical package was submitted."
+}
