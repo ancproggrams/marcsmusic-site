@@ -1,0 +1,156 @@
+{
+  "run": 402,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1719,
+  "pipelineEstimate": 1720,
+  "newPlatforms": [
+    {
+      "name": "KVRX 91.7 FM Music Department Submission Route",
+      "websiteUrl": "https://kvrx.org/app/",
+      "submissionUrl": "mailto:music@kvrx.org",
+      "sourceUrl": "https://kvrx.org/app/contact/",
+      "sourceType": "automation_run_402_public_research",
+      "country": "United States / Austin, Texas college radio with worldwide online listening",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "freeform-radio",
+        "independent-music",
+        "electronic",
+        "experimental",
+        "hip-hop",
+        "world",
+        "reggae",
+        "cross-genre",
+        "public-business-email",
+        "authorized-email-submission-route",
+        "authorized-physical-submission-alternative",
+        "ai-provenance-restricted",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-music-department-email-or-physical-delivery-route",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "public first-party Music Department email for music submissions, with a consolidated physical-delivery alternative",
+        "contactEmail": "music@kvrx.org",
+        "questionsEmail": "operations@kvrx.org",
+        "contactPublication": "KVRX publishes both addresses in plaintext on its official Contact page. It instructs artists to send all music submissions for airplay consideration to music@kvrx.org and reserves operations@kvrx.org for questions about submissions.",
+        "explicitPurpose": "Direct music submission for airplay consideration through the Music Department mailbox; the Operations mailbox is informational only and is not a second delivery route.",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Confirm that the selected track contains no AI-assisted or AI-generated music, verify current digital delivery specifications, and then use the Music Department route once. Use Operations only for an asset-free process question if specifications cannot be confirmed.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "send music submissions for airplay consideration to music@kvrx.org",
+          "KVRX currently accepts both physical and digital submissions",
+          "AI-assisted or AI-generated music will not be considered",
+          "music submissions sent to the Programming Department will not be reviewed",
+          "questions about music submissions may be directed to operations@kvrx.org"
+        ],
+        "safeReviewScope": [
+          "confirm the selected MarcsMusic track was not AI-assisted or AI-generated",
+          "confirm whether digital delivery should use an attachment, public stream, private stream or downloadable cloud link",
+          "confirm accepted audio formats, bitrate, sample rate and file-size limits",
+          "confirm whether international artists and independently released music are eligible",
+          "confirm required artist, release, biography, artwork, label and contact metadata",
+          "confirm release-date and unreleased-versus-released rules",
+          "confirm explicit-content, FCC-safe and clean-edit requirements",
+          "use music@kvrx.org once for delivery and do not duplicate the submission through operations, programming, booking or other staff mailboxes",
+          "prefer the free digital route; do not mail physical media until international eligibility and the current mailing procedure are confirmed",
+          "retain needs_manual_review until provenance and delivery specifications are confirmed"
+        ],
+        "unresolvedEligibility": [
+          "international artist eligibility",
+          "accepted digital delivery method",
+          "audio formats, bitrate, sample rate and file-size limits",
+          "required metadata and artwork",
+          "release timing and previously released material rules",
+          "explicit-content and clean-edit policy",
+          "physical-delivery eligibility for an international artist",
+          "response and follow-up timing"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "music@kvrx.org",
+            "role": "Music Department and canonical music-submission destination",
+            "sourceVerified": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "smtpProbed": false,
+            "verification": "Published in plaintext on KVRX's official Contact page, repeated under Music Department, and explicitly designated for all music submissions for airplay consideration. The address has valid syntax and exactly matches the official kvrx.org domain."
+          },
+          {
+            "email": "operations@kvrx.org",
+            "role": "questions about music submissions; not a music-delivery destination",
+            "sourceVerified": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "smtpProbed": false,
+            "verification": "Published in plaintext on the same first-party page specifically for inquiries or questions regarding music submissions. It is retained as an informational contact and is not counted as a second submission opportunity."
+          }
+        ],
+        "emailStatus": "one source-verified direct Music Department submission mailbox plus one source-verified informational mailbox",
+        "verification": "Verification was limited to first-party publication, syntax, exact domain alignment, stated role and current official-site availability. No address was guessed or obtained from a third-party directory. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "generalContactFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "javascriptRequired": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "KVRX authorizes email and physical submissions but does not publish complete digital delivery specifications. A human must confirm provenance and technical requirements before supplying music.",
+        "adjacentRoutesExcluded": [
+          "newsletter signup form",
+          "site login link",
+          "Programming Department mailbox",
+          "Booking Director mailbox",
+          "Production and Local Live mailbox",
+          "individual staff and department addresses",
+          "advertising and underwriting contact",
+          "social-media direct messages",
+          "duplicate simultaneous use of digital and physical delivery"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "KVRX's official homepage exposed a functioning live now-playing interface; the official schedule contained Spring 2026, Sprinterim 2026 and senior-sign-off blocks with freeform and specialty programming; and the official blog contained current station and music coverage dated through June 2, 2026."
+      },
+      "genreFitEvidence": [
+        "KVRX identifies its programming as freeform and specialty radio under the slogan None of the Hits, All of the Time.",
+        "Its official album-review taxonomy includes Hip Hop / Rap and World / Reggae categories.",
+        "Selected non-AI-assisted MarcsMusic electronic, experimental, hip-hop-adjacent, reggae, world-fusion or cross-genre releases have plausible programming fit, subject to human track selection and provenance review."
+      ],
+      "manualReviewReason": "KVRX provides an explicit direct submission destination and currently accepts digital and physical music, but its published policy rejects AI-assisted/generated music and omits technical delivery specifications, international eligibility and content rules. Human review is mandatory to verify track provenance, obtain current format instructions and prevent duplicate or misrouted delivery.",
+      "priority": 91,
+      "pricingModel": "free-first/public-music-department-email/authorized-direct-submission/strict-ai-provenance-gate/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KVRX",
+      "KVRX 91.7 FM",
+      "kvrx.org",
+      "music@kvrx.org",
+      "operations@kvrx.org"
+    ],
+    "repositoryEvidence": "Repository code search was performed for KVRX and music@kvrx.org before creation. No previous music-submission-agent platform, runtime seed, business-contact or queue record was found.",
+    "consolidation": "The Music Department email and physical alternative are stored once as one canonical opportunity. The Operations mailbox is informational only. Programming, booking, production, newsletter, login, staff and social routes are excluded as duplicate or unauthorized substitutes."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first KVRX submission opportunity was queued as needs_manual_review. The direct Music Department mailbox and separate questions mailbox were source-verified. The published AI restriction is a hard eligibility gate. No email, music, form, physical package or payment action occurred."
+}
