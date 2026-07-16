@@ -1,0 +1,131 @@
+{
+  "run": 394,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1711,
+  "pipelineEstimate": 1712,
+  "newPlatforms": [
+    {
+      "name": "WRMC 91.1 FM Music Directors Process Inquiry Route",
+      "websiteUrl": "https://wrmc.middlebury.edu/",
+      "submissionUrl": "https://wrmc.middlebury.edu/about",
+      "sourceUrl": "https://wrmc.middlebury.edu/about",
+      "sourceType": "automation_run_394_public_research",
+      "country": "United States / Middlebury, Vermont student-run college radio",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "student-radio",
+        "alternative",
+        "electronic",
+        "hip-hop",
+        "rap",
+        "world-music",
+        "indie",
+        "public-business-email",
+        "asset-free-inquiry",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-music-directors-asset-free-process-inquiry",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public Music Director contact for an asset-free process inquiry",
+        "emails": [
+          "crichardson@middlebury.edu",
+          "hmcfadden@middlebury.edu"
+        ],
+        "explicitPurpose": "Music Director role contact; inquiry about WRMC's current authorized external-music submission procedure",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Send one concise inquiry to the Music Director function without audio, attachments, private links or release assets, asking for the current authorized procedure.",
+        "audioDeliveryAuthorized": "Not yet. The official pages reviewed do not publish an unsolicited-audio delivery method.",
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedDirectSubmissionRequirements": [],
+        "safeReviewScope": [
+          "choose one coordinated inquiry rather than separate messages to both Music Directors",
+          "ask whether external and international artists are eligible",
+          "request the current authorized upload, attachment or download-link method",
+          "request accepted audio formats and file-size limits",
+          "request required metadata, artwork, biography and release timing",
+          "request clean-edit, explicit-content and AI-origin rules",
+          "retain needs_manual_review until WRMC replies with an authorized route"
+        ],
+        "unresolvedEligibility": [
+          "whether WRMC accepts unsolicited music from external or international artists",
+          "whether singles, EPs or albums are eligible",
+          "accepted formats, file sizes and attachment-versus-link requirements",
+          "metadata, artwork and release-window requirements",
+          "explicit-content or radio-edit requirements",
+          "AI-assisted or AI-generated music policy",
+          "whether physical media is accepted"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "name": "Cate Richardson",
+            "role": "Music Director",
+            "email": "crichardson@middlebury.edu"
+          },
+          {
+            "name": "Honor McFadden",
+            "role": "Music Director",
+            "email": "hmcfadden@middlebury.edu"
+          }
+        ],
+        "emailStatus": "two current first-party institutional Music Director contacts publicly listed in plaintext",
+        "verification": "Both addresses are published on WRMC's official About page beside the Music Director role, have valid syntax and use Middlebury College's official middlebury.edu domain. They are consolidated into one canonical Music Director inquiry opportunity. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "musicCategoryInquiryFormIdentified": false,
+        "formFieldsPassivelyVisible": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "No music-submission form or asset-delivery workflow was identified on the reviewed official pages. A human must use only one asset-free inquiry and must stop if WRMC redirects to a login, CAPTCHA, payment, private portal or other protected workflow.",
+        "adjacentRoutesExcluded": [
+          "individual DJ contacts and app chat",
+          "Programming Managers, General Managers and other staff",
+          "the FM-PHASIS zine submission notice",
+          "the station address as an inferred physical music-delivery route",
+          "the public library inventory and internal song-logging resources"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "WRMC's official homepage exposed a live player, current-show/current-playlist interface and featured shows. The official schedule listed active weekly programming, and the charts page displayed current-played tracks. The About page identifies a current student executive team."
+      },
+      "genreFitEvidence": [
+        "WRMC states that it curates music in many forms, from retrospectives to trap-oriented programming.",
+        "The current schedule includes electronic, rap, hip-hop, world, pop, indie, alternative, R&B/soul and other programming.",
+        "Selected MarcsMusic electronic, bass, reggae, world-fusion and hip-hop-adjacent tracks may fit individual programmes, but no asset may be delivered until WRMC confirms the process."
+      ],
+      "manualReviewReason": "WRMC has current public Music Director contacts but no published unsolicited-music delivery procedure on the reviewed official pages. The only approved action is one coordinated, asset-free process inquiry. A human must confirm external and international eligibility, formats, links, metadata, release timing, content and AI-origin rules before any release asset is supplied. Do not contact both Music Directors separately, attach files, send private links, target individual DJs or infer a postal submission route.",
+      "priority": 88,
+      "pricingModel": "free-first/public-music-director-asset-free-process-inquiry/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "WRMC",
+      "WRMC 91.1",
+      "wrmc.middlebury.edu",
+      "crichardson@middlebury.edu",
+      "hmcfadden@middlebury.edu"
+    ],
+    "repositoryEvidence": "The complete open pull-request patch and repository code index were searched for WRMC, WRMC 91.1, wrmc.middlebury.edu and both published Music Director addresses. No prior music-submission-agent platform, runtime seed or queue record was found.",
+    "consolidation": "The two co-Music Director contacts are stored as one canonical WRMC inquiry opportunity. They must not be queued as separate outreach targets. Individual DJs, other staff, app chat, the zine notice, library resources and the station address are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first WRMC opportunity was queued as needs_manual_review for an asset-free process inquiry only. No email, form field, audio asset, link, login, CAPTCHA or payment was submitted."
+}
