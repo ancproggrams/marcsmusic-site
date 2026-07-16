@@ -2,7 +2,7 @@
 
 Date: 2026-07-16
 
-Latest run: Run 407
+Latest run: Run 408
 
 New items added: 1
 
@@ -10,30 +10,30 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1725
+Pipeline estimate: 1726
 
 Items:
 
-- SomaFM — channel-specific first-party digital submission route using one designated business mailbox and a Bandcamp YUM code or permissioned download link
+- KXCI 91.3 FM — international first-party digital submission route using a protected Music Department email action and an MP3 or WAV download link, with an authorized physical alternative
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Route note: SomaFM's official Submit Music page currently accepts digital releases for a limited set of channels. Eight unique channel-submission mailboxes are published in plaintext and consolidated into one canonical routing opportunity. A release must be sent to exactly one matching music director; duplicate delivery to multiple addresses causes submissions to be ignored.
+Route note: KXCI's official Music Department page explicitly accepts music from all over the world. It authorizes digital MP3 or WAV download-link submissions and separately permits national and international CDs or vinyl; vinyl must include a digital download. Digital delivery is the free-first option.
 
-AI-provenance note: SomaFM expressly rejects AI music submissions and names Suno as an example. No MarcsMusic release may be submitted until a human confirms that its complete production provenance complies with this hard eligibility rule.
+Contact-verification note: The purpose-specific Music Department email action is published on KXCI's official submission page but was obscured by Cloudflare during passive retrieval. The destination was not decoded, guessed, inferred or copied from a third-party source. No plaintext address was stored, and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Delivery note: Use a Bandcamp link plus YUM download code or a permissioned WeTransfer, Dropbox or comparable downloadable folder. Files must be 256 kbps or v0/highest-quality VBR MP3 at 44.1 kHz with correct artist, track, album or single, genre, website and contact metadata. WAV, AIFF, FLAC, 128 kbps MP3, SoundCloud, YouTube, Mixcloud, Facebook and Haulix routes are not accepted. Physical CDs are not accepted.
+Requirements note: KXCI asks for artist name, album title, artwork, tracklist and timings, label or self-release status, release date, genre and similar artists, explicit-language disclosure, biography, social links, relevant performances and contact information. The digital wording refers to albums, so standalone-single eligibility requires confirmation.
 
-Email-verification note: `promosubmissions@somafm.com`, `dion@somafm.com`, `shawn@somafm.com`, `roy@somafm.com`, `kampf@somafm.com`, `elise@somafm.com`, `mark@somafm.com` and `fiona@somafm.com` were verified through first-party plaintext publication, explicit channel purposes, valid syntax and exact `somafm.com` domain alignment. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Protection and payment note: No public submission form, account login, CAPTCHA or mandatory submission payment was identified. The protected email action must be opened normally by a human. Donation, underwriting, newsletter and event routes are unrelated and were excluded.
 
-Protection and payment note: No public submission form, CAPTCHA, SomaFM account login or mandatory submission payment was identified. Donation, supporter and store links are unrelated to music consideration. Any third-party file-hosting account or pricing remains external and must not be bypassed.
+Capacity note: KXCI states that it receives more than 500 physical and digital submissions each week and cannot review, comment on or broadcast every release. Repeated follow-up and bulk catalogue delivery are inappropriate.
 
-Activity and fit note: SomaFM's official homepage displayed more than 30 active commercial-free channels with current web-player, now-playing and listener information on July 16, 2026. Potential MarcsMusic fits include ambient and downtempo electronic, experimental electronica, world beats, instrumental hip-hop, future soul, deep house, reggae, dub and bass, subject to the current accepting-channel list and the no-AI rule.
+Activity and fit note: KXCI's official site displayed current July 2026 posts, active events, live streaming, recent-played and playlist functions, a two-week archive and a populated weekly schedule. Potential MarcsMusic fits include electronic, electro-pop, hip-hop, reggae, world-fusion and experimental programming.
 
-Manual-review note: Recheck the live accepting-channel list, verify production provenance and international eligibility, select one best-fit channel, inspect the MP3 export and embedded metadata, and use only that channel's designated mailbox. Do not send a catalogue, use mailing lists, duplicate recipients or substitute unrelated contact addresses.
+Manual-review note: Reopen the official page, use the protected destination exactly as presented, select one release, confirm single, AI-origin and release-window eligibility, prepare an accessible MP3 or WAV link, verify all metadata and explicit-language disclosures, and choose one delivery route. Stop if authentication, payment, consent or another protected control appears.
 
-Deduplication note: Repository searches for SomaFM, `somafm.com` and `promosubmissions@somafm.com` returned no previous music-submission-agent platform, runtime seed or queue record. Eight mailboxes and the shared requirements are stored once as one canonical opportunity.
+Deduplication note: Repository code search and the complete pull-request patch returned no previous KXCI, `kxci.org`, Music Department path, runtime seed or queue record. The protected digital route and international physical option are stored once as one canonical opportunity.
 
-Runtime-linkage note: Run 407's seed is chained after Run 406 in the active recursive seed chain.
+Runtime-linkage note: Run 408's seed is chained after Run 407 in the active recursive seed chain.
 
-Safety: No email, Bandcamp code, download link, audio file, attachment, metadata, form field, account, login, CAPTCHA, consent, payment or physical package was entered or submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No email, protected destination, download link, audio file, attachment, metadata, form field, physical package, account, login, CAPTCHA, consent or payment was entered or submitted. No Cloudflare, anti-bot, authentication, payment or platform restriction was bypassed.
