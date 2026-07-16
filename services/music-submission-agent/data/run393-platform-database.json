@@ -1,0 +1,130 @@
+{
+  "run": 393,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1710,
+  "pipelineEstimate": 1711,
+  "newPlatforms": [
+    {
+      "name": "Fresh On The Net Weekly Listening Post Submission Route",
+      "websiteUrl": "https://freshonthenet.co.uk/",
+      "submissionUrl": "https://freshonthenet.co.uk/submit/",
+      "sourceUrl": "https://freshonthenet.co.uk/submit/",
+      "sourceType": "automation_run_393_public_research",
+      "country": "United Kingdom / global independent-music discovery platform",
+      "language": "en",
+      "genres": [
+        "independent-music",
+        "new-music",
+        "electronic",
+        "alternative",
+        "pop",
+        "world-fusion",
+        "soundcloud-link",
+        "public-form",
+        "schedule-gated",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-weekly-soundcloud-link-submission-form",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party weekly track-submission form",
+        "email": null,
+        "explicitPurpose": "weekly Fresh On The Net Listening Post and Fresh Faves consideration, with possible downstream BBC Introducing Mixtape consideration",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Wait for the official inbox to open, inspect the current form and provenance terms, confirm the chosen track is eligible, and submit one public worldwide embeddable SoundCloud URL through the first-party form only.",
+        "audioDeliveryAuthorized": "Yes, but only as a public, full-length, worldwide and embeddable SoundCloud track URL through the weekly form.",
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedDirectSubmissionRequirements": [
+          "one track per artist per week",
+          "artist name",
+          "track name",
+          "public SoundCloud track URL",
+          "track must be full-length, worldwide available and embeddable",
+          "accept the published terms and conditions",
+          "do not submit private, SoundCloud Go or territory-restricted tracks",
+          "do not repeat a track submitted in a previous week",
+          "do not submit remixes or alternative versions of tracks previously submitted",
+          "use accurate artist and track labels",
+          "place social links and a biography in the SoundCloud profile",
+          "wait three months after a Fresh Faves feature before submitting another track",
+          "do not campaign for votes or publicise a Listening Post appearance"
+        ],
+        "liveFormFieldsPassivelyExposed": true,
+        "safeReviewScope": [
+          "reopen the current first-party form during an official open window",
+          "confirm the current AI-generated and AI-assisted music rule before selecting a track",
+          "verify that the selected track is publicly available worldwide and embeddable on SoundCloud",
+          "confirm that the track has not previously been submitted and is not a disallowed remix or alternate version",
+          "check the live CAPTCHA, honeypot, validation and consent state without bypassing controls",
+          "confirm artist name, track title and SoundCloud metadata are accurate",
+          "retain the submission confirmation and observe the one-track-per-week limit"
+        ],
+        "unresolvedEligibility": [
+          "whether any AI-assisted composition is permitted under the currently inconsistent first-party wording",
+          "whether the selected MarcsMusic track satisfies the strictest current provenance rule",
+          "live anti-spam or CAPTCHA controls during the next open window",
+          "whether the current weekly capacity limit has already been reached",
+          "whether any additional field or consent requirement appears when the inbox reopens"
+        ]
+      },
+      "businessContact": {
+        "email": null,
+        "emailStatus": "no canonical submission email; adjacent first-party and conditional programme mailboxes excluded",
+        "verification": "The official Contact page states that music is not considered by email and directs artists to the submission form. The Privacy page publishes hello@freshonthe.net for personal-data requests, not music. The Submit page separately publishes del.owusu@gmail.com for a conditional Exile FM clean-radio-edit route that requires prior Fresh On The Net submission. Both addresses have valid syntax and first-party publication, but neither is stored as the canonical Fresh On The Net submission route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "musicCategoryInquiryFormIdentified": false,
+        "formFieldsPassivelyVisible": true,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The route is schedule- and capacity-gated. Fresh On The Net says the inbox opens Monday morning and closes after 200 tracks or by Wednesday evening. On July 16, 2026 the official page displayed the inbox as closed and indicated a July 20 reopening boundary. A current live-form representation exposed artist name, track name, SoundCloud URL and a terms checkbox but no visible CAPTCHA, login or payment. The live anti-spam and consent state must be rechecked when the inbox opens. Current first-party pages also conflict on whether AI-assisted music may be declared or whether all AI-generated tracks are prohibited, so a human provenance decision is mandatory.",
+        "adjacentRoutesExcluded": [
+          "privacy and data-rights mailbox hello@freshonthe.net",
+          "conditional Exile FM clean-edit mailbox published on the Submit page",
+          "direct email or CD delivery to Fresh On The Net or Tom Robinson",
+          "individual volunteer and moderator social-media accounts",
+          "BBC Introducing uploader as a substitute for the Fresh On The Net form"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "Fresh On The Net's official site published Listening Post and Fresh Faves Batch 615 activity in July 2026, including Fresh Faves dated July 13 and Alt Picks dated July 14. The homepage and archive continue to expose current weekly batches, and the submission page publishes a current July 20 reopening boundary."
+      },
+      "genreFitEvidence": [
+        "Fresh On The Net describes itself as a resource and discovery platform for independent recording artists and welcomes any artist with a new track.",
+        "The weekly Listening Post and Fresh Faves workflow is editorially broad rather than restricted to a single genre.",
+        "Selected MarcsMusic electronic, bass, reggae, world-fusion, pop and alternative tracks may be editorially relevant only if they satisfy the current provenance, SoundCloud and repeat-submission rules."
+      ],
+      "manualReviewReason": "Fresh On The Net explicitly authorizes one weekly track through its first-party SoundCloud-link form, but the inbox is schedule/capacity gated and was closed on July 16, 2026. A human must wait for the official opening, inspect live anti-spam and consent controls, apply the strictest current AI-provenance rule because first-party pages conflict, verify public worldwide SoundCloud availability and embeddability, confirm the track has not previously been submitted and is not a disallowed remix or alternate version, accept the terms, and submit only one track. Email, CD, privacy-mailbox, individual-volunteer, conditional Exile FM and BBC uploader routes must not be used as substitutes.",
+      "priority": 89,
+      "pricingModel": "free-first/weekly-schedule-and-capacity-gated-soundcloud-form/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Fresh On The Net",
+      "freshonthenet.co.uk",
+      "freshonthe.net",
+      "Fresh Faves",
+      "Listening Post",
+      "Send Us A Track"
+    ],
+    "repositoryEvidence": "The complete open pull-request patch and repository code index were searched for Fresh On The Net, freshonthenet.co.uk, freshonthe.net, Fresh Faves, Listening Post and Send Us A Track. No prior music-submission-agent platform, runtime seed or queue record was found.",
+    "consolidation": "The weekly first-party form is stored once as the canonical Fresh On The Net opportunity. The privacy mailbox, conditional Exile FM route, direct email/CD delivery, individual volunteers and BBC Introducing uploader are excluded as parallel or substitute opportunities."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first Fresh On The Net opportunity was queued as needs_manual_review. No form field, terms checkbox, SoundCloud URL, email, file, login, CAPTCHA or payment was submitted."
+}
