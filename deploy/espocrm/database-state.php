@@ -56,7 +56,7 @@ try {
 
     fwrite(
         STDERR,
-        "error: The configured database does not satisfy the EspoCRM core schema fingerprint.\n",
+        "error: The configured database does not satisfy the EspoCRM base core schema contract.\n",
     );
     exit(78);
 } catch (Throwable $exception) {

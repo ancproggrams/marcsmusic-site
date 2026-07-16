@@ -162,6 +162,12 @@ const MARCSMUSIC_ESPOCRM_CORE_TABLES = [
     'working_time_range',
 ];
 
+/**
+ * Base schema guaranteed by the pinned EspoCRM image and its own installer.
+ * Extension-owned columns are intentionally kept in
+ * MARCSMUSIC_OUTREACH_CORE_SCHEMA below so database-state.php can admit a
+ * vanilla install before the outreach extension migration runs.
+ */
 const MARCSMUSIC_ESPOCRM_CORE_SCHEMA = [
     'user' => ['id', 'user_name', 'is_active', 'deleted'],
     'job' => ['id', 'status', 'execute_time', 'deleted'],
@@ -186,6 +192,29 @@ const MARCSMUSIC_ESPOCRM_CORE_SCHEMA = [
         'date_sent',
         'parent_id',
         'parent_type',
+        'deleted',
+    ],
+    'campaign' => ['id', 'name', 'status', 'deleted'],
+    'target_list' => ['id', 'name', 'deleted'],
+    'opportunity' => ['id', 'name', 'stage', 'deleted'],
+    'email_address' => ['id', 'name', 'lower', 'invalid', 'opt_out', 'deleted'],
+    'note' => ['id', 'type', 'parent_id', 'parent_type', 'deleted'],
+    'auth_token' => ['id', 'token', 'user_id', 'is_active', 'deleted'],
+    'extension' => ['id', 'name', 'version', 'is_installed', 'deleted'],
+];
+
+/**
+ * Columns added to EspoCRM core tables by the MarcsMusic outreach extension.
+ *
+ * These are intentionally separate from MARCSMUSIC_ESPOCRM_CORE_SCHEMA. The
+ * base contract is used to classify a database before the extension migration
+ * runs; requiring these columns there would classify a valid vanilla EspoCRM
+ * install as a corrupt/foreign database and prevent the extension from ever
+ * being installed. The extension contract is asserted only after the package
+ * migration has completed.
+ */
+const MARCSMUSIC_OUTREACH_CORE_SCHEMA = [
+    'email' => [
         'outreach_projection_key',
         'outreach_correlation_id',
         'outreach_provider_message_id',
@@ -197,12 +226,8 @@ const MARCSMUSIC_ESPOCRM_CORE_SCHEMA = [
         'music_release_id',
         'media_contact_id',
         'media_outlet_id',
-        'deleted',
     ],
     'campaign' => [
-        'id',
-        'name',
-        'status',
         'music_release_id',
         'outreach_target_list_id',
         'outreach_projection_key',
@@ -213,23 +238,16 @@ const MARCSMUSIC_ESPOCRM_CORE_SCHEMA = [
         'target_membership_checked_at',
         'target_membership_projected_at',
         'target_membership_count',
-        'deleted',
     ],
     'target_list' => [
-        'id',
-        'name',
         'outreach_projection_key',
         'outreach_managed',
         'music_release_id',
         'outreach_campaign_id',
         'eligibility_policy_version',
         'membership_projected_at',
-        'deleted',
     ],
     'opportunity' => [
-        'id',
-        'name',
-        'stage',
         'campaign_id',
         'outreach_projection_key',
         'outreach_match_id',
@@ -241,18 +259,13 @@ const MARCSMUSIC_ESPOCRM_CORE_SCHEMA = [
         'outreach_interest_status',
         'outreach_interest_at',
         'outreach_revenue_state',
-        'deleted',
     ],
-    'email_address' => ['id', 'name', 'lower', 'invalid', 'opt_out', 'deleted'],
-    'note' => ['id', 'type', 'parent_id', 'parent_type', 'deleted'],
-    'auth_token' => ['id', 'token', 'user_id', 'is_active', 'deleted'],
-    'extension' => ['id', 'name', 'version', 'is_installed', 'deleted'],
 ];
 
 /**
- * Version-specific secondary indexes that materially protect identity,
- * scheduler correctness and high-volume query paths. Index names are not part
- * of the contract; ordered columns, uniqueness and BTREE semantics are.
+ * Version-specific secondary indexes that belong to the pinned EspoCRM core.
+ * Index names are not part of the contract; ordered columns, uniqueness and
+ * BTREE semantics are.
  */
 const MARCSMUSIC_ESPOCRM_CORE_SECONDARY_INDEXES = [
     'user' => [
@@ -269,8 +282,30 @@ const MARCSMUSIC_ESPOCRM_CORE_SECONDARY_INDEXES = [
     'email' => [
         ['columns' => ['date_sent', 'deleted'], 'unique' => false, 'primary' => false],
         ['columns' => ['date_sent', 'status', 'deleted'], 'unique' => false, 'primary' => false],
+    ],
+    'email_address' => [
+        ['columns' => ['lower'], 'unique' => false, 'primary' => false],
+    ],
+    'lead' => [
+        ['columns' => ['status', 'deleted'], 'unique' => false, 'primary' => false],
+        ['columns' => ['created_at', 'id'], 'unique' => true, 'primary' => false],
+    ],
+    'auth_token' => [
+        ['columns' => ['token', 'deleted'], 'unique' => false, 'primary' => false],
+    ],
+];
+
+/**
+ * Secondary indexes added by the MarcsMusic outreach extension to EspoCRM
+ * core tables. These are checked only after the extension migration; keeping
+ * them out of the base contract lets a vanilla but otherwise valid database
+ * complete its first extension install.
+ */
+const MARCSMUSIC_OUTREACH_CORE_SECONDARY_INDEXES = [
+    'email' => [
         ['columns' => ['outreach_projection_key'], 'unique' => true, 'primary' => false],
         ['columns' => ['outreach_correlation_id'], 'unique' => true, 'primary' => false],
+        ['columns' => ['outreach_provider_message_id', 'deleted'], 'unique' => false, 'primary' => false],
         ['columns' => ['outreach_match_id', 'date_sent', 'deleted'], 'unique' => false, 'primary' => false],
         ['columns' => ['outreach_campaign_id', 'date_sent', 'deleted'], 'unique' => false, 'primary' => false],
     ],
@@ -289,16 +324,6 @@ const MARCSMUSIC_ESPOCRM_CORE_SECONDARY_INDEXES = [
         ['columns' => ['source_outreach_event_id'], 'unique' => true, 'primary' => false],
         ['columns' => ['latest_outreach_event_id', 'deleted'], 'unique' => false, 'primary' => false],
         ['columns' => ['media_contact_id', 'outreach_interest_at', 'deleted'], 'unique' => false, 'primary' => false],
-    ],
-    'email_address' => [
-        ['columns' => ['lower'], 'unique' => false, 'primary' => false],
-    ],
-    'lead' => [
-        ['columns' => ['status', 'deleted'], 'unique' => false, 'primary' => false],
-        ['columns' => ['created_at', 'id'], 'unique' => true, 'primary' => false],
-    ],
-    'auth_token' => [
-        ['columns' => ['token', 'deleted'], 'unique' => false, 'primary' => false],
     ],
 ];
 
@@ -1333,7 +1358,9 @@ function marcsmusic_expected_outreach_indexes(): array
         'outreach_daily_report' => 'OutreachDailyReport',
         'outreach_suppression' => 'OutreachSuppression',
     ];
-    $result = [];
+    // Start with extension-owned indexes on EspoCRM core tables. Entity
+    // definitions below contribute the outreach-owned table indexes.
+    $result = MARCSMUSIC_OUTREACH_CORE_SECONDARY_INDEXES;
 
     foreach ($entities as $table => $entity) {
         $result[$table] = marcsmusic_primary_key_contract([$table])[$table];
@@ -1427,9 +1454,13 @@ function marcsmusic_assert_core_schema(PDO $pdo): void
 
 function marcsmusic_assert_outreach_schema(PDO $pdo): void
 {
+    $outreachSchema = array_merge(
+        MARCSMUSIC_OUTREACH_CORE_SCHEMA,
+        MARCSMUSIC_OUTREACH_SCHEMA,
+    );
     $missingColumns = marcsmusic_missing_database_columns(
         $pdo,
-        MARCSMUSIC_OUTREACH_SCHEMA,
+        $outreachSchema,
     );
     $missingIndexes = marcsmusic_missing_database_indexes(
         $pdo,
@@ -1437,7 +1468,7 @@ function marcsmusic_assert_outreach_schema(PDO $pdo): void
     );
     $invalidEngines = marcsmusic_non_innodb_tables(
         $pdo,
-        array_keys(MARCSMUSIC_OUTREACH_SCHEMA),
+        array_keys($outreachSchema),
     );
 
     if ($missingColumns !== [] || $missingIndexes !== [] || $invalidEngines !== []) {

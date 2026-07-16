@@ -464,6 +464,32 @@ build_and_verify_image() {
     if (count(MARCSMUSIC_ESPOCRM_CORE_TABLES) !== 141) {
         throw new RuntimeException("Pinned EspoCRM core table manifest is incomplete.");
     }
+
+    foreach (MARCSMUSIC_OUTREACH_CORE_SCHEMA as $table => $columns) {
+        if (array_intersect($columns, MARCSMUSIC_ESPOCRM_CORE_SCHEMA[$table] ?? []) !== []) {
+            throw new RuntimeException("Outreach column leaked into the base EspoCRM schema contract: {$table}.");
+        }
+    }
+
+    foreach (MARCSMUSIC_OUTREACH_CORE_SECONDARY_INDEXES as $table => $indexes) {
+        $baseIndexes = MARCSMUSIC_ESPOCRM_CORE_SECONDARY_INDEXES[$table] ?? [];
+
+        foreach ($indexes as $index) {
+            if (in_array($index, $baseIndexes, true)) {
+                throw new RuntimeException("Outreach index leaked into the base EspoCRM index contract: {$table}.");
+            }
+        }
+    }
+
+    $outreachIndexes = marcsmusic_expected_outreach_indexes();
+
+    foreach (MARCSMUSIC_OUTREACH_CORE_SECONDARY_INDEXES as $table => $indexes) {
+        foreach ($indexes as $index) {
+            if (!in_array($index, $outreachIndexes[$table] ?? [], true)) {
+                throw new RuntimeException("Outreach core index is missing from the merged outreach contract: {$table}.");
+            }
+        }
+    }
   '
 
   evidence_timestamp="$(date -u '+%Y-%m-%dT%H:%M:%SZ')"
