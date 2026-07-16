@@ -2,7 +2,7 @@
 
 Date: 2026-07-16
 
-Latest run: Run 399
+Latest run: Run 400
 
 New items added: 1
 
@@ -10,28 +10,30 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1717
+Pipeline estimate: 1718
 
 Items:
 
-- WFMU — first-party Music Department contact form for an asset-free process inquiry, with an authorized physical review-material alternative
+- WREK 91.1 FM — verified public Music Director email submission route with a consolidated physical-mail alternative
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Route note: WFMU's official Send Music page explicitly accepts vinyl, CD, CD-R and cassette review materials addressed to Music Director Jessica Romoff and links to a first-party Music Department contact form. The physical and contact-form routes are consolidated as one opportunity.
+Route note: WREK's current Music page links directly to official submission guidance authorizing music submissions by email to `music.director@wrek.org` or by postal mail. The guidance confirms that independently produced music is accepted and that WREK handles common music media formats.
 
-Delivery-boundary note: WFMU publishes no digital audio-delivery procedure, accepted file or link specifications, metadata requirements, international digital eligibility, explicit-content rules or AI-origin policy. A human may use the official form only for a concise asset-free inquiry or may separately approve one physical review package.
+Delivery-boundary note: WREK does not publish current attachment-versus-link rules, accepted digital formats, file-size limits, metadata requirements, international eligibility, release timing, explicit-content rules or AI-origin policy. The safe first action is one concise asset-free inquiry to the Music Director mailbox.
 
-Form note: The Music Department form requires JavaScript and exposes name, email, subject and message fields. No textual CAPTCHA, login, account or mandatory payment appeared in passive retrieval, but live JavaScript and anti-spam behaviour were not executed. Stop if CAPTCHA, consent, authentication, payment, session or another protected control appears.
+Physical-route note: The linked guidance authorizes postal delivery, but other official WREK pages display different street or suite details. A human must confirm the current address before producing or mailing any package. Email remains the free-first route.
 
-Activity and fit note: WFMU's homepage showed programme archives dated July 15, 2026 and playlists dated July 16, 2026. The site also exposes a Summer 2026 schedule and a 2026 Heavily Played section compiled by Music Director Jessica Romoff. WFMU describes itself as independent freeform radio, creating plausible fit for a carefully selected MarcsMusic experimental electronic, world-fusion or reggae-adjacent release.
+Form note: No submission form, CAPTCHA, login, account, JavaScript submission flow or mandatory payment requirement was identified on the authorized route.
 
-Email-verification note: No plaintext Music Department business email is published on the reviewed official route. The first-party form was stored without decoding, inferring or guessing an address. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Activity and fit note: WREK's current homepage states that it broadcasts 24/7, exposes a live player and 14-day archive, and displayed official programming content dated July 10 and July 15, 2026. Its current Music page lists electronic, ambient, experimental, hip-hop, reggae, dub, international, world and Afro-beat programming, creating plausible fit for selected MarcsMusic releases.
 
-Manual-review note: A human must confirm rights, route choice, international digital eligibility, live form controls, digital delivery instructions, metadata, release timing, explicit-content suitability, AI-origin policy and any physical-media/postage cost. Do not include audio or private links in the inquiry, contact individual DJs as substitutes or submit through both form and post.
+Email-verification note: `music.director@wrek.org` is published twice in plaintext on WREK's official submission guidance and has valid syntax, exact official-domain alignment and an explicit Music Director submission purpose. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Deduplication note: The complete open-pull-request patch and repository context were searched for WFMU, `wfmu.org`, the Send Music path, the Music Department form path and Jessica Romoff. No prior music-submission-agent platform, runtime seed or queue record was found.
+Manual-review note: A human must confirm rights, digital delivery method, accepted formats, file-size limits, international eligibility, metadata, explicit-content suitability, AI-origin policy and the current postal address. Do not send unsolicited large attachments, contact individual DJs as substitutes or submit through both email and post.
 
-Runtime-linkage note: Run 399's seed is chained after Run 398 in the active recursive seed chain.
+Deduplication note: Repository code search and the complete open-pull-request patch were checked for WREK, `wrek.org`, the submission path and `music.director@wrek.org`. No prior music-submission-agent platform, runtime seed or queue record was found.
 
-Safety: No form field, email, audio file, attachment, streaming or download link, biography, metadata, artwork, physical package, login, CAPTCHA, consent or payment was entered or submitted. No JavaScript, anti-spam, authentication, payment or platform restriction was bypassed.
+Runtime-linkage note: Run 400's seed is chained after Run 399 in the active recursive seed chain.
+
+Safety: No email, form field, audio file, attachment, streaming or download link, biography, metadata, artwork, physical package, login, CAPTCHA, consent or payment was entered or submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
