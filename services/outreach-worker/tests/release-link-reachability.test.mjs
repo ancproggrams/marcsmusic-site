@@ -299,10 +299,10 @@ test("link-check configuration is bounded and exposed as an immutable group", ()
     MAILGUN_WEBHOOK_SIGNING_KEY: "mailgun-signing-key-for-tests",
     OUTREACH_PUBLIC_BASE_URL: "https://outreach.example.test",
     OUTREACH_DATA_ENCRYPTION_KEY: Buffer.alloc(32, 9).toString("base64"),
-    OUTREACH_HASH_KEY: "privacy-hash-key-for-tests-at-least-32-characters",
+    OUTREACH_HASH_KEY: Buffer.alloc(32, 10).toString("base64"),
     OUTREACH_UNSUBSCRIBE_KEYRING_JSON: JSON.stringify({
       schemaVersion: 2,
-      active: { kid: "unsub-link-test-2026-07", key: "unsubscribe-key-for-tests-at-least-32-characters" },
+      active: { kid: "unsub-link-test-2026-07", key: Buffer.alloc(32, 11).toString("base64") },
       verifyOnly: []
     }),
     METRICS_TOKEN: "metrics-token-for-tests-at-least-24",

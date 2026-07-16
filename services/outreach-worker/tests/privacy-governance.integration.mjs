@@ -786,8 +786,8 @@ test("new allocation and direct-CRM evidence participate in legal hold and priva
   const pool = new Pool({ connectionString: database.url, max: 4 });
   const cryptoBox = new CryptoBox({
     encryptionKey: Buffer.alloc(32, 72),
-    keyVersion: "privacy-ledger-v1",
-    hashKey: "privacy-ledger-integration-hash-key"
+    keyVersion: "v-test-privacy",
+    hashKey: Buffer.alloc(32, 73)
   });
   try {
     await applyMigrations(pool, [

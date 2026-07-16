@@ -11,13 +11,15 @@ const logger = Object.freeze({
   error() {}
 });
 
+const TEST_UNSUBSCRIBE_KEY = Buffer.alloc(32, 0x41).toString("base64");
+
 function configFixture() {
   return {
     publicBaseUrl: "https://outreach.example.test",
     crypto: {
       unsubscribeSigning: {
         schemaVersion: 2,
-        active: { kid: "unsub-copy-2026-07", key: "unsubscribe-signing-key-for-tests-32-chars" },
+        active: { kid: "unsub-copy-2026-07", key: TEST_UNSUBSCRIBE_KEY },
         verifyOnly: []
       }
     },

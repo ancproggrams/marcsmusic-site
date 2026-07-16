@@ -13,8 +13,8 @@ import { startPostgresTestCluster } from "./helpers/postgres-test-cluster.mjs";
 const logger = Object.freeze({ info() {}, warn() {}, error() {} });
 const cryptoBox = new CryptoBox({
   encryptionKey: Buffer.alloc(32, 12),
-  keyVersion: "outcome-reconcile-test-v1",
-  hashKey: "outcome-reconcile-test-hash-key-32-chars"
+  keyVersion: "v-test-outcome",
+  hashKey: Buffer.alloc(32, 13)
 });
 let cluster;
 

@@ -279,8 +279,8 @@ test("Mailgun signatures require a fresh timestamp and exact HMAC", () => {
 });
 
 test("unsubscribe v2 tokens bind a bounded kid and verify active or historical keys", () => {
-  const signingKey = "unsubscribe-signing-key-for-tests-32-chars";
-  const historicalKey = "historical-unsubscribe-key-for-tests-32-chars";
+  const signingKey = Buffer.alloc(32, 0x43).toString("base64");
+  const historicalKey = Buffer.alloc(32, 0x44).toString("base64");
   const activeRing = unsubscribeRing("unsub-2026-07", signingKey);
   const now = Date.parse("2026-07-15T12:00:00.000Z");
   const token = createUnsubscribeToken({
@@ -322,8 +322,8 @@ test("unsubscribe v2 tokens bind a bounded kid and verify active or historical k
 });
 
 test("unsubscribe legacy v1 is off by default and only an explicit temporary key enables verification", () => {
-  const signingKey = "unsubscribe-signing-key-for-tests-32-chars";
-  const legacyKey = "legacy-unsubscribe-key-for-tests-32-chars";
+  const signingKey = Buffer.alloc(32, 0x45).toString("base64");
+  const legacyKey = Buffer.alloc(32, 0x46).toString("base64");
   const now = Date.parse("2026-07-15T12:00:00.000Z");
   const legacyPayload = Buffer.from(JSON.stringify({
     contactId: "contact-1",

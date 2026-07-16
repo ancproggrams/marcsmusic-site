@@ -146,7 +146,7 @@ test("configuration enforces strict bounded v2 unsubscribe and per-source keyrin
 });
 
 test("legacy unsubscribe verification key is explicit, bounded and independent", () => {
-  const legacyKey = "legacy-unsubscribe-key-for-tests-at-least-32-characters";
+  const legacyKey = Buffer.alloc(32, 0x42).toString("base64");
   const legacyUntil = new Date(Date.now() + 86_400_000).toISOString();
   const config = loadConfig({
     ...validEnvironment(),
