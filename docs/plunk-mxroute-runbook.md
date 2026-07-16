@@ -59,7 +59,7 @@ OUTREACH_KILL_SWITCH=true
 Actuele productie-status na de gecontroleerde provider-test: `PLUNK_SEND_ENABLED=true`
 op `marcsmusic-release-os`. De outreach-worker blijft fail-closed met
 `OUTREACH_SEND_ENABLED=false` en `OUTREACH_KILL_SWITCH=true` zolang EspoCRM niet
-veilig uit een echte volume/config-backup of Railway-volume snapshot is hersteld.
+veilig uit een consistente recovery set is hersteld.
 
 De Plunk-service gebruikt voor de geteste fork:
 
@@ -167,9 +167,18 @@ handshake uit; log de credential nooit.
   ontbrekend herstel-/rehearsal-attest voor een bestaande database. De
   schema-contractfix staat op `main`, maar mag de migratie-evidence niet
   omzeilen; matching en outreach blijven daarom geblokkeerd.
-- Benodigd om dit af te ronden: een echte EspoCRM-volume/config-backup of
-  Railway-volume snapshot. Zonder die backup mag de bestaande database niet
-  veilig worden gereconstrueerd.
+- Op 16 juli 2026 zijn twee vergrendelde Railway-safety-copies aangemaakt:
+  `crm-pre-recovery-2026-07-16` voor `/var/www/persistent` en
+  `mysql-pre-recovery-2026-07-16` voor de MySQL-volume. Dit zijn afzonderlijke
+  COW-preservation points; er is geen restore uitgevoerd en ze vormen nog geen
+  bewezen consistency point.
+- De CRM-volume-inspectie bevestigt dat `data/config.php`,
+  `data/config-internal.php` en `data/state.php` ontbreken. De MySQL-database
+  bevat wel de EspoCRM-tabellen en 2.815 Leads, maar de productie-image weigert
+  het schema/config-contract. Een consistente, geteste EspoCRM recovery set
+  (database + volledige applicatiestate + beschermde config/key-metadata) blijft
+  vereist; zonder die set mag de bestaande database niet worden
+  gereconstrueerd.
 - De gecontroleerde outreach-test naar `marc@marcrene.com` is door Plunk
   geaccepteerd en als `SENT` opgeslagen vanuit `marc@marcsmusic.nl` met
   Message-ID `<marcsmusic-outreach-test-20260716-c087a788-fc7b-4715-95fc-b89b9a6ee15a@marcsmusic.nl>`.
