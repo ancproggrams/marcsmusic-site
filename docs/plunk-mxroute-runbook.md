@@ -134,6 +134,9 @@ handshake uit; log de credential nooit.
   ontbrekend herstel-/rehearsal-attest voor een bestaande database. De
   schema-contractfix staat op `main`, maar mag de migratie-evidence niet
   omzeilen; matching en outreach blijven daarom geblokkeerd.
+- Benodigd om dit af te ronden: een echte EspoCRM-volume/config-backup of
+  Railway-volume snapshot. Zonder die backup mag de bestaande database niet
+  veilig worden gereconstrueerd.
 - De gecontroleerde test naar `marc@marcrene.com` is door Plunk geaccepteerd en
   door de worker als `SENT` opgeslagen met een SMTP Message-ID. Laat de
   ontvanger de inbox en authenticatieheaders (SPF/DKIM/DMARC) bevestigen; die
