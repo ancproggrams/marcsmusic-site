@@ -1,0 +1,236 @@
+{
+  "run": 413,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1730,
+  "pipelineEstimate": 1731,
+  "newPlatforms": [
+    {
+      "name": "WNYO 88.9 FM Genre-Routed Music Submission Email Opportunity",
+      "websiteUrl": "https://wnyo889.org/",
+      "submissionUrl": "https://wnyo889.org/submissions/",
+      "sourceUrl": "https://wnyo889.org/submissions/",
+      "sourceType": "automation_run_413_public_research",
+      "country": "United States / SUNY Oswego student radio in Oswego, New York with worldwide online streaming and international artist eligibility not explicitly stated",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "student-radio",
+        "independent-music",
+        "electronic",
+        "electronic-beats",
+        "world-music",
+        "non-english-music",
+        "pop",
+        "specialty",
+        "hip-hop",
+        "rap",
+        "r-and-b",
+        "alternative",
+        "indie",
+        "folk",
+        "punk",
+        "cross-genre",
+        "authorized-digital-submission-route",
+        "genre-routed-email-submission",
+        "public-business-email",
+        "free-first",
+        "international-eligibility-unconfirmed",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-genre-routed-business-email-with-manual-confirmation-of-current-audio-delivery-requirements",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party genre-routed music-submission email route",
+        "contactEmail": "musicwnyo@gmail.com",
+        "alternateAuthorizedEmails": [
+          {
+            "email": "music@wnyo889.org",
+            "purpose": "general WNYO mailbox expressly labelled MUSIC SUBMISSIONS ONLY",
+            "useCondition": "Use only when WNYO confirms it is preferred over the genre-specific Other Genres route."
+          },
+          {
+            "email": "wnyoalternative@gmail.com",
+            "purpose": "Alternative Music submissions",
+            "useCondition": "Use only for a genuinely alternative, indie, folk, emo, punk or alternative-rock release."
+          },
+          {
+            "email": "hiphopwnyo@gmail.com",
+            "purpose": "Hip-Hop Music submissions",
+            "useCondition": "Use only for a genuinely hip-hop, rap, R&B, lo-fi, trap or spoken-word release."
+          }
+        ],
+        "contactPerson": "Logan Russo, current Other Genres director as published by WNYO",
+        "contactPublication": "WNYO's official Submissions page states that it is currently accepting defined music categories and publishes purpose-specific email routes; its site footer separately labels music@wnyo889.org MUSIC SUBMISSIONS ONLY.",
+        "explicitPurpose": "Music consideration for WNYO programming, routed to the single best-fit genre department.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Reopen the official page, choose one best-fit mailbox, confirm international and technical eligibility, prepare one individualized submission and send manually.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "use a current WNYO music-submission email route",
+          "route the release to the single best-fit genre department",
+          "Other Genres currently accepts Adult Contemporary, Electronic Beats, Non-English/World, Pop and Specialty music",
+          "Alternative currently accepts Alternative Pop, Alternative Rock, Emo, Folk, Indie, Oswego Student Produced and Punk",
+          "Hip-Hop currently accepts Alternative/Underground Hip-Hop, Lo-Fi, Student Produced, Rap, R&B, Spoken Word and Trap",
+          "music@wnyo889.org is reserved for MUSIC SUBMISSIONS ONLY",
+          "email is the best contact method during summer and winter breaks",
+          "the student-music route is limited to artists attending higher education",
+          "WNYO is not currently considering new syndicated programmes"
+        ],
+        "safeReviewScope": [
+          "select exactly one genuinely suitable MarcsMusic release",
+          "choose one best-fit mailbox and do not send the same release to multiple WNYO departments",
+          "prefer musicwnyo@gmail.com for electronic beats, world or non-English music, pop and specialty releases",
+          "confirm international artists are eligible before sending assets or personal data",
+          "confirm whether singles, EPs, albums or demos are accepted",
+          "confirm attachment versus permissioned download-link requirements",
+          "confirm accepted audio formats, bitrate, sample rate, file-size and metadata requirements",
+          "check the current explicit-content and clean-edit policy",
+          "check the current AI-assisted or AI-generated music policy",
+          "confirm release-window and follow-up rules",
+          "retain needs_manual_review until all requirements are confirmed"
+        ],
+        "unresolvedEligibility": [
+          "international artist eligibility",
+          "accepted release types",
+          "attachment versus streaming or downloadable-link procedure",
+          "audio formats, bitrates, sample rates and file-size limits",
+          "required artwork, biography, ISRC and metadata",
+          "explicit-content and clean-edit requirements",
+          "AI-assisted or AI-generated music policy",
+          "accepted release age or release window",
+          "rights declarations and territorial restrictions",
+          "follow-up timing and receipt-confirmation policy"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "musicwnyo@gmail.com",
+            "purpose": "Other Genres music submissions, including Electronic Beats, Non-English/World, Pop and Specialty",
+            "source": "https://wnyo889.org/submissions/",
+            "verification": "first-party plaintext publication, explicit current submission purpose and valid email syntax",
+            "eligibleForMusicSubmission": true,
+            "preferredForMarcsMusic": true
+          },
+          {
+            "email": "music@wnyo889.org",
+            "purpose": "general music submissions only",
+            "source": "https://wnyo889.org/submissions/",
+            "verification": "first-party plaintext publication, explicit MUSIC SUBMISSIONS ONLY label, valid syntax and exact wnyo889.org domain alignment",
+            "eligibleForMusicSubmission": true,
+            "preferredForMarcsMusic": false
+          },
+          {
+            "email": "wnyoalternative@gmail.com",
+            "purpose": "Alternative Music submissions",
+            "source": "https://wnyo889.org/submissions/",
+            "verification": "first-party plaintext publication, explicit current Alternative Music submission purpose and valid email syntax",
+            "eligibleForMusicSubmission": true,
+            "preferredForMarcsMusic": false
+          },
+          {
+            "email": "hiphopwnyo@gmail.com",
+            "purpose": "Hip-Hop Music submissions",
+            "source": "https://wnyo889.org/submissions/",
+            "verification": "first-party plaintext publication, explicit current Hip-Hop Music submission purpose and valid email syntax",
+            "eligibleForMusicSubmission": true,
+            "preferredForMarcsMusic": false
+          }
+        ],
+        "adjacentEmails": [
+          {
+            "email": "wnyo@oswego.edu",
+            "purpose": "student-music submissions and questions; category limited to artists attending higher education",
+            "source": "https://wnyo889.org/submissions/",
+            "verification": "first-party plaintext publication, explicit student-music purpose, valid syntax and institutional-domain alignment",
+            "eligibleForMusicSubmission": false
+          },
+          {
+            "email": "Programmingwnyo@gmail.com",
+            "purpose": "syndicated-programme enquiries while WNYO states it is not considering new programmes",
+            "source": "https://wnyo889.org/submissions/",
+            "verification": "first-party plaintext publication, explicit programming purpose and valid syntax",
+            "eligibleForMusicSubmission": false
+          },
+          {
+            "email": "info@wnyo889.org",
+            "purpose": "general enquiries only",
+            "source": "https://wnyo889.org/submissions/",
+            "verification": "first-party plaintext publication, explicit GENERAL INQUIRIES ONLY label, valid syntax and exact wnyo889.org domain alignment",
+            "eligibleForMusicSubmission": false
+          }
+        ],
+        "emailStatus": "four authorized public music-submission mailboxes verified; one best-fit route must be selected manually",
+        "verification": "All stored addresses were copied from WNYO's official Submissions page or its first-party footer. Purpose, syntax and official publication were verified; exact domain alignment applies to wnyo889.org and oswego.edu addresses, while the Gmail mailboxes are accepted only because WNYO publishes them as current department contacts. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed, and no message was sent."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "generalContactFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "musicDepartmentSelectorIdentified": false,
+        "officialGuidelineWorkflowIdentified": true,
+        "javascriptRequired": false,
+        "temporaryCookieRequired": false,
+        "secureSessionObserved": false,
+        "captchaObserved": false,
+        "captchaType": null,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "No dedicated submission form or protected workflow was identified. Manual review remains required because WNYO does not publish current delivery format, file-size, international, content, release-window or AI-origin rules.",
+        "formsIdentified": [],
+        "publishedFields": [],
+        "adjacentRoutesExcluded": [
+          "student-music mailbox for artists attending higher education",
+          "syndicated-programme mailbox",
+          "general-inquiry mailbox",
+          "page comment fields",
+          "station request phone and text lines",
+          "underwriting and donation routes",
+          "social-media direct messages",
+          "sending the same release to multiple WNYO departments",
+          "third-party directories and copied contact details"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "WNYO's official site exposes two live streams, now-on-air and up-next surfaces, a populated seven-day schedule, named current genre directors and E-Board members, active show pages, and a notice that email is the best contact method during summer and winter breaks. The submissions page expressly says WNYO is currently accepting multiple music categories."
+      },
+      "genreFitEvidence": [
+        "The Other Genres department expressly accepts Electronic Beats, Non-English/World, Pop and Specialty music.",
+        "WNYO's current programming includes hip-hop, alternative, indie, R&B, pop, rock, funk/jazz, new wave/goth, punk and broad variety programming.",
+        "Selected MarcsMusic electronic, world-fusion, multilingual, pop, hip-hop-adjacent or cross-genre material has plausible fit after exact release and department review."
+      ],
+      "manualReviewReason": "WNYO provides legitimate free first-party email routes and a strong catalogue fit, but does not publish international eligibility, release-type, audio-delivery, file-size, metadata, explicit-content, release-window or AI-origin rules. A human must choose one department, confirm requirements and send one individualized submission manually.",
+      "priority": 94,
+      "pricingModel": "free/first-party-email/genre-routed/electronic-world-pop-specialty/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "WNYO",
+      "WNYO 88.9 FM",
+      "wnyo889.org",
+      "https://wnyo889.org/submissions/",
+      "musicwnyo@gmail.com",
+      "music@wnyo889.org",
+      "wnyoalternative@gmail.com",
+      "hiphopwnyo@gmail.com"
+    ],
+    "repositoryEvidence": "Repository code search was performed for WNYO, wnyo889.org and the principal music-submission mailboxes; no existing indexed music-submission-agent platform, seed or queue record was found. The current run also checked the active run chain through Run 412 before creation.",
+    "consolidation": "WNYO's general and genre-specific submission mailboxes are stored as one canonical opportunity with routing aliases. The student-only, syndicated-programme, general-inquiry, comment, request-line, underwriting, donation, social and third-party routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new WNYO college-radio opportunity was queued as needs_manual_review. The free first-party route is email-based and should use exactly one best-fit genre mailbox. No submission action was performed."
+}
