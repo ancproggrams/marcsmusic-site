@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run390SeedPlatforms } from './run390PlatformSeeds.js';
 
 export const run389SeedPlatforms: PlatformInput[] = [
   {
@@ -33,5 +34,6 @@ export const run389SeedPlatforms: PlatformInput[] = [
       'KKFI expressly accepts digital music through its Music Librarian route, but the destination is published through a protected first-party email link and was not decoded, guessed or copied into the automated dataset. A human must open the current official page, use only the displayed destination, choose a rights-cleared MarcsMusic release, prepare the preferred 300 kbps constant-bitrate MP3 or a supported cloud-download link, keep any direct attachments below 8 MB total, confirm that no separate player is required, add accurate release and routing context, verify international eligibility and the unpublished explicit-content and AI-origin rules, and send manually. KKFI’s updated May 2026 policy limits physical submissions to artists within its listening area, so MarcsMusic must not use the postal route.',
     notes:
       'Verified on 2026-07-16 from KKFI’s official New Music Submissions, Contact and homepage pages. The updated submission page dated May 8, 2026 states that digital music is preferred as MP3 encoded at 300 kbps constant bitrate, preferably through Google Drive, Dropbox, OneDrive or another accessible cloud route; Bandcamp, PlayMPE, AllMusic and SoundCloud are also named as accessible services. Direct attachments must remain below 8 MB total, and links requiring a separate player will not be reviewed. The official Contact page confirms that digital files are delivered to a protected Music Librarian address and forwarded to relevant show hosts. The current page restricts physical media to local artists effective May 1, 2026, superseding broader physical-delivery language remaining on the older Contact page. The protected email was not decoded or probed. Current operation was confirmed through homepage content dated July 8, 2026, current upcoming episodes and active Hip-Hop/Electronic and Reggae/World programming. No email, form field, stream, download link, attachment, audio file, physical package, login, CAPTCHA, consent or payment was entered or submitted, and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.'
-  }
+  },
+  ...run390SeedPlatforms
 ];
