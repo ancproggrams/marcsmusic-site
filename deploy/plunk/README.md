@@ -1,90 +1,108 @@
-# Plunk/MXRoute deployment gate
+# Self-hosted Plunk/MXRoute deployment
 
-This directory pins the Plunk source that was inspected for the MarcsMusic
-deployment. `UPSTREAM_REF` is the immutable Git commit used for the review:
+This directory builds the pinned Plunk source together with the reviewed
+native MXRoute transport patch. The image is reproducible: the upstream source
+is fixed at `8f23d8aac479ae4e7d9926965f090c75afd3f6d5` and the patch is applied
+inside the Docker build before compilation.
+
+The outbound topology is:
 
 ```text
-8f23d8aac479ae4e7d9926965f090c75afd3f6d5
+MarcsMusic application -> Plunk API -> Plunk worker -> MXRoute SMTP
+                       tuesday.mxrouting.net:587 / STARTTLS
 ```
 
-The reference is **not** a production-ready MXRoute build. It is kept here so
-that a future maintained fork can be built reproducibly and so that a Railway
-deployment cannot silently move to an unreviewed upstream tag.
+The patch removes the live SES sender from the API runtime and adds a bounded
+SMTP transport. Production requires explicit STARTTLS on port 587, certificate
+verification, authenticated MXRoute delivery, a fixed
+`noreply@marcsmusic.nl` sender, idempotency handling and an uncertain-delivery
+state when the connection is lost after `DATA`. No AWS SES credentials are
+accepted or required.
 
-## Blocking compatibility finding
+## Railway services
 
-At this commit Plunk's outbound path is hard-wired to AWS SES:
+Use three separate services, all built from this directory:
 
-- `apps/api/src/services/SESService.ts` imports `@aws-sdk/client-ses` and calls
-  `sendRawEmail` on an SES client;
-- `apps/api/src/app/constants.ts` requires `AWS_SES_REGION`,
-  `AWS_SES_ACCESS_KEY_ID` and `AWS_SES_SECRET_ACCESS_KEY` at process startup;
-- the API email worker imports the SES service to discover an SES account quota;
-- domain verification, DKIM token generation and feedback forwarding all call
-  SES APIs;
-- `apps/smtp` is an **inbound** SMTP server that forwards received messages to
-  Plunk's `/v1/send` endpoint. It does not deliver Plunk messages through an
-  external SMTP relay.
+| Service | `SERVICE` | Responsibility |
+| --- | --- | --- |
+| `plunk-api` | `api` | HTTPS API and health endpoint |
+| `plunk-worker` | `worker` | BullMQ email/background workers |
+| `plunk-migrate` | `migrate` | The single migration owner; run once per release |
 
-Consequently, setting `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`,
-`SMTP_PASSWORD` or `SMTP_SECURE` in Railway would be ignored by outbound Plunk
-delivery. Adding those variables to a Dockerfile or Railway service without a
-reviewed source patch would create a false production-success signal and would
-still require AWS credentials. This violates the MarcsMusic no-SES and
-fail-closed requirements.
+The API and worker use the same Postgres and Redis instances. Only
+`plunk-migrate` runs `yarn workspace @plunk/db migrate:prod`; never add the
+migration command to multiple long-running services.
 
-`apply-mxroute-patch.sh` therefore refuses to modify or build this source. It
-checks the pinned ref and source fingerprints, then exits with a stable error
-until a reviewed fork patch is supplied. The refusal is intentional; do not
-replace it with a variable-only workaround.
+## Required Railway variables
 
-## Required fork scope before deployment
+Set values only in Railway Variables. Do not put credentials in Git, Docker
+arguments, shell history, logs or fixtures.
 
-A production fork must make all of the following changes in one reviewed
-commit (with tests and a clean dependency lockfile):
+```text
+NODE_ENV=production
+JWT_SECRET=<unique Railway secret>
+API_URI=https://<plunk-public-origin>
+DASHBOARD_URI=https://<plunk-public-origin>
+LANDING_URI=https://<plunk-public-origin>
+WIKI_URI=https://<plunk-public-origin>
+DATABASE_URL=${{Postgres-tGG2.DATABASE_URL}}
+DIRECT_DATABASE_URL=${{Postgres-tGG2.DATABASE_URL}}
+REDIS_URL=${{Redis.REDIS_URL}}
 
-1. Replace `SESService.sendRawEmail` with a bounded SMTP client using
-   `SMTP_HOST=tuesday.mxrouting.net`, `SMTP_PORT=587`, STARTTLS,
-   `SMTP_USER` and `SMTP_PASSWORD` from Railway secrets. TLS certificate
-   verification must remain enabled; no plaintext fallback is allowed.
-2. Remove the required AWS SES imports and startup variables. The final image
-   must not contain a live SES sender or silently fall back to SES.
-3. Define the sender policy centrally and allow only
-   `noreply@marcsmusic.nl` for this instance. Reject arbitrary project sender
-   domains unless their DNS and authorization flow is implemented and tested.
-4. Replace SES DKIM/domain-verification and quota calls with an explicit
-   MXRoute/DNS contract. Do not mark a domain verified merely because SMTP
-   authentication succeeded.
-5. Preserve idempotency and classify an SMTP timeout/disconnect after `DATA`
-   as an uncertain delivery. Such a message must be quarantined for
-   reconciliation, not retried blindly by the default BullMQ attempts.
-6. Add unit, integration and negative tests for STARTTLS, certificate
-   validation, auth failure, provider rejection, timeout-after-DATA and
-   duplicate/idempotency behavior. Keep all credentials out of fixtures/logs.
+SMTP_HOST=tuesday.mxrouting.net
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=<MXRoute username>
+SMTP_PASSWORD=<Railway secret>
+SMTP_TIMEOUT_MS=15000
+SMTP_FROM_ADDRESS=noreply@marcsmusic.nl
+SMTP_FROM_NAME=MarcsMusic
+SMTP_ALLOWED_FROM_ADDRESS=noreply@marcsmusic.nl
+SMTP_ALLOWED_FROM_DOMAIN=marcsmusic.nl
+```
 
-Only after that fork is built and the image metadata records this exact
-`UPSTREAM_REF` plus patch commit should a Railway Plunk service be created.
+`SMTP_SECURE=false` is intentional: on port 587 the transport upgrades the
+connection with explicit STARTTLS. It is not a plaintext fallback. Keep
+`SMTP_PASSWORD` as a Railway secret and rotate it independently from Plunk
+API or webhook secrets.
 
-## Known MXRoute values (non-secret)
+The current MarcsMusic production project uses the Railway service names
+`Postgres-tGG2` and `Redis`; keep the references aligned if those services are
+renamed during a controlled migration.
 
-| Setting | Value |
-| --- | --- |
-| SMTP host | `tuesday.mxrouting.net` |
-| SMTP port | `587` |
-| Encryption | STARTTLS (explicit TLS) |
-| Authentication | required |
-| From address | `noreply@marcsmusic.nl` |
+## Build and rollout
 
-The MXRoute username and password are deliberately not committed. The
-password must be entered only as a Railway secret (or retrieved from approved
-secret custody) and must never be printed by a build or deployment command.
+1. Deploy `plunk-migrate` and wait for a successful, one-shot migration.
+2. Deploy `plunk-api`; verify `/health` returns HTTP 200 and inspect the image
+   metadata for the Dockerfile, pinned upstream ref and patch build.
+3. Deploy `plunk-worker`; verify that all workers start and that the bounded
+   SMTP rate/concurrency is present in logs without credentials.
+4. Create the first Plunk project/API secret through the protected dashboard
+   bootstrap. Put that secret in the application Railway services as
+   `PLUNK_SECRET_KEY`; never invent a key or place it in source control.
+5. Keep application and send gates disabled until a controlled test proves
+   Plunk acceptance, MXRoute delivery and SPF/DKIM/DMARC alignment.
 
-## Railway rollout order after the fork exists
+Before enabling any dispatcher, inspect pending, failed and
+`reconcile_required` records. Old pending records must not be released merely
+because the provider was changed.
 
-Keep application and Plunk send gates disabled. Deploy the Plunk image and
-database migrations first, prove health and SMTP handshake with a controlled
-test account, then configure the application `PLUNK_BASE_URL` and secret.
-Inspect Plunk's pending/failed/uncertain queue before enabling any dispatcher;
-old pending records must not be sent unexpectedly. Roll back by disabling the
-Plunk send gate and the application send gate, then reconcile uncertain
-messages before changing provider identity.
+## Cloudflare
+
+Point a dedicated public Plunk origin to the Railway service and keep all
+mail-related DNS records DNS-only. In the current zone
+`mail.marcsmusic.nl` already points to MXRoute and must not be repointed; use
+the Railway origin or a new, non-conflicting subdomain after the required
+Cloudflare CNAME is approved. Preserve the existing MXRoute MX records.
+Maintain exactly one SPF record, use the DKIM selector that actually signs the
+message (MXRoute for this topology), and start DMARC at `p=none` with a valid
+reporting address. Verify every change with public DNS lookups; never add a
+fictitious Plunk SES/DKIM record.
+
+## Rollback
+
+Disable `PLUNK_SEND_ENABLED`, `OUTREACH_SEND_ENABLED` and the kill switch before
+changing provider identity. Do not retry a timeout after SMTP `DATA` blindly;
+reconcile the deterministic message ID first. Roll back the API and worker to
+the previous image only after the queue and uncertain-delivery records have
+been reviewed.

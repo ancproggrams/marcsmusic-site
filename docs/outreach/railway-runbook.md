@@ -29,11 +29,17 @@ Signing-key changes follow the separate [key-rotation and rollback runbook](key-
 - Railway runtime, private network and deployment history.
 - Dedicated PostgreSQL with `pgcrypto`, backups and a tested restore path.
 - EspoCRM 10 with the MarcsMusic Outreach extension, least-privilege API user and signed webhooks.
-- Mailgun EU endpoint, verified sender domain, signed event/reply webhooks and suppression handling.
+- Plunk API and dedicated Plunk worker, with MXRoute SMTP relay on
+  `tuesday.mxrouting.net:587` using authenticated STARTTLS and the fixed
+  `noreply@marcsmusic.nl` sender.
+- A separately approved legacy inbound/outcome boundary, if still enabled;
+  Mailgun is not the outbound provider.
 - Public TLS route for webhooks and unsubscribe confirmation.
 - DNS, SPF, DKIM and DMARC managed outside the worker.
 
-Loss of PostgreSQL makes the service not ready. Loss of EspoCRM or Mailgun pauses processing through retry/backoff; it must never bypass evidence or resend an uncertain provider request.
+Loss of PostgreSQL makes the service not ready. Loss of EspoCRM or Plunk pauses
+processing through retry/backoff; it must never bypass evidence or resend an
+uncertain provider request.
 
 ## Release gates
 

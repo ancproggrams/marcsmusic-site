@@ -1,9 +1,10 @@
 # Plunk/MXRoute productie-runbook
 
 Dit runbook beschrijft de gecontroleerde uitrol van transactionele e-mail voor
-MarcsMusic. Het is geen toestemming om een gate te omzeilen: de huidige
-gepinde upstream Plunk-build gebruikt AWS SES en wordt daarom door
-`deploy/plunk/apply-mxroute-patch.sh` geweigerd totdat de SMTP-fork is getest.
+MarcsMusic. De Railway-deployment bouwt de gepinde Plunk-bron met de
+reviewde native MXRoute-patch. De applicatieprovider is Plunk; MXRoute blijft
+de SMTP-relay. De send-gates blijven dicht totdat de eerste gecontroleerde
+delivery is bewezen.
 
 ## Eigenaarschap en topologie
 
@@ -32,7 +33,7 @@ Applicatieservices (`marcsmusic-release-os` en `outreach-worker-production`):
 
 ```text
 EMAIL_PROVIDER=plunk
-PLUNK_BASE_URL=https://mail.marcsmusic.nl
+PLUNK_BASE_URL=https://plunk-api-production.up.railway.app
 PLUNK_SECRET_KEY=<Railway secret>
 EMAIL_FROM=MarcsMusic <noreply@marcsmusic.nl>
 PLUNK_FROM=MarcsMusic <noreply@marcsmusic.nl>
@@ -73,6 +74,9 @@ incident.
 - Behoud of verbeter DMARC gecontroleerd; begin bij bewezen nieuwe delivery
   met `p=none` en een geldig rapportageadres. Verhoog pas na rapportage naar
   `quarantine` of `reject`.
+- `mail.marcsmusic.nl` is al een MXRoute CNAME en mag niet naar Plunk worden
+  omgezet. Gebruik voor een custom Plunk-origin een nieuw, niet-conflicterend
+  subdomein; de Railway-origin blijft geldig zolang DNS niet is gewijzigd.
 - Plunk-domeinverificatierecords zijn alleen nodig wanneer de gekozen fork die
   expliciet implementeert. Voeg geen fictieve verificatierecords toe.
 
@@ -114,12 +118,13 @@ authenticatie, en verwijder daarna het oude secret. Roteer
 `SMTP_PASSWORD` afzonderlijk bij MXRoute en voer alleen een geauthenticeerde
 handshake uit; log de credential nooit.
 
-## Bekende blokkades
+## Resterende productie-gates
 
-- De upstream Plunk-code op de gepinde ref is SES-only. De MXRoute-fork is een
-  broncodewijziging, geen set extra environment variables.
+- Het eerste Plunk-project/API-secret moet via de beschermde self-hosted
+  bootstrap worden aangemaakt en uitsluitend als Railway-secret bij de
+  applicatieservices worden gezet.
 - Het productie-EspoCRM weigert momenteel te starten wegens een
   schema-fingerprint mismatch. Dat mag niet met een bypass of lege database
-  worden omzeild.
+  worden omzeild; matching en outreach blijven daarom geblokkeerd.
 - Er is nog geen gecontroleerd testmailadres verstrekt. Er is geen echte
   productiemail door deze wijziging verstuurd.
