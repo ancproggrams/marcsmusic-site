@@ -1,0 +1,131 @@
+{
+  "run": 399,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1716,
+  "pipelineEstimate": 1717,
+  "newPlatforms": [
+    {
+      "name": "WFMU Music Department Contact and Physical Review Route",
+      "websiteUrl": "https://wfmu.org/",
+      "submissionUrl": "https://wfmu.org/sendmusic.html",
+      "sourceUrl": "https://wfmu.org/sendmusic.html",
+      "sourceType": "automation_run_399_public_research",
+      "country": "United States / Jersey City, New Jersey independent freeform radio",
+      "language": "en",
+      "genres": [
+        "independent-radio",
+        "freeform-radio",
+        "experimental",
+        "electronic",
+        "world-fusion",
+        "reggae-adjacent",
+        "cross-genre",
+        "javascript-dependent-contact-form",
+        "protected-first-party-contact-route",
+        "authorized-physical-review-material-route",
+        "asset-free-inquiry",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-music-department-contact-form-or-authorized-physical-review-material-route",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party Music Department contact form with an authorized physical review-material alternative",
+        "contactForm": "https://www.wfmu.org/email.php?id=447",
+        "contactFormPublication": "The official Send Music page links directly to the WFMU Music Department email page; the form is addressed to Music Department and requires JavaScript.",
+        "explicitPurpose": "The Send Music page explicitly accepts vinyl, CD, CD-R and cassette materials for review and identifies Jessica Romoff as Music Director.",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Use the official Music Department form only for a concise asset-free process inquiry, or separately approve one physical review package under the published instructions.",
+        "audioDeliveryAuthorized": "Physical review media are explicitly authorized; no digital audio-delivery route or file/link specification is published.",
+        "physicalDeliveryAuthorizedForMarcsMusic": true,
+        "physicalRoute": "WFMU, c/o Jessica Romoff (Music Director), PO Box 2011, Jersey City, NJ 07303-2011. UPS/FedEx-only address: WFMU, Jessica Romoff, 43 Montgomery Street, 4th Floor, Jersey City, NJ 07302."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "vinyl, CD, CD-R and cassette review materials are welcome",
+          "address physical review materials to WFMU c/o Jessica Romoff, Music Director",
+          "use the PO box for regular mail and the separate street address only for UPS or FedEx",
+          "the linked Music Department contact form requires JavaScript",
+          "the contact form exposes name, email, subject and message fields",
+          "no submission fee, account, login or mandatory payment is stated"
+        ],
+        "safeReviewScope": [
+          "use the Music Department form only for an asset-free inquiry unless WFMU supplies digital delivery instructions",
+          "do not attach audio or insert private track links into the inquiry",
+          "confirm whether international artists may use a digital route",
+          "confirm accepted digital formats, download permissions, file-size limits and metadata if a digital route is provided",
+          "confirm whether a physical package is worthwhile before incurring production and international postage costs",
+          "confirm explicit-content and clean-edit expectations",
+          "confirm the current AI-assisted or AI-generated music policy",
+          "do not send through both the form and physical mail as duplicate delivery",
+          "retain needs_manual_review because JavaScript, editorial judgment and live-policy confirmation are required"
+        ],
+        "unresolvedEligibility": [
+          "international digital eligibility",
+          "whether the contact form may be used for anything beyond a process inquiry",
+          "accepted digital audio formats and delivery method",
+          "required metadata, artwork and release timing",
+          "explicit-content and clean-edit policy",
+          "AI-assisted or AI-generated music policy",
+          "follow-up timing and resubmission policy"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "emailStatus": "no plaintext Music Department business email published on the reviewed official route",
+        "verification": "The official site exposes a first-party Music Department contact form rather than a plaintext mailbox. No address was decoded, inferred from a naming pattern, guessed or copied from a third-party directory. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "generalContactFormIdentified": true,
+        "musicDepartmentContactFormIdentified": true,
+        "javascriptRequired": true,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The first-party Music Department form requires JavaScript and is suitable only for an asset-free process inquiry because WFMU publishes no digital audio-delivery procedure. A human must inspect the live form and stop if CAPTCHA, consent, authentication, payment, anti-spam or other protected controls appear.",
+        "adjacentRoutesExcluded": [
+          "individual DJs and programme hosts",
+          "Station Manager and Program Director contact",
+          "general staff directory contacts",
+          "record-donation route",
+          "newsletter and mailing-list forms",
+          "duplicate simultaneous form and physical delivery"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "WFMU's official homepage displayed programme archives dated July 15, 2026 and playlists dated July 16, 2026. The site also exposes a Summer 2026 programme schedule and a 2026 Heavily Played recordings section compiled by Music Director Jessica Romoff."
+      },
+      "genreFitEvidence": [
+        "WFMU describes itself as an independent freeform station rather than a format-restricted service.",
+        "Its current schedule, playlists and heavily played records support active discovery across unconventional and cross-genre music.",
+        "A carefully selected MarcsMusic experimental electronic, world-fusion or reggae-adjacent release may fit, subject to human programme and editorial matching."
+      ],
+      "manualReviewReason": "WFMU explicitly accepts physical review media and provides a first-party Music Department contact form, but the form requires JavaScript and no digital audio-delivery specifications or AI-origin policy are published. Human review is required for route choice, asset fit, rights, physical-postage approval, final live-form inspection and policy confirmation.",
+      "priority": 87,
+      "pricingModel": "free-first/asset-free-contact-form/optional-physical-media/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "WFMU",
+      "wfmu.org",
+      "wfmu.org/sendmusic.html",
+      "wfmu.org/email.php?id=447",
+      "Jessica Romoff"
+    ],
+    "repositoryEvidence": "The complete open-pull-request patch and repository context were searched for WFMU, wfmu.org, the Send Music path, the Music Department form path and Jessica Romoff. No prior music-submission-agent platform, runtime seed or queue record was found.",
+    "consolidation": "The Music Department contact form and both published physical-delivery addresses are stored as one canonical opportunity. Individual DJs, general staff contacts, record-donation, newsletter and duplicate simultaneous delivery routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first WFMU opportunity was queued as needs_manual_review. No plaintext Music Department email was stored; the first-party form remains protected and human-reviewed. No form field, email, audio asset, attachment, link, physical package, login, CAPTCHA, consent or payment was submitted."
+}
