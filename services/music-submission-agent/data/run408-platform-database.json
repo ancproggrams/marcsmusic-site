@@ -1,0 +1,161 @@
+{
+  "run": 408,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1725,
+  "pipelineEstimate": 1726,
+  "newPlatforms": [
+    {
+      "name": "KXCI 91.3 FM International Digital and Physical Music Submission Route",
+      "websiteUrl": "https://kxci.org/",
+      "submissionUrl": "https://kxci.org/about/music-department/",
+      "sourceUrl": "https://kxci.org/about/music-department/",
+      "sourceType": "automation_run_408_public_research",
+      "country": "United States / Tucson, Arizona community radio accepting music from all over the world",
+      "language": "en",
+      "genres": [
+        "community-radio",
+        "freeform-radio",
+        "independent-music",
+        "electronic",
+        "electro-pop",
+        "hip-hop",
+        "reggae",
+        "world-music",
+        "experimental",
+        "cross-genre",
+        "protected-public-business-email",
+        "authorized-digital-submission-route",
+        "authorized-physical-submission-alternative",
+        "international-artists-explicitly-accepted",
+        "download-link-required",
+        "explicit-content-disclosure-required",
+        "capacity-gated",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-protected-music-department-email-with-mp3-or-wav-download-link-and-physical-alternative",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "protected first-party Music Department email action for digital MP3 or WAV download links, with an authorized international physical CD or vinyl alternative",
+        "contactEmail": null,
+        "contactPerson": "KXCI Music Department",
+        "contactPublication": "KXCI's official Music Department page publishes a purpose-specific email action for digital submissions. Cloudflare email protection obscured the destination during passive retrieval; the action was not decoded, guessed or inferred.",
+        "explicitPurpose": "Music submission for potential volunteer and staff review and possible KXCI airplay.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the official Music Department page in a normal browser, use the designated protected email action, provide one carefully selected release and all published information, and stop if authentication, payment, consent or other protected controls appear.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": true
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "KXCI accepts and broadcasts music from all over the world, while prioritizing Tucson, regional and Arizona artists",
+          "digital submissions must use an MP3 or WAV download link",
+          "KXCI describes the digital route as being for digital albums",
+          "include artist or band name",
+          "include album title, artwork and tracklist with song times",
+          "include record label or state that the release is self-released",
+          "include album release date",
+          "include genre, sub-genre and similar artists",
+          "identify explicit or questionable language, the affected track number and a lyrics link when available",
+          "include a brief biography, social links and upcoming Tucson or regional performances when applicable",
+          "include contact information",
+          "CDs and vinyl are accepted; vinyl must include a digital download",
+          "national and international physical submissions may be sent to the official KXCI Music Department postal address",
+          "KXCI receives more than 500 physical and digital submissions per week and cannot review, comment on or broadcast every release",
+          "no submission fee, account login, CAPTCHA or mandatory payment is published"
+        ],
+        "safeReviewScope": [
+          "select one MarcsMusic release with a strong programme fit",
+          "confirm whether KXCI accepts a standalone single because the published digital wording refers to albums",
+          "prepare an accessible MP3 or WAV download link rather than an attachment unless KXCI expressly requests otherwise",
+          "verify artwork, tracklist, timings, release date, genre, similar artists, biography, social links and contact information",
+          "identify every explicit or questionable lyric accurately",
+          "confirm the current AI-assisted or AI-generated music policy because none is published",
+          "confirm any preferred release window or recency requirement",
+          "use one delivery route unless KXCI requests both digital and physical copies",
+          "retain needs_manual_review until the protected destination and all eligibility questions are checked"
+        ],
+        "unresolvedEligibility": [
+          "whether standalone singles are accepted through the route described for digital albums",
+          "whether previously released material, remixes or alternate versions are eligible",
+          "preferred release timing or recency",
+          "maximum number of tracks or releases per email",
+          "maximum download size and preferred file-hosting services",
+          "whether password-protected links are accepted",
+          "AI-assisted or AI-generated music policy",
+          "follow-up timing and receipt-confirmation policy"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "protectedEmailRoute": {
+          "purpose": "KXCI Music Department digital music submissions",
+          "source": "https://kxci.org/about/music-department/",
+          "verification": "first-party publication beside explicit digital-submission instructions; destination protected by Cloudflare and intentionally not decoded, guessed or copied from a third-party source"
+        },
+        "emailStatus": "one source-verified, purpose-specific protected Music Department email action observed; no plaintext address stored",
+        "verification": "The official Music Department page directly associates the protected email action with MP3 or WAV download-link submissions. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed, and no message was sent."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "generalContactFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "musicDepartmentSelectorIdentified": false,
+        "officialGuidelineWorkflowIdentified": true,
+        "javascriptRequired": false,
+        "temporaryCookieRequired": false,
+        "secureSessionObserved": false,
+        "captchaObserved": false,
+        "captchaType": null,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The canonical digital route is a Cloudflare-protected first-party email action rather than a form. A human must open the official page normally, use the displayed destination without decoding or bypassing the protection, inspect all release assets and confirm unresolved eligibility rules.",
+        "adjacentRoutesExcluded": [
+          "general feedback and station telephone routes",
+          "newsletter registration",
+          "event-submission page",
+          "underwriting and donation routes",
+          "individual DJ or programme contacts",
+          "social-media direct messages",
+          "local-only Locals Only route because MarcsMusic is not an Arizona local artist",
+          "simultaneous digital and physical delivery without a deliberate human choice",
+          "third-party email directories and guessed addresses"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "KXCI's official homepage displayed current posts dated July 8, July 10 and July 14, 2026, current July through October events, a live-stream interface, recent-played and playlist links, a two-week programme archive and an active weekly schedule."
+      },
+      "genreFitEvidence": [
+        "Global Rhythm Radio presents diverse cultures and music from around the world.",
+        "Worldwide Underground presents hip-hop from the 1980s through current underground artists.",
+        "The current schedule includes Electric Feel, The Electro Pop Cycle, Rasta Riddims, Global Rhythm Radio, Worldwide Underground and experimental or freeform programmes.",
+        "Selected MarcsMusic electronic, electro-pop, hip-hop, reggae, world-fusion or experimental material has plausible fit after exact programme matching."
+      ],
+      "manualReviewReason": "KXCI provides a legitimate international digital and physical submission route with detailed content requirements, but the email destination is protected, weekly volume exceeds 500 submissions, the digital wording refers to albums, and AI-origin, release-window and link-size rules are unpublished. A human must choose and inspect one release and use the official protected route without bypassing controls.",
+      "priority": 93,
+      "pricingModel": "free-first/protected-email/download-link/international-physical-alternative/capacity-gated/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KXCI",
+      "KXCI 91.3 FM",
+      "kxci.org",
+      "https://kxci.org/about/music-department/",
+      "KXCI Music Department"
+    ],
+    "repositoryEvidence": "Repository code search and a search of the complete pull-request patch were performed before creation for KXCI, kxci.org and the official Music Department path; no existing music-submission-agent platform, seed or queue record was found.",
+    "consolidation": "The protected digital email action and the national/international physical-delivery option are stored as one canonical KXCI opportunity. The Arizona-local CC route, event form, newsletter, underwriting, donation, general feedback, social and individual-programme routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first KXCI opportunity was queued as needs_manual_review. KXCI explicitly accepts music from all over the world and authorizes MP3 or WAV download links plus an international physical alternative. The protected email destination, high weekly submission volume and unresolved single, AI-origin and release-window rules require human review. No submission was made."
+}
