@@ -2,7 +2,7 @@
 
 Date: 2026-07-16
 
-Latest run: Run 394
+Latest run: Run 395
 
 New items added: 1
 
@@ -10,26 +10,28 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1712
+Pipeline estimate: 1713
 
 Items:
 
-- WRMC 91.1 FM — publicly listed co-Music Director contacts queued for one asset-free process inquiry
+- Radio K (KUOM) — explicitly authorized digital Music Department route queued for one downloadable release package
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Route note: WRMC's official About page identifies Cate Richardson and Honor McFadden as Music Directors and publishes `crichardson@middlebury.edu` and `hmcfadden@middlebury.edu`. The two public institutional contacts are consolidated into one canonical Music Director inquiry opportunity.
+Route note: Radio K's official submission guidance invites independent artists to submit releases for airplay consideration. Its free-first digital method uses the designated Music Department email route with a downloadable `.zip` file on Google Drive, Dropbox or a similar service. Lossless WAV or FLAC files are preferred; Bandcamp download codes or free-download release links are also accepted.
 
-Authorization note: The reviewed first-party pages do not publish an unsolicited-music submission form or an authorized audio-delivery procedure. The initial inquiry must therefore be asset-free and may only ask whether external and international artists are accepted and request current formats, links, metadata, release timing, clean-edit, explicit-content and AI-origin requirements.
+Metadata note: Radio K asks for a concise short bio, contact information, genuinely similar artists, identification of non-FCC-friendly tracks and two or three recommended radio tracks. The station says it generally does not play classical or Top 40 and does not accept tracking-information requests because of submission volume.
 
-Email-verification note: Both addresses were verified through first-party plaintext publication, Music Director role attribution, valid syntax and alignment with Middlebury College's official `middlebury.edu` domain. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed, and no address was guessed.
+Email-verification note: The Contact and Submitting Music pages both link the Music Department as the authorized digital destination. The exact address is Cloudflare-protected rather than published in plaintext. It was not decoded, guessed, copied from third parties or probed. No SMTP, MX, catch-all, mailbox-level or deliverability testing was performed.
 
-Activity and fit note: WRMC's official site exposed a live player, current-show/current-playlist data, active weekly schedules and current-played tracks. Current programming includes electronic, rap, hip-hop, world, pop, indie, alternative and other genres. Selected MarcsMusic releases may fit, but no asset may be supplied before WRMC confirms the process.
+Physical-route note: The same official guidance authorizes one unwrapped CD mailed to Radio K - KUOM at the University of Minnesota. This is retained as an authorized alternative but is consolidated with the digital route and not queued first because international postage is not free-first.
 
-Manual-review note: A human must send no more than one coordinated inquiry, avoid contacting both Music Directors separately, keep it free of audio and private links, and retain `needs_manual_review` until WRMC provides explicit instructions. Individual DJs, other staff, app chat, the zine notice, library resources and the station address are excluded as substitute routes.
+Activity and fit note: Radio K's official site showed current rotation additions, June and July 2026 editorial/event content, active playlist and schedule surfaces, and terrestrial plus worldwide online listening. The station describes an eclectic independent format, and current additions included electronic, sound-collage and rap releases. Selected MarcsMusic electronic, bass, hip-hop-adjacent, reggae-adjacent and world-fusion tracks may fit.
 
-Deduplication note: The complete open pull-request patch and repository code index were searched for WRMC, WRMC 91.1, wrmc.middlebury.edu and both Music Director addresses. No prior music-submission-agent platform, runtime seed or queue record was found. The two contacts are stored once as one opportunity.
+Manual-review note: A human must open the protected Music Department link only from the official page, confirm international and AI-origin eligibility, select a suitable release, verify that the download works without login or permission requests, prepare the requested metadata and avoid Spotify-only or non-downloadable links. Do not automate the email, request tracking, contact adjacent staff or decode the protected address.
 
-Runtime-linkage note: Run 394's seed is chained after Run 393 in the active recursive seed chain.
+Deduplication note: The complete open pull-request patch and repository code index were searched for Radio K, KUOM, Radio K - KUOM, radiok.org and the canonical submitting-music path. No prior music-submission-agent platform, runtime seed or queue record was found. Digital and physical methods are stored once as one opportunity.
 
-Safety: No email, app message, form field, audio file, attachment, streaming link, download link, biography, metadata, EPK, artwork, physical package, login, CAPTCHA, consent or payment was entered or submitted. No contact was guessed, and no platform, authentication or anti-bot restriction was bypassed.
+Runtime-linkage note: Run 395's seed is chained after Run 394 in the active recursive seed chain.
+
+Safety: No email, form field, audio file, `.zip` package, cloud link, Bandcamp code, biography, metadata, artwork, physical package, login, CAPTCHA, consent or payment was entered or submitted. The protected Music Department address was not decoded or guessed, and no platform, authentication or anti-bot restriction was bypassed.
