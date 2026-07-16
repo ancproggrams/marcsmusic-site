@@ -44,7 +44,7 @@ index 7421c3f..d26eff3 100644
 +SMTP_TIMEOUT_MS=15000
 +SMTP_FROM_ADDRESS=noreply@marcsmusic.nl
 +SMTP_FROM_NAME=MarcsMusic
-+SMTP_ALLOWED_FROM_ADDRESS=noreply@marcsmusic.nl
++SMTP_ALLOWED_FROM_ADDRESSES=noreply@marcsmusic.nl,marc@marcsmusic.nl
 +SMTP_ALLOWED_FROM_DOMAIN=marcsmusic.nl
 +# Keep disabled until an authenticated provider event contract is configured.
 +SMTP_TRACKING_ENABLED=false
@@ -149,7 +149,7 @@ diff --git a/apps/api/src/app/constants.ts b/apps/api/src/app/constants.ts
 index e4261ba..a2bf08e 100644
 --- a/apps/api/src/app/constants.ts
 +++ b/apps/api/src/app/constants.ts
-@@ -20,8 +20,34 @@ export function validateEnv<T extends string = string>(key: keyof NodeJS.Process
+@@ -20,8 +20,43 @@ export function validateEnv<T extends string = string>(key: keyof NodeJS.Process
    return value;
  }
 
@@ -165,6 +165,15 @@ index e4261ba..a2bf08e 100644
 +  const value = validateEnv(key, defaultValue).trim().toLowerCase();
 +  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(value)) throw new Error(`${key} must be a valid email address`);
 +  return value;
++}
++
++function emailAddressList(key: keyof NodeJS.ProcessEnv, defaultValue: string): string[] {
++  const values = validateEnv(key, defaultValue).split(',').map(value => value.trim().toLowerCase());
++  if (values.some(value => !/^[^\s@]+@[^\s@]+\.[^\s@]+$/u.test(value))) {
++    throw new Error(`${key} must contain only valid email addresses`);
++  }
++  if (new Set(values).size !== values.length) throw new Error(`${key} must not contain duplicates`);
++  return values;
 +}
 +
 +function strictBoolean(key: keyof NodeJS.ProcessEnv, defaultValue: string): boolean {
@@ -211,20 +220,20 @@ index e4261ba..a2bf08e 100644
 +export const SMTP_TIMEOUT_MS = positiveNumber('SMTP_TIMEOUT_MS', '15000', 1000, 60000);
 +export const SMTP_FROM_ADDRESS = emailAddress('SMTP_FROM_ADDRESS', 'noreply@marcsmusic.nl');
 +export const SMTP_FROM_NAME = validateEnv('SMTP_FROM_NAME', 'MarcsMusic');
-+export const SMTP_ALLOWED_FROM_ADDRESS = emailAddress('SMTP_ALLOWED_FROM_ADDRESS', SMTP_FROM_ADDRESS);
++export const SMTP_ALLOWED_FROM_ADDRESSES = emailAddressList('SMTP_ALLOWED_FROM_ADDRESSES', SMTP_FROM_ADDRESS);
 +export const SMTP_ALLOWED_FROM_DOMAIN = validateEnv(
 +  'SMTP_ALLOWED_FROM_DOMAIN',
-+  SMTP_ALLOWED_FROM_ADDRESS.split('@')[1] ?? 'marcsmusic.nl',
++  SMTP_ALLOWED_FROM_ADDRESSES[0]?.split('@')[1] ?? 'marcsmusic.nl',
 +).trim().toLowerCase();
-+if (SMTP_ALLOWED_FROM_ADDRESS !== SMTP_FROM_ADDRESS) {
-+  throw new Error('SMTP_ALLOWED_FROM_ADDRESS must equal SMTP_FROM_ADDRESS');
++if (!SMTP_ALLOWED_FROM_ADDRESSES.includes(SMTP_FROM_ADDRESS)) {
++  throw new Error('SMTP_ALLOWED_FROM_ADDRESSES must include SMTP_FROM_ADDRESS');
 +}
-+if (SMTP_ALLOWED_FROM_DOMAIN !== SMTP_ALLOWED_FROM_ADDRESS.split('@')[1]) {
-+  throw new Error('SMTP_ALLOWED_FROM_DOMAIN must match SMTP_ALLOWED_FROM_ADDRESS');
++if (SMTP_ALLOWED_FROM_ADDRESSES.some(address => address.split('@')[1] !== SMTP_ALLOWED_FROM_DOMAIN)) {
++  throw new Error('SMTP_ALLOWED_FROM_ADDRESSES must share SMTP_ALLOWED_FROM_DOMAIN');
 +}
 +if (
 +  NODE_ENV === 'production' &&
-+  (SMTP_FROM_ADDRESS !== 'noreply@marcsmusic.nl' || SMTP_ALLOWED_FROM_ADDRESS !== 'noreply@marcsmusic.nl')
++  (SMTP_FROM_ADDRESS !== 'noreply@marcsmusic.nl' || !SMTP_ALLOWED_FROM_ADDRESSES.includes('noreply@marcsmusic.nl'))
 +) {
 +  throw new Error('Production SMTP sender must be noreply@marcsmusic.nl');
 +}
@@ -1077,7 +1086,7 @@ new file mode 100644
 index 0000000..d3763fa
 --- /dev/null
 +++ b/apps/api/src/services/SMTPService.ts
-@@ -0,0 +1,516 @@
+@@ -0,0 +1,520 @@
 +import {createHash, randomUUID} from 'node:crypto';
 +import {promises as dns} from 'node:dns';
 +import net from 'node:net';
@@ -1087,7 +1096,7 @@ index 0000000..d3763fa
 +import {
 +  EMAIL_RATE_LIMIT_PER_SECOND,
 +  NODE_ENV,
-+  SMTP_ALLOWED_FROM_ADDRESS,
++  SMTP_ALLOWED_FROM_ADDRESSES,
 +  SMTP_ALLOWED_FROM_DOMAIN,
 +  SMTP_FROM_ADDRESS,
 +  SMTP_FROM_NAME,
@@ -1176,7 +1185,7 @@ index 0000000..d3763fa
 +function assertFromPolicy(from: {name: string; email: string}): void {
 +  assertNoHeaderInjection(from.name, 'from.name');
 +  assertNoHeaderInjection(from.email, 'from.email');
-+  if (from.email.toLowerCase() !== SMTP_ALLOWED_FROM_ADDRESS.toLowerCase()) {
++  if (!SMTP_ALLOWED_FROM_ADDRESSES.includes(from.email.toLowerCase())) {
 +    throw new SmtpProviderError('SMTP_FROM_NOT_ALLOWED', 'The configured sender address is not allowed');
 +  }
 +  const domain = from.email.split('@')[1]?.toLowerCase();
@@ -1847,7 +1856,7 @@ index 0000000..883279e
 +    SMTP_PASSWORD: globalThis.crypto.randomUUID(),
 +    SMTP_SECURE: 'false',
 +    SMTP_FROM_ADDRESS: 'noreply@marcsmusic.nl',
-+    SMTP_ALLOWED_FROM_ADDRESS: 'noreply@marcsmusic.nl',
++    SMTP_ALLOWED_FROM_ADDRESSES: 'noreply@marcsmusic.nl,marc@marcsmusic.nl',
 +    SMTP_ALLOWED_FROM_DOMAIN: 'marcsmusic.nl',
 +  });
 +});
@@ -1892,7 +1901,7 @@ index 0000000..883279e
 +    smtpTestTransport.calls.length = 0;
 +    const subject = 'MarcsMusic – Plunk/MXRoute productietest';
 +    await sendRawEmail({
-+      from: {name: 'MarcsMusic', email: 'noreply@marcsmusic.nl'},
++      from: {name: 'MarcsMusic', email: 'marc@marcsmusic.nl'},
 +      to: ['test@example.com'],
 +      content: {subject, html: '<p>test</p>'},
 +    });
@@ -1952,7 +1961,7 @@ index 18c0524..160d511 100644
 +      SMTP_TIMEOUT_MS: ${SMTP_TIMEOUT_MS:-15000}
 +      SMTP_FROM_ADDRESS: ${SMTP_FROM_ADDRESS:-noreply@marcsmusic.nl}
 +      SMTP_FROM_NAME: ${SMTP_FROM_NAME:-MarcsMusic}
-+      SMTP_ALLOWED_FROM_ADDRESS: ${SMTP_ALLOWED_FROM_ADDRESS:-noreply@marcsmusic.nl}
++      SMTP_ALLOWED_FROM_ADDRESSES: ${SMTP_ALLOWED_FROM_ADDRESSES:-noreply@marcsmusic.nl,marc@marcsmusic.nl}
 +      SMTP_ALLOWED_FROM_DOMAIN: ${SMTP_ALLOWED_FROM_DOMAIN:-marcsmusic.nl}
 +      SMTP_TRACKING_ENABLED: ${SMTP_TRACKING_ENABLED:-false}
 

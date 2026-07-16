@@ -30,8 +30,8 @@ Signing-key changes follow the separate [key-rotation and rollback runbook](key-
 - Dedicated PostgreSQL with `pgcrypto`, backups and a tested restore path.
 - EspoCRM 10 with the MarcsMusic Outreach extension, least-privilege API user and signed webhooks.
 - Plunk API and dedicated Plunk worker, with MXRoute SMTP relay on
-  `tuesday.mxrouting.net:587` using authenticated STARTTLS and the fixed
-  `noreply@marcsmusic.nl` sender.
+  `tuesday.mxrouting.net:587` using authenticated STARTTLS. Transactional
+  mail uses `noreply@marcsmusic.nl`; outreach uses `marc@marcsmusic.nl`.
 - A separately approved legacy inbound/outcome boundary, if still enabled;
   Mailgun is not the outbound provider.
 - Public TLS route for webhooks and unsubscribe confirmation.

@@ -37,7 +37,7 @@ Set these as Railway secrets or service references; never commit values:
 
 - dedicated PostgreSQL `DATABASE_URL` for outreach state;
 - `ESPOCRM_BASE_URL` and a least-privilege `ESPOCRM_API_KEY`;
-- `PLUNK_BASE_URL`, `PLUNK_SECRET_KEY`, `PLUNK_FROM` and the shared
+- `PLUNK_BASE_URL`, `PLUNK_SECRET_KEY`, `PLUNK_FROM=MarcsMusic <marc@marcsmusic.nl>` and the shared
   `PLUNK_WEBHOOK_SECRET`;
 - Mailgun variables only when the explicitly retained legacy inbound/outcome
   reconciliation boundary is enabled; they are never the outbound provider;

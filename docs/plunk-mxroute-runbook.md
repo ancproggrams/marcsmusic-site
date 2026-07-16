@@ -22,8 +22,9 @@ marcsmusic-release-os / outreach-worker
   circuit; de Plunk-ID wordt als provideridentiteit opgeslagen.
 - Alleen de Plunk-service voert Plunk database-migraties uit. De applicatie-
   en outreach-services voeren geen concurrerende Plunk-migraties uit.
-- `noreply@marcsmusic.nl` is de vaste afzender. Een flow mag alleen een
-  functionele `Reply-To` toevoegen.
+- `noreply@marcsmusic.nl` blijft de standaardafzender voor transactionele
+  mail. Outreach gebruikt expliciet `marc@marcsmusic.nl`; beide adressen
+  moeten in de Plunk sender-allowlist staan.
 
 ## Railway-variabelen
 
@@ -37,7 +38,7 @@ EMAIL_PROVIDER=plunk
 PLUNK_BASE_URL=https://plunk-api-production.up.railway.app
 PLUNK_SECRET_KEY=<Railway secret>
 EMAIL_FROM=MarcsMusic <noreply@marcsmusic.nl>
-PLUNK_FROM=MarcsMusic <noreply@marcsmusic.nl>
+PLUNK_FROM=MarcsMusic <marc@marcsmusic.nl>  # outreach-worker-production
 PLUNK_WEBHOOK_SECRET=<Railway secret>
 PLUNK_SEND_ENABLED=false
 OUTREACH_SEND_ENABLED=false
@@ -54,6 +55,7 @@ SMTP_USER=<MXROUTE_USERNAME>
 SMTP_PASSWORD=<Railway secret>
 SMTP_FROM_ADDRESS=noreply@marcsmusic.nl
 SMTP_FROM_NAME=MarcsMusic
+SMTP_ALLOWED_FROM_ADDRESSES=noreply@marcsmusic.nl,marc@marcsmusic.nl
 ```
 
 `SMTP_PASSWORD` en de Plunk API/webhook secrets worden afzonderlijk geroteerd;

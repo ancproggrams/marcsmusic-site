@@ -14,10 +14,11 @@ MarcsMusic application -> Plunk API -> Plunk worker -> MXRoute SMTP
 
 The patch removes the live SES sender from the API runtime and adds a bounded
 SMTP transport. Production requires explicit STARTTLS on port 587, certificate
-verification, authenticated MXRoute delivery, a fixed
-`noreply@marcsmusic.nl` sender, idempotency handling and an uncertain-delivery
-state when the connection is lost after `DATA`. No AWS SES credentials are
-accepted or required.
+verification, authenticated MXRoute delivery, `noreply@marcsmusic.nl` as the
+transactional default and an explicit allowlist entry for
+`marc@marcsmusic.nl` outreach, plus idempotency handling and an
+uncertain-delivery state when the connection is lost after `DATA`. No AWS SES
+credentials are accepted or required.
 
 ## Railway services
 
@@ -63,7 +64,7 @@ SMTP_PASSWORD=<Railway secret>
 SMTP_TIMEOUT_MS=15000
 SMTP_FROM_ADDRESS=noreply@marcsmusic.nl
 SMTP_FROM_NAME=MarcsMusic
-SMTP_ALLOWED_FROM_ADDRESS=noreply@marcsmusic.nl
+SMTP_ALLOWED_FROM_ADDRESSES=noreply@marcsmusic.nl,marc@marcsmusic.nl
 SMTP_ALLOWED_FROM_DOMAIN=marcsmusic.nl
 ```
 
