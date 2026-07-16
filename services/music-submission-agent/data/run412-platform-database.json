@@ -1,0 +1,192 @@
+{
+  "run": 412,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1729,
+  "pipelineEstimate": 1730,
+  "newPlatforms": [
+    {
+      "name": "Camaradio 101.3 One-Song Download-Link or Upload Submission Form",
+      "websiteUrl": "https://camaradio.org/",
+      "submissionUrl": "https://camaradio.org/submissions/",
+      "sourceUrl": "https://camaradio.org/submissions/",
+      "sourceType": "automation_run_412_public_research",
+      "country": "United States / Camarillo and Ventura County, California nonprofit community radio with international submission eligibility not explicitly stated",
+      "language": "en",
+      "genres": [
+        "community-radio",
+        "nonprofit-radio",
+        "independent-music",
+        "single-song-submission",
+        "electronic",
+        "dance",
+        "reggae",
+        "world-music",
+        "indie",
+        "rock",
+        "jazz",
+        "blues",
+        "cross-genre",
+        "authorized-digital-submission-route",
+        "dedicated-music-submission-form",
+        "download-link-or-file-upload",
+        "wav-or-mp3",
+        "sixteen-bit-stereo",
+        "captcha-protected",
+        "rights-affirmation-required",
+        "international-eligibility-unconfirmed",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-dedicated-music-submission-form-with-one-downloadable-link-or-wav-mp3-upload-and-human-arithmetic-captcha",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": true,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party dedicated music-submission form accepting one downloadable file link or one direct WAV/MP3 upload",
+        "contactEmail": null,
+        "contactPerson": "Camaradio music-submission review team",
+        "contactPublication": "The official Submit Your Music page contains the dedicated form and expressly invites one-song submissions for possible airplay.",
+        "explicitPurpose": "Independent-artist song consideration for possible Camaradio airplay.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Reopen the official form, select one suitable track, verify rights and eligibility, provide either one permissioned download link or one compliant file, complete the arithmetic CAPTCHA personally and submit manually.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submit only one song for consideration",
+          "use the official first-party music-submission form",
+          "provide submitter name",
+          "provide artist or band name",
+          "provide a valid contact email",
+          "state whether the artist or band is based in Ventura County",
+          "provide city",
+          "provide song title and song release date",
+          "provide album title and album release date when applicable",
+          "provide either a downloadable music-file link or use the file-upload option",
+          "direct uploads must be WAV or MP3",
+          "audio must be 44.1 kHz or 48 kHz, 16-bit stereo",
+          "direct-upload files must be under 10 MB",
+          "affirm that the submitter has the necessary rights",
+          "authorize Camaradio to air the music if selected",
+          "complete the changing arithmetic human-verification challenge",
+          "submission does not guarantee airplay",
+          "the route is not a song-request form and Camaradio does not provide reviews or critiques"
+        ],
+        "safeReviewScope": [
+          "select exactly one genuinely suitable MarcsMusic track",
+          "confirm that MarcsMusic controls all rights needed to submit and authorize broadcast",
+          "confirm international and non-local artists are eligible before entering personal or release data",
+          "check the current explicit-content and clean-edit policy because it is not published",
+          "check the current AI-assisted or AI-generated music policy because it is not published",
+          "verify the exact WAV or MP3 file, sample rate, bit depth, stereo format and file size",
+          "prefer a permissioned direct-download link when the file exceeds 10 MB",
+          "verify that any download link works without login, password, payment or access request",
+          "complete the arithmetic CAPTCHA personally without automation",
+          "retain needs_manual_review until all rights, technical, content and eligibility checks are complete"
+        ],
+        "unresolvedEligibility": [
+          "international artist eligibility",
+          "whether non-US rights and collecting-society arrangements affect eligibility",
+          "explicit-content and clean-edit requirements",
+          "AI-assisted or AI-generated music policy",
+          "accepted release age or release window",
+          "whether mastered loudness, bitrate or embedded metadata requirements apply",
+          "whether artwork, biography, ISRC or additional metadata is expected",
+          "maximum size for a linked downloadable file",
+          "follow-up timing and receipt-confirmation policy"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "adjacentEmails": [
+          {
+            "email": "hello@camaradio.org",
+            "purpose": "station sponsorship enquiries only",
+            "source": "https://camaradio.org/support/",
+            "verification": "first-party plaintext publication, explicit sponsorship purpose, valid syntax and exact camaradio.org domain alignment",
+            "eligibleForMusicSubmission": false
+          }
+        ],
+        "emailStatus": "no dedicated public music-submission mailbox stored; one adjacent first-party sponsorship mailbox was verified and excluded",
+        "verification": "Camaradio's official submission route is the dedicated form. The only relevant plaintext business mailbox found during this run, hello@camaradio.org, is expressly assigned to sponsorship enquiries and must not be used as a music-submission substitute. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed, and no message was sent."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "generalContactFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "musicDepartmentSelectorIdentified": false,
+        "officialGuidelineWorkflowIdentified": true,
+        "javascriptRequired": "unknown",
+        "temporaryCookieRequired": "unknown",
+        "secureSessionObserved": false,
+        "captchaObserved": true,
+        "captchaType": "changing arithmetic human-verification question",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The dedicated form contains a changing arithmetic CAPTCHA and rights authorization. A human must review the current form, complete the challenge personally and stop if any additional login, payment, session, consent or anti-bot control appears.",
+        "formsIdentified": [
+          "dedicated one-song music-submission form with download-link and direct-upload alternatives",
+          "changing arithmetic human-verification challenge",
+          "separate general contact form excluded as a submission route"
+        ],
+        "publishedFields": [
+          "submitter name",
+          "artist or band name",
+          "email",
+          "Ventura County yes or no selector",
+          "city",
+          "song title",
+          "song release date",
+          "optional album title",
+          "optional album release date",
+          "downloadable music-file link or direct file upload",
+          "rights and airplay authorization acknowledgement",
+          "arithmetic CAPTCHA response"
+        ],
+        "adjacentRoutesExcluded": [
+          "general contact form",
+          "hello@camaradio.org sponsorship mailbox",
+          "station phone and text-message contact",
+          "donation and giveaway forms",
+          "newsletter subscription",
+          "shop checkout",
+          "social-media direct messages",
+          "bulk catalogue delivery",
+          "third-party directories and copied contact details"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "Camaradio's official site exposes live listening and recently played surfaces, a populated seven-day schedule, current 2026 station content, recurring community-event coverage and an event dated July 11, 2026. The site identifies the station as an FCC-licensed nonprofit 101.3 FM service streaming online and carries a 2026 copyright notice."
+      },
+      "genreFitEvidence": [
+        "Camaradio presents diverse music and community programming rather than a single narrow format.",
+        "The current schedule includes DJ Space Cat's Galactic Dance Party, Indie Beginnings, Deeper Grooves Rewind, rock, blues, jazz, vinyl and broad presenter-led music programmes.",
+        "Selected MarcsMusic electronic, dance, reggae, world-fusion, indie-adjacent or cross-genre material has plausible fit after exact track and programme review."
+      ],
+      "manualReviewReason": "Camaradio provides a legitimate free dedicated form, but the form contains a changing arithmetic CAPTCHA and a rights and broadcast authorization. A human must select one track, confirm international eligibility, rights, content and AI-origin policy, validate the exact downloadable link or compliant WAV/MP3 file, complete the CAPTCHA personally and submit manually.",
+      "priority": 92,
+      "pricingModel": "free/first-party-form/one-song/download-link-or-upload/wav-or-mp3/rights-affirmation/captcha/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Camaradio",
+      "Camarillo Community Radio",
+      "camaradio.org",
+      "https://camaradio.org/submissions/",
+      "hello@camaradio.org"
+    ],
+    "repositoryEvidence": "Repository code search and the complete open pull-request patch were checked before creation for Camaradio, Camarillo Community Radio, camaradio.org, the canonical submissions path and hello@camaradio.org; no existing music-submission-agent platform, seed or queue record was found.",
+    "consolidation": "The dedicated submission form, its download-link and direct-upload alternatives, rights affirmation and arithmetic CAPTCHA are stored as one canonical Camaradio opportunity. The general contact form, sponsorship mailbox, station phone and text route, donations, newsletter, shop, social media and third-party contacts are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new Camaradio community-radio opportunity was queued as needs_manual_review. The authorized first-party route accepts one song through a permissioned download link or compliant WAV/MP3 upload and is protected by a human arithmetic challenge. No submission action was performed."
+}
