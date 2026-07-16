@@ -1,0 +1,138 @@
+{
+  "run": 396,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1713,
+  "pipelineEstimate": 1714,
+  "newPlatforms": [
+    {
+      "name": "KOOP Radio 91.7 FM Music Library Submission Inquiry Route",
+      "websiteUrl": "https://koop.org/",
+      "submissionUrl": "https://koop.org/about-us/contact/",
+      "sourceUrl": "https://koop.org/about-us/contact/",
+      "sourceType": "automation_run_396_public_research",
+      "country": "United States / Austin, Texas nonprofit community radio",
+      "language": "en",
+      "genres": [
+        "community-radio",
+        "independent-music",
+        "electronic",
+        "electronica",
+        "dub",
+        "reggae",
+        "jungle-drum-and-bass",
+        "hip-hop",
+        "world-music",
+        "world-beat",
+        "public-business-email",
+        "asset-free-inquiry",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-music-library-email-asset-free-process-inquiry",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party Music Library email route",
+        "email": "music@koop.org",
+        "emailProtection": "The address is published in plaintext on KOOP's official Contact page and is not protected or inferred.",
+        "explicitPurpose": "KOOP states that its Music Library welcomes music submissions and directs artists to this mailbox.",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Send one concise asset-free inquiry asking for KOOP's current digital music-delivery procedure and eligibility rules before providing audio, links, artwork or metadata.",
+        "audioDeliveryAuthorized": "KOOP explicitly welcomes music submissions, but the public page does not specify attachment, upload or download-link mechanics. Treat asset delivery as technically unresolved until KOOP confirms the method.",
+        "physicalDeliveryAuthorizedForMarcsMusic": false,
+        "physicalRoute": null
+      },
+      "submissionRequirements": {
+        "publishedDirectSubmissionRequirements": [
+          "use music@koop.org, the Music Library mailbox published on KOOP's official Contact page",
+          "direct the message to the Music Library rather than the general information mailbox",
+          "no public submission fee, account, login or payment requirement is stated"
+        ],
+        "safeReviewScope": [
+          "send an asset-free process inquiry first because technical delivery requirements are not published",
+          "confirm whether international independent artists are accepted",
+          "confirm whether KOOP accepts attachments, public streaming links or downloadable cloud links",
+          "confirm audio formats, file-size limits and download-permission requirements",
+          "confirm required biography, artwork, release date, label and contact metadata",
+          "confirm clean-edit and explicit-content requirements",
+          "confirm KOOP's current policy for AI-assisted or AI-generated music",
+          "select only a MarcsMusic release that fits KOOP's current genre programming",
+          "retain needs_manual_review because human editorial judgment and live-policy confirmation are required"
+        ],
+        "unresolvedEligibility": [
+          "international artist eligibility",
+          "accepted release types such as singles, EPs or albums",
+          "attachment versus downloadable-link procedure",
+          "accepted audio formats and maximum file size",
+          "metadata, artwork and release-window requirements",
+          "explicit-content and clean-edit rules",
+          "AI-assisted or AI-generated music policy",
+          "follow-up timing and resubmission policy"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "music@koop.org",
+            "purpose": "Music Library submissions",
+            "verificationStatus": "source-verified",
+            "verificationEvidence": "Published in plaintext on KOOP Radio's official Contact page with the statement that the Music Library welcomes music submissions; valid email syntax and exact alignment with the official koop.org domain."
+          }
+        ],
+        "emailStatus": "usable first-party purpose-specific business mailbox for a manual process inquiry",
+        "verification": "The mailbox was verified through first-party plaintext publication, explicit Music Library purpose, valid syntax and official-domain alignment. The adjacent info@koop.org general mailbox was excluded. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "musicCategoryInquiryFormIdentified": false,
+        "formFieldsPassivelyVisible": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "KOOP publishes an email route rather than a music-submission form. A human must confirm the current delivery procedure by email and stop if the live workflow introduces login, CAPTCHA, payment, consent, permission-gated storage or another protected step.",
+        "adjacentRoutesExcluded": [
+          "info@koop.org general feedback and informative-submissions mailbox",
+          "newsletter signup form and its anti-spam honeypot field",
+          "underwriting@koop.org and business-membership routes",
+          "DMCA agent mailbox",
+          "individual programmers, shows, board members and staff",
+          "studio and office telephone numbers",
+          "postal addresses not expressly designated for music submissions"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "KOOP's official homepage displayed an update dated July 15, 2026, programme highlights dated July 14 and July 10, 2026, upcoming events on July 22, August 6 and August 26, 2026, and active live-listening, schedule and archive surfaces. The current governance page lists 2024-2026 and 2025-2027 board terms and active staff."
+      },
+      "genreFitEvidence": [
+        "KOOP's official genre taxonomy and linked programmes include electronica, ambient, house, techno, dub, reggae, jungle/drum and bass, hip-hop, world and world-beat.",
+        "The station describes its programming as community-produced and its genre catalogue as continuously changing and expansive.",
+        "Selected MarcsMusic electronic, bass, dub, reggae and world-fusion releases therefore have plausible programme fit, subject to human track selection and KOOP's editorial judgment."
+      ],
+      "manualReviewReason": "KOOP expressly welcomes music submissions through a public Music Library mailbox, but it does not publish the current technical delivery method or international, metadata, content and AI-origin requirements. A human must send one asset-free inquiry, confirm the live procedure and select a suitable release. Do not attach audio, provide private links, use the newsletter form, contact individual programmers or infer a postal route before KOOP responds.",
+      "priority": 91,
+      "pricingModel": "free-first/public-music-library-email/asset-free-process-inquiry/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KOOP",
+      "KOOP Radio",
+      "KOOP Radio 91.7 FM",
+      "koop.org",
+      "music@koop.org",
+      "koop.org/about-us/contact"
+    ],
+    "repositoryEvidence": "The repository code index and current open pull-request context were searched for KOOP, KOOP Radio, music@koop.org and the canonical Contact path. The only unrelated KOOP token found was in a film-director lead file; no prior music-submission-agent platform, runtime seed or queue record was found.",
+    "consolidation": "The purpose-specific Music Library mailbox is stored once as the canonical opportunity. The general mailbox, newsletter form, underwriting and DMCA contacts, individual programmes, staff contacts, phone numbers and postal addresses are excluded as parallel or substitute routes."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first KOOP Radio opportunity was queued as needs_manual_review for a source-verified Music Library mailbox. The queued action is an asset-free process inquiry because delivery specifications are unpublished. No email, form field, audio asset, attachment, link, login, CAPTCHA or payment was submitted."
+}
