@@ -160,8 +160,9 @@ handshake uit; log de credential nooit.
   met een expliciet aangewezen beheerder worden gekoppeld voordat dashboard-
   beheer wordt gebruikt.
 - De MXRoute-authenticatie is gevalideerd met de Railway-secret en de
-  geconfigureerde SMTP-user. De zichtbare afzender blijft
-  `noreply@marcsmusic.nl`; roteer de SMTP-secret uitsluitend via Railway.
+  geconfigureerde SMTP-user. De zichtbare afzender voor transactionele mail
+  blijft `noreply@marcsmusic.nl`; outreach gebruikt `marc@marcsmusic.nl`.
+  Roteer de SMTP-secret uitsluitend via Railway.
 - Het productie-EspoCRM weigert momenteel te starten wegens een
   ontbrekend herstel-/rehearsal-attest voor een bestaande database. De
   schema-contractfix staat op `main`, maar mag de migratie-evidence niet
