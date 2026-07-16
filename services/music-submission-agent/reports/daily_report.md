@@ -2,7 +2,7 @@
 
 Date: 2026-07-16
 
-Latest run: Run 408
+Latest run: Run 409
 
 New items added: 1
 
@@ -10,30 +10,28 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1726
+Pipeline estimate: 1727
 
 Items:
 
-- KXCI 91.3 FM — international first-party digital submission route using a protected Music Department email action and an MP3 or WAV download link, with an authorized physical alternative
+- Wild Dogs Radio — global always-free single-song submission route through a verified public business mailbox, requiring one MP3 or WAV file, song artwork and release metadata including ISRC
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Route note: KXCI's official Music Department page explicitly accepts music from all over the world. It authorizes digital MP3 or WAV download-link submissions and separately permits national and international CDs or vinyl; vinyl must include a digital download. Digital delivery is the free-first option.
+Route note: Wild Dogs Radio's official Music Submissions page accepts all genres and directs single-song submissions to `office@wilddogsradio.com`. The route requires an MP3 or WAV music file, song artwork, artist or band name, title, single or album/EP name, release year and ISRC.
 
-Contact-verification note: The purpose-specific Music Department email action is published on KXCI's official submission page but was obscured by Cloudflare during passive retrieval. The destination was not decoded, guessed, inferred or copied from a third-party source. No plaintext address was stored, and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: The mailbox is published in plaintext on the official Music Submissions page and repeated in the official privacy-policy contact section. Its source, purpose, syntax and exact `wilddogsradio.com` domain alignment were verified. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Requirements note: KXCI asks for artist name, album title, artwork, tracklist and timings, label or self-release status, release date, genre and similar artists, explicit-language disclosure, biography, social links, relevant performances and contact information. The digital wording refers to albums, so standalone-single eligibility requires confirmation.
+Free and payment note: The submission page states that submissions are always free. No submission form, account login, CAPTCHA or mandatory payment was identified. Donations, PayPal, merchandise, promotion and advertising are adjacent routes and not submission prerequisites.
 
-Protection and payment note: No public submission form, account login, CAPTCHA or mandatory submission payment was identified. The protected email action must be opened normally by a human. Donation, underwriting, newsletter and event routes are unrelated and were excluded.
+Capacity note: Wild Dogs Radio says response may take up to 90 days because of submission volume. Accepted tracks receive 30 days of periodical airplay, generally a few plays per week. Bulk delivery and repeated follow-up are inappropriate.
 
-Capacity note: KXCI states that it receives more than 500 physical and digital submissions each week and cannot review, comment on or broadcast every release. Repeated follow-up and bulk catalogue delivery are inappropriate.
+Activity and fit note: The first-party site displayed a live-listening interface, recently aired music, current and upcoming show modules, music-news items and a populated seven-day schedule. The station says it supports artists from all corners of the world and accepts all genres. Potential MarcsMusic fits include electronic, bass, hip-hop, reggae, world-fusion and experimental material.
 
-Activity and fit note: KXCI's official site displayed current July 2026 posts, active events, live streaming, recent-played and playlist functions, a two-week archive and a populated weekly schedule. Potential MarcsMusic fits include electronic, electro-pop, hip-hop, reggae, world-fusion and experimental programming.
+Manual-review note: Reopen the official page, select exactly one track, confirm rights and the correct ISRC, verify file and artwork sizes and technical specifications, check the current AI-origin and release-recency policies, and manually send one complete submission. Stop if authentication, CAPTCHA, payment, consent or another protected control appears.
 
-Manual-review note: Reopen the official page, use the protected destination exactly as presented, select one release, confirm single, AI-origin and release-window eligibility, prepare an accessible MP3 or WAV link, verify all metadata and explicit-language disclosures, and choose one delivery route. Stop if authentication, payment, consent or another protected control appears.
+Deduplication note: Repository code search returned no previous Wild Dogs Radio, `wilddogsradio.com`, `office@wilddogsradio.com`, runtime seed or queue record. The email route is stored once; the Facebook request interaction, donations, merchandise, promotion, advertising and third-party directories are excluded.
 
-Deduplication note: Repository code search and the complete pull-request patch returned no previous KXCI, `kxci.org`, Music Department path, runtime seed or queue record. The protected digital route and international physical option are stored once as one canonical opportunity.
+Runtime-linkage note: Run 409's seed is chained after Run 408 in the active recursive seed chain.
 
-Runtime-linkage note: Run 408's seed is chained after Run 407 in the active recursive seed chain.
-
-Safety: No email, protected destination, download link, audio file, attachment, metadata, form field, physical package, account, login, CAPTCHA, consent or payment was entered or submitted. No Cloudflare, anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No email, audio file, artwork, attachment, metadata, social request, form field, account, login, CAPTCHA, consent, donation or payment was entered or submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
