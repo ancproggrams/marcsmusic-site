@@ -1,0 +1,148 @@
+{
+  "run": 400,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1717,
+  "pipelineEstimate": 1718,
+  "newPlatforms": [
+    {
+      "name": "WREK 91.1 FM Music Director Submission Route",
+      "websiteUrl": "https://www.wrek.org/",
+      "submissionUrl": "https://old.wrek.org/submissions/",
+      "sourceUrl": "https://old.wrek.org/submissions/",
+      "sourceType": "automation_run_400_public_research",
+      "country": "United States / Atlanta, Georgia college radio",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "independent-radio",
+        "electronic",
+        "ambient",
+        "experimental",
+        "reggae",
+        "dub",
+        "hip-hop",
+        "world",
+        "international",
+        "cross-genre",
+        "public-business-email",
+        "authorized-email-submission-route",
+        "authorized-physical-submission-alternative",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-music-director-email-or-physical-mail-route",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "public first-party Music Director email with an authorized physical-mail alternative",
+        "contactEmail": "music.director@wrek.org",
+        "contactPublication": "WREK's official submission guidance publishes the Music Director mailbox twice and is linked directly from the current WREK Music page.",
+        "explicitPurpose": "The official guidance states that music may be submitted by email or snail mail and confirms that independently produced music is accepted.",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Send one concise asset-free inquiry to the published Music Director mailbox to confirm the current digital delivery method before supplying files or private links. A physical package may be considered only after confirming the current postal address.",
+        "audioDeliveryAuthorized": "Email and physical music delivery are explicitly authorized, but the current digital attachment-versus-link method, formats and file-size limits are not published.",
+        "physicalDeliveryAuthorizedForMarcsMusic": true,
+        "physicalRoute": "The linked submission guidance lists WREK 91.1 FM, 350 Ferst Drive, Georgia Tech, John Lewis Student Center, Suite 2140, Atlanta, GA 30332. Other official WREK pages display different street numbers or suite numbers, so the address must be confirmed before mailing."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submit music only by the official Music Director email or the published postal route",
+          "WREK can handle common music media formats",
+          "CDs and LPs are stated to have a better chance of airplay than cassettes, DATs and other physical formats",
+          "receipt of submissions is not acknowledged because of submission volume",
+          "if a release is programmed for rotation and an email address is on file, WREK may send an automated weekly confirmation",
+          "there is no need to address a submission to a specific individual unless an advance arrangement exists",
+          "independently produced music is accepted"
+        ],
+        "safeReviewScope": [
+          "use the public Music Director mailbox for one asset-free inquiry before sending digital files or private links",
+          "confirm whether WREK currently prefers a downloadable link, public stream, attachment or another method",
+          "confirm accepted formats, bitrates, sample rates, file-size limits and download permissions",
+          "confirm the correct physical address because official WREK pages show inconsistent street or suite details",
+          "confirm international eligibility and whether non-US artists are accepted through the email route",
+          "confirm required artist, release, label, biography, artwork, contact and recommended-track metadata",
+          "confirm explicit-content and clean-edit expectations",
+          "confirm the current AI-assisted or AI-generated music policy",
+          "do not contact individual specialty-show hosts as substitute submission routes",
+          "do not submit through both email and post as duplicate delivery",
+          "retain needs_manual_review until the current route and payload requirements are confirmed"
+        ],
+        "unresolvedEligibility": [
+          "international artist eligibility",
+          "current digital delivery method",
+          "accepted digital formats, file-size limits and download permissions",
+          "required metadata, artwork and release timing",
+          "correct current postal address",
+          "explicit-content and clean-edit policy",
+          "AI-assisted or AI-generated music policy",
+          "follow-up timing and resubmission policy"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "music.director@wrek.org",
+            "role": "Music Director",
+            "sourceVerified": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "smtpProbed": false,
+            "verification": "Published twice in plaintext on WREK's official submission guidance, explicitly for music submissions and Music Director contact. The address has valid syntax and exactly matches WREK's official wrek.org domain."
+          }
+        ],
+        "emailStatus": "source-verified public Music Director business mailbox",
+        "verification": "The current WREK Music page links directly to the official submission guidance where the mailbox is published. No address was guessed or copied from a third-party directory. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "generalContactFormIdentified": false,
+        "musicDepartmentContactFormIdentified": false,
+        "javascriptRequired": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "No form is required. Human review is still required because the currently linked guidance is hosted on WREK's legacy official subdomain, digital payload specifications are absent and official postal-address representations conflict.",
+        "adjacentRoutesExcluded": [
+          "individual specialty-show hosts and DJs",
+          "song-request calls",
+          "general station contact",
+          "underwriting and advertising contacts",
+          "PSA route",
+          "duplicate simultaneous email and postal delivery"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "WREK's current official homepage states that it broadcasts 24/7, exposes a live player and 14-day archive, and displayed current official playlists or posts dated July 10 and July 15, 2026. The current Music page links directly to the official submission guidance."
+      },
+      "genreFitEvidence": [
+        "WREK's current Music page lists an Electronic sound block and an Overnight Alternatives block for experimental, industrial and noise.",
+        "Its Rock, Rhythm, and Roll block includes hip-hop and reggae, while current specialty shows cover reggae, dub, electronic, ambient, international, world and Afro-beat music.",
+        "Selected MarcsMusic electronic, bass, dub, reggae and world-fusion releases have plausible fit, subject to human track-to-program matching."
+      ],
+      "manualReviewReason": "WREK explicitly authorizes email and physical music submissions and publishes a verified Music Director mailbox, but the current digital payload method is unspecified, the guidance sits on a legacy official subdomain and official postal-address representations conflict. Human review is required for route confirmation, payload format, international eligibility, rights, catalogue fit, metadata, content rules and AI-origin policy.",
+      "priority": 91,
+      "pricingModel": "free-first/public-business-email/optional-physical-media/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "WREK",
+      "wrek.org",
+      "old.wrek.org/submissions",
+      "music.director@wrek.org",
+      "WREK 91.1 FM"
+    ],
+    "repositoryEvidence": "Repository code search and the complete open-pull-request patch were checked for WREK, wrek.org, the official submission path and music.director@wrek.org. No prior music-submission-agent platform, runtime seed or queue record was found.",
+    "consolidation": "The Music Director email and physical-mail alternative are stored once as one canonical opportunity. Individual DJs, specialty shows, general contact, song requests, underwriting, advertising, PSA and duplicate simultaneous email/post routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first WREK opportunity was queued as needs_manual_review. The public Music Director mailbox was source-verified, but no email or asset was sent. No form, login, CAPTCHA or payment workflow was used."
+}
