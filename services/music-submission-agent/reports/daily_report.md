@@ -2,7 +2,7 @@
 
 Date: 2026-07-16
 
-Latest run: Run 409
+Latest run: Run 410
 
 New items added: 1
 
@@ -10,28 +10,30 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1727
+Pipeline estimate: 1728
 
 Items:
 
-- Wild Dogs Radio — global always-free single-song submission route through a verified public business mailbox, requiring one MP3 or WAV file, song artwork and release metadata including ISRC
+- KZYX — free-first one-selection digital music-submission route through a verified public Music Department mailbox, using one streaming link or manually confirmed WAV file, with an optional physical-media alternative
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Route note: Wild Dogs Radio's official Music Submissions page accepts all genres and directs single-song submissions to `office@wilddogsradio.com`. The route requires an MP3 or WAV music file, song artwork, artist or band name, title, single or album/EP name, release year and ISRC.
+Route note: KZYX's official How to Submit Music page directs one musical selection to `music@kzyx.org`. The email subject should name a relevant DJ, show or genre, and the submission should include contact information, artist links, applicable label or promoter details, a short description and release date.
 
-Contact-verification note: The mailbox is published in plaintext on the official Music Submissions page and repeated in the official privacy-policy contact section. Its source, purpose, syntax and exact `wilddogsradio.com` domain alignment were verified. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: The mailbox is published in plaintext on the official submission page and explicitly assigned to music submissions. Its source, purpose, syntax and exact `kzyx.org` domain alignment were verified. The official staff page identifies Katharine Cole as Music Director. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Free and payment note: The submission page states that submissions are always free. No submission form, account login, CAPTCHA or mandatory payment was identified. Donations, PayPal, merchandise, promotion and advertising are adjacent routes and not submission prerequisites.
+Format note: KZYX permits a streaming link or WAV file, but its published WAV wording is technically unusual and requires clarification before attaching audio. A permissioned, non-login streaming link is the safer first option pending human review.
 
-Capacity note: Wild Dogs Radio says response may take up to 90 days because of submission volume. Accepted tracks receive 30 days of periodical airplay, generally a few plays per week. Bulk delivery and repeated follow-up are inappropriate.
+Free and payment note: No submission form, account login, CAPTCHA or mandatory payment was identified. Digital email is free-first. Optional vinyl/CD production and postage remain sender costs rather than a submission fee.
 
-Activity and fit note: The first-party site displayed a live-listening interface, recently aired music, current and upcoming show modules, music-news items and a populated seven-day schedule. The station says it supports artists from all corners of the world and accepts all genres. Potential MarcsMusic fits include electronic, bass, hip-hop, reggae, world-fusion and experimental material.
+Eligibility note: International eligibility, explicit-content rules, AI-origin policy, release-recency requirements and rights declarations are not published. These unresolved points keep the route in `needs_manual_review`.
 
-Manual-review note: Reopen the official page, select exactly one track, confirm rights and the correct ISRC, verify file and artwork sizes and technical specifications, check the current AI-origin and release-recency policies, and manually send one complete submission. Stop if authentication, CAPTCHA, payment, consent or another protected control appears.
+Activity and fit note: KZYX's first-party site displayed live radio, current programme and playlist surfaces, a July 9, 2026 newsletter and an August 30, 2026 station-festival notice. Published programming includes Reggae, EDM, Latinx, Groove, Alternative and broad world/cross-genre shows. Potential MarcsMusic fits include electronic, reggae, world-fusion, bass and dance material.
 
-Deduplication note: Repository code search returned no previous Wild Dogs Radio, `wilddogsradio.com`, `office@wilddogsradio.com`, runtime seed or queue record. The email route is stored once; the Facebook request interaction, donations, merchandise, promotion, advertising and third-party directories are excluded.
+Manual-review note: Reopen the official page, confirm international eligibility, select exactly one track, identify genuinely relevant programmes, verify the streaming or WAV delivery method, check current content, rights, release and AI-origin rules, and manually send one reviewed email. Use digital or physical delivery, not both by default. Stop if authentication, CAPTCHA, payment, consent or another protected control appears.
 
-Runtime-linkage note: Run 409's seed is chained after Run 408 in the active recursive seed chain.
+Deduplication note: Repository code search and the complete open pull-request patch returned no previous KZYX, `kzyx.org`, `music@kzyx.org`, runtime seed or queue record. The digital and physical alternatives are stored once; general contacts, individual hosts, donations, membership, underwriting, PSA, calendar and third-party-directory routes are excluded.
 
-Safety: No email, audio file, artwork, attachment, metadata, social request, form field, account, login, CAPTCHA, consent, donation or payment was entered or submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
+Runtime-linkage note: Run 410's seed is chained after Run 409 in the active recursive seed chain.
+
+Safety: No email, streaming link, audio file, attachment, physical package, form field, account, login, CAPTCHA, consent, donation or payment was entered or submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
