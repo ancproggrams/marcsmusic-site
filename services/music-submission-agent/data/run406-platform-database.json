@@ -1,0 +1,151 @@
+{
+  "run": 406,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1723,
+  "pipelineEstimate": 1724,
+  "newPlatforms": [
+    {
+      "name": "KZSU Stanford 90.1 FM Digital and Physical Music Submission Route",
+      "websiteUrl": "https://kzsu.stanford.edu/",
+      "submissionUrl": "https://kzsu.stanford.edu/wnl/",
+      "sourceUrl": "https://kzsu.stanford.edu/wnl/",
+      "sourceType": "automation_run_406_public_research",
+      "country": "United States / Stanford, California student-run freeform university radio with worldwide online streaming",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "freeform-radio",
+        "independent-music",
+        "electronic",
+        "hip-hop",
+        "reggae",
+        "world-music",
+        "experimental",
+        "noise",
+        "jazz",
+        "brazilian-samba",
+        "cross-genre",
+        "public-business-email",
+        "authorized-digital-submission-route",
+        "authorized-physical-submission-alternative",
+        "temporary-cookie-session-guidelines",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-digital-email-with-cookie-session-guidelines-and-physical-delivery-alternative",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "public first-party Music Department email for digital music submissions, with official physical-mail alternatives and a cookie/session-protected guideline workflow",
+        "contactEmail": "music@kzsu.stanford.edu",
+        "contactPerson": "KZSU Music Directors",
+        "contactPublication": "KZSU's official Contact page publishes music@kzsu.stanford.edu in plaintext beside the current Music Directors and links 'send us music'. The official Wednesday Night Live page independently instructs artists seeking regular air rotation to review the guidelines and send a digital copy to the same mailbox or mail physical media.",
+        "explicitPurpose": "Digital music submission for consideration for regular air rotation.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the official guideline workflow with normal browser cookies enabled, review the current rules, then use exactly one authorized route: a compliant digital submission to music@kzsu.stanford.edu or a confirmed physical delivery. Stop if CAPTCHA, authentication, payment, consent or other protected controls appear.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": true
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "review KZSU's official music-submission guidelines before delivery",
+          "send a digital copy for regular-air-rotation consideration to music@kzsu.stanford.edu",
+          "physical media may alternatively be mailed through KZSU's published music-delivery addresses",
+          "limit outreach to the appropriate department; KZSU warns that indiscriminate multi-address emailing is treated as spam",
+          "no submission fee, account login or mandatory payment is published for the canonical email route"
+        ],
+        "safeReviewScope": [
+          "open the official short link and guideline workflow manually with normal cookies enabled",
+          "confirm international and non-local independent-artist eligibility",
+          "confirm accepted release types, audio formats, file-size limits and whether attachments or downloadable links are preferred",
+          "confirm metadata, artwork, release timing, explicit-content, clean-edit and AI-origin requirements",
+          "select one genuinely relevant MarcsMusic release rather than bulk-delivering a catalogue",
+          "use only music@kzsu.stanford.edu for digital rotation consideration; do not copy unrelated staff addresses",
+          "do not use the local Wednesday Night Live booking mailbox unless seeking an eligible local live performance",
+          "do not submit by both digital and physical routes unless KZSU expressly requests it",
+          "retain needs_manual_review until the live guideline session is reviewed"
+        ],
+        "unresolvedEligibility": [
+          "international and non-local artist eligibility",
+          "accepted singles, EPs, albums, demos and previously released material",
+          "attachment versus public stream versus private stream versus downloadable-link preference",
+          "accepted audio formats, bitrate, sample rate and file-size limits",
+          "required artist, track, release, label, biography, contact and artwork metadata",
+          "release-date, recency and resubmission rules",
+          "explicit-content, FCC-safe and clean-edit requirements",
+          "AI-assisted or AI-generated music policy",
+          "current physical-address and media-format requirements",
+          "follow-up timing and whether receipt confirmations are available"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "music@kzsu.stanford.edu",
+            "purpose": "digital music submissions for regular air-rotation consideration",
+            "source": "https://kzsu.stanford.edu/contact/",
+            "verification": "first-party plaintext publication on the official Contact and Wednesday Night Live pages, explicit music-submission purpose, valid syntax and exact official Stanford subdomain alignment"
+          }
+        ],
+        "emailStatus": "one usable public Music Department submission mailbox verified from two official KZSU pages",
+        "verification": "KZSU's official Contact page identifies the current Music Directors and publishes music@kzsu.stanford.edu with a 'send us music' link. The official Wednesday Night Live page independently directs regular-air-rotation submissions to the same address. The mailbox has valid syntax and uses KZSU's official kzsu.stanford.edu domain. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "generalContactFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "musicDepartmentSelectorIdentified": false,
+        "officialGuidelineWorkflowIdentified": true,
+        "javascriptRequired": false,
+        "temporaryCookieRequired": true,
+        "secureSessionObserved": true,
+        "captchaObserved": false,
+        "captchaType": null,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The official 'send us music' shortcut leads to KZSU's Zookeeper guideline workflow, which requires a temporary browser cookie and secure session before the guidelines can be viewed. Passive retrieval exposed no form fields and no CAPTCHA, account login or payment screen. A human must use the normal browser workflow without bypassing the cookie/session control and must stop if additional protected controls appear.",
+        "adjacentRoutesExcluded": [
+          "wnl@kzsu.stanford.edu for local Wednesday Night Live performance booking",
+          "releases@kzsu.stanford.edu for press releases",
+          "interviews@kzsu.stanford.edu for interview opportunities",
+          "info@kzsu.stanford.edu for general inquiries",
+          "individual DJs, promotions, events, programme-guide and social-media contacts",
+          "simultaneous duplicate digital and physical delivery"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "KZSU's official homepage exposed a current on-air interface, three live streams and DJ music-review links. The official Contact page listed current Music Directors and department staff, while the schedule and show-player/archive surfaces were operational. These live first-party services were checked on July 16, 2026."
+      },
+      "genreFitEvidence": [
+        "KZSU describes itself as Stanford University's freeform station and emphasizes independent new releases.",
+        "Its Wednesday Night Live page lists rock, punk, hip-hop, jazz, bluegrass, country, reggae, Brazilian samba and experimental/noise among the styles it showcases.",
+        "A carefully selected MarcsMusic electronic, bass, reggae, world-fusion, hip-hop-adjacent or experimental release has plausible fit, subject to the current guideline session and human track selection."
+      ],
+      "manualReviewReason": "KZSU explicitly authorizes digital music delivery to music@kzsu.stanford.edu and provides official physical alternatives, but the linked guideline workflow requires a temporary cookie and secure session and its detailed rules were not available through passive retrieval. International eligibility, release types, digital-delivery mechanics, formats, file limits, metadata, release timing, explicit-content rules and AI-origin policy require human review before one compliant delivery.",
+      "priority": 92,
+      "pricingModel": "free-first/plaintext-first-party-email/cookie-session-guidelines/physical-alternative/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KZSU",
+      "KZSU Stanford 90.1 FM",
+      "kzsu.stanford.edu",
+      "music@kzsu.stanford.edu",
+      "https://kzsu.stanford.edu/wnl/",
+      "https://go.kzsu.fm/sendmusic"
+    ],
+    "repositoryEvidence": "Repository code searches were performed before creation for KZSU, kzsu.stanford.edu and music@kzsu.stanford.edu and returned no existing music-submission-agent platform, seed or queue record.",
+    "consolidation": "The Music Department email, official guideline shortcut and physical-mail alternatives are stored as one canonical opportunity. Wednesday Night Live booking, press-release, interview, general, staff, programme and social-media contacts are excluded as duplicate or purpose-mismatched routes."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first KZSU opportunity was queued as needs_manual_review. KZSU explicitly authorizes digital submission to its Music Department mailbox and an alternative physical route. The linked guidelines require a temporary cookie and secure session, so a human must review them without bypassing controls before delivery. No submission was made."
+}
