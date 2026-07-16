@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run405SeedPlatforms } from './run405PlatformSeeds.js';
 
 export const run404SeedPlatforms: PlatformInput[] = [
   {
@@ -40,5 +41,6 @@ export const run404SeedPlatforms: PlatformInput[] = [
       'KSPC explicitly welcomes all genres but accepts only albums and EPs, not singles or demos. Its official page authorizes digital delivery by protected first-party email using attached files or a downloadable cloud-storage link, and also authorizes CDs or records by mail. Streaming-only YouTube, SoundCloud, Spotify and iTunes routes are not accepted unless the supplied site provides a download. Work substantially generated through AI is ineligible. The email destination is Cloudflare-protected and was not decoded, guessed or stored. A human must open the official page, verify the live destination, confirm international eligibility plus formats, file-size, metadata and explicit-content requirements, and submit only one eligible non-single, non-demo album or EP whose provenance complies with the AI restriction.',
     notes:
       'Verified on 2026-07-16 from KSPC’s official Music Submissions, Contact and homepage pages plus its current first-party-linked Spinitron surface. The submission page explicitly welcomes artists from all genres, authorizes digital files or downloadable cloud links and permits an alternative CD or record, while excluding singles, demos, cassettes, non-downloadable streaming links, Spotify/iTunes links, pay-for-play and substantially AI-generated work. Two official email actions are published for submission and follow-up, but Cloudflare masks the destinations in passive retrieval; no address was decoded, inferred, guessed or copied from a third-party source. Current operation was supported by KSPC’s live site, a March 30, 2026 first-party article and Spinitron programming dated July 16, 2026. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed. No email, file, cloud link, physical package, form field, login, CAPTCHA, consent or payment was submitted.'
-  }
+  },
+  ...run405SeedPlatforms
 ];
