@@ -1077,7 +1077,7 @@ new file mode 100644
 index 0000000..d3763fa
 --- /dev/null
 +++ b/apps/api/src/services/SMTPService.ts
-@@ -0,0 +1,512 @@
+@@ -0,0 +1,516 @@
 +import {createHash, randomUUID} from 'node:crypto';
 +import {promises as dns} from 'node:dns';
 +import net from 'node:net';
@@ -1827,7 +1827,7 @@ new file mode 100644
 index 0000000..883279e
 --- /dev/null
 +++ b/apps/api/src/services/__tests__/SMTPService.test.ts
-@@ -0,0 +1,74 @@
+@@ -0,0 +1,82 @@
 +import {beforeAll, describe, expect, it, vi} from 'vitest';
 +
 +vi.hoisted(() => {
