@@ -1,0 +1,137 @@
+{
+  "run": 398,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1715,
+  "pipelineEstimate": 1716,
+  "newPlatforms": [
+    {
+      "name": "Release Music Magazine Promotion Material Submission Route",
+      "websiteUrl": "https://www.releasemagazine.net/",
+      "submissionUrl": "https://www.releasemagazine.net/contact/",
+      "sourceUrl": "https://www.releasemagazine.net/contact/",
+      "sourceType": "automation_run_398_public_research",
+      "country": "Sweden / international alternative music web magazine",
+      "language": "en",
+      "genres": [
+        "online-music-magazine",
+        "alternative",
+        "electronic",
+        "darkwave",
+        "synthpop",
+        "industrial",
+        "experimental",
+        "post-punk",
+        "cinematic-electronica",
+        "music-review",
+        "public-business-email",
+        "authorized-promotion-material-route",
+        "physical-package-alternative",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-editorial-email-or-postal-promotion-material-route",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party editorial email with an authorized postal promotion-material alternative",
+        "email": "info@releasemagazine.net",
+        "emailPublication": "The official Contact page displays info (at) releasemagazine dot net; the Staff page repeats the same central mailbox and says not to use old named addresses.",
+        "explicitPurpose": "Record companies, organisers, PR companies, artists and others are expressly welcome to send information and promotion material to the published email or postal address.",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Send one concise, individually targeted editorial pitch with a public streaming link and a permissioned, non-expiring download link after checking the final requirements. Avoid unsolicited large attachments.",
+        "audioDeliveryAuthorized": "Promotion material is expressly accepted, but technical audio-delivery specifications are not published.",
+        "physicalDeliveryAuthorizedForMarcsMusic": true,
+        "physicalRoute": "Release Music Magazine, Barken Beatrices gata 34, 417 16 Gothenburg, Sweden. This is an optional consolidated alternative and not a separate opportunity."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "use the central info address or the current Gothenburg postal address",
+          "promotion information and material from artists and music-industry parties are welcome",
+          "no individual staff member needs to be addressed",
+          "do not use deprecated named staff addresses",
+          "no submission fee, account, login or mandatory payment is stated"
+        ],
+        "safeReviewScope": [
+          "select a MarcsMusic release with credible alternative or electronic editorial fit",
+          "prepare a concise non-generic pitch and relevant release context",
+          "prefer public streaming and permissioned download links instead of unrequested large attachments",
+          "confirm accepted audio formats, download permissions and file-size expectations",
+          "confirm required biography, artwork, credits, label and release-date metadata",
+          "confirm release-window and previously released-material rules",
+          "confirm explicit-content and clean-edit expectations",
+          "confirm the current AI-assisted or AI-generated music policy",
+          "avoid duplicate delivery through both email and post",
+          "retain needs_manual_review because editorial judgment and live-policy confirmation are required"
+        ],
+        "unresolvedEligibility": [
+          "accepted audio formats and file-size limits",
+          "attachment versus streaming or download-link preference",
+          "required metadata and artwork",
+          "release timing and previously released-material rules",
+          "explicit-content and clean-edit policy",
+          "AI-assisted or AI-generated music policy",
+          "follow-up timing and resubmission policy"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "info@releasemagazine.net",
+            "purpose": "central editorial contact and authorized promotion-material route",
+            "verificationStatus": "source-verified",
+            "verificationEvidence": "Published in human-readable anti-spam notation on the official Contact page and repeated on the official Staff page; valid syntax and exact official-domain alignment."
+          }
+        ],
+        "emailStatus": "usable first-party editorial promotion-material mailbox for a manual submission",
+        "verification": "The canonical address was normalized only from explicit first-party notation. It was not inferred from a naming pattern or copied from a third-party directory. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "generalContactFormIdentified": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "No webform is required. A human must still verify the current email instructions, technical delivery method and editorial fit before sending.",
+        "adjacentRoutesExcluded": [
+          "individual writers and photographers",
+          "deprecated named staff email addresses",
+          "advertising route",
+          "social-media direct messages",
+          "duplicate simultaneous email and postal delivery"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "The official homepage contained current posts dated June 8, 15, 18 and 28, 2026, current music reviews and playlist updates, and an active staff page. The site identifies itself as an international alternative music web magazine based in Sweden."
+      },
+      "genreFitEvidence": [
+        "Current official coverage includes electronic, darkwave, synthpop, industrial, post-punk and cinematic electronica.",
+        "The magazine covers international alternative music rather than only Scandinavian releases.",
+        "A carefully selected MarcsMusic electronic or cinematic crossover release may fit, subject to human editorial matching."
+      ],
+      "manualReviewReason": "Release Music Magazine explicitly accepts information and promotion material through its central first-party email or postal address, but it publishes no technical delivery specification or AI-origin policy. Human review is required for track fit, pitch quality, rights, links or files, metadata, release timing and content policy before any outreach.",
+      "priority": 88,
+      "pricingModel": "free-first/public-editorial-email/optional-postal-package/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Release Magazine",
+      "Release Music Magazine",
+      "releasemagazine.net",
+      "info@releasemagazine.net",
+      "releasemagazine.net/contact"
+    ],
+    "repositoryEvidence": "The complete open-pull-request patch and repository context were searched for Release Magazine, Release Music Magazine, releasemagazine.net, info@releasemagazine.net and the Contact path. No prior music-submission-agent platform, runtime seed or queue record was found.",
+    "consolidation": "The central email and authorized postal address are stored as one canonical opportunity. Individual staff, deprecated named addresses, advertising, social-media and duplicate simultaneous delivery are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first Release Music Magazine opportunity was queued as needs_manual_review. The central business email was source-verified from two official pages. No email, form field, audio asset, attachment, link, physical package, login, consent or payment was submitted."
+}
