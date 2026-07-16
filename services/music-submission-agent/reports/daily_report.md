@@ -2,7 +2,7 @@
 
 Date: 2026-07-16
 
-Latest run: Run 395
+Latest run: Run 396
 
 New items added: 1
 
@@ -10,28 +10,28 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1713
+Pipeline estimate: 1714
 
 Items:
 
-- Radio K (KUOM) — explicitly authorized digital Music Department route queued for one downloadable release package
+- KOOP Radio 91.7 FM — public Music Library mailbox queued for an asset-free process inquiry
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Route note: Radio K's official submission guidance invites independent artists to submit releases for airplay consideration. Its free-first digital method uses the designated Music Department email route with a downloadable `.zip` file on Google Drive, Dropbox or a similar service. Lossless WAV or FLAC files are preferred; Bandcamp download codes or free-download release links are also accepted.
+Route note: KOOP's official Contact page states that its Music Library welcomes music submissions and publishes `music@koop.org`. The mailbox is purpose-specific, first-party, syntactically valid and aligned with KOOP's official `koop.org` domain.
 
-Metadata note: Radio K asks for a concise short bio, contact information, genuinely similar artists, identification of non-FCC-friendly tracks and two or three recommended radio tracks. The station says it generally does not play classical or Top 40 and does not accept tracking-information requests because of submission volume.
+Delivery-boundary note: KOOP does not publicly specify attachment-versus-link mechanics, audio formats, file-size limits, required metadata, international eligibility, clean-edit rules or AI-origin policy. The queued action is therefore one concise asset-free inquiry. No audio, private link, EPK, artwork or metadata should be supplied until KOOP confirms the current authorized procedure.
 
-Email-verification note: The Contact and Submitting Music pages both link the Music Department as the authorized digital destination. The exact address is Cloudflare-protected rather than published in plaintext. It was not decoded, guessed, copied from third parties or probed. No SMTP, MX, catch-all, mailbox-level or deliverability testing was performed.
+Form note: No dedicated music-submission form was found. A newsletter signup form with a validation or honeypot field is present on site pages but is unrelated to music delivery and was excluded. No CAPTCHA, login or mandatory payment was observed for the Music Library email route.
 
-Physical-route note: The same official guidance authorizes one unwrapped CD mailed to Radio K - KUOM at the University of Minnesota. This is retained as an authorized alternative but is consolidated with the digital route and not queued first because international postage is not free-first.
+Activity and fit note: KOOP's official homepage displayed updates dated through July 15, 2026, programme highlights through July 14, 2026 and events scheduled through August 26, 2026. Live-listening, schedule and archive surfaces were active. KOOP's official genre taxonomy links programming for electronica, ambient, house, techno, dub, reggae, jungle/drum and bass, hip-hop, world and world-beat, creating plausible fit for selected MarcsMusic electronic, bass, dub, reggae and world-fusion releases.
 
-Activity and fit note: Radio K's official site showed current rotation additions, June and July 2026 editorial/event content, active playlist and schedule surfaces, and terrestrial plus worldwide online listening. The station describes an eclectic independent format, and current additions included electronic, sound-collage and rap releases. Selected MarcsMusic electronic, bass, hip-hop-adjacent, reggae-adjacent and world-fusion tracks may fit.
+Email-verification note: `music@koop.org` was verified through first-party plaintext publication, explicit Music Library purpose, valid syntax and official-domain alignment. It was not guessed, inferred or decoded. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Manual-review note: A human must open the protected Music Department link only from the official page, confirm international and AI-origin eligibility, select a suitable release, verify that the download works without login or permission requests, prepare the requested metadata and avoid Spotify-only or non-downloadable links. Do not automate the email, request tracking, contact adjacent staff or decode the protected address.
+Manual-review note: A human must send one asset-free inquiry, confirm international eligibility, current delivery mechanics, formats, metadata, content rules and AI-origin policy, and only then select one suitable MarcsMusic release. Do not use the general mailbox, newsletter form, individual programmers, telephone numbers or postal addresses as substitutes.
 
-Deduplication note: The complete open pull-request patch and repository code index were searched for Radio K, KUOM, Radio K - KUOM, radiok.org and the canonical submitting-music path. No prior music-submission-agent platform, runtime seed or queue record was found. Digital and physical methods are stored once as one opportunity.
+Deduplication note: The repository code index and current open pull-request context were searched for KOOP, KOOP Radio, `koop.org`, `music@koop.org` and the canonical Contact path. The only unrelated KOOP token found was in a film-director lead file; no prior music-submission-agent platform, runtime seed or queue record was found.
 
-Runtime-linkage note: Run 395's seed is chained after Run 394 in the active recursive seed chain.
+Runtime-linkage note: Run 396's seed is chained after Run 395 in the active recursive seed chain.
 
-Safety: No email, form field, audio file, `.zip` package, cloud link, Bandcamp code, biography, metadata, artwork, physical package, login, CAPTCHA, consent or payment was entered or submitted. The protected Music Department address was not decoded or guessed, and no platform, authentication or anti-bot restriction was bypassed.
+Safety: No email, form field, newsletter signup, audio file, attachment, link, biography, metadata, artwork, physical package, login, CAPTCHA, consent or payment was entered or submitted. No anti-spam, authentication, payment or platform restriction was bypassed.
