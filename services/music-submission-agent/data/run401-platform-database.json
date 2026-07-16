@@ -1,0 +1,141 @@
+{
+  "run": 401,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1718,
+  "pipelineEstimate": 1719,
+  "newPlatforms": [
+    {
+      "name": "Overview Music Public Label Demo-Routing Inquiry",
+      "websiteUrl": "https://overviewmusic.co.uk/",
+      "submissionUrl": "mailto:info@overviewmusic.co.uk",
+      "sourceUrl": "https://overviewmusic.co.uk/",
+      "sourceType": "automation_run_401_public_research",
+      "country": "United Kingdom / Brighton drum-and-bass label with an international catalogue and audience",
+      "language": "en",
+      "genres": [
+        "drum-and-bass",
+        "electronic",
+        "bass-music",
+        "deep-dnb",
+        "neurofunk-adjacent",
+        "public-business-email",
+        "asset-free-pre-submission-inquiry",
+        "manual-review"
+      ],
+      "submissionMethod": "official-public-label-email-for-asset-free-demo-routing-inquiry",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "public first-party general label mailbox restricted to an asset-free demo-routing inquiry",
+        "contactEmail": "info@overviewmusic.co.uk",
+        "contactPublication": "Overview Music publishes the mailbox in plaintext in the footer of its official homepage and other first-party label pages.",
+        "explicitPurpose": "The address is a public label information contact. The site does not state that it is a direct unsolicited-demo delivery mailbox.",
+        "permittedAutomatedScope": "discovery, verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Send one concise inquiry without audio, files or track links asking whether unsolicited demos are currently open and requesting the authorized route, formats and requirements.",
+        "audioDeliveryAuthorized": false,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "no public unsolicited-demo delivery requirements were found on the reviewed first-party pages",
+          "the public mailbox may be used only to ask for the current authorized demo process",
+          "the official storefront, newsletter, social accounts and customer checkout are not substitutes for a demo route"
+        ],
+        "safeReviewScope": [
+          "use one asset-free routing inquiry only",
+          "ask whether demos are open before supplying music",
+          "request the current official form, mailbox or platform if demos are accepted",
+          "confirm whether international artists and independently released music are eligible",
+          "confirm accepted private-stream, download-link or upload methods",
+          "confirm accepted formats, file-size limits, download permissions and track-count limits",
+          "confirm required artist, release, biography, artwork, label and contact metadata",
+          "confirm unreleased-versus-released material rules and exclusivity expectations",
+          "confirm rights declarations, sample-clearance requirements and AI-origin policy",
+          "confirm explicit-content and clean-edit requirements",
+          "do not attach files or include private links in the initial inquiry",
+          "retain needs_manual_review until the label provides explicit delivery instructions"
+        ],
+        "unresolvedEligibility": [
+          "whether unsolicited demos are currently open",
+          "international artist eligibility",
+          "accepted genre boundaries within drum-and-bass and bass music",
+          "authorized delivery route",
+          "accepted stream, download or upload providers",
+          "file formats, size limits and track-count limits",
+          "required metadata and release status",
+          "rights and sample-clearance declarations",
+          "explicit-content policy",
+          "AI-assisted or AI-generated music policy",
+          "follow-up and resubmission timing"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "info@overviewmusic.co.uk",
+            "role": "general label information contact",
+            "sourceVerified": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "smtpProbed": false,
+            "verification": "Published in plaintext on Overview Music's official first-party site. The address has valid syntax and exactly matches the overviewmusic.co.uk label domain. It is not described as a dedicated demo mailbox and is therefore limited to an asset-free routing inquiry."
+          }
+        ],
+        "emailStatus": "source-verified public business mailbox; not verified as a direct demo-delivery destination",
+        "verification": "Verification was limited to first-party publication, syntax, exact domain alignment, business context and current official-site availability. No address was guessed or obtained from a third-party directory. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "generalContactFormIdentified": false,
+        "dedicatedDemoFormIdentified": false,
+        "javascriptRequired": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "No dedicated demo form or direct demo-delivery policy was identified. A human must obtain explicit instructions from the label before sending any music or personal data.",
+        "adjacentRoutesExcluded": [
+          "official storefront checkout and payment workflow",
+          "newsletter subscription",
+          "social-media direct messages",
+          "artist pages",
+          "event-ticketing links",
+          "radio and podcast links",
+          "customer-service or refund workflows"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "Overview Music's official site was live and functional, exposed a populated commercial release catalogue and artist, events and radio/podcast sections, promoted Overview100, and offered current digital releases and label merchandise through its first-party storefront."
+      },
+      "genreFitEvidence": [
+        "The official catalogue lists releases by Klinical, Molecular, Emperor, Trex, Skylark, Creatures and Wingz.",
+        "The label's catalogue and artist presentation are centred on drum-and-bass and adjacent electronic bass music.",
+        "Only a MarcsMusic release with a strong drum-and-bass or bass-music fit should be considered after the label confirms that demos are open."
+      ],
+      "manualReviewReason": "Overview Music is active and publishes a source-verified business mailbox, but it does not publicly authorize direct unsolicited-demo delivery or publish current format, eligibility, rights, content or AI-origin rules. Human review is required for a strictly asset-free inquiry and for every later delivery decision.",
+      "priority": 84,
+      "pricingModel": "free-first/public-business-email/asset-free-routing-inquiry/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Overview Music",
+      "overviewmusic.co.uk",
+      "info@overviewmusic.co.uk",
+      "Overview Music Brighton",
+      "Overview Music demo"
+    ],
+    "repositoryEvidence": "The complete active pull-request patch resource and repository code search were checked for Overview Music, overviewmusic.co.uk and info@overviewmusic.co.uk. No prior music-submission-agent platform, runtime seed or queue record was found.",
+    "consolidation": "The public label mailbox is stored once as one asset-free inquiry opportunity. The storefront, newsletter, social accounts, artist pages, events and radio/podcast links are excluded as duplicate or unauthorized delivery routes."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first Overview Music routing opportunity was queued as needs_manual_review. The public business mailbox was source-verified, but it was not treated as authorization to send a demo. No email, music, form or payment action occurred."
+}
