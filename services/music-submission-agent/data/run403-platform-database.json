@@ -1,0 +1,136 @@
+{
+  "run": 403,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1720,
+  "pipelineEstimate": 1721,
+  "newPlatforms": [
+    {
+      "name": "KGNU Community Radio Music Department Routing Inquiry",
+      "websiteUrl": "https://kgnu.org/",
+      "submissionUrl": "https://kgnu.org/contact-us/",
+      "sourceUrl": "https://kgnu.org/contact-us/",
+      "sourceType": "automation_run_403_public_research",
+      "country": "United States / Boulder and Denver, Colorado community radio with worldwide online listening",
+      "language": "en",
+      "genres": [
+        "community-radio",
+        "freeform-radio",
+        "independent-music",
+        "reggae",
+        "dub",
+        "world-music",
+        "afrobeat",
+        "electronic",
+        "cross-genre",
+        "asset-free-pre-submission-inquiry",
+        "captcha-protected-form",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-contact-form-music-department-asset-free-routing-inquiry",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": true,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "public first-party general contact form with a Music department selector and reCAPTCHA v3",
+        "contactEmail": null,
+        "contactPerson": "Indra Raj, Music Director",
+        "contactPublication": "KGNU's official Contact Us page provides a Contact Staff or DJ form with Music as a department option. Its official Team page identifies Indra Raj as Music Director but does not publish a plaintext email address.",
+        "explicitPurpose": "Asset-free process and routing inquiry to the Music department only; the reviewed pages do not authorize direct audio or link delivery through the form.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the official form, select Music, complete reCAPTCHA manually and send one concise asset-free inquiry requesting the current authorized music-submission route and requirements.",
+        "audioDeliveryAuthorized": false,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "the general contact form requires first name, last name and a valid email",
+          "the form offers Music as a selectable department",
+          "the form permits a message of up to 500 characters",
+          "the form uses reCAPTCHA v3",
+          "KGNU's Team page identifies Indra Raj as Music Director"
+        ],
+        "safeReviewScope": [
+          "use the first-party contact form only and select Music",
+          "complete reCAPTCHA manually without automation or bypass",
+          "send one concise asset-free process inquiry",
+          "ask whether unsolicited music from international independent artists is currently accepted",
+          "request the authorized delivery route, formats, file limits, metadata and release rules",
+          "confirm explicit-content, clean-edit and AI-origin requirements",
+          "do not attach audio or include streaming, private or download links until KGNU authorizes them",
+          "do not infer a Music Director email or contact individual DJs as substitutes",
+          "retain needs_manual_review until KGNU responds with an authorized procedure"
+        ],
+        "unresolvedEligibility": [
+          "whether unsolicited music submissions are currently open",
+          "international and independent-artist eligibility",
+          "authorized digital delivery method",
+          "accepted audio formats, bitrate, sample rate and file-size limits",
+          "required metadata, biography and artwork",
+          "release timing, previously released material and track-count rules",
+          "explicit-content and clean-edit policy",
+          "AI-assisted or AI-generated music policy",
+          "response and follow-up timing"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "emailStatus": "no public plaintext Music Department or Music Director business mailbox found on the reviewed first-party pages",
+        "verification": "The official Team page identifies Indra Raj as Music Director, and the official form routes by department, but no plaintext business email is published for that role. No address was guessed, inferred from naming patterns, decoded, scraped from protected markup or obtained from a third-party directory. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "generalContactFormIdentified": true,
+        "dedicatedMusicFormIdentified": false,
+        "musicDepartmentSelectorIdentified": true,
+        "javascriptRequired": false,
+        "captchaObserved": true,
+        "captchaType": "reCAPTCHA v3",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The form is protected by reCAPTCHA v3 and is not a dedicated music-submission workflow. Human review is required to submit only an asset-free inquiry and to stop if any additional authentication, consent, payment or protected controls appear.",
+        "adjacentRoutesExcluded": [
+          "newsletter signup form",
+          "event-submission form",
+          "press-inquiry routing",
+          "individual DJs and programme pages",
+          "general station phone lines",
+          "social-media direct messages",
+          "postal addresses not published as music-submission destinations"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "KGNU's official homepage displayed a live broadcast interface, current upcoming shows and first-party news and music content dated July 14-15, 2026. The current Team page identifies station staff, and current programme pages expose schedules and archives."
+      },
+      "genreFitEvidence": [
+        "Reggae Bloodlines is a current official programme covering reggae, ska, rock steady, dub and dancehall.",
+        "TerraSonic is a current international freeform programme covering Asian dub, Afro-beat, Indian breaks and other global hybrids.",
+        "Musica Mundi is a current world-music programme spanning international traditional and contemporary recordings.",
+        "Selected MarcsMusic reggae, dub, electronic-world-fusion and cross-genre releases have plausible fit, subject to confirmation that unsolicited submissions are open."
+      ],
+      "manualReviewReason": "KGNU provides an official Music-department routing option but no dedicated submission policy or direct delivery authorization. The form is protected by reCAPTCHA v3, and eligibility, formats, metadata, content rules and AI-origin policy are unpublished. Human review is mandatory for one asset-free inquiry and any later delivery instructions.",
+      "priority": 86,
+      "pricingModel": "free-first/public-music-department-routing-form/captcha-protected/asset-free-inquiry/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KGNU",
+      "KGNU Community Radio",
+      "kgnu.org",
+      "https://kgnu.org/contact-us/",
+      "Indra Raj"
+    ],
+    "repositoryEvidence": "Repository code search was performed for KGNU and kgnu.org before creation. No previous music-submission-agent platform, runtime seed, business-contact or queue record was found.",
+    "consolidation": "The Music-department selector, identified Music Director and public contact form are stored once as one canonical asset-free routing opportunity. Individual DJs, programme pages, event and newsletter forms, phones, social accounts and postal addresses are excluded as duplicate or unauthorized substitutes."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first KGNU routing opportunity was queued as needs_manual_review. The route is a reCAPTCHA-protected general contact form with a Music department selector, not a direct music-delivery form. No business email was published or inferred, and no form or music was submitted."
+}
