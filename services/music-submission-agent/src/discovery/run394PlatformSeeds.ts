@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run395SeedPlatforms } from './run395PlatformSeeds.js';
 
 export const run394SeedPlatforms: PlatformInput[] = [
   {
@@ -34,5 +35,6 @@ export const run394SeedPlatforms: PlatformInput[] = [
       'WRMC’s official About page publicly identifies Cate Richardson and Honor McFadden as Music Directors and publishes crichardson@middlebury.edu and hmcfadden@middlebury.edu. The station does not publish an unsolicited-music submission form or current delivery specifications on the reviewed first-party pages. A human may send one concise, asset-free inquiry to the Music Director function asking whether external and international artists are accepted and requesting the authorized format, link, metadata, release-window, clean-edit and AI-origin requirements. Do not attach audio, provide private links, contact both directors separately, infer a postal route, use individual DJs or send a release until WRMC expressly confirms the procedure.',
     notes:
       'Verified on 2026-07-16 from WRMC’s official homepage, About page, schedule, charts and library pages. The About page lists the two current Music Directors and their institutional middlebury.edu addresses in plaintext. Both addresses have valid syntax and exact alignment with Middlebury College’s official domain; no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed. Current operation was confirmed through the live player/current-show interface, current playlist/chart data and an active weekly schedule containing electronic, rap, hip-hop, world, pop, indie, alternative and other programming. No public music-submission form, attachment policy, download-link specification, international eligibility rule, explicit-content policy, AI-origin policy or physical-delivery authorization was found. No email, form field, audio asset, link, login, CAPTCHA or payment was entered or submitted.'
-  }
+  },
+  ...run395SeedPlatforms
 ];
