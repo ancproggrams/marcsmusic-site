@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run412SeedPlatforms } from './run412PlatformSeeds.js';
 
 export const run411SeedPlatforms: PlatformInput[] = [
   {
@@ -47,5 +48,6 @@ export const run411SeedPlatforms: PlatformInput[] = [
       'KWDC explicitly authorizes music submissions through kwdc@deltacollege.edu and requires clean, non-vulgar, non-discriminatory and non-explicit content, a signed music consent form or manually completed digital-signature workflow, the subject Music Submission, sender and artist details, song title, a short description, social or website links, and an MP3 stereo master at -3 dB. A human must review and sign the legal consent, inspect the digital-sign route without bypassing any protection, select one suitable clean MarcsMusic master, verify the exact MP3 and loudness requirements, confirm attachment limits, rights, international eligibility, release timing and AI-origin policy, and send manually. No auto-submit candidate is permitted.',
     notes:
       'Verified on 2026-07-16 from KWDC’s official Music Submissions, homepage, schedule, staff, community and programme pages. The submission page publishes kwdc@deltacollege.edu in plaintext, explicitly invites independent and unsigned-artist music, requires clean content, a completed consent form, an email using the Music Submission subject, artist and song information, a description and social or website links, and an MP3 stereo master at -3 dB. It also offers a digital-signature route that was not executed. Summer 2026 activity is supported by a current 24/7 schedule, current faculty and staff, live and online listening, The Underground Hour and current programme pages. The mailbox was verified by first-party plaintext publication, explicit submission purpose, valid syntax and exact deltacollege.edu institutional-domain alignment; no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed. No email, form, consent, signature, audio, attachment, account, login, CAPTCHA or payment was submitted.'
-  }
+  },
+  ...run412SeedPlatforms
 ];
