@@ -1,0 +1,210 @@
+{
+  "run": 407,
+  "date": "2026-07-16",
+  "pipelineEstimateBefore": 1724,
+  "pipelineEstimate": 1725,
+  "newPlatforms": [
+    {
+      "name": "SomaFM Channel-Specific Digital Music Submission Route",
+      "websiteUrl": "https://somafm.com/",
+      "submissionUrl": "https://somafm.com/contact/submitmusic.html",
+      "sourceUrl": "https://somafm.com/contact/submitmusic.html",
+      "sourceType": "automation_run_407_public_research",
+      "country": "United States / San Francisco independent internet-radio network broadcasting worldwide",
+      "language": "en",
+      "genres": [
+        "internet-radio",
+        "independent-music",
+        "electronic",
+        "ambient",
+        "downtempo",
+        "house",
+        "trance",
+        "dubstep",
+        "dub",
+        "reggae",
+        "world-music",
+        "instrumental-hip-hop",
+        "future-soul",
+        "experimental",
+        "cross-genre",
+        "public-business-email",
+        "authorized-digital-submission-route",
+        "channel-specific-routing",
+        "download-link-required",
+        "hard-ai-provenance-restriction",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-channel-specific-email-with-bandcamp-code-or-permissioned-download-link",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "public first-party channel-specific email routes for digital music delivery by Bandcamp YUM code or permissioned download link",
+        "contactEmail": "promosubmissions@somafm.com",
+        "contactPerson": "SomaFM channel music directors",
+        "contactPublication": "SomaFM's official Submit Music page publishes the currently accepting channels and their designated email addresses in plaintext. The broad promosubmissions@somafm.com route covers multiple electronic, ambient and world-oriented channels relevant to MarcsMusic; additional channel-specific mailboxes are published for reggae, deep house, instrumental hip-hop and other formats.",
+        "explicitPurpose": "Digital music submission for airplay consideration on one currently accepting SomaFM channel.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Confirm the release is eligible under SomaFM's no-AI-music rule, choose exactly one accepting channel and designated mailbox, prepare a compliant Bandcamp YUM code or permissioned downloadable folder, and send one manually reviewed submission. Stop if authentication, payment, consent or protected controls appear.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "SomaFM does not accept AI music submissions, including music generated with services such as Suno",
+          "choose one currently accepting channel and send the release only to its designated music director address",
+          "use a Bandcamp link with a YUM download code or a permissioned WeTransfer, Dropbox or comparable downloadable folder",
+          "provide high-bitrate MP3 files at 256 kbps or v0/highest-quality VBR and 44.1 kHz",
+          "do not send WAV, AIFF, FLAC or 128 kbps MP3 files",
+          "do not substitute Facebook, SoundCloud, YouTube or Mixcloud files for broadcast-ready downloads",
+          "do not submit through Haulix",
+          "verify artist and track metadata, include the album name or '(Single)', include website and email in comments, and set an accurate genre",
+          "do not send the same release to multiple music directors",
+          "physical CDs are not accepted",
+          "no submission fee, SomaFM account login or mandatory payment is published"
+        ],
+        "safeReviewScope": [
+          "confirm the complete production provenance of the selected MarcsMusic track and exclude it if it falls within SomaFM's AI-music prohibition",
+          "recheck the official page immediately before delivery because accepting channels and backlogs can change",
+          "select the single best-fit accepting channel and only its designated submission mailbox",
+          "convert or export a compliant high-bitrate 44.1 kHz MP3 without degrading the master",
+          "verify embedded artist, track, album or single, genre, website and contact metadata",
+          "use a permissioned download link that does not require the music director to request access",
+          "confirm whether an international independent artist is eligible",
+          "avoid broad mailing lists, duplicate recipients and unrelated contact addresses",
+          "retain needs_manual_review until provenance, channel fit, international eligibility and file compliance are confirmed"
+        ],
+        "unresolvedEligibility": [
+          "whether international artists outside the United States are eligible",
+          "whether previously released material, remixes or alternate versions are eligible",
+          "preferred release timing and recency",
+          "explicit-content or clean-edit requirements",
+          "maximum number of tracks or releases per submission",
+          "whether private links requiring a password are accepted",
+          "follow-up timing and whether receipt confirmations are available",
+          "how SomaFM defines borderline AI-assisted production versus prohibited AI music"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "promosubmissions@somafm.com",
+            "purpose": "Groove Salad, Lush, Drone Zone, Secret Agent, Illinois Street Lounge, cliqhop, Space Station Soma, Digitalis, Mission Control, PopTron, Suburbs of Goa, Black Rock FM, Deep Space One, Left Coast 70s, Doomed and Sonic Universe submissions",
+            "source": "https://somafm.com/contact/submitmusic.html",
+            "verification": "first-party plaintext publication on SomaFM's official submission page, explicit channel-submission purpose, valid syntax and exact somafm.com domain alignment"
+          },
+          {
+            "email": "dion@somafm.com",
+            "purpose": "7 Inch Soul and Heavyweight Reggae submissions",
+            "source": "https://somafm.com/contact/submitmusic.html",
+            "verification": "first-party plaintext publication on SomaFM's official submission page, explicit channel-submission purpose, valid syntax and exact somafm.com domain alignment"
+          },
+          {
+            "email": "shawn@somafm.com",
+            "purpose": "Beat Blender submissions",
+            "source": "https://somafm.com/contact/submitmusic.html",
+            "verification": "first-party plaintext publication on SomaFM's official submission page, explicit channel-submission purpose, valid syntax and exact somafm.com domain alignment"
+          },
+          {
+            "email": "roy@somafm.com",
+            "purpose": "Boot Liquor submissions",
+            "source": "https://somafm.com/contact/submitmusic.html",
+            "verification": "first-party plaintext publication on SomaFM's official submission page, explicit channel-submission purpose, valid syntax and exact somafm.com domain alignment"
+          },
+          {
+            "email": "kampf@somafm.com",
+            "purpose": "DEF CON Radio and Fluid submissions",
+            "source": "https://somafm.com/contact/submitmusic.html",
+            "verification": "first-party plaintext publication on SomaFM's official submission page, explicit channel-submission purpose, valid syntax and exact somafm.com domain alignment"
+          },
+          {
+            "email": "elise@somafm.com",
+            "purpose": "Folk Forward and Indie Pop Rocks submissions",
+            "source": "https://somafm.com/contact/submitmusic.html",
+            "verification": "first-party plaintext publication on SomaFM's official submission page, explicit channel-submission purpose, valid syntax and exact somafm.com domain alignment"
+          },
+          {
+            "email": "mark@somafm.com",
+            "purpose": "Metal Detector submissions",
+            "source": "https://somafm.com/contact/submitmusic.html",
+            "verification": "first-party plaintext publication on SomaFM's official submission page, explicit channel-submission purpose, valid syntax and exact somafm.com domain alignment"
+          },
+          {
+            "email": "fiona@somafm.com",
+            "purpose": "ThistleRadio submissions",
+            "source": "https://somafm.com/contact/submitmusic.html",
+            "verification": "first-party plaintext publication on SomaFM's official submission page, explicit channel-submission purpose, valid syntax and exact somafm.com domain alignment"
+          }
+        ],
+        "emailStatus": "eight unique public channel-submission mailboxes verified and consolidated into one routing opportunity; only one mailbox may be used per release",
+        "verification": "All eight addresses are published in plaintext on SomaFM's official Submit Music page beside their accepting channels, have valid syntax and use SomaFM's official somafm.com domain. The main Contact page independently repeats seven of the named music-director addresses for channel-related contact and warns against duplicate multi-recipient messages. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "generalContactFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "musicDepartmentSelectorIdentified": false,
+        "officialGuidelineWorkflowIdentified": true,
+        "javascriptRequired": false,
+        "temporaryCookieRequired": false,
+        "secureSessionObserved": false,
+        "captchaObserved": false,
+        "captchaType": null,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "SomaFM uses published email routes rather than a submission form. No CAPTCHA, SomaFM account login or payment requirement was observed. Human review is still mandatory because only selected channels currently accept submissions, backlogs change, the release must satisfy the hard no-AI-music rule, file and metadata specifications must be checked, one exact channel must be selected, and duplicate delivery is prohibited.",
+        "adjacentRoutesExcluded": [
+          "dj@somafm.com for general station or order questions",
+          "somafm@somafm.com and other addresses shown for programming questions when the Submit Music page provides a dedicated submission address",
+          "music tracking requests and charts",
+          "mailing-list enrollment",
+          "store, donation and supporter-payment routes",
+          "social-media messages",
+          "Covers because the channel is on hiatus and not accepting submissions",
+          "The Trip because the submission page publishes no destination",
+          "channels not present in the current accepting-submissions list",
+          "physical CD delivery",
+          "simultaneous delivery to multiple music directors"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-16",
+        "evidence": "SomaFM's official homepage stated that it operates more than 30 listener-supported, commercial-free underground and alternative channels broadcasting worldwide. The page displayed current web-player links, now-playing tracks and listener counts across active channels, and the official submission page carried a 2000-2026 copyright notice and a current accepting-channel list."
+      },
+      "genreFitEvidence": [
+        "Groove Salad and related channels cover ambient and downtempo electronic music.",
+        "Space Station Soma, Deep Space One, Drone Zone, Digitalis and Doomed cover electronica, ambient and experimental music.",
+        "Suburbs of Goa covers Desi-influenced Asian world beats.",
+        "Fluid covers instrumental hip-hop, future soul and liquid trap.",
+        "Heavyweight Reggae covers reggae, ska and rocksteady.",
+        "Beat Blender covers deep house and downtempo.",
+        "SomaFM's broader active catalogue includes dubstep, dub and deep bass, although only channels on the current submission list may be targeted.",
+        "Selected non-AI MarcsMusic electronic, ambient, world-fusion, reggae, dub, bass, instrumental hip-hop or house material has plausible fit after exact channel matching."
+      ],
+      "manualReviewReason": "SomaFM publishes legitimate channel-specific digital submission routes and detailed file requirements, but the opportunity has a strict no-AI-music eligibility gate, changing channel-capacity limits, a one-channel-only routing rule, detailed MP3 and metadata requirements, and unresolved international eligibility. A human must validate provenance and compliance and send one tailored release to exactly one authorized mailbox.",
+      "priority": 94,
+      "pricingModel": "free-first/channel-specific-email/download-link-required/hard-ai-gate/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "SomaFM",
+      "SomaFM.com",
+      "somafm.com",
+      "promosubmissions@somafm.com",
+      "https://somafm.com/contact/submitmusic.html"
+    ],
+    "repositoryEvidence": "Repository code searches were performed before creation for SomaFM, somafm.com and promosubmissions@somafm.com and returned no existing music-submission-agent platform, seed or queue record.",
+    "consolidation": "The eight channel-specific mailboxes, accepting-channel list and digital-delivery instructions are stored once as one canonical routing opportunity. General, programming-question, tracking, store, donation, social, unavailable-channel and physical-CD routes are excluded. A release may use only one matching mailbox."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new free-first SomaFM opportunity was queued as needs_manual_review. Eight first-party channel-submission mailboxes were verified but consolidated into one canonical route. The hard no-AI-music restriction, exact channel routing, file specifications, mutable backlog status and unresolved international eligibility require human review. No submission was made."
+}
