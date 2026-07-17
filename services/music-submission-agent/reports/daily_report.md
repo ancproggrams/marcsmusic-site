@@ -2,7 +2,7 @@
 
 Date: 2026-07-17
 
-Latest run: Run 424
+Latest run: Run 425
 
 New items added in latest run: 1
 
@@ -10,30 +10,30 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1742
+Pipeline estimate: 1743
 
 Items:
 
-- Run 424 added: KAOS 89.3FM Olympia — free full-release digital-link and physical-media submission route
+- Run 425 added: Brum Radio — free one-track upload form and authorized submission-email route for non-local specialist-show consideration
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: KAOS rejects singles and asks for an upcoming complete release. Physical CD, vinyl and cassette submissions are preferred. Digital submissions are accepted when staff time allows at `kaosmusicdirector@gmail.com`, using the subject `Music Submission` and providing streaming plus download links. Attachments and directly emailed files are prohibited.
+Latest route note: Brum Radio's main playlist is restricted to Birmingham and West Midlands artists, but the official submission page accepts music from elsewhere for specialist-show consideration. The route accepts one MP3 at 192 kbps or higher or WAV file, prefers a radio edit under 4:30, rejects ordinary Spotify and YouTube links, and permits Bandcamp or SoundCloud only when downloads are enabled.
 
-Content note: include a one-sheet or press release with a short biography, release description, focus tracks and every FCC violation or clean edit. KAOS states that it has no safe-harbor period and never airs profane or indecent material.
+Form note: the dedicated form requests identity and release details, a base postcode, one direct audio upload, an optional press-track link, notes and confirmation that the track is radio friendly and contains no explicit lyrics. Passive review found no visible CAPTCHA, login or payment field, but the live form must be rechecked manually before use.
 
-Contact-verification note: `kaosmusicdirector@gmail.com` was verified through repeated first-party plaintext publication, explicit Music Department and submission purpose, and valid syntax. The general station, General Manager and events-calendar mailboxes were verified and excluded; two are explicitly marked not for submissions. No deliverability probing was performed.
+Contact-verification note: `submissions@brumradio.com` was verified through first-party plaintext publication, explicit music-submission purpose, valid syntax and exact official-domain alignment. `studio@brumradio.com`, `connect@brumradio.com`, `hello@brumradio.com` and `help@brumradio.com` were verified and excluded because they are for general enquiries, press, advertising/partnerships or recruitment. No deliverability probing was performed.
 
-Form and cost note: no dedicated music-submission form was identified. Generic contact and community forms are excluded. The authorized email and physical routes have no published fee, CAPTCHA, login or payment requirement.
+Cost note: the standard submission form and mailbox have no published fee, login or mandatory payment. Donations, Mixcloud Select membership, merchandise and other support routes are separate and were excluded.
 
-Eligibility and fit note: KAOS's Independent Music Policy requires 80% non-major-label music, and current programming spans electronic, experimental, world, hip-hop, funk, alternative and other independent formats. A coherent clean MarcsMusic EP or album has plausible fit. International eligibility and whether an EP qualifies as a full release remain unpublished.
+Eligibility and fit note: non-local artists are accepted for specialist shows, but explicit international eligibility is unpublished. Brum Radio's programme directory includes Electronic, Chill, Indie, Reggae, Soul, World, DJ Mix, bass, Afro-futures and experimental formats. One clean MarcsMusic electronic, reggae, bass, ambient or world-fusion track has plausible specialist-show fit.
 
-Activity note: KAOS published Top 30 charts through June 22, 2026, maintains current staff, schedule, playlist and live-stream pages, and posted station updates and events during 2026.
+Activity note: Brum Radio maintains a 2026 live player, a populated schedule and show directory, active submission guidance and a recent Music Team recruitment page describing ongoing work reviewing submissions and managing the playlist.
 
-Manual-review note: choose one complete release rather than a single, verify every track and clean edit, prepare the one-sheet, inspect download and streaming links, confirm international eligibility, rights, release timing and AI-origin policy, select either digital or physical delivery, and submit manually.
+Manual-review note: select one clean track, confirm a currently active specialist show and international eligibility, inspect the exact MP3/WAV master, runtime and metadata, verify rights and current AI-origin policy, recheck the form for protected controls, choose either the form or email route, avoid duplicate servicing, and submit manually.
 
-Deduplication note: repository searches and the complete PR patch found no previous KAOS 89.3FM, `kaosradio.org`, submission-mailbox or canonical submission-URL record. Digital, physical and Music Department routes are stored as one opportunity; general, manager, events, contact-form, listener, newsletter, social, membership and donation routes are excluded.
+Deduplication note: repository searches and the complete PR patch found no previous Brum Radio, `brumradio.com`, `submissions@brumradio.com` or canonical submission-URL record. The form and submission mailbox are stored as one opportunity; general, press, advertising, recruitment, listener, newsletter, donation, membership, shop and social routes are excluded.
 
-Runtime-linkage note: Run 423 now links to Run 424 in the active recursive seed chain.
+Runtime-linkage note: Run 424 now links to Run 425 in the active recursive seed chain.
 
-Safety: No email, streaming link, download link, audio, attachment, physical package, form field, account, login, CAPTCHA, payment or follow-up was submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No form field, audio file, track link, email, clean-content declaration, account, login, CAPTCHA, payment or follow-up was submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
