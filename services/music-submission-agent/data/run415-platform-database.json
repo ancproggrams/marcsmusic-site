@@ -1,0 +1,154 @@
+{
+  "run": 415,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1732,
+  "pipelineEstimate": 1733,
+  "newPlatforms": [
+    {
+      "name": "Without Warning Radio Broadcast-Quality Music Submission Email Opportunity",
+      "websiteUrl": "https://www.withoutwarningradio.com/",
+      "submissionUrl": "https://www.withoutwarningradio.com/music-submissions",
+      "sourceUrl": "https://www.withoutwarningradio.com/music-submissions",
+      "sourceType": "automation_run_415_public_research",
+      "country": "United States / South Carolina-based global online radio station with international artist eligibility not explicitly stated",
+      "language": "en",
+      "genres": [
+        "internet-radio",
+        "independent-radio",
+        "emerging-artists",
+        "hip-hop",
+        "r-and-b",
+        "soul",
+        "dancehall",
+        "house",
+        "reggae",
+        "jazz",
+        "gospel",
+        "poetry",
+        "remixes",
+        "cross-genre",
+        "authorized-digital-submission-route",
+        "email-submission",
+        "public-business-email",
+        "mp3-only",
+        "constant-320-kbps",
+        "artwork-required",
+        "metadata-required",
+        "free-first",
+        "international-eligibility-unconfirmed",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-music-submission-email-with-broadcast-quality-320-kbps-mp3-and-required-release-metadata",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party published music-submission email route",
+        "contactEmail": "submissions@withoutwarningradio.com",
+        "contactPublication": "Without Warning Radio's official Music Submissions page states that it is accepting new music submissions and publishes this address.",
+        "explicitPurpose": "Music consideration for Without Warning Radio programming",
+        "subjectTemplate": "Artist Music Submission – Artist Name",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Prepare one technically compliant, rights-cleared track and send manually only after final human review.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submit to submissions@withoutwarningradio.com",
+          "use subject Artist Music Submission – Artist Name",
+          "submit constant 320 Kbps MP3 audio",
+          "tag Artist or Band Name",
+          "tag Song Title and Song Version such as Clean, Explicit, Instrumental or Acapella",
+          "include album or single artwork",
+          "include social-media information",
+          "include booking or management information",
+          "audio must be broadcast quality",
+          "submissions are reviewed weekly",
+          "submission does not guarantee placement"
+        ],
+        "safeReviewScope": [
+          "select one genuinely suitable MarcsMusic track",
+          "verify the exact master is constant 320 Kbps MP3",
+          "inspect embedded artist, title and version metadata",
+          "verify artwork ownership and final file",
+          "confirm attachment-size and track-count limits",
+          "confirm international eligibility",
+          "confirm explicit-content handling and any clean-edit preference",
+          "confirm rights, release-window and AI-origin policy",
+          "send manually and avoid repeated follow-up"
+        ],
+        "unresolvedEligibility": [
+          "international artist eligibility",
+          "maximum number of tracks",
+          "maximum attachment size",
+          "accepted sample rate and channel configuration",
+          "release-recency requirements",
+          "rights declarations",
+          "AI-assisted or AI-generated music policy",
+          "follow-up timing"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "submissions@withoutwarningradio.com",
+            "purpose": "new music submissions",
+            "source": "https://www.withoutwarningradio.com/music-submissions",
+            "verification": "first-party plaintext publication, explicit current music-submission purpose, valid syntax and exact withoutwarningradio.com domain alignment",
+            "eligibleForMusicSubmission": true,
+            "preferredForMarcsMusic": true
+          }
+        ],
+        "emailStatus": "one authorized public music-submission mailbox verified",
+        "verification": "The address is published on the official Music Submissions and Contact pages. Purpose, syntax and official-domain alignment were verified. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The route requires prepared audio, artwork and metadata and leaves eligibility and policy details unresolved.",
+        "adjacentRoutesExcluded": [
+          "newsletter subscription",
+          "listener request phone line",
+          "mobile app and TuneIn surfaces",
+          "social-media direct messages",
+          "general blog and content pages"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "The official site presents a 24/7 stream, current 2026 weekly show schedule and recent blog content. The station's iHeart feed lists current programmes through June 28, 2026."
+      },
+      "genreFitEvidence": [
+        "The official submission page accepts hip-hop, R&B, soul, dancehall, poetry, jazz and gospel.",
+        "The station describes its wider programming as including house, reggae, remixes and emerging artists.",
+        "Selected MarcsMusic reggae, dancehall, house, hip-hop-adjacent, R&B/soul-adjacent or remix material has plausible fit after exact track review."
+      ],
+      "manualReviewReason": "The route is authorized and active, but it requires audio, artwork and metadata and leaves international, attachment-size, rights, release-window and AI-origin rules unresolved. Human review and manual sending are required.",
+      "priority": 89,
+      "pricingModel": "free/first-party-email/320kbps-mp3/artwork-metadata/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Without Warning Radio",
+      "withoutwarningradio.com",
+      "https://www.withoutwarningradio.com/music-submissions",
+      "submissions@withoutwarningradio.com"
+    ],
+    "repositoryEvidence": "Repository code search was performed for Without Warning Radio, withoutwarningradio.com and submissions@withoutwarningradio.com; no existing indexed music-submission-agent platform, seed or queue record was found before creation.",
+    "consolidation": "The official submission and contact-page references to the same mailbox are stored as one canonical opportunity. Newsletter, request-line, app, social and general content surfaces are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new Without Warning Radio opportunity was queued as needs_manual_review. No submission action was performed."
+}
