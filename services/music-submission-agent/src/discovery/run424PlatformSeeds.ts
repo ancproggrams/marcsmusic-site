@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run425SeedPlatforms } from './run425PlatformSeeds.js';
 
 export const run424SeedPlatforms: PlatformInput[] = [
   {
@@ -46,5 +47,6 @@ export const run424SeedPlatforms: PlatformInput[] = [
       'KAOS accepts complete releases rather than singles, prefers physical media, accepts digital submissions only when staff time allows, requires streaming and download links rather than attachments, and has no safe-harbor period for profane or indecent material. A human must choose one coherent upcoming MarcsMusic EP or album, verify every track and clean edit, prepare a one-sheet, inspect link permissions and expiry, confirm international eligibility, rights, release timing and the current AI-assisted or AI-generated music policy, choose either digital or physical delivery, and submit manually.',
     notes:
       'Verified on 2026-07-17 from KAOS 89.3FM Olympia’s official Submit Music, Contact, Staff, Top 30 Charts and Blog pages. The station prioritizes physical CDs, vinyl and cassettes but also authorizes digital submissions to kaosmusicdirector@gmail.com with the subject “Music Submission.” Digital submissions must contain streaming and download links; attachments and direct files are prohibited. Singles are not accepted. A one-sheet or press release should identify focus tracks and all FCC violations or clean edits, and KAOS states that it has no safe harbor. The current staff page identifies Colwyn Cunningham as Music Director. Current operation is supported by Top 30 charts through June 22, 2026 and 2026 station posts and events. No email, media, link, attachment, package, form field, login, CAPTCHA or payment was submitted.'
-  }
+  },
+  ...run425SeedPlatforms
 ];
