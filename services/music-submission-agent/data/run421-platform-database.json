@@ -1,0 +1,176 @@
+{
+  "run": 421,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1738,
+  "pipelineEstimate": 1739,
+  "newPlatforms": [
+    {
+      "name": "Radio Nano Free International Digital Music-Submission Opportunity",
+      "websiteUrl": "https://radionano.com/",
+      "submissionUrl": "https://radionano.com/submit-your-music/",
+      "sourceUrl": "https://radionano.com/submit-your-music/",
+      "sourceType": "automation_run_421_public_research",
+      "country": "Norway / Oslo web-based radio; the official submission page explicitly welcomes local and international acts",
+      "language": "en",
+      "genres": [
+        "independent-radio",
+        "web-radio",
+        "international-artists",
+        "emerging-artists",
+        "popular-music",
+        "pop",
+        "electronic-pop",
+        "dance-pop",
+        "edm-crossover",
+        "digital-submission-form",
+        "authorized-submission-email-alternative",
+        "audio-attachment-or-online-link",
+        "one-page-press-release-or-bio",
+        "all-rights-required",
+        "cover-and-sample-clearance-required",
+        "site-level-anti-bot-verification-observed",
+        "no-visible-payment-requirement",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-digital-submission-form-or-authorized-music-submission-email-with-a-song-attachment-or-online-link-and-one-page-press-release-or-bio",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public digital submission form with an explicitly authorized same-domain music-submission email alternative",
+        "formLocation": "https://radionano.com/submit-your-music/",
+        "email": "music@radionano.com",
+        "explicitPurpose": "Music submission by local and international artists for possible Radio Nano airplay",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Choose either the official form or the explicitly authorized email route, verify every asset and right, recheck live controls, and submit manually.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "use the Submit Your Music form as the preferred route or the authorized music-submission email alternative",
+          "submit a copy of the song as an email attachment or provide a link to an online service",
+          "attach or include a one-page press release or artist biography",
+          "hold all rights required to use and submit the content",
+          "obtain permission from every right-holder and contributor, including composer, lyricist, vocalist and musicians",
+          "obtain the required permissions for cover songs and sampled songs"
+        ],
+        "formFieldsObserved": [
+          "Your name",
+          "Your email",
+          "Your role",
+          "Your message, including URL to song",
+          "Uploads"
+        ],
+        "safeReviewScope": [
+          "select one suitable radio-ready MarcsMusic track",
+          "confirm the exact master, title, artist credit and release details",
+          "confirm ownership and written authority from all contributors and right-holders",
+          "confirm cover-song and sample permissions where applicable",
+          "review the one-page press release or biography for accuracy and privacy",
+          "verify any supplied online link works without an account and does not expire unexpectedly",
+          "confirm accepted file formats, attachment and upload size limits and technical audio requirements",
+          "confirm explicit-content and clean-edit handling",
+          "confirm release-recency requirements",
+          "confirm the current AI-assisted and AI-generated music policy before using any AI-involved MarcsMusic release",
+          "recheck the live page for browser verification, CAPTCHA, anti-spam, login, payment or other protected controls",
+          "choose one route only and submit manually"
+        ],
+        "unresolvedEligibility": [
+          "accepted single, EP, album and demo categories beyond the page's generic song wording",
+          "audio codec, bitrate, sample rate, channel format and maximum file size",
+          "whether direct email attachment or a permissioned download link is preferred",
+          "explicit-content and clean-edit policy",
+          "release-recency requirements",
+          "rights-documentation requirements beyond the published permission notice",
+          "AI-assisted and AI-generated music policy",
+          "review timeframe and follow-up policy"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "address": "music@radionano.com",
+            "purpose": "music submissions",
+            "source": "https://radionano.com/submit-your-music/",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "verificationLevel": "first-party source, explicit purpose, syntax and official-domain alignment verified",
+            "smtpProbe": false,
+            "mxProbe": false,
+            "catchAllProbe": false,
+            "mailboxProbe": false,
+            "deliverabilityClaim": false
+          }
+        ],
+        "adjacentEmailsExcluded": [
+          {
+            "address": "privacy@radionano.com",
+            "purpose": "privacy-rights and privacy-policy questions only",
+            "source": "https://radionano.com/privacy-policy/",
+            "reasonExcluded": "not authorized for music submissions"
+          }
+        ],
+        "emailStatus": "music@radionano.com is a source-verified, purpose-labelled, syntax-valid same-domain business mailbox published on the official submission page.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "siteLevelBrowserVerificationObserved": true,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "Passive opening of the submission URL returned a browser-verification loader. No challenge was solved, automated or bypassed. The live form, file-upload limits, privacy notice and any anti-spam controls must be checked by a human.",
+        "rightsOrConsentFields": [
+          "published requirement to hold all rights",
+          "published requirement to obtain permission from all right-holders and contributors",
+          "cover-song and sample-clearance responsibility"
+        ],
+        "adjacentRoutesExcluded": [
+          "listener song-request workflow",
+          "general contact form",
+          "WhatsApp and live-chat contact routes",
+          "privacy mailbox",
+          "event and advertising links",
+          "social-media direct messages"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "Radio Nano's official site exposes a live radio player, current May 2026 news and privacy-policy updates, and event listings dated June, July and August 2026. The official About page identifies the station as an Oslo-based web broadcaster established in 2016."
+      },
+      "genreFitEvidence": [
+        "Radio Nano describes its current format as great hits and pop classics and presents itself as a contemporary hit-oriented web station.",
+        "The station's 2026 event coverage includes Awakenings and Creamfields, supporting an electronic and dance context.",
+        "An accessible MarcsMusic electronic-pop, dance-pop, EDM-crossover or melodic world-fusion track has plausible fit; heavier or experimental bass material should not be assumed suitable without a human format check."
+      ],
+      "manualReviewReason": "The route is free, first-party and explicitly open to international acts, but it carries a rights-and-clearance obligation, leaves technical, content, release and AI-origin rules unpublished, and presented a browser-verification screen during passive access. Human review and manual submission are mandatory.",
+      "priority": 84,
+      "pricingModel": "free-first/international/digital-form-or-authorized-email/attachment-or-link/press-release-or-bio/rights-clearance/site-verification/no-login/no-confirmed-captcha/no-payment/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Radio Nano",
+      "radionano.com",
+      "music@radionano.com",
+      "https://radionano.com/submit-your-music/",
+      "Radio Nano Free International Digital Music-Submission Opportunity"
+    ],
+    "repositoryEvidence": "Repository code search was checked separately for the station name, official domain and purpose-specific mailbox. No existing music-submission-agent record was found before creation.",
+    "consolidation": "The preferred first-party form and the explicitly authorized email alternative are stored as one canonical Radio Nano opportunity. General contact, privacy, listener-request and social routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new Radio Nano opportunity was queued as needs_manual_review. No email, form field, browser-verification challenge, audio file, attachment, link, biography, rights affirmation, login, CAPTCHA or payment was submitted."
+}
