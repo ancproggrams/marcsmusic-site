@@ -170,6 +170,9 @@ handshake uit; log de credential nooit.
   een lege, geïsoleerde database `espocrm_fresh_20260717` en een nieuwe
   Railway-volume `marcsmusic-crm-fresh-volume`. De oude database en het oude
   volume zijn niet gewist en blijven buiten de actieve route.
+- Het tijdelijke `ESPOCRM_ADMIN_PASSWORD` is na de succesvolle bootstrap uit
+  Railway verwijderd en de CRM is daarna opnieuw uitgerold; bestaande
+  database/config en de aparte API-identiteit blijven actief.
 - Op 16 juli 2026 zijn twee vergrendelde Railway-safety-copies aangemaakt:
   `crm-pre-recovery-2026-07-16` voor `/var/www/persistent` en
   `mysql-pre-recovery-2026-07-16` voor de MySQL-volume. Dit zijn afzonderlijke
