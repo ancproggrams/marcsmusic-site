@@ -1,0 +1,161 @@
+{
+  "run": 416,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1733,
+  "pipelineEstimate": 1734,
+  "newPlatforms": [
+    {
+      "name": "KAZI 88.7 FM UnTapped One-Song Digital Submission Opportunity",
+      "websiteUrl": "https://kazifm.org/",
+      "submissionUrl": "https://kazifm.org/untapped-music-submissions/",
+      "sourceUrl": "https://kazifm.org/untapped-music-submissions/",
+      "sourceType": "automation_run_416_public_research",
+      "country": "United States / Austin, Texas community radio with international artist eligibility not explicitly stated",
+      "language": "en",
+      "genres": [
+        "community-radio",
+        "independent-radio",
+        "emerging-artists",
+        "one-song-only",
+        "hip-hop",
+        "r-and-b",
+        "soul",
+        "reggae",
+        "blues",
+        "jazz",
+        "gospel",
+        "zydeco",
+        "cross-genre",
+        "authorized-digital-submission-route",
+        "email-submission",
+        "public-business-email",
+        "streaming-link-required",
+        "downloadable-audio-required",
+        "mp3-or-wav",
+        "radio-edited",
+        "free-first",
+        "international-eligibility-unconfirmed",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-untapped-show-email-with-one-radio-edited-song-streaming-link-and-downloadable-mp3-or-wav",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party published music-submission email route",
+        "contactEmail": "music@kazifm.org",
+        "contactPublication": "KAZI's official UnTapped Music Submissions page publishes this address and instructs artists to email one song for airplay consideration.",
+        "explicitPurpose": "One-song digital submission to the KAZI UnTapped show for possible airplay",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Confirm the exact downloadable-audio specification and current eligibility, then send one radio-edited song manually.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "email music@kazifm.org",
+          "submit new, quality radio-edited music",
+          "include a streaming link",
+          "include a downloadable MP3 or WAV file",
+          "submit one song only",
+          "use the latest single or strongest song from a new album",
+          "include first and last name",
+          "include artist or band name",
+          "include website or social-media handle",
+          "identify the music format",
+          "include the sender email address"
+        ],
+        "safeReviewScope": [
+          "select exactly one genuinely suitable MarcsMusic track",
+          "confirm the track is a radio-edited version",
+          "confirm whether KAZI expects both a streaming link and a separate downloadable file",
+          "confirm the MP3 bitrate or the exact WAV codec and sample-rate requirement",
+          "verify the download permission and rights for the supplied master",
+          "confirm international eligibility",
+          "confirm release-recency, explicit-content, rights and AI-origin policy",
+          "send manually and avoid repeated follow-up"
+        ],
+        "unresolvedEligibility": [
+          "international artist eligibility",
+          "MP3 bitrate and sample-rate requirements",
+          "exact interpretation of the published ADPCM or ACM 44.1KB, 16-bit stereo WAV wording",
+          "maximum file or download size",
+          "whether a clean edit is mandatory beyond the radio-edited requirement",
+          "release-recency window",
+          "rights declaration and territorial restrictions",
+          "AI-assisted or AI-generated music policy",
+          "follow-up timing beyond the stated five-business-day response expectation"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "music@kazifm.org",
+            "purpose": "UnTapped music submissions",
+            "source": "https://kazifm.org/untapped-music-submissions/",
+            "verification": "first-party plaintext publication, explicit current music-submission purpose, valid syntax and exact kazifm.org domain alignment",
+            "eligibleForMusicSubmission": true,
+            "preferredForMarcsMusic": true
+          },
+          {
+            "email": "info@kazifm.org",
+            "purpose": "general station contact",
+            "source": "https://kazifm.org/untapped-music-submissions/",
+            "verification": "first-party plaintext publication and exact kazifm.org domain alignment; excluded from music delivery because it is not labelled for submissions",
+            "eligibleForMusicSubmission": false,
+            "preferredForMarcsMusic": false
+          }
+        ],
+        "emailStatus": "one authorized music-submission mailbox verified; one adjacent general mailbox verified and excluded",
+        "verification": "The music mailbox is published in plaintext on KAZI's official submission page with an explicit submission purpose. Syntax and official-domain alignment were verified. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The route requires a selected radio-edited track, a streaming link and downloadable audio while several technical and eligibility rules remain ambiguous or unpublished.",
+        "adjacentRoutesExcluded": [
+          "general contact form",
+          "info@kazifm.org general mailbox",
+          "volunteer form",
+          "donation and underwriting routes",
+          "social-media direct messages",
+          "listener-facing live stream and TuneIn routes"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "KAZI's official homepage exposed a live player with current now-on-air and upcoming programme slots and a 2026 copyright. Official 2026 pages contained May 2026 programme content, and the current site publishes active shows, station contacts and a live-listening route."
+      },
+      "genreFitEvidence": [
+        "KAZI describes its programming as including R&B, soul, hip-hop, jazz, gospel, blues, reggae, zydeco and more.",
+        "The official UnTapped route seeks new radio-edited music and supports local and national artists on independent labels.",
+        "Selected MarcsMusic reggae, hip-hop-adjacent, R&B/soul-adjacent or accessible cross-genre material has plausible fit after exact track review."
+      ],
+      "manualReviewReason": "The route is authorized and active, but it requires one prepared radio-edited song plus streaming and downloadable delivery. The published WAV wording is technically ambiguous, and international, rights, release-window, explicit-content and AI-origin rules remain unresolved. Human review and manual sending are required.",
+      "priority": 90,
+      "pricingModel": "free/first-party-email/one-song/radio-edited/streaming-plus-download/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KAZI 88.7 FM",
+      "kazifm.org",
+      "https://kazifm.org/untapped-music-submissions/",
+      "music@kazifm.org"
+    ],
+    "repositoryEvidence": "Repository code search and the complete accessible PR patch were searched for KAZI, kazifm.org and music@kazifm.org; no existing music-submission-agent platform, seed or queue record was found before creation.",
+    "consolidation": "The UnTapped submission page and its published mailbox are stored as one canonical opportunity. The general contact form, info@kazifm.org, volunteer, donation, underwriting, social and listening routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new KAZI UnTapped opportunity was queued as needs_manual_review. No submission action was performed."
+}
