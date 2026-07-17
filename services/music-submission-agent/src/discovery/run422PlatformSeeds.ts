@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run423SeedPlatforms } from './run423PlatformSeeds.js';
 
 export const run422SeedPlatforms: PlatformInput[] = [
   {
@@ -52,5 +53,6 @@ export const run422SeedPlatforms: PlatformInput[] = [
       'The form requires ownership and distribution-rights confirmation plus acceptance of a legally binding submission agreement granting a non-exclusive worldwide royalty-free perpetual content and promotional-media license. A second Radio Airplay & Promotion Agreement is hosted on a JavaScript-dependent external HiDrive page and could not be passively reviewed. A human must read every current agreement, verify age and authority, select one suitable broadcast-ready track, inspect MP3/WAV/MP4, cover art, press photo, biography and links, confirm explicit-content and AI-origin eligibility, avoid optional paid services unless separately approved, recheck the live form for CAPTCHA, login, payment or anti-spam controls, and submit manually.',
     notes:
       'Verified on 2026-07-17 from Variety Vibes Radio & TV’s official Home, Music Submission, Contact, Services, Artists, Blog and Terms pages. Rolling Admissions 2026 are open for all genres. The form accepts MP3, WAV or MP4 up to 50 MB at 192 kbps or better, requires 3000×3000 JPG/PNG cover art, requests a press photo up to 10 MB, artist identity, city/country, career and label status, genre, release history, social and streaming links, a biography, interests and additional notes, and states a 14-business-day response target. The official terms require ownership or licenses and grant broad broadcast, display and promotional rights without compensation. support@varietyvibesradio.com is a first-party general support/management mailbox and is excluded from music delivery because the dedicated form is the authorized route. Current activity is supported by 2026 rolling admissions, featured audio uploaded through May 2026 and blog posts dated June 2026. No form field, upload, agreement, email, login, CAPTCHA, payment or paid service was submitted.'
-  }
+  },
+  ...run423SeedPlatforms
 ];
