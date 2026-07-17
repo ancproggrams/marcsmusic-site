@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Protocol Recordings Official LabelRadar Demo Drop Route","https://www.labelradar.com/labels/protocolrecordings/portal","inspected","[object Object]","false","false","false","false","true","run306-platform-database.json","2026-07-17T16:04:31.947Z"
+"Radio Airplay Jango Internet Radio Upload Review Contest and Airplay Route","https://www.radioairplay.com/music+promotion/guaranteed_airplay","inspected","[object Object]","true","false","true","false","true","run123-platform-database.json","2026-07-17T16:04:45.800Z"
+"TAXI Independent A&R Record Label Publishing and Sync Licensing Submission Route","https://www.taxi.com/","inspected","[object Object]","false","false","false","false","true","run113-platform-database.json","2026-07-17T16:04:58.115Z"
+"Without Warning Radio Broadcast-Quality Music Submission Email Opportunity","https://www.withoutwarningradio.com/music-submissions","inspected","[object Object]","true","false","false","false","true","run415-platform-database.json","2026-07-17T16:05:10.214Z"

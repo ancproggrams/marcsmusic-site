@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Pillargram Curator Influencer Music Promotion Submission Route","https://pillargram.com/","inspected","[object Object]","true","false","true","true","true","run235-platform-database.json","2026-07-17T16:04:31.873Z"
+"Soundplate Free Spotify and Deezer Playlist Submission Route","https://play.soundplate.com/","inspected","[object Object]","false","false","false","false","true","run21-platform-database.json","2026-07-17T16:04:45.060Z"
+"Radio Milwaukee Music Submission Route","https://radiomilwaukee.org/music-submission","inspected","[object Object]","true","false","false","false","true","run25-platform-database.json","2026-07-17T16:04:58.821Z"
+"RTRFM 92.1 Perth Music Submission Form and Presenter Servicing Route","https://rtrfm.com.au/about/submit-your-music/","inspected","[object Object]","true","false","false","false","true","run26-platform-database.json","2026-07-17T16:05:13.047Z"

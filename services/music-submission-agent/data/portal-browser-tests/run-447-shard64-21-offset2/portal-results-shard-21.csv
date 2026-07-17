@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KRUI 89.7FM Get Your Music Played","https://krui.fm/about/music/","error","","false","false","false","false","true","run48-platform-database.json","2026-07-17T16:04:27.641Z"
+"Louder Than War New Artists and New Releases Submission Route","https://louderthanwar.com/contact/","inspected","[object Object]","false","false","false","false","true","run93-platform-database.json","2026-07-17T16:04:36.507Z"
+"NCS LabelRadar Demo Submission Route","https://ncs.io/contact","inspected","[object Object]","true","false","true","false","true","run89-platform-database.json","2026-07-17T16:04:50.004Z"
+"Promo.ly Secure Music Promo Delivery Route","https://promo.ly/","inspected","[object Object]","true","false","true","true","true","run258-platform-database.json","2026-07-17T16:05:02.733Z"

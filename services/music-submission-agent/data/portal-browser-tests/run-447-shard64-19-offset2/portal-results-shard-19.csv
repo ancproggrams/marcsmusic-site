@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Indiemono Free Spotify Playlist Discovery Submission Form Route","https://indiemono.com/submit-music-discovery-playlists/","inspected","[object Object]","true","false","false","false","true","run247-platform-database.json","2026-07-17T16:04:36.755Z"
+"KGLT Alternative Public Radio Music Director Pre-Submission Inquiry Route","https://kglt.net/about/","inspected","[object Object]","true","false","true","false","true","run276-platform-database.json","2026-07-17T16:04:51.716Z"
+"KSPC 88.7FM Claremont Music Submissions","https://kspc.org/contact/music-submissions/","inspected","[object Object]","false","false","false","false","true","run27-platform-database.json","2026-07-17T16:05:06.156Z"
+"RTRFM 92.1 Perth Submit Your Music","https://rtrfm.com.au/submit-your-music/","inspected","[object Object]","true","false","false","false","true","run43-platform-database.json","2026-07-17T16:05:20.783Z"

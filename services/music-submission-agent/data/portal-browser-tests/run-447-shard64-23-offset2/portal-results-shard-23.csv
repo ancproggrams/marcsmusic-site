@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KALX 90.7FM Berkeley Music Submissions","https://kalx.berkeley.edu/contact/","inspected","[object Object]","false","false","false","false","true","run39-platform-database.json","2026-07-17T16:04:36.812Z"
+"WFMU Freeform Radio Music Director Review Route","https://wfmu.org/sendmusic.html","inspected","[object Object]","false","false","true","false","true","run29-platform-database.json","2026-07-17T16:04:50.335Z"
+"WPRB 103.3 FM Princeton Music Submissions Route","https://wprb.com/music-submissions/","inspected","[object Object]","false","false","false","false","true","run27-platform-database.json","2026-07-17T16:05:03.131Z"
+"Heldeep Records OH2 and HILOMATIK LabelRadar MP3 Demo Route","https://www.labelradar.com/labels/heldeeprecords/portal","inspected","[object Object]","false","false","false","false","true","run285-platform-database.json","2026-07-17T16:05:15.929Z"

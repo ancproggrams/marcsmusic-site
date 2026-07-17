@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KZSC Santa Cruz Music Directors and Music Submission Form Route","https://kzsc.org/send-us-a-message/","error","","false","false","false","false","true","run95-platform-database.json","2026-07-17T16:04:27.625Z"
+"SoundCampaign Spotify and TikTok Music Promotion","https://soundcamps.com/","inspected","[object Object]","false","false","true","false","true","run61-platform-database.json","2026-07-17T16:04:36.515Z"
+"Inflyte Promo Delivery DJ Radio Airplay Monitoring Route","https://www.inflyteapp.com/","inspected","[object Object]","true","false","true","true","true","run233-platform-database.json","2026-07-17T16:04:49.907Z"
+"Circus Records and Circus Electric LabelRadar Bass Music Demo Route","https://www.labelradar.com/labels/circusrecords/profile","inspected","[object Object]","false","false","false","false","true","run284-platform-database.json","2026-07-17T16:04:59.019Z"

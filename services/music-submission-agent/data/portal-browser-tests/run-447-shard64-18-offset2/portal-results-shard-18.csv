@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Groover Global Curator Playlist Radio and Label Pitching Route","https://groover.co/","inspected","[object Object]","true","false","false","false","true","run21-platform-database.json","2026-07-17T16:04:31.927Z"
+"KFJC Physical Media Music Director Airplay Submission Route","https://kfjc.org/about/for-musicians","inspected","[object Object]","false","false","false","false","true","run149-platform-database.json","2026-07-17T16:04:41.126Z"
+"KUTX Austin Music Submission Airplay Route","https://kutx.org/contact/","inspected","[object Object]","true","false","false","false","true","run255-platform-database.json","2026-07-17T16:04:54.695Z"
+"RouteNote Free Premium Worldwide Distribution Upload Route","https://routenote.com/","inspected","[object Object]","true","false","true","true","true","run155-platform-database.json","2026-07-17T16:05:07.502Z"

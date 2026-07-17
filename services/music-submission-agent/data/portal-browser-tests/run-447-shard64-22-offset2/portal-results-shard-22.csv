@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Enhanced Music Official Demmo Electronic Demo Upload Route","https://labels.demmo.link/enhanced-music/demos","inspected","[object Object]","true","false","true","true","true","run285-platform-database.json","2026-07-17T16:04:31.928Z"
+"Playlist Push Paid Spotify TikTok Curator Campaign Route","https://playlistpush.com/artists","inspected","[object Object]","false","false","true","true","true","run147-platform-database.json","2026-07-17T16:04:45.847Z"
+"WFMU Freeform Radio Music Submission Route","https://wfmu.org/","error","","false","false","false","false","true","run255-platform-database.json","2026-07-17T16:04:55.938Z"
+"WKDU Philadelphia Music Submission Public Contact Form Route","https://wkdu.org/contact","inspected","[object Object]","true","false","true","false","true","run229-platform-database.json","2026-07-17T16:05:09.256Z"
