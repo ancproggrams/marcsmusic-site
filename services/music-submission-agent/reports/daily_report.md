@@ -99,3 +99,7 @@ Run 443 resumed shard coverage at offset 14 and added 2 new unique portal routes
 ## Run 444
 
 Run 444 continued offsets 10, 14 and 18 across 24 shards and added 13 new unique portal routes. All 13 checks inspected successfully. Combined unique coverage for Runs 431–444 is 216 of 644 candidates, leaving 428 for continued passive testing. No outreach, upload, login, payment or submission was performed.
+
+## Run 445
+
+Run 445 continued offset 14 across 15 selected shards and inspected 2 routes successfully. Both routes overlapped prior evidence, so 0 new unique routes were added. Combined unique coverage for Runs 431–445 remains 216 of 644 candidates, leaving 428 for continued passive testing. No outreach, upload, login, payment or submission was performed.
