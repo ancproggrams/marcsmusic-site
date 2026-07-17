@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 466
+Latest run: Run 467
 
 New items added in latest run: 1
 
@@ -10,27 +10,27 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1753
+Pipeline estimate: 1754
 
 Items:
 
-- Run 466 added: MOCRadio Network — a first-party public email route requesting a radio/clean MP3, `Artist - Song Title` metadata and Twitter information for airplay review.
+- Run 467 added: Discover YOU RADIO — a first-party free rotation-evaluation form requiring a clean radio-friendly track, identity and contact details, an iTunes song link, artist history and song context.
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: the official submission page directs artists to `mp3@mocradio.com`, requests a clean MP3 with correct filename/tags and identifies a weekly Music Discovery Radio programme for unsigned and independent artists. Optional guaranteed-exposure promotional packages are separate from the standard editorial-review route.
+Latest route note: the official Artist Submissions page states that all initial rotation evaluations are free, requires the official form and a clean radio-friendly track, and says that accepted songs are purchased on iTunes and added to the station request catalog. Optional certificates of airplay and organic station-pitching services are separate paid offerings.
 
-Contact-verification note: `mp3@mocradio.com` is first-party published, syntactically valid, domain aligned, context aligned and explicitly designated for music submissions. `lc@mocradio.com` and `advertise@mocradio.com` were excluded as program-director and advertising contacts. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `submit@discoveryouradio.com` and `admin@discoveryouradio.com` are first-party support contacts rather than authorized rotation-submission substitutes. `uploads@discoveryouradio.com` belongs to the separate sync-licensing workflow. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: the first-party home and program/music-director pages publish current recurring schedules. Supporting podcast evidence lists a MOCRadio episode aired on June 20, 2026. Published formats include R&B, Hip-Hop, House, EDM, Indie Music and Reggae, giving selected clean MarcsMusic electronic, house, reggae and crossover tracks a plausible fit after human review.
+Activity and fit note: the first-party Real Radio page presents an active request catalog and weekly scouting report, while the Shows calendar lists live sessions on July 13–17 and July 20, 2026. The current form is genre-neutral and prioritizes clean, radio-friendly independent music, giving selected MarcsMusic electronic, reggae, world-fusion, pop and instrumental tracks a plausible fit after human review.
 
-Manual-review note: a human must choose a format-compatible clean track, confirm MP3 metadata and all rights, clarify AI-assisted-music and international eligibility, approve the final email and attachment, and keep optional paid promotional services outside the free editorial-review workflow.
+Manual-review note: a human must choose a suitable clean track, validate the iTunes link and artist metadata, confirm all rights plus AI and international eligibility, inspect the live form for hidden anti-spam/login/CAPTCHA controls, make an explicit mailing-list choice and keep optional paid, donation and sync-licensing routes outside the free evaluation workflow.
 
-Deduplication note: repository code search and the open pull-request patch contained no existing `MOCRadio`, `mocradio.com` or `mp3@mocradio.com` record. The submission mailbox, indie programme, program-director contact and optional paid services were consolidated as one canonical opportunity. Canonical SQLite domain/email deduplication remains required before external use.
+Deduplication note: the complete accessible open pull-request patch contained no existing `Discover YOU RADIO` or `discoveryouradio.com` record. The free rotation form is canonical; support contacts, social direct messages, paid certificates, paid station-pitching, donations and sync licensing are excluded. Canonical SQLite domain and URL deduplication remains required before external use.
 
-Runtime limitation: the repository and web connectors updated and verified the artifacts. Attempts to invoke `agent-browser` through npm did not produce a usable runner, and no mounted repository worktree was available. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
+Runtime limitation: repository and public-web connectors updated and verified the artifacts. A mounted repository worktree and the dedicated `agent-browser` runner were unavailable. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no MP3 was attached, no account or login was used, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No form field was filled, no link was submitted, no mailing-list consent was given, no email was sent, no file was uploaded, no account or login was used, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
 
 ## Recent run history
 
@@ -61,5 +61,9 @@ Added KDBR Dain Bramage Radio as a free worldwide-facing upload/private-link rou
 ### Run 466
 
 Added MOCRadio Network as a free-first public MP3 email route. Clean-version, metadata, rights, AI/international eligibility and optional paid-promotion boundaries require manual review. Pipeline estimate: 1,753.
+
+### Run 467
+
+Added Discover YOU RADIO as a free first-party rotation-evaluation form. Clean-track suitability, iTunes-link accuracy, rights, AI/international eligibility, mailing-list consent, hidden live controls and optional paid/sync boundaries require manual review. Pipeline estimate: 1,754.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
