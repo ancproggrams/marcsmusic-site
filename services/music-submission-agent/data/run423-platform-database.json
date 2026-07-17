@@ -1,0 +1,179 @@
+{
+  "run": 423,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1740,
+  "pipelineEstimate": 1741,
+  "newPlatforms": [
+    {
+      "name": "KCR College Radio Free FCC-Clean Digital Email Submission Opportunity",
+      "websiteUrl": "https://kcr.sdsu.edu/",
+      "submissionUrl": "mailto:kcr@sdsu.edu",
+      "sourceUrl": "https://kcr.sdsu.edu/contact/music-submissions/",
+      "sourceType": "automation_run_423_public_research",
+      "country": "United States / San Diego, California student-run internet and campus radio station; all musicians are encouraged to submit, with special interest in San Diego artists",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "student-radio",
+        "independent-artists",
+        "emerging-artists",
+        "freeform-and-eclectic",
+        "electronic",
+        "alternative",
+        "indie",
+        "trip-hop",
+        "dance",
+        "digital-email-submission",
+        "mp3-only",
+        "fcc-clean-only",
+        "artist-title-filename-format",
+        "automated-playlist-and-dj-library",
+        "no-status-calls",
+        "no-visible-login-captcha-or-payment",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-music-submission-email-with-fcc-clean-mp3-named-artist-dash-song-title",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public institutional music-submission email",
+        "formLocation": null,
+        "email": "kcr@sdsu.edu",
+        "explicitPurpose": "Digital music submissions for possible addition to KCR's automated playlist and DJ music library",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Select one suitable FCC-clean MP3, inspect the asset and message, confirm unresolved requirements, and send manually without status calls or repetitive follow-up.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "standardRouteFeePublished": false,
+        "optionalPaidServicesPublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submit digitally by email to kcr@sdsu.edu",
+          "submit MP3 audio",
+          "all songs must be FCC clean",
+          "name each file Artist – Song Title",
+          "do not call to ask about submission status"
+        ],
+        "formFieldsObserved": [],
+        "safeReviewScope": [
+          "select one broadcast-ready MarcsMusic track with plausible college-radio fit",
+          "confirm the exact master is FCC clean",
+          "inspect MP3 encoding, filename and embedded metadata",
+          "confirm attachment-size and track-count limits",
+          "confirm whether KCR permits a downloadable link instead of an attachment",
+          "confirm non-local and international eligibility",
+          "verify composition, master, sample and contributor rights",
+          "confirm release-recency and follow-up rules",
+          "confirm the current AI-assisted and AI-generated music policy",
+          "avoid calls, bulk delivery and repetitive follow-up",
+          "send manually"
+        ],
+        "unresolvedEligibility": [
+          "international artist eligibility",
+          "whether singles, EPs, albums or demos are preferred",
+          "maximum number of tracks per submission",
+          "maximum attachment size",
+          "MP3 bitrate, sample rate and channel requirements",
+          "whether download links are accepted",
+          "required message metadata, biography, artwork or release date",
+          "release-recency requirements",
+          "rights and territorial requirements",
+          "AI-assisted and AI-generated music policy"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "address": "kcr@sdsu.edu",
+            "purpose": "digital music submissions",
+            "source": "https://kcr.sdsu.edu/contact/music-submissions/",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "domainAlignmentNote": "The mailbox uses San Diego State University's official sdsu.edu institutional domain."
+          }
+        ],
+        "adjacentEmailsExcluded": [
+          {
+            "address": "kcr.music@sdsu.edu",
+            "purpose": "current Music Directors contact",
+            "source": "https://kcr.sdsu.edu/contact/",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "reasonExcluded": "The dedicated music-submission page directs artists to kcr@sdsu.edu; using both would create duplicate delivery."
+          },
+          {
+            "address": "kcr.promotions@sdsu.edu",
+            "purpose": "Music Promotions Directors contact",
+            "source": "https://kcr.sdsu.edu/contact/",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "reasonExcluded": "Promotion-team contact is not the published music-submission destination."
+          }
+        ],
+        "emailStatus": "kcr@sdsu.edu is a first-party, purpose-labelled institutional music-submission mailbox. Current music-director and promotions addresses were verified but excluded to prevent duplicate or unauthorized routing.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The authorized route is email, but a human must inspect the exact message and audio asset and resolve unpublished technical, eligibility, rights and AI-origin rules before sending.",
+        "rightsOrConsentFields": [],
+        "adjacentRoutesExcluded": [
+          "general management mailboxes",
+          "Music Director role mailbox",
+          "Music Promotions role mailbox",
+          "studio request phone",
+          "office phone",
+          "listener request routes",
+          "newsletter subscription",
+          "social-media direct messages"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "KCR's official site exposes live-listening access and a current management roster. Its homepage published multiple artist interviews and reviews on July 7, 2026, and additional official music coverage appeared throughout 2026."
+      },
+      "genreFitEvidence": [
+        "KCR describes its station as eclectic and focused on curated music from up-and-coming artists.",
+        "Current 2026 editorial coverage includes electronic festivals, alternative rock, indie, lo-fi and trip-hop-adjacent music.",
+        "Selected clean MarcsMusic electronic, alternative-leaning, melodic bass, world-fusion or accessible reggae-adjacent material has plausible fit, subject to human selection."
+      ],
+      "manualReviewReason": "The route is first-party, direct and fee-free as published, but international eligibility, delivery limits, technical MP3 requirements, rights, release timing and AI-origin rules remain unpublished. Human track, asset and message review is mandatory.",
+      "priority": 82,
+      "pricingModel": "free-first/no-published-fee/institutional-email/mp3-only/fcc-clean/non-local-eligibility-unconfirmed/no-visible-login-captcha-or-payment/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KCR College Radio",
+      "KCR SDSU",
+      "kcr.sdsu.edu",
+      "kcr@sdsu.edu",
+      "kcr.music@sdsu.edu",
+      "https://kcr.sdsu.edu/contact/music-submissions/",
+      "KCR College Radio Free FCC-Clean Digital Email Submission Opportunity"
+    ],
+    "repositoryEvidence": "Repository code search and the complete PR patch were checked for the platform name, official domain, submission mailbox, Music Director mailbox and canonical submission URL. No existing music-submission-agent record was found before creation.",
+    "consolidation": "The dedicated submission mailbox is stored as one canonical opportunity. Music Director, promotions, general management, phone, listener, newsletter and social routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new KCR College Radio opportunity was queued as needs_manual_review. No email, MP3, attachment, metadata, form field, login, CAPTCHA, payment, call or follow-up was submitted."
+}
