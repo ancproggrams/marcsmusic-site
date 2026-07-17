@@ -3,7 +3,12 @@
   "build": {
     "builder": "RAILPACK",
     "watchPatterns": [
-      "services/outreach-worker/**"
+      "services/outreach-worker/**",
+      "src/**",
+      "migrations/**",
+      "package.json",
+      "package-lock.json",
+      "railway.json"
     ]
   },
   "deploy": {
