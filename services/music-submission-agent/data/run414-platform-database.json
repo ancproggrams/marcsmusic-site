@@ -1,0 +1,133 @@
+{
+  "run": 414,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1731,
+  "pipelineEstimate": 1732,
+  "newPlatforms": [
+    {
+      "name": "Eagle Air Radio WINR Music Submission Email Opportunity",
+      "websiteUrl": "https://www.winthrop.edu/cas/masscomm/untitled.aspx",
+      "submissionUrl": "https://www.winthrop.edu/cas/masscomm/untitled.aspx",
+      "sourceUrl": "https://www.winthrop.edu/cas/masscomm/untitled.aspx",
+      "sourceType": "automation_run_414_public_research",
+      "country": "United States / Winthrop University online college radio in Rock Hill, South Carolina with worldwide streaming and international artist eligibility not explicitly stated",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "student-radio",
+        "independent-music",
+        "popular-music",
+        "electronic",
+        "alternative",
+        "reggae",
+        "world-music",
+        "bass-music",
+        "cross-genre",
+        "authorized-digital-submission-route",
+        "public-business-email",
+        "free-first",
+        "asset-free-inquiry-first",
+        "international-eligibility-unconfirmed",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-music-submission-email-with-asset-free-requirements-inquiry-before-audio-delivery",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party published music-submission email route",
+        "contactEmail": "eagleairradio@gmail.com",
+        "contactPublication": "Winthrop University's official Eagle Air page labels the mailbox Music submissions.",
+        "explicitPurpose": "Music submissions to Eagle Air Radio WINR",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Send a short asset-free inquiry asking for current delivery requirements before supplying audio.",
+        "audioDeliveryAuthorized": false,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "use the publicly designated Eagle Air music-submissions mailbox",
+          "no submission fee, login, CAPTCHA or mandatory payment is published"
+        ],
+        "safeReviewScope": [
+          "confirm international independent artists are eligible",
+          "confirm accepted singles, EPs, albums and demos",
+          "confirm attachment versus permissioned download-link requirements",
+          "confirm audio formats, bitrate, sample rate and file-size limits",
+          "confirm metadata, artwork, biography and ISRC requirements",
+          "confirm explicit-content, release-window, rights and AI-origin rules",
+          "retain needs_manual_review until requirements are confirmed"
+        ],
+        "unresolvedEligibility": [
+          "international artist eligibility",
+          "accepted release types",
+          "audio-delivery procedure",
+          "technical file requirements",
+          "metadata and artwork requirements",
+          "explicit-content policy",
+          "AI-assisted or AI-generated music policy",
+          "release timing and rights requirements"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "eagleairradio@gmail.com",
+            "purpose": "Music submissions",
+            "source": "https://www.winthrop.edu/cas/masscomm/untitled.aspx",
+            "verification": "first-party university publication, explicit music-submission purpose and valid email syntax",
+            "eligibleForMusicSubmission": true,
+            "preferredForMarcsMusic": true
+          }
+        ],
+        "emailStatus": "one authorized public music-submission mailbox verified",
+        "verification": "The Gmail mailbox is retained because Winthrop University publishes it on the official Eagle Air page with the explicit label Music submissions. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "No technical submission procedure is published; an asset-free requirements inquiry is required before audio delivery.",
+        "adjacentRoutesExcluded": [
+          "student show-host applications",
+          "social-media direct messages",
+          "TuneIn listener surfaces",
+          "third-party radio directories"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "Winthrop University's official page states that Eagle Air streams 24 hours a day, is available worldwide through its web stream and TuneIn, identifies current staff, publishes the music-submissions mailbox and shows Last Updated: 3/30/26."
+      },
+      "genreFitEvidence": [
+        "Eagle Air describes its format as popular and college music spanning seven decades.",
+        "Selected accessible MarcsMusic electronic crossover, alternative-leaning, reggae-adjacent, world-fusion or bass material has plausible fit after human track selection."
+      ],
+      "manualReviewReason": "The route is legitimate and current, but technical delivery, international, content, rights, release-window and AI-origin rules are unpublished. A human must request requirements before sending assets.",
+      "priority": 77,
+      "pricingModel": "free/first-party-email/asset-free-inquiry-first/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Eagle Air Radio",
+      "WINR",
+      "Winthrop University Eagle Air",
+      "eagleairradio@gmail.com",
+      "winthrop.edu/cas/masscomm/untitled.aspx"
+    ],
+    "repositoryEvidence": "Repository code search found no existing indexed Eagle Air, WINR, Winthrop submission-page or eagleairradio@gmail.com music-submission-agent record before creation.",
+    "consolidation": "The official mailbox and station page are stored once as one canonical opportunity; listener, social and third-party directory routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One Eagle Air college-radio opportunity was queued as needs_manual_review. No submission action was performed."
+}
