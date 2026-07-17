@@ -1,0 +1,169 @@
+{
+  "run": 417,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1734,
+  "pipelineEstimate": 1735,
+  "newPlatforms": [
+    {
+      "name": "SoundChat Radio & TV Free Caribbean Music Submission Form Opportunity",
+      "websiteUrl": "https://soundchatradio.com/",
+      "submissionUrl": "https://soundchatradio.com/submit-music",
+      "sourceUrl": "https://soundchatradio.com/submit-music",
+      "sourceType": "automation_run_417_public_research",
+      "country": "United States / Jamaica / global Caribbean internet radio with international artist eligibility not explicitly stated",
+      "language": "en",
+      "genres": [
+        "internet-radio",
+        "caribbean-radio",
+        "reggae",
+        "dancehall",
+        "soca",
+        "world-music",
+        "emerging-artists",
+        "dedicated-submission-form",
+        "track-link-submission",
+        "mp3-320-or-wav-preferred",
+        "clean-radio-edit-guidance",
+        "metadata-required",
+        "bio-and-social-links-required",
+        "rights-and-broadcast-authorization",
+        "standard-submission-free",
+        "international-eligibility-unconfirmed",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-dedicated-music-submission-form-with-track-link-and-rights-broadcast-authorization",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "dedicated first-party public music-submission form",
+        "contactEmail": null,
+        "contactPublication": "SoundChat Radio's official Submit Music page provides a dedicated music-submission form. The general business emails on the Contact page are not identified as music-submission destinations.",
+        "explicitPurpose": "Submit a track for station review, possible broadcast and artist exposure",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Reopen the official form, review the rights statement and all current controls, then manually submit one suitable track link with accurate metadata.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "use the dedicated Submit Your Music form",
+          "provide artist name and contact email",
+          "provide track title and genre",
+          "provide a SoundCloud, Spotify, YouTube or direct-download track link",
+          "describe the track and artist",
+          "prefer high-quality 320 kbps MP3 or WAV audio",
+          "provide clean or radio edits alongside explicit versions when applicable",
+          "include accurate artist, title and genre metadata",
+          "include a short bio and social-media links",
+          "confirm ownership and grant SoundChat Radio permission to broadcast the submitted track",
+          "standard submission is free"
+        ],
+        "safeReviewScope": [
+          "select one genuinely suitable reggae, dancehall, world-fusion or Caribbean-adjacent MarcsMusic release",
+          "verify that the public track link works without login, payment or expiring access",
+          "confirm clean or radio-edit suitability",
+          "verify artist, title and genre metadata",
+          "prepare a concise truthful artist and release description",
+          "confirm ownership and authority to grant broadcast permission",
+          "inspect the current form for CAPTCHA, anti-spam, session, consent or other protected controls",
+          "confirm international eligibility, release timing and AI-origin policy before submission",
+          "submit manually and avoid duplicate or repeated delivery"
+        ],
+        "unresolvedEligibility": [
+          "explicit international artist eligibility",
+          "whether one or multiple tracks may be included in one submission",
+          "whether both explicit and clean versions can or should be supplied through one link",
+          "release-recency or release-window rules",
+          "AI-assisted or AI-generated music policy",
+          "territorial, duration and revocation details of the broadcast permission",
+          "whether Spotify or YouTube alone satisfies the preferred high-quality audio guidance",
+          "follow-up policy beyond the stated one-to-two-week review period"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "info@SoundChatRadio.com",
+            "purpose": "general New York office and business contact",
+            "source": "https://soundchatradio.com/contact",
+            "verification": "first-party plaintext publication, valid syntax and exact soundchatradio.com domain alignment; excluded because it is not labelled for music submissions",
+            "eligibleForMusicSubmission": false,
+            "preferredForMarcsMusic": false
+          },
+          {
+            "email": "irishandchin@gmail.com",
+            "purpose": "general New York and Kingston office contact",
+            "source": "https://soundchatradio.com/contact",
+            "verification": "first-party plaintext publication and valid syntax; external Gmail domain retained with source provenance and excluded because it is not labelled for music submissions",
+            "eligibleForMusicSubmission": false,
+            "preferredForMarcsMusic": false
+          }
+        ],
+        "emailStatus": "two public general business mailboxes verified and excluded; no authorized music-submission mailbox published",
+        "verification": "Both addresses are published in plaintext on SoundChat Radio's official Contact page. Their stated general-office purposes were preserved. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed. The dedicated form remains the only authorized music-submission route."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "formFieldsIdentified": [
+          "artist name",
+          "email address",
+          "track title",
+          "genre",
+          "track link",
+          "about the track and artist",
+          "ownership and broadcast-permission confirmation"
+        ],
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The form requires creative selection, factual metadata, a rights-bearing broadcast authorization and a final inspection for any current hidden anti-spam, session or consent control.",
+        "adjacentRoutesExcluded": [
+          "general contact form",
+          "info@SoundChatRadio.com general office mailbox",
+          "irishandchin@gmail.com general office mailbox",
+          "listener request telephone and WhatsApp routes",
+          "advertising and sponsorship routes",
+          "airtime and studio-service routes",
+          "donation route",
+          "online shop",
+          "social-media direct messages"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "The official homepage exposed live listening and watching, current featured rotation and a first-party article dated March 16, 2026. The official schedule contained populated daily and weekly programming including reggae, dancehall and Caribbean shows."
+      },
+      "genreFitEvidence": [
+        "SoundChat Radio identifies reggae, dancehall and soca among its core music formats.",
+        "Its official schedule includes island, reggae, dancehall and sound-system programming.",
+        "Selected MarcsMusic reggae, electronic-reggae, dancehall-adjacent or world-fusion material has strong plausible fit after human track review."
+      ],
+      "manualReviewReason": "The first-party form is active and free, but it requires a selected track link, accurate artist information and an ownership and broadcast-rights affirmation. International eligibility, release timing, AI-origin policy and parts of the delivery specification remain unresolved. Human review and manual form completion are required.",
+      "priority": 94,
+      "pricingModel": "free/first-party-form/track-link/rights-authorization/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "SoundChat Radio",
+      "SoundChat Radio & TV",
+      "soundchatradio.com",
+      "https://soundchatradio.com/submit-music",
+      "info@SoundChatRadio.com",
+      "irishandchin@gmail.com"
+    ],
+    "repositoryEvidence": "The complete accessible pull-request patch was searched for the station name, domain, canonical submission path and both public business addresses; no existing music-submission-agent record was found before creation.",
+    "consolidation": "The dedicated form is stored once as the canonical submission opportunity. General office emails, the general contact form, listener request lines, advertising, airtime, donation, shop and social routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new SoundChat Radio opportunity was queued as needs_manual_review. No form or communication action was performed."
+}
