@@ -34,7 +34,7 @@ Deduplication note: repository searches returned no previous Owl Radio submissio
 
 Runtime-linkage note: Run 427 now links to Run 428 in the active recursive seed chain.
 
-Commit note: Run 428 is complete on the branch; its final head is reported outside this file to avoid self-referential commit updates.
+Commit note: Run 428 is complete on the branch. The branch-head SHA is reported in pull request #2 and in the automation result.
 
 Runtime limitation: passive verification used the available web-research runtime. The dedicated `agent-browser` CLI, screenshot capture and repository shell were unavailable, so no browser screenshot, build, test, lint, `git diff` or `git status` result is claimed.
 
