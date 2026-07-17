@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Spotify for Artists Editorial Playlist Pitching Route","https://support.spotify.com/us/artists/article/pitching-music-to-playlist-editors/","inspected","[object Object]","true","false","true","true","true","run122-platform-database.json","2026-07-17T17:14:18.512Z"
+"WEVL Memphis Public Station Pre-Submission Routing Inquiry","https://wevl.org/","inspected","[object Object]","true","false","false","false","true","run281-platform-database.json","2026-07-17T17:14:36.137Z"
+"WMBR MIT Physical Freeform Music Director Submission Route","https://wmbr.org/music.html","inspected","[object Object]","false","false","false","false","true","run184-platform-database.json","2026-07-17T17:14:51.115Z"
+"BBC Music Introducing Uploader","https://www.bbc.co.uk/music/introducing/uploader/","inspected","[object Object]","true","false","true","false","true","run38-platform-database.json","2026-07-17T17:15:07.269Z"

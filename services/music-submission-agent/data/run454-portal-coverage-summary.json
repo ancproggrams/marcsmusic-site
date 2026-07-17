@@ -1,0 +1,38 @@
+{
+  "run": 454,
+  "capturedAt": "2026-07-17T19:25:00+02:00",
+  "mode": "agent-browser passive inspect-only",
+  "candidateInventory": 645,
+  "shardCount": 64,
+  "offsetsTested": [6],
+  "shardsTested": [16, 17, 18, 19, 20, 21, 22, 23],
+  "routesTestedThisRun": 21,
+  "uniqueNewRoutesThisRun": 21,
+  "inspected": 20,
+  "errorsOrUnreachable": 1,
+  "formsObserved": 10,
+  "loginBoundariesObserved": 7,
+  "paymentBoundariesObserved": 3,
+  "captchaOrHumanChecksObserved": 0,
+  "recomputedUniqueCoverageBeforeRun": 452,
+  "totalUniqueCoverageAcrossRuns431To454": 473,
+  "remainingInventoryOutsideUniqueCoverage": 172,
+  "notableRoutes": [
+    "WIDR 89.1 FM",
+    "Amuse Distribution",
+    "IndieXL",
+    "KEXP",
+    "95bFM",
+    "Great American Song Contest",
+    "Soundstripe",
+    "Spotify for Artists",
+    "Triple J Unearthed",
+    "BandLab"
+  ],
+  "errorRoutes": [
+    "IndieXL Official New Single 320kbps MP3 Upload Form Route"
+  ],
+  "submissionBoundary": "Eligible submission candidates are recorded for manual review only. No active form submit, upload, login, CAPTCHA, consent or payment action was performed.",
+  "evidenceDirectories": "data/portal-browser-tests/run-454-shard64-*-offset6",
+  "safety": "No fields filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated."
+}

@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"WNRN Music Submissions Email and Commonwealth Artist Route","https://wnrn.org/about/contact/","inspected","[object Object]","false","false","false","false","true","run105-platform-database.json","2026-07-17T17:15:39.130Z"
+"2SER 107.3FM Sydney Submit Your Music","https://www.2ser.com/how-to-submit-music","inspected","[object Object]","false","false","false","false","true","run42-platform-database.json","2026-07-17T17:15:54.061Z"
+"BandLab Creator Publish Social Discovery and Distribution Route","https://www.bandlab.com/","inspected","[object Object]","true","false","true","false","true","run141-platform-database.json","2026-07-17T17:16:09.520Z"
+"KOPN 89.5FM Artist Submissions","https://www.kopn.org/artist-submission/","inspected","[object Object]","false","false","false","false","true","run60-platform-database.json","2026-07-17T17:16:26.561Z"

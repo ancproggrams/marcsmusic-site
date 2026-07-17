@@ -1,0 +1,328 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T17:14:03.620Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 19,
+      "count": 64,
+      "offset": 6
+    },
+    "totalUniqueHttpPortalsDiscovered": 645,
+    "testedInThisShard": 4,
+    "inspected": 4,
+    "errors": 0,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 0,
+    "paymentObserved": 0,
+    "formObserved": 2,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "Various Small Flames Music Submission Route",
+      "url": "https://varioussmallflames.co.uk/submissions/",
+      "sourceFile": "run264-platform-database.json",
+      "priorStatus": null,
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:13:07.893Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://varioussmallflames.co.uk/submissions/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Page not found - Various Small Flames"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"12653b04f1be1aff1801b70b15b79546\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"5bde35f73fd1b0b2a85e152a67470487\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"JQMIGRATE: Migrate is installed, version 3.4.1\"}],\"text\":\"JQMIGRATE: Migrate is installed, version 3.4.1\",\"type\":\"log\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"57de97bab95dd82f2e836c0c54806694\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "95bFM Official Submit Music Route",
+      "url": "https://www.95bfm.com/news/how-do-you-do-submitting-music",
+      "sourceFile": "run323-platform-database.json",
+      "priorStatus": null,
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:13:31.288Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.95bfm.com/news/how-do-you-do-submitting-music"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "How do you do... submitting music? | 95bFM"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": false,
+        "submitControlObserved": true,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"b19f91a875920b29610c66711d193a38\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"65420c702c831c7229c25a2a6aea59b8\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"2718523964d55adabce1fc8baac02be4\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "Great American Song Contest 2026 Online Submission",
+      "url": "https://www.greatamericansong.com/Form-Prepage.php",
+      "sourceFile": "run36-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": true,
+      "testedAt": "2026-07-17T17:13:47.263Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.greatamericansong.com/Form-Prepage.php"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Great American Song Contest: Online Entry & Submission Form"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": true,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": true
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"cdc58547d29b4e3c98944dac9aa90858\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"00bd4c810fc3ebda78daf02b8ba36908\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"320ed415fbf2367895e7f622bf6bd626\",\"origin\":\"unknown\"},\"data\":{\"errors\":[{\"column\":0,\"line\":21,\"text\":\"SyntaxError: Unexpected token 'var'\",\"url\":null}],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "Insomniac Records Official Music Group Demo Form",
+      "url": "https://www.insomniacmusicgroup.com/label/insomniac-records/",
+      "sourceFile": "run285-platform-database.json",
+      "priorStatus": null,
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:14:03.619Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.insomniacmusicgroup.com/label/insomniac-records/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Insomniac Music Group"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"eabe1f7878d3ad57dda2309f82164d19\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"abe16caa84702039f013e7072f650230\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"JQMIGRATE: Migrate is installed, version 3.4.1\"}],\"text\":\"JQMIGRATE: Migrate is installed, version 3.4.1\",\"type\":\"log\"},{\"args\":[{\"className\":\"Object\",\"description\":\"Object\",\"objectId\":\"2839125208545680359.2.1\",\"preview\":{\"description\":\"Object\",\"overflow\":false,\"properties\":[{\"name\":\"user\",\"type\":\"undefined\",\"value\":\"undefined\"}],\"type\":\"object\"},\"type\":\"object\"}],\"text\":\"{user: undefined}\",\"type\":\"log\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"cc2f7fe1d4148e9c5884fc69ad0b7956\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}

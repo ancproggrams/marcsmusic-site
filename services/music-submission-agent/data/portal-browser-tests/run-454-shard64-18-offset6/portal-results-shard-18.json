@@ -1,0 +1,265 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T17:13:49.660Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 18,
+      "count": 64,
+      "offset": 6
+    },
+    "totalUniqueHttpPortalsDiscovered": 645,
+    "testedInThisShard": 4,
+    "inspected": 3,
+    "errors": 1,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 2,
+    "paymentObserved": 2,
+    "formObserved": 1,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "Amuse Self-Service Distribution App Release Upload Route",
+      "url": "https://www.amuse.io/en/",
+      "sourceFile": "run156-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": true,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": true,
+      "testedAt": "2026-07-17T17:13:04.899Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.amuse.io/en/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Amuse: Music Distribution and Artist & Label Services"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": true,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": true,
+        "captchaDetected": false,
+        "paymentRequired": true
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"2318c71a5dc253f9ab8804d3b7b57df7\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"b510ac1d4d16dd1e12db8e7150a1927b\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"1173186d8b566e790ebd7354657746f1\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "IndieXL Official New Single 320kbps MP3 Upload Form Route",
+      "url": "https://www.indiexl.nl/submit/",
+      "sourceFile": "run297-platform-database.json",
+      "priorStatus": null,
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:13:17.988Z",
+      "status": "error",
+      "needsManualReview": true,
+      "error": "/opt/homebrew/bin/agent-browser exited null: "
+    },
+    {
+      "name": "KEXP Digital WAV Music Director Rotation Consideration Route",
+      "url": "https://www.kexp.org/about/contact/",
+      "sourceFile": "run192-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:13:33.547Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.kexp.org/about/contact/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Not Found"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"bc9ceff40dc80ccc344cf32d402885d3\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"91229bddb3f90d4ae798a704406d1a78\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"527fc5a07184733f204e63c302671d7c\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "Soundstripe Artist Music Licensing Submission Route",
+      "url": "https://www.soundstripe.com/artists",
+      "sourceFile": "run257-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:13:49.658Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.soundstripe.com/artists"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Submit Your Music - Get Your Music Licensed with Soundstripe"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": true,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"87b5cc0e4b7fa80547e63067751ca8f8\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"2d1b6f69daba6b0f11c3191a5c445891\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"undefined\"}],\"text\":\"undefined\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"MIXPANEL PEOPLE REQUEST (QUEUED, PENDING IDENTIFY):\"}],\"text\":\"MIXPANEL PEOPLE REQUEST (QUEUED, PENDING IDENTIFY):\",\"type\":\"log\"},{\"args\":[{\"className\":\"Object\",\"description\":\"Object\",\"objectId\":\"5604421498474333982.2.1\",\"preview\":{\"description\":\"Object\",\"overflow\":false,\"properties\":[{\"name\":\"$set_once\",\"type\":\"object\",\"value\":\"Object\"},{\"name\":\"$token\",\"type\":\"string\",\"value\":\"d584d2710c9564faf2903636f34309c0\"},{\"name\":\"$distinct_id\",\"type\":\"string\",\"value\":\"$device:eca2a1e7-3407-4880-84f8-9a36889f4e2d\"},{\"name\":\"$device_id\",\"type\":\"string\",\"value\":\"eca2a1e7-3407-4880-84f8-9a36889f4e2d\"}],\"type\":\"object\"},\"type\":\"object\"}],\"text\":\"{$set_once: Object, $token: \\\"d584d2710c9564faf2903636f34309c0\\\", $distinct_id: \\\"$device:eca2a1e7-3407-4880-84f8-9a36889f4e2d\\\", $device_id: \\\"eca2a1e7-3407-4880-84f8-9a36889f4e2d\\\"}\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[flags] Cleared persisted variants from IndexedDB\"}],\"text\":\"[flags] Cleared persisted variants from IndexedDB\",\"type\":\"log\"},{\"args\":[{\"type\":\"undefined\"}],\"text\":\"undefined\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[batch] MIXPANEL REQUEST:\"},{\"className\":\"Array\",\"description\":\"Array(1)\",\"objectId\":\"5604421498474333982.2.2\",\"preview\":{\"description\":\"Array(1)\",\"overflow\":false,\"properties\":[{\"name\":\"0\",\"type\":\"object\",\"value\":\"Object\"}],\"subtype\":\"array\",\"type\":\"object\"},\"subtype\":\"array\",\"type\":\"object\"}],\"text\":\"[batch] MIXPANEL REQUEST: [Object]\",\"type\":\"log\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"a851aa62e114eb8dd81569347597b0c3\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}

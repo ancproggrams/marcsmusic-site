@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Amuse Self-Service Distribution App Release Upload Route","https://www.amuse.io/en/","inspected","[object Object]","true","false","true","true","true","run156-platform-database.json","2026-07-17T17:13:04.899Z"
+"IndieXL Official New Single 320kbps MP3 Upload Form Route","https://www.indiexl.nl/submit/","error","","false","false","false","false","true","run297-platform-database.json","2026-07-17T17:13:17.988Z"
+"KEXP Digital WAV Music Director Rotation Consideration Route","https://www.kexp.org/about/contact/","inspected","[object Object]","false","false","false","false","true","run192-platform-database.json","2026-07-17T17:13:33.547Z"
+"Soundstripe Artist Music Licensing Submission Route","https://www.soundstripe.com/artists","inspected","[object Object]","false","false","true","true","true","run257-platform-database.json","2026-07-17T17:13:49.658Z"

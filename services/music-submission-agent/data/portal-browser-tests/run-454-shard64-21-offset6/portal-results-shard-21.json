@@ -1,0 +1,328 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T17:15:07.270Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 21,
+      "count": 64,
+      "offset": 6
+    },
+    "totalUniqueHttpPortalsDiscovered": 645,
+    "testedInThisShard": 4,
+    "inspected": 4,
+    "errors": 0,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 2,
+    "paymentObserved": 1,
+    "formObserved": 3,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "Spotify for Artists Editorial Playlist Pitching Route",
+      "url": "https://support.spotify.com/us/artists/article/pitching-music-to-playlist-editors/",
+      "sourceFile": "run122-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": true,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:14:18.512Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://support.spotify.com/us/artists/article/pitching-music-and-videos-to-playlist-editors/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Pitching music and videos to Spotify playlist editors - Spotify"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": true,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": true,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": true,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"ccfeb6d66d9de4c6f64cc0742932b79f\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"34ed1d67b2e4c5fb3ed92f327da2c8b2\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"5ed48f5ea075bad612390c59182601cb\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "WEVL Memphis Public Station Pre-Submission Routing Inquiry",
+      "url": "https://wevl.org/",
+      "sourceFile": "run281-platform-database.json",
+      "priorStatus": null,
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:14:36.137Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://wevl.org/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "wevl.org - Home"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"414066192205180693d683fd02f6f390\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"6fd692413496427486a9cf97849b1086\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"50329f6ee7d8f756606da4ed8502177b\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "WMBR MIT Physical Freeform Music Director Submission Route",
+      "url": "https://wmbr.org/music.html",
+      "sourceFile": "run184-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:14:51.115Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://wmbr.org/music.html"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "404 Not Found"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"7eefec7ec941c60a8d4ebc45d8d3b4fd\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"b750b5067f87603333c5a2a2798fb111\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"df699560ae477a5c2c867bbed677f8af\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "BBC Music Introducing Uploader",
+      "url": "https://www.bbc.co.uk/music/introducing/uploader/",
+      "sourceFile": "run38-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": true,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:15:07.269Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://account.bbc.com/auth/identifier/signin?realm=%2F&clientId=Account&ptrt=https%3A%2F%2Fwww.bbc.co.uk%2Fintroducing%2Fuploads&purpose=free&isCasso=false&action=sign-in&redirectUri=https%3A%2F%2Fsession.bbc.co.uk%2Fsession%2Fcallback%3Frealm%3D%2F&service=IdSignInService&nonce=wn1sU1VF-jbeweRVO94VpwO6MFkX8_S6KsGk"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "BBC - Signin - Identifier"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": true,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": true,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"46b0d9c8134ed5fd474c7e1e6e1cf312\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"8e224a1249b32e894c9618b358d49149\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"8cc563cbbd8d678b1e968f878c323871\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}
