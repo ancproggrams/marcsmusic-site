@@ -1,0 +1,191 @@
+{
+  "run": 428,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1745,
+  "pipelineEstimate": 1746,
+  "newPlatforms": [
+    {
+      "name": "Owl Radio KSU Public MP3/WAV-or-Link Airplay Submission Form",
+      "websiteUrl": "https://ksuradio.com/",
+      "submissionUrl": "https://owllife.kennesaw.edu/submitter/form/step/1?Guid=985dbf34-2c5d-4ef7-a2ff-da89e923b538",
+      "sourceUrl": "https://owllife.kennesaw.edu/submitter/form/step/1?Guid=985dbf34-2c5d-4ef7-a2ff-da89e923b538",
+      "sourceType": "automation_run_428_public_research",
+      "country": "United States / Kennesaw, Georgia student-run Kennesaw State University streaming college-radio station; the official form says it accepts submissions from anyone with recordings, but country-specific and territorial conditions are not separately published",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "student-radio",
+        "streaming-radio",
+        "independent-music",
+        "underground-music",
+        "indie",
+        "jazz",
+        "metal",
+        "alternative",
+        "eclectic",
+        "mp3-or-wav-upload",
+        "music-link-alternative",
+        "artist-description",
+        "public-multi-step-form",
+        "free-first",
+        "no-visible-login-or-payment-on-first-step",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-public-multi-step-airplay-form-with-mp3-or-wav-upload-or-music-link-alternative",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public multi-step music-submission form with MP3/WAV upload or music-link alternative",
+        "formLocation": "https://owllife.kennesaw.edu/submitter/form/step/1?Guid=985dbf34-2c5d-4ef7-a2ff-da89e923b538",
+        "email": "owlradioksu@gmail.com",
+        "physicalAddress": "Owl Radio Music Director, MB# 0507, Kennesaw State University, 395 Cobb Avenue, Kennesaw, GA 30144-5591, United States",
+        "explicitPurpose": "Submit recorded music for Owl Radio airplay consideration and follow up on submitted music",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Select a suitable radio-ready MarcsMusic track, inspect the exact audio master and metadata, choose either MP3/WAV upload or a stable music link, review every later form step and declaration, confirm content and rights eligibility, and submit manually.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "internationalAcceptanceEvidence": "The first-party form says Owl Radio accepts music submissions from anyone with recordings, including unsigned acts, small labels and major labels.",
+        "standardRouteFeePublished": false,
+        "optionalPaidServicesPublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "provide an artist name",
+          "provide an artist email address",
+          "provide a short description about the artist, band or group",
+          "submit an MP3 and/or a music link",
+          "the visible upload control also identifies WAV as an accepted file type",
+          "continue through the multi-step form using the Next control",
+          "physical media may alternatively be mailed to the Owl Radio Music Director",
+          "physical media submitted to Owl Radio become station property and are not returned"
+        ],
+        "formFieldsObserved": [
+          "Artist Name",
+          "Artist Email",
+          "Tell us about yourself, your Band or your Group",
+          "File Submission (.mp3 or .wav)",
+          "Link to Your Music",
+          "Next"
+        ],
+        "safeReviewScope": [
+          "select one suitable radio-ready MarcsMusic release",
+          "confirm genre fit with Owl Radio's current eclectic schedule",
+          "inspect the exact MP3 or WAV master and metadata",
+          "confirm current upload-size and audio-quality limits",
+          "choose one delivery route and avoid duplicate upload plus link servicing unless explicitly intended",
+          "verify every later form step and required field",
+          "check whether CAPTCHA, identity verification or login appears on later steps",
+          "confirm explicit-content and clean-edit expectations",
+          "verify composition, master, sample and contributor rights",
+          "confirm release-window and track-count expectations",
+          "confirm the current AI-assisted and AI-generated music policy",
+          "review any consent, privacy or broadcast declarations",
+          "submit manually"
+        ],
+        "unresolvedEligibility": [
+          "country-specific and territorial conditions beyond the broad anyone-with-recordings statement",
+          "maximum upload size",
+          "preferred bitrate, sample rate and bit depth",
+          "track-count and release-type limits",
+          "explicit-content and clean-edit policy",
+          "release-recency expectations",
+          "rights and broadcast-consent requirements on later steps",
+          "AI-assisted and AI-generated music policy",
+          "review and follow-up timing"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "address": "owlradioksu@gmail.com",
+            "purpose": "follow-up on music submitted to Owl Radio",
+            "source": "https://owllife.kennesaw.edu/submitter/form/step/1?Guid=985dbf34-2c5d-4ef7-a2ff-da89e923b538",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": false,
+            "contextAligned": true,
+            "verificationNote": "The address is published in plaintext on the first-party Kennesaw State submission form specifically for following up on music sent to Owl Radio. It uses Gmail rather than a Kennesaw State domain; no deliverability probing was performed."
+          }
+        ],
+        "adjacentEmailsExcluded": [
+          {
+            "address": "owlradio@kennesaw.edu",
+            "purpose": "general organization contact",
+            "source": "https://owllife.kennesaw.edu/organization/owlradio",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "reasonExcluded": "The current organization page presents this as a general Owl Radio contact, not the canonical submission or follow-up route."
+          },
+          {
+            "address": "programmingowlradio@kennesaw.edu",
+            "purpose": "current program director contact",
+            "source": "https://ksuradio.com/join/",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "reasonExcluded": "The management page identifies a staff role but does not authorize this mailbox as the preferred music-submission route."
+          }
+        ],
+        "emailStatus": "One first-party-published, purpose-aligned follow-up mailbox was retained. Current general and staff addresses were verified but excluded from music servicing because the official form is the canonical route.",
+        "verification": "Email verification was limited to first-party publication, syntax and purpose/context alignment. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "multiStepForm": true,
+        "captchaObserved": false,
+        "captchaStatus": "not visible on the accessible first step; later steps were not activated",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The route is multi-step and includes an audio upload. Later fields, technical limits, CAPTCHA or identity controls, declarations and the final submit control must be inspected by a human before use.",
+        "rightsOrConsentFields": [],
+        "adjacentRoutesExcluded": [
+          "general Owl Radio organization email",
+          "program director and other staff mailboxes",
+          "general website contact form",
+          "advertising and sponsorship contacts",
+          "physical delivery as a duplicate servicing route when digital submission is used",
+          "social-media direct messages"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "Owl Radio's official site exposes a working listen page, current now-spinning surface, populated weekly schedule and current management roster. Kennesaw State's current Student Media and organization pages continue to identify Owl Radio as the university's student-run streaming station, and the station published 2026 operational content."
+      },
+      "genreFitEvidence": [
+        "The official station site describes an eclectic mix including indie, jazz, metal and music from the Greater Atlanta underground and beyond.",
+        "The current schedule includes alternative, experimental, underground, classic, K-pop, folk, bluegrass and broad freeform programmes.",
+        "A carefully selected MarcsMusic electronic, alternative, chill, world-fusion or genre-blending track has plausible medium fit, subject to programme-level human selection."
+      ],
+      "manualReviewReason": "The route is active, first-party and free-first, but it is a multi-step form with an upload control. Later-step fields, possible CAPTCHA or identity controls, technical size and quality limits, rights or broadcast declarations, content policy, track-count rules and AI-origin policy are not fully exposed on the accessible first step. Final asset selection, live-form inspection and submission must remain human-controlled.",
+      "priority": 80,
+      "pricingModel": "free-first/public-multi-step-form/mp3-or-wav-upload-or-link/anyone-with-recordings/follow-up-email/physical-alternative/no-visible-first-step-login-captcha-or-payment/later-steps-unverified/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Owl Radio",
+      "KSU Owl Radio",
+      "Kennesaw State Owl Radio",
+      "owlradioksu@gmail.com",
+      "985dbf34-2c5d-4ef7-a2ff-da89e923b538",
+      "Owl Radio KSU Public MP3/WAV-or-Link Airplay Submission Form"
+    ],
+    "repositoryEvidence": "Repository searches were checked for Owl Radio, KSU Owl Radio, Kennesaw State Owl Radio, the official form GUID and the purpose-aligned follow-up email. No existing music-submission-agent opportunity was returned before creation.",
+    "consolidation": "The MP3/WAV upload and music-link options are stored as one canonical digital opportunity. The physical route is retained as an authorized alternative but not queued separately. General organization, staff, advertising, sponsorship, contact-form and social routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new Owl Radio opportunity was queued as needs_manual_review. No form step was advanced, and no field, file, link, email, package, account, login, CAPTCHA, payment or final submit action was completed."
+}
