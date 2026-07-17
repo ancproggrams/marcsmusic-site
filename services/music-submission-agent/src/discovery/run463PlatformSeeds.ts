@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run464SeedPlatforms } from './run464PlatformSeeds.js';
 
 export const run463SeedPlatforms: PlatformInput[] = [
   {
@@ -42,5 +43,6 @@ export const run463SeedPlatforms: PlatformInput[] = [
       'The first-party page provides an embedded online form that was not passively field-inspected in this runtime. A human must verify the required fields, MP3 upload limits, CAPTCHA or login controls, privacy and streaming-permission terms, AI-disclosure eligibility, track suitability and rights status before completing the form manually.',
     notes:
       'Verified on 2026-07-17 from IndieMusicFans first-party contact/submission, station and about pages. The submission page welcomes artists worldwide, requests meta-tagged MP3 files, accepts Rock, Metal, Ska, Punk and Synth/EDM/Pop, requires disclosure of AI elements, states that artists retain their rights and grants the station permission to stream submitted tracks. The public otat247@gmail.com address is retained only as a fallback business-question contact because the page instructs music submitters to use the online form. No form was filled, no email was sent, no file was uploaded, no login was used, no CAPTCHA was solved and no payment or submission action was completed.'
-  }
+  },
+  ...run464SeedPlatforms
 ];
