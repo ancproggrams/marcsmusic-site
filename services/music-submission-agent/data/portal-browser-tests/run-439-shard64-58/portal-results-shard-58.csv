@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Bandsintown For Artists Tour Date Fan Discovery Route","https://artists.bandsintown.com/","inspected","[object Object]","true","false","true","false","true","run250-platform-database.json","2026-07-17T15:36:40.925Z"
+"JioSaavn ArtistOne Claim Analytics Submission Route","https://artists.jiosaavn.com/","inspected","[object Object]","false","false","true","false","true","run253-platform-database.json","2026-07-17T15:36:54.520Z"

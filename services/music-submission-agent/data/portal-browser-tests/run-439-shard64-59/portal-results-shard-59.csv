@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Apple Music For Artists Claim Release Promote Insights Route","https://artists.apple.com/","inspected","[object Object]","false","false","true","false","true","run252-platform-database.json","2026-07-17T15:36:41.641Z"
+"CD Baby Paid Digital Distribution Human Review Dashboard Route","https://cdbaby.com/music-distribution/","inspected","[object Object]","false","false","true","true","true","run173-platform-database.json","2026-07-17T15:36:55.128Z"

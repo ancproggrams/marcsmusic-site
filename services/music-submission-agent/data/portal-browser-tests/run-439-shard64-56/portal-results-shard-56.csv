@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"DailyPlaylists Spotify Playlist Submission Marketplace Route","https://dailyplaylists.com/","error","","false","false","false","false","true","run21-platform-database.json","2026-07-17T15:36:36.186Z"
+"High Tea Music Drum and Bass Official Fillout Demo Form","https://highteamusic.fillout.com/demo-form","inspected","[object Object]","false","false","false","false","true","run284-platform-database.json","2026-07-17T15:36:46.615Z"
