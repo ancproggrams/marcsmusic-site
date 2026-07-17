@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run424SeedPlatforms } from './run424PlatformSeeds.js';
 
 export const run423SeedPlatforms: PlatformInput[] = [
   {
@@ -43,5 +44,6 @@ export const run423SeedPlatforms: PlatformInput[] = [
       'KCR explicitly authorizes digital music submissions to kcr@sdsu.edu and requires FCC-clean MP3 files named Artist – Song Title. A human must select one suitable radio-ready track, verify that the exact master is clean, inspect MP3 encoding, filename and metadata, confirm attachment-size and track-count limits, determine whether a download link is acceptable instead of an attachment, verify international and non-local eligibility, rights and sample clearance, release timing and the current AI-assisted or AI-generated music policy, avoid status calls or repetitive follow-up, and send manually.',
     notes:
       'Verified on 2026-07-17 from KCR College Radio’s official Music Submissions, Contact, Home and current blog pages. The submission page states that all musicians are encouraged to submit, accepts digital submissions only at kcr@sdsu.edu, requires FCC-clean MP3 files named “Artist – Song Title,” and places accepted tracks in the automated playlist and DJ music library. The current Contact page lists 2025–26 management and current Music Directors at kcr.music@sdsu.edu; that role mailbox and the promotions mailbox were excluded from music delivery because the dedicated submission page directs artists to kcr@sdsu.edu. Current activity is supported by the live-listening interface and multiple official posts dated July 7, 2026. No email, MP3, attachment, metadata, form field, login, CAPTCHA, payment or follow-up was submitted.'
-  }
+  },
+  ...run424SeedPlatforms
 ];
