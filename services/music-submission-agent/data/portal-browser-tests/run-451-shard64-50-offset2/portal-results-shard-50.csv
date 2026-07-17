@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KRCL 90.9FM Physical and Utah Local Digital Music Submission Route","https://krcl.org/how-to-submit-music/","inspected","[object Object]","true","false","false","false","true","run109-platform-database.json","2026-07-17T16:46:00.366Z"
+"OFFstep ONErpm DIY Digital Music Distribution Upload Route","https://offstep.com/","inspected","[object Object]","false","false","true","true","true","run190-platform-database.json","2026-07-17T16:46:17.581Z"
+"StreetVoice Independent Music Upload Packer Opportunity Route","https://streetvoice.com/","inspected","[object Object]","false","false","true","false","true","run190-platform-database.json","2026-07-17T16:46:37.389Z"
+"Unsigned Only Music Awards Online Entry","https://unsignedonly.com/enter","inspected","[object Object]","false","false","false","false","true","run36-platform-database.json","2026-07-17T16:46:53.580Z"

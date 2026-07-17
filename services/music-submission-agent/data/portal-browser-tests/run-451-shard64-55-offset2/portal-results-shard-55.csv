@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"DistroKid Unlimited Paid Distribution Upload Route","https://distrokid.com/pricing/","inspected","[object Object]","true","false","false","true","true","run156-platform-database.json","2026-07-17T16:48:44.204Z"
+"Groover Artist Curator Feedback Campaign Route","https://groover.co/en/artists/","inspected","[object Object]","false","false","false","false","true","run263-platform-database.json","2026-07-17T16:48:59.271Z"
+"KSCU 103.3FM Santa Clara Music Director Submissions","https://kscu.org/about/","inspected","[object Object]","false","false","false","false","true","run52-platform-database.json","2026-07-17T16:49:15.589Z"
+"KQAL 89.5 FM Music Director Process Inquiry Route","https://www.kqal.org/contact/","inspected","[object Object]","false","false","false","false","true","run397-platform-database.json","2026-07-17T16:49:30.475Z"

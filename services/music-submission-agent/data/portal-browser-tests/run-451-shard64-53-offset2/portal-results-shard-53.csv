@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Anghami For Artists Upload Claim Analytics Route","https://artists.anghami.com/","error","","false","false","false","false","true","run253-platform-database.json","2026-07-17T16:47:03.782Z"
+"Fresh On The Net Listening Post SoundCloud Dropbox Submission Route","https://freshonthenet.co.uk/send/","inspected","[object Object]","true","false","false","false","true","run197-platform-database.json","2026-07-17T16:47:19.838Z"
+"KDVS 90.3 FM Music Department Physical Submission Route","https://kdvs.org/contact","inspected","[object Object]","false","false","false","false","true","run35-platform-database.json","2026-07-17T16:47:37.196Z"
+"Horus Music Unlimited Distribution Playlist Radio Promotion Route","https://mmaz.myclientzone.com/","inspected","[object Object]","true","false","false","false","true","run219-platform-database.json","2026-07-17T16:47:52.904Z"

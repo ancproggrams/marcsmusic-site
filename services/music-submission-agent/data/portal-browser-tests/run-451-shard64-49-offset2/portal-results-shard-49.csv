@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"NARC Magazine Submission Guidelines and Contact Form Route","https://narcmagazine.com/contact/","inspected","[object Object]","true","false","false","false","true","run93-platform-database.json","2026-07-17T16:44:48.776Z"
+"Playlist Push Music Promotion Campaign Route","https://playlistpush.com/submit-music/","error","","false","false","false","false","true","run263-platform-database.json","2026-07-17T16:45:01.871Z"
+"WERS 88.9FM Wicked Local Wednesday Music Submission","https://wers.org/wicked-local-wednesday/","inspected","[object Object]","true","false","false","false","true","run41-platform-database.json","2026-07-17T16:45:18.065Z"
+"AWAL Selective Artist Services Application Route","https://www.awal.com/apply","inspected","[object Object]","true","false","true","false","true","run206-platform-database.json","2026-07-17T16:45:33.813Z"

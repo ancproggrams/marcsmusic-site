@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"iMusician Global Distribution Playlist Pitching Artist Hub Route","https://auth.imusician.pro/","inspected","[object Object]","true","false","true","false","true","run219-platform-database.json","2026-07-17T16:44:49.709Z"
+"CKUT 90.3FM Montreal Submit Music","https://ckut.ca/submit-music-to-ckut/","inspected","[object Object]","false","false","true","false","true","run50-platform-database.json","2026-07-17T16:45:05.203Z"
+"Free Music Archive / Tribe of Noise Curated Upload","https://freemusicarchive.org/","inspected","[object Object]","true","false","false","false","true","run37-platform-database.json","2026-07-17T16:45:20.848Z"
+"KTRU 96.1 Rice Freeform Genre-Show Music Route","https://ktru.org/","inspected","[object Object]","false","false","false","false","true","run32-platform-database.json","2026-07-17T16:45:36.695Z"

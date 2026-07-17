@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Kiss FM Australia Producer Music Airplay Submission","https://kissfm.com.au/unsigned","inspected","[object Object]","true","false","true","false","true","run324-platform-database.json","2026-07-17T16:46:02.252Z"
+"KSPC 88.7FM Album EP Digital Physical Airplay Submission Route","https://kspc.org/music-submissions/","inspected","[object Object]","false","false","false","false","true","run165-platform-database.json","2026-07-17T16:46:19.645Z"
+"Liquicity Records Liquid Drum and Bass Demo Route","https://liquicity.com/","inspected","[object Object]","false","false","false","true","true","run19-platform-database.json","2026-07-17T16:46:34.962Z"
+"Ditto Music Free Signup Unlimited Release and Playlist Pitch Route","https://login.dittomusic.com/","inspected","[object Object]","true","false","true","false","true","run139-platform-database.json","2026-07-17T16:46:50.349Z"

@@ -1,0 +1,41 @@
+{
+  "run": 451,
+  "capturedAt": "2026-07-17T18:45:00+02:00",
+  "mode": "agent-browser passive inspect-only",
+  "candidateInventory": 645,
+  "shardCount": 64,
+  "offsetsTested": [2],
+  "shardsTested": [48, 49, 50, 51, 52, 53, 54, 55],
+  "routesTestedThisRun": 32,
+  "uniqueNewRoutesThisRun": 32,
+  "inspected": 29,
+  "errorsOrUnreachable": 3,
+  "formsObserved": 16,
+  "loginBoundariesObserved": 9,
+  "paymentBoundariesObserved": 5,
+  "captchaOrHumanChecksObserved": 1,
+  "totalUniqueCoverageAcrossRuns431To451": 407,
+  "remainingInventoryOutsideUniqueCoverage": 238,
+  "notableRoutes": [
+    "iMusician Global Distribution",
+    "Free Music Archive",
+    "CKUT 90.3FM Montreal",
+    "AWAL Selective Artist Services",
+    "OFFstep ONErpm DIY Distribution",
+    "Unsigned Only Music Awards",
+    "Anghami for Artists",
+    "Fresh On The Net",
+    "DistroKid Distribution",
+    "Protocol Recordings"
+  ],
+  "manualReviewRoutes": [
+    "Anghami For Artists Upload Claim Analytics Route"
+  ],
+  "errorRoutes": [
+    "Playlist Push Music Promotion Campaign Route",
+    "Anghami For Artists Upload Claim Analytics Route",
+    "Protocol Recordings Protocol Radio New Producer Platform Route"
+  ],
+  "evidenceDirectories": "data/portal-browser-tests/run-451-shard64-*-offset2",
+  "safety": "No fields filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated."
+}
