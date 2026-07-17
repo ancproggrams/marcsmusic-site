@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"SomaFM Submit Music and Channel Music Director Contacts","https://somafm.com/contact/","inspected","[object Object]","false","false","false","true","true","run67-platform-database.json","2026-07-17T16:18:25.909Z"
+"Symphonic Distribution Artist Label Application Route","https://symphonic.com/apply/","inspected","[object Object]","true","false","true","true","true","run206-platform-database.json","2026-07-17T16:18:39.656Z"
+"WMSC 90.3 FM Music Director Review Route","https://wmscradio.com/management/","inspected","[object Object]","true","false","false","false","true","run34-platform-database.json","2026-07-17T16:18:51.719Z"
+"KMNR 89.7 FM Music Director Route","https://www.kmnr.org/about/","inspected","[object Object]","false","false","true","false","true","run35-platform-database.json","2026-07-17T16:19:07.635Z"

@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KDHX Community Radio Music Submission Contact Route","https://kdhx.org/contact/","inspected","[object Object]","false","false","false","false","true","run265-platform-database.json","2026-07-17T16:18:24.952Z"
+"Liquicity Records Drum and Bass Label Engine Demo Upload Route","https://liquicityrecords.label-engine.com/demos?embed=1","inspected","[object Object]","false","false","false","false","true","run284-platform-database.json","2026-07-17T16:18:39.599Z"
+"Spinnin Records Talent Pool Login Demo Upload Route","https://spinninrecords.com/talentpool/dashboard","inspected","[object Object]","false","false","true","false","true","run213-platform-database.json","2026-07-17T16:18:52.196Z"
+"WFUV 90.7 Music Department Physical Submission Route","https://wfuv.org/contactus","inspected","[object Object]","false","false","false","false","true","run34-platform-database.json","2026-07-17T16:19:04.194Z"

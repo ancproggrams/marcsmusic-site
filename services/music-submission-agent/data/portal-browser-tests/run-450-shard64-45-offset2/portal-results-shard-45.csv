@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Audiomack Creator Upload","https://creators.audiomack.com/","error","","false","false","false","false","true","run37-platform-database.json","2026-07-17T16:15:52.915Z"
+"STMPD RCRDS SoundCloud Demo Drop Route","https://demo.stmpdrcrds.com/","error","","false","false","false","false","true","run89-platform-database.json","2026-07-17T16:16:03.199Z"
+"Hype Machine Blog Directory Manual Curator Outreach Route","https://hypem.com/blogs","error","","false","false","false","false","true","run191-platform-database.json","2026-07-17T16:16:13.402Z"
+"KZUU 90.7 FM Official Music-by-Mail and Band Contact Route","https://kzuu.org/contact-us/","error","","false","false","false","false","true","run297-platform-database.json","2026-07-17T16:16:23.717Z"

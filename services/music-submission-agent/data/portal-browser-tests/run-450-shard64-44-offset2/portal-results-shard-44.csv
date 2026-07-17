@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Music Xray Song Opportunity Submissions","https://musicxray.com/","error","","false","false","false","false","true","run81-platform-database.json","2026-07-17T16:15:53.361Z"
+"WUTK 90.3 The Rock Direct MP3 Email and Physical Submission Route","https://wutkradio.com/music-department/","error","","false","false","false","false","true","run277-platform-database.json","2026-07-17T16:16:03.812Z"
+"CHMR 93.5 St. John's Digital Form and Physical Music Submission Route","https://www.chmr.ca/submit-your-music.html","error","","false","false","false","false","true","run269-platform-database.json","2026-07-17T16:16:14.077Z"
+"KRFC 88.9 FM Public Upload Form and Physical Music Submission Route","https://www.krfcfm.org/submit-music/","error","","false","false","false","false","true","run280-platform-database.json","2026-07-17T16:16:24.547Z"

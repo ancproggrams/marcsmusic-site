@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Subvert.fm Cooperative Music Marketplace Artist Route","https://subvert.fm/","error","","false","false","false","false","true","run20-platform-database.json","2026-07-17T16:15:52.947Z"
+"Toolroom Records Demo Submission","https://toolroomrecords.com/demos/","error","","false","false","false","false","true","run41-platform-database.json","2026-07-17T16:16:03.547Z"
+"TopHit Radio and TV Music Distribution Platform","https://tophit.com/","error","","false","false","false","false","true","run19-platform-database.json","2026-07-17T16:16:13.848Z"
+"WFUV Public Media Contact Form and Music Discovery Route","https://wfuv.org/contact","error","","false","false","false","false","true","run72-platform-database.json","2026-07-17T16:16:24.297Z"

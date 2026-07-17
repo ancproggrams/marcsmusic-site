@@ -1,0 +1,32 @@
+{
+  "run": 450,
+  "capturedAt": "2026-07-17T18:35:00+02:00",
+  "mode": "agent-browser passive inspect-only",
+  "candidateInventory": 644,
+  "shardCount": 64,
+  "offsetsTested": [2],
+  "shardsTested": [40, 41, 42, 43, 44, 45, 46, 47],
+  "routesTestedThisRun": 32,
+  "uniqueNewRoutesThisRun": 32,
+  "inspected": 9,
+  "errorsOrUnreachable": 23,
+  "formsObserved": 3,
+  "loginBoundariesObserved": 3,
+  "paymentBoundariesObserved": 2,
+  "captchaOrHumanChecksObserved": 0,
+  "totalUniqueCoverageAcrossRuns431To450": 375,
+  "remainingInventoryOutsideUniqueCoverage": 269,
+  "notableRoutes": [
+    "SomaFM Submit Music",
+    "Symphonic Distribution Artist Label Application",
+    "KDHX Community Radio",
+    "Liquicity Records Label Engine",
+    "Spinnin Records Talent Pool",
+    "WFUV Music Department",
+    "WMSC 90.3 FM",
+    "SomaFM submitmusic route"
+  ],
+  "errorEvidence": "Twenty-three routes produced explicit agent-browser process-error/unreachable records after retrying with reduced browser concurrency; they are not counted as successful inspections.",
+  "evidenceDirectories": "data/portal-browser-tests/run-450-shard64-*-offset2",
+  "safety": "No fields filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated."
+}

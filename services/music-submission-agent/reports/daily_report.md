@@ -115,3 +115,5 @@ Run 449 continued offset 2 across shards 32–39 and added 32 new unique routes.
 ## Run 450
 
 Run 450 added one first-party Wepa.Fm independent-music email route and queued it as `needs_manual_review` because a signed royalty-free licensing agreement, rights verification and human-controlled email delivery are required. The pipeline estimate is now 1,748. No agreement was executed and no outreach or submission was performed.
+
+Run 450 continued offset 2 across shards 40–47 and recorded 32 new route attempts. Nine produced usable inspections; 23 produced explicit browser process-error or unreachable evidence after retry. Combined evidence records for Runs 431–450 cover 375 of 644 candidates, leaving 269 for continued coverage. The run pipeline did not complete within the observation window; no outreach, upload, login, payment or submission was performed.

@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KOOP 91.7 FM Austin Music Library Submissions","https://koop.org/about-us/contact/","error","","false","false","false","false","true","run45-platform-database.json","2026-07-17T16:15:53.356Z"
+"KRCL 90.9FM Salt Lake City Music Submission Route","https://krcl.org/about/how-to-submit-music/","error","","false","false","false","false","true","run27-platform-database.json","2026-07-17T16:16:03.695Z"
+"WMBR 88.1 FM MIT How To Get Your Music Played Route","https://wmbr.org/www/md","error","","false","false","false","false","true","run27-platform-database.json","2026-07-17T16:16:13.984Z"
+"WRMC 91.1 FM Music Directors Process Inquiry Route","https://wrmc.middlebury.edu/about","error","","false","false","false","false","true","run394-platform-database.json","2026-07-17T16:16:24.466Z"

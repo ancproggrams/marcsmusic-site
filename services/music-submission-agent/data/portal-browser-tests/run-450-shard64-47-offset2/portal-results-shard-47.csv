@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Musosoup Artist Campaign Submission","https://musosoup.com/","error","","false","false","false","false","true","run61-platform-database.json","2026-07-17T16:15:52.894Z"
+"RepostExchange SoundCloud Partner Repost Feedback Campaign Route","https://repostexchange.com/","error","","false","false","false","false","true","run244-platform-database.json","2026-07-17T16:16:03.365Z"
+"UnitedMasters Digital Distribution Brand Sync Pitching Route","https://unitedmasters.com/","error","","false","false","false","false","true","run157-platform-database.json","2026-07-17T16:16:13.564Z"
+"BeatStars Marketplace Producer Artist Licensing Upload Route","https://www.beatstars.com/","error","","false","false","false","false","true","run150-platform-database.json","2026-07-17T16:16:23.986Z"
