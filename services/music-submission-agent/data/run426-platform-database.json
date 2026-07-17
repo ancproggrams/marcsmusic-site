@@ -1,0 +1,175 @@
+{
+  "run": 426,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1743,
+  "pipelineEstimate": 1744,
+  "newPlatforms": [
+    {
+      "name": "WWPV 92.5 FM The Mike High-Quality WAV and Physical Music Submission Opportunity",
+      "websiteUrl": "https://www.smcvt.edu/student-life/wwpv-92-5-fm-the-mike/",
+      "submissionUrl": "mailto:wwpv925@gmail.com",
+      "sourceUrl": "https://www.smcvt.edu/student-life/wwpv-92-5-fm-the-mike/",
+      "sourceType": "automation_run_426_public_research",
+      "country": "United States / Colchester, Vermont non-profit student-run Saint Michael’s College low-power FM and online radio station; submissions are publicly accepted, but eligibility for artists based outside the United States is not explicitly published",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "non-commercial-radio",
+        "student-radio",
+        "community-programming",
+        "freeform",
+        "independent-music",
+        "indie",
+        "jazz",
+        "blues",
+        "folk",
+        "punk",
+        "alternative",
+        "high-quality-wav",
+        "digital-email-submission",
+        "physical-cd-or-record-alternative",
+        "nacc",
+        "radiofx",
+        "spinitron",
+        "no-visible-login-captcha-or-payment",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-public-email-for-high-quality-wav-digital-submissions-with-authorized-cd-or-record-physical-alternative",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public digital-submission mailbox with authorized physical CD or record alternative",
+        "formLocation": null,
+        "email": "wwpv925@gmail.com",
+        "physicalAddress": "WWPV 92.5 FM, Saint Michael’s College, One Winooski Park, Colchester, VT 05439, United States",
+        "explicitPurpose": "Digital music submissions, general inquiries and music tracking; the same official page also accepts physical CDs and records",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Select one suitable release, confirm the digital-delivery mechanics and file size with WWPV if necessary, inspect the high-quality WAV and metadata, choose either email or physical delivery, and submit manually.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "nonLocalArtistsExplicitlyAccepted": false,
+        "standardRouteFeePublished": false,
+        "optionalPaidServicesPublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "digital music submissions should use a high-quality WAV file",
+          "send digital music submissions to wwpv925@gmail.com",
+          "physical CDs and records are accepted",
+          "physical media will not be returned",
+          "the station cannot respond to every submission",
+          "questions may be directed to the station office during office hours",
+          "WWPV reports to NACC, RadioFX and Spinitron"
+        ],
+        "formFieldsObserved": [],
+        "safeReviewScope": [
+          "select one radio-ready MarcsMusic release with plausible freeform or alternative fit",
+          "confirm whether the station prefers a single, EP or album",
+          "prepare a high-quality WAV master",
+          "confirm exact WAV bit depth, sample rate and channel layout",
+          "confirm whether the WAV should be attached or delivered through a downloadable link",
+          "confirm maximum email attachment or transfer size",
+          "inspect filename, embedded metadata and master quality",
+          "confirm international artist eligibility",
+          "confirm explicit-content and clean-edit requirements",
+          "verify composition, master, sample, contributor and artwork rights",
+          "confirm release timing and follow-up expectations",
+          "confirm the current AI-assisted and AI-generated music policy",
+          "choose either digital or physical delivery and avoid duplicate servicing",
+          "submit manually"
+        ],
+        "unresolvedEligibility": [
+          "eligibility for artists based outside the United States",
+          "accepted release types and track count",
+          "exact WAV bit depth, sample rate and channel layout",
+          "maximum attachment or transfer size",
+          "attachment versus download-link preference",
+          "explicit-content and clean-edit policy",
+          "release-recency expectations",
+          "rights and territorial requirements",
+          "AI-assisted and AI-generated music policy",
+          "follow-up timing"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "address": "wwpv925@gmail.com",
+            "purpose": "digital music submissions, general inquiries and music tracking",
+            "source": "https://www.smcvt.edu/student-life/wwpv-92-5-fm-the-mike/",
+            "secondarySource": "https://wwpv.smcvt.edu/contact/",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": false,
+            "domainAlignmentNote": "The mailbox is a Gmail address rather than an smcvt.edu address, but Saint Michael’s College publishes it in plaintext as WWPV’s authorized digital music-submission destination and music-tracking contact."
+          }
+        ],
+        "adjacentEmailsExcluded": [
+          {
+            "address": "wwpvjazz@hotmail.com",
+            "purpose": "Jazz Music Directors",
+            "source": "https://www.smcvt.edu/student-life/wwpv-92-5-fm-the-mike/",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": false,
+            "reasonExcluded": "This is a specialist jazz contact. The official page already provides wwpv925@gmail.com as the canonical digital submission route, and duplicate servicing to multiple WWPV contacts is inappropriate."
+          }
+        ],
+        "emailStatus": "wwpv925@gmail.com is a first-party published, purpose-labelled digital music-submission and music-tracking mailbox. The specialist jazz mailbox and named individual staff addresses were not used as parallel submission routes.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": false,
+        "manualRecheckReason": "No submission form is used. The authorized routes are email and physical delivery.",
+        "rightsOrConsentFields": [],
+        "adjacentRoutesExcluded": [
+          "named individual music-director email addresses",
+          "specialist jazz mailbox for non-jazz submissions",
+          "request-line telephone number",
+          "social-media direct messages",
+          "listener requests",
+          "general college contact channels"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "Saint Michael’s College maintains WWPV’s official 2026 station page with live-stream links, current music and staff contacts, semester schedule and playlist links, and a statement that the station airs music 24 hours a day. WWPV’s current Spinitron surface exposes upcoming and recent programmes."
+      },
+      "genreFitEvidence": [
+        "The official Saint Michael’s College page describes programming from jazz to indie rock.",
+        "WWPV describes its long-running format as freeform and lists indie, jazz, blues, folk and punk among the music heard on the station.",
+        "A human-selected MarcsMusic alternative-electronic, ambient, melodic crossover or world-fusion release may fit the station’s freeform remit, but programme-level fit must be checked manually."
+      ],
+      "manualReviewReason": "The route is first-party and free-first as published, but WWPV does not specify accepted release types, WAV technical details, attachment-size limits, international eligibility, clean-content requirements, rights, release timing or AI-origin policy. The exact asset and delivery method must be reviewed by a human.",
+      "priority": 78,
+      "pricingModel": "free-first/public-email/high-quality-wav/physical-cd-or-record-alternative/international-eligibility-unconfirmed/no-form-login-captcha-or-payment/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "WWPV",
+      "WWPV 92.5 FM The Mike",
+      "smcvt.edu/student-life/wwpv-92-5-fm-the-mike",
+      "wwpv925@gmail.com",
+      "WWPV 92.5 FM The Mike High-Quality WAV and Physical Music Submission Opportunity"
+    ],
+    "repositoryEvidence": "Repository code search and the complete PR patch were checked for the platform name, station call sign, official page and submission mailbox. No existing music-submission-agent record was found before creation.",
+    "consolidation": "The digital mailbox and physical delivery alternative are stored as one canonical opportunity. Specialist staff contacts, request lines, social channels and general college routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new WWPV opportunity was queued as needs_manual_review. No email, WAV, attachment, link, physical package, phone call, form field, login, CAPTCHA, payment or follow-up was submitted."
+}
