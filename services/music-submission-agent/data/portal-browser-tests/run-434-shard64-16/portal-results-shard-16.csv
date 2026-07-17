@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Audiomack Creator Upload Promote Connect Submission Route","https://audiomack.com/creators","inspected","[object Object]","true","false","true","false","true","run251-platform-database.json","2026-07-17T15:25:44.389Z"
+"CD Baby One-Time Release Digital Distribution Upload Route","https://cdbaby.com/","inspected","[object Object]","true","false","true","true","true","run155-platform-database.json","2026-07-17T15:25:57.977Z"

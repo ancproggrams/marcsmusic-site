@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"LANDR Studio Distribution Mastering and Release Upload Route","https://app.landr.com/","inspected","[object Object]","true","false","true","false","true","run139-platform-database.json","2026-07-17T15:25:40.677Z"
+"MusoSoup Free Review Paid Campaign Curator Marketplace Route","https://app.musosoup.com/sign-up-artist","inspected","[object Object]","true","false","true","false","true","run180-platform-database.json","2026-07-17T15:25:53.684Z"

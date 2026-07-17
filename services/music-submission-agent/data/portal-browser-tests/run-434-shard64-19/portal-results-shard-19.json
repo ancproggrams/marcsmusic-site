@@ -1,0 +1,112 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T15:25:58.365Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 19,
+      "count": 64
+    },
+    "totalUniqueHttpPortalsDiscovered": 644,
+    "testedInThisShard": 2,
+    "inspected": 1,
+    "errors": 1,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 1,
+    "paymentObserved": 0,
+    "formObserved": 1,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "YouTube For Artists Official Artist Channel Promotion Route",
+      "url": "https://artists.youtube/",
+      "sourceFile": "run252-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": true,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T15:25:48.664Z",
+      "status": "error",
+      "needsManualReview": true,
+      "error": "/opt/homebrew/bin/agent-browser exited null: "
+    },
+    {
+      "name": "Bandcamp Artist Direct-to-Fan Upload Store Route",
+      "url": "https://bandcamp.com/",
+      "sourceFile": "run182-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": true,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T15:25:58.363Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://bandcamp.com/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Bandcamp"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": true,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"0acd840866e713ee24e58aa2bf02750a\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"a3db728b6e8f303e89d780b15e3e7ea9\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"hiding params [from, ui_context] from url\"},{\"type\":\"string\",\"value\":\"\"}],\"text\":\"hiding params [from, ui_context] from url \",\"type\":\"debug\"},{\"args\":[{\"type\":\"string\",\"value\":\"CookieComm started listening\"}],\"text\":\"CookieComm started listening\",\"type\":\"info\"},{\"args\":[{\"type\":\"string\",\"value\":\"Hydration completed but contains mismatches.\"}],\"text\":\"Hydration completed but contains mismatches.\",\"type\":\"error\"},{\"args\":[{\"type\":\"string\",\"value\":\"fetching editorial recommendations\"}],\"text\":\"fetching editorial recommendations\",\"type\":\"debug\"},{\"args\":[{\"type\":\"string\",\"value\":\"user not opted in: skipping Tracker record.\"}],\"text\":\"user not opted in: skipping Tracker record.\",\"type\":\"info\"},{\"args\":[{\"type\":\"string\",\"value\":\"Checking if cookie dialog is hidden after mounting\"},{\"className\":\"Object\",\"description\":\"Proxy(Object)\",\"objectId\":\"-3343106643405730421.2.1\",\"preview\":{\"description\":\"Proxy(Object)\",\"overflow\":false,\"properties\":[{\"name\":\"$dialog\",\"type\":\"object\",\"value\":\"sb\"},{\"name\":\"__v_skip\",\"type\":\"boolean\",\"value\":\"true\"}],\"subtype\":\"proxy\",\"type\":\"object\"},\"subtype\":\"proxy\",\"type\":\"object\"}],\"text\":\"Checking if cookie dialog is hidden after mounting {$dialog: sb, __v_skip: true}\",\"type\":\"debug\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"94a5da1ccb2d4c29d63f5dceab1a7a11\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}

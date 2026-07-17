@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"House Nest Media and Promotion Submissions Form Route","https://housenest.net/media-promotion/","error","","false","false","false","false","true","run104-platform-database.json","2026-07-17T15:25:36.219Z"
+"KUPS Tacoma Staff Music Submission Form and Genre Director Email Route","https://kupsfm.com/contact/","inspected","[object Object]","true","false","false","false","true","run162-platform-database.json","2026-07-17T15:25:46.908Z"

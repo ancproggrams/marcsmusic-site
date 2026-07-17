@@ -1,0 +1,33 @@
+{
+  "run": 434,
+  "capturedAt": "2026-07-17T15:27:00+02:00",
+  "mode": "agent-browser passive inspect-only",
+  "candidateInventory": 644,
+  "routesTestedThisRun": 16,
+  "uniqueNewRoutesThisRun": 12,
+  "overlappingRevalidations": 4,
+  "inspected": 14,
+  "errorsOrUnreachable": 2,
+  "formsObserved": 10,
+  "loginBoundariesObserved": 9,
+  "paymentBoundariesObserved": 2,
+  "captchaOrHumanChecksObserved": 0,
+  "totalUniqueCoverageAcrossRuns431To434": 69,
+  "remainingInventoryOutsideUniqueCoverage": 575,
+  "newRoutes": [
+    {"name":"House Nest Media and Promotion Submissions Form Route","url":"https://housenest.net/media-promotion/","status":"error"},
+    {"name":"KUPS Tacoma Staff Music Submission Form and Genre Director Email Route","url":"https://kupsfm.com/contact/","status":"inspected"},
+    {"name":"Cam FM 97.2 Cambridge Direct Head of Music Email Submission Route","url":"https://camfm.co.uk/contact/","status":"inspected"},
+    {"name":"iMusician Paid Distribution Editorial Playlist and Curated Playlist Submission Route","url":"https://imusician.pro/en/resources/playlists","status":"inspected"},
+    {"name":"YouTube For Artists Official Artist Channel Promotion Route","url":"https://artists.youtube/","status":"error"},
+    {"name":"Bandcamp Artist Direct-to-Fan Upload Store Route","url":"https://bandcamp.com/","status":"inspected"},
+    {"name":"Future House Music Official Discord Demo Drop Route","url":"https://discord.gg/futurehousemusic","status":"inspected"},
+    {"name":"Get In Her Ears Website and Soho Radio Pitch Submission Route","url":"https://getinherears.com/contact-info-about-us/","status":"inspected"},
+    {"name":"Songkick Tourbox Artist Tour Dates Discovery Submission Route","url":"https://tourbox.songkick.com/","status":"inspected"},
+    {"name":"KCRW Airplay Consideration and Contact Route","url":"https://www.kcrw.com/pages/contact","status":"inspected"},
+    {"name":"Audiomack Creator Upload Promote Connect Submission Route","url":"https://audiomack.com/creators","status":"inspected"},
+    {"name":"CD Baby One-Time Release Digital Distribution Upload Route","url":"https://cdbaby.com/","status":"inspected"}
+  ],
+  "evidenceDirectory": "data/portal-browser-tests/run-434-shard64-0 through run-434-shard64-7",
+  "safety": "No fields filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated."
+}

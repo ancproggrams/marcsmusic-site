@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Playlist Push Music Promotion","https://app.playlistpush.com/","inspected","[object Object]","true","false","false","false","true","run44-platform-database.json","2026-07-17T15:25:44.821Z"
+"Cam FM 97.2 Cambridge Direct Head of Music Email Submission Route","https://camfm.co.uk/contact/","inspected","[object Object]","false","false","false","false","true","run298-platform-database.json","2026-07-17T15:25:58.361Z"
