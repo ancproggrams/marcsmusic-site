@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Amazing Radio Amazing Artists Upload Radio Discovery Route","https://amazingradio.com/upload","inspected","[object Object]","true","false","true","false","true","run248-platform-database.json","2026-07-17T15:28:05.108Z"
+"Insanity Radio 103.2FM Head of Music Exposure Inquiry Route","https://insanityradio.com/about/board/","inspected","[object Object]","false","false","false","false","true","run384-platform-database.json","2026-07-17T15:28:18.228Z"

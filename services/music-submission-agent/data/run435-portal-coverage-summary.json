@@ -1,0 +1,31 @@
+{
+  "run": 435,
+  "capturedAt": "2026-07-17T15:29:00+02:00",
+  "mode": "agent-browser passive inspect-only",
+  "candidateInventory": 644,
+  "routesTestedThisRun": 16,
+  "uniqueNewRoutesThisRun": 10,
+  "overlappingRevalidations": 6,
+  "inspected": 15,
+  "errorsOrUnreachable": 1,
+  "formsObserved": 8,
+  "loginBoundariesObserved": 5,
+  "paymentBoundariesObserved": 1,
+  "captchaOrHumanChecksObserved": 0,
+  "totalUniqueCoverageAcrossRuns431To435": 79,
+  "remainingInventoryOutsideUniqueCoverage": 565,
+  "newRoutes": [
+    {"name":"Sonicbids Rebooted EPK Live Booking and Venue Submission Route","url":"https://app.sonicbids.com/signup","status":"inspected"},
+    {"name":"DistroKid Playlister Spotify Playlist Pitch Route","url":"https://distrokid.com/playlister/","status":"inspected"},
+    {"name":"Insanity Radio 103.2FM Head of Music Exposure Inquiry Route","url":"https://insanityradio.com/about/board/","status":"inspected"},
+    {"name":"EDM.com Editorial Music Releases Protected Contact Route","url":"https://edm.com/contact-us/","status":"inspected"},
+    {"name":"Audius Artist Upload and Open Audio Streaming Route","url":"https://audius.co/","status":"inspected"},
+    {"name":"John Lennon Songwriting Contest 2026 Session Entry","url":"https://apps.jlsc.com/register.php","status":"inspected"},
+    {"name":"Jamendo Artists Licensing In-Store and Promotion Route","url":"https://artists.jamendo.com/","status":"inspected"},
+    {"name":"AWAL Selective Submit Your Music Distribution Radio Playlist Sync Route","url":"https://apply.awal.com/","status":"inspected"},
+    {"name":"idobi Radio Howl Anthm Public Form Dropbox Upload Music Submission Route","url":"https://idobi.com/submit/","status":"inspected"},
+    {"name":"NetEase Cloud Music Musician Upload China Route","url":"https://music.163.com/st/musician","status":"error"}
+  ],
+  "evidenceDirectory": "data/portal-browser-tests/run-435-shard64-0 through run-435-shard64-7",
+  "safety": "No fields filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated."
+}

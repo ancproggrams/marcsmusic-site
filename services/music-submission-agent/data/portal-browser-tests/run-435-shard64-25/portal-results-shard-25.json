@@ -1,0 +1,175 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T15:28:16.495Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 25,
+      "count": 64
+    },
+    "totalUniqueHttpPortalsDiscovered": 644,
+    "testedInThisShard": 2,
+    "inspected": 2,
+    "errors": 0,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 0,
+    "paymentObserved": 0,
+    "formObserved": 2,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "AWAL Selective Submit Your Music Distribution Radio Playlist Sync Route",
+      "url": "https://apply.awal.com/",
+      "sourceFile": "run125-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": true,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T15:28:03.718Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://apply.awal.com/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Home - AWAL"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": false,
+        "submitControlObserved": true,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": true,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"a0133e07ae9b28dcdbce097577408f76\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"d0d81eae850ed881203f13c66d242ea4\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"JQMIGRATE: Migrate is installed, version 3.4.1\"}],\"text\":\"JQMIGRATE: Migrate is installed, version 3.4.1\",\"type\":\"log\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"4b07185b84f524f7733b2c0d6c39ccc5\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "idobi Radio Howl Anthm Public Form Dropbox Upload Music Submission Route",
+      "url": "https://idobi.com/submit/",
+      "sourceFile": "run226-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T15:28:16.494Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://idobi.com/submit/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "idobi.com - Free Alternative, Pop-Punk, Metal, and Indie Radio Stations"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": true,
+        "submitControlObserved": true,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"4c59a4b2606963b9a4b6103a0c777264\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"40bad80def645d12adaf0cd9b48c4b81\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"_ga=GA1.1.87237131.1784302085; _gcl_au=1.1.1131125560.1784302085; _ga_M0B8N2G1V0=GS2.1.s1784302085$o1$g1$t1784302085$j60$l0$h0\"}],\"text\":\"_ga=GA1.1.87237131.1784302085; _gcl_au=1.1.1131125560.1784302085; _ga_M0B8N2G1V0=GS2.1.s1784302085$o1$g1$t1784302085$j60$l0$h0\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"info\"}],\"text\":\"info\",\"type\":\"startGroupCollapsed\"},{\"args\":[{\"type\":\"string\",\"value\":\"\"},{\"type\":\"string\",\"value\":\"getConfig call with arguments: {\\\"application\\\":\\\"253EC-B1ABD\\\",\\\"hwid\\\":\\\"253EC-B1ABD_35e84c62-a112-4125-a261-26f81b9df9d4\\\",\\\"userId\\\":\\\"253EC-B1ABD_35e84c62-a112-4125-a261-26f81b9df9d4\\\",\\\"device_type\\\":11,\\\"device_model\\\":\\\"Chrome 150\\\",\\\"timezone\\\":7200,\\\"language\\\":\\\"nl-NL\\\",\\\"v\\\":\\\"3.62.9\\\",\\\"features\\\":[\\\"page_visit\\\",\\\"vapid_key\\\",\\\"web_in_apps\\\",\\\"events\\\",\\\"subscription_prompt\\\",\\\"popup_forms\\\"]} to Pushwoosh has been successful. Result: {\\\"features\\\":{\\\"events\\\":[\\\"PW_DeviceUnregistered\\\",\\\"PW_ScreenOpen\\\",\\\"PW_ApplicationMinimized\\\",\\\"PW_ApplicationOpen\\\",\\\"PW_DeviceRegistered\\\"],\\\"subscription_prompt\\\":{\\\"use_case\\\":\\\"not-set\\\"},\\\"vapid_key\\\":\\\"BBnTpuKPHm5g3Ys8i_XXOg_9O1kxkuLd6j2mx7Mq-KHBWECApyGqFj0Rl33kdeRj9mqPzffb30vtk0i70g2zrJc\\\"}}\"}],\"text\":\" getConfig call with arguments: {\\\"application\\\":\\\"253EC-B1ABD\\\",\\\"hwid\\\":\\\"253EC-B1ABD_35e84c62-a112-4125-a261-26f81b9df9d4\\\",\\\"userId\\\":\\\"253EC-B1ABD_35e84c62-a112-4125-a261-26f81b9df9d4\\\",\\\"device_type\\\":11,\\\"device_model\\\":\\\"Chrome 150\\\",\\\"timezone\\\":7200,\\\"language\\\":\\\"nl-NL\\\",\\\"v\\\":\\\"3.62.9\\\",\\\"features\\\":[\\\"page_visit\\\",\\\"vapid_key\\\",\\\"web_in_apps\\\",\\\"events\\\",\\\"subscription_prompt\\\",\\\"popup_forms\\\"]} …",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"fc3715fa408e86cc8056a1cffe5216ef\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}

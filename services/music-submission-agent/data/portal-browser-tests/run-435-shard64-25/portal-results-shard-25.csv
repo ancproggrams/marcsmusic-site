@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"AWAL Selective Submit Your Music Distribution Radio Playlist Sync Route","https://apply.awal.com/","inspected","[object Object]","true","false","false","false","true","run125-platform-database.json","2026-07-17T15:28:03.718Z"
+"idobi Radio Howl Anthm Public Form Dropbox Upload Music Submission Route","https://idobi.com/submit/","inspected","[object Object]","true","false","false","false","true","run226-platform-database.json","2026-07-17T15:28:16.494Z"

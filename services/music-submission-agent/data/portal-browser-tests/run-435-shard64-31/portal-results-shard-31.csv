@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Sonicbids Rebooted EPK Live Booking and Venue Submission Route","https://app.sonicbids.com/signup","inspected","[object Object]","true","false","true","false","true","run124-platform-database.json","2026-07-17T15:28:04.969Z"
+"DistroKid Playlister Spotify Playlist Pitch Route","https://distrokid.com/playlister/","inspected","[object Object]","false","false","false","false","true","run251-platform-database.json","2026-07-17T15:28:17.641Z"
