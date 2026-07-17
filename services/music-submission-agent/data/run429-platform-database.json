@@ -1,0 +1,175 @@
+{
+  "run": 429,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1746,
+  "pipelineEstimate": 1747,
+  "newPlatforms": [
+    {
+      "name": "WOLF Radio UWG Public Music-Director Email Submission Route",
+      "websiteUrl": "https://thewolfuwg.com/",
+      "submissionUrl": "https://thewolfuwg.com/musicsubmissions/",
+      "sourceUrl": "https://thewolfuwg.com/musicsubmissions/",
+      "sourceType": "automation_run_429_public_research",
+      "country": "United States / Carrollton, Georgia student-managed University of West Georgia online college-radio station; the official submission page welcomes local and unsigned artists, while the university describes WOLF Radio as serving a global audience, but international submission eligibility is not explicitly published",
+      "language": "en",
+      "genres": [
+        "college-radio",
+        "student-radio",
+        "independent-music",
+        "unsigned-artists",
+        "local-artist-priority",
+        "eclectic",
+        "electronic",
+        "dubstep",
+        "riddim",
+        "indie",
+        "folk",
+        "pop",
+        "rock",
+        "lofi",
+        "alternative",
+        "hip-hop",
+        "radio-edit-requested",
+        "soundcloud-or-listenable-link",
+        "public-music-director-email",
+        "free-first",
+        "no-target-platform-login-captcha-or-payment",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-public-music-director-email-with-soundcloud-or-other-listenable-music-link-and-radio-edit-request",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-director email for airplay consideration",
+        "formLocation": null,
+        "email": "thewolfmusicdirector@gmail.com",
+        "explicitPurpose": "Submit music, a SoundCloud page or another listenable outlet to WOLF Radio for airplay consideration",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Select a suitable radio-ready MarcsMusic track, confirm international eligibility, prepare a concise personalized email with a stable listening or download link and radio-edit information, verify rights and metadata, and send manually.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "internationalAcceptanceEvidence": "The submission page welcomes local and unsigned artists without publishing a geographic exclusion. The official university describes WOLF Radio as serving surrounding and global communities and a global audience, but that mission statement is not explicit submission eligibility.",
+        "standardRouteFeePublished": false,
+        "optionalPaidServicesPublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "email the WOLF Radio music director",
+          "submit the music itself, a SoundCloud page or another outlet that allows station staff to hear the music",
+          "provide a radio edit"
+        ],
+        "formFieldsObserved": [],
+        "safeReviewScope": [
+          "select one programme-appropriate radio-ready MarcsMusic track",
+          "confirm whether artists outside the United States are currently eligible",
+          "prepare a concise personalized pitch addressed to the music director",
+          "use a stable listening or downloadable link",
+          "avoid unsolicited large attachments unless the station confirms they are accepted",
+          "identify the track as a clean or radio edit and verify the actual master",
+          "provide correct artist, title, genre, release and rights metadata",
+          "confirm composition, master, sample and contributor rights",
+          "check current explicit-content and clean-edit expectations",
+          "check the current AI-assisted and AI-generated music policy",
+          "avoid duplicate outreach through the general university mailbox or staff contacts",
+          "send manually"
+        ],
+        "unresolvedEligibility": [
+          "international artist eligibility",
+          "preferred email subject line",
+          "number of tracks allowed per submission",
+          "whether direct audio attachments are accepted or links are preferred",
+          "preferred downloadable-link provider and access settings",
+          "file format, bitrate, sample rate and bit depth if files are requested",
+          "required metadata, biography, artwork or one-sheet",
+          "release-recency expectations",
+          "explicit-content and clean-edit standard beyond the radio-edit request",
+          "rights or broadcast-consent declaration",
+          "AI-assisted and AI-generated music policy",
+          "review and follow-up timing"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "address": "thewolfmusicdirector@gmail.com",
+            "purpose": "music submissions for WOLF Radio airplay consideration",
+            "source": "https://thewolfuwg.com/musicsubmissions/",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": false,
+            "contextAligned": true,
+            "verificationNote": "The address is published in plaintext on WOLF Radio's first-party music-submission page and is explicitly identified as the route for sending music. It uses Gmail rather than the University of West Georgia domain; no deliverability probing was performed."
+          }
+        ],
+        "adjacentEmailsExcluded": [
+          {
+            "address": "TheWolf@westga.edu",
+            "purpose": "general WOLF Radio contact",
+            "source": "https://www.westga.edu/academics/scfm/wolf-internet-radio.php",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "reasonExcluded": "The university page presents this as the general station contact. The first-party WOLF Radio submission page explicitly directs music to the separate music-director mailbox."
+          }
+        ],
+        "emailStatus": "One first-party-published, purpose-aligned music-director mailbox was retained. The current domain-aligned general station mailbox was verified but excluded because it is not the canonical music-submission route.",
+        "verification": "Email verification was limited to first-party publication, syntax and purpose/context alignment. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "multiStepForm": false,
+        "captchaObserved": false,
+        "captchaStatus": "not applicable to the published email route",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The route is an editorial email submission. Geographic eligibility, final pitch content, link accessibility, radio-edit status, rights, attachment policy and unpublished editorial requirements require human judgment before sending.",
+        "rightsOrConsentFields": [],
+        "adjacentRoutesExcluded": [
+          "general WOLF Radio university-domain mailbox",
+          "general manager, operations manager and other staff addresses",
+          "song-request or listener-feedback surfaces",
+          "station member login",
+          "social-media direct messages",
+          "event-performance applications"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "WOLF Radio's official site exposes a live-listening surface and current station content, including WOLFstock 2026. The University of West Georgia published a June 9, 2026 feature describing WOLF Radio and WOLF Sports Network as active 24/7 college-radio stations and continues to list WOLF Radio as an experiential-learning station for a global audience."
+      },
+      "genreFitEvidence": [
+        "WOLF Radio's official submission page says the station seeks local and unsigned artists and asks for radio edits.",
+        "WOLFstock 2026 featured dubstep/riddim, indie-folk, pop with funk and rock, ethereal lo-fi pop, psychedelic alternative and cloud rap artists.",
+        "A carefully selected clean MarcsMusic electronic, bass, dubstep, alternative, chill or genre-blending track has plausible medium fit, although local artists may receive stronger priority."
+      ],
+      "manualReviewReason": "The route is active, first-party and free-first, but it is an editorial email route using an external Gmail mailbox. The station requests radio edits and permits a SoundCloud page or other listenable outlet, while international eligibility, subject-line format, track-count limits, attachment policy, technical specifications, metadata requirements, rights declarations, release window and AI-origin policy are unpublished. Final track selection, eligibility confirmation, pitch preparation and sending must remain human-controlled.",
+      "priority": 78,
+      "pricingModel": "free-first/public-music-director-email/soundcloud-or-listenable-outlet/radio-edit-requested/no-target-platform-login-captcha-or-payment/international-eligibility-unconfirmed/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "WOLF Radio",
+      "The WOLF Internet Radio",
+      "UWG WOLF Radio",
+      "thewolfmusicdirector@gmail.com",
+      "thewolfuwg.com/musicsubmissions",
+      "WOLF Radio UWG Public Music-Director Email Submission Route"
+    ],
+    "repositoryEvidence": "Repository searches were checked for WOLF Radio, University of West Georgia WOLF Radio, the official music-submission path, the public music-director mailbox and the normalized opportunity name. No existing music-submission-agent opportunity was returned before creation.",
+    "consolidation": "The music-director email, SoundCloud-page option and other listenable-outlet option are stored as one canonical editorial opportunity. The general university-domain station mailbox, staff contacts, listener request surfaces, member login and social channels are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new WOLF Radio opportunity was queued as needs_manual_review. No email, attachment, link, account, login, CAPTCHA, payment or submission action was completed."
+}
