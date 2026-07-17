@@ -1,0 +1,166 @@
+{
+  "run": 464,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1750,
+  "pipelineEstimate": 1751,
+  "newPlatforms": [
+    {
+      "name": "OurTownRadio Independent Artist Email and Download-Link Airplay Route",
+      "websiteUrl": "https://ourtownradio.com/",
+      "submissionUrl": "https://ourtownradio.com/submit-music/",
+      "formUrl": null,
+      "sourceUrl": "https://ourtownradio.com/submit-music/",
+      "sourceType": "automation_run_464_public_research",
+      "country": "United States (Pennsylvania); the station streams online and promotes music to a worldwide audience, but the first-party submission page does not explicitly confirm international artist eligibility.",
+      "language": "en",
+      "genres": [
+        "independent-music",
+        "indie",
+        "pop",
+        "acoustic",
+        "rock",
+        "r-and-b",
+        "hip-hop",
+        "hard-rock",
+        "screamo",
+        "country",
+        "folk",
+        "punk",
+        "experimental",
+        "all-genres",
+        "metadata-required",
+        "download-link",
+        "public-email",
+        "optional-physical-media",
+        "rights-confirmation",
+        "free-first",
+        "manual-review"
+      ],
+      "submissionMethod": "official first-party public business-email route accepting free download or streaming links for independent-radio airplay",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission email route with download-link and streaming-link delivery",
+        "formLocation": null,
+        "email": "music@ourtownradio.com",
+        "explicitPurpose": "Send original independent music and supporting artist information for possible OurTownRadio airplay, promotion and featured-artist consideration.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Review the rights and promotional-use terms, confirm ownership and eligibility, select a genre-compatible MarcsMusic track, prepare metadata and approved links, and send an email only after explicit owner approval.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "internationalAcceptanceEvidence": "The site says submissions can be heard around the world and supports anyone releasing music, but it does not explicitly state that artists outside the United States may submit.",
+        "standardRouteFeePublished": false,
+        "standardRouteFeeEvidence": "No submission fee is published. The page states that featured-artist consideration is free."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submit original independent music",
+          "use MP3 when possible; physical or digital formats are accepted",
+          "include title, artist and album metadata",
+          "send one song or an entire album",
+          "provide a free download link through a file-transfer service or a Spotify/YouTube link",
+          "include official website, biography, social-media, audio and purchase links where available",
+          "do not submit cover songs unless all necessary rights are held",
+          "accept that OurTownRadio may choose whether or not to play the music",
+          "review the published airplay and promotional-use rights grant before sending"
+        ],
+        "publishedReviewTiming": "The page says tracks may begin playing within hours depending on submission volume, but no guaranteed response or review timeline is published.",
+        "formFieldsObserved": [],
+        "safeReviewScope": [
+          "compare the submission-page rights language with the current Terms of Service",
+          "confirm the intended scope, territory, duration and revocability of airplay and promotional-use permission",
+          "confirm international artist eligibility",
+          "confirm AI-assisted and fully generated music eligibility",
+          "confirm clean/explicit-content requirements and preferred track count",
+          "confirm whether direct attachments are accepted or a download/streaming link is preferred",
+          "verify ownership, samples, contributors and cover-song rights",
+          "prepare metadata, bio, official links and a suitable MarcsMusic track",
+          "send manually only after explicit owner approval"
+        ],
+        "unresolvedEligibility": [
+          "explicit international artist eligibility",
+          "AI-assisted and fully generated music policy",
+          "clean-edit or explicit-content policy",
+          "maximum attachment or download size",
+          "rights-grant territory, duration and revocation mechanism",
+          "whether promotional use outside OurTownRadio includes third-party channels",
+          "follow-up method and expected response timing"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "music@ourtownradio.com",
+            "purpose": "First-party published music-submission mailbox for independent-artist airplay consideration.",
+            "firstPartyPublished": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "contextAligned": true,
+            "submissionRoute": true
+          }
+        ],
+        "adjacentEmailsExcluded": [],
+        "emailStatus": "The music@ourtownradio.com mailbox is first-party published on the dedicated submission page, syntactically valid, domain aligned and explicitly designated for music submissions.",
+        "verification": "Email verification was limited to first-party publication, syntax, domain alignment and stated purpose. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "externalFormProvider": null,
+        "externalFormUrl": null,
+        "embeddedFormPage": null,
+        "multiStepForm": false,
+        "captchaObserved": false,
+        "captchaStatus": "No submission form or CAPTCHA is used by the published email route.",
+        "loginObserved": false,
+        "loginStatus": "No account or login requirement is published for the email submission route.",
+        "paymentObserved": false,
+        "paymentStatus": "No submission payment is published; featured-artist consideration is stated to be free.",
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "Human review is required for rights and promotional-use terms, international and AI eligibility, track selection, ownership verification and final email authorization.",
+        "rightsOrConsentFields": [
+          "submission grants OurTownRadio rights to use the music for airplay and promotion",
+          "Terms of Service describe a non-exclusive, non-transferable right to host content for public airplay and advertising promotions"
+        ],
+        "adjacentRoutesExcluded": [
+          "temporary-site links referenced from older airplay articles",
+          "social-media direct messages",
+          "general contact channels",
+          "physical CD delivery as a separate duplicate opportunity"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "The first-party Submit Music page displayed a July 11, 2026 weekly Top 10, current track listings and upcoming scheduled shows, demonstrating recent station activity."
+      },
+      "genreFitEvidence": [
+        "The submission page accepts Indie, Pop, Acoustic, Rock, R&B, Hip hop, Hard Rock, Screamo, Country, Folk, Punk and unusual or experimental music.",
+        "The station accepts almost all music genres and invites one song or a full album.",
+        "Selected MarcsMusic electronic crossover, pop, hip-hop, reggae-adjacent or experimental tracks may fit after human track-level review."
+      ],
+      "manualReviewReason": "The authorized email route is active, free and domain aligned, but the rights and promotional-use grant must be reviewed; international and AI eligibility are not explicit; ownership and track fit must be confirmed; and the final email or file-transfer action requires explicit owner approval.",
+      "priority": 90,
+      "pricingModel": "free-first/first-party-public-email/download-or-streaming-link/metadata-required/rights-permission/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "OurTownRadio",
+      "ourtownradio.com",
+      "ourtownradio.com/submit-music",
+      "music@ourtownradio.com",
+      "OurTownRadio Independent Artist Email and Download-Link Airplay Route"
+    ],
+    "repositoryEvidence": "Searches in the accessible repository code-search surface for OurTownRadio, the canonical domain and the official submission mailbox returned no match before creation.",
+    "consolidation": "The dedicated submission page, official mailbox, download/streaming-link guidance and optional physical-delivery address are consolidated as one canonical opportunity."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One OurTownRadio opportunity was queued as needs_manual_review. No email was sent, no file was uploaded, no account or login was used, no CAPTCHA was solved and no payment or submission action was completed."
+}
