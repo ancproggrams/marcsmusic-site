@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"WFMU Independent Freeform Music Director Physical Review Route","https://wfmu.org/about.shtml","inspected","[object Object]","true","false","true","false","true","run213-platform-database.json","2026-07-17T17:27:41.945Z"
+"Audiosocket Artist Music Licensing Submission Route","https://www.audiosocket.com/artists","inspected","[object Object]","true","false","true","true","true","run21-platform-database.json","2026-07-17T17:27:57.607Z"
+"Triple R 102.7FM Melbourne Submit Music Route","https://www.rrr.org.au/get-involved/submit-music","inspected","[object Object]","true","false","true","false","true","run24-platform-database.json","2026-07-17T17:28:13.845Z"
+"WZBC Boston College Music Director Email Postal Submission Route","https://www.wzbc.org/contact","inspected","[object Object]","false","false","false","false","true","run186-platform-database.json","2026-07-17T17:28:29.027Z"

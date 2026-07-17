@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KDNK Public Music Director Pre-Submission Inquiry Route","https://www.kdnk.org/contact","inspected","[object Object]","false","false","false","false","true","run280-platform-database.json","2026-07-17T17:28:55.689Z"
+"Radio One 91FM Dunedin Music Submission Email and Physical Route","https://www.r1.co.nz/contact","inspected","[object Object]","true","false","true","false","true","run270-platform-database.json","2026-07-17T17:29:13.510Z"
+"Syncr Music Brand Brief Upload Submit and Sync Opportunity Route","https://www.syncrmusic.com/","error","","false","false","false","false","true","run124-platform-database.json","2026-07-17T17:29:26.598Z"
+"Thomann Beatmaking Contest 2026 Public Hashtag Submission Route","https://www.thomann.de/","inspected","[object Object]","true","false","false","true","true","run33-platform-database.json","2026-07-17T17:29:41.764Z"

@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Amuse Self-Service Distribution and Artist Services Submission Route","https://www.amuse.io/en/distribution/","inspected","[object Object]","true","false","true","true","true","run116-platform-database.json","2026-07-17T17:28:54.819Z"
+"KCSM Jazz 91 CD Broadcast Consideration Music Director Route","https://www.kcsm.org/contact","inspected","[object Object]","false","false","false","false","true","run121-platform-database.json","2026-07-17T17:29:10.350Z"
+"Linkfire Music Smart Link Campaign Route","https://www.linkfire.com/","inspected","[object Object]","false","false","true","true","true","run259-platform-database.json","2026-07-17T17:29:25.847Z"
+"WMNF 88.5FM Tampa Submit Your Music","https://www.wmnf.org/submit-your-music-to-wmnf/","inspected","[object Object]","true","false","true","false","true","run60-platform-database.json","2026-07-17T17:29:46.431Z"

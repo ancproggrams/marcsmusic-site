@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"The New Colossus Festival 2027 Artist Application","https://www.newcolossusfestival.com/apply","inspected","[object Object]","true","false","false","true","true","run38-platform-database.json","2026-07-17T17:26:23.277Z"
+"Radio Control 99.4FM Palmerston North Music Submission Email Route","https://www.radiocontrol.org.nz/contact","inspected","[object Object]","false","false","false","false","true","run270-platform-database.json","2026-07-17T17:26:47.938Z"
+"TAXI Independent A&R Industry Listings","https://www.taxi.com/industry","inspected","[object Object]","false","false","false","false","true","run82-platform-database.json","2026-07-17T17:27:02.580Z"
+"TuneCore Unlimited Digital Distribution Release Upload Route","https://www.tunecore.com/","inspected","[object Object]","false","false","true","true","true","run155-platform-database.json","2026-07-17T17:27:18.248Z"

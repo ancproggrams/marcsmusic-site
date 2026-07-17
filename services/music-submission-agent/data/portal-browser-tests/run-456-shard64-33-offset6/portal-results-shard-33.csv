@@ -1,0 +1,4 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"CIVL 101.7 FM Abbotsford Music Director Contact and Inquiry Form Route","https://www.civl.ca/contact/","inspected","[object Object]","true","false","false","false","true","run269-platform-database.json","2026-07-17T17:26:24.351Z"
+"Jamendo Artist Profile Licensing and Free Streaming Upload Route","https://www.jamendo.com/start","inspected","[object Object]","true","false","true","false","true","run134-platform-database.json","2026-07-17T17:26:39.185Z"
+"KVSC 88.1 FM St. Cloud Music Submission Email and Physical Route","https://www.kvsc.org/music/submissions/","inspected","[object Object]","false","false","false","false","true","run268-platform-database.json","2026-07-17T17:26:55.875Z"

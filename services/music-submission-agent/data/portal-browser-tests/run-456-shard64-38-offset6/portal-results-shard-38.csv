@@ -1,0 +1,4 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"WRUW-FM 91.1 Case Western Music Director Pre-Submission Inquiry Route","https://wruw.org/about-us/executive-staff/","inspected","[object Object]","true","false","false","false","true","run282-platform-database.json","2026-07-17T17:30:18.101Z"
+"dublab Radio Promotional Materials","https://www.dublab.com/about","inspected","[object Object]","false","false","false","false","true","run47-platform-database.json","2026-07-17T17:30:33.082Z"
+"WNMC 90.7 Genre Music Director Contact-Form Route","https://www.wnmc.org/about/contact-us-dj-az-list.html","inspected","[object Object]","true","false","true","false","true","run275-platform-database.json","2026-07-17T17:30:49.018Z"
