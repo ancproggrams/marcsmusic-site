@@ -1,66 +1,79 @@
-# Codex task — move the Music Submission Agent run to Codex
+# Codex recurring task — Music Submission Agent
 
 Work in repository `ancproggrams/marcsmusic-site` on branch `music-submission-agent-service`.
 
 Read and obey `services/music-submission-agent/AGENTS.md` before making changes.
 
-## Task
+## Permanent task
 
-Take over the recurring MarcsMusic music-submission workflow from Run 426 onward.
+Operate the complete MarcsMusic music-submission system from the current repository state. This is not a one-time migration task. Every time this task is invoked, execute exactly one complete next run.
 
-1. Inspect the current service implementation, latest run database, review queue, analytics dashboard and daily report.
-2. Integrate `https://github.com/vercel-labs/agent-browser` as the browser engine for passive portal testing.
-3. Build a deterministic runner that reads all current platform records, resolves their canonical submission URLs and tests portals without performing a final submission.
-4. Start with a representative smoke set, including:
-   - Brum Radio submission form;
-   - WWPV email-only route;
-   - KAOS submission guidance;
-   - KCR submission guidance;
-   - one login-gated route;
-   - one CAPTCHA or anti-bot-protected route;
-   - one payment-gated route when already present in the database.
-5. Then support sharded full-database runs with resume/checkpoint capability, low concurrency, domain throttling, timeouts and retries.
+Determine the latest completed run from committed repository artifacts and Git history, then create the next sequential run. Do not hard-code Run 427 if a later run already exists.
+
+## Execute one complete run
+
+1. Synchronize the branch and inspect the current implementation, latest database, queue, dashboard, reports and browser evidence.
+2. Discover legitimate global music-submission opportunities from first-party public sources.
+3. Verify platform activity, authorized submission purpose, eligibility information and business contacts.
+4. Use `vercel-labs/agent-browser` to inspect all newly found portals and a rotating validation sample of existing portals.
+5. Browser activity must remain passive: navigate, inspect, detect fields, validate route state and capture evidence. Never activate the final submission action.
 6. Detect and record:
-   - accessible/inaccessible status;
-   - redirects and canonical URL;
-   - visible activity evidence;
-   - submission form presence;
-   - field labels, required fields and upload controls;
-   - accepted file extensions when visible;
-   - login, CAPTCHA, Cloudflare, payment and legal/manual declarations;
-   - final submit control presence, but never activate it.
-7. Map results back into the platform database and queue. Use `needs_manual_review` for any login, CAPTCHA, payment, legal declaration, rights confirmation, dynamic upload, unclear eligibility or uncertain AI-music policy.
-8. Deduplicate records using normalized name, canonical domain, canonical submission URL and authorized email.
-9. Produce/update:
-   - platform database;
-   - submission/review queue;
-   - analytics dashboard;
-   - daily report;
-   - per-portal JSON/CSV results;
-   - screenshots for browser-tested portals.
-10. Add tests for classification, deduplication, redaction, result serialization and the prohibition on final-submit actions.
-11. Run build, tests and lint. Commit all changes and leave the worktree clean.
+   - canonical and final URLs;
+   - accessibility and redirects;
+   - current activity evidence;
+   - form presence and field labels;
+   - required fields and upload controls;
+   - visible accepted file formats;
+   - login, CAPTCHA, Cloudflare, payment and account requirements;
+   - legal, rights, clean-content and AI-policy declarations;
+   - final submit control presence without clicking it.
+7. Verify business emails only through first-party plaintext publication, explicit purpose, syntax and domain/context alignment. Never probe mail servers or mailboxes.
+8. Deduplicate using normalized platform name, canonical domain, canonical submission URL and authorized business email.
+9. Classify CAPTCHA, login, payment, account, OAuth, legal declaration, rights confirmation, dynamic upload, unclear eligibility and uncertain AI-policy cases as `needs_manual_review`.
+10. Update the next-run versions of:
+    - platform database;
+    - submission/review queue;
+    - analytics dashboard;
+    - detailed run report;
+    - daily report;
+    - browser JSON/CSV evidence and screenshots.
+11. Keep all counts internally consistent and preserve source provenance.
+12. Run build, tests, lint, JSON/CSV validation and the passive browser smoke suite.
+13. Commit the full run to `music-submission-agent-service` and leave the worktree clean.
+14. Update the existing Music Submission Agent PR title and body with the actual run number, commit, metrics, evidence and safety statement.
+
+## Scaling the browser checks
+
+- Start each run with a representative passive smoke set.
+- Run newly discovered portals in full.
+- Revalidate existing portals according to a rotation based on age, prior errors and manual-review risk.
+- Use sharding, checkpoints, bounded retries, low concurrency and domain throttling.
+- A blocked portal remains evidence of a restriction; do not attempt circumvention.
 
 ## Non-negotiable restrictions
 
-- Do not submit any portal form.
-- Do not send any email.
-- Do not upload MarcsMusic audio or artwork.
-- Do not solve or bypass CAPTCHA.
-- Do not log in or create accounts.
-- Do not pay or bypass payment.
+- Do not submit any form.
+- Do not send any email or direct message.
+- Do not upload MarcsMusic audio, artwork or documents.
+- Do not solve, outsource or bypass CAPTCHA.
+- Do not log in, create accounts or use saved sessions.
+- Do not pay, start checkout or bypass payment.
 - Do not decode protected email addresses.
-- Do not perform SMTP/MX/mailbox probing.
-- Do not claim a test succeeded without browser-generated evidence.
+- Do not perform SMTP, MX, catch-all or mailbox probing.
+- Do not claim a portal was tested without browser-generated evidence.
+- Do not claim a run completed without a real repository commit.
 
-## Expected final response
+## Required final response from Codex
 
-Report:
-- commit SHA;
+Report only observed results:
+- completed run number;
+- commit SHA and branch;
 - files changed;
 - exact commands executed;
-- number of portals tested;
-- verified/manual-review/blocked/error counts;
-- screenshots and result-file locations;
-- tests and lint outcomes;
-- explicit confirmation that no final submission or other external side effect occurred.
+- portals discovered and tested;
+- verified/manual-review/inactive/blocked/error/duplicate counts;
+- form/email/login/CAPTCHA/payment counts;
+- artifact and screenshot locations;
+- build, test and lint outcomes;
+- PR update status;
+- explicit confirmation that no final submission or other unauthorized external side effect occurred.
