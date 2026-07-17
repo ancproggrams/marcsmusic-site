@@ -1,0 +1,26 @@
+{
+  "run": 443,
+  "capturedAt": "2026-07-17T15:51:00+02:00",
+  "mode": "agent-browser passive inspect-only",
+  "candidateInventory": 644,
+  "shardCount": 64,
+  "offset": 14,
+  "limitPerShard": 4,
+  "shardsTested": 8,
+  "routesTestedThisRun": 2,
+  "uniqueNewRoutesThisRun": 2,
+  "inspected": 2,
+  "errorsOrUnreachable": 0,
+  "formsObserved": 1,
+  "loginBoundariesObserved": 1,
+  "paymentBoundariesObserved": 0,
+  "captchaOrHumanChecksObserved": 0,
+  "totalUniqueCoverageAcrossRuns431To443": 203,
+  "remainingInventoryOutsideUniqueCoverage": 441,
+  "newRoutes": [
+    {"name":"WJCU 88.7 FM All-Genres Physical Music Director Airplay Submission Route","url":"https://www.wjcu.org/contact","status":"inspected"},
+    {"name":"Zedwap Zambia Artist Upload Streaming Download Route","url":"https://zedwap.com/","status":"inspected"}
+  ],
+  "evidenceDirectory": "data/portal-browser-tests/run-443-shard64-*-offset14",
+  "safety": "No fields filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated."
+}
