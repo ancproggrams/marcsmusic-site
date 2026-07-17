@@ -2,7 +2,7 @@
 
 Date: 2026-07-17
 
-Latest run: Run 416
+Latest run: Run 417
 
 New items added in latest run: 1
 
@@ -10,30 +10,32 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1734
+Pipeline estimate: 1735
 
 Items:
 
-- Run 416 added: KAZI 88.7 FM UnTapped — free-first one-song email-submission opportunity requiring radio-edited music, a streaming link and downloadable MP3 or WAV audio
+- Run 417 added: SoundChat Radio & TV — free dedicated Caribbean music-submission form requiring a track link, metadata and an ownership and broadcast-permission affirmation
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: KAZI's official UnTapped Music Submissions page invites one new, quality radio-edited song through `music@kazifm.org`. It asks for the latest single or strongest cut from a new album, plus sender and artist information.
+Latest route note: SoundChat Radio's official Submit Your Music page provides a dedicated first-party form requesting artist name, email, track title, genre, a SoundCloud, Spotify, YouTube or direct-download link, and information about the track and artist.
 
-Delivery note: the official page requests a streaming link and downloadable MP3 or WAV audio. Its published WAV wording is technically ambiguous and must be confirmed rather than silently interpreted. MP3 bitrate, maximum size and several policy details are not published.
+Delivery note: published guidance prefers high-quality 320 kbps MP3 or WAV audio, clean or radio edits alongside explicit versions when applicable, accurate artist, title and genre metadata, and a short bio plus social links. The visible form uses a track-link field rather than a direct file upload.
 
-Contact-verification note: `music@kazifm.org` was verified through first-party plaintext publication, explicit submission purpose, valid syntax and exact official-domain alignment. `info@kazifm.org` was verified but excluded as a general mailbox. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Rights note: the form requires confirmation that the submitter owns the music and grants SoundChat Radio permission to broadcast the submitted track. This rights-bearing affirmation requires human review and manual completion.
 
-Form and protection note: no dedicated music-upload form, CAPTCHA, account login or mandatory-payment requirement was identified. The homepage's general contact form, volunteer form, donation, underwriting, social and listener-facing routes are not submission substitutes.
+Contact-verification note: `info@SoundChatRadio.com` and `irishandchin@gmail.com` were verified through first-party plaintext publication on the official Contact page. Both are general office contacts and were excluded because neither is labelled for music submissions. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Eligibility note: international eligibility, exact MP3/WAV technical requirements, maximum file size, clean-edit boundary, rights declarations, release timing and AI-origin policy remain unresolved. These points keep the route in `needs_manual_review`.
+Form and protection note: one dedicated public music-submission form was identified. Passive review exposed no visible CAPTCHA, login or mandatory-payment requirement, and standard submission is stated to be free. A human must still inspect the live form for any current anti-spam, session, consent or protected control.
 
-Activity and fit note: the official homepage exposed a live player with now-on-air and upcoming programming, active station contacts and 2026 site content. KAZI's format includes R&B, soul, hip-hop, jazz, gospel, blues, reggae and zydeco. Potential MarcsMusic fits include reggae, hip-hop-adjacent, R&B/soul-adjacent and accessible cross-genre material.
+Eligibility note: explicit international artist eligibility, release-window rules, AI-origin policy, multi-version delivery and parts of the broadcast-permission scope remain unresolved. These points keep the route in `needs_manual_review`.
 
-Manual-review note: reopen the official page, choose exactly one radio-edited release, confirm whether both streaming and downloadable delivery are mandatory, resolve the audio specification, inspect the final master and link permissions, confirm eligibility and policy rules, and send manually. Avoid broad-catalogue delivery and repeated follow-up.
+Activity and fit note: the official site exposed live listening, a populated weekly schedule, current featured rotation and a first-party article dated March 16, 2026. SoundChat's programming includes reggae, dancehall, soca, island and sound-system formats. Selected MarcsMusic reggae, electronic-reggae, dancehall-adjacent or world-fusion material has strong plausible fit.
 
-Deduplication note: repository code search and the complete accessible PR patch found no existing KAZI, `kazifm.org` or `music@kazifm.org` platform, seed or queue record before creation. The UnTapped route is stored once; general contact and adjacent routes are excluded.
+Manual-review note: reopen the official form, select one suitable clean or radio-ready track, verify its public link, audio quality, metadata and rights, review the broadcast permission, confirm eligibility and policy rules, and submit manually. Avoid general email, request-line, advertising, airtime, donation, shop and social routes.
 
-Runtime-linkage note: Run 415 now links to Run 416 in the active recursive seed chain.
+Deduplication note: the complete accessible pull-request patch was searched for SoundChat Radio, `soundchatradio.com`, the canonical submission path and both public business addresses. No existing platform, seed or queue record was found. The dedicated form is stored once; adjacent routes are excluded.
 
-Safety: No email, streaming link, downloadable audio, MP3, WAV, attachment, form field, account, login, CAPTCHA, consent or payment was submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
+Runtime-linkage note: Run 416 now links to Run 417 in the active recursive seed chain.
+
+Safety: No form field, track link, audio, metadata, biography, rights affirmation, email, account, login, CAPTCHA, consent, payment, advertising, airtime, donation or shop action was submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
