@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Revealed Recordings Account-Gated Demo Submission Route","https://www.revealedrecordings.com/demo","inspected","[object Object]","true","false","true","false","true","run89-platform-database.json","2026-07-17T18:11:31.062Z"
+"Songtradr Music Licensing Marketplace Upload Route","https://www.songtradr.com/music-creators","error","","false","false","false","false","true","run206-platform-database.json","2026-07-17T18:11:32.452Z"
+"WUNH 91.3 University of New Hampshire Physical Music Director Submission Route","https://www.unh.edu/wunh/contact","inspected","[object Object]","true","false","false","false","true","run282-platform-database.json","2026-07-17T18:11:49.022Z"
+"WUSC 90.5 FM Outreach Music Director Submissions","https://www.wusc.fm/page/contact","inspected","[object Object]","true","false","false","false","true","run79-platform-database.json","2026-07-17T18:12:00.424Z"

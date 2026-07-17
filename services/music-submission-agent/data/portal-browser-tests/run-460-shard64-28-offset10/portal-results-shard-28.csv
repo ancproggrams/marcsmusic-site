@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"WMPG 90.9FM Music Department Submissions","https://www.wmpg.org/contact-us/music-department/","inspected","[object Object]","true","false","true","true","true","run60-platform-database.json","2026-07-17T18:05:00.562Z"
+"WMSE College Radio Music Submission Contact Route","https://www.wmse.org/contact/","inspected","[object Object]","true","false","true","false","true","run266-platform-database.json","2026-07-17T18:05:17.703Z"
+"WMSE 91.7FM Music Department Physical Digital FCC Clean Submission Route","https://www.wmse.org/music-department/","inspected","[object Object]","true","false","true","false","true","run165-platform-database.json","2026-07-17T18:05:34.797Z"
+"WZBC 90.3 FM Boston College Programming Contact Route","https://www.wzbc.org/","inspected","[object Object]","true","false","false","false","true","run27-platform-database.json","2026-07-17T18:05:49.873Z"

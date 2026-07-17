@@ -1,0 +1,4 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"WMSE Milwaukee Physical Digital Music Director Submission Route","https://www.wmse.org/submit-music/","inspected","[object Object]","true","false","true","false","true","run184-platform-database.json","2026-07-17T18:06:16.292Z"
+"WNCW Programming Department CD and Digital Music Submission Route","https://www.wncw.org/submit-music/","inspected","[object Object]","true","false","false","false","true","run101-platform-database.json","2026-07-17T18:06:33.528Z"
+"WONY 90.9FM Music Director Airplay Submission Route","https://www.wonyfm.org/music-department","inspected","[object Object]","false","false","false","false","true","run383-platform-database.json","2026-07-17T18:06:48.600Z"

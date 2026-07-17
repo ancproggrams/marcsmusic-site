@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Monstercat Demo Submission","https://www.monstercat.com/contact","error","","false","false","false","false","true","run39-platform-database.json","2026-07-17T18:12:08.401Z"
+"Record Union Distribution Smart Link EPK Pitch Priority and Release Upload Route","https://www.recordunion.com/","inspected","[object Object]","false","false","false","false","true","run125-platform-database.json","2026-07-17T18:12:23.052Z"
+"SubmitHub Free Premium Curator Playlist Blog Submission Route","https://www.submithub.com/","inspected","[object Object]","true","false","false","false","true","run237-platform-database.json","2026-07-17T18:12:38.180Z"
+"ToneDen Music Marketing Social Campaign Route","https://www.toneden.io/","inspected","[object Object]","false","false","true","true","true","run259-platform-database.json","2026-07-17T18:12:55.809Z"

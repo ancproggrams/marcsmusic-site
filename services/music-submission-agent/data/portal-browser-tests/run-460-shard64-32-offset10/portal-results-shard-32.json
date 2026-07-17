@@ -1,0 +1,252 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T18:05:34.871Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 32,
+      "count": 64,
+      "offset": 10
+    },
+    "totalUniqueHttpPortalsDiscovered": 645,
+    "testedInThisShard": 3,
+    "inspected": 3,
+    "errors": 0,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 1,
+    "paymentObserved": 0,
+    "formObserved": 0,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "WMUC 90.5 FM General Pre-Submission Inquiry Route",
+      "url": "https://www.wmuc.umd.edu/",
+      "sourceFile": "run276-platform-database.json",
+      "priorStatus": null,
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T18:05:03.296Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.wmuc.umd.edu/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "WMUC"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"09dded6acaea818d1cef2da090e7da32\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"da4e8f656f7983da09bb3babbbbe712d\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"load\"}],\"text\":\"load\",\"type\":\"log\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"4c7cfdccae5aa3fb82aa911bff21b8c2\",\"origin\":\"unknown\"},\"data\":{\"errors\":[{\"column\":24066,\"line\":0,\"text\":\"Error: Minified React error #418; visit https://reactjs.org/docs/error-decoder.html?invariant=418 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\\n    at t3 (https://www.wmuc.umd.edu/_next/static/chunks/fd9d1056-e9579b0e0f18d888.js:1:24067)\\n    at lq (https://www.wmuc.umd.edu/_next/static/chunks/fd9d1056-e9579b0e0f18d888.js:1:63204)\\n    at iB (https://www.wmuc.umd.edu/_next/static/chunks/fd9d1056-e9579b0e0f18d888.js:1:120479)\\n    at o4 (https://www.wmuc.umd.edu/_next/static/chunks/fd9d1056-e9579b0e0f18d888.js:1:94630)\\n    at https://www.wmuc.umd.edu/_next/static/chunks/fd9d1056-e9579b0e0f18d888.js:1:90693\\n    at https://www.wmuc.umd.edu/_next/static/chunks/fd9d1056-e9579b0e0f18d888.js:1:90700\\n    at oj (https://www.wmuc.umd.edu/_next/static/chunks/fd9d1056-e9579b0e0f18d888.js:1:90805)\\n    at MessagePort.M (https://www.wmuc.umd.edu/_next/static/chunks/8069-fe6b711a439f9aba.js:1:98425)\",\"url\":null},{\"column\":76948,\"line\":0,\"text\":\"Error: Minified React error #418; visit https://reactjs.org/docs/error-decoder.html?invariant=418 for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\\n    at t3 (https://www.wmuc.umd.edu/_next/static/chunks/fd9d1056-e9579b0e0f18d888.js:1:24067)\\n    at lq (https://www.wmuc.umd.edu/_next/static/chunks/fd9d1056-e9579b0e0f18d888.js:1:63204)\\n    at iB (https://www.wmuc.umd.edu/_next/static/chunks/fd9d1056-e9579b0e0f18d888.js:1:120479)\\n    at o4 (https://www.wmuc.umd.edu/_next/static/chunks/fd9d1056-e9579b0e0f18d888.js:1:94630)\\n    at https://www.wmuc.umd.edu/_next/static/chunks/fd9d1056-e9579b0e0f18d888.js:1:90693\\n    at https://www.wmuc.umd.edu/_next/static/chunks/fd9d1056-e9579b0e0f18d888.js:1:90700\\n    at oj (https://www.wmuc.umd.edu/_next/static/chunks/fd9d1056-e9579b0e0f18d888.js:1:908…",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "WWOZ Getting Airplay Music Director Route",
+      "url": "https://www.wwoz.org/getting-airplay-your-cd-wwoz",
+      "sourceFile": "run35-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T18:05:19.099Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.wwoz.org/getting-airplay-your-cd-wwoz"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Getting Airplay for Your CD on WWOZ | WWOZ New Orleans 90.7 FM"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": true,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"57a6d52e7181bfa4d0395ba9f1885381\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"46edebd5d9b02108ad50ac6d5753f4ca\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"efaf0307c2d21fc333632fa8607ab44b\",\"origin\":\"unknown\"},\"data\":{\"errors\":[{\"column\":15,\"line\":2813,\"text\":\"TypeError: Cannot read properties of undefined (reading 'settings')\\n    at https://www.wwoz.org/sites/default/files/js/js_daRCj4qfK2oUeM-C28VpepgMOlbiH_9QZdpCLIIbfi0.js:2814:16\\n    at https://www.wwoz.org/sites/default/files/js/js_daRCj4qfK2oUeM-C28VpepgMOlbiH_9QZdpCLIIbfi0.js:2848:3\",\"url\":null}],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "WXYC 89.3 FM Chapel Hill Music Department Route",
+      "url": "https://wxyc.org/",
+      "sourceFile": "run29-platform-database.json",
+      "priorStatus": null,
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": null,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T18:05:34.865Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://wxyc.org/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "WXYC"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": null,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"b17e20c29c66cd6adfcbb44e46c888e9\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"60bccdb41aff2878073297b01eb47426\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"[Visualizer] Creating new analyzer...\"}],\"text\":\"[Visualizer] Creating new analyzer...\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[Visualizer] Creating new analyzer...\"}],\"text\":\"[Visualizer] Creating new analyzer...\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[Visualizer] Ready with\"},{\"description\":\"18\",\"type\":\"number\",\"value\":18},{\"type\":\"string\",\"value\":\"bars\"}],\"text\":\"[Visualizer] Ready with 18 bars\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[Visualizer] Ready with\"},{\"description\":\"18\",\"type\":\"number\",\"value\":18},{\"type\":\"string\",\"value\":\"bars\"}],\"text\":\"[Visualizer] Ready with 18 bars\",\"type\":\"log\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"94ae509619c350e9813ac8ea5a15f8bd\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}

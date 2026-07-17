@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"EmuBands One-Time Premium Digital Release Upload Route","https://www.emubands.com/","inspected","[object Object]","true","false","true","true","true","run143-platform-database.json","2026-07-17T18:09:37.846Z"
+"Epidemic Sound Artist Partner Application Route","https://www.epidemicsound.com/artists/","inspected","[object Object]","false","false","true","true","true","run257-platform-database.json","2026-07-17T18:09:53.179Z"
+"God Is In The TV Contact Form and New Music Submission Route","https://www.godisinthetvzine.co.uk/contact/","inspected","[object Object]","false","false","false","false","true","run93-platform-database.json","2026-07-17T18:10:10.349Z"
+"WESU 88.1FM Middletown Music Directors","https://www.wesufm.org/contact-us/","inspected","[object Object]","false","false","false","false","true","run54-platform-database.json","2026-07-17T18:10:26.476Z"

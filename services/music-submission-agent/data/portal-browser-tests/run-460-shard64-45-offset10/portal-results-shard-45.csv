@@ -1,0 +1,4 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"ReverbNation Artist Opportunities and Profile Route","https://www.reverbnation.com/","inspected","[object Object]","true","false","true","true","true","run20-platform-database.json","2026-07-17T18:08:24.856Z"
+"Future House Cloud SubmitHub Playlist Submission Route","https://www.submithub.com/playlister/future-house-cloud","inspected","[object Object]","true","false","false","false","true","run287-platform-database.json","2026-07-17T18:08:40.039Z"
+"WRPI Troy Music Director Contact and Station Mail Route","https://www.wrpi.org/contact/","inspected","[object Object]","false","false","false","false","true","run96-platform-database.json","2026-07-17T18:09:02.014Z"
