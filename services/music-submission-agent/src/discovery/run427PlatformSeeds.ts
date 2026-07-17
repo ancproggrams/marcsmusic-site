@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run428SeedPlatforms } from './run428PlatformSeeds.js';
 
 export const run427SeedPlatforms: PlatformInput[] = [
   {
@@ -42,5 +43,6 @@ export const run427SeedPlatforms: PlatformInput[] = [
       'The form contains a dynamic arithmetic human-verification challenge, a rights affirmation and authorization to broadcast, and an optional audio upload. It limits consideration to one song and requires a WAV or MP3 in 44.1 or 48 kHz, 16-bit stereo, with direct uploads under 10 MB or a downloadable link for larger files. International eligibility, explicit-content rules, release-window requirements and the current AI-assisted or AI-generated music policy are not published. A human must select one suitable MarcsMusic track, verify the exact master, metadata and rights, choose upload or link delivery, answer the locality question accurately, complete the human-verification challenge personally, recheck the live form and submit manually.',
     notes:
       'Verified on 2026-07-17 from Camaradio’s official submission, about, schedule, home and news pages. The submission page requests one song only, accepts a download link or direct file upload, requires WAV or MP3 audio at 44.1 or 48 kHz and 16-bit stereo, and states that direct uploads must be under 10 MB. Visible fields include submitter name, artist or band name, email, Ventura County yes/no, city, song title, song release date, optional album title and release date, music-file link or upload, and an arithmetic human-verification field. Submitters affirm they hold the necessary rights and authorize Camaradio to air the track if selected. Current activity is supported by a populated weekly schedule, active listen surface, 2026 news and events, recently played content and the station’s 2026 nonprofit/FCC-licensed community-radio descriptions. No form field, audio file, link, email, login, CAPTCHA answer or payment was submitted.'
-  }
+  },
+  ...run428SeedPlatforms
 ];
