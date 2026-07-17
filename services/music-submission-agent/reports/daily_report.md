@@ -2,7 +2,7 @@
 
 Date: 2026-07-17
 
-Latest run: Run 423
+Latest run: Run 424
 
 New items added in latest run: 1
 
@@ -10,28 +10,30 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1741
+Pipeline estimate: 1742
 
 Items:
 
-- Run 423 added: KCR College Radio — free FCC-clean digital MP3 submission route at San Diego State University
+- Run 424 added: KAOS 89.3FM Olympia — free full-release digital-link and physical-media submission route
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: KCR's official page directs all digital music submissions to `kcr@sdsu.edu`, requires MP3 files, requires every song to be FCC clean, and requires the filename format `Artist – Song Title`. Accepted tracks may enter the automated playlist and DJ music library. The station asks artists not to call about submission status.
+Latest route note: KAOS rejects singles and asks for an upcoming complete release. Physical CD, vinyl and cassette submissions are preferred. Digital submissions are accepted when staff time allows at `kaosmusicdirector@gmail.com`, using the subject `Music Submission` and providing streaming plus download links. Attachments and directly emailed files are prohibited.
 
-Contact-verification note: `kcr@sdsu.edu` was verified through first-party plaintext publication, explicit submission purpose, valid syntax and alignment with San Diego State University's official `sdsu.edu` domain. The current role addresses `kcr.music@sdsu.edu` and `kcr.promotions@sdsu.edu` were also verified but excluded to prevent duplicate or unauthorized routing. No deliverability probing was performed.
+Content note: include a one-sheet or press release with a short biography, release description, focus tracks and every FCC violation or clean edit. KAOS states that it has no safe-harbor period and never airs profane or indecent material.
 
-Form and cost note: no public music-submission form was identified. The authorized email route has no published fee, CAPTCHA, login or payment requirement.
+Contact-verification note: `kaosmusicdirector@gmail.com` was verified through repeated first-party plaintext publication, explicit Music Department and submission purpose, and valid syntax. The general station, General Manager and events-calendar mailboxes were verified and excluded; two are explicitly marked not for submissions. No deliverability probing was performed.
 
-Eligibility and fit note: KCR says all musicians are encouraged to submit and gives special interest to San Diego artists. It does not explicitly confirm international eligibility. Its eclectic, emerging-artist focus and current electronic, alternative, indie, lo-fi and trip-hop-adjacent coverage provide plausible fit for selected clean MarcsMusic material.
+Form and cost note: no dedicated music-submission form was identified. Generic contact and community forms are excluded. The authorized email and physical routes have no published fee, CAPTCHA, login or payment requirement.
 
-Activity note: KCR exposes live listening, a current management and Music Director roster, and multiple official artist interviews and reviews dated July 7, 2026.
+Eligibility and fit note: KAOS's Independent Music Policy requires 80% non-major-label music, and current programming spans electronic, experimental, world, hip-hop, funk, alternative and other independent formats. A coherent clean MarcsMusic EP or album has plausible fit. International eligibility and whether an EP qualifies as a full release remain unpublished.
 
-Manual-review note: select one suitable track, verify the exact master is FCC clean, inspect MP3 encoding, filename and metadata, resolve attachment size, track count and link-delivery rules, confirm international eligibility, rights, release timing and AI-origin policy, avoid calls or repetitive follow-up, and send manually.
+Activity note: KAOS published Top 30 charts through June 22, 2026, maintains current staff, schedule, playlist and live-stream pages, and posted station updates and events during 2026.
 
-Deduplication note: repository searches and the complete PR patch found no previous KCR College Radio, `kcr.sdsu.edu`, submission-mailbox, Music Director-mailbox or canonical submission-URL record. The dedicated mailbox is stored as one opportunity; role, promotions, management, phone, listener, newsletter and social routes are excluded.
+Manual-review note: choose one complete release rather than a single, verify every track and clean edit, prepare the one-sheet, inspect download and streaming links, confirm international eligibility, rights, release timing and AI-origin policy, select either digital or physical delivery, and submit manually.
 
-Runtime-linkage note: Run 422 now links to Run 423 in the active recursive seed chain.
+Deduplication note: repository searches and the complete PR patch found no previous KAOS 89.3FM, `kaosradio.org`, submission-mailbox or canonical submission-URL record. Digital, physical and Music Department routes are stored as one opportunity; general, manager, events, contact-form, listener, newsletter, social, membership and donation routes are excluded.
 
-Safety: No email, MP3, attachment, metadata, form field, account, login, CAPTCHA, payment, phone call or follow-up was submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
+Runtime-linkage note: Run 423 now links to Run 424 in the active recursive seed chain.
+
+Safety: No email, streaming link, download link, audio, attachment, physical package, form field, account, login, CAPTCHA, payment or follow-up was submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
