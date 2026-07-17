@@ -34,7 +34,7 @@ Deduplication note: repository searches returned no previous Owl Radio submissio
 
 Runtime-linkage note: Run 427 now links to Run 428 in the active recursive seed chain.
 
-Commit note: Run 428 artifacts were committed through the GitHub contents API. The branch head before this final report update was `d2c81bccfdd7174a0926ab4a459d514d742f16f9`; this report update creates the final run commit.
+Commit note: Run 428 artifacts were committed through the GitHub contents API. Recorded run commits include `c1d15c437ea5d1f67678f886688c1d10f980955d` and `551bc1fa06deed5140854a37748c73fe9f503a6b`; this daily-report synchronization creates the final branch head for the run.
 
 Runtime limitation: passive verification used the available web-research runtime. The dedicated `agent-browser` CLI, screenshot capture and repository shell were unavailable, so no browser screenshot, build, test, lint, `git diff` or `git status` result is claimed.
 
