@@ -1,0 +1,19 @@
+{
+  "run": 461,
+  "capturedAt": "2026-07-17T20:25:00+02:00",
+  "mode": "agent-browser passive retry",
+  "candidateInventory": 645,
+  "routesRetriedThisRun": 4,
+  "newUniqueRoutesThisRun": 0,
+  "overlapRoutesThisRun": 4,
+  "inspected": 0,
+  "errorsOrUnreachable": 4,
+  "recomputedUniqueCoverageBeforeRun": 645,
+  "totalUniqueCoverageAcrossRuns431To461": 645,
+  "remainingInventoryOutsideUniqueCoverage": 0,
+  "retryRoutes": ["Wepa.Fm Royalty-Free Independent Music Email Submission Route", "WRIR Richmond Music Department Submission Route", "Songtradr Music Licensing Marketplace Upload Route", "Monstercat Demo Submission"],
+  "retryOutcome": "All four routes reproduced an error; Wepa/WRIR ended with an agent-browser process error and Songtradr/Monstercat returned ERR_HTTP_RESPONSE_CODE_FAILURE.",
+  "submissionBoundary": "No active form submit, upload, login, CAPTCHA, consent, payment or email action was performed.",
+  "evidenceDirectories": "data/portal-browser-tests/run-461-retry-*-offset*",
+  "safety": "No fields filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated."
+}

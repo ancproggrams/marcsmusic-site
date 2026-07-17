@@ -157,3 +157,7 @@ Run 459 continued offset 6 across shards 56–63 and added 21 new unique routes.
 ## Run 460
 
 Run 460 reached the final 45 untested routes using deterministic offsets 5 and 10. Forty-one checks inspected successfully; 4 were browser errors or unreachable. Recomputed committed browser-result coverage is 645 of 645 candidates, leaving 0 inventory URLs without browser evidence. No outreach, upload, login, payment or submission was performed.
+
+## Run 461
+
+Run 461 retried the four Run-460 error routes with a 20-second browser timeout. All four reproduced errors; no route became a successful inspection. The inventory remains 645 of 645 URLs represented by browser evidence, with four explicit error/manual-review routes. No outreach, upload, login, payment or submission was performed.
