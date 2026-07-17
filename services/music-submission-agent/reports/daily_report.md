@@ -34,7 +34,7 @@ Deduplication note: repository searches returned no previous Owl Radio submissio
 
 Runtime-linkage note: Run 427 now links to Run 428 in the active recursive seed chain.
 
-Commit note: Run 428 artifacts were committed through the GitHub contents API. The final commit SHA is recorded in the pull request and automation completion message.
+Commit note: the final branch-head SHA is recorded in pull request #2 and the automation completion message.
 
 Runtime limitation: passive verification used the available web-research runtime. The dedicated `agent-browser` CLI, screenshot capture and repository shell were unavailable, so no browser screenshot, build, test, lint, `git diff` or `git status` result is claimed.
 
