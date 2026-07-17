@@ -1,0 +1,176 @@
+{
+  "run": 465,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1751,
+  "pipelineEstimate": 1752,
+  "newPlatforms": [
+    {
+      "name": "KDBR Dain Bramage Radio Worldwide Free Indie Upload Form",
+      "websiteUrl": "https://dainbramageentertainment.com/",
+      "submissionUrl": "https://dainbramageentertainment.com/kdbr-radio",
+      "formUrl": "https://dainbramageentertainment.com/kdbr-radio",
+      "sourceUrl": "https://dainbramageentertainment.com/kdbr-radio",
+      "sourceType": "automation_run_465_public_research",
+      "country": "United States (Soldotna, Alaska); the first-party route explicitly invites independent artists worldwide.",
+      "language": "en",
+      "genres": [
+        "independent-music",
+        "underground",
+        "hip-hop",
+        "rock",
+        "electronic",
+        "pop",
+        "metal",
+        "r-and-b",
+        "indie",
+        "lo-fi",
+        "clean-radio-edit",
+        "mp3",
+        "wav",
+        "private-streaming-link",
+        "direct-upload",
+        "artist-profile",
+        "worldwide",
+        "free-first",
+        "captcha",
+        "rights-confirmation",
+        "manual-review"
+      ],
+      "submissionMethod": "official first-party free embedded music-upload form with private streaming-link alternative for radio airplay and featured-artist consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": true,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission form with optional audio/artwork upload and private streaming-link delivery",
+        "formLocation": "https://dainbramageentertainment.com/kdbr-radio",
+        "email": null,
+        "explicitPurpose": "Submit clean, broadcast-ready independent music for possible KDBR radio rotation and a permanent featured-artist profile.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Review the reCAPTCHA-protected form and later permission document, confirm ownership, clean audio and track fit, then upload or send a link only after explicit owner approval.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "internationalAcceptanceEvidence": "The first-party KDBR page describes underground artists worldwide and promises worldwide exposure.",
+        "standardRouteFeePublished": false,
+        "standardRouteFeeEvidence": "The page states that submission and airplay are completely free, with zero payola or label fees."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "provide Band/Artist Name",
+          "provide an email address",
+          "provide genre information",
+          "provide a desired music link",
+          "submit clean, broadcast-ready audio",
+          "attach MP3/WAV tracks and artwork or provide private SoundCloud/YouTube links",
+          "complete a later permission form if selected",
+          "retain ownership while granting the station permission to stream and feature the music"
+        ],
+        "publishedReviewTiming": "The first-party page says submissions are normally listened to within 48 hours, without a guaranteed response or placement.",
+        "formFieldsObserved": [
+          "Band/Artist Name (required)",
+          "Email (required)",
+          "Genres",
+          "Desired Link (required)",
+          "Attach Tracks/Artwork",
+          "Submit for Review"
+        ],
+        "safeReviewScope": [
+          "inspect the reCAPTCHA-protected form manually without bypassing the challenge",
+          "review the separate permission form before signing or replying",
+          "confirm broadcast, profile, promotional, territory, duration and revocation rights",
+          "confirm clean-edit and explicit-content requirements",
+          "confirm AI-assisted and fully generated music eligibility",
+          "verify master, composition, sample, contributor and artwork rights",
+          "reconcile the main page's 24/7 claim with the Caster page's daily 7 AM to at least 5 PM AKST schedule",
+          "select a genre-compatible MarcsMusic track",
+          "upload or submit manually only after explicit owner approval"
+        ],
+        "unresolvedEligibility": [
+          "AI-assisted and fully generated music policy",
+          "maximum number and size of attachments",
+          "accepted MIME types and upload limits beyond the published MP3/WAV guidance",
+          "permission-form territory, duration and revocation mechanism",
+          "use of artwork and biography outside the featured-artist page",
+          "whether the stream currently operates 24/7 or on the published daytime schedule"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "contact@dainbramageentertainment.com",
+            "purpose": "First-party general business and contact mailbox published on the Dain Bramage Entertainment home/contact page.",
+            "firstPartyPublished": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "contextAligned": true,
+            "submissionRoute": false
+          }
+        ],
+        "adjacentEmailsExcluded": [
+          "contact@dainbramageentertainment.com is retained as a general business contact only because the music page directs submissions to the embedded form"
+        ],
+        "emailStatus": "The general contact mailbox is first-party published, syntactically valid, domain aligned and context aligned, but it is not designated as a music-submission mailbox.",
+        "verification": "Email verification was limited to first-party publication, syntax, domain alignment and stated purpose. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "externalFormProvider": "GoDaddy website form",
+        "externalFormUrl": null,
+        "embeddedFormPage": "https://dainbramageentertainment.com/kdbr-radio",
+        "multiStepForm": true,
+        "captchaObserved": true,
+        "captchaStatus": "The first-party page explicitly states that the form is protected by Google reCAPTCHA. The challenge was not activated or solved.",
+        "loginObserved": false,
+        "loginStatus": "The site navigation exposes optional account links, but the published music-submission form does not require an account or login.",
+        "paymentObserved": false,
+        "paymentStatus": "The standard submission route is published as completely free. A separate support/donation link is optional and not part of submission.",
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "Human review is required because of reCAPTCHA, direct file upload, the later permission form, rights declarations, clean-audio requirements, AI eligibility and the final upload/submission action.",
+        "rightsOrConsentFields": [
+          "accepted artists receive a later permission form confirming permission to stream and feature the music",
+          "the first-party page states that the artist keeps 100% ownership"
+        ],
+        "adjacentRoutesExcluded": [
+          "general business contact form",
+          "contact@dainbramageentertainment.com general mailbox",
+          "Discord direct messages",
+          "Caster.fm account and email-verification controls",
+          "optional donation/support route"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "The KDBR page advertises a live station and current featured artists; the first-party featured-artists page lists artists currently in heavy rotation; and the linked Caster.fm station page publishes an active daily broadcast schedule from 7 AM to at least 5 PM AKST."
+      },
+      "genreFitEvidence": [
+        "The station explicitly lists hip-hop, rock, electronic, pop, metal, R&B, indie and lo-fi.",
+        "Its featured-artist page includes artists from Austria, Brazil, the United Kingdom and the United States, supporting the worldwide-facing claim.",
+        "MarcsMusic electronic, bass, pop, hip-hop, reggae-adjacent and experimental tracks may fit after a human confirms clean-edit suitability."
+      ],
+      "manualReviewReason": "The route is active, worldwide-facing and free, but the embedded form uses reCAPTCHA and direct uploads, successful applicants receive a separate permission form, clean and rights requirements must be confirmed, AI eligibility is unpublished, and any upload or final submission requires explicit owner approval.",
+      "priority": 92,
+      "pricingModel": "free-first/first-party-embedded-upload-form/private-link/captcha/permission-form/worldwide/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KDBR",
+      "Dain Bramage Radio",
+      "Dain Bramage Entertainment",
+      "dainbramageentertainment.com",
+      "dainbramageentertainment.com/kdbr-radio",
+      "contact@dainbramageentertainment.com",
+      "KDBR Dain Bramage Radio Worldwide Free Indie Upload Form"
+    ],
+    "repositoryEvidence": "Searches in the accessible repository code-search surface for KDBR, Dain Bramage and the canonical domain returned no match before creation.",
+    "consolidation": "The embedded upload form, private-link alternative, later permission form, featured-artist profile and general contact mailbox are consolidated as one canonical KDBR opportunity."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One KDBR opportunity was queued as needs_manual_review. No form was filled, no file was uploaded, no permission form was signed, no login was used, no CAPTCHA was solved and no payment or submission action was completed."
+}
