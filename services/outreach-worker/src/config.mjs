@@ -66,6 +66,7 @@ const schema = z.object({
   PLUNK_TIMEOUT_MS: z.coerce.number().int().min(250).max(30_000).default(15_000),
   PLUNK_MAX_RESPONSE_BYTES: z.coerce.number().int().min(1_024).max(4_194_304).default(65_536),
   MAILGUN_API_KEY: z.string().trim().min(1).optional().or(z.literal("")),
+  MAILGUN_VALIDATION_API_KEY: z.string().trim().min(1).optional().or(z.literal("")),
   MAILGUN_DOMAIN: z.string().trim().min(1).max(253).optional().or(z.literal("")),
   MAILGUN_BASE_URL: z.string().url().default("https://api.eu.mailgun.net"),
   MAILGUN_FROM: z.string().min(3).optional().or(z.literal("")),
@@ -252,11 +253,11 @@ export function loadConfig(env = process.env) {
   if (
     parsed.data.EMAIL_VALIDATION_PROVIDER_ENABLED
     && parsed.data.EMAIL_VALIDATION_PROVIDER_TYPE === "mailgun"
-    && (!parsed.data.MAILGUN_API_KEY || !parsed.data.MAILGUN_DOMAIN)
+    && (!parsed.data.MAILGUN_VALIDATION_API_KEY || !parsed.data.MAILGUN_DOMAIN)
   ) {
     throw new ConfigurationError([{
-      path: ["MAILGUN_API_KEY"],
-      message: "Mailgun email validation requires the API key and configured Mailgun domain"
+      path: ["MAILGUN_VALIDATION_API_KEY"],
+      message: "Mailgun email validation requires a validation-capable API key and configured Mailgun domain"
     }]);
   }
   if (
@@ -640,7 +641,7 @@ export function loadConfig(env = process.env) {
       maxMxHosts: parsed.data.EMAIL_VALIDATION_SMTP_MAX_MX_HOSTS,
       cacheTtlDays: parsed.data.EMAIL_VALIDATION_CACHE_TTL_DAYS,
       mailgunBaseUrl: stripTrailingSlash(parsed.data.MAILGUN_BASE_URL),
-      mailgunApiKey: parsed.data.MAILGUN_API_KEY || undefined,
+      mailgunApiKey: parsed.data.MAILGUN_VALIDATION_API_KEY || undefined,
       mailgunDomain: parsed.data.MAILGUN_DOMAIN || undefined
     }),
     publicBaseUrl: stripTrailingSlash(parsed.data.OUTREACH_PUBLIC_BASE_URL),

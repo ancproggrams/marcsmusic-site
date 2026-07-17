@@ -207,11 +207,13 @@ validation provider without re-enabling Mailgun outbound delivery:
 EMAIL_VALIDATION_PROVIDER_ENABLED=true
 EMAIL_VALIDATION_PROVIDER_TYPE=mailgun
 MAILGUN_BASE_URL=https://api.eu.mailgun.net
-MAILGUN_API_KEY=<Railway secret>
+MAILGUN_VALIDATION_API_KEY=<Railway secret with Email Validation permission>
 MAILGUN_DOMAIN=mg.marcsmusic.nl
 ```
 
-The worker calls Mailgun `GET /v4/address/validate` with Basic authentication
+The validation key must have Mailgun Email Validation permission; a legacy
+sending/webhook-only key is not sufficient. The worker calls Mailgun
+`GET /v4/address/validate` with Basic authentication
 and `provider_lookup=true`. This is a validation request, not a send path.
 Only Mailgun `deliverable` + low risk + non-role + non-disposable results map
 to `Valid`; all other ambiguous results remain `Risky`, `Invalid` or `Unknown`.

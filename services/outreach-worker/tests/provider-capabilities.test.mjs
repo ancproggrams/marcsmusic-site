@@ -330,10 +330,10 @@ test("provider capability configuration is bounded and Plunk sending does not re
       ...validEnvironment(),
       EMAIL_VALIDATION_PROVIDER_ENABLED: "true",
       EMAIL_VALIDATION_PROVIDER_TYPE: "mailgun",
-      MAILGUN_API_KEY: ""
+      MAILGUN_VALIDATION_API_KEY: ""
     }),
     (error) => error instanceof ConfigurationError
-      && error.issues.some(({ path }) => path[0] === "MAILGUN_API_KEY")
+      && error.issues.some(({ path }) => path[0] === "MAILGUN_VALIDATION_API_KEY")
   );
 
   assert.throws(
@@ -453,6 +453,7 @@ function validEnvironment() {
     ESPOCRM_BASE_URL: "https://crm.example.test",
     ESPOCRM_API_KEY: "espo-api-key-for-tests",
     MAILGUN_API_KEY: "mailgun-test-key",
+    MAILGUN_VALIDATION_API_KEY: "mailgun-validation-test-key",
     MAILGUN_DOMAIN: "mail.example.test",
     MAILGUN_FROM: "MarcsMusic <music@example.test>",
     MAILGUN_REPLY_TO: "music@example.test",

@@ -39,8 +39,8 @@ Set these as Railway secrets or service references; never commit values:
 - `ESPOCRM_BASE_URL` and a least-privilege `ESPOCRM_API_KEY`;
 - `PLUNK_BASE_URL`, `PLUNK_SECRET_KEY`, `PLUNK_FROM=MarcsMusic <marc@marcsmusic.nl>` and the shared
   `PLUNK_WEBHOOK_SECRET`;
-- Mailgun EU variables (`MAILGUN_API_KEY`, `MAILGUN_BASE_URL` and
-  `MAILGUN_DOMAIN`) may be used for read-only address validation and/or the
+- Mailgun EU variables (`MAILGUN_VALIDATION_API_KEY` with Email Validation
+  permission, `MAILGUN_BASE_URL` and `MAILGUN_DOMAIN`) may be used for read-only address validation and/or the
   explicitly retained legacy inbound/outcome reconciliation boundary; they are
   never the outbound provider;
 - `EMAIL_VALIDATION_PROVIDER_ENABLED=true` and

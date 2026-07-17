@@ -134,9 +134,11 @@ format, but file parts are rejected.
 - `SOURCE_INGESTION_*`: explicit source allow-list, independent HMAC keys, replay window and artifact-age bound.
 - `EMAIL_VALIDATION_PROVIDER_*`: bounded validation contract. Production may use
   `EMAIL_VALIDATION_PROVIDER_TYPE=mailgun`, which reuses the official
-  `MAILGUN_API_KEY`, `MAILGUN_BASE_URL` and `MAILGUN_DOMAIN` secrets and calls
-  Mailgun's read-only address-validation endpoint. HTTP and SMTP remain explicit
-  alternatives; disabled or unproven health is reported fail-closed.
+  `MAILGUN_VALIDATION_API_KEY`, `MAILGUN_BASE_URL` and `MAILGUN_DOMAIN` secrets
+  and calls Mailgun's read-only address-validation endpoint. The validation key
+  must have Mailgun Email Validation permission; the legacy sending/webhook key
+  is intentionally not reused. HTTP and SMTP remain explicit alternatives;
+  disabled or unproven health is reported fail-closed.
 - `OUTREACH_RETENTION_POLICY_JSON`, `OUTREACH_PRIVACY_*_CONFIRM`: default-disabled, owner-approved privacy policy and explicit one-shot execution gates; see the privacy runbook.
 - `METRICS_TOKEN`: bearer token for operational metrics.
 
