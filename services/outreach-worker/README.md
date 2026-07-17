@@ -170,15 +170,16 @@ PostgreSQL rejects nonce replay, artifact-ID/content collisions and concurrent p
 
 Source and evidence URL, text, and capture timestamp are mandatory. Source URLs are canonicalized before semantic digests and CRM projection: only known tracking parameters are removed and functional query parameters remain. Outlet `subGenres` and `formatGenres`, plus release `subGenres` and ISO alpha-2 `territories`, are independent bounded fields; `formatGenres` is never inferred from main `genres`. Missing or `Other`/unknown language, territory, format, or subgenre values earn zero match points. Even main-genre overlap plus explicit submission and current validation scores only 45, below the default auto-send threshold of 80. DJ Finder may export only explicit music-submission, press, or promotional addresses; booking and management addresses do not become contacts. Music Submission Agent currently contributes outlet/submission-route evidence, not recipient addresses. See [the v1 artifact/v2 authentication producer contract](docs/source-ingestion-v1.md) for exact mappings and Railway variables.
 
-The validation adapter always emits the strict JSON contract `{ "status": "Valid|Invalid|Risky|Unknown", "checkedAt": "ISO timestamp", "providerReference": "..." }`. For Mailgun, only `result=deliverable`, `risk=low`, and non-role/non-disposable responses become `Valid`; `undeliverable`/`do_not_send` become `Invalid`; catch-all, medium/high risk and disposable/role addresses remain `Risky`. Only exact `Valid` creates `Ready for Matching`. Provider disabled, timeout, invalid response, `Risky`, or `Unknown` never becomes an eligibility allow decision.
+The validation adapter always emits the strict JSON contract `{ "status": "Valid|Invalid|Risky|Unknown", "checkedAt": "ISO timestamp", "providerReference": "..." }`. For Mailgun, only `result=deliverable`, `risk=low`, and non-role/non-disposable responses become `Valid`; `undeliverable`/`do_not_send` become `Invalid`; catch-all, medium/high risk and disposable/role addresses remain `Risky`. Only exact `Valid` creates `Ready for Matching`. `Risky`, `Invalid`, and `Unknown` are explicitly marked `never_use`; provider-disabled, timeout, malformed and future/unknown statuses also fail closed and never become an eligibility allow decision.
 
 Historical contacts imported from Mailgun are intentionally quarantined. To
 refresh only their technical address status, queue the explicit
 `run_mailgun_validation_reconcile` maintenance work item once after checking
 the pending-work queue. It scans `MediaContact` records and enqueues
-`validate_contact_email`; that handler updates only `emailValidationStatus`
-and `lastValidatedAt`. It never clears `doNotContact`, opt-out, hard-bounce,
-consent, purpose, basis, evidence, or campaign gates. A Mailgun `Valid` result
+`validate_contact_email`; that handler updates `emailValidationStatus` and
+`lastValidatedAt`, and marks every non-`Valid` result `doNotContact=true`.
+It never clears `doNotContact`, opt-out, hard-bounce, consent, purpose, basis,
+evidence, or campaign gates. A Mailgun `Valid` result
 is therefore a necessary technical prerequisite, not permission to contact a
 person. Outreach requires the existing CRM consent/evidence policy to pass as
 well.

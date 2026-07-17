@@ -15,6 +15,10 @@ import {
   normalizeIdentityText
 } from "../domain/normalization.mjs";
 import {
+  emailValidationAllowsOutreach,
+  emailValidationDisposition
+} from "../domain/email-validation-policy.mjs";
+import {
   normalizeInstagramAccount,
   normalizeLinkedInAccount,
   normalizeSoundCloudAccount
@@ -137,8 +141,9 @@ export function createContactIntakeService({
    *
    * This path is deliberately separate from processContact: historical
    * Mailgun contacts are imported with doNotContact=true and must still be
-   * technically validated, but a validation result may never clear a
-   * suppression, consent, purpose, basis, or evidence gate.
+   * technically validated. Non-Valid outcomes are marked doNotContact=true;
+   * a validation result may never clear a suppression, consent, purpose,
+   * basis, or evidence gate.
    */
   async function validateContactEmail(contactId) {
     return intakeRepository.withEntityFence("MediaContact", contactId, async () => {
@@ -148,8 +153,10 @@ export function createContactIntakeService({
       const validation = email
         ? await validateEmail(email, `mailgun-contact:${contactId}:${revisionDigest}`)
         : Object.freeze({ status: "Unknown", method: "not_present" });
+      const outreachDisposition = emailValidationDisposition(validation.status);
       const payload = compactChanged(input, {
         emailValidationStatus: validation.status,
+        ...(!emailValidationAllowsOutreach(validation.status) ? { doNotContact: true } : {}),
         ...(validation.method === "smtp" ? { smtpValidationStatus: validation.status } : {}),
         ...(validation.checkedAt ? { lastValidatedAt: toEspoDateTime(validation.checkedAt) } : {})
       });
@@ -170,6 +177,7 @@ export function createContactIntakeService({
         validationStatus: validation.status,
         method: validation.method,
         checkedAt: validation.checkedAt,
+        outreachDisposition,
         record: Object.freeze(record),
         outreachEligible: false
       });
@@ -265,7 +273,7 @@ export function createContactIntakeService({
         && outlet?.activityStatus === "Active"
         && !["No Submissions", "Blocked"].includes(outlet?.submissionPolicy)
         && outlet?.acceptsEmail === true;
-      const ready = !denied && Boolean(winner) && validation.status === "Valid" && outletReady;
+      const ready = !denied && Boolean(winner) && emailValidationAllowsOutreach(validation.status) && outletReady;
       const source = winner?.record;
       const identity = directContactIdentity(source ?? canonical, outlet, cryptoBox);
       const payload = compactChanged(canonical, {
@@ -275,7 +283,7 @@ export function createContactIntakeService({
           lastName: source.lastName,
           showName: source.showName,
           role: source.role,
-          emailAddress: validation.status === "Valid" ? normalizeEmail(source.emailAddress) : canonical.emailAddress,
+          emailAddress: emailValidationAllowsOutreach(validation.status) ? normalizeEmail(source.emailAddress) : canonical.emailAddress,
           instagramUrl: identity.instagramUrl,
           linkedinUrl: identity.linkedinUrl,
           soundcloudUrl: identity.soundcloudUrl,
@@ -297,7 +305,11 @@ export function createContactIntakeService({
           : validation.method === "smtp" ? validation.status : "Unknown",
         ...(!denied && validation.checkedAt ? { lastValidatedAt: toEspoDateTime(validation.checkedAt) } : {}),
         status: denied ? "Blocked" : canonical.status === "Inactive" ? "Inactive" : ready ? "Ready for Matching" : "Needs Validation",
-        doNotContact: Boolean(candidates.some(({ doNotContact }) => doNotContact) || suppressed),
+        doNotContact: Boolean(
+          candidates.some(({ doNotContact }) => doNotContact)
+          || suppressed
+          || !emailValidationAllowsOutreach(validation.status)
+        ),
         optedOut: candidates.some(({ optedOut }) => optedOut),
         hardBounced: candidates.some(({ hardBounced }) => hardBounced),
         ...(candidates.some(({ contactPurpose }) => contactPurpose === "Blocked") ? { contactPurpose: "Blocked" } : {}),
@@ -308,7 +320,7 @@ export function createContactIntakeService({
       const acceptedIdentities = identityAliasesToAccept(identities, {
         denied,
         evidenceAllowed: Boolean(winner),
-        emailValid: validation.status === "Valid"
+        emailValid: emailValidationAllowsOutreach(validation.status)
       });
       await intakeRepository.completeIdentityResolution({
         ...resolution.claim,

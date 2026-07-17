@@ -8,6 +8,7 @@ import {
   evaluateOutletEvidence,
   verifyEvidenceAttestation
 } from "./evidence-policy.mjs";
+import { emailValidationAllowsOutreach } from "./email-validation-policy.mjs";
 
 const ALLOWED_CONTACT_PURPOSES = new Set(["Explicit Music Submission", "Promo Contact", "Press Contact"]);
 const ALLOWED_CONTACT_BASES = new Set(["Opt In", "Existing Relationship", "Explicit Submission Address"]);
@@ -39,7 +40,9 @@ export function evaluateEligibility({
   if (genreDenied || intersects(release?.genres, contact.rejectedGenres)) {
     block("release_genre_rejected", "The contact previously rejected at least one canonical release genre.");
   }
-  if (contact.emailValidationStatus !== "Valid") block("email_not_validated", "Email validation status must be Valid.");
+  if (!emailValidationAllowsOutreach(contact.emailValidationStatus)) {
+    block("email_not_validated", "Only an exact Valid email validation status may be used for outreach; Risky, Invalid, Unknown and future statuses are never usable.");
+  }
   if (!ALLOWED_CONTACT_PURPOSES.has(contact.contactPurpose)) block("contact_purpose_not_allowed", `Purpose ${contact.contactPurpose} is not eligible.`);
   if (!ALLOWED_CONTACT_BASES.has(contact.contactBasis)) block("contact_basis_not_allowed", `Contact basis ${contact.contactBasis} is not eligible.`);
   if (!contact.contactSourceUrl) block("source_url_missing", "Evidence source URL is required.");

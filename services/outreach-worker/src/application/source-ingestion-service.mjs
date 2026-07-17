@@ -16,6 +16,7 @@ import {
   outletIdentityDescriptors
 } from "../domain/source-identity.mjs";
 import { normalizeDomain, normalizeEmail } from "../domain/normalization.mjs";
+import { emailValidationAllowsOutreach } from "../domain/email-validation-policy.mjs";
 
 const ENTITY_TYPE = Object.freeze({
   mediaOutlet: "MediaOutlet",
@@ -368,7 +369,7 @@ export function createSourceIngestionService({
         applyValidation = true;
       } else if (!localDenied && !initiallySuppressed && existingEmail !== email && evidenceWins) {
         const checked = await validateEmail(email, `${sourceId}:${artifactId}:${record.externalId}`);
-        if (checked.status === "Valid") {
+        if (emailValidationAllowsOutreach(checked.status)) {
           canonicalEmail = email;
           effectiveValidation = checked;
           applyValidation = true;
@@ -381,7 +382,7 @@ export function createSourceIngestionService({
         const denied = localDenied || suppressed;
         const projectedPurpose = (!existing || evidenceWins) ? record.purpose : existing.contactPurpose;
         const projectedBasis = (!existing || evidenceWins) ? record.basis : existing.contactBasis;
-        const validationReady = effectiveValidation.status === "Valid"
+        const validationReady = emailValidationAllowsOutreach(effectiveValidation.status)
           && canonicalEvidenceVerified
           && isAllowedContactPurpose(projectedPurpose)
           && isAllowedContactBasis(projectedBasis);
@@ -433,6 +434,7 @@ export function createSourceIngestionService({
           });
         }
         payload.status = status;
+        if (!emailValidationAllowsOutreach(effectiveValidation.status)) payload.doNotContact = true;
         if (denied) {
           if (suppressed) payload.doNotContact = true;
           if (existing?.doNotContact) payload.doNotContact = true;
@@ -448,7 +450,7 @@ export function createSourceIngestionService({
         );
         const emailAccepted = evidenceAccepted
           && canonicalEmail === email
-          && effectiveValidation.status === "Valid";
+          && emailValidationAllowsOutreach(effectiveValidation.status);
         const acceptedIdentities = evidenceAccepted
           ? identities.filter(({ type }) => emailAccepted || !["email", "fingerprint"].includes(type))
           : [];
@@ -771,17 +773,17 @@ function existingValidation(existing) {
   return Object.freeze({
     status: existing?.emailValidationStatus ?? "Unknown",
     checkedAt: existing?.lastValidatedAt,
-    method: existing?.smtpValidationStatus === "Valid" ? "smtp" : "http"
+    method: emailValidationAllowsOutreach(existing?.smtpValidationStatus) ? "smtp" : "http"
   });
 }
 
 function preserveValidationWhenDisabled(validation, existing) {
-  if (validation.method !== "disabled" || existing?.emailValidationStatus !== "Valid") return validation;
+  if (validation.method !== "disabled" || !emailValidationAllowsOutreach(existing?.emailValidationStatus)) return validation;
   return Object.freeze({
     ...validation,
     status: "Valid",
     checkedAt: undefined,
-    method: existing.smtpValidationStatus === "Valid" ? "smtp" : "http"
+    method: emailValidationAllowsOutreach(existing.smtpValidationStatus) ? "smtp" : "http"
   });
 }
 

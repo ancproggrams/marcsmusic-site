@@ -241,7 +241,7 @@ The worker sends `POST {"email":"..."}` with bearer authentication and an `idemp
 }
 ```
 
-Only exact `Valid` permits `Ready for Matching`. Disabled provider is a supported but fail-closed state: new contacts remain `Needs Validation` / `Unknown`. A network failure or malformed provider response fails the artifact so the same artifact can be retried idempotently.
+Only exact `Valid` permits `Ready for Matching`. `Risky`, `Invalid`, and `Unknown` are marked `never_use` by default; a future or unrecognized status is also denied. Disabled provider is a supported but fail-closed state: new contacts remain `Needs Validation` / `Unknown`. A network failure or malformed provider response fails the artifact so the same artifact can be retried idempotently.
 
 ### Optional bounded SMTP/MX mode
 

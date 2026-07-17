@@ -69,10 +69,28 @@ test("explicit email validation updates a quarantined contact without clearing o
   assert.equal(result.validationStatus, "Valid");
   assert.equal(result.outreachEligible, false);
   assert.equal(result.record.emailValidationStatus, "Valid");
+  assert.equal(result.outreachDisposition, "usable");
   assert.equal(result.record.doNotContact, true);
   assert.equal(result.record.status, "Blocked");
   assert.equal(fixture.workflow.enqueued.length, 0);
   assert.equal(fixture.validationCalls.length, 1);
+});
+
+test("non-valid email validation is marked never-use and cannot clear later safeguards", async () => {
+  const capturedAt = new Date().toISOString();
+  const fixture = createFixture({
+    outlets: [validOutlet({ capturedAt })],
+    contacts: [validContact({ capturedAt, emailValidationStatus: "Unknown", doNotContact: false })],
+    validation: { status: "Risky", checkedAt: capturedAt, providerReference: "unit-risky-validation", method: "http" }
+  });
+
+  const result = await fixture.service.validateContactEmail("contact-1");
+
+  assert.equal(result.validationStatus, "Risky");
+  assert.equal(result.outreachDisposition, "never_use");
+  assert.equal(result.outreachEligible, false);
+  assert.equal(result.record.emailValidationStatus, "Risky");
+  assert.equal(result.record.doNotContact, true);
 });
 
 test("same-domain outlet duplicates converge on the oldest canonical and no-submissions evidence denies every alias", async () => {
@@ -113,7 +131,7 @@ test("same-domain outlet duplicates converge on the oldest canonical and no-subm
   ));
 });
 
-function createFixture({ outlets, contacts }) {
+function createFixture({ outlets, contacts, validation = {} }) {
   const crm = new MemoryEspo({ MediaOutlet: outlets, MediaContact: contacts });
   const intakeRepository = new MemoryIntakeRepository();
   const workflow = {
@@ -134,7 +152,8 @@ function createFixture({ outlets, contacts }) {
           status: "Valid",
           checkedAt: new Date().toISOString(),
           providerReference: "unit-email-validation",
-          method: "http"
+          method: "http",
+          ...validation
         };
       }
     },

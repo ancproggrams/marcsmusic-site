@@ -85,7 +85,7 @@ export function createEventService({ espocrm, repository, outcomeReconcileReposi
       const permanent = data.severity === "permanent" || String(data["delivery-status"]?.code ?? "").startsWith("5");
       await recordProviderOutcome(queueItem, inbox.external_id, permanent ? "hard_bounce" : "soft_bounce", permanent ? "Hard Bounced" : "Soft Bounced", occurredAt);
       if (permanent) {
-        await suppressContactForQueue(queueItem, "hard_bounce", inbox.external_id, { hardBounced: true, emailValidationStatus: "Invalid" }, occurredAt, source);
+        await suppressContactForQueue(queueItem, "hard_bounce", inbox.external_id, { hardBounced: true, doNotContact: true, emailValidationStatus: "Invalid" }, occurredAt, source);
       } else {
         await stopForSoftBounce(queueItem, inbox.external_id, occurredAt);
       }
@@ -500,7 +500,7 @@ export function createEventService({ espocrm, repository, outcomeReconcileReposi
     if (!isTerminalCampaignStatus(match.campaignStatus)) {
       await updateMatchConditional(match, { campaignStatus: "Stopped", activeSequence: false, stopReason: "soft_bounce" });
     }
-    await updateEntityConditional("MediaContact", contact, { status: "Needs Validation", emailValidationStatus: "Risky" });
+    await updateEntityConditional("MediaContact", contact, { status: "Needs Validation", doNotContact: true, emailValidationStatus: "Risky" });
     await repository.releaseAllocation?.({
       matchId: queueItem.match_id,
       cooldownUntil: addDays(occurredAt, config.policy?.cooldownDays ?? 21),

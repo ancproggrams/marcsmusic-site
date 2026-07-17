@@ -2,6 +2,10 @@ import test from "node:test";
 import assert from "node:assert/strict";
 
 import { evaluateEligibility, isAllowedContactPurpose } from "../src/domain/eligibility-policy.mjs";
+import {
+  EMAIL_VALIDATION_NEVER_USE_STATUSES,
+  emailValidationDisposition
+} from "../src/domain/email-validation-policy.mjs";
 import { evaluateContactEvidence, evaluateOutletEvidence } from "../src/domain/evidence-policy.mjs";
 
 const NOW = new Date("2026-07-15T10:00:00.000Z");
@@ -102,7 +106,11 @@ const gateCases = [
     input.release.genres = ["Indie"];
     input.genreDenied = true;
   }, "release_genre_rejected"],
-  ["unvalidated email", (input) => { input.contact.emailValidationStatus = "Risky"; }, "email_not_validated"],
+  ...EMAIL_VALIDATION_NEVER_USE_STATUSES.map((status) => [
+    `${status} email is never usable`,
+    (input) => { input.contact.emailValidationStatus = status; },
+    "email_not_validated"
+  ]),
   ["unsupported contact purpose", (input) => { input.contact.contactPurpose = "General Contact"; }, "contact_purpose_not_allowed"],
   ["unsupported contact basis", (input) => { input.contact.contactBasis = "Unknown"; }, "contact_basis_not_allowed"],
   ["missing source URL", (input) => delete input.contact.contactSourceUrl, "source_url_missing"],
@@ -120,6 +128,13 @@ const gateCases = [
   ["ended campaign", (input) => { input.release.campaignEndDate = "2026-07-14"; }, "campaign_ended"],
   ["missing listening link", (input) => delete input.release.epkUrl, "release_link_missing"]
 ];
+
+test("email validation disposition is deny-by-default", () => {
+  assert.equal(emailValidationDisposition("Valid"), "usable");
+  for (const status of [...EMAIL_VALIDATION_NEVER_USE_STATUSES, "Pending", "provider-added-status"]) {
+    assert.equal(emailValidationDisposition(status), "never_use");
+  }
+});
 
 for (const [label, mutate, expectedCode] of gateCases) {
   test(`hard gate blocks ${label}`, () => {
