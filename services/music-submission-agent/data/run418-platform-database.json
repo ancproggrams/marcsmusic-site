@@ -1,0 +1,177 @@
+{
+  "run": 418,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1735,
+  "pipelineEstimate": 1736,
+  "newPlatforms": [
+    {
+      "name": "Airhug Radio Conditional Global Independent-Music Submission Form Opportunity",
+      "websiteUrl": "https://airhugradio.com/",
+      "submissionUrl": "https://airhugradio.com/music-submission/",
+      "sourceUrl": "https://airhugradio.com/music-submission/",
+      "sourceType": "automation_run_418_public_research",
+      "country": "United States / global independent internet radio with country-of-origin intake and conditional rights-registration eligibility",
+      "language": "en",
+      "genres": [
+        "internet-radio",
+        "independent-artists",
+        "global-curation",
+        "alternative",
+        "college",
+        "indie-pop",
+        "indie-rock",
+        "electronic",
+        "world",
+        "dedicated-submission-form",
+        "direct-file-upload",
+        "up-to-10-files",
+        "wav-preferred",
+        "lyrics-pdf-required",
+        "isrc-if-applicable",
+        "bpm-required",
+        "pro-registration-required",
+        "soundexchange-registration-required",
+        "explicit-content-disclosure",
+        "clean-version-conditional",
+        "ai-music-prohibited",
+        "rights-and-broadcast-authorization",
+        "promotional-media-consent",
+        "digital-signature-required",
+        "no-visible-payment-requirement",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-four-step-music-submission-form-with-file-upload-rights-authorization-and-digital-signature",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "dedicated first-party public music-submission form",
+        "contactEmail": null,
+        "contactPublication": "No public business email labelled for music submissions was found on the reviewed first-party surfaces. No email address was guessed, inferred or copied from a third-party directory.",
+        "explicitPurpose": "Independent-artist consideration for airplay, educational features or licensing opportunities",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Verify every eligibility prerequisite and the exact master provenance, then reopen, review, digitally sign and submit the official form manually.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submit all responses in English",
+          "artist must be independent under Airhug Radio's stated ownership definition",
+          "music must be registered with a Performing Rights Organization",
+          "artist and music must be registered with SoundExchange",
+          "provide label status, artist name, legal name, email and country of origin",
+          "provide song title and ISRC code if applicable",
+          "provide PRO membership and work ID",
+          "provide SoundExchange registration status and Artist ID",
+          "select the closest genre and provide BPM",
+          "upload song files and lyrics; up to 10 files are accepted",
+          "WAV is preferred and lyrics must be supplied as PDF",
+          "disclose explicit language and attach a clean version when applicable",
+          "provide a short artist biography",
+          "choose whether to participate in an educational interview or artist spotlight",
+          "choose whether to consent to promotional use of artist photo and cover art",
+          "confirm eligibility, authority, ownership and permission for non-interactive broadcast",
+          "agree to linked broadcast terms",
+          "type a full legal-name digital signature and provide date and time",
+          "AI use is strictly prohibited"
+        ],
+        "safeReviewScope": [
+          "confirm that the selected MarcsMusic master contains no AI-generated or AI-assisted material prohibited by Airhug Radio",
+          "confirm current PRO membership and accurate work identifiers",
+          "confirm SoundExchange registration and Artist ID",
+          "verify ownership, licences, samples, collaborators and authority to grant broadcast permission",
+          "inspect the exact WAV or other uploaded master and PDF lyrics",
+          "confirm explicit-content and clean-version information",
+          "review promotional-media consent separately from broadcast consent",
+          "read the linked Live365 broadcaster terms and the current Airhug agreement",
+          "inspect the live form for CAPTCHA, anti-spam, session, login, payment or identity controls",
+          "complete the digital signature and submit manually"
+        ],
+        "unresolvedEligibility": [
+          "whether non-US PRO and royalty-collection registrations satisfy the form in every case",
+          "maximum individual and aggregate upload sizes",
+          "accepted alternatives to WAV",
+          "required sample rate, bit depth and channel configuration",
+          "whether all uploaded tracks must belong to one release",
+          "review timeline and follow-up policy",
+          "territorial and duration scope of promotional-media permission",
+          "precise definition of prohibited AI assistance"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "emailStatus": "no public business email labelled for music submissions identified",
+        "verification": "The reviewed first-party navigation exposed Home, About and Music Submission pages but no plaintext music-submission mailbox. No address was guessed, inferred from staff names or copied from an unauthorised source. The dedicated form remains the only authorised route."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "formFieldsIdentified": [
+          "label status and label name",
+          "artist or band name",
+          "legal name",
+          "email",
+          "country of origin",
+          "song titles",
+          "ISRC codes",
+          "PRO membership and work ID",
+          "SoundExchange registration and Artist ID",
+          "genre",
+          "BPM",
+          "song-file and lyrics upload",
+          "explicit-language and clean-version status",
+          "military or veteran status",
+          "short artist biography",
+          "interview or spotlight interest",
+          "promotional photo and artwork consent",
+          "rights and broadcast agreement",
+          "referral source",
+          "digital signature",
+          "date and time"
+        ],
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The form requires uploaded assets, legal and royalty data, separate consent decisions, rights-bearing affirmations and a digital signature. Any current protected control must be handled by a human.",
+        "adjacentRoutesExcluded": [
+          "staff social profiles",
+          "general social-media direct messages",
+          "unpublished or inferred staff email patterns",
+          "third-party contact directories"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "Airhug Radio's official 2026 site publishes an active submission workflow, current leadership and programming roles, and a global independent-artist mission. Its Live365 station page is active and lists Alternative, College, Indie Pop and Indie Rock formats. The organisation's public updates promoted current rotation and submissions during June and July 2026."
+      },
+      "genreFitEvidence": [
+        "The submission form includes Electronic and World among selectable genres.",
+        "The active Live365 page lists Alternative, College, Indie Pop and Indie Rock.",
+        "Selected MarcsMusic electronic crossover, alternative-leaning, world-fusion or accessible reggae-adjacent material may fit, but the hard AI prohibition and registration prerequisites must be satisfied first."
+      ],
+      "manualReviewReason": "The route is active and exposes no visible fee, login or CAPTCHA, but it requires registration and royalty identifiers, direct asset uploads, explicit-content review, rights and promotional-use consent, a digital signature and strict compliance with a no-AI rule. It is never eligible for unattended submission.",
+      "priority": 58,
+      "pricingModel": "no-visible-fee/first-party-form/conditional-registration/hard-ai-prohibition/digital-signature/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Airhug Radio",
+      "airhugradio.com",
+      "https://airhugradio.com/music-submission/",
+      "Airhug Radio music submission"
+    ],
+    "repositoryEvidence": "The complete accessible pull-request patch and repository search were checked for the station name, domain and canonical submission path. No existing music-submission-agent record was found before creation.",
+    "consolidation": "The dedicated four-step form is stored once as the canonical route. Staff social profiles, direct messages, inferred email addresses and third-party directories are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new Airhug Radio opportunity was queued as needs_manual_review. No form, agreement, signature or asset action was performed."
+}
