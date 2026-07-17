@@ -1,0 +1,2 @@
+run,platform,submission_url,status,manual_review_reason
+463,IndieMusicFans Worldwide Free Rock Radio Submission Form,https://indiemusicfans.com/contact,needs_manual_review,"The route is active, worldwide-facing and free, but the embedded form was not passively field-inspected. A human must verify all fields, audio-upload limits, CAPTCHA/login, privacy and streaming-permission terms; assess the AI disclosure policy and rights status; select a suitable track; and complete the form manually."
