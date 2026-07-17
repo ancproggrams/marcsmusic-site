@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Audiotool Free Produce Publish and Community Music Route","https://www.audiotool.com/","inspected","[object Object]","false","false","false","false","true","run158-platform-database.json","2026-07-17T17:19:11.276Z"
+"DI.FM Electronic Radio Channel Discovery Route","https://www.di.fm/submissions","error","","false","false","false","false","true","run351-platform-database.json","2026-07-17T17:19:24.369Z"
+"Edge Radio 99.3FM Hobart Submit Your Music","https://www.edgeradio.org.au/submit-your-music/","inspected","[object Object]","true","false","false","false","true","run43-platform-database.json","2026-07-17T17:19:41.197Z"
+"Songtradr Music Licensing Marketplace","https://www.songtradr.com/","inspected","[object Object]","false","false","true","false","true","run65-platform-database.json","2026-07-17T17:19:56.324Z"

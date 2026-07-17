@@ -1,0 +1,328 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T17:21:15.927Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 27,
+      "count": 64,
+      "offset": 6
+    },
+    "totalUniqueHttpPortalsDiscovered": 645,
+    "testedInThisShard": 4,
+    "inspected": 4,
+    "errors": 0,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 1,
+    "paymentObserved": 0,
+    "formObserved": 4,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "KCRW Music Airplay Recording Consideration Route",
+      "url": "https://www.kcrw.com/contact",
+      "sourceFile": "run90-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:20:24.097Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.kcrw.com/pages/contact"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Contact Us | KCRW"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"cbc30f6af1ae1e5214800e928a838af1\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"e5babecd55a8fd18315c51be32c2ad1b\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"[Logger] Configuration initialized:\"},{\"className\":\"Object\",\"description\":\"Object\",\"objectId\":\"7735899412729016127.2.1\",\"preview\":{\"description\":\"Object\",\"overflow\":true,\"properties\":[{\"name\":\"globalLevel\",\"type\":\"string\",\"value\":\"INFO\"},{\"name\":\"enabledComponents\",\"subtype\":\"array\",\"type\":\"object\",\"value\":\"Array(0)\"},{\"name\":\"disabledComponents\",\"subtype\":\"array\",\"type\":\"object\",\"value\":\"Array(0)\"},{\"name\":\"ENABLE_LOGGING\",\"type\":\"undefined\",\"value\":\"undefined\"},{\"name\":\"ENABLED_LOG_COMPONENTS\",\"type\":\"undefined\",\"value\":\"undefined\"}],\"type\":\"object\"},\"type\":\"object\"}],\"text\":\"[Logger] Configuration initialized: {globalLevel: \\\"INFO\\\", enabledComponents: Array(0), disabledComponents: Array(0), ENABLE_LOGGING: undefined, ENABLED_LOG_COMPONENTS: undefined, ...}\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[Logger] useAdsWizz disabled by default (no explicit configuration)\"}],\"text\":\"[Logger] useAdsWizz disabled by default (no explicit configuration)\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[Logger] AudioPlayer disabled by default (no explicit configuration)\"}],\"text\":\"[Logger] AudioPlayer disabled by default (no explicit configuration)\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[Logger] livePlayback disabled by default (no explicit configuration)\"}],\"text\":\"[Logger] livePlayback disabled by default (no explicit configuration)\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[GPT] PubAdsService.setTargeting is deprecated, use googletag.setConfig({targeting: ...}) instead.\\nhttps://goo.gle/gpt-message#170\"}],\"text\":\"[GPT] PubAdsService.setTargeting is deprecated, use …",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"2c4f798e203ae78f077d4fed359511f6\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "KCRW Local Regional Touring Artist Airplay Recording Submission Route",
+      "url": "https://www.kcrw.com/music",
+      "sourceFile": "run147-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:20:39.650Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.kcrw.com/music"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Music | KCRW"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"5762873840f1ea752dcb336dc1a00b30\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"ab3c8066d3728171a453a473af5ee3d8\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"[Logger] Configuration initialized:\"},{\"className\":\"Object\",\"description\":\"Object\",\"objectId\":\"1827947563252574389.2.1\",\"preview\":{\"description\":\"Object\",\"overflow\":true,\"properties\":[{\"name\":\"globalLevel\",\"type\":\"string\",\"value\":\"INFO\"},{\"name\":\"enabledComponents\",\"subtype\":\"array\",\"type\":\"object\",\"value\":\"Array(0)\"},{\"name\":\"disabledComponents\",\"subtype\":\"array\",\"type\":\"object\",\"value\":\"Array(0)\"},{\"name\":\"ENABLE_LOGGING\",\"type\":\"undefined\",\"value\":\"undefined\"},{\"name\":\"ENABLED_LOG_COMPONENTS\",\"type\":\"undefined\",\"value\":\"undefined\"}],\"type\":\"object\"},\"type\":\"object\"}],\"text\":\"[Logger] Configuration initialized: {globalLevel: \\\"INFO\\\", enabledComponents: Array(0), disabledComponents: Array(0), ENABLE_LOGGING: undefined, ENABLED_LOG_COMPONENTS: undefined, ...}\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[Logger] useAdsWizz disabled by default (no explicit configuration)\"}],\"text\":\"[Logger] useAdsWizz disabled by default (no explicit configuration)\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[Logger] AudioPlayer disabled by default (no explicit configuration)\"}],\"text\":\"[Logger] AudioPlayer disabled by default (no explicit configuration)\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[Logger] livePlayback disabled by default (no explicit configuration)\"}],\"text\":\"[Logger] livePlayback disabled by default (no explicit configuration)\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[GPT] PubAdsService.setTargeting is deprecated, use googletag.setConfig({targeting: ...}) instead.\\nhttps://goo.gle/gpt-message#170\"}],\"text\":\"[GPT] PubAdsService.setTargeting is deprecated, use …",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"12bc8cba5d5a3833667d80b7b99909f4\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "KCSB Santa Barbara Music Director All Formats Artist Inquiry Route",
+      "url": "https://www.kcsb.org/contact/",
+      "sourceFile": "run173-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:21:00.264Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.kcsb.org/contact/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "contact - KCSB-FM"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"9debbf820ad4c6959cb2aa2300ddc234\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"9a7adc1caa5d92a626d011d552c26e04\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"JQMIGRATE: Migrate is installed, version 3.4.1\"}],\"text\":\"JQMIGRATE: Migrate is installed, version 3.4.1\",\"type\":\"log\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"9ee4156fa355d22925e4e978103a0d4f\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "Radio Airplay Jango Independent Artist Upload and Airplay Route",
+      "url": "https://www.radioairplay.com/",
+      "sourceFile": "run21-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": null,
+      "priorCaptchaDetected": null,
+      "priorPaymentRequired": null,
+      "testedAt": "2026-07-17T17:21:15.926Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.radioairplay.com/music+promotion/guaranteed_airplay"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Music Promotion | Radio Airplay"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": true,
+        "submitControlObserved": true,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": null,
+        "captchaDetected": null,
+        "paymentRequired": null
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"97b41187d3d14c7aa971b4b1f5a483e2\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"d5325e91061de11e4a920a03c7081001\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"ef10977d9167d53fa4d8587ed2ad551d\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}

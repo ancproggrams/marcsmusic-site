@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Black Hole Recordings Official Private-Link Demo Submission Route","https://www.blackholerecordings.com/about-us","error","","false","false","false","false","true","run291-platform-database.json","2026-07-17T17:22:48.923Z"
+"LANDR Studio Distribution Mastering Promotion Artist Upload Route","https://www.landr.com/","inspected","[object Object]","true","false","true","true","true","run222-platform-database.json","2026-07-17T17:23:04.338Z"
+"Obscure Sound SubmitHub MusoSoup Indie Electronic Blog Submission Route","https://www.obscuresound.com/contact-submissions/","inspected","[object Object]","true","false","false","false","true","run174-platform-database.json","2026-07-17T17:23:21.020Z"
+"WXPN Airplay and Local Show Music Submission Route","https://xpn.org/contact/","inspected","[object Object]","false","false","false","false","true","run23-platform-database.json","2026-07-17T17:23:39.400Z"

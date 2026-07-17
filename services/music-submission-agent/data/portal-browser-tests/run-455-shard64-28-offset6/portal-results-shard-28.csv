@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Broadjam Song Placement Licensing Contest and Radio Submission Route","https://www.broadjam.com/","inspected","[object Object]","false","false","false","false","true","run120-platform-database.json","2026-07-17T17:21:39.105Z"
+"International Songwriting Competition Unsigned Only Category Entry Route","https://www.songwritingcompetition.com/enter","inspected","[object Object]","true","false","false","false","true","run236-platform-database.json","2026-07-17T17:21:54.811Z"
+"Sonicbids Artist Gig and EPK Opportunity Submissions","https://www.sonicbids.com/find-gigs/","inspected","[object Object]","false","false","true","false","true","run82-platform-database.json","2026-07-17T17:22:10.690Z"
+"Stereofox SubmitHub Groover Curated Music Blog Playlist Route","https://www.submithub.com/blog/stereofox?c=fox10","inspected","[object Object]","true","false","false","false","true","run170-platform-database.json","2026-07-17T17:22:25.715Z"
