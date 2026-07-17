@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run467SeedPlatforms } from './run467PlatformSeeds.js';
 
 export const run466SeedPlatforms: PlatformInput[] = [
   {
@@ -39,5 +40,6 @@ export const run466SeedPlatforms: PlatformInput[] = [
       'The authorized route is a public music-submission email mailbox, so a human must choose a format-compatible clean track, verify file metadata and all master/composition/sample/contributor rights, confirm AI-assisted-music and international eligibility, approve the final message and attachment, and keep optional paid promotional packages outside the free editorial-review workflow.',
     notes:
       'Verified on 2026-07-18 from MOCRadio first-party submission, home, advertising and program/music-director pages, with recent 2026 MOCRadio podcast activity used as supporting activity evidence. The official route asks artists to email mp3@mocradio.com with a radio/clean MP3, Artist - Song Title naming/tags and Twitter information. MOCRadio publishes R&B, Hip-Hop, House, EDM, Indie Music and Reggae programming, including a Sunday Music Discovery Radio slot for unsigned/indie artists. The standard review route has no published fee; optional guaranteed-exposure promotional packages are separate. No email was sent, no attachment was uploaded, no login was used, no CAPTCHA was solved and no payment or submission action was performed.'
-  }
+  },
+  ...run467SeedPlatforms
 ];
