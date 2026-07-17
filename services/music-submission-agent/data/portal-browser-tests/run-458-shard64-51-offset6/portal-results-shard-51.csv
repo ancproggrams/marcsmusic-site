@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Barong Family Protected Public Demo Email Route","https://www.barongfamily.com/","inspected","[object Object]","false","false","false","false","true","run310-platform-database.json","2026-07-17T17:47:16.469Z"
+"CFRU 93.3FM Guelph Music Department Submissions","https://www.cfru.ca/music/","error","","false","false","false","false","true","run50-platform-database.json","2026-07-17T17:47:29.558Z"
+"FatDrop Digital Promo System DJ Tastemaker Route","https://www.fatdrop.co.uk/","inspected","[object Object]","false","false","true","false","true","run258-platform-database.json","2026-07-17T17:47:46.275Z"
+"Stereofox Editorial Music Submission Route","https://www.stereofox.com/submit/","inspected","[object Object]","true","false","true","false","true","run264-platform-database.json","2026-07-17T17:48:01.653Z"

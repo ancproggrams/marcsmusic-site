@@ -1,0 +1,265 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T17:48:01.654Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 51,
+      "count": 64,
+      "offset": 6
+    },
+    "totalUniqueHttpPortalsDiscovered": 645,
+    "testedInThisShard": 4,
+    "inspected": 3,
+    "errors": 1,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 2,
+    "paymentObserved": 0,
+    "formObserved": 1,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "Barong Family Protected Public Demo Email Route",
+      "url": "https://www.barongfamily.com/",
+      "sourceFile": "run310-platform-database.json",
+      "priorStatus": null,
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:47:16.469Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://barongfamily.com/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Barong Family"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"ff34abab235b79077d0758055634f4ef\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"1b8a97f1e748122c6654c16d7e7ad040\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"%c🎵 Barong Family\"},{\"type\":\"string\",\"value\":\"font-size: 20px; font-weight: bold; color: #e55b01;\"}],\"text\":\"%c🎵 Barong Family font-size: 20px; font-weight: bold; color: #e55b01;\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"SW registration failed:\"},{\"className\":\"DOMException\",\"description\":\"SecurityError: Failed to register a ServiceWorker for scope ('https://barongfamily.com/') with script ('https://barongfamily.com/sw.js'): The script has an unsupported MIME type ('text/html').\",\"objectId\":\"1613441102734055549.2.1\",\"preview\":{\"description\":\"SecurityError: Failed to register a ServiceWorker for scope ('https://barongfamily.com/') with script ('https://barongfamily.com/sw.js'): The script has an unsupported MIME type ('text/html').\",\"overflow\":false,\"properties\":[{\"name\":\"code\",\"type\":\"number\",\"value\":\"18\"},{\"name\":\"name\",\"type\":\"string\",\"value\":\"SecurityError\"},{\"name\":\"message\",\"type\":\"string\",\"value\":\"Failed to register a ServiceWorker for scope ('htt…cript has an unsupported MIME type ('text/html').\"}],\"subtype\":\"error\",\"type\":\"object\"},\"subtype\":\"error\",\"type\":\"object\"}],\"text\":\"SW registration failed: {code: 18, name: \\\"SecurityError\\\", message: \\\"Failed to register a ServiceWorker for scope ('htt…cript has an unsupported MIME type ('text/html').\\\"}\",\"type\":\"log\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"8a3d573f1a4f06e33611e4c2c76b51db\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "CFRU 93.3FM Guelph Music Department Submissions",
+      "url": "https://www.cfru.ca/music/",
+      "sourceFile": "run50-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:47:29.558Z",
+      "status": "error",
+      "needsManualReview": true,
+      "error": "/opt/homebrew/bin/agent-browser exited null: "
+    },
+    {
+      "name": "FatDrop Digital Promo System DJ Tastemaker Route",
+      "url": "https://www.fatdrop.co.uk/",
+      "sourceFile": "run258-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": true,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": true,
+      "testedAt": "2026-07-17T17:47:46.275Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.fatdrop.co.uk/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "FATdrop"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": true,
+        "captchaDetected": false,
+        "paymentRequired": true
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"5b4417f11951aac76f5cac9945a0256b\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"27a1b143388002794c228042bff41509\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"fd.url init\"}],\"text\":\"fd.url init\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"mode production\"}],\"text\":\"mode production\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"FATDROP_DEBUG\"},{\"type\":\"undefined\"}],\"text\":\"FATDROP_DEBUG undefined\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"setting\"},{\"type\":\"string\",\"value\":\"recipientId\"},{\"subtype\":\"null\",\"type\":\"object\",\"value\":null}],\"text\":\"setting recipientId null\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"TheBigVue\"},{\"className\":\"Object\",\"description\":\"Object\",\"objectId\":\"8344786726813406119.2.1\",\"preview\":{\"description\":\"Object\",\"overflow\":false,\"properties\":[{\"name\":\"store\",\"type\":\"object\",\"value\":\"Object\"},{\"name\":\"vue\",\"type\":\"object\",\"value\":\"Object\"},{\"name\":\"bootstrap_store_commits\",\"subtype\":\"array\",\"type\":\"object\",\"value\":\"Array(0)\"}],\"type\":\"object\"},\"type\":\"object\"},{\"className\":\"Vue\",\"description\":\"Vue\",\"objectId\":\"8344786726813406119.2.2\",\"preview\":{\"description\":\"Vue\",\"overflow\":true,\"properties\":[{\"name\":\"_uid\",\"type\":\"number\",\"value\":\"5\"},{\"name\":\"_isVue\",\"type\":\"boolean\",\"value\":\"true\"},{\"name\":\"__v_skip\",\"type\":\"boolean\",\"value\":\"true\"},{\"name\":\"_scope\",\"type\":\"object\",\"value\":\"EffectScope\"},{\"name\":\"$options\",\"type\":\"object\",\"value\":\"Object\"}],\"type\":\"object\"},\"type\":\"object\"},{\"className\":\"Store\",\"description\":\"Store\",\"objectId\":\"8344786726813406119.2.3\",\"preview\":{\"description\":\"Store\",\"overflow\":true,\"properties\":[{\"name\":\"_committing\",\"type\":\"boolean\",\"value\":\"false\"},{\"name\":\"_actions\",\"type\":\"object\",\"value\":\"Object\"},{\"name\":\"_actionSubscribers\",\"subtype\":\"array\",\"type\":\"object\",\"value\":\"Ar…",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"080e8c8177c8633e55713ca3874ddbad\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "Stereofox Editorial Music Submission Route",
+      "url": "https://www.stereofox.com/submit/",
+      "sourceFile": "run264-platform-database.json",
+      "priorStatus": null,
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:48:01.653Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.stereofox.com/submit/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": ""
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": false,
+        "submitControlObserved": true,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"75727858cea0b5426d9fdd761681b663\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"ca699d128144f9e5c66c569249709221\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"Initializing player\"},{\"type\":\"string\",\"value\":\"1122\"}],\"text\":\"Initializing player 1122\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"Hotjar not launching due to suspicious userAgent:\"},{\"type\":\"string\",\"value\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36\"}],\"text\":\"Hotjar not launching due to suspicious userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36\",\"type\":\"warning\"},{\"args\":[{\"type\":\"string\",\"value\":\"Amplitude Logger [Error]: Invalid API key: bfb4c032f98a3ccec2c4e6a1bc01bc72\"}],\"text\":\"Amplitude Logger [Error]: Invalid API key: bfb4c032f98a3ccec2c4e6a1bc01bc72\",\"type\":\"error\"},{\"args\":[{\"type\":\"string\",\"value\":\"Amplitude Logger [Error]: Invalid API key: bfb4c032f98a3ccec2c4e6a1bc01bc72\"}],\"text\":\"Amplitude Logger [Error]: Invalid API key: bfb4c032f98a3ccec2c4e6a1bc01bc72\",\"type\":\"error\"},{\"args\":[{\"type\":\"string\",\"value\":\"Amplitude Logger [Error]: Invalid API key: bfb4c032f98a3ccec2c4e6a1bc01bc72\"}],\"text\":\"Amplitude Logger [Error]: Invalid API key: bfb4c032f98a3ccec2c4e6a1bc01bc72\",\"type\":\"error\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"e8fcfa9f5fcdf92adb67ef6cb5b3a014\",\"origin\":\"unknown\"},\"data\":{\"errors\":[{\"column\":0,\"line\":0,\"text\":\"ReferenceError: fbq is not defined\\n    at <anonymous>:1:1\\n    at https://www.googletagmanager.com/gtm.js?id=GTM-XLLN:764:429\\n    at oS (https://www.googletagmanager.com/gtm.js?id=GTM-XLLN:766:31)\\n    at Ld.nS (https://www.googletagmanager.com/gtm.js?id=GTM-XLLN:763:95)\\n    at Ld.<anonymous> (https://www.googletagmanager.com/gtm.js?id=GTM-XLLN:291:187)\\n    at k.apply (https://www.googletagmanager.com/gtm.js?id=GTM-XLLN:213:465)\\n    at hb (https://www.googletagmanager.com/gtm.js?id=GTM-XLLN:176:711)\\n    at gb (https://www.googletagmanager.com/gtm.js?id=GTM-XLLN:176:462)\\n    at Ld.<anonymous> (https://www.googletagmanager.com/gtm.js?id=GTM-XLLN:237:473)\\n    at k.apply (https://www.googletagmanager.com/gtm.js?id=GTM-XLLN:213:465)\",\"url\":null},{\"column\":511,\"line\":53,\"text\":\"Uncaught TypeError: Promise.allSettled is not a function\",\"url\":null}],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}

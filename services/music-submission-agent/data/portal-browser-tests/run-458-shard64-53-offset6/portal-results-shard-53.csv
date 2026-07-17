@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"SoundCloud Creator Upload and Artist Discovery Route","https://soundcloud.com/for-artists","inspected","[object Object]","false","false","true","true","true","run20-platform-database.json","2026-07-17T17:48:29.321Z"
+"FBi Radio Sydney Music Submissions","https://www.fbi.radio/contact","inspected","[object Object]","true","false","false","false","true","run42-platform-database.json","2026-07-17T17:48:47.558Z"
+"KDUR 91.9/93.9 Public General Email Pre-Submission Inquiry Route","https://www.kdur.org/","inspected","[object Object]","true","false","true","true","true","run279-platform-database.json","2026-07-17T17:49:05.411Z"
+"Mesmerized Editorial Platforms and Supported Content Route","https://www.mesmerized.io/music-pitches/","inspected","[object Object]","false","false","false","false","true","run304-platform-database.json","2026-07-17T17:49:22.880Z"

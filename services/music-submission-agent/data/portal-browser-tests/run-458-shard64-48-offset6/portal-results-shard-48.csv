@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Last Day Deaf Submit Your Music Route","https://lastdaydeaf.com/submit-your-music/","inspected","[object Object]","false","false","false","false","true","run264-platform-database.json","2026-07-17T17:45:16.045Z"
+"Radio K KUOM Official Linked Music Submission Route","https://radiok.umn.edu/submitting-music","inspected","[object Object]","false","false","false","false","true","run357-platform-database.json","2026-07-17T17:45:30.781Z"
+"WCBN-FM Ann Arbor Music Hard-Copy Submissions","https://wcbn.org/contact/","error","","false","false","false","false","true","run49-platform-database.json","2026-07-17T17:45:43.868Z"
+"BandLab Creator Publishing and Distribution Route","https://www.bandlab.com/distribution","inspected","[object Object]","true","false","true","true","true","run108-platform-database.json","2026-07-17T17:45:58.972Z"
