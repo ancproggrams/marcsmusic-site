@@ -1,0 +1,151 @@
+{
+  "run": 462,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1748,
+  "pipelineEstimate": 1749,
+  "newPlatforms": [
+    {
+      "name": "JAM Audio Live Worldwide Independent Artist Google Form Submission Route",
+      "websiteUrl": "https://jamaudio.live/",
+      "submissionUrl": "https://jamaudio.live/artist-submissions",
+      "formUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfXuI50gVuW34PspgEayoaAl5Op9Fi3_gdc1W0IeNsmWhR8YA/viewform?usp=header",
+      "sourceUrl": "https://jamaudio.live/artist-submissions",
+      "sourceType": "automation_run_462_public_research",
+      "country": "Worldwide; JAM Audio Live states that artists from around the world are already spinning in its 24/7 independent-music rotation.",
+      "language": "en",
+      "genres": [
+        "independent-music",
+        "underground-radio",
+        "electronic",
+        "dnb",
+        "pop",
+        "rock",
+        "alternative",
+        "hip-hop",
+        "rap",
+        "r-and-b",
+        "metal",
+        "indie",
+        "experimental",
+        "singer-songwriter",
+        "all-genres",
+        "worldwide",
+        "free-first",
+        "manual-review"
+      ],
+      "submissionMethod": "official first-party submission landing page linking to an external Google Form for human-reviewed radio rotation and features",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission page with external Google Form",
+        "formLocation": "https://docs.google.com/forms/d/e/1FAIpQLSfXuI50gVuW34PspgEayoaAl5Op9Fi3_gdc1W0IeNsmWhR8YA/viewform?usp=header",
+        "email": null,
+        "explicitPurpose": "Submit independent music for possible live rotation, artist spotlights, charts, promotion, interviews and future broadcasts.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the official landing page, inspect the current Google Form manually without bypassing any control, confirm eligibility and rights, choose one working MarcsMusic track link, complete only approved fields and submit only after explicit owner approval.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "internationalAcceptanceEvidence": "The first-party homepage states that artists from around the world are already spinning live, and current spotlight pages include artists from Brazil, Croatia and Glasgow.",
+        "standardRouteFeePublished": false,
+        "optionalPaidServicesPublished": true,
+        "optionalPaidServicesEvidence": "The homepage separately advertises an optional premium artist spotlight for $50; the standard artist-submission page does not present that purchase as a prerequisite."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submit as an independent artist, band, producer, songwriter or creator",
+          "provide a working Spotify, Apple Music, SoundCloud, YouTube, Bandcamp, Dropbox, Google Drive or direct music link",
+          "include a short artist bio",
+          "state where the artist is from",
+          "explain what the song is about and why listeners should care",
+          "mark explicit lyrics clearly",
+          "have permission to submit the music"
+        ],
+        "formFieldsObserved": [],
+        "safeReviewScope": [
+          "open the Google Form manually from the first-party landing page",
+          "verify whether Google sign-in, CAPTCHA or email collection is required",
+          "identify all required fields, file uploads and accepted file types",
+          "check consent, privacy, promotional-use and broadcast-rights declarations",
+          "confirm there is no standard submission payment requirement",
+          "verify the current policy for AI-assisted or AI-generated music",
+          "confirm the working-link accessibility and download permissions",
+          "select one MarcsMusic track suited to electronic, DnB, pop, alternative or experimental rotation",
+          "submit manually only after owner approval"
+        ],
+        "unresolvedEligibility": [
+          "Google account or sign-in requirement",
+          "CAPTCHA or other human-verification requirement",
+          "whether the form collects or exposes the submitter email",
+          "all required form fields and any upload controls",
+          "broadcast, promotional-media and platform-use consent language",
+          "track-count and release-recency limits",
+          "clean-edit expectations beyond explicit-lyrics disclosure",
+          "AI-assisted and AI-generated music policy",
+          "review and follow-up timing"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "adjacentEmailsExcluded": [],
+        "emailStatus": "No public submission or business email was found on the first-party submission, homepage or about pages reviewed. The canonical authorized route is the linked Google Form. No protected or obfuscated address was decoded or inferred.",
+        "verification": "Email verification was limited to first-party publication and context. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "externalFormProvider": "Google Forms",
+        "externalFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSfXuI50gVuW34PspgEayoaAl5Op9Fi3_gdc1W0IeNsmWhR8YA/viewform?usp=header",
+        "multiStepForm": null,
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible on the first-party landing page; the external Google Form could not be fetched and remains unverified.",
+        "loginObserved": false,
+        "loginStatus": "No login was visible on the first-party landing page; any Google sign-in requirement remains unknown.",
+        "paymentObserved": false,
+        "paymentStatus": "No payment was shown as part of the standard submission route. A separate optional $50 premium spotlight is advertised elsewhere.",
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The external form must be inspected by a human for sign-in, CAPTCHA, upload, consent, privacy, rights, AI-policy and fee boundaries before use.",
+        "rightsOrConsentFields": [
+          "landing page instructs submitters to make sure they have permission to submit the music"
+        ],
+        "adjacentRoutesExcluded": [
+          "optional $50 premium spotlight purchase",
+          "artist-services purchases",
+          "Discord collaboration network",
+          "social-media direct messages"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "The current first-party homepage exposes a live 24/7 stream, real-time rotation surfaces, weekly artist battles and current 2026 artist spotlights. Recent pages show artists added to rotation in May and June 2026, including international artists."
+      },
+      "genreFitEvidence": [
+        "The first-party submission page explicitly welcomes electronic, DnB, pop, alternative, indie and experimental music among other genres.",
+        "JAM Audio Live states that all genres are welcome and that submissions are human reviewed.",
+        "MarcsMusic electronic, bass, pop, reggae-fusion or experimental tracks may fit, subject to a human check of the exact track and rights status."
+      ],
+      "manualReviewReason": "The route is active, worldwide-facing and free-first, but the canonical submission action occurs in an external Google Form that was not accessible for passive field inspection in this runtime. Login, CAPTCHA, email collection, upload, consent, privacy, broadcast-rights, AI-origin and fee boundaries remain unverified. A human must inspect the form, confirm ownership and permission, select the track and complete any submission.",
+      "priority": 90,
+      "pricingModel": "free-first/public-first-party-landing/external-google-form/working-streaming-link/human-reviewed/worldwide/optional-premium-spotlight/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "JAM Audio Live",
+      "jamaudio.live",
+      "jamaudio.live/artist-submissions",
+      "1FAIpQLSfXuI50gVuW34PspgEayoaAl5Op9Fi3_gdc1W0IeNsmWhR8YA",
+      "JAM Audio Live Worldwide Independent Artist Google Form Submission Route"
+    ],
+    "repositoryEvidence": "Repository code searches for the platform name, canonical domain, submission path and Google Form ID returned no match before creation.",
+    "consolidation": "The first-party landing page and linked Google Form are stored as one canonical opportunity. The optional premium spotlight, artist-services purchases, Discord network and social channels are excluded as separate submission routes."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One JAM Audio Live opportunity was queued as needs_manual_review. No form was filled, no Google account was used, and no email, upload, consent, CAPTCHA, payment or submission action was completed."
+}
