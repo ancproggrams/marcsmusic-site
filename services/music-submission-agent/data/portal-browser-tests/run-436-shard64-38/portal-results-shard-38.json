@@ -1,0 +1,175 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T15:30:03.832Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 38,
+      "count": 64
+    },
+    "totalUniqueHttpPortalsDiscovered": 644,
+    "testedInThisShard": 2,
+    "inspected": 2,
+    "errors": 0,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 2,
+    "paymentObserved": 0,
+    "formObserved": 0,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "BFF.fm Bay Area Bands Google Form Digital Airplay Submission Route",
+      "url": "https://bff.fm/bands",
+      "sourceFile": "run226-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T15:29:49.738Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://bff.fm/bands"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Bay Area Bands: Become Part of the BFF.fm Community! — BFF.fm"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": true,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"be647477af62477c25329fda5a19b2d2\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"066a9be6fdc9d3c94e9e8f84ccce7da2\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"Server Info\"}],\"text\":\"Server Info\",\"type\":\"info\"},{\"args\":[{\"type\":\"string\",\"value\":\"🚦 You're viewing BFF.fm on prod\"}],\"text\":\"🚦 You're viewing BFF.fm on prod\",\"type\":\"info\"},{\"args\":[{\"type\":\"string\",\"value\":\"🕝 20251230045052\"}],\"text\":\"🕝 20251230045052\",\"type\":\"info\"},{\"args\":[{\"type\":\"string\",\"value\":\"🔀 trunk\"}],\"text\":\"🔀 trunk\",\"type\":\"info\"},{\"args\":[{\"type\":\"string\",\"value\":\"#️⃣ 7a757319b28548180749b89c120fbdbca456069a\"}],\"text\":\"#️⃣ 7a757319b28548180749b89c120fbdbca456069a\",\"type\":\"info\"},{\"args\":[{\"type\":\"string\",\"value\":\"Theme Info\"}],\"text\":\"Theme Info\",\"type\":\"info\"},{\"args\":[{\"type\":\"string\",\"value\":\"❄️ v7.12.0\"}],\"text\":\"❄️ v7.12.0\",\"type\":\"info\"},{\"args\":[{\"type\":\"string\",\"value\":\"#️⃣ f4de4dfb68a12269a6ebc565d30213094cdab275\"}],\"text\":\"#️⃣ f4de4dfb68a12269a6ebc565d30213094cdab275\",\"type\":\"info\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"2fd116b6245661ac9d7fe69ab7a597f1\",\"origin\":\"unknown\"},\"data\":{\"errors\":[{\"column\":28780,\"line\":1,\"text\":\"Uncaught (in promise) TypeError: Failed to fetch\",\"url\":null}],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "SXSW 2027 Music Festival Showcase Application",
+      "url": "https://cart.sxsw.com/products/music-festival-showcase",
+      "sourceFile": "run38-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": true,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": true,
+      "testedAt": "2026-07-17T15:30:03.831Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://cart.sxsw.com/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "SXSW Cart"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": true,
+        "captchaDetected": false,
+        "paymentRequired": true
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"adf6d060d9b1dfbe993200ebae33a195\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"5b7bb83c15b5bdf47927a8fd4f65896d\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"viewProductList\"},{\"className\":\"Array\",\"description\":\"Array(2)\",\"objectId\":\"494518595969124766.2.1\",\"preview\":{\"description\":\"Array(2)\",\"overflow\":false,\"properties\":[{\"name\":\"0\",\"type\":\"object\",\"value\":\"Object\"},{\"name\":\"1\",\"type\":\"object\",\"value\":\"Object\"}],\"subtype\":\"array\",\"type\":\"object\"},\"subtype\":\"array\",\"type\":\"object\"}],\"text\":\"viewProductList [Object, Object]\",\"type\":\"debug\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"dacbc03b0a42f87b43f91ed02ea5fe04\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}

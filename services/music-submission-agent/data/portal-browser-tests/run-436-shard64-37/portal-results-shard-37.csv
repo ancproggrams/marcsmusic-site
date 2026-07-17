@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Artlist Artist Music Licensing Application Route","https://artlist.io/artists","inspected","[object Object]","false","false","false","false","true","run257-platform-database.json","2026-07-17T15:29:48.749Z"
+"ccMixter Creative Commons Upload and Remix Community","https://ccmixter.org/","inspected","[object Object]","false","false","true","false","true","run38-platform-database.json","2026-07-17T15:30:02.317Z"

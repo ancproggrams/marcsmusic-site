@@ -1,0 +1,175 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T15:30:04.693Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 36,
+      "count": 64
+    },
+    "totalUniqueHttpPortalsDiscovered": 644,
+    "testedInThisShard": 2,
+    "inspected": 2,
+    "errors": 0,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 1,
+    "paymentObserved": 0,
+    "formObserved": 1,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "Gravitas Recordings Unreleased Private SoundCloud Demo Form Route",
+      "url": "https://gravitasrecordings.com/demos/",
+      "sourceFile": "run288-platform-database.json",
+      "priorStatus": null,
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T15:29:52.017Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://gravitasrecordings.com/demos/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Demos | Gravitas Recordings"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": false,
+        "submitControlObserved": true,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"ed08af84a07580e6297fd924d604b080\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"fb3f98b405080eb8e327349bf33455cf\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"JQMIGRATE: Migrate is installed, version 3.4.1\"}],\"text\":\"JQMIGRATE: Migrate is installed, version 3.4.1\",\"type\":\"log\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"a425b43cc1dd31381e74af0b58aa7426\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "OverClocked ReMix Curated Video Game Arrangement Submission",
+      "url": "https://ocremix.org/community/submissions",
+      "sourceFile": "run322-platform-database.json",
+      "priorStatus": null,
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T15:30:04.691Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://ocremix.org/community/submissions/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Sorry, you do not have permission for that!"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"5a75741c25325a8a332507f2bfc04cd9\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"81c57dd2640794626d4cb1f68861ecb6\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"JQMIGRATE: Migrate is installed, version 3.4.1\"}],\"text\":\"JQMIGRATE: Migrate is installed, version 3.4.1\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"%cThis is a browser feature intended for developers. Do not paste any code here given to you by someone else. It may compromise your account or have other negative side effects.\"},{\"type\":\"string\",\"value\":\"font-weight: bold; font-size: 14px;\"}],\"text\":\"%cThis is a browser feature intended for developers. Do not paste any code here given to you by someone else. It may compromise your account or have other negative side effects. font-weight: bold; font-size: 14px;\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"jQuery.Deferred exception: Cannot read properties of null (reading 'innerHTML')\"},{\"type\":\"string\",\"value\":\"TypeError: Cannot read properties of null (reading 'innerHTML')\\n    at baseController.setup (https://ocremix.org/community/uploads/javascript_global/root_front.js?v=3acdf48be71783920324:18:531)\\n    at baseController.initialize (https://ocremix.org/community/uploads/javascript_global/root_front.js?v=3acdf48be71783920324:18:360)\\n    at initControllerOnElem (https://ocremix.org/community/uploads/javascript_global/root_framework.js?v=3acdf48be71783920324:27:49)\\n    at initializeControllers (https://ocremix.org/community/uploads/javascript_global/root_framework.js?v=3acdf48be71783920324:6:342)\\n    at Object.init (https://ocremix.org/community/uploads/javascript_global/root_framework.js?v=3acdf48be71783920324:4:540)\\n    at HTMLDocument.<anonymous> (https://ocremix.org/community/uploads/javascript_global/root_library.js?v=…",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"0cfbcc84fb9e8384af0c3efe9c24efe1\",\"origin\":\"unknown\"},\"data\":{\"errors\":[{\"column\":28721,\"line\":1,\"text\":\"TypeError: Cannot read properties of null (reading 'innerHTML')\\n    at baseController.setup (https://ocremix.org/community/uploads/javascript_global/root_front.js?v=3acdf48be71783920324:18:531)\\n    at baseController.initialize (https://ocremix.org/community/uploads/javascript_global/root_front.js?v=3acdf48be71783920324:18:360)\\n    at initControllerOnElem (https://ocremix.org/community/uploads/javascript_global/root_framework.js?v=3acdf48be71783920324:27:49)\\n    at initializeControllers (https://ocremix.org/community/uploads/javascript_global/root_framework.js?v=3acdf48be71783920324:6:342)\\n    at Object.init (https://ocremix.org/community/uploads/javascript_global/root_framework.js?v=3acdf48be71783920324:4:540)\\n    at HTMLDocument.<anonymous> (https://ocremix.org/community/uploads/javascript_global/root_library.js?v=3acdf48be71783920324:55:267)\\n    at e (https://ocremix.org/community/uploads/javascript_global/root_library.js?v=3acdf48be71783920324:2:26990)\\n    at t (https://ocremix.org/community/uploads/javascript_global/root_library.js?v=3acdf48be71783920324:2:27292)\",\"url\":null}],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}
