@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"ONErpm Global Join Distribution Marketing and Artist Services Route","https://dashboard.onerpm.com/","inspected","[object Object]","true","false","true","false","true","run139-platform-database.json","2026-07-17T16:00:52.687Z"
+"For The Love Of Bands Free Paid Playlist Review Submission Route","https://fortheloveofbands.com/submit/","inspected","[object Object]","true","false","false","false","true","run247-platform-database.json","2026-07-17T16:01:09.460Z"
+"Radio Western 94.9FM Music Submission Email Route","https://radiowestern.ca/","inspected","[object Object]","false","false","false","false","true","run28-platform-database.json","2026-07-17T16:01:19.553Z"
+"mau5trap WAF 13 Tally Demo Submission Route","https://tally.so/r/J9Lg5Y","inspected","[object Object]","true","false","false","false","true","run235-platform-database.json","2026-07-17T16:01:31.563Z"

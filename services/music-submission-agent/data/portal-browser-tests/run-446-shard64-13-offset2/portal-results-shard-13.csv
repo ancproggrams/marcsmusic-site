@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KKFI 90.1 FM Protected Music Librarian Digital Submission Route","https://kkfi.org/new-music-submissions/","error","","false","false","false","false","true","run389-platform-database.json","2026-07-17T16:00:45.349Z"
+"Seeking Blue and MrSuicideSheep Official District Submission Portal","https://mrsuicidesheep.portal.district.biz/","inspected","[object Object]","true","false","true","false","true","run304-platform-database.json","2026-07-17T16:00:57.403Z"
+"WREK Atlanta 91.1 FM Submit Music Route","https://old.wrek.org/submissions/","inspected","[object Object]","true","false","true","false","true","run29-platform-database.json","2026-07-17T16:01:11.931Z"
+"ONErpm Emerging Self-Service Digital Delivery and Album Review Route","https://onerpm.com/digital-distribution/","inspected","[object Object]","true","false","true","false","true","run155-platform-database.json","2026-07-17T16:01:21.214Z"

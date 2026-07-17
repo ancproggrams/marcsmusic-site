@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Audiomack Creator Upload Platform","https://audiomack.com/upload","inspected","[object Object]","true","false","true","false","true","run55-platform-database.json","2026-07-17T16:00:48.917Z"
+"https://flirtfm.ie/","https://flirtfm.ie/","inspected","[object Object]","true","false","false","false","true","run376-platform-database.json","2026-07-17T16:01:08.226Z"
+"Musicbed Artist Licensing Roster Contact and JavaScript App Boundary Route","https://www.musicbed.com/artists","inspected","[object Object]","false","false","true","true","true","run174-platform-database.json","2026-07-17T16:01:21.645Z"
+"WXYC 89.3FM Music Department Submissions","https://wxyc.org/contact","inspected","[object Object]","false","false","false","false","true","run70-platform-database.json","2026-07-17T16:01:34.658Z"

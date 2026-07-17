@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"WICB 91.7 FM Ithaca Submit Music Route","https://wicb.org/","inspected","[object Object]","true","false","false","false","true","run29-platform-database.json","2026-07-17T16:00:51.720Z"
+"CJAI 101.3 FM Island Radio First-Party Music Upload Form","https://www.cjai.ca/music-submissions","inspected","[object Object]","true","false","false","false","true","run344-platform-database.json","2026-07-17T16:01:05.399Z"
+"Record Union Paid Dashboard Distribution and Pitch Priority Route","https://www.recordunion.com/pricing/","inspected","[object Object]","false","false","false","true","true","run169-platform-database.json","2026-07-17T16:01:15.347Z"
+"Scantraxx Hard Dance Tstack Demo Upload Route","https://www.scantraxx.com/demos","inspected","[object Object]","false","false","false","false","true","run286-platform-database.json","2026-07-17T16:01:23.695Z"

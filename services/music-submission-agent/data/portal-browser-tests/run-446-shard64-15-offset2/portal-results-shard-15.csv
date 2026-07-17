@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Spotify for Artists Playlist Pitching","https://artists.spotify.com/playlisting","inspected","[object Object]","false","false","true","false","true","run81-platform-database.json","2026-07-17T16:00:50.650Z"
+"iMusician Digital Music Distribution Release Upload Route","https://imusician.pro/","inspected","[object Object]","true","false","true","true","true","run137-platform-database.json","2026-07-17T16:01:00.306Z"
+"KGNU Community Radio Contact Staff or DJ Music Department","https://kgnu.org/contact-us/","inspected","[object Object]","true","false","false","false","true","run56-platform-database.json","2026-07-17T16:01:15.173Z"
+"WHUS 91.7FM UConn New Music Committee","https://whus.org/new-music-committee/","inspected","[object Object]","true","false","true","false","true","run54-platform-database.json","2026-07-17T16:01:22.908Z"

@@ -1,0 +1,37 @@
+{
+  "run": 446,
+  "capturedAt": "2026-07-17T18:05:00+02:00",
+  "mode": "agent-browser passive inspect-only",
+  "candidateInventory": 644,
+  "shardCount": 64,
+  "offsetsTested": [2],
+  "shardsTested": [8, 9, 10, 11, 12, 13, 14, 15],
+  "routesTestedThisRun": 31,
+  "uniqueNewRoutesThisRun": 31,
+  "inspected": 29,
+  "errorsOrUnreachable": 2,
+  "formsObserved": 18,
+  "loginBoundariesObserved": 13,
+  "paymentBoundariesObserved": 5,
+  "captchaOrHumanChecksObserved": 0,
+  "totalUniqueCoverageAcrossRuns431To446": 247,
+  "remainingInventoryOutsideUniqueCoverage": 397,
+  "notableRoutes": [
+    "Audiomack Creator Upload Platform",
+    "Spotify for Artists Playlist Pitching",
+    "CD Baby Worldwide Music Distribution",
+    "ONErpm Global Join",
+    "Triple J Unearthed",
+    "iMusician Digital Music Distribution",
+    "mau5trap WAF 13 Tally Demo Submission Route",
+    "For The Love Of Bands",
+    "WERS Wicked Local Wednesday",
+    "CJAI 101.3 FM"
+  ],
+  "errorRoutes": [
+    "KKFI 90.1 FM Protected Music Librarian Digital Submission Route",
+    "NPR Tiny Desk Contest Original Song Video Submission Route"
+  ],
+  "evidenceDirectories": "data/portal-browser-tests/run-446-shard64-*-offset2",
+  "safety": "No fields filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated."
+}

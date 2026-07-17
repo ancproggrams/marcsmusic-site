@@ -1,0 +1,4 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"The Wild Is Calling Official SubmitHub Music and Playlist Route","https://sbmt.to/the-wild-is-calling","inspected","[object Object]","false","false","false","false","true","run305-platform-database.json","2026-07-17T16:00:51.211Z"
+"NPR Tiny Desk Contest Original Song Video Submission Route","https://tinydeskcontest.npr.org/","error","","false","false","false","false","true","run220-platform-database.json","2026-07-17T16:01:01.309Z"
+"WERS Wicked Local Wednesday Local Artist MP3 Upload Form Route","https://wers.org/wickedlocalwednesday/","inspected","[object Object]","false","false","false","false","true","run121-platform-database.json","2026-07-17T16:01:14.383Z"

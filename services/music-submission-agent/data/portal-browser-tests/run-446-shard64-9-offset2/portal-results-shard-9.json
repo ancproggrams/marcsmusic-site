@@ -1,0 +1,328 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T16:01:34.659Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 9,
+      "count": 64,
+      "offset": 2
+    },
+    "totalUniqueHttpPortalsDiscovered": 644,
+    "testedInThisShard": 4,
+    "inspected": 4,
+    "errors": 0,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 2,
+    "paymentObserved": 1,
+    "formObserved": 2,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "Audiomack Creator Upload Platform",
+      "url": "https://audiomack.com/upload",
+      "sourceFile": "run55-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": true,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T16:00:48.917Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://audiomack.com/upload"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Audiomack - Music platform empowering artists & fans | Audiomack"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": true,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": true,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"438e892b5bee8639fb5e52cfc5a87c6f\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"e7364a948284df603efd88afe4c02fee\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"Firebase send analytics\"}],\"text\":\"Firebase send analytics\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[Aditude] loaded\"}],\"text\":\"[Aditude] loaded\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[GPT] loaded\"}],\"text\":\"[GPT] loaded\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"prebid-load.js loaded successfully.\"}],\"text\":\"prebid-load.js loaded successfully.\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"%craven%c Raven v1.20.1-68jalx\"},{\"type\":\"string\",\"value\":\"background-color:#000;margin-left:1px;padding:1px 3px;font-size:0.75em;color:#ffffff;\"},{\"type\":\"string\",\"value\":\"font-size:0.9em;\"}],\"text\":\"%craven%c Raven v1.20.1-68jalx background-color:#000;margin-left:1px;padding:1px 3px;font-size:0.75em;color:#ffffff; font-size:0.9em;\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"3 is not a valid value for publisherSpecialPurposesIds\"}],\"text\":\"3 is not a valid value for publisherSpecialPurposesIds\",\"type\":\"warning\"},{\"args\":[{\"type\":\"string\",\"value\":\" is not a valid value for uspDnsText\"}],\"text\":\" is not a valid value for uspDnsText\",\"type\":\"warning\"},{\"args\":[{\"type\":\"string\",\"value\":\"uspData set usp out of jurisiction value\"}],\"text\":\"uspData set usp out of jurisiction value\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"Visit event sent successfully.\"}],\"text\":\"Visit event sent successfully.\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"CMP not loaded\"}],\"text\":\"CMP not loaded\",\"type\":\"error\"},{\"args\":[{\"type\":\"string\",\"value\":\"CMP not loaded\"}],\"text\":\"CMP not loaded\",\"type\":\"error\"},{\"args\":[{\"type\":\"string\",\"value\":\"[GPT] Slot.updateTargetingFromMap is d…",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"dc5c64be867c12c98d1a0012f5c3d289\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "https://flirtfm.ie/",
+      "url": "https://flirtfm.ie/",
+      "sourceFile": "run376-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T16:01:08.226Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://flirtfm.ie/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Flirt FM 101.3 – Galway's Student & Community of Interest Station"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": true,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"491ea6586121c0914af5529337cbc7b6\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"16e18646c3804a16c69ac36fac278837\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"JQMIGRATE: Migrate is installed, version 3.4.1\"}],\"text\":\"JQMIGRATE: Migrate is installed, version 3.4.1\",\"type\":\"log\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"fb1c43a87202dd57d40ac1275c63e34a\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "Musicbed Artist Licensing Roster Contact and JavaScript App Boundary Route",
+      "url": "https://www.musicbed.com/artists",
+      "sourceFile": "run174-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": true,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T16:01:21.645Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.musicbed.com/artists"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Musicbed"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": true,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": true,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"73444e8b0462546776149468d717851c\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"7c1873433608666adbdc4717df60408d\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"[oaiq]\"},{\"type\":\"string\",\"value\":\"event queued\"},{\"className\":\"Object\",\"description\":\"Object\",\"objectId\":\"8681170093337402561.2.1\",\"preview\":{\"description\":\"Object\",\"overflow\":false,\"properties\":[{\"name\":\"eventName\",\"type\":\"string\",\"value\":\"openai::sdk_init\"},{\"name\":\"eventId\",\"type\":\"string\",\"value\":\"3c78e35a-8452-44d4-b520-8edcbe084e3c\"},{\"name\":\"pendingEventCount\",\"type\":\"number\",\"value\":\"1\"},{\"name\":\"initialized\",\"type\":\"boolean\",\"value\":\"true\"}],\"type\":\"object\"},\"type\":\"object\"}],\"text\":\"[oaiq] event queued {eventName: \\\"openai::sdk_init\\\", eventId: \\\"3c78e35a-8452-44d4-b520-8edcbe084e3c\\\", pendingEventCount: 1, initialized: true}\",\"type\":\"debug\"},{\"args\":[{\"type\":\"string\",\"value\":\"[oaiq]\"},{\"type\":\"string\",\"value\":\"event queued\"},{\"className\":\"Object\",\"description\":\"Object\",\"objectId\":\"8681170093337402561.2.2\",\"preview\":{\"description\":\"Object\",\"overflow\":false,\"properties\":[{\"name\":\"eventName\",\"type\":\"string\",\"value\":\"oai::diagnostic\"},{\"name\":\"eventId\",\"type\":\"string\",\"value\":\"5ff87f0d-17d7-48d9-96d5-6615bcc0f832\"},{\"name\":\"pendingEventCount\",\"type\":\"number\",\"value\":\"2\"},{\"name\":\"initialized\",\"type\":\"boolean\",\"value\":\"true\"}],\"type\":\"object\"},\"type\":\"object\"}],\"text\":\"[oaiq] event queued {eventName: \\\"oai::diagnostic\\\", eventId: \\\"5ff87f0d-17d7-48d9-96d5-6615bcc0f832\\\", pendingEventCount: 2, initialized: true}\",\"type\":\"debug\"},{\"args\":[{\"type\":\"string\",\"value\":\"[oaiq]\"},{\"type\":\"string\",\"value\":\"queue flush started\"},{\"className\":\"Object\",\"description\":\"Object\",\"objectId\":\"8681170093337402561.2.3\",\"preview\":{\"description\":\"Object\",\"overflow\":false,\"properties\":[{\"name\":\"reason\",…",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"9046e4ec4a88b9544292235eae331c92\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "WXYC 89.3FM Music Department Submissions",
+      "url": "https://wxyc.org/contact",
+      "sourceFile": "run70-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T16:01:34.658Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://wxyc.org/contact"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "WXYC"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"16ea1db348d98828386ed285f93d8e80\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"eea1299736dbaa2580a63da699067105\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"[Visualizer] Creating new analyzer...\"}],\"text\":\"[Visualizer] Creating new analyzer...\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[Visualizer] Creating new analyzer...\"}],\"text\":\"[Visualizer] Creating new analyzer...\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[Visualizer] Ready with\"},{\"description\":\"18\",\"type\":\"number\",\"value\":18},{\"type\":\"string\",\"value\":\"bars\"}],\"text\":\"[Visualizer] Ready with 18 bars\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[Visualizer] Ready with\"},{\"description\":\"18\",\"type\":\"number\",\"value\":18},{\"type\":\"string\",\"value\":\"bars\"}],\"text\":\"[Visualizer] Ready with 18 bars\",\"type\":\"log\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"0e434bdb5d565e039923c58386040937\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}

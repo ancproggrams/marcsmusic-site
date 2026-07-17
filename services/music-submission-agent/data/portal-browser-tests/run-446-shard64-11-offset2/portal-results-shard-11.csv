@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"CD Baby Worldwide Music Distribution Paid Release Submission Route","https://members.cdbaby.com/","inspected","[object Object]","true","false","true","true","true","run115-platform-database.json","2026-07-17T16:00:51.005Z"
+"Selected Base Native Unreleased Streamable-Link Demo Drop Route","https://selectedbase.com/submit","inspected","[object Object]","true","false","false","false","true","run289-platform-database.json","2026-07-17T16:01:03.309Z"
+"Triple J Unearthed Australian Independent Artist Upload Route","https://triplejunearthed.com/","inspected","[object Object]","true","false","true","false","true","run236-platform-database.json","2026-07-17T16:01:16.667Z"
+"WERS 88.9 Public Radio Music Submission Contact Route","https://wers.org/contact/","inspected","[object Object]","false","false","false","false","true","run265-platform-database.json","2026-07-17T16:01:29.213Z"
