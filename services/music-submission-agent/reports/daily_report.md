@@ -2,7 +2,7 @@
 
 Date: 2026-07-17
 
-Latest run: Run 463
+Latest run: Run 464
 
 New items added in latest run: 1
 
@@ -10,27 +10,27 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1750
+Pipeline estimate: 1751
 
 Items:
 
-- Run 463 added: IndieMusicFans — a first-party worldwide free music-submission page using an embedded online form for possible IndieMusicFans/OTAT247 radio streaming.
+- Run 464 added: OurTownRadio — a first-party independent-music email route accepting metadata-tagged MP3 delivery, free download links, Spotify/YouTube links and an optional physical-media alternative.
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: the official page welcomes indie rock bands and artists worldwide, asks for meta-tagged MP3 tracks through its online form, accepts Rock, Metal, Ska, Punk and Synth/EDM/Pop, and requires disclosure of AI elements. Artists retain their rights while granting the station permission to stream submitted music.
+Latest route note: the official submission page accepts one original song or a full album across almost all genres, prefers MP3 files with title/artist/album metadata, asks for artist and social links, and publishes `music@ourtownradio.com` as the music-submission mailbox. Cover songs are prohibited unless the submitter holds the required rights.
 
-Contact-verification note: `otat247@gmail.com` is first-party published for questions not answered in the FAQ. It is syntactically valid and context aligned, but uses Gmail rather than the site domain and is excluded as the canonical music-submission route because the page directs artists to the online form. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `music@ourtownradio.com` is first-party published, syntactically valid, domain aligned and context aligned. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: the current station page publishes recurring weekly and monthly programming and describes worldwide curation across Rock, Metal, Punk, Ska, Synthwave, EDM and Acoustic music. Selected MarcsMusic electronic, pop or crossover tracks may fit after track-level human review.
+Activity and fit note: the first-party page displayed a July 11, 2026 weekly Top 10, current tracks and upcoming shows. The published genres include Indie, Pop, Acoustic, Rock, R&B, Hip hop, Hard Rock, Screamo, Country, Folk, Punk and unusual or experimental music. Selected MarcsMusic crossover tracks may fit after human track-level review.
 
-Manual-review note: the embedded form was not passively field-inspected. A human must verify required fields, MP3 upload limits, CAPTCHA/login controls, privacy and streaming-permission scope, AI eligibility, track suitability and rights status before manually completing it.
+Manual-review note: the submission and Terms pages grant non-exclusive airplay, hosting and promotional-use rights. A human must review scope, territory, duration and revocability; confirm ownership, cover-song and sample rights; clarify international and AI-music eligibility; and approve the final email or file-transfer action.
 
-Deduplication note: the accessible repository code-search surface returned no `indiemusicfans.com` match before creation. The first-party page and embedded form were consolidated as one opportunity; the FAQ mailbox remains a fallback contact rather than a separate submission route. Canonical SQLite domain/email deduplication remains required before external use.
+Deduplication note: repository code searches returned no existing `OurTownRadio`, `ourtownradio.com` or `music@ourtownradio.com` record. Email, download/streaming-link and physical-delivery guidance were consolidated as one canonical opportunity. Canonical SQLite domain/email deduplication remains required before external use.
 
-Runtime limitation: the repository connector updated the artifacts, but the dedicated `agent-browser` CLI and repository shell were unavailable. The JSON and CSV artifacts were parsed locally before writing. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
+Runtime limitation: the repository connector updated the artifacts, but the dedicated `agent-browser` CLI and repository shell were unavailable. The JSON and CSV payloads were parsed before writing. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
 
-Safety: No form field was filled, no email was sent, no audio or image was uploaded, no account or login was used, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No email was sent, no form field was filled, no audio or image was uploaded, no account or login was used, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
 
 ## Recent run history
 
@@ -49,5 +49,9 @@ Added JAM Audio Live as a worldwide free-first route linking to an external Goog
 ### Run 463
 
 Added IndieMusicFans as a worldwide free-first embedded-form route. Meta-tagged MP3 delivery, AI disclosure and streaming permission are published; form fields and legal boundaries remain manual-review items. Pipeline estimate: 1,750.
+
+### Run 464
+
+Added OurTownRadio as a free-first public email route. Metadata, original-music, download-link and rights requirements are published; international and AI eligibility and the promotional-use grant remain manual-review items. Pipeline estimate: 1,751.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
