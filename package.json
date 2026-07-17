@@ -12,7 +12,9 @@
     "search:discover-film-directors": "node scripts/discover-film-director-leads.mjs",
     "search:film-directors": "node scripts/run-film-director-search-action.mjs",
     "crm:import-film-directors": "node scripts/import-film-director-leads-to-espocrm.mjs",
-    "crm:import-mailgun-list": "node scripts/import-mailgun-list-to-espocrm.mjs"
+    "crm:import-mailgun-list": "node scripts/import-mailgun-list-to-espocrm.mjs",
+    "sources:crawl": "python3 deploy/dj-source-crawler/crawler.py",
+    "sources:test": "PYTHONPATH=deploy/dj-source-crawler python3 -m unittest discover -s deploy/dj-source-crawler -p 'test_*.py'"
   },
   "engines": {
     "node": ">=20"

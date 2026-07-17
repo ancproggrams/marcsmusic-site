@@ -86,6 +86,10 @@ data/player-manifest.json
 !deploy/dj-finder-worker/producer/**
 deploy/dj-finder-worker/**/__pycache__/
 deploy/dj-finder-worker/**/*.py[cod]
+!deploy/dj-source-crawler/
+!deploy/dj-source-crawler/**
+deploy/dj-source-crawler/__pycache__/
+deploy/dj-source-crawler/**/*.py[cod]
 !deploy/radicale/
 !deploy/radicale/config
 !deploy/radicale/requirements.txt

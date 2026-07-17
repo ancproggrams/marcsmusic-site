@@ -119,6 +119,24 @@ All imported contacts remain `Needs Validation` and `doNotContact=true`; no
 outreach send is enabled by this import. Do not export member addresses,
 names or Mailgun `vars` to Git, logs or unencrypted local files.
 
+## Live crawl of all DJ/media sources
+
+The production source crawler is defined in
+[`deploy/dj-source-crawler`](deploy/dj-source-crawler). Its registry contains
+all 27 public sources. Railway runs it as a bounded `*/30 * * * *` cron job;
+each run honours `robots.txt`, uses HTTPS only, rejects private DNS targets,
+limits redirects/bytes/pages, and applies a per-host delay.
+
+The crawler never sends email. It stores only aggregate run information in
+logs. A contact is emitted only when a public page explicitly labels the
+address for music submissions, promotion, or press. Generic, booking,
+management, unlabelled and denied addresses remain held. The signed artifact
+is sent to the outreach worker, which calls Mailgun validation; only exact
+`Valid` results can pass outreach eligibility.
+
+For deployment variables and the rollback procedure, see
+[`deploy/dj-source-crawler/README.md`](deploy/dj-source-crawler/README.md).
+
 ## Film director outreach search cron
 
 Run the film director outreach search/import as a separate Railway cron service, not inside the website service.
