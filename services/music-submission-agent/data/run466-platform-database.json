@@ -1,0 +1,155 @@
+{
+  "run": 466,
+  "date": "2026-07-18",
+  "pipelineEstimateBefore": 1752,
+  "pipelineEstimate": 1753,
+  "newPlatforms": [
+    {
+      "name": "MOCRadio Network Free Indie MP3 Email Airplay Route",
+      "websiteUrl": "https://mocradio.com/",
+      "submissionUrl": "https://mocradio.com/submit-music/",
+      "formUrl": null,
+      "sourceUrl": "https://mocradio.com/submit-music/",
+      "sourceType": "automation_run_466_public_research",
+      "country": "United States (West Palm Beach, Florida); MOCRadio is an online station with worldwide listenership, while artist-location eligibility is not explicitly stated.",
+      "language": "en",
+      "genres": [
+        "independent-music",
+        "hip-hop",
+        "r-and-b",
+        "adult-urban",
+        "house",
+        "edm",
+        "reggae",
+        "clean-radio-edit",
+        "mp3",
+        "metadata-required",
+        "public-email",
+        "optional-paid-promotion",
+        "free-first",
+        "manual-review"
+      ],
+      "submissionMethod": "official first-party public music-submission mailbox for clean MP3 radio-airplay review",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission email mailbox",
+        "formLocation": null,
+        "email": "mp3@mocradio.com",
+        "explicitPurpose": "Submit a clean MP3 for possible MOCRadio airplay and the unsigned/indie Music Discovery Radio programme.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Select a suitable clean MarcsMusic track, review rights and eligibility, prepare the requested metadata and Twitter information, and send only after explicit owner approval.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "internationalAcceptanceEvidence": "MOCRadio describes worldwide listenership and global programming, but the submission page does not explicitly state that artists outside the United States are eligible.",
+        "standardRouteFeePublished": false,
+        "standardRouteFeeEvidence": "The standard submission page asks artists to email music for review without publishing a fee. Separate promotional packages for guaranteed exposure and live interviews are optional paid services."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "send music to mp3@mocradio.com",
+          "submit a radio or clean version",
+          "use MP3 format",
+          "rename and tag the file as Artist - Song Title",
+          "include Twitter information",
+          "submit music that fits MOCRadio programming"
+        ],
+        "publishedReviewTiming": "No response or review-time guarantee is published for the standard editorial route.",
+        "formFieldsObserved": [],
+        "safeReviewScope": [
+          "confirm the track is a radio or clean version",
+          "confirm MP3 filename and metadata follow Artist - Song Title",
+          "confirm master, composition, sample and contributor rights",
+          "confirm AI-assisted and fully generated music eligibility",
+          "confirm international artist eligibility",
+          "select a format-compatible MarcsMusic track",
+          "exclude optional guaranteed-exposure promotional packages unless separately authorized",
+          "approve the final email text and attachment before sending"
+        ],
+        "unresolvedEligibility": [
+          "AI-assisted and fully generated music policy",
+          "international artist eligibility",
+          "maximum attachment size and number of tracks",
+          "whether a streaming or download link is accepted instead of an MP3 attachment",
+          "rights, territory, duration and removal terms for airplay",
+          "response and review timing"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "mp3@mocradio.com",
+            "purpose": "First-party music-submission mailbox published specifically for MP3 airplay review.",
+            "firstPartyPublished": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "contextAligned": true,
+            "submissionRoute": true
+          }
+        ],
+        "adjacentEmailsExcluded": [
+          "lc@mocradio.com is a first-party program and music director contact but is not the published submission mailbox",
+          "advertise@mocradio.com is an advertising-sales mailbox and is not a music-submission route"
+        ],
+        "emailStatus": "mp3@mocradio.com is first-party published, syntactically valid, domain aligned and explicitly designated for music submissions.",
+        "verification": "Email verification was limited to first-party publication, syntax, domain alignment and stated purpose. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "externalFormProvider": null,
+        "externalFormUrl": null,
+        "embeddedFormPage": null,
+        "multiStepForm": false,
+        "captchaObserved": false,
+        "captchaStatus": "No form or CAPTCHA is part of the published standard email route.",
+        "loginObserved": false,
+        "loginStatus": "No account or login is required for the published email route.",
+        "paymentObserved": false,
+        "paymentStatus": "No payment is published for standard editorial review. Optional promotional packages for guaranteed exposure are adjacent paid services and are excluded from this queue entry.",
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "Human review is required for track selection, clean-version confirmation, rights and AI eligibility, international eligibility, final email content, attachment handling and separation from optional paid promotion.",
+        "rightsOrConsentFields": [],
+        "adjacentRoutesExcluded": [
+          "optional paid promotional packages",
+          "lc@mocradio.com program and music director mailbox",
+          "advertise@mocradio.com advertising mailbox",
+          "general station contact routes"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The first-party home page publishes a current weekly presenter and mix-show schedule, the program/music-director page lists ongoing daily and weekend shows, and an external podcast index lists a MOCRadio episode aired on June 20, 2026."
+      },
+      "genreFitEvidence": [
+        "The first-party submission page identifies Grown Folk Hip-Hop, R&B and a weekly unsigned/indie Music Discovery Radio programme.",
+        "The first-party advertising page lists Adult Contemporary R&B, House, EDM, Hip-Hop, Indie Music, Reggae and Slow Jams.",
+        "Selected MarcsMusic electronic, house, reggae, hip-hop-adjacent and crossover tracks may fit after a human confirms clean-edit and programme suitability."
+      ],
+      "manualReviewReason": "The route is active and first-party, but it requires a human-composed email and MP3 attachment, clean-version and metadata checks, rights and AI-policy review, confirmation of international eligibility, and explicit owner approval. Optional paid promotional packages must remain outside the free editorial-review route.",
+      "priority": 88,
+      "pricingModel": "free-first/first-party-public-email/mp3/clean-edit/optional-paid-promotion/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "MOCRadio",
+      "MOCRadio Network",
+      "mocradio.com",
+      "mocradio.com/submit-music",
+      "mp3@mocradio.com",
+      "MOCRadio Network Free Indie MP3 Email Airplay Route"
+    ],
+    "repositoryEvidence": "The accessible repository code-search surface and the open pull-request patch contained no MOCRadio, mocradio.com or mp3@mocradio.com match before creation.",
+    "consolidation": "The MP3 submission mailbox, Music Discovery Radio programme, general program-director contact and optional paid promotional packages are represented as one canonical MOCRadio opportunity with the non-submission and paid routes excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One MOCRadio opportunity was queued as needs_manual_review. No email was sent, no MP3 was attached, no account or login was used, no CAPTCHA was solved and no payment or submission action was completed."
+}
