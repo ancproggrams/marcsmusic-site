@@ -52,14 +52,16 @@ PLUNK_SEND_ENABLED=true
 
 ```text
 PLUNK_FROM=MarcsMusic <marc@marcsmusic.nl>
-OUTREACH_SEND_ENABLED=false
-OUTREACH_KILL_SWITCH=true
+OUTREACH_SEND_ENABLED=true
+OUTREACH_KILL_SWITCH=false
 ```
 
-Actuele productie-status na de gecontroleerde provider-test: `PLUNK_SEND_ENABLED=true`
-op `marcsmusic-release-os`. De outreach-worker blijft fail-closed met
-`OUTREACH_SEND_ENABLED=false` en `OUTREACH_KILL_SWITCH=true` zolang EspoCRM niet
-veilig uit een consistente recovery set is hersteld.
+Actuele productie-status: `PLUNK_SEND_ENABLED=true` op
+`marcsmusic-release-os` en de technische outreach-verzendcapability is actief
+(`OUTREACH_SEND_ENABLED=true`, `OUTREACH_KILL_SWITCH=false`). De nieuw
+geïmporteerde historische contacten blijven echter door CRM-beleid
+`doNotContact=true` en worden pas eligible na expliciete validatie en
+operator-goedkeuring.
 
 De Plunk-service gebruikt voor de geteste fork:
 
@@ -135,8 +137,9 @@ fictieve Plunk/SES-DKIM-record zou de productieconfiguratie juist breken.
    Plunk-acceptatie, de MXRoute SMTP-250 na `DATA`, inbox, SPF, DKIM, DMARC en
    één provider-ID zonder duplicaat. `SENT` in Plunk bewijst relay-acceptatie;
    het is geen zelfstandig bewijs van inboxplaatsing.
-8. Schakel pas daarna de Plunk-gate in. Outreach blijft geblokkeerd zolang
-   EspoCRM-schema/API en alle observability-gates niet groen zijn.
+8. Schakel pas daarna de Plunk-gate in. Houd daarnaast CRM-eligibility en
+   operator-goedkeuring los van de technische verzendcapability; een actief
+   transport mag geen quarantainecontacten verzenden.
 
 ## Rollback en rotatie
 
@@ -184,9 +187,11 @@ handshake uit; log de credential nooit.
   `optedOut=true`. Mailgun-lidmaatschap is niet als wettelijke toestemming
   geïnterpreteerd. De import is idempotent en logt geen adressen, namen of
   `vars`.
-- De actieve CRM- en matching-capabilities zijn groen. Verzenden blijft
-  bewust uitgeschakeld totdat de geïmporteerde contacten expliciet zijn
-  gevalideerd en de operator de outreach-policy goedkeurt.
+- De actieve CRM-, matching- en Plunk-verzendcapabilities zijn groen. De
+  technische verzendgate is actief, maar alle geïmporteerde contacten blijven
+  `doNotContact=true`/`Needs Validation`; zonder expliciete validatie en
+  operator-goedkeuring ontstaat geen outreach-eligibility. De send-queue was
+  leeg bij het openen van de gate.
 - De gecontroleerde outreach-test naar `marc@marcrene.com` is door Plunk
   geaccepteerd en als `SENT` opgeslagen vanuit `marc@marcsmusic.nl` met
   Message-ID `<marcsmusic-outreach-test-20260716-c087a788-fc7b-4715-95fc-b89b9a6ee15a@marcsmusic.nl>`.
