@@ -1,8 +1,8 @@
 # Daily Report
 
-Date: 2026-07-17
+Date: 2026-07-18
 
-Latest run: Run 465
+Latest run: Run 466
 
 New items added in latest run: 1
 
@@ -10,27 +10,27 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1752
+Pipeline estimate: 1753
 
 Items:
 
-- Run 465 added: KDBR Dain Bramage Radio — a first-party worldwide-facing free submission form accepting clean MP3/WAV uploads, artwork attachments or private SoundCloud/YouTube links.
+- Run 466 added: MOCRadio Network — a first-party public email route requesting a radio/clean MP3, `Artist - Song Title` metadata and Twitter information for airplay review.
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: the official KDBR page requests Band/Artist Name, Email, Genres and a Desired Link, permits track and artwork attachments, advertises a normal 48-hour listening window and says selected artists receive a separate permission form before rotation and a permanent featured-artist profile.
+Latest route note: the official submission page directs artists to `mp3@mocradio.com`, requests a clean MP3 with correct filename/tags and identifies a weekly Music Discovery Radio programme for unsigned and independent artists. Optional guaranteed-exposure promotional packages are separate from the standard editorial-review route.
 
-Contact-verification note: `contact@dainbramageentertainment.com` is first-party published, syntactically valid, domain aligned and context aligned as a general business mailbox. It is not designated as a music-submission mailbox and was excluded from the submission route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `mp3@mocradio.com` is first-party published, syntactically valid, domain aligned, context aligned and explicitly designated for music submissions. `lc@mocradio.com` and `advertise@mocradio.com` were excluded as program-director and advertising contacts. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: the official KDBR page advertises a live station and current featured artists; the first-party featured-artists page lists artists currently in heavy rotation; and the linked Caster.fm page publishes daily broadcasts from 7 AM to at least 5 PM AKST. The main page's 24/7 wording differs from the Caster schedule and remains a manual-review note. Published genres include hip-hop, rock, electronic, pop, metal, R&B, indie and lo-fi, giving selected MarcsMusic tracks a plausible fit after clean-edit review.
+Activity and fit note: the first-party home and program/music-director pages publish current recurring schedules. Supporting podcast evidence lists a MOCRadio episode aired on June 20, 2026. Published formats include R&B, Hip-Hop, House, EDM, Indie Music and Reggae, giving selected clean MarcsMusic electronic, house, reggae and crossover tracks a plausible fit after human review.
 
-Manual-review note: the embedded form is protected by Google reCAPTCHA, permits direct file uploads and leads to a later permission form. A human must review upload limits and permission terms; confirm clean audio, ownership, samples, contributors and artwork rights; clarify AI-music eligibility; and approve any upload and final submission.
+Manual-review note: a human must choose a format-compatible clean track, confirm MP3 metadata and all rights, clarify AI-assisted-music and international eligibility, approve the final email and attachment, and keep optional paid promotional services outside the free editorial-review workflow.
 
-Deduplication note: repository code searches returned no existing `KDBR`, `Dain Bramage`, `dainbramageentertainment.com` or canonical KDBR submission-page record. The upload form, private-link alternative, permission step, featured-artist profile and general mailbox were consolidated as one canonical opportunity. Canonical SQLite domain/email deduplication remains required before external use.
+Deduplication note: repository code search and the open pull-request patch contained no existing `MOCRadio`, `mocradio.com` or `mp3@mocradio.com` record. The submission mailbox, indie programme, program-director contact and optional paid services were consolidated as one canonical opportunity. Canonical SQLite domain/email deduplication remains required before external use.
 
-Runtime limitation: the repository connector updated the artifacts, but the dedicated `agent-browser` CLI and repository shell were unavailable. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
+Runtime limitation: the repository and web connectors updated and verified the artifacts. Attempts to invoke `agent-browser` through npm did not produce a usable runner, and no mounted repository worktree was available. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
 
-Safety: No form field was filled, no email was sent, no audio or image was uploaded, no permission form was signed, no account or login was used, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No email was sent, no MP3 was attached, no account or login was used, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
 
 ## Recent run history
 
@@ -57,5 +57,9 @@ Added OurTownRadio as a free-first public email route. Metadata, original-music,
 ### Run 465
 
 Added KDBR Dain Bramage Radio as a free worldwide-facing upload/private-link route. reCAPTCHA, direct uploads and a later permission form require manual review. Pipeline estimate: 1,752.
+
+### Run 466
+
+Added MOCRadio Network as a free-first public MP3 email route. Clean-version, metadata, rights, AI/international eligibility and optional paid-promotion boundaries require manual review. Pipeline estimate: 1,753.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
