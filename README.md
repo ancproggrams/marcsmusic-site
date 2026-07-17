@@ -129,10 +129,12 @@ limits redirects/bytes/pages, and applies a per-host delay.
 
 The crawler never sends email. It stores only aggregate run information in
 logs. A contact is emitted only when a public page explicitly labels the
-address for music submissions, promotion, or press. Generic, booking,
-management, unlabelled and denied addresses remain held. The signed artifact
-is sent to the outreach worker, which calls Mailgun validation; only exact
-`Valid` results can pass outreach eligibility.
+address for music submissions, promotion, or press; that live page evidence
+is marked as source-verified. Generic, booking, management, unlabelled and
+denied addresses remain held. The signed artifact is sent to the outreach
+worker, which calls Mailgun validation; only exact `Valid` results can pass
+outreach eligibility. Locale, outlet, release and suppression gates still
+apply before any send.
 
 For deployment variables and the rollback procedure, see
 [`deploy/dj-source-crawler/README.md`](deploy/dj-source-crawler/README.md).

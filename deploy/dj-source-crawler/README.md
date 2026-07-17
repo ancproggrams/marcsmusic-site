@@ -6,13 +6,16 @@ most three redirects, honors `robots.txt`, applies a per-host delay, caps
 response size and records counts rather than raw addresses in logs.
 
 An address is emitted only when the public page labels it as an explicit music
-submission, promotional or press route. Booking, management, generic business,
-unlabelled and denied routes remain held. The crawler never sends mail.
+submission, promotional or press route. That live page evidence is marked as
+source-verified, while Mailgun remains the independent deliverability gate.
+Booking, management, generic business, unlabelled and denied routes remain
+held. The crawler never sends mail.
 
 The service writes its durable state and private report to `/data` and posts
 signed `dj-finder` artifacts to the outreach worker. The worker performs the
 Mailgun validation step; only exact `Valid` results can pass the later outreach
-eligibility gates.
+eligibility gates, which also require locale, outlet, release and suppression
+checks.
 
 Required Railway variables:
 

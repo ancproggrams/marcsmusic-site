@@ -499,7 +499,9 @@ def build_records(source: Source, pages: list[tuple[FetchResult, PageParser]], c
         "acceptsForms": bool(form_url),
         "acceptsUnreleased": False,
         "qualityScore": 40 if pages else 0,
-        "verified": False,
+        # The outlet evidence was fetched live from its public HTTPS page.
+        # This is source-evidence verification, not email deliverability.
+        "verified": True,
         "evidence": {"url": evidence_url, "text": evidence_text, "capturedAt": captured_at},
     }
     if form_url:
@@ -518,7 +520,9 @@ def build_records(source: Source, pages: list[tuple[FetchResult, PageParser]], c
             "lastName": "Team",
             "email": email,
             "role": f"{candidate['purpose']} route"[:160],
-            "verified": False,
+            # The route is explicitly labelled on the fetched page. Mailgun
+            # validation remains the independent gate for outreach eligibility.
+            "verified": True,
             "purpose": candidate["purpose"],
             "basis": "Explicit Submission Address",
             "evidence": {"url": evidence_url, "text": evidence_text + " Page context: " + candidate["evidence"][:1_200], "capturedAt": captured_at},

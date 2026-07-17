@@ -42,6 +42,8 @@ class CrawlerContractTests(unittest.TestCase):
         self.assertEqual(stats["accepted"], 1)
         contacts = [record for record in records if record["kind"] == "mediaContact"]
         self.assertEqual(len(contacts), 1)
+        self.assertTrue(records[0]["verified"])
+        self.assertTrue(contacts[0]["verified"])
         self.assertEqual(contacts[0]["firstName"], "Test Radio")
         self.assertEqual(contacts[0]["lastName"], "Team")
 
