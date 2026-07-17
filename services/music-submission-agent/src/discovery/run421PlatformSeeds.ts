@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run422SeedPlatforms } from './run422PlatformSeeds.js';
 
 export const run421SeedPlatforms: PlatformInput[] = [
   {
@@ -43,5 +44,6 @@ export const run421SeedPlatforms: PlatformInput[] = [
       'Radio Nano explicitly welcomes local and international acts and authorizes both its first-party submission form and music@radionano.com. However, the live submission page presented a site-level browser-verification screen during passive access, and no CAPTCHA was solved or bypassed. A human must choose one route, select a suitable radio-ready track, verify ownership and permissions from every contributor and right-holder, confirm cover and sample clearance, inspect the one-page press release or bio, confirm attachment or link access, file format and size limits, explicit-content handling, release timing and the current AI-assisted or AI-generated music policy, then submit manually.',
     notes:
       'Verified on 2026-07-17 from Radio Nano’s official Submit Your Music, About, Home, Events and Privacy Policy pages. The station is a web-based radio service established in Oslo and explicitly accepts local and international acts. Its preferred route is the dedicated digital form; the same official page authorizes email delivery to music@radionano.com using a song attachment or online-service link plus a one-page press release or bio. The form exposes name, email, role, message including song URL and upload fields. The rights notice requires permission from all right-holders and contributors and explicitly covers cover songs and sampled music. Current activity is supported by a live-player page, May 2026 news and privacy updates, and 2026 event listings. Passive opening of the submission page returned a browser-verification loader, so no form interaction or challenge bypass occurred. No email, form field, audio, attachment, link, consent, login, CAPTCHA or payment was submitted.'
-  }
+  },
+  ...run422SeedPlatforms
 ];
