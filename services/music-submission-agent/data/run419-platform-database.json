@@ -1,0 +1,201 @@
+{
+  "run": 419,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1736,
+  "pipelineEstimate": 1737,
+  "newPlatforms": [
+    {
+      "name": "FBi.radio Free Digital Music-Servicing Opportunity",
+      "websiteUrl": "https://www.fbi.radio/",
+      "submissionUrl": "https://www.fbi.radio/pages/music-submissions",
+      "sourceUrl": "https://www.fbi.radio/pages/music-submissions",
+      "sourceType": "automation_run_419_public_research",
+      "country": "Australia / Sydney community radio with digital music servicing from Australia and beyond; international artist eligibility not explicitly guaranteed",
+      "language": "en",
+      "genres": [
+        "community-radio",
+        "independent-music",
+        "emerging-artists",
+        "electronic",
+        "club",
+        "bass",
+        "ambient",
+        "experimental",
+        "world",
+        "soul",
+        "reggae-adjacent",
+        "general-music-director-email",
+        "specialist-program-email-alternatives",
+        "stream-link-required",
+        "download-link-required",
+        "mp3-320-or-wav",
+        "digital-only",
+        "no-cd-submissions",
+        "weekly-wednesday-auditioning",
+        "no-visible-payment-requirement",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-digital-email-servicing-via-general-music-director-or-one-best-fit-specialist-program-contact",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public digital music-submission email with explicitly authorized specialist-program alternatives",
+        "primaryContactEmail": "music@fbiradio.com",
+        "primaryContactPublication": "Published in plaintext on the official Music Submissions and Contact pages with the explicit label Music Submissions.",
+        "specialistAlternatives": [
+          {
+            "email": "deepweb@fbiradio.com",
+            "program": "Deep Web",
+            "fit": "emerging internet microgenres, experimental electronic and online-native scenes",
+            "sourceUrl": "https://www.fbi.radio/programs/deep-web/"
+          },
+          {
+            "email": "aeddan.c@fbiradio.com",
+            "program": "Unfurl",
+            "fit": "ambient, texture, atmosphere and experimental soundscapes",
+            "sourceUrl": "https://www.fbi.radio/programs/unfurl"
+          },
+          {
+            "email": "izzy.page@fbiradio.com",
+            "program": "Arvos with Izzy Page / Souled Out",
+            "fit": "electronic, R&B, soul, groove and selected reggae-adjacent material",
+            "sourceUrl": "https://www.fbi.radio/programs/arvos-with-izzy-page/episodes/arvos-with-izzy-page-30th-june-2026"
+          }
+        ],
+        "routeSelectionRule": "Use the general Music Director route or exactly one best-fit specialist route. Do not send the same release to multiple FBi.radio contacts.",
+        "explicitPurpose": "Music servicing for playlist or specialist-program airplay consideration",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Select one suitable track and one route, verify every link and policy detail, then manually send a concise submission email.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "use a clear subject such as Artist name – track or album/EP name",
+          "include a short biography",
+          "include a press image and relevant upcoming-gig details when available",
+          "provide a stream link such as SoundCloud, Bandcamp or Spotify",
+          "provide a separate high-quality free download link",
+          "use 320 kbps MP3 or WAV for the downloadable audio",
+          "use a non-expiring or reliably available Dropbox, Google Drive, WeTransfer or equivalent download",
+          "enable downloading when SoundCloud is used for delivery",
+          "service music digitally only",
+          "submit before midnight Tuesday for consideration in Wednesday auditioning when timing matters",
+          "choose general servicing or one appropriately matched specialist program",
+          "do not send CDs"
+        ],
+        "safeReviewScope": [
+          "select one radio-ready MarcsMusic track or coherent release",
+          "confirm the stream is public or permissioned and opens without login",
+          "confirm the free download link works, does not expire prematurely and contains the correct master",
+          "verify 320 kbps MP3 or WAV quality and embedded artist/title metadata",
+          "verify artwork and press image rights",
+          "confirm ownership, samples, collaborators and authority to service the recording",
+          "confirm explicit-content or clean-edit suitability for the selected program",
+          "confirm international eligibility and whether non-Australian releases are currently welcomed",
+          "confirm release timing and any premiere restrictions",
+          "confirm the current AI-assisted or AI-generated music policy",
+          "send to exactly one authorized route after human review"
+        ],
+        "unresolvedEligibility": [
+          "explicit eligibility for artists based outside Australia",
+          "whether singles, EPs and albums are equally preferred for every program",
+          "maximum download size and preferred WAV sample rate, bit depth and channel format",
+          "required embedded metadata, ISRC, artwork dimensions and press-photo format",
+          "explicit-content and clean-edit policy",
+          "minimum or maximum release window outside premiere requests",
+          "rights, territory and sample-clearance language",
+          "AI-assisted and AI-generated music policy",
+          "whether direct specialist servicing should replace or supplement general servicing in edge cases"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "music@fbiradio.com",
+            "purpose": "general music submissions and playlist servicing",
+            "sourceVerification": "first-party plaintext publication on official Music Submissions and Contact pages",
+            "syntaxValid": true,
+            "officialDomainAligned": true
+          },
+          {
+            "email": "deepweb@fbiradio.com",
+            "purpose": "Deep Web music submissions and interview requests",
+            "sourceVerification": "first-party plaintext publication on the current official Deep Web program page",
+            "syntaxValid": true,
+            "officialDomainAligned": true
+          },
+          {
+            "email": "aeddan.c@fbiradio.com",
+            "purpose": "Unfurl music submissions",
+            "sourceVerification": "first-party plaintext publication on the current official Unfurl program and episode pages",
+            "syntaxValid": true,
+            "officialDomainAligned": true
+          },
+          {
+            "email": "izzy.page@fbiradio.com",
+            "purpose": "music and interview submissions for current presenter-led electronic/R&B/soul programming",
+            "sourceVerification": "first-party plaintext publication on current official program and episode pages",
+            "syntaxValid": true,
+            "officialDomainAligned": true
+          }
+        ],
+        "emailStatus": "four first-party purpose-labelled addresses source-verified; no SMTP, MX, catch-all or mailbox-level probing performed",
+        "verification": "All retained addresses are published in plaintext on current official FBi.radio pages, have valid syntax and align with the official fbiradio.com domain. Adjacent general, interview-only, gigs, partnerships, membership and programming addresses are excluded from track delivery."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "Email delivery itself is unprotected, but track choice, route selection, rights, link permissions, content suitability and unpublished eligibility policies require human review.",
+        "adjacentRoutesExcluded": [
+          "general enquiries mailbox",
+          "music-interview-only mailbox",
+          "gig guide mailbox",
+          "partnership and sponsorship mailbox",
+          "paid promotional campaigns",
+          "supporter membership and donations",
+          "studio text and request lines",
+          "social-media direct messages",
+          "physical CD delivery"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "FBi.radio's official site exposes a populated seven-day schedule, current program teams and current episodes. The Playlist published episodes through July 10, 2026, while M5 and Unfurl published episodes dated July 12, 2026. The station states that it has streamed online and broadcast on 94.5 FM since 2003."
+      },
+      "genreFitEvidence": [
+        "The current schedule includes global dance, contemporary club and bass music, experimental club, ambient, electronic, world and soul-oriented programs.",
+        "Deep Web explicitly covers emerging internet microgenres; Unfurl covers ambient and soundscapes; current presenter programming includes electronic, R&B, soul and reggae-adjacent selections.",
+        "Selected MarcsMusic electronic, bass, ambient, experimental, world-fusion or reggae-adjacent material has plausible fit, subject to route-specific curation and the station's strong Sydney and Australian-music mandate."
+      ],
+      "manualReviewReason": "The route is free and publicly authorized, but a human must select one appropriate contact, verify the exact stream and download assets, confirm rights, content, international eligibility, release timing and AI-origin policy, and send the email manually without duplicate servicing.",
+      "priority": 74,
+      "pricingModel": "free-first/digital-email/general-or-one-specialist-route/no-login/no-captcha/no-payment/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "FBi.radio",
+      "FBi Radio",
+      "fbi.radio",
+      "fbiradio.com",
+      "music@fbiradio.com",
+      "https://www.fbi.radio/pages/music-submissions"
+    ],
+    "repositoryEvidence": "Repository code search was checked for the station name, official domain, general submission mailbox and canonical submission path. No existing music-submission-agent record was found before creation.",
+    "consolidation": "General Music Director servicing and current specialist-program alternatives are stored as one canonical platform opportunity. The same release must not be sent to multiple FBi.radio contacts."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new FBi.radio opportunity was queued as needs_manual_review. No email, audio, link, form, account, CAPTCHA, payment or promotional purchase was submitted."
+}
