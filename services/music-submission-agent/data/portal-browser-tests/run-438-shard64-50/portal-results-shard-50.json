@@ -1,0 +1,175 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T15:34:50.839Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 50,
+      "count": 64
+    },
+    "totalUniqueHttpPortalsDiscovered": 644,
+    "testedInThisShard": 2,
+    "inspected": 2,
+    "errors": 0,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 1,
+    "paymentObserved": 1,
+    "formObserved": 1,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "CFUV 101.9 FM Victoria Music Submissions",
+      "url": "https://cfuv.uvic.ca/music-submissions/",
+      "sourceFile": "run28-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": null,
+      "priorCaptchaDetected": null,
+      "priorPaymentRequired": null,
+      "testedAt": "2026-07-17T15:34:37.959Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://cfuv.uvic.ca/music-submissions/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Music Submissions"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": null,
+        "captchaDetected": null,
+        "paymentRequired": null
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"a52c799ca22c81211a8fbb2d9ec28c3a\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"46ba99cf09ab218749fe93c7062d71f8\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"117fe082eb3ea4bb7043e44feacb40c8\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "Ditto Music Distribution Playlist Sync Artist Upload Route",
+      "url": "https://dittomusic.com/",
+      "sourceFile": "run243-platform-database.json",
+      "priorStatus": null,
+      "priorLoginRequired": true,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": true,
+      "testedAt": "2026-07-17T15:34:50.838Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://dittomusic.com/en"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Ditto Music Distribution | Sell Music Online & Keep 100%"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": true,
+        "submitControlObserved": true,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": true,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": true,
+        "captchaDetected": false,
+        "paymentRequired": true
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"2b5d6479156e7ccc9ab2662a57a71e43\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"23a9bf0ebfb02d6bc029e2d12ef5fb1d\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"[region-prices] fetching\"},{\"className\":\"Array\",\"description\":\"Array(2)\",\"objectId\":\"-6776804443235085407.2.1\",\"preview\":{\"description\":\"Array(2)\",\"overflow\":false,\"properties\":[{\"name\":\"0\",\"type\":\"number\",\"value\":\"3\"},{\"name\":\"1\",\"type\":\"number\",\"value\":\"5\"}],\"subtype\":\"array\",\"type\":\"object\"},\"subtype\":\"array\",\"type\":\"object\"}],\"text\":\"[region-prices] fetching [3, 5]\",\"type\":\"info\"},{\"args\":[{\"type\":\"string\",\"value\":\"Failed to retrieve user information\"},{\"className\":\"Error\",\"description\":\"Error: JWT token not found\\n    at fetchData (<anonymous>:50:25)\\n    at loadIntercomWidget (<anonymous>:68:40)\\n    at <anonymous>:97:1\\n    at https://www.googletagmanager.com/gtm.js?id=GTM-NGFVQR:931:429\\n    at oS (https://www.googletagmanager.com/gtm.js?id=GTM-NGFVQR:933:31)\\n    at Ld.nS (https://www.googletagmanager.com/gtm.js?id=GTM-NGFVQR:930:95)\\n    at Ld.<anonymous> (https://www.googletagmanager.com/gtm.js?id=GTM-NGFVQR:338:187)\\n    at k.apply (https://www.googletagmanager.com/gtm.js?id=GTM-NGFVQR:260:465)\\n    at hb (https://www.googletagmanager.com/gtm.js?id=GTM-NGFVQR:223:711)\\n    at gb (https://www.googletagmanager.com/gtm.js?id=GTM-NGFVQR:223:462)\",\"objectId\":\"-6776804443235085407.2.2\",\"preview\":{\"description\":\"Error: JWT token not found\\n    at fetchData (<anonymous>:50:25)\\n    at loadIntercomWidget (<anonymous>:68:40)\\n    at <anonymous>:97:1\\n    at https://www.googletagmanager.com/gtm.js?id=GTM-NGFVQR:931:429\\n    at oS (https://www.googletagmanager.com/gtm.js?id=GTM-NGFVQR:933:31)\\n    at Ld.nS (https://www.googletagmanager.com/gtm.js?id=GTM-NGFVQR:930:95)\\n    at Ld.<anonym…",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"9fd47fca99658d3e0b5aa5711fc29dc5\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}

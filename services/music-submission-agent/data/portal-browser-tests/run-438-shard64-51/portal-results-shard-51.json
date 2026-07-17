@@ -1,0 +1,175 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T15:34:55.238Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 51,
+      "count": 64
+    },
+    "totalUniqueHttpPortalsDiscovered": 644,
+    "testedInThisShard": 2,
+    "inspected": 2,
+    "errors": 0,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 1,
+    "paymentObserved": 1,
+    "formObserved": 0,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "Bandcamp Artist Direct-to-Fan Store Release Upload Route",
+      "url": "https://bandcamp.com/artists?from=footer",
+      "sourceFile": "run150-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": true,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T15:34:36.708Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://bandcamp.com/artists"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Bandcamp for Artists"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": true,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": true,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"164e9d22a296d4bab40c0b898f9d94b7\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"88c697b7c7a5fba39d124b3cd49c928b\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"hiding params [from] from url\"},{\"type\":\"string\",\"value\":\"?from=footer\"}],\"text\":\"hiding params [from] from url ?from=footer\",\"type\":\"debug\"},{\"args\":[{\"type\":\"string\",\"value\":\"user not opted in: skipping Tracker record.\"}],\"text\":\"user not opted in: skipping Tracker record.\",\"type\":\"info\"},{\"args\":[{\"type\":\"string\",\"value\":\"fetching editorial recommendations\"}],\"text\":\"fetching editorial recommendations\",\"type\":\"debug\"},{\"args\":[{\"type\":\"string\",\"value\":\"SMALL_DESKTOP\"},{\"type\":\"string\",\"value\":\"maxHeight: 700\"}],\"text\":\"SMALL_DESKTOP maxHeight: 700\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"Checking if cookie dialog is hidden after mounting\"},{\"className\":\"Object\",\"description\":\"Proxy(Object)\",\"objectId\":\"2329557275425149793.2.1\",\"preview\":{\"description\":\"Proxy(Object)\",\"overflow\":false,\"properties\":[{\"name\":\"$dialog\",\"type\":\"object\",\"value\":\"X6\"},{\"name\":\"__v_skip\",\"type\":\"boolean\",\"value\":\"true\"}],\"subtype\":\"proxy\",\"type\":\"object\"},\"subtype\":\"proxy\",\"type\":\"object\"}],\"text\":\"Checking if cookie dialog is hidden after mounting {$dialog: X6, __v_skip: true}\",\"type\":\"debug\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"b5c05f9ffacce5cfdb5e28bdd0b1f40d\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "KALX Berkeley Airplay Physical Music Submission Route",
+      "url": "https://kalx.berkeley.edu/about/contact/",
+      "sourceFile": "run23-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": null,
+      "priorCaptchaDetected": null,
+      "priorPaymentRequired": null,
+      "testedAt": "2026-07-17T15:34:55.237Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://kalx.berkeley.edu/about/contact/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Contact – KALX 90.7FM Berkeley"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": null,
+        "captchaDetected": null,
+        "paymentRequired": null
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"0f350a7b14921b48d4d8eb0ff15347cf\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"6d1131831b0123b5ff86a311c6f14957\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"JQMIGRATE: Migrate is installed, version 3.4.1\"}],\"text\":\"JQMIGRATE: Migrate is installed, version 3.4.1\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"ark it\"}],\"text\":\"ark it\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"createAudioContainer\"}],\"text\":\"createAudioContainer\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"NOT SERVER #creek-audio-container\"}],\"text\":\"NOT SERVER #creek-audio-container\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"creating #creek-audio-container\"}],\"text\":\"creating #creek-audio-container\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"creek/studio/init\"}],\"text\":\"creek/studio/init\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"kalx.studio.creek.org\"}],\"text\":\"kalx.studio.creek.org\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"29\"}],\"text\":\"29\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"Creek: Getting resource:\"}],\"text\":\"Creek: Getting resource:\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"https://kalx.studio.creek.org/api/studio?studioId=29\"}],\"text\":\"https://kalx.studio.creek.org/api/studio?studioId=29\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"17:34:39 \"},{\"type\":\"string\",\"value\":\"ark player init: \"},{\"className\":\"Object\",\"description\":\"Object\",\"objectId\":\"1317604607968925788.2.1\",\"preview\":{\"description\":\"Object\",\"overflow\":false,\"properties\":[{\"name\":\"hlsBaseUrl\",\"type\":\"string\",\"value\":\"https://ark3.spinitron.com/ark2\"},{\"name\":\"stationName\",\"type\":\"string\",\"value\":\"KALX\"},{\"name\":\"timeZone\",\"type\":\"string\",\"value\":\"America/Los_Angeles\"},{\"name\":\"enableDebug\",\"type\":\"boolean\",\"value\":\"true\"}],\"type\":\"object\"},\"…",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"42775d8a9bbc05f46b65259493d5077f\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}

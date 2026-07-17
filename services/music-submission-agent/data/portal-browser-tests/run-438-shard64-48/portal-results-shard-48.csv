@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Amazon Music for Artists Global Programming Pitch Route","https://artists.amazonmusic.com/pitch","inspected","[object Object]","false","false","true","false","true","run141-platform-database.json","2026-07-17T15:34:37.014Z"
+"Spotify for Artists Editorial Playlist Pitch Dashboard Route","https://artists.spotify.com/en/get-started","inspected","[object Object]","false","false","true","false","true","run166-platform-database.json","2026-07-17T15:34:50.714Z"

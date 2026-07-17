@@ -1,0 +1,32 @@
+{
+  "run": 438,
+  "capturedAt": "2026-07-17T15:36:00+02:00",
+  "mode": "agent-browser passive inspect-only",
+  "candidateInventory": 644,
+  "routesTestedThisRun": 16,
+  "uniqueNewRoutesThisRun": 11,
+  "overlappingRevalidations": 5,
+  "inspected": 15,
+  "errorsOrUnreachable": 1,
+  "formsObserved": 6,
+  "loginBoundariesObserved": 6,
+  "paymentBoundariesObserved": 4,
+  "captchaOrHumanChecksObserved": 0,
+  "totalUniqueCoverageAcrossRuns431To438": 117,
+  "remainingInventoryOutsideUniqueCoverage": 527,
+  "newRoutes": [
+    {"name":"Brum Radio Free Non-Local Specialist-Show Form and Email Submission Opportunity","url":"https://brumradio.com/submissions/","status":"inspected"},
+    {"name":"CJSW 90.9 FM Calgary Digital Music Submission Route","url":"https://cjsw.com/music/submit/","status":"inspected"},
+    {"name":"SoundCloud for Artists Upload Promotion and Monetization Route","url":"https://artists.soundcloud.com/","status":"inspected"},
+    {"name":"CFRO 100.5 Vancouver Co-operative Radio Music Library ZIP Upload Form Route","url":"https://coopradio.org/music-library-submission/","status":"inspected"},
+    {"name":"Amazon Music For Artists Claim Pitch New Music Route","url":"https://artists.amazon.com/","status":"inspected"},
+    {"name":"Indiemono Free Editorial Playlist Submission System","url":"https://indiemono.com/music-submit/","status":"inspected"},
+    {"name":"Bandcamp Artist Direct-to-Fan Store Release Upload Route","url":"https://bandcamp.com/artists?from=footer","status":"inspected"},
+    {"name":"KALX Berkeley Airplay Physical Music Submission Route","url":"https://kalx.berkeley.edu/about/contact/","status":"inspected"},
+    {"name":"Ditto Music Distribution Playlist Sync Artist Upload Route","url":"https://dittomusic.com/","status":"inspected"},
+    {"name":"Ditto Music Unlimited Distribution Playlist Pitching Route","url":"https://dittomusic.com/en","status":"inspected"},
+    {"name":"Spotify for Artists Editorial Playlist Pitch Dashboard Route","url":"https://artists.spotify.com/en/get-started","status":"inspected"}
+  ],
+  "evidenceDirectory": "data/portal-browser-tests/run-438-shard64-0 through run-438-shard64-7",
+  "safety": "No fields filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated."
+}

@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Bandcamp Artist Direct-to-Fan Store Release Upload Route","https://bandcamp.com/artists?from=footer","inspected","[object Object]","false","false","true","true","true","run150-platform-database.json","2026-07-17T15:34:36.708Z"
+"KALX Berkeley Airplay Physical Music Submission Route","https://kalx.berkeley.edu/about/contact/","inspected","[object Object]","false","false","false","false","true","run23-platform-database.json","2026-07-17T15:34:55.237Z"

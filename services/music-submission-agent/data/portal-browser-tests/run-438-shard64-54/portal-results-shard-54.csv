@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"SoundCloud for Artists Upload Promotion and Monetization Route","https://artists.soundcloud.com/","inspected","[object Object]","false","false","false","true","true","run116-platform-database.json","2026-07-17T15:34:38.371Z"
+"CFRO 100.5 Vancouver Co-operative Radio Music Library ZIP Upload Form Route","https://coopradio.org/music-library-submission/","inspected","[object Object]","true","false","false","false","true","run272-platform-database.json","2026-07-17T15:34:52.902Z"
