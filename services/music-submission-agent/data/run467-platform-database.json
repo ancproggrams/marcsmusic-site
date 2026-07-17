@@ -1,0 +1,191 @@
+{
+  "run": 467,
+  "date": "2026-07-18",
+  "pipelineEstimateBefore": 1753,
+  "pipelineEstimate": 1754,
+  "newPlatforms": [
+    {
+      "name": "Discover YOU RADIO Free Rotation Evaluation Form",
+      "websiteUrl": "https://discoveryouradio.com/real-radio",
+      "submissionUrl": "https://discoveryouradio.com/artist-submissions",
+      "formUrl": "https://discoveryouradio.com/artist-submissions",
+      "sourceUrl": "https://discoveryouradio.com/artist-submissions",
+      "sourceType": "automation_run_467_public_research",
+      "country": "United States online independent-music radio and promotion platform; international artist eligibility is not explicitly stated.",
+      "language": "en",
+      "genres": [
+        "independent-music",
+        "radio-airplay",
+        "clean-radio-edit",
+        "itunes-link",
+        "artist-biography",
+        "song-context",
+        "official-form",
+        "optional-mailing-list",
+        "optional-paid-promotion",
+        "free-first",
+        "manual-review"
+      ],
+      "submissionMethod": "official first-party public rotation-evaluation form using an iTunes track link",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission form",
+        "formLocation": "https://discoveryouradio.com/artist-submissions",
+        "email": null,
+        "explicitPurpose": "Submit one radio-friendly independent track for free initial rotation evaluation and possible addition to the station request catalog.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the current official form, confirm eligibility and rights, review every visible and hidden requirement, and submit only after explicit owner approval.",
+        "audioDeliveryAuthorized": false,
+        "internationalArtistsExplicitlyAccepted": false,
+        "internationalAcceptanceEvidence": "The platform promotes independent artists generally but the current rotation-evaluation page does not explicitly state global eligibility.",
+        "standardRouteFeePublished": false,
+        "standardRouteFeeEvidence": "The current submission page states that all initial rotation evaluations are 100% free. Certificates of airplay and organic station-pitching are separate optional paid services."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "use the official Artist Submissions application rather than general contact or social direct messages",
+          "submit a radio-friendly clean track",
+          "provide name",
+          "provide band or artist name",
+          "provide song title",
+          "provide email address",
+          "choose whether to join the mailing list",
+          "provide an iTunes purchase link for the submitted song",
+          "provide artist or band biography and history",
+          "describe the inspiration behind the song"
+        ],
+        "publishedReviewTiming": "The first-party Artist Portal states that the standard review process can take up to 30 days.",
+        "formFieldsObserved": [
+          "Name",
+          "Band or Artist Name",
+          "Song Title",
+          "Email",
+          "mailing-list opt-in: Yes or No",
+          "iTunes song link",
+          "biography/history and song inspiration",
+          "questions or comments"
+        ],
+        "safeReviewScope": [
+          "confirm the selected track is clean and radio-friendly",
+          "confirm the iTunes link is correct and publicly accessible",
+          "confirm master, composition, sample and contributor rights",
+          "confirm AI-assisted and fully generated music eligibility",
+          "confirm international artist eligibility",
+          "confirm all biography and song-context statements are accurate",
+          "leave mailing-list consent off unless separately authorized",
+          "exclude optional certificates, station-pitching, donations and sync-licensing services",
+          "inspect the live form for CAPTCHA, login, anti-spam, hidden consent or payment controls",
+          "approve the final form contents before submission"
+        ],
+        "unresolvedEligibility": [
+          "international artist eligibility",
+          "AI-assisted and fully generated music policy for the rotation route",
+          "rights, territory, duration and removal terms for radio and request-catalog use",
+          "whether an iTunes link is mandatory when the track is available elsewhere",
+          "whether only one track may be submitted per review cycle",
+          "whether hidden anti-spam, CAPTCHA or authentication controls appear during live submission"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "submit@discoveryouradio.com",
+            "purpose": "First-party support/contact address referenced in the privacy policy; not the authorized rotation-submission route.",
+            "firstPartyPublished": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "contextAligned": true,
+            "submissionRoute": false
+          },
+          {
+            "email": "admin@discoveryouradio.com",
+            "purpose": "First-party administrative support address referenced in the privacy policy; not the authorized rotation-submission route.",
+            "firstPartyPublished": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "contextAligned": true,
+            "submissionRoute": false
+          },
+          {
+            "email": "uploads@discoveryouradio.com",
+            "purpose": "First-party address for the separate sync-licensing catalog workflow; excluded from the radio-rotation submission route.",
+            "firstPartyPublished": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "contextAligned": true,
+            "submissionRoute": false
+          }
+        ],
+        "adjacentEmailsExcluded": [
+          "submit@discoveryouradio.com and admin@discoveryouradio.com are support contacts, while the official Artist Submissions page requires the form",
+          "uploads@discoveryouradio.com is reserved for the separate sync-licensing workflow"
+        ],
+        "emailStatus": "Three first-party domain-aligned business addresses were observed, but none is authorized as a substitute for the official rotation-evaluation form.",
+        "verification": "Email verification was limited to first-party publication, syntax, domain alignment and stated purpose. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "externalFormProvider": null,
+        "externalFormUrl": null,
+        "embeddedFormPage": "https://discoveryouradio.com/artist-submissions",
+        "multiStepForm": false,
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible in the passively rendered page content. The dedicated agent-browser runner was unavailable, so hidden or submit-time anti-spam controls remain unverified.",
+        "loginObserved": false,
+        "loginStatus": "The form fields are publicly rendered without a stated login requirement. A generic site 'Log out' link is present in the page footer but is not evidence that artists must authenticate.",
+        "paymentObserved": false,
+        "paymentStatus": "The standard initial evaluation is explicitly free. Optional certificates, station-pitching services and donations are adjacent payment boundaries and are excluded.",
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "Human review is required for clean-track selection, rights and AI eligibility, international eligibility, accurate form content, optional mailing-list consent, live anti-spam controls and separation from paid and sync-licensing services.",
+        "rightsOrConsentFields": [
+          "optional mailing-list opt-in"
+        ],
+        "adjacentRoutesExcluded": [
+          "general contact form and support mailboxes",
+          "social-media direct messages",
+          "optional paid certificates of airplay",
+          "optional paid organic station-pitching service",
+          "Pass the Mic donation route",
+          "separate sync-licensing form and uploads mailbox"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The first-party Real Radio page presents an active request catalog and weekly scouting report, and the first-party Shows calendar lists live sessions on July 13-17 and July 20, 2026. The privacy policy is effective April 13, 2026."
+      },
+      "genreFitEvidence": [
+        "The platform is explicitly dedicated to independent artists and free initial radio rotation evaluation.",
+        "The current form is genre-neutral and prioritizes clean, radio-friendly material.",
+        "Selected MarcsMusic electronic, reggae, world-fusion, pop and instrumental tracks may fit after a human confirms the station's current programming and track-level suitability."
+      ],
+      "manualReviewReason": "The route is active and first-party, but a human must select a clean track, validate the iTunes link, confirm rights, AI and international eligibility, inspect live form controls, make an explicit mailing-list choice and keep optional paid, donation and sync-licensing routes outside the free evaluation workflow.",
+      "priority": 86,
+      "pricingModel": "free-first/first-party-form/itunes-link/clean-track/optional-paid-services/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Discover YOU RADIO",
+      "Discover You Radio",
+      "discoveryouradio.com",
+      "discoveryouradio.com/artist-submissions",
+      "submit@discoveryouradio.com",
+      "admin@discoveryouradio.com",
+      "uploads@discoveryouradio.com",
+      "Discover YOU RADIO Free Rotation Evaluation Form"
+    ],
+    "repositoryEvidence": "The complete accessible open pull-request patch was searched for the platform name and canonical domain and returned no match before creation.",
+    "consolidation": "The free rotation-evaluation form is stored once as the canonical opportunity. General support contacts, social direct messages, paid certificates, paid station-pitching, donations and the separate sync-licensing route are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One Discover YOU RADIO opportunity was queued as needs_manual_review. No form field was filled, no link was submitted, no mailing-list consent was given, no login was used, no CAPTCHA was solved and no payment or submission action was completed."
+}
