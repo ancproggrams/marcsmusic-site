@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KXUA Fayetteville Non Local Local Music Director Email Submission Route","https://kxua.com/","inspected","[object Object]","false","false","false","false","true","run188-platform-database.json","2026-07-17T16:12:10.148Z"
+"KZSC Santa Cruz Music Director Submission Route","https://kzsc.org/contact/","inspected","[object Object]","true","false","false","false","true","run24-platform-database.json","2026-07-17T16:12:23.126Z"
+"Ophelia Records Official Demo Email Route","https://opheliarecords.com/contact/","inspected","[object Object]","false","false","false","false","true","run331-platform-database.json","2026-07-17T16:12:38.582Z"
+"Triple J Unearthed Artist Upload","https://triplejunearthed.com/upload","inspected","[object Object]","true","false","true","false","true","run73-platform-database.json","2026-07-17T16:12:53.530Z"

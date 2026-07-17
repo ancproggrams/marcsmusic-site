@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KBVR-FM 88.7 Performer and Promoter Music Director Route","https://kbvrfm.orangemedianetwork.com/kbvr-fm-music-poll/","error","","false","false","false","false","true","run277-platform-database.json","2026-07-17T16:12:01.736Z"
+"KJHK 90.7 FM Electronic Music Submission Route","https://kjhk.org/web/submit-music/","error","","false","false","false","false","true","run23-platform-database.json","2026-07-17T16:12:11.981Z"
+"Radio Free Brooklyn Music Submission Form","https://radiofreebrooklyn.com/music-submission-form/","inspected","[object Object]","false","false","false","false","true","run34-platform-database.json","2026-07-17T16:12:29.743Z"
+"WRAS Album 88 Regular Rotation Underground Music Department Submission Route","https://wras.org/contact/","error","","false","false","false","false","true","run160-platform-database.json","2026-07-17T16:12:36.318Z"

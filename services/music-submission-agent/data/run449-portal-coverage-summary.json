@@ -1,0 +1,43 @@
+{
+  "run": 449,
+  "capturedAt": "2026-07-17T18:20:00+02:00",
+  "mode": "agent-browser passive inspect-only",
+  "candidateInventory": 644,
+  "shardCount": 64,
+  "offsetsTested": [2],
+  "shardsTested": [32, 33, 34, 35, 36, 37, 38, 39],
+  "routesTestedThisRun": 32,
+  "uniqueNewRoutesThisRun": 32,
+  "inspected": 24,
+  "errorsOrUnreachable": 8,
+  "formsObserved": 10,
+  "loginBoundariesObserved": 8,
+  "paymentBoundariesObserved": 3,
+  "captchaOrHumanChecksObserved": 0,
+  "totalUniqueCoverageAcrossRuns431To449": 343,
+  "remainingInventoryOutsideUniqueCoverage": 301,
+  "notableRoutes": [
+    "CIUT 89.5 FM Toronto",
+    "4ZZZ Brisbane",
+    "KBOO Portland",
+    "DailyPlaylists",
+    "DropTrack",
+    "Pandora AMP Independent Artist Submissions",
+    "Triple J Unearthed Upload",
+    "WERS Submit Music",
+    "Radio Free Brooklyn",
+    "KZSU Stanford"
+  ],
+  "errorRoutes": [
+    "KBVR-FM 88.7 Performer and Promoter Music Director Route",
+    "KJHK 90.7 FM Electronic Music Submission Route",
+    "WRAS Album 88 Regular Rotation Submission Route",
+    "KCSB Artist Inquiry Route",
+    "Motion Array Contributor Music Licensing Route",
+    "Vampr Publishing Sync Route",
+    "KFAI Minneapolis Music Department Route",
+    "Radio Boise Submit Your Music"
+  ],
+  "evidenceDirectories": "data/portal-browser-tests/run-449-shard64-*-offset2",
+  "safety": "No fields filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated."
+}

@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Vampr Publishing Sync and Artist Network Opportunities","https://vampr.me/","error","","false","false","false","false","true","run64-platform-database.json","2026-07-17T16:12:01.640Z"
+"WMBR Freeform Physical Music Submission","https://wmbr.mit.edu/www/md","inspected","[object Object]","false","false","false","false","true","run315-platform-database.json","2026-07-17T16:12:17.317Z"
+"Pandora AMP Independent Artist Distributor Claim and Genome Analysis Route","https://www.ampplaybook.com/independent-artist-submissions","inspected","[object Object]","false","false","true","false","true","run141-platform-database.json","2026-07-17T16:12:31.348Z"
+"Broadjam Song Opportunity Licensing Review and Radio Submission Route","https://www.broadjam.com/delivery/opportunities/opportunities.php","inspected","[object Object]","false","false","false","false","true","run146-platform-database.json","2026-07-17T16:12:40.564Z"

@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KFJC 89.7FM For Musicians","https://kfjc.org/for-musicians/","inspected","[object Object]","false","false","false","false","true","run46-platform-database.json","2026-07-17T16:12:07.690Z"
+"KCSB 91.9 FM Artist Inquiry and Music Library Submission Form","https://www.kcsb.org/contact/artist-inquiry/","error","","false","false","false","false","true","run28-platform-database.json","2026-07-17T16:12:17.800Z"
+"LoudKult Official Demo Drop Route","https://www.loudkult.com/demo-drop","inspected","[object Object]","true","false","false","false","true","run304-platform-database.json","2026-07-17T16:12:32.261Z"
+"Obscure Sound Contact and Submissions Route","https://www.obscuresound.com/about/contact/","inspected","[object Object]","false","false","false","false","true","run86-platform-database.json","2026-07-17T16:12:46.519Z"

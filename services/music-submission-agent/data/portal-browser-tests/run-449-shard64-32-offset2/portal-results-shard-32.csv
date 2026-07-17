@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"CIUT 89.5 FM Toronto New Music Submission Route","https://ciut.fm/contact/","inspected","[object Object]","false","false","false","false","true","run33-platform-database.json","2026-07-17T16:12:10.627Z"
+"DropTrack Artist Label Promo Campaign Upload Route","https://cloud.droptrack.com/signup","inspected","[object Object]","true","false","false","false","true","run218-platform-database.json","2026-07-17T16:12:22.076Z"
+"KANM Student Radio Official Artist Submission Google Form Route","https://kanm.org/contact","inspected","[object Object]","false","false","false","false","true","run297-platform-database.json","2026-07-17T16:12:39.350Z"
+"Labelcaster Digital Delivery Royalty Splits Artist Label Release Route","https://labelcaster.com/","inspected","[object Object]","false","false","false","true","true","run151-platform-database.json","2026-07-17T16:12:51.477Z"
