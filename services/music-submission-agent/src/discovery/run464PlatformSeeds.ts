@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run465SeedPlatforms } from './run465PlatformSeeds.js';
 
 export const run464SeedPlatforms: PlatformInput[] = [
   {
@@ -46,5 +47,6 @@ export const run464SeedPlatforms: PlatformInput[] = [
       'The route is a legitimate first-party music mailbox with no published login, CAPTCHA or payment requirement, but a human must review the non-exclusive airplay and promotional-use grant, confirm ownership and cover-song rights, clarify international and AI-assisted-music eligibility, choose an appropriate MarcsMusic track, and explicitly authorize the final email or file-transfer action.',
     notes:
       'Verified on 2026-07-17 from OurTownRadio first-party submission, terms and current programming pages. The station accepts original independent music in almost all genres, prefers MP3 files with title/artist/album metadata, accepts one song or a full album, permits free download links through transfer services and also accepts Spotify or YouTube links. The official mailbox is MUSIC@OURTOWNRADIO.COM. Covers are prohibited unless the submitter has the rights. The submission page states that submitting grants rights for airplay and promotional use; the terms describe a non-exclusive, non-transferable right to host content for public airplay and advertising promotions. Current activity was evidenced by a July 11, 2026 weekly chart and published upcoming shows. No email was sent, no file was uploaded, no account or login was used, no CAPTCHA was solved and no payment or submission action was performed.'
-  }
+  },
+  ...run465SeedPlatforms
 ];
