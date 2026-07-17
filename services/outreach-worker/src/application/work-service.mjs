@@ -44,6 +44,15 @@ export function createWorkService({ repository, contactIntakeService, matchServi
         case "validate_contact":
           await contactIntakeService.processContact(item.entity_id);
           break;
+        case "validate_contact_email":
+          if (typeof contactIntakeService.validateContactEmail !== "function") {
+            throw Object.assign(new Error("Contact email validation is unavailable"), {
+              code: "CONTACT_EMAIL_VALIDATION_UNAVAILABLE",
+              retryable: false
+            });
+          }
+          await contactIntakeService.validateContactEmail(item.entity_id);
+          break;
         case "validate_outlet":
           await contactIntakeService.processOutlet(item.entity_id);
           break;
@@ -108,6 +117,9 @@ export function createWorkService({ repository, contactIntakeService, matchServi
           break;
         case "run_full_reconcile":
           await reconcileService.run({ full: true });
+          break;
+        case "run_mailgun_validation_reconcile":
+          await reconcileService.run({ full: true, validationOnly: true });
           break;
         case "run_outcome_reconcile":
           if (!outcomeReconcileService) throw Object.assign(new Error("Outcome reconcile service is unavailable"), {

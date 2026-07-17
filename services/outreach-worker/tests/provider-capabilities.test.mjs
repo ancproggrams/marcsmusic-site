@@ -317,6 +317,25 @@ test("provider capability configuration is bounded and Plunk sending does not re
   assert.equal(configured.mailgun.inboundRouteEvidence, "configured");
   assert.equal(configured.emailValidation.healthUrl, "https://validator.example.test/healthz");
 
+  const mailgunValidation = loadConfig({
+    ...validEnvironment(),
+    EMAIL_VALIDATION_PROVIDER_ENABLED: "true",
+    EMAIL_VALIDATION_PROVIDER_TYPE: "mailgun"
+  });
+  assert.equal(mailgunValidation.emailValidation.type, "mailgun");
+  assert.equal(mailgunValidation.emailValidation.mailgunBaseUrl, "https://api.eu.mailgun.net");
+  assert.equal(mailgunValidation.emailValidation.mailgunDomain, "mail.example.test");
+  assert.throws(
+    () => loadConfig({
+      ...validEnvironment(),
+      EMAIL_VALIDATION_PROVIDER_ENABLED: "true",
+      EMAIL_VALIDATION_PROVIDER_TYPE: "mailgun",
+      MAILGUN_API_KEY: ""
+    }),
+    (error) => error instanceof ConfigurationError
+      && error.issues.some(({ path }) => path[0] === "MAILGUN_API_KEY")
+  );
+
   assert.throws(
     () => loadConfig({
       ...validEnvironment(),

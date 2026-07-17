@@ -165,7 +165,7 @@ const schema = z.object({
   SOURCE_INGESTION_MAX_EVIDENCE_AGE_SECONDS: z.coerce.number().int().min(86_400).max(31_536_000).default(7_776_000),
   SOURCE_INGESTION_PROCESSING_LEASE_SECONDS: z.coerce.number().int().min(60).max(3_600).default(900),
   EMAIL_VALIDATION_PROVIDER_ENABLED: booleanString(),
-  EMAIL_VALIDATION_PROVIDER_TYPE: z.enum(["http", "smtp"]).default("http"),
+  EMAIL_VALIDATION_PROVIDER_TYPE: z.enum(["http", "smtp", "mailgun"]).default("http"),
   EMAIL_VALIDATION_PROVIDER_URL: z.string().url().optional().or(z.literal("")),
   EMAIL_VALIDATION_PROVIDER_TOKEN: z.string().optional(),
   EMAIL_VALIDATION_PROVIDER_TIMEOUT_MS: positiveInteger(10_000),
@@ -248,6 +248,16 @@ export function loadConfig(env = process.env) {
     && (!parsed.data.EMAIL_VALIDATION_PROVIDER_URL || !parsed.data.EMAIL_VALIDATION_PROVIDER_TOKEN)
   ) {
     throw new ConfigurationError([{ path: ["EMAIL_VALIDATION_PROVIDER_URL"], message: "Provider URL and token are required when email validation is enabled" }]);
+  }
+  if (
+    parsed.data.EMAIL_VALIDATION_PROVIDER_ENABLED
+    && parsed.data.EMAIL_VALIDATION_PROVIDER_TYPE === "mailgun"
+    && (!parsed.data.MAILGUN_API_KEY || !parsed.data.MAILGUN_DOMAIN)
+  ) {
+    throw new ConfigurationError([{
+      path: ["MAILGUN_API_KEY"],
+      message: "Mailgun email validation requires the API key and configured Mailgun domain"
+    }]);
   }
   if (
     parsed.data.EMAIL_VALIDATION_PROVIDER_HEALTH_URL
@@ -628,7 +638,10 @@ export function loadConfig(env = process.env) {
       commandTimeoutMs: parsed.data.EMAIL_VALIDATION_SMTP_COMMAND_TIMEOUT_MS,
       totalTimeoutMs: parsed.data.EMAIL_VALIDATION_SMTP_TOTAL_TIMEOUT_MS,
       maxMxHosts: parsed.data.EMAIL_VALIDATION_SMTP_MAX_MX_HOSTS,
-      cacheTtlDays: parsed.data.EMAIL_VALIDATION_CACHE_TTL_DAYS
+      cacheTtlDays: parsed.data.EMAIL_VALIDATION_CACHE_TTL_DAYS,
+      mailgunBaseUrl: stripTrailingSlash(parsed.data.MAILGUN_BASE_URL),
+      mailgunApiKey: parsed.data.MAILGUN_API_KEY || undefined,
+      mailgunDomain: parsed.data.MAILGUN_DOMAIN || undefined
     }),
     publicBaseUrl: stripTrailingSlash(parsed.data.OUTREACH_PUBLIC_BASE_URL),
     metricsToken: parsed.data.METRICS_TOKEN

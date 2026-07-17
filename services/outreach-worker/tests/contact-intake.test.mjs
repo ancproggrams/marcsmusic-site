@@ -52,6 +52,29 @@ test("unverified direct CRM evidence remains Needs Validation and never invokes 
   assert.equal(fixture.workflow.enqueued.length, 1, "held contacts still re-enter matching through its hard eligibility gate");
 });
 
+test("explicit email validation updates a quarantined contact without clearing outreach safeguards", async () => {
+  const capturedAt = new Date().toISOString();
+  const fixture = createFixture({
+    outlets: [validOutlet({ capturedAt })],
+    contacts: [validContact({
+      capturedAt,
+      doNotContact: true,
+      status: "Blocked",
+      emailValidationStatus: "Unknown"
+    })]
+  });
+
+  const result = await fixture.service.validateContactEmail("contact-1");
+
+  assert.equal(result.validationStatus, "Valid");
+  assert.equal(result.outreachEligible, false);
+  assert.equal(result.record.emailValidationStatus, "Valid");
+  assert.equal(result.record.doNotContact, true);
+  assert.equal(result.record.status, "Blocked");
+  assert.equal(fixture.workflow.enqueued.length, 0);
+  assert.equal(fixture.validationCalls.length, 1);
+});
+
 test("same-domain outlet duplicates converge on the oldest canonical and no-submissions evidence denies every alias", async () => {
   const capturedAt = new Date().toISOString();
   const canonical = validOutlet({

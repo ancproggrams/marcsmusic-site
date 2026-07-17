@@ -132,6 +132,50 @@ export function createContactIntakeService({
     });
   }
 
+  /**
+   * Validate one CRM address without running the intake/merge pipeline.
+   *
+   * This path is deliberately separate from processContact: historical
+   * Mailgun contacts are imported with doNotContact=true and must still be
+   * technically validated, but a validation result may never clear a
+   * suppression, consent, purpose, basis, or evidence gate.
+   */
+  async function validateContactEmail(contactId) {
+    return intakeRepository.withEntityFence("MediaContact", contactId, async () => {
+      const input = await readEntity("MediaContact", contactId, CONTACT_SELECT);
+      const revisionDigest = crmRevisionDigest("MediaContact", input);
+      const email = normalizeEmail(input.emailAddress);
+      const validation = email
+        ? await validateEmail(email, `mailgun-contact:${contactId}:${revisionDigest}`)
+        : Object.freeze({ status: "Unknown", method: "not_present" });
+      const payload = compactChanged(input, {
+        emailValidationStatus: validation.status,
+        ...(validation.method === "smtp" ? { smtpValidationStatus: validation.status } : {}),
+        ...(validation.checkedAt ? { lastValidatedAt: toEspoDateTime(validation.checkedAt) } : {})
+      });
+      const record = await updateIfChanged("MediaContact", input, payload, CONTACT_SELECT);
+      metrics?.increment("outreach_email_validation_total", {
+        provider: validation.method,
+        outcome: validation.status
+      });
+      logger?.info({
+        contactId,
+        provider: validation.method,
+        validationStatus: validation.status,
+        doNotContact: Boolean(record.doNotContact)
+      }, "CRM contact email validation completed");
+      return Object.freeze({
+        entityType: "MediaContact",
+        entityId: contactId,
+        validationStatus: validation.status,
+        method: validation.method,
+        checkedAt: validation.checkedAt,
+        record: Object.freeze(record),
+        outreachEligible: false
+      });
+    });
+  }
+
   async function processOutlet(outletId, options = {}) {
     return intakeRepository.withEntityFence("MediaOutlet", outletId, async () => {
       const input = await readEntity("MediaOutlet", outletId, OUTLET_SELECT);
@@ -647,7 +691,11 @@ export function createContactIntakeService({
 
   async function validateEmail(email, idempotencyKey) {
     const recipientHash = cryptoBox.privacyHash(email);
-    const cached = await intakeRepository.getEmailValidation(recipientHash);
+    // Validation results are provider-specific.  A cached SMTP result must
+    // never satisfy a Mailgun validation request (and vice versa), otherwise
+    // changing providers would silently leave CRM statuses stale.
+    const validatorType = config.emailValidation?.type;
+    const cached = await intakeRepository.getEmailValidation(recipientHash, validatorType);
     if (cached) return cached;
     const result = await emailValidationProvider.validate(
       email,
@@ -731,7 +779,7 @@ export function createContactIntakeService({
     return record;
   }
 
-  return Object.freeze({ processContact, processOutlet });
+  return Object.freeze({ processContact, processOutlet, validateContactEmail });
 }
 
 export function crmRevisionDigest(entityType, record) {

@@ -132,7 +132,11 @@ format, but file parts are rejected.
 - `COPY_LINK_CHECK_*`: mandatory bounded reachability gate for the chosen EPK/private-stream URL before a copy artifact is persisted.
 - `EPK_VERIFIER_*`: default-off, allowlist-only public EPK verification with one total deadline and strict redirect/header/body/asset/batch bounds.
 - `SOURCE_INGESTION_*`: explicit source allow-list, independent HMAC keys, replay window and artifact-age bound.
-- `EMAIL_VALIDATION_PROVIDER_*`: independent validation API, optional non-mutating HTTP health endpoint and bounded responses/timeouts. Disabled or unproven health is reported fail-closed for provider availability.
+- `EMAIL_VALIDATION_PROVIDER_*`: bounded validation contract. Production may use
+  `EMAIL_VALIDATION_PROVIDER_TYPE=mailgun`, which reuses the official
+  `MAILGUN_API_KEY`, `MAILGUN_BASE_URL` and `MAILGUN_DOMAIN` secrets and calls
+  Mailgun's read-only address-validation endpoint. HTTP and SMTP remain explicit
+  alternatives; disabled or unproven health is reported fail-closed.
 - `OUTREACH_RETENTION_POLICY_JSON`, `OUTREACH_PRIVACY_*_CONFIRM`: default-disabled, owner-approved privacy policy and explicit one-shot execution gates; see the privacy runbook.
 - `METRICS_TOKEN`: bearer token for operational metrics.
 
@@ -146,7 +150,7 @@ Outcome reconciliation never sends mail and never bypasses either webhook signat
 
 `npm run run:reconcile-outcomes` executes one bounded recovery invocation. The normal worker schedules the same `run_outcome_reconcile` maintenance item. Page-budget or queue-backpressure exhaustion is retryable and resumes the durable checkpoint; it does not advance the watermark. Accepted provider evidence may resolve `delivery_unknown` only through a second transactional identity fence. Direct Mailgun replies are projected idempotently as managed Espo Emails with `inbound:<sha256>` identity and explicit `Received` status before deterministic classification.
 
-Email validation health is equally explicit. A configured HTTP validator is live-probed only when `EMAIL_VALIDATION_PROVIDER_HEALTH_URL` names a dedicated, non-mutating `GET` endpoint returning JSON `{"status":"ok"}`. Without that endpoint—and for SMTP/MX validation, where a recipient probe would be inappropriate for health—the provider remains `configured` with health `unknown`. No capability check validates a recipient or consumes a send operation.
+Email validation health is equally explicit. A configured HTTP validator is live-probed only when `EMAIL_VALIDATION_PROVIDER_HEALTH_URL` names a dedicated, non-mutating `GET` endpoint returning JSON `{"status":"ok"}`. SMTP/MX validation reports only bounded MX health. Mailgun validation reuses the already-cached non-mutating Mailgun domain GET for control-plane health; it never calls the billable address-validation endpoint as a capability probe. No capability check validates a recipient or consumes a send operation.
 
 The copy gate accepts only HTTPS on port 443. It rejects credentials and any DNS answer or redirect hop that is loopback, link-local, private, multicast, documentation, reserved, or otherwise non-public. TLS uses the original hostname while the socket is pinned to the address that was validated, preventing a second DNS lookup from bypassing the policy. Redirects, total duration, and response-header bytes are bounded; `HEAD` falls back to a bodyless ranged `GET` only when the origin reports that `HEAD` is unsupported. HTTP `408`, `429`, `5xx`, network errors, and timeouts remain retryable; other `4xx` responses are permanent. The tokenized unsubscribe URL is deliberately not probed: readiness of `OUTREACH_PUBLIC_BASE_URL` is an operational deployment responsibility and probing recipient-specific tokens would leak or consume them.
 
@@ -164,7 +168,18 @@ PostgreSQL rejects nonce replay, artifact-ID/content collisions and concurrent p
 
 Source and evidence URL, text, and capture timestamp are mandatory. Source URLs are canonicalized before semantic digests and CRM projection: only known tracking parameters are removed and functional query parameters remain. Outlet `subGenres` and `formatGenres`, plus release `subGenres` and ISO alpha-2 `territories`, are independent bounded fields; `formatGenres` is never inferred from main `genres`. Missing or `Other`/unknown language, territory, format, or subgenre values earn zero match points. Even main-genre overlap plus explicit submission and current validation scores only 45, below the default auto-send threshold of 80. DJ Finder may export only explicit music-submission, press, or promotional addresses; booking and management addresses do not become contacts. Music Submission Agent currently contributes outlet/submission-route evidence, not recipient addresses. See [the v1 artifact/v2 authentication producer contract](docs/source-ingestion-v1.md) for exact mappings and Railway variables.
 
-The independent validation provider must answer the strict JSON contract `{ "status": "Valid|Invalid|Risky|Unknown", "checkedAt": "ISO timestamp", "providerReference": "..." }`. Only exact `Valid` creates `Ready for Matching`. Provider disabled, timeout, invalid response, `Risky`, or `Unknown` never becomes an eligibility allow decision.
+The validation adapter always emits the strict JSON contract `{ "status": "Valid|Invalid|Risky|Unknown", "checkedAt": "ISO timestamp", "providerReference": "..." }`. For Mailgun, only `result=deliverable`, `risk=low`, and non-role/non-disposable responses become `Valid`; `undeliverable`/`do_not_send` become `Invalid`; catch-all, medium/high risk and disposable/role addresses remain `Risky`. Only exact `Valid` creates `Ready for Matching`. Provider disabled, timeout, invalid response, `Risky`, or `Unknown` never becomes an eligibility allow decision.
+
+Historical contacts imported from Mailgun are intentionally quarantined. To
+refresh only their technical address status, queue the explicit
+`run_mailgun_validation_reconcile` maintenance work item once after checking
+the pending-work queue. It scans `MediaContact` records and enqueues
+`validate_contact_email`; that handler updates only `emailValidationStatus`
+and `lastValidatedAt`. It never clears `doNotContact`, opt-out, hard-bounce,
+consent, purpose, basis, evidence, or campaign gates. A Mailgun `Valid` result
+is therefore a necessary technical prerequisite, not permission to contact a
+person. Outreach requires the existing CRM consent/evidence policy to pass as
+well.
 
 ## Data handling
 

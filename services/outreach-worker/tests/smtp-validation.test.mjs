@@ -3,9 +3,83 @@ import { createServer } from "node:net";
 import { test } from "node:test";
 import {
   HttpEmailValidationProvider,
+  MailgunEmailValidationProvider,
   SmtpMxEmailValidationProvider,
-  isPublicDestination
+  isPublicDestination,
+  mapMailgunValidationResult
 } from "../src/infrastructure/email-validation-provider.mjs";
+
+test("Mailgun validation uses the official read-only endpoint and maps only low-risk deliverable results to Valid", async () => {
+  const requests = [];
+  const provider = new MailgunEmailValidationProvider({
+    baseUrl: "https://api.eu.mailgun.net",
+    apiKey: "mailgun-validation-test-key",
+    timeoutMs: 1_000
+  }, {
+    fetch: async (url, options) => {
+      requests.push({ url, options });
+      return new Response(JSON.stringify({
+        result: "deliverable",
+        risk: "low",
+        is_disposable_address: false,
+        is_role_address: false,
+        address: "should-not-be-returned"
+      }), { status: 200, headers: { "content-type": "application/json" } });
+    }
+  });
+
+  const result = await provider.validate("dj@example.test", "idempotency-key");
+  assert.equal(result.status, "Valid");
+  assert.equal(result.method, "mailgun");
+  assert.equal(result.providerReference, "mailgun:deliverable:low:not-disposable:not-role");
+  assert.equal(requests.length, 1);
+  const requestUrl = new URL(requests[0].url);
+  assert.equal(requestUrl.origin, "https://api.eu.mailgun.net");
+  assert.equal(requestUrl.pathname, "/v4/address/validate");
+  assert.equal(requestUrl.searchParams.get("address"), "dj@example.test");
+  assert.equal(requestUrl.searchParams.get("provider_lookup"), "true");
+  assert.equal(requests[0].options.method, "GET");
+  assert.equal(requests[0].options.body, undefined);
+  assert.equal(requests[0].options.headers.authorization, `Basic ${Buffer.from("api:mailgun-validation-test-key").toString("base64")}`);
+  assert.doesNotMatch(JSON.stringify(result), /should-not-be-returned|dj@example/u);
+});
+
+test("Mailgun validation keeps risky, disposable, role and non-deliverable results fail-closed", () => {
+  const base = {
+    checkedAt: "2026-07-17T10:00:00.000Z",
+    is_disposable_address: false,
+    is_role_address: false
+  };
+  assert.equal(mapMailgunValidationResult({ ...base, result: "undeliverable", risk: "high" }).status, "Invalid");
+  assert.equal(mapMailgunValidationResult({ ...base, result: "do_not_send", risk: "medium" }).status, "Invalid");
+  assert.equal(mapMailgunValidationResult({ ...base, result: "catch_all", risk: "low" }).status, "Risky");
+  assert.equal(mapMailgunValidationResult({ ...base, result: "deliverable", risk: "medium" }).status, "Risky");
+  assert.equal(mapMailgunValidationResult({ ...base, result: "deliverable", risk: "low", is_disposable_address: true }).status, "Risky");
+  assert.equal(mapMailgunValidationResult({ ...base, result: "deliverable", risk: "low", is_role_address: true }).status, "Risky");
+  assert.equal(mapMailgunValidationResult({ ...base, result: "unknown", risk: "unknown" }).status, "Unknown");
+  assert.throws(
+    () => mapMailgunValidationResult({ result: "deliverable", risk: "low" }),
+    (error) => error.code === "MAILGUN_VALIDATION_RESPONSE_INVALID"
+  );
+});
+
+test("Mailgun validation classifies provider throttling as retryable without leaking response data", async () => {
+  const provider = new MailgunEmailValidationProvider({
+    baseUrl: "https://api.eu.mailgun.net",
+    apiKey: "mailgun-validation-test-key",
+    timeoutMs: 1_000
+  }, {
+    fetch: async () => new Response(JSON.stringify({ message: "key must not leak" }), {
+      status: 429,
+      headers: { "content-type": "application/json" }
+    })
+  });
+  await assert.rejects(
+    () => provider.validate("dj@example.test", "idempotency-key"),
+    (error) => error.code === "MAILGUN_VALIDATION_HTTP_429" && error.retryable === true
+      && !String(error.message).includes("key must not leak")
+  );
+});
 
 test("SMTP/MX validation classifies exact recipient and catch-all responses without DATA", async (t) => {
   for (const scenario of [

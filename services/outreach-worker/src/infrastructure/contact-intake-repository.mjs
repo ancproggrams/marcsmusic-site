@@ -146,8 +146,8 @@ export class ContactIntakeRepository {
     return this.identityRepository.withSuppressionFence(input, work);
   }
 
-  getEmailValidation(input) {
-    return this.identityRepository.getEmailValidation(input);
+  getEmailValidation(input, validatorType) {
+    return this.identityRepository.getEmailValidation(input, validatorType);
   }
 
   putEmailValidation(input) {

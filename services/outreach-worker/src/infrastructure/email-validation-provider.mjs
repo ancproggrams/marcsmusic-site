@@ -13,6 +13,9 @@ const responseSchema = z.object({
 
 const DEFINITIVE_SMTP_STATUS = new Set(["Valid", "Invalid"]);
 const SMTP_RESPONSE_BYTES_LIMIT = 64 * 1_024;
+const MAILGUN_VALIDATION_RESULTS = new Set(["deliverable", "undeliverable", "do_not_send", "catch_all", "unknown"]);
+const MAILGUN_VALIDATION_RISKS = new Set(["low", "medium", "high", "unknown"]);
+const MAILGUN_VALIDATION_RESPONSE_BYTES_LIMIT = 64 * 1_024;
 
 export class DisabledEmailValidationProvider {
   async validate() {
@@ -81,6 +84,109 @@ export class HttpEmailValidationProvider {
       abortScope.cleanup();
     }
   }
+}
+
+/**
+ * Mailgun's validation API is a read-only control-plane request.  It never
+ * sends a message and its response is reduced to the worker's strict
+ * Valid/Invalid/Risky/Unknown contract before anything reaches CRM or the
+ * validation cache.
+ */
+export class MailgunEmailValidationProvider {
+  constructor(config, options = {}) {
+    this.baseUrl = stripTrailingSlash(config.baseUrl);
+    this.apiKey = config.apiKey;
+    this.providerLookup = config.providerLookup !== false;
+    this.timeoutMs = config.timeoutMs;
+    this.fetch = options.fetch ?? globalThis.fetch;
+    this.signal = options.signal;
+    if (!this.baseUrl || !this.apiKey) throw new TypeError("Mailgun validation credentials are required");
+    if (typeof this.fetch !== "function") throw new TypeError("A fetch implementation is required");
+  }
+
+  async validate(email, _idempotencyKey, { signal } = {}) {
+    if (typeof email !== "string" || /[\r\n]/u.test(email) || email.length > 512) {
+      throw new ApplicationError("Mailgun email validation address is invalid", {
+        code: "EMAIL_VALIDATION_ADDRESS_INVALID",
+        statusCode: 400,
+        retryable: false
+      });
+    }
+    const query = new URLSearchParams({
+      address: email,
+      provider_lookup: this.providerLookup ? "true" : "false"
+    });
+    const abortScope = createAbortScope({ signals: [this.signal, signal], timeoutMs: this.timeoutMs });
+    try {
+      const response = await this.fetch(`${this.baseUrl}/v4/address/validate?${query}`, {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          authorization: `Basic ${Buffer.from(`api:${this.apiKey}`, "utf8").toString("base64")}`
+        },
+        redirect: "error",
+        signal: abortScope.signal
+      });
+      if (!response.ok) {
+        await cancelResponseBody(response);
+        throw new ApplicationError("Mailgun email validation request failed", {
+          code: `MAILGUN_VALIDATION_HTTP_${response.status}`,
+          statusCode: 503,
+          retryable: response.status === 408 || response.status === 425 || response.status === 429 || response.status >= 500,
+          details: { status: response.status }
+        });
+      }
+      const body = await readJson(response, MAILGUN_VALIDATION_RESPONSE_BYTES_LIMIT);
+      return mapMailgunValidationResult(body, new Date().toISOString());
+    } catch (error) {
+      if (error instanceof ApplicationError) throw error;
+      const aborted = abortScope.externallyAborted || abortScope.timedOut || error?.name === "AbortError";
+      throw new ApplicationError(
+        abortScope.externallyAborted ? "Mailgun email validation aborted" : aborted ? "Mailgun email validation timed out" : "Mailgun email validation request failed",
+        {
+          code: abortScope.externallyAborted ? "MAILGUN_VALIDATION_ABORTED" : aborted ? "MAILGUN_VALIDATION_TIMEOUT" : "MAILGUN_VALIDATION_NETWORK_ERROR",
+          statusCode: 503,
+          retryable: true,
+          cause: error
+        }
+      );
+    } finally {
+      abortScope.cleanup();
+    }
+  }
+}
+
+export function mapMailgunValidationResult(body, checkedAt = new Date().toISOString()) {
+  const result = String(body?.result ?? "").toLowerCase();
+  const risk = String(body?.risk ?? "").toLowerCase();
+  const disposable = body?.is_disposable_address === true;
+  const role = body?.is_role_address === true;
+  if (!MAILGUN_VALIDATION_RESULTS.has(result) || !MAILGUN_VALIDATION_RISKS.has(risk)
+      || typeof body?.is_disposable_address !== "boolean" || typeof body?.is_role_address !== "boolean") {
+    throw new ApplicationError("Mailgun email validation response was invalid", {
+      code: "MAILGUN_VALIDATION_RESPONSE_INVALID",
+      statusCode: 503,
+      retryable: false
+    });
+  }
+
+  let status = "Unknown";
+  if (result === "undeliverable" || result === "do_not_send") status = "Invalid";
+  else if (result === "deliverable" && risk === "low" && !disposable && !role) status = "Valid";
+  else if (result === "deliverable" || result === "catch_all") status = "Risky";
+
+  const flags = [
+    result,
+    risk,
+    disposable ? "disposable" : "not-disposable",
+    role ? "role" : "not-role"
+  ].join(":");
+  return Object.freeze({
+    status,
+    checkedAt,
+    providerReference: `mailgun:${flags}`,
+    method: "mailgun"
+  });
 }
 
 /**
@@ -456,9 +562,9 @@ function smtpError(code, message) {
   return Object.assign(new Error(message), { code });
 }
 
-async function readJson(response) {
+async function readJson(response, maximumBytes = 64 * 1_024) {
   try {
-    const bytes = await readBoundedBody(response, 64 * 1_024);
+    const bytes = await readBoundedBody(response, maximumBytes);
     return JSON.parse(bytes.toString("utf8"));
   } catch (error) {
     if (error instanceof ApplicationError) throw error;
@@ -466,6 +572,18 @@ async function readJson(response) {
       code: "EMAIL_VALIDATION_RESPONSE_INVALID", statusCode: 503, retryable: false
     });
   }
+}
+
+async function cancelResponseBody(response) {
+  try {
+    await response.body?.cancel?.();
+  } catch {
+    // The sanitized HTTP status remains authoritative if cancellation races.
+  }
+}
+
+function stripTrailingSlash(value) {
+  return String(value ?? "").replace(/\/+$/u, "");
 }
 
 async function readBoundedBody(response, maximumBytes) {

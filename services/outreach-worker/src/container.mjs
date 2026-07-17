@@ -11,6 +11,7 @@ import { ReleaseLinkReachabilityChecker } from "./infrastructure/release-link-re
 import {
   DisabledEmailValidationProvider,
   HttpEmailValidationProvider,
+  MailgunEmailValidationProvider,
   SmtpMxEmailValidationProvider
 } from "./infrastructure/email-validation-provider.mjs";
 import {
@@ -82,7 +83,13 @@ export function createContainer({ env = process.env, fetch, signal } = {}) {
     ? new DisabledEmailValidationProvider()
     : config.emailValidation.type === "smtp"
       ? new SmtpMxEmailValidationProvider(config.emailValidation, { signal })
-      : new HttpEmailValidationProvider(config.emailValidation, { fetch, signal });
+      : config.emailValidation.type === "mailgun"
+        ? new MailgunEmailValidationProvider({
+            baseUrl: config.emailValidation.mailgunBaseUrl,
+            apiKey: config.emailValidation.mailgunApiKey,
+            timeoutMs: config.emailValidation.timeoutMs
+          }, { fetch, signal })
+        : new HttpEmailValidationProvider(config.emailValidation, { fetch, signal });
   const mailgunHealthProbe = new MailgunDomainHealthProbe(config.mailgun, {
     fetch,
     signal,
@@ -93,11 +100,18 @@ export function createContainer({ env = process.env, fetch, signal } = {}) {
     signal,
     cacheTtlMs: config.providerCapabilities.cacheTtlMs
   });
-  const emailValidationHealthProbe = new EmailValidationHealthProbe(config.emailValidation, {
-    fetch,
-    signal,
-    cacheTtlMs: config.providerCapabilities.cacheTtlMs
-  });
+  const emailValidationHealthProbe = config.emailValidation.type === "mailgun"
+    ? {
+        check: async () => Object.freeze({
+          ...(await mailgunHealthProbe.check()),
+          type: "mailgun"
+        })
+      }
+    : new EmailValidationHealthProbe(config.emailValidation, {
+        fetch,
+        signal,
+        cacheTtlMs: config.providerCapabilities.cacheTtlMs
+      });
   const inboundRouteEvidence = configuredInboundRouteEvidence(config.mailgun);
   const copyService = createCopyService({ repository, copyProvider, releaseLinkChecker, config, logger, metrics });
   const contactIntakeService = createContactIntakeService({

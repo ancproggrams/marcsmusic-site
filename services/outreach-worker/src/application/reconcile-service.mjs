@@ -8,11 +8,23 @@ const ROUTES = Object.freeze([
   Object.freeze({ entityType: "OutreachMatch", workKind: "sync_match_state" }),
   Object.freeze({ entityType: "OutreachSuppression", workKind: "sync_suppression" })
 ]);
+const MAILGUN_VALIDATION_ROUTES = Object.freeze([
+  Object.freeze({ entityType: "MediaContact", workKind: "validate_contact_email" })
+]);
 
 export function createReconcileService({ espocrm, repository, config, logger, metrics }) {
-  async function run({ now = new Date(), full = false } = {}) {
-    const workflowName = full ? "outreach-full-reconcile" : "outreach-incremental-reconcile";
-    const watermarkName = "espocrm-business-records";
+  async function run({ now = new Date(), full = false, validationOnly = false } = {}) {
+    if (validationOnly && !full) throw Object.assign(new Error("Mailgun validation reconciliation must be a full, explicit run"), {
+      code: "MAILGUN_VALIDATION_RECONCILE_SCOPE_INVALID",
+      retryable: false
+    });
+    const routes = validationOnly ? MAILGUN_VALIDATION_ROUTES : ROUTES;
+    const workflowName = validationOnly
+      ? "outreach-mailgun-validation-reconcile"
+      : full ? "outreach-full-reconcile" : "outreach-incremental-reconcile";
+    // Keep this one-time sweep independent from the normal reconciliation
+    // watermark so it cannot make incremental business work disappear.
+    const watermarkName = validationOnly ? "espocrm-mailgun-validation" : "espocrm-business-records";
     const fallback = new Date(now.getTime() - 24 * 60 * 60 * 1_000);
     const storedWatermark = full ? new Date(0) : new Date(await repository.getWatermark(watermarkName, fallback));
     const proposedFrom = new Date(storedWatermark.getTime() - config.schedules.reconcileOverlapMinutes * 60_000);
@@ -21,6 +33,8 @@ export function createReconcileService({ espocrm, repository, config, logger, me
       return runCompatibilityWorkflow({
         now,
         full,
+        routes,
+        validationOnly,
         workflowName,
         watermarkName,
         from: proposedFrom,
@@ -41,7 +55,7 @@ export function createReconcileService({ espocrm, repository, config, logger, me
     const from = lease.watermarkFrom;
     const to = lease.watermarkTo;
     const counters = {
-      ...Object.fromEntries(ROUTES.map(({ entityType }) => [entityType, 0])),
+      ...Object.fromEntries(routes.map(({ entityType }) => [entityType, 0])),
       ...lease.counters
     };
     let leaseLost = false;
@@ -53,8 +67,8 @@ export function createReconcileService({ espocrm, repository, config, logger, me
     heartbeat.unref?.();
 
     try {
-      for (let routeIndex = lease.routeIndex; routeIndex < ROUTES.length; routeIndex += 1) {
-        const route = ROUTES[routeIndex];
+      for (let routeIndex = lease.routeIndex; routeIndex < routes.length; routeIndex += 1) {
+        const route = routes[routeIndex];
         const cursor = routeIndex === lease.routeIndex ? lease.cursor : undefined;
         const entityLimit = config.schedules.reconcileMaxRecordsPerEntity ?? 10_000_000;
         const remaining = entityLimit - counters[route.entityType];
@@ -71,7 +85,7 @@ export function createReconcileService({ espocrm, repository, config, logger, me
               kind: route.workKind,
               entityType: route.entityType,
               entityId: record.id,
-              dedupeKey: `reconcile:${route.entityType}:${record.id}:${revision}`,
+              dedupeKey: `${validationOnly ? "mailgun-validation" : "reconcile"}:${route.entityType}:${record.id}:${revision}`,
               payload: { correlationId, revision },
               priority: 50
             };
@@ -97,7 +111,7 @@ export function createReconcileService({ espocrm, repository, config, logger, me
       }
       if (leaseLost) throw reconcileLeaseLost();
       await repository.completeReconcileWorkflow(lease, {
-        routeIndex: ROUTES.length,
+        routeIndex: routes.length,
         counters,
         watermarkName,
         watermarkValue: to
@@ -113,11 +127,11 @@ export function createReconcileService({ espocrm, repository, config, logger, me
     }
   }
 
-  async function runCompatibilityWorkflow({ now, full, workflowName, watermarkName, from, correlationId }) {
+  async function runCompatibilityWorkflow({ now, full, routes, validationOnly, workflowName, watermarkName, from, correlationId }) {
     const runId = await repository.startWorkflow(workflowName, correlationId, from, now);
-    const counters = Object.fromEntries(ROUTES.map(({ entityType }) => [entityType, 0]));
+    const counters = Object.fromEntries(routes.map(({ entityType }) => [entityType, 0]));
     try {
-      for (const route of ROUTES) {
+      for (const route of routes) {
         const records = full
           ? await espocrm.list(route.entityType, { maxRecords: 100_000, orderBy: "modifiedAt", order: "asc" })
           : await espocrm.listModifiedSince(route.entityType, from, { maxRecords: 100_000, upperWatermark: now });
@@ -125,7 +139,7 @@ export function createReconcileService({ espocrm, repository, config, logger, me
           kind: route.workKind,
           entityType: route.entityType,
           entityId: record.id,
-          dedupeKey: `reconcile:${route.entityType}:${record.id}:${recordRevision(record)}`,
+          dedupeKey: `${validationOnly ? "mailgun-validation" : "reconcile"}:${route.entityType}:${record.id}:${recordRevision(record)}`,
           payload: { correlationId, revision: recordRevision(record) },
           priority: 50
         }));

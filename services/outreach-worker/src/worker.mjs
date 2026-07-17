@@ -17,12 +17,12 @@ const WORK_LANES = Object.freeze([
   Object.freeze({
     name: "matching",
     concurrencyKey: "matching",
-    kinds: Object.freeze(["validate_contact", "validate_outlet", "match_release", "match_contact", "match_contact_release", "match_outlet", "schedule_sequence_step", "resume_sequence"])
+    kinds: Object.freeze(["validate_contact", "validate_contact_email", "validate_outlet", "match_release", "match_contact", "match_contact_release", "match_outlet", "schedule_sequence_step", "resume_sequence"])
   }),
   Object.freeze({
     name: "maintenance",
     concurrencyKey: "maintenance",
-    kinds: Object.freeze(["create_daily_report", "health_check", "run_incremental_reconcile", "run_full_reconcile", "run_outcome_reconcile", "reconcile_crm_projections"])
+    kinds: Object.freeze(["create_daily_report", "health_check", "run_incremental_reconcile", "run_full_reconcile", "run_mailgun_validation_reconcile", "run_outcome_reconcile", "reconcile_crm_projections"])
   })
 ]);
 

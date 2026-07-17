@@ -175,7 +175,34 @@ curl --fail --silent --show-error "https://OUTREACH_HOST/capabilities"
 
 Expected `/readyz` output includes only `status=ready`, `database=up` and `schema=current`. Confirm `/capabilities` separately reports `sending=disabled` while the kill switch is on, plus Mailgun domain/auth health, inbound-route evidence (`configured` or `unknown`) and email-validation health. A provider failure must degrade `/capabilities` but must not make `/readyz` fail. Do not log the metrics bearer token; fetch `/metrics` from the approved monitoring integration.
 
-The Mailgun capability check is a cached, non-mutating domain `GET`; it does not send mail and does not enumerate or create routes. Keep `MAILGUN_INBOUND_ROUTE_EVIDENCE=unknown` until an operator has completed and archived a live signed inbound-reply test. Only then set it to `configured` with a non-secret evidence reference. For HTTP email validation, configure a dedicated non-mutating health URL returning JSON `{"status":"ok"}`. Never point the health setting at a billable validation endpoint unless that endpoint explicitly guarantees `GET` is non-mutating.
+The Mailgun capability check is a cached, non-mutating domain `GET`; it does not send mail and does not enumerate or create routes. Keep `MAILGUN_INBOUND_ROUTE_EVIDENCE=unknown` until an operator has completed and archived a live signed inbound-reply test. Only then set it to `configured` with a non-secret evidence reference. For HTTP email validation, configure a dedicated non-mutating health URL returning JSON `{"status":"ok"}`. For `EMAIL_VALIDATION_PROVIDER_TYPE=mailgun`, reuse the cached Mailgun domain GET for control-plane health and never call the billable address-validation endpoint as a health check. Never point the health setting at a billable validation endpoint unless that endpoint explicitly guarantees `GET` is non-mutating.
+
+### One-time validation of historical contacts
+
+The normal full reconcile runs the intake/merge pipeline and intentionally
+skips provider calls for denied contacts. When an operator wants to refresh the
+technical Mailgun status of the imported quarantine, enqueue this separate,
+idempotent work item after checking that no unexpected send work is pending:
+
+```sql
+INSERT INTO work_items (kind, entity_type, entity_id, dedupe_key, payload, priority)
+VALUES (
+  'run_mailgun_validation_reconcile',
+  'System',
+  'espocrm',
+  'mailgun-validation-reconcile:YYYY-MM-DD',
+  '{"reason":"operator-approved-mailgun-validation"}'::jsonb,
+  55
+)
+ON CONFLICT (dedupe_key) DO NOTHING;
+```
+
+The maintenance item scans only `MediaContact` records and creates bounded
+`validate_contact_email` work. The handler updates `emailValidationStatus`
+and `lastValidatedAt` only; it never clears `doNotContact`, opt-out,
+hard-bounce, consent, purpose, basis, evidence, or campaign safeguards. Do not
+clear those fields based solely on a Mailgun `Valid` response. Review the
+remaining CRM eligibility evidence before enabling outreach.
 
 ## Production cutover
 

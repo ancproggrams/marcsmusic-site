@@ -382,6 +382,45 @@ test("reconciliation advances the watermark only after every entity route succee
   assert.equal(failed.calls.workflows.at(-1).result.errorCode, "ESPO_UNAVAILABLE");
 });
 
+test("explicit Mailgun validation reconciliation only queues contact email checks", async () => {
+  const now = new Date("2026-07-15T12:00:00.000Z");
+  const calls = { enqueued: [], watermarks: [], workflows: [] };
+  const repository = {
+    async getWatermark() { return "2026-01-01T00:00:00.000Z"; },
+    async startWorkflow(name, correlationId, from, to) {
+      calls.workflows.push({ phase: "start", name, correlationId, from, to });
+      return "run-validation";
+    },
+    async enqueueWork(value) { calls.enqueued.push(value); },
+    async setWatermark(name, value) { calls.watermarks.push({ name, value }); },
+    async finishWorkflow(id, result) { calls.workflows.push({ phase: "finish", id, result }); }
+  };
+  const espocrm = {
+    async list(entityType) {
+      return entityType === "MediaContact"
+        ? [{ id: "contact-1", modifiedAt: "2026-07-10 11:00:00", versionNumber: 1 }]
+        : [{ id: "should-not-be-queued", modifiedAt: "2026-07-10 11:00:00", versionNumber: 1 }];
+    }
+  };
+  const service = createReconcileService({
+    espocrm,
+    repository,
+    config: { schedules: { reconcileOverlapMinutes: 10 } },
+    logger,
+    metrics: new Metrics()
+  });
+
+  const result = await service.run({ now, full: true, validationOnly: true });
+
+  assert.equal(result.succeeded, true);
+  assert.deepEqual(calls.enqueued.map(({ kind, entityType, entityId }) => ({ kind, entityType, entityId })), [
+    { kind: "validate_contact_email", entityType: "MediaContact", entityId: "contact-1" }
+  ]);
+  assert.match(calls.enqueued[0].dedupeKey, /^mailgun-validation:MediaContact:contact-1:/u);
+  assert.deepEqual(calls.watermarks, [{ name: "espocrm-mailgun-validation", value: now }]);
+  assert.equal(calls.workflows[0].name, "outreach-mailgun-validation-reconcile");
+});
+
 test("health evaluation opens the safety circuit when a sufficiently large window is harmful", async () => {
   const calls = { circuits: [] };
   let circuit = { state: "closed" };

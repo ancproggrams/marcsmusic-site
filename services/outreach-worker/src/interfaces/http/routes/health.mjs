@@ -49,7 +49,7 @@ const PUBLIC_REASON_CODES = new Set([
   "unavailable"
 ]);
 const PROVIDER_HEALTH_STATES = new Set(["available", "disabled", "unavailable", "unknown"]);
-const PROVIDER_TYPES = new Set(["http", "smtp"]);
+const PROVIDER_TYPES = new Set(["http", "smtp", "mailgun"]);
 const REPLY_RECOVERY_MODES = new Set(["mailgun_storage", "espocrm_incoming_email", "external"]);
 
 export function registerHealthRoutes(server, { config, repository, readinessCheck, capabilitiesCheck }) {

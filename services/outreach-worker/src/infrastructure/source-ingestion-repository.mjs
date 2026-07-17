@@ -389,12 +389,13 @@ export class SourceIngestionRepository {
     return result.rows[0]?.crm_entity_id;
   }
 
-  async getEmailValidation(recipientHash) {
+  async getEmailValidation(recipientHash, validatorType) {
+    const filter = validatorType ? " AND validator_type=$2" : "";
     const result = await this.pool.query(
       `SELECT status,checked_at,provider_reference,validator_type
          FROM email_validation_cache
-        WHERE recipient_hash=$1 AND expires_at > now()`,
-      [recipientHash]
+        WHERE recipient_hash=$1 AND expires_at > now()${filter}`,
+      validatorType ? [recipientHash, validatorType] : [recipientHash]
     );
     const row = result.rows[0];
     return row ? Object.freeze({
@@ -406,7 +407,10 @@ export class SourceIngestionRepository {
   }
 
   async putEmailValidation({ recipientHash, status, checkedAt, providerReference, method, ttlDays }) {
-    const validatorType = method ?? (String(providerReference).startsWith("smtp:") ? "smtp" : "http");
+    const validatorType = method
+      ?? (String(providerReference).startsWith("smtp:")
+        ? "smtp"
+        : String(providerReference).startsWith("mailgun:") ? "mailgun" : "http");
     await this.pool.query(
       `INSERT INTO email_validation_cache(recipient_hash,status,checked_at,expires_at,provider_reference,validator_type)
        VALUES($1,$2,$3,$3::timestamptz + ($6::text || ' days')::interval,$4,$5)

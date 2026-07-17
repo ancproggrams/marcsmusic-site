@@ -200,6 +200,24 @@ tests pin that invariant.
 
 ## Independent email validation
 
+For production MarcsMusic, use the existing EU Mailgun account as the
+validation provider without re-enabling Mailgun outbound delivery:
+
+```text
+EMAIL_VALIDATION_PROVIDER_ENABLED=true
+EMAIL_VALIDATION_PROVIDER_TYPE=mailgun
+MAILGUN_BASE_URL=https://api.eu.mailgun.net
+MAILGUN_API_KEY=<Railway secret>
+MAILGUN_DOMAIN=mg.marcsmusic.nl
+```
+
+The worker calls Mailgun `GET /v4/address/validate` with Basic authentication
+and `provider_lookup=true`. This is a validation request, not a send path.
+Only Mailgun `deliverable` + low risk + non-role + non-disposable results map
+to `Valid`; all other ambiguous results remain `Risky`, `Invalid` or `Unknown`.
+The existing `doNotContact`, opt-out, consent-basis and evidence gates remain
+independent and are never cleared by a provider result.
+
 Configure an HTTPS provider:
 
 ```text

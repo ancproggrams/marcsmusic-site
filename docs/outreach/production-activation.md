@@ -39,10 +39,13 @@ Set these as Railway secrets or service references; never commit values:
 - `ESPOCRM_BASE_URL` and a least-privilege `ESPOCRM_API_KEY`;
 - `PLUNK_BASE_URL`, `PLUNK_SECRET_KEY`, `PLUNK_FROM=MarcsMusic <marc@marcsmusic.nl>` and the shared
   `PLUNK_WEBHOOK_SECRET`;
-- Mailgun variables only when the explicitly retained legacy inbound/outcome
-  reconciliation boundary is enabled; they are never the outbound provider;
-- `EMAIL_VALIDATION_PROVIDER_*` for an independent validation service, or the
-  approved bounded SMTP/MX mode;
+- Mailgun EU variables (`MAILGUN_API_KEY`, `MAILGUN_BASE_URL` and
+  `MAILGUN_DOMAIN`) may be used for read-only address validation and/or the
+  explicitly retained legacy inbound/outcome reconciliation boundary; they are
+  never the outbound provider;
+- `EMAIL_VALIDATION_PROVIDER_ENABLED=true` and
+  `EMAIL_VALIDATION_PROVIDER_TYPE=mailgun` for the production validation path;
+  HTTP and bounded SMTP/MX remain explicit alternatives;
 - `OUTREACH_DATA_ENCRYPTION_KEY`, `OUTREACH_HASH_KEY`, unsubscribe keyring and
   `METRICS_TOKEN`;
 - `OUTREACH_PUBLIC_BASE_URL` and the approved privacy/observability policy.
