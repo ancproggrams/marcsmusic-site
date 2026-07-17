@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KDVS 90.3 Davis Physical-Only New Music Submission Route","https://kdvs.org/about/faq","inspected","[object Object]","false","false","false","false","true","run271-platform-database.json","2026-07-17T15:23:20.635Z"
+"KUCI Music Submissions College Radio Route","https://kuci.org/wp/music-submissions/","inspected","[object Object]","true","false","false","false","true","run266-platform-database.json","2026-07-17T15:23:37.050Z"

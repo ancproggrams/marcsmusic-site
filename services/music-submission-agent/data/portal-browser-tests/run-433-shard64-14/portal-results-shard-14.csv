@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Future House Music Discord Demo Drop Community Route","https://discord.gg/","inspected","[object Object]","false","false","true","false","true","run158-platform-database.json","2026-07-17T15:23:22.655Z"
+"KUTX On-Air Rotation and Specialty Show Music Submission Route","https://kutx.org/submit-your-music/","inspected","","true","false","false","false","true","run24-platform-database.json","2026-07-17T15:24:07.133Z"

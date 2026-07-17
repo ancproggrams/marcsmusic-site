@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"TIDAL Artist Home Upload Profile Spotlight Route","https://artist.tidal.com/","error","","false","false","false","false","true","run253-platform-database.json","2026-07-17T15:23:13.802Z"
+"Indiemono Free Submit Music","https://indiemono.com/submit-music-chill-playlists/","error","","false","false","false","false","true","run44-platform-database.json","2026-07-17T15:23:16.024Z"

@@ -51,3 +51,7 @@ Agent-browser passively inspected 32 unique routes from the 644-route inventory:
 ## Run 432
 
 Run 432 added 12 new unique portal routes and revalidated 4 routes. Fourteen of 16 checks inspected successfully; 2 were errors/unreachable. Combined unique coverage for Runs 431–432 is 44 of 644 candidates, leaving 600 for continued passive testing. No outreach, upload, login, payment or submission was performed.
+
+## Run 433
+
+Run 433 added 13 new unique portal routes and revalidated 3 routes. Fourteen of 16 checks inspected successfully; 2 were errors/unreachable. Combined unique coverage for Runs 431–433 is 57 of 644 candidates, leaving 587 for continued passive testing. No outreach, upload, login, payment or submission was performed.

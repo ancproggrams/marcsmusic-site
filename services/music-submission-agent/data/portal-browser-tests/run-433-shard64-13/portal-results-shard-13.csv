@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Storyblocks Contributor Music Licensing Route","https://contributor.storyblocks.com/","inspected","[object Object]","true","false","true","false","true","run262-platform-database.json","2026-07-17T15:23:20.512Z"
+"KDVS 90.3FM Physical Music Department Submission Route","https://kdvs.org/contact/","inspected","[object Object]","false","false","false","false","true","run164-platform-database.json","2026-07-17T15:23:37.542Z"

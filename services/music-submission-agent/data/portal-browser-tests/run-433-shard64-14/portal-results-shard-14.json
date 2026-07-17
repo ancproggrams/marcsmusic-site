@@ -1,0 +1,145 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T15:24:07.134Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 14,
+      "count": 64
+    },
+    "totalUniqueHttpPortalsDiscovered": 644,
+    "testedInThisShard": 2,
+    "inspected": 2,
+    "errors": 0,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 1,
+    "paymentObserved": 0,
+    "formObserved": 1,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "Future House Music Discord Demo Drop Community Route",
+      "url": "https://discord.gg/",
+      "sourceFile": "run158-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": true,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T15:23:22.655Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://discord.com/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Discord - Group Chat That’s All Fun & Games"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": true,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"2d307d7016a7feccd19d3f2c2f87a330\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"113a0751cfc6913c44f18be2d418a0d8\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"34bdf6d7ee2d092daf52e438acab472b\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "KUTX On-Air Rotation and Specialty Show Music Submission Route",
+      "url": "https://kutx.org/submit-your-music/",
+      "sourceFile": "run24-platform-database.json",
+      "priorStatus": null,
+      "priorLoginRequired": null,
+      "priorCaptchaDetected": null,
+      "priorPaymentRequired": null,
+      "testedAt": "2026-07-17T15:24:07.133Z",
+      "status": "inspected",
+      "finalUrl": null,
+      "title": null,
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": true,
+        "submitControlObserved": true,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": null,
+        "captchaDetected": null,
+        "paymentRequired": null
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited null: "
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"e8dfe1c42aa81f38b5300cca280254e5\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"JQMIGRATE: Migrate is installed, version 3.4.1\"}],\"text\":\"JQMIGRATE: Migrate is installed, version 3.4.1\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[GPT] Slot.setTargeting is deprecated, use Slot.setConfig({targeting: ...}) instead.\\nhttps://goo.gle/gpt-message#171\"}],\"text\":\"[GPT] Slot.setTargeting is deprecated, use Slot.setConfig({targeting: ...}) instead.\\nhttps://goo.gle/gpt-message#171\",\"type\":\"warning\"},{\"args\":[{\"type\":\"string\",\"value\":\"[GPT] PubAdsService.enableLazyLoad is deprecated, use googletag.setConfig({lazyLoad: ...}) instead.\\nhttps://goo.gle/gpt-message#170\"}],\"text\":\"[GPT] PubAdsService.enableLazyLoad is deprecated, use googletag.setConfig({lazyLoad: ...}) instead.\\nhttps://goo.gle/gpt-message#170\",\"type\":\"warning\"},{\"args\":[{\"type\":\"string\",\"value\":\"[GPT] This ad request is subject to Google's EU User Consent Policy. An IAB TCF signal was not received. This ad request will not be eligible for personalized ads.\\nhttps://goo.gle/gpt-message#175\"}],\"text\":\"[GPT] This ad request is subject to Google's EU User Consent Policy. An IAB TCF signal was not received. This ad request will not be eligible for personalized ads.\\nhttps://goo.gle/gpt-message#175\",\"type\":\"warning\"},{\"args\":[{\"type\":\"string\",\"value\":\">>> NPR Station Analytics Tags <<<\"}],\"text\":\">>> NPR Station Analytics Tags <<<\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"https://kutx.org/\"}],\"text\":\"https://kutx.org/\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"https://kutx.org/\"}],\"text\":\"https://kutx.org/\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[GPT] This ad request is subject to Google…",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"25a49430104f266cda32fd1733b8c812\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}
