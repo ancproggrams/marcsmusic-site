@@ -1,0 +1,92 @@
+name: Music submission portal browser tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      shard_count:
+        description: Number of parallel shards
+        required: false
+        default: "8"
+      limit_per_shard:
+        description: Optional maximum portals per shard; 0 tests all
+        required: false
+        default: "0"
+  push:
+    branches:
+      - music-submission-agent-service
+    paths:
+      - "services/music-submission-agent/data/run*-platform-database.json"
+      - "services/music-submission-agent/scripts/test-portals-with-agent-browser.mjs"
+      - ".github/workflows/music-submission-portal-browser-tests.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: music-submission-portal-browser-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - id: matrix
+        env:
+          SHARD_COUNT: ${{ github.event.inputs.shard_count || '8' }}
+        run: |
+          node - <<'NODE' >> "$GITHUB_OUTPUT"
+          const count = Number(process.env.SHARD_COUNT || 8);
+          if (!Number.isInteger(count) || count < 1 || count > 32) {
+            throw new Error("shard_count must be an integer between 1 and 32");
+          }
+          console.log(`matrix=${JSON.stringify({ shard: Array.from({ length: count }, (_, index) => index), count: [count] })}`);
+          NODE
+
+  inspect:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install agent-browser
+        run: |
+          npm install --global agent-browser@0.31.2
+          agent-browser install --with-deps
+          agent-browser doctor --json
+
+      - name: Inspect assigned portals without submission
+        working-directory: services/music-submission-agent
+        env:
+          AGENT_BROWSER_BIN: agent-browser
+          LIMIT: ${{ github.event.inputs.limit_per_shard || '0' }}
+        run: |
+          node scripts/test-portals-with-agent-browser.mjs \
+            --shard-index "${{ matrix.shard }}" \
+            --shard-count "${{ matrix.count }}" \
+            --limit "$LIMIT" \
+            --delay 2000 \
+            --timeout 30000 \
+            --screenshots true
+
+      - name: Upload portal test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portal-browser-tests-shard-${{ matrix.shard }}
+          path: |
+            services/music-submission-agent/data/portal-browser-tests/portal-results-shard-${{ matrix.shard }}.json
+            services/music-submission-agent/data/portal-browser-tests/portal-results-shard-${{ matrix.shard }}.csv
+            services/music-submission-agent/data/portal-browser-tests/portal-report-shard-${{ matrix.shard }}.md
+            services/music-submission-agent/data/portal-browser-tests/screenshots/
+          if-no-files-found: warn
+          retention-days: 14
