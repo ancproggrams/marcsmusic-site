@@ -2,7 +2,7 @@
 
 Date: 2026-07-17
 
-Latest run: Run 418
+Latest run: Run 419
 
 New items added in latest run: 1
 
@@ -10,34 +10,32 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1736
+Pipeline estimate: 1737
 
 Items:
 
-- Run 418 added: Airhug Radio — conditional global independent-music submission form requiring registration identifiers, direct file uploads, rights authorization, consent choices and a digital signature
+- Run 419 added: FBi.radio — free digital music servicing through the general Music Director or exactly one best-fit specialist program
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Airhug Radio's official four-step Music Submission form accepts independent-artist material for possible airplay, educational features or licensing opportunities. It collects legal and artist identity, country of origin, song and royalty identifiers, genre, BPM, direct audio and lyrics uploads, a biography, content declarations, rights affirmations, consent choices and a digital signature.
+Latest route note: FBi.radio's official Music Submissions page authorizes general servicing through `music@fbiradio.com` and explicitly permits direct servicing to a suitable specialist program. Relevant current specialist alternatives were verified for Deep Web, Unfurl and presenter-led electronic/R&B/soul programming.
 
-Eligibility note: the official page requires registration with a Performing Rights Organization and SoundExchange. It asks for the work ID and SoundExchange Artist ID. A human must confirm that MarcsMusic satisfies these prerequisites and that non-US registrations are accepted for the exact submission.
+Delivery note: the email should contain a clear artist-and-release subject, short bio, press image or relevant gig context, one stream link and a separate free high-quality download link. The downloadable master must be 320 kbps MP3 or WAV. All servicing is digital; CDs are no longer accepted.
 
-Hard AI note: Airhug Radio states that AI use is strictly prohibited. No MarcsMusic master may be submitted unless a human can truthfully confirm compliance. Any Suno-generated or otherwise generative-AI music must remain excluded unless Airhug Radio explicitly authorizes the specific workflow.
+Routing note: choose the general Music Director route or exactly one specialist contact. Do not send the same release to multiple FBi.radio addresses.
 
-Delivery note: up to ten files may be uploaded, WAV is preferred, and lyrics must be provided as PDF. Maximum file sizes, alternate codecs, sample rate, bit depth and channel requirements are not published.
+Schedule note: music is auditioned on Wednesdays. Submission before midnight Tuesday is recommended for the next week's playlist consideration, and Music Director submissions are normally reviewed within two to three weeks.
 
-Rights and consent note: the form requires ownership and authority confirmations, permission for non-interactive broadcast, agreement to linked broadcast terms, a choice regarding promotional use of artist photo and cover art, and a typed legal-name digital signature with date/time.
+Contact-verification note: four purpose-labelled addresses were verified through plaintext publication on current first-party FBi.radio pages, valid syntax and official-domain alignment. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Contact-verification note: no public business email labelled for music submissions was found on the reviewed first-party pages. No address was guessed, inferred from staff names, decoded or copied from a third-party directory. The dedicated form is the only authorized route.
+Eligibility note: the schedule features music from Australia and beyond, but explicit eligibility for artists based outside Australia is not guaranteed. Explicit-content, rights, standard release-window and AI-origin policies are also unpublished.
 
-Form and protection note: passive review exposed no visible CAPTCHA, account login or mandatory-payment requirement. A human must recheck the live form and stop if CAPTCHA, anti-spam, authentication, payment, identity or another protected control appears.
+Activity and fit note: the official schedule is populated, The Playlist published episodes through July 10, 2026, and M5 and Unfurl published episodes dated July 12, 2026. Selected MarcsMusic electronic, bass, ambient, experimental, world-fusion, soul-adjacent or reggae-adjacent material has plausible fit, but the station's strong Sydney and Australian-music mandate requires precise targeting.
 
-Activity and fit note: the official 2026 site contains an active submission workflow and current leadership roles, while the active Live365 station page lists Alternative, College, Indie Pop and Indie Rock. The form also includes Electronic and World genre choices. Selected MarcsMusic crossover material may fit only after the registration, rights and no-AI gates are satisfied.
+Manual-review note: select one track and one route, verify all assets, metadata, rights, content, eligibility and policy details, then send manually without duplicate servicing.
 
-Manual-review note: verify provenance, registrations, rights, identifiers, audio, lyrics, clean-version status, consent language and all current form controls, then sign and submit personally. This route is never eligible for unattended submission.
+Deduplication note: repository search found no previous FBi.radio, `fbi.radio`, `fbiradio.com`, `music@fbiradio.com` or canonical submission-path record. General and specialist routes are consolidated into one platform opportunity.
 
-Deduplication note: the complete accessible pull-request patch and repository search were checked for Airhug Radio, `airhugradio.com` and the canonical submission path. No existing platform, seed or queue record was found. The form is stored once; staff social routes and inferred contacts are excluded.
+Runtime-linkage note: Run 418 now links to Run 419 in the active recursive seed chain.
 
-Runtime-linkage note: Run 417 now links to Run 418 in the active recursive seed chain.
-
-Safety: No form field, audio file, lyrics PDF, registration identifier, rights affirmation, consent choice, digital signature, account, login, CAPTCHA or payment was submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No email, stream link, download link, audio file, press image, form field, login, CAPTCHA, payment, supporter action or promotional purchase was submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
