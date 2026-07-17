@@ -1,0 +1,171 @@
+{
+  "run": 450,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1747,
+  "pipelineEstimate": 1748,
+  "newPlatforms": [
+    {
+      "name": "Wepa.Fm Royalty-Free Independent Music Email Submission Route",
+      "websiteUrl": "https://wepa.fm/",
+      "submissionUrl": "https://wepa.fm/independent-music-submission",
+      "sourceUrl": "https://wepa.fm/independent-music-submission",
+      "sourceType": "automation_run_450_public_research",
+      "country": "United States / Miami, Florida bilingual internet radio station with worldwide streaming and an independent-music mission; the submission page does not separately publish territorial eligibility rules",
+      "language": "en/es",
+      "genres": [
+        "independent-music",
+        "bilingual-radio",
+        "latin",
+        "salsa",
+        "freestyle",
+        "merengue",
+        "bachata",
+        "house",
+        "reggaeton",
+        "disco",
+        "pop",
+        "clean-content-only",
+        "royalty-free-license-required",
+        "public-submission-email",
+        "mp3-320kbps",
+        "metadata-and-artwork-required",
+        "free-first",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-public-email-with-mp3-320kbps-metadata-artwork-and-signed-royalty-free-license",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission email with signed licensing agreement",
+        "formLocation": null,
+        "email": "info@wepa.fm",
+        "explicitPurpose": "Submit royalty-free independent music for possible Wepa.Fm airplay",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Review the licence with the rights owner, select one clean and format-compatible MarcsMusic track, prepare a correctly tagged 320 kbps MP3 with artwork, complete and sign the agreement only after legal approval, and send manually to the published submission mailbox.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "internationalAcceptanceEvidence": "Wepa.Fm describes itself as broadcasting worldwide and providing an outlet for independent labels, publishers and artists, but the submission page does not explicitly state geographic eligibility.",
+        "standardRouteFeePublished": false,
+        "optionalPaidServicesPublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submit royalty-free independent music for airplay consideration",
+          "email the submission to info@wepa.fm",
+          "provide the track as MP3 at 320 kbps",
+          "include correct song title, artist, genre, artwork and other metadata",
+          "download, complete, sign and return the royalty-free licensing agreement",
+          "do not submit music with explicit language",
+          "music must meet the Wepa.Fm format"
+        ],
+        "formFieldsObserved": [],
+        "safeReviewScope": [
+          "obtain legal review of the royalty-free licensing agreement before signing",
+          "confirm ownership and authority for composition, master, samples and contributor rights",
+          "confirm whether the requested licence is non-exclusive, its term, territory, revocation and royalty treatment",
+          "select one clean MarcsMusic track compatible with Wepa.Fm's Latin, freestyle, house, reggaeton or pop format",
+          "consider Carnival or Curaçao first, subject to exact arrangement and clean-master review",
+          "export or verify an MP3 at 320 kbps with accurate embedded metadata and artwork",
+          "confirm international artist eligibility and track-count limits",
+          "check attachment-size expectations and whether a download link is acceptable",
+          "check the current policy for AI-assisted or AI-generated music",
+          "send manually only after agreement approval"
+        ],
+        "unresolvedEligibility": [
+          "international artist eligibility",
+          "licence exclusivity, duration, territory and revocation terms",
+          "royalty and neighbouring-rights treatment",
+          "authority and warranty language for samples, co-writers and contributors",
+          "number of tracks permitted per email",
+          "maximum attachment size or link alternative",
+          "preferred subject line",
+          "release-recency requirements",
+          "AI-assisted and AI-generated music policy",
+          "review and follow-up timing"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "address": "info@wepa.fm",
+            "purpose": "independent music submissions for Wepa.Fm airplay consideration",
+            "source": "https://wepa.fm/independent-music-submission",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "contextAligned": true,
+            "verificationNote": "The address is published in plaintext on Wepa.Fm's first-party independent-music submission page and is explicitly designated for music submissions. Syntax and domain/context alignment were verified; no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+          }
+        ],
+        "adjacentEmailsExcluded": [
+          {
+            "address": "jojeda@wepa.fm",
+            "purpose": "program/music director contact",
+            "source": "https://wepa.fm/on-air",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "reasonExcluded": "The staff page identifies this as the program/music director address, but the dedicated submission page directs artists to info@wepa.fm. It is retained only as adjacent staff evidence."
+          }
+        ],
+        "emailStatus": "One first-party-published, domain-aligned and purpose-aligned submission mailbox was retained. The program/music director address was excluded from the submission route because the dedicated page publishes a different canonical mailbox.",
+        "verification": "Email verification was limited to first-party publication, syntax and purpose/domain/context alignment. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "multiStepForm": false,
+        "captchaObserved": false,
+        "captchaStatus": "not applicable to the published editorial email route",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "A signed external legal agreement, rights verification, final track and format review, attachment preparation and human-controlled email are required.",
+        "rightsOrConsentFields": [
+          "signed royalty-free licensing agreement required"
+        ],
+        "adjacentRoutesExcluded": [
+          "program/music director staff email",
+          "marketing and sponsorship contacts",
+          "DJ service and booking contacts",
+          "events contact",
+          "social-media direct messages"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "Wepa.Fm's current site exposes live-radio/now-playing surfaces, a current staff roster, 2026 artist spotlights and the 2026 Calle Ocho Freestyle/Latin Music Stage. The dedicated submission page is publicly accessible and currently states the submission requirements."
+      },
+      "genreFitEvidence": [
+        "Wepa.Fm publishes a bilingual format spanning disco, salsa, freestyle, merengue, bachata, house, reggaeton, classics and pop.",
+        "The station states that it supports independent labels, publishers and artists and broadcasts worldwide.",
+        "Carnival or Curaçao may have the closest MarcsMusic fit, but the final clean master and exact station-format fit require human selection."
+      ],
+      "manualReviewReason": "The first-party route is active and free to access, but it requires a completed and signed royalty-free licensing agreement and delivery by editorial email. The legal scope of the licence, territorial and term conditions, royalty waiver, ownership and authority to license, AI-assisted-music eligibility, exact genre fit, attachment size, number of tracks and international artist eligibility require human review. Final track selection, legal approval, agreement execution and sending must remain human-controlled.",
+      "priority": 82,
+      "pricingModel": "free-first/public-email/mp3-320kbps/metadata-and-artwork/signed-royalty-free-license/clean-content-only/no-login-captcha-or-payment/legal-manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Wepa.Fm",
+      "Wepa FM",
+      "wepa.fm/independent-music-submission",
+      "info@wepa.fm",
+      "Wepa.Fm Royalty-Free Independent Music Email Submission Route"
+    ],
+    "repositoryEvidence": "Exact-name, domain, submission-path and mailbox searches in the accessible repository code-search surface returned no match before creation. The current branch contains a large unmerged historical dataset, so the canonical SQLite/domain/email dedupe must be rerun before any external outreach.",
+    "consolidation": "The independent-music page, public submission mailbox and signed-agreement requirement are stored as one canonical opportunity. The program/music director, marketing, event, booking and social contacts are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One Wepa.Fm opportunity was queued as needs_manual_review. No agreement was downloaded or signed, and no email, attachment, music link, account, login, CAPTCHA, payment or submission action was completed."
+}
