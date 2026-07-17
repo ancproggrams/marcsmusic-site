@@ -121,3 +121,7 @@ Run 450 continued offset 2 across shards 40–47 and recorded 32 new route attem
 ## Run 451
 
 Run 451 continued offset 2 across shards 48–55 and added 32 new unique routes. Twenty-nine checks inspected successfully; 3 were errors or unreachable. One Anghami human-check indicator was recorded for manual review without solving it. Combined unique coverage for Runs 431–451 is 407 of 645 candidates, leaving 238 for continued passive testing. The run pipeline did not complete within the observation window; no outreach, upload, login, payment or submission was performed.
+
+## Run 452
+
+Run 452 continued offset 2 across shards 56–63 and added 29 unique browser-result routes. Twenty-seven checks inspected successfully; 2 were errors or unreachable. Recomputed committed browser-result coverage is 402 of 645 candidates, leaving 243 for continued passive testing. The run pipeline did not complete within the observation window; no outreach, upload, login, payment or submission was performed.

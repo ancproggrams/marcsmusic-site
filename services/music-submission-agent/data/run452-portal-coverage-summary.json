@@ -1,0 +1,38 @@
+{
+  "run": 452,
+  "capturedAt": "2026-07-17T19:00:00+02:00",
+  "mode": "agent-browser passive inspect-only",
+  "candidateInventory": 645,
+  "shardCount": 64,
+  "offsetsTested": [2],
+  "shardsTested": [56, 57, 58, 59, 60, 61, 62, 63],
+  "routesTestedThisRun": 29,
+  "uniqueNewRoutesThisRun": 29,
+  "inspected": 27,
+  "errorsOrUnreachable": 2,
+  "formsObserved": 9,
+  "loginBoundariesObserved": 7,
+  "paymentBoundariesObserved": 2,
+  "captchaOrHumanChecksObserved": 0,
+  "recomputedUniqueCoverageBeforeRun": 373,
+  "totalUniqueCoverageAcrossRuns431To452": 402,
+  "remainingInventoryOutsideUniqueCoverage": 243,
+  "notableRoutes": [
+    "The Current MPR",
+    "NCS Submit Music",
+    "Radio K KUOM",
+    "Radio Nano",
+    "KLOF Magazine",
+    "Free Music Archive",
+    "KXCI Tucson",
+    "Variance Magazine",
+    "Monstercat LabelRadar",
+    "WNUR 89.3 FM"
+  ],
+  "errorRoutes": [
+    "KZSU Stanford Music Director and Send Music Route",
+    "Armada Music Demo Drop Electronic Label Submission Route"
+  ],
+  "evidenceDirectories": "data/portal-browser-tests/run-452-shard64-*-offset2",
+  "safety": "No fields filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated."
+}

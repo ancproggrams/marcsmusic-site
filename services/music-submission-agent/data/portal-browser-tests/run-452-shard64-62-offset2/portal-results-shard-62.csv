@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Monstercat LabelRadar Electronic Demo Portal Route","https://www.labelradar.com/labels/monstercat/portal","inspected","[object Object]","false","false","false","false","true","run207-platform-database.json","2026-07-17T16:59:19.259Z"
+"NCS NoCopyrightSounds LabelRadar Demo Submission Route","https://www.labelradar.com/labels/ncs/portal","inspected","[object Object]","false","false","false","false","true","run207-platform-database.json","2026-07-17T16:59:34.992Z"
+"Music Xray Song to Opportunity A&R Guaranteed Listen Submission Route","https://www.musicxray.com/artist/categories","inspected","[object Object]","false","false","false","false","true","run146-platform-database.json","2026-07-17T16:59:50.205Z"
+"WREK Atlanta Music Submissions","https://www.wrek.org/music/","inspected","[object Object]","true","false","true","false","true","run46-platform-database.json","2026-07-17T17:00:05.730Z"

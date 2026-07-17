@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KLSU 91.1 FM Music Director Pre-Submission Inquiry Route","https://lsureveille.com/staff_name/anh-tu-nguyen/","inspected","[object Object]","false","false","true","false","true","run390-platform-database.json","2026-07-17T16:56:44.385Z"
+"NCS NoCopyrightSounds Music Submission Route","https://ncs.io/submit","inspected","[object Object]","true","false","true","false","true","run256-platform-database.json","2026-07-17T16:56:59.773Z"
+"Radio K KUOM Submitting Music","https://radiok.org/submitting-music","inspected","[object Object]","false","false","false","false","true","run69-platform-database.json","2026-07-17T16:57:14.902Z"
+"Radio Nano Free International Digital Music-Submission Opportunity","https://radionano.com/submit-your-music/","inspected","[object Object]","true","false","false","false","true","run421-platform-database.json","2026-07-17T16:57:31.461Z"

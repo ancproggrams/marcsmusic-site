@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KZSU Stanford Music Director and Send Music Route","https://go.kzsu.fm/sendmusic","error","","false","false","false","false","true","run26-platform-database.json","2026-07-17T16:57:58.945Z"
+"KXLU 88.9 FM General and Demolisten Music Submissions","https://kxlu.com/contact/","inspected","[object Object]","false","false","false","false","true","run27-platform-database.json","2026-07-17T16:58:14.774Z"
+"Richer Unsigned Free UK Emerging Artist Playlist Upload Route","https://richerunsigned.com/submit/","inspected","[object Object]","true","false","false","false","true","run224-platform-database.json","2026-07-17T16:58:29.860Z"
+"Indie Music Center External Submit Music and Editorial Playlist Route","https://sbmt.to/indie-music-center","inspected","[object Object]","true","false","false","false","true","run299-platform-database.json","2026-07-17T16:58:44.999Z"

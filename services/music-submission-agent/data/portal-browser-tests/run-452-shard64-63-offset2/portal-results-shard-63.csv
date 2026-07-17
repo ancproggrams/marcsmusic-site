@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Armada Music Demo Drop Electronic Label Submission Route","https://demo.armadamusic.com/","error","","false","false","false","false","true","run256-platform-database.json","2026-07-17T16:59:05.177Z"
+"KXCI Tucson Global Digital Physical Music Department Submission Route","https://kxci.org/music-department/","inspected","[object Object]","false","false","false","false","true","run184-platform-database.json","2026-07-17T16:59:21.607Z"
+"ONErpm Artist Label Services Distribution Application Route","https://onerpm.com/","inspected","[object Object]","false","false","true","false","true","run261-platform-database.json","2026-07-17T16:59:38.570Z"
+"WNUR 89.3 FM Submit Your Sound","https://wnur.org/contact-us/","inspected","[object Object]","false","false","false","false","true","run40-platform-database.json","2026-07-17T16:59:53.777Z"

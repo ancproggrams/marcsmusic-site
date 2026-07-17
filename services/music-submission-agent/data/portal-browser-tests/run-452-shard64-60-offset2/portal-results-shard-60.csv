@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Indie88 Music Director Airplay and Business Contact Submission Route","https://indie88.com/contact/","inspected","[object Object]","false","false","false","false","true","run120-platform-database.json","2026-07-17T16:58:00.764Z"
+"KXCI 91.3 Tucson Music Department Submission Route","https://kxci.org/about/music-department/","inspected","[object Object]","false","false","false","false","true","run30-platform-database.json","2026-07-17T16:58:16.938Z"
+"Liquicity Demo Submission Drum Bass Route","https://liquicity.com/demo-submission/","inspected","[object Object]","false","false","false","false","true","run256-platform-database.json","2026-07-17T16:58:38.676Z"
+"Variance Magazine Editorial Pitch and Premiere Submission Route","https://variancemagazine.com/contact","inspected","[object Object]","true","false","false","false","true","run25-platform-database.json","2026-07-17T16:58:55.822Z"
