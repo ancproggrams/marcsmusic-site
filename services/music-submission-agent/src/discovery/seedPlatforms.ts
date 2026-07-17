@@ -246,3 +246,11 @@ export function seedDiscoveryPlatforms(repositories: Repositories): { discovered
 
   return { discovered, queued };
 }
+
+export class DiscoveryWorker {
+  public constructor(private readonly repositories: Repositories) {}
+
+  public runOnce(): { discovered: number; queued: number } {
+    return seedDiscoveryPlatforms(this.repositories);
+  }
+}

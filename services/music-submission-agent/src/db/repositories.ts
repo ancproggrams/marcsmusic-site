@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import type Database from 'better-sqlite3';
 import type {
   AnalyticsMetrics,
@@ -23,9 +24,15 @@ export class PlatformRepository {
     const existing = this.findByCanonicalKey(platformCanonicalKey(input.name, input.websiteUrl, input.submissionUrl));
     const timestamp = nowIso();
     const id = existing?.id ?? createId('plt');
-    const slug = existing?.slug ?? slugify(input.name);
     const canonicalKey =
       existing?.canonicalKey ?? platformCanonicalKey(input.name, input.websiteUrl, input.submissionUrl);
+    const slugBase = existing?.slug ?? slugify(input.name);
+    const slugOwner = this.database.prepare('SELECT id FROM platforms WHERE slug = ?').get(slugBase) as
+      { id?: string } | undefined;
+    const slug =
+      !slugOwner || slugOwner.id === id
+        ? slugBase
+        : `${slugBase}-${createHash('sha1').update(canonicalKey).digest('hex').slice(0, 10)}`;
 
     this.database
       .prepare(

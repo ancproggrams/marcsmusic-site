@@ -39,3 +39,7 @@ Commit note: Run 429 is complete on the branch. The branch-head SHA is reported 
 Runtime limitation: passive verification used the available web-research runtime. The dedicated `agent-browser` CLI, screenshot capture and repository shell were unavailable, so no browser screenshot, build, test, lint, `git diff` or `git status` result is claimed.
 
 Safety: No email, attachment, music link, account, login, CAPTCHA, payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+
+## Run 430
+
+Run 430 added owner-supplied outreach routing for Carnival (Latin), Strijd (Dutch Pop/Pop), Geen Afscheid (Pop/Reggae) and Curaçao (Afrobeat/Pop). The fit matrix is stored in `data/run430-track-portal-routing.json`. PlaylistPartner received a passive agent-browser snapshot only. No outreach or final submission was performed; House/Electronic-only routes remain reserved for Summer Time or Weekend Mode.

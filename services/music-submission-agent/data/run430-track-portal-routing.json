@@ -1,0 +1,48 @@
+{
+  "run": 430,
+  "capturedAt": "2026-07-17T17:12:00+02:00",
+  "artist": "MarcsMusic",
+  "contact": "marc@marcsmusic.nl",
+  "tracks": [
+    {
+      "title": "Carnival",
+      "genres": ["Latin"],
+      "spotifyUrl": "https://open.spotify.com/track/6MagemIlsaO2aziI4pTKdf",
+      "routeFit": ["Latin playlists", "World/Latin radio", "college-radio routes accepting eclectic or world music"],
+      "avoid": ["Pop-only routes", "House/Electronic-only routes"],
+      "status": "manual_review_fit"
+    },
+    {
+      "title": "Strijd",
+      "genres": ["Dutch Pop", "Pop"],
+      "spotifyUrl": "https://open.spotify.com/track/7kRTJwygzSEmtc2XTWOfDL",
+      "routeFit": ["Pop playlists", "Dutch/Benelux music outlets", "college-radio routes with pop or local/independent programming"],
+      "avoid": ["House/Electronic-only routes", "Latin-only routes"],
+      "status": "manual_review_fit"
+    },
+    {
+      "title": "Geen Afscheid - Radio Edit",
+      "genres": ["Pop", "Reggae"],
+      "spotifyUrl": "https://open.spotify.com/track/0T24Bpd0GNxwzVSJ0WZ5Bc",
+      "routeFit": ["Pop playlists", "Reggae/Dub/World radio", "eclectic college-radio routes"],
+      "avoid": ["House/Electronic-only routes", "Latin-only routes"],
+      "status": "manual_review_fit"
+    },
+    {
+      "title": "Curaçao - Radio Edit",
+      "genres": ["Afrobeat", "Pop"],
+      "spotifyUrl": "https://open.spotify.com/track/0da1F2Mdlk0GWWsMtFh53P",
+      "routeFit": ["Afrobeat/Afropop playlists", "Pop playlists", "World/Latin and eclectic radio routes"],
+      "avoid": ["House/Electronic-only routes"],
+      "status": "manual_review_fit"
+    }
+  ],
+  "outreachPolicy": "Use the track whose declared genre matches the portal; do not send a mismatched track merely to fill a slot. Keep all outreach manual until the human confirms rights, release metadata, radio edit status and portal eligibility.",
+  "browserEvidence": {
+    "portal": "PlaylistPartner",
+    "url": "https://playlistpartner.com/",
+    "result": "passive_snapshot_captured",
+    "snapshot": "portal-browser-tests/run-430/playlistpartner.snapshot.txt",
+    "submissionPerformed": false
+  }
+}
