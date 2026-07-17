@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Amuse Self Service Distribution Artist Subscription Release Upload Route","https://www.amuse.io/","inspected","[object Object]","true","false","true","true","true","run137-platform-database.json","2026-07-17T17:06:57.472Z"
+"International Songwriting Competition 2026 Online Entry Route","https://www.songwritingcompetition.com/rules","inspected","[object Object]","true","false","false","false","true","run23-platform-database.json","2026-07-17T17:07:13.773Z"
+"UnitedMasters Independent Artist Release and Brand Opportunity Route","https://www.unitedmasters.com/","inspected","[object Object]","false","false","true","true","true","run116-platform-database.json","2026-07-17T17:07:29.240Z"
+"WXYC UNC Music Department Postal Contact Route","https://www.wxyc.org/","inspected","[object Object]","false","false","false","false","true","run185-platform-database.json","2026-07-17T17:07:45.382Z"

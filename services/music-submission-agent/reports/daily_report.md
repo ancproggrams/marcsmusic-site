@@ -125,3 +125,7 @@ Run 451 continued offset 2 across shards 48–55 and added 32 new unique routes.
 ## Run 452
 
 Run 452 continued offset 2 across shards 56–63 and added 29 unique browser-result routes. Twenty-seven checks inspected successfully; 2 were errors or unreachable. Recomputed committed browser-result coverage is 402 of 645 candidates, leaving 243 for continued passive testing. The run pipeline did not complete within the observation window; no outreach, upload, login, payment or submission was performed.
+
+## Run 453
+
+Run 453 continued offset 6 across shards 8–15 and added 18 unique routes. Sixteen checks inspected successfully; 2 were errors or unreachable. Recomputed committed browser-result coverage is 452 of 645 candidates, leaving 193 for continued passive testing. The run pipeline drained 20 verification jobs. No outreach, upload, login, payment or submission was performed.

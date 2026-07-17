@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"WRFL 88.1 FM Lexington Contact-Gated Music Review Route","https://wrfl.fm/contact","inspected","[object Object]","false","false","true","false","true","run31-platform-database.json","2026-07-17T17:03:59.021Z"
+"BBC Music Introducing UK Postcode Upload Tool Route","https://www.bbc.co.uk/introducing","inspected","[object Object]","false","false","true","false","true","run201-platform-database.json","2026-07-17T17:04:14.111Z"
+"The Line of Best Fit New and Unsigned Artist Submissions","https://www.thelineofbestfit.com/contact","inspected","[object Object]","false","false","false","false","true","run66-platform-database.json","2026-07-17T17:04:29.356Z"
+"The Other Side Reviews MusoSoup and Editorial Contact Submission Route","https://www.theothersidereviews.com/contact/","error","","false","false","false","false","true","run119-platform-database.json","2026-07-17T17:04:42.446Z"

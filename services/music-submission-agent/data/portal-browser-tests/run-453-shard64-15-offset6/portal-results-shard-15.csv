@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"CJSF 90.1FM NCRA Earshot Distro and Music Coordinator Submission Route","https://www.cjsf.ca/contact-us/departments/music-department","inspected","[object Object]","true","false","true","false","true","run111-platform-database.json","2026-07-17T17:08:20.743Z"
+"ReverbNation Artist Opportunities and Profile Submission Route","https://www.reverbnation.com/main/opportunities","inspected","[object Object]","true","false","true","true","true","run116-platform-database.json","2026-07-17T17:08:36.248Z"

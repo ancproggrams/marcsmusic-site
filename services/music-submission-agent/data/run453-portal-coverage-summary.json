@@ -1,0 +1,39 @@
+{
+  "run": 453,
+  "capturedAt": "2026-07-17T19:15:00+02:00",
+  "mode": "agent-browser passive inspect-only",
+  "candidateInventory": 645,
+  "shardCount": 64,
+  "offsetsTested": [6],
+  "shardsTested": [8, 9, 10, 11, 12, 13, 14, 15],
+  "routesTestedThisRun": 18,
+  "uniqueNewRoutesThisRun": 18,
+  "inspected": 16,
+  "errorsOrUnreachable": 2,
+  "formsObserved": 6,
+  "loginBoundariesObserved": 8,
+  "paymentBoundariesObserved": 3,
+  "captchaOrHumanChecksObserved": 0,
+  "recomputedUniqueCoverageBeforeRun": 434,
+  "totalUniqueCoverageAcrossRuns431To453": 452,
+  "remainingInventoryOutsideUniqueCoverage": 193,
+  "notableRoutes": [
+    "BBC Music Introducing",
+    "The Line of Best Fit",
+    "Bassrush Records",
+    "Amuse Distribution",
+    "International Songwriting Competition",
+    "UnitedMasters",
+    "Spinnin Records Talent Pool",
+    "Beatport",
+    "ReverbNation",
+    "CJSF 90.1FM"
+  ],
+  "errorRoutes": [
+    "Bassrush Records Official Insomniac Music Group Demo Form",
+    "The Other Side Reviews MusoSoup and Editorial Contact Submission Route"
+  ],
+  "submissionBoundary": "Eligible submission candidates are recorded for manual review only. No active form submit, upload, login, CAPTCHA, consent or payment action was performed.",
+  "evidenceDirectories": "data/portal-browser-tests/run-453-shard64-*-offset6",
+  "safety": "No fields filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated."
+}
