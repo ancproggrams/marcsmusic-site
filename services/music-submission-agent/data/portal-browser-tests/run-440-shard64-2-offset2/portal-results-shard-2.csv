@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Groover Music Promotion Platform","https://groover.co/en/","inspected","[object Object]","true","false","true","true","true","run44-platform-database.json","2026-07-17T15:39:33.370Z"
+"WMBR College Radio Music Submission Contact Route","https://wmbr.org/station/music.html","inspected","[object Object]","false","false","false","false","true","run266-platform-database.json","2026-07-17T15:39:41.033Z"
+"A&R Factory Submit Your Music","https://www.anrfactory.com/submit-demo/","inspected","[object Object]","true","false","false","false","true","run67-platform-database.json","2026-07-17T15:39:53.223Z"
+"FBi Radio Sydney Music Submissions","https://www.fbi.radio/pages/music-submissions","inspected","[object Object]","true","false","false","false","true","run59-platform-database.json","2026-07-17T15:40:09.931Z"

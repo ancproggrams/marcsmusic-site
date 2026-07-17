@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Lonely Oak Radio MP3 WAV Song EP and Album Upload Route","https://lonelyoakradio.com/upload.html","inspected","[object Object]","false","false","false","false","true","run283-platform-database.json","2026-07-17T15:39:33.345Z"
+"SoundPlate Free Playlist Submission Route","https://soundplate.com/submit-music/","inspected","[object Object]","false","false","false","false","true","run263-platform-database.json","2026-07-17T15:39:45.997Z"
+"WHPK 88.5 FM Chicago Music Director and Format Chief Routing","https://whpk.org/contact/","inspected","[object Object]","true","false","false","false","true","run40-platform-database.json","2026-07-17T15:39:59.213Z"
+"It's All Indie External Multi-Curator Music Submission Route","https://www.itsallindie.com/","inspected","[object Object]","true","false","false","false","true","run299-platform-database.json","2026-07-17T15:40:12.807Z"

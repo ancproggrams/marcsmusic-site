@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KEXP Rotation Consideration","https://kexp.org/contact/","inspected","[object Object]","false","false","false","false","true","run39-platform-database.json","2026-07-17T15:39:34.973Z"
+"WPRK 91.5FM Rollins Music Submissions Route","https://wprk.org/music-submissions/","inspected","[object Object]","true","false","false","false","true","run31-platform-database.json","2026-07-17T15:39:52.902Z"
+"A&R Factory Electronic Music Free Paid Editorial Review Submission Route","https://www.anrfactory.com/submit-demo/electronic-music/","inspected","[object Object]","true","false","false","false","true","run138-platform-database.json","2026-07-17T15:40:06.051Z"
+"musicOMH Album Feature and Review Pitch Submission Route","https://www.musicomh.com/contact-us","inspected","[object Object]","true","false","false","false","true","run106-platform-database.json","2026-07-17T15:40:18.634Z"

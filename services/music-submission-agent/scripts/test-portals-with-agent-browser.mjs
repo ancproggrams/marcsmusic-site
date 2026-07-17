@@ -17,12 +17,13 @@ const outputDir = path.resolve(args.output ?? DEFAULT_OUTPUT);
 const screenshotsDir = path.join(outputDir, "screenshots");
 const shardIndex = Number(args["shard-index"] ?? 0);
 const shardCount = Number(args["shard-count"] ?? 1);
+const offset = Number(args.offset ?? 0);
 const limit = Number(args.limit ?? 0);
 const delayMs = Number(args.delay ?? 1500);
 const timeoutMs = Number(args.timeout ?? 30000);
 const takeScreenshots = args.screenshots !== "false";
 
-if (!Number.isInteger(shardIndex) || !Number.isInteger(shardCount) || shardCount < 1 || shardIndex < 0 || shardIndex >= shardCount) {
+if (!Number.isInteger(shardIndex) || !Number.isInteger(shardCount) || !Number.isInteger(offset) || shardCount < 1 || shardIndex < 0 || shardIndex >= shardCount || offset < 0) {
   throw new Error("Invalid --shard-index/--shard-count combination");
 }
 
@@ -31,7 +32,7 @@ if (takeScreenshots) await mkdir(screenshotsDir, { recursive: true });
 
 const allCandidates = await discoverPortalCandidates();
 const sharded = allCandidates.filter((candidate) => stableShard(candidate.url, shardCount) === shardIndex);
-const candidates = limit > 0 ? sharded.slice(0, limit) : sharded;
+const candidates = limit > 0 ? sharded.slice(offset, offset + limit) : sharded.slice(offset);
 
 const results = [];
 for (const [index, candidate] of candidates.entries()) {
@@ -210,7 +211,7 @@ async function persist(results, totalDiscovered) {
     generatedAt,
     agentBrowserVersion: AGENT_BROWSER_VERSION,
     mode: "inspect-only",
-    shard: { index: shardIndex, count: shardCount },
+    shard: { index: shardIndex, count: shardCount, offset },
     totalUniqueHttpPortalsDiscovered: totalDiscovered,
     testedInThisShard: results.length,
     inspected: results.filter((item) => item.status === "inspected").length,

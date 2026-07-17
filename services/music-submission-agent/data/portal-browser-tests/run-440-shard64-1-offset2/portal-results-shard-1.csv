@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"WUSB Stony Brook Music Director Email Physical Airplay Submission Route","https://wusb.fm/contact","inspected","[object Object]","false","false","false","false","true","run164-platform-database.json","2026-07-17T15:39:33.087Z"
+"2XXfm 98.3 Canberra Global Download-Link Music Submission Form","https://www.2xxfm.org.au/get-involved/submit-music/","inspected","[object Object]","true","false","false","false","true","run298-platform-database.json","2026-07-17T15:39:46.999Z"
+"KALW Bay Area Music Programming Inquiry Route","https://www.kalw.org/contact-us","inspected","[object Object]","false","false","false","false","true","run197-platform-database.json","2026-07-17T15:39:59.629Z"
+"LabelRadar Artist Demo Submission Platform","https://www.labelradar.com/artists","inspected","[object Object]","false","false","true","false","true","run82-platform-database.json","2026-07-17T15:40:14.217Z"

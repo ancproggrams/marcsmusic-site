@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Amuse Self-Service Distribution and Artist Services","https://artist.amuse.io/","inspected","[object Object]","true","false","true","false","true","run65-platform-database.json","2026-07-17T15:39:32.214Z"
+"KAZI 88.7 FM UnTapped One-Song Digital Submission Opportunity","https://kazifm.org/untapped-music-submissions/","inspected","[object Object]","true","false","false","false","true","run416-platform-database.json","2026-07-17T15:39:45.846Z"
+"KCSU 90.5 FM Submit Your Music for Air-Play","https://kcsufm.com/submitmusic/","inspected","[object Object]","true","false","true","false","true","run78-platform-database.json","2026-07-17T15:40:00.533Z"
+"WHUS 91.7 FM UConn New Music Committee Route","https://whus.org/","inspected","[object Object]","false","false","true","false","true","run31-platform-database.json","2026-07-17T15:40:14.281Z"

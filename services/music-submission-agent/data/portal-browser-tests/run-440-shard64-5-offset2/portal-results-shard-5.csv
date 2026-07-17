@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KBOO Community Radio Music Submission Contact Route","https://kboo.fm/contact","inspected","[object Object]","true","false","true","false","true","run265-platform-database.json","2026-07-17T15:39:36.155Z"
+"Protocol Recordings Exclusive LabelRadar Demo Drop Route","https://protocol-recordings.com/demo/","inspected","[object Object]","true","false","false","false","true","run290-platform-database.json","2026-07-17T15:39:51.612Z"
+"WTBU Boston University Music Directors Album Submission Email Route","https://sites.bu.edu/wtbu/interact/contact-us/","error","","false","false","false","false","true","run275-platform-database.json","2026-07-17T15:40:01.702Z"
+"Radio Free Brooklyn Music Submission Form","https://submissions.radiofreebrooklyn.org/music-submission-form/","inspected","[object Object]","true","false","false","false","true","run76-platform-database.json","2026-07-17T15:40:14.300Z"

@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"CFUR 88.7 FM Prince George Digital MP3 and Physical Music Submission Route","https://cfur.ca/music","inspected","[object Object]","true","false","true","false","true","run269-platform-database.json","2026-07-17T15:39:33.284Z"
+"Chartwin Royalty Free Artist Upload Contest Discovery Route","https://chartwin.io/","inspected","[object Object]","false","false","false","true","true","run232-platform-database.json","2026-07-17T15:39:43.162Z"
+"FBi Radio Music Submission Route","https://fbiradio.com/music-submissions/","inspected","[object Object]","false","false","false","false","true","run26-platform-database.json","2026-07-17T15:39:59.055Z"
+"KCPR Cal Poly Music Programming Director Contact Submission Route","https://kcpr.org/contact/","inspected","[object Object]","false","false","false","false","true","run202-platform-database.json","2026-07-17T15:40:13.977Z"

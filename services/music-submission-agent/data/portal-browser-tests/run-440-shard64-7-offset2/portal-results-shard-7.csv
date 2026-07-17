@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"CISM 89.3 FM Montreal Digital Album EP Music Committee Route","https://cism893.ca/soumettre-un-album","error","","false","false","false","false","true","run216-platform-database.json","2026-07-17T15:39:28.830Z"
+"Defected Records Official WAV Streamable-Link Demo Email Route","https://defected.com/demos","inspected","[object Object]","false","false","false","false","true","run285-platform-database.json","2026-07-17T15:39:37.880Z"
+"Soundplate Free Spotify Playlist Submission Directory Route","https://soundplate.com/","inspected","[object Object]","true","false","false","false","true","run163-platform-database.json","2026-07-17T15:39:50.243Z"
+"WICB 91.7 FM Submit Music Route","https://wicb.org/submit-music/","inspected","[object Object]","true","false","false","false","true","run90-platform-database.json","2026-07-17T15:40:03.255Z"
