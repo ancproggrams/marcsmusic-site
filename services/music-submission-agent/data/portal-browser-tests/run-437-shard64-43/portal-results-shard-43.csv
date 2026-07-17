@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Earshot Distro Canadian Campus Community Radio Upload Route","https://earshot-distro.ca/","inspected","[object Object]","false","false","true","false","true","run111-platform-database.json","2026-07-17T15:32:40.278Z"
+"triple j Unearthed Artist Upload","https://help.abc.net.au/hc/en-us/articles/360001151315-How-do-I-upload-my-music-to-triple-j-Unearthed","error","","false","false","false","false","true","run38-platform-database.json","2026-07-17T15:32:50.379Z"

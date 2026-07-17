@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KVRX 91.7 FM Austin Music Submissions","https://kvrx.org/app/contact/","inspected","[object Object]","true","false","true","false","true","run40-platform-database.json","2026-07-17T15:32:39.119Z"
+"Music Vine Artist Licensing Submission Route","https://musicvine.com/artists","inspected","[object Object]","false","false","true","true","true","run262-platform-database.json","2026-07-17T15:32:54.173Z"

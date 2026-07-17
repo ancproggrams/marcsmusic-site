@@ -67,3 +67,7 @@ Run 435 added 10 new unique portal routes and revalidated 6 routes. Fifteen of 1
 ## Run 436
 
 Run 436 added 14 new unique portal routes and revalidated 2 routes. All 16 checks inspected successfully. Combined unique coverage for Runs 431–436 is 93 of 644 candidates, leaving 551 for continued passive testing. No outreach, upload, login, payment or submission was performed.
+
+## Run 437
+
+Run 437 added 13 new unique portal routes and revalidated 3 routes. Fifteen of 16 checks inspected successfully; 1 was an error/unreachable. Combined unique coverage for Runs 431–437 is 106 of 644 candidates, leaving 538 for continued passive testing. No outreach, upload, login, payment or submission was performed.

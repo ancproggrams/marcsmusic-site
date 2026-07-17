@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"EmuBands Paid Low-Cost DSP Distribution Upload Route","https://dashboard.emubands.com/signup","inspected","[object Object]","false","false","false","false","true","run205-platform-database.json","2026-07-17T15:32:38.785Z"
+"Dirty Workz Native Hard Dance Demo Upload Route","https://dirtyworkz.com/demos/","inspected","[object Object]","false","false","false","false","true","run286-platform-database.json","2026-07-17T15:32:50.924Z"

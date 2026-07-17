@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"BIRP! Groover and SubmitHub Music Submission Route","https://birp.fm/","inspected","[object Object]","false","false","false","false","true","run88-platform-database.json","2026-07-17T15:32:38.811Z"
+"The Line of Best Fit New Unsigned Artist Google Form Submission Route","https://docs.google.com/forms/d/e/1FAIpQLSdnvDWw7n5iLoVqzjS_DlnOCgkyETJ7Es1a7YL0bgmkdbuawQ/viewform","inspected","[object Object]","true","false","true","false","true","run119-platform-database.json","2026-07-17T15:32:53.363Z"
