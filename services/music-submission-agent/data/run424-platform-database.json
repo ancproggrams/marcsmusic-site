@@ -1,0 +1,205 @@
+{
+  "run": 424,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1741,
+  "pipelineEstimate": 1742,
+  "newPlatforms": [
+    {
+      "name": "KAOS 89.3FM Olympia Freeform Full-Release Digital and Physical Submission Opportunity",
+      "websiteUrl": "https://www.kaosradio.org/",
+      "submissionUrl": "mailto:kaosmusicdirector@gmail.com",
+      "sourceUrl": "https://www.kaosradio.org/submitmusic",
+      "sourceType": "automation_run_424_public_research",
+      "country": "United States / Olympia, Washington non-commercial freeform community radio station licensed to The Evergreen State College; Pacific Northwest artists are prioritized but international eligibility is not explicitly published",
+      "language": "en",
+      "genres": [
+        "community-radio",
+        "college-radio",
+        "non-commercial-radio",
+        "freeform",
+        "independent-artists",
+        "non-major-label",
+        "electronic",
+        "experimental",
+        "world",
+        "reggae",
+        "hip-hop",
+        "alternative",
+        "full-release-only",
+        "no-singles",
+        "digital-streaming-and-download-links",
+        "no-email-attachments",
+        "physical-cd-vinyl-cassette",
+        "one-sheet-or-press-release",
+        "fcc-clean-no-safe-harbor",
+        "no-visible-login-captcha-or-payment",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-music-department-email-for-streaming-and-download-links-with-optional-physical-full-release-delivery",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-department email with optional postal delivery",
+        "formLocation": null,
+        "email": "kaosmusicdirector@gmail.com",
+        "physicalAddress": [
+          "ATTN: Music Dept",
+          "KAOS-FM",
+          "CAB 101",
+          "2700 Evergreen Parkway NW",
+          "Olympia, WA 98505",
+          "United States"
+        ],
+        "explicitPurpose": "Full-release music submissions for KAOS DJs and the station library",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Choose one complete eligible release and one delivery method, inspect all assets and rights, and submit manually.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "standardRouteFeePublished": false,
+        "optionalPaidServicesPublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "no singles",
+          "send an upcoming complete release",
+          "physical submissions are preferred and may use CD, vinyl or cassette",
+          "digital submissions use the subject Music Submission",
+          "digital delivery must include streaming and download links",
+          "do not attach audio files directly",
+          "include a one-sheet or press release",
+          "identify focus tracks and every FCC violation or clean radio edit",
+          "KAOS has no safe harbor and never airs profane or indecent material",
+          "mention Pacific Northwest locality and nearby performance dates when applicable"
+        ],
+        "formFieldsObserved": [],
+        "safeReviewScope": [
+          "select one coherent upcoming MarcsMusic EP or album rather than a single",
+          "confirm every included track is radio-ready and suitable under KAOS's no-safe-harbor policy",
+          "prepare a one-page biography and release description with focus tracks and clean-edit notes",
+          "confirm streaming and download links are accessible without login and will not expire prematurely",
+          "confirm international artist eligibility",
+          "verify composition, master, sample, contributor, artwork and packaging rights",
+          "confirm release-recency expectations and physical-versus-digital preference",
+          "confirm the current AI-assisted and AI-generated music policy",
+          "choose either digital or physical delivery and avoid duplicate servicing",
+          "submit manually"
+        ],
+        "unresolvedEligibility": [
+          "international artist eligibility",
+          "whether an EP qualifies as a full release",
+          "minimum track count or duration",
+          "accepted digital audio formats and download-package size",
+          "whether lossless downloads are preferred or required",
+          "release-recency and upcoming-release window",
+          "rights and territorial requirements",
+          "AI-assisted and AI-generated music policy",
+          "follow-up expectations for digital submissions"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "address": "kaosmusicdirector@gmail.com",
+            "purpose": "Music Department and digital music submissions",
+            "source": "https://www.kaosradio.org/submitmusic",
+            "secondarySource": "https://www.kaosradio.org/contact",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": false,
+            "domainAlignmentNote": "The mailbox uses Gmail but is explicitly and consistently published by KAOS's first-party official submission and contact pages."
+          }
+        ],
+        "adjacentEmailsExcluded": [
+          {
+            "address": "kaos@evergreen.edu",
+            "purpose": "general station contact",
+            "source": "https://www.kaosradio.org/contact",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "reasonExcluded": "KAOS explicitly says not to send music submissions, interview requests or press releases to this address."
+          },
+          {
+            "address": "hamiltoj@evergreen.edu",
+            "purpose": "General Manager contact",
+            "source": "https://www.kaosradio.org/contact",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "reasonExcluded": "KAOS explicitly says not to send music submissions, interview requests or press releases to this address."
+          },
+          {
+            "address": "kaosradioevents@gmail.com",
+            "purpose": "South Puget Sound community-events calendar",
+            "source": "https://www.kaosradio.org/contact",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": false,
+            "reasonExcluded": "This mailbox is for community events, not music submissions."
+          }
+        ],
+        "emailStatus": "kaosmusicdirector@gmail.com is a first-party, purpose-labelled Music Department submission mailbox. General, manager and events addresses were verified and excluded.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "Email and postal delivery require human release selection, asset inspection, rights confirmation and a choice of exactly one delivery method.",
+        "rightsOrConsentFields": [],
+        "adjacentRoutesExcluded": [
+          "generic contact form",
+          "general station mailbox",
+          "General Manager mailbox",
+          "events-calendar email and form",
+          "community billboard form",
+          "public-service-announcement form",
+          "listener request phone",
+          "newsletter",
+          "social-media direct messages",
+          "donations and membership"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "KAOS published Top 30 charts through June 22, 2026, maintains a populated current staff page with a Music Director and assistants, provides schedule, playlist and live-stream surfaces, and posted 2026 station events and programming updates."
+      },
+      "genreFitEvidence": [
+        "KAOS is a freeform station whose independent-music policy requires 80% of played music to come from outside major labels.",
+        "Current 2026 charts and programming span electronic, experimental, world, hip-hop, funk, alternative and other independent formats.",
+        "A coherent clean MarcsMusic electronic, world-fusion, reggae-adjacent, ambient or experimental EP/album has plausible fit, subject to human release selection."
+      ],
+      "manualReviewReason": "The route is first-party and fee-free as published, but it excludes singles, prioritizes physical media, limits digital delivery to links without attachments, enforces a no-safe-harbor content standard, and leaves international eligibility, technical download requirements, rights, release timing and AI-origin rules unresolved.",
+      "priority": 84,
+      "pricingModel": "free-first/full-release-only/physical-preferred/digital-email-links/no-attachments/no-safe-harbor/international-eligibility-unconfirmed/no-visible-login-captcha-or-payment/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KAOS 89.3FM",
+      "KAOS Community Radio",
+      "kaosradio.org",
+      "kaosmusicdirector@gmail.com",
+      "https://www.kaosradio.org/submitmusic",
+      "KAOS 89.3FM Olympia Freeform Full-Release Digital and Physical Submission Opportunity"
+    ],
+    "repositoryEvidence": "Repository code search and the complete PR patch were checked for the platform name, official domain, submission mailbox and canonical submission URL. No existing music-submission-agent record was found before creation.",
+    "consolidation": "Digital email, physical postal delivery and Music Department contact are stored as one canonical opportunity. General, manager, events, contact-form, listener, newsletter, social, membership and donation routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new KAOS 89.3FM Olympia opportunity was queued as needs_manual_review. No email, streaming link, download link, audio, attachment, package, form field, login, CAPTCHA, payment or follow-up was submitted."
+}
