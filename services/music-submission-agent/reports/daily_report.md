@@ -2,7 +2,7 @@
 
 Date: 2026-07-17
 
-Latest run: Run 428
+Latest run: Run 429
 
 New items added in latest run: 1
 
@@ -10,32 +10,32 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1746
+Pipeline estimate: 1747
 
 Items:
 
-- Run 428 added: Owl Radio at Kennesaw State University — public multi-step MP3/WAV-upload-or-music-link airplay submission form
+- Run 429 added: WOLF Radio at the University of West Georgia — public music-director email route for music, SoundCloud pages or other listenable outlets
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: the first-party Kennesaw State form states that Owl Radio accepts music from anyone with recordings and considers it for airplay. The first step requests artist name, artist email and an artist or group description, and offers an MP3/WAV upload and music-link field before a `Next` control.
+Latest route note: WOLF Radio's first-party submission page asks local and unsigned artists to email their music, SoundCloud page or another outlet that lets station staff hear the music to `thewolfmusicdirector@gmail.com`. The page requests radio edits.
 
-Form and cost note: no login, mandatory fee, payment or CAPTCHA was visible on the accessible first step. The route is multi-step, and later-step fields and controls were not activated or inferred.
+Form and cost note: the canonical route is an editorial email rather than a web form. No target-platform login, mandatory fee, payment or CAPTCHA is published. The station does not state whether attachments are accepted, so a stable listening or download link should be preferred unless a human confirms otherwise.
 
-Contact-verification note: the form publishes `owlradioksu@gmail.com` in plaintext specifically for following up on submitted music. The address is syntactically valid and purpose-aligned but uses Gmail rather than a Kennesaw State domain. `owlradio@kennesaw.edu` and `programmingowlradio@kennesaw.edu` were verified as current domain-aligned general or staff contacts and excluded because the official form is the canonical route. No deliverability probing was performed.
+Contact-verification note: `thewolfmusicdirector@gmail.com` is published in plaintext on the first-party music-submission page and is syntactically valid and purpose-aligned, but it uses Gmail rather than the University of West Georgia domain. `TheWolf@westga.edu` was verified as the current domain-aligned general station contact and excluded because the music-submission page directs artists to the music-director mailbox. No deliverability probing was performed.
 
-Eligibility and fit note: the form's anyone-with-recordings statement broadly includes unsigned artists, small labels and major labels, but country-specific terms are not separately enumerated. Owl Radio's current official site describes an eclectic mix including indie, jazz, metal and Greater Atlanta underground music, while the schedule also includes alternative, experimental, classic, K-pop, folk and bluegrass programming. A human-selected MarcsMusic electronic, alternative, chill, world-fusion or genre-blending track has plausible medium fit.
+Eligibility and fit note: the submission page welcomes local and unsigned artists but does not explicitly confirm international eligibility. The official university describes WOLF Radio as serving a global audience, which supports reach but is not sufficient proof of submission eligibility. WOLFstock 2026 included dubstep/riddim, indie-folk, pop/funk/rock, lo-fi pop, psychedelic alternative and cloud rap. A human-selected clean MarcsMusic electronic, bass, dubstep, alternative, chill or genre-blending track has plausible medium fit.
 
-Activity note: the official site exposes a live listen page, now-spinning surface, populated weekly schedule and current management roster. Current Kennesaw State Student Media and organization pages continue to identify Owl Radio as the university's student-run streaming station, and 2026 operational content is present.
+Activity note: WOLF Radio's official site exposes a live-listening surface and current content. The University of West Georgia published a June 9, 2026 feature describing WOLF Radio and WOLF Sports Network as active 24/7 college-radio stations and continues to list WOLF Radio as an experiential-learning station.
 
-Manual-review note: choose a suitable track, inspect the exact MP3/WAV master, link and metadata, verify upload-size and technical limits, inspect every later form step, check for CAPTCHA/login/identity controls, confirm content, rights, release-window and AI-origin policy, review declarations and submit manually.
+Manual-review note: confirm international eligibility, select one suitable radio edit, prepare a concise personalized pitch, use a stable link, verify metadata and rights, check current explicit-content and AI-origin policies, avoid duplicate outreach through general or staff contacts, and send manually.
 
-Deduplication note: repository searches returned no previous Owl Radio submission opportunity, official form GUID, purpose-aligned follow-up email or normalized opportunity record. Upload and link delivery are stored as one canonical digital opportunity; the physical route is an alternative rather than a second queue row. General, staff, advertising, sponsorship and social routes are excluded.
+Deduplication note: repository searches returned no previous WOLF Radio submission opportunity, official submission path, public music-director mailbox or normalized opportunity record. The email and listenable-link options are stored as one canonical opportunity; general contacts, member login, listener-request surfaces and social channels are excluded.
 
-Runtime-linkage note: Run 427 now links to Run 428 in the active recursive seed chain.
+Runtime-linkage note: Run 428 now links to Run 429 in the active recursive seed chain.
 
-Commit note: Run 428 is complete on the branch. The branch-head SHA is reported in pull request #2 and in the automation result.
+Commit note: Run 429 is complete on the branch. The branch-head SHA is reported in pull request #2 and in the automation result.
 
 Runtime limitation: passive verification used the available web-research runtime. The dedicated `agent-browser` CLI, screenshot capture and repository shell were unavailable, so no browser screenshot, build, test, lint, `git diff` or `git status` result is claimed.
 
-Safety: No form step was advanced. No form field, MP3, WAV, music link, email, physical package, account, login, CAPTCHA, payment or final submit action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No email, attachment, music link, account, login, CAPTCHA, payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
