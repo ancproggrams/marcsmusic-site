@@ -2,7 +2,7 @@
 
 Date: 2026-07-17
 
-Latest run: Run 450
+Latest run: Run 462
 
 New items added in latest run: 1
 
@@ -10,27 +10,27 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1748
+Pipeline estimate: 1749
 
 Items:
 
-- Run 450 added: Wepa.Fm — first-party independent-music email route requiring a correctly tagged 320 kbps MP3, artwork and a completed signed royalty-free licensing agreement.
+- Run 462 added: JAM Audio Live — first-party worldwide independent-artist submission page linking to an external Google Form for possible 24/7 rotation, artist spotlights, charts, interviews and future broadcasts.
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Wepa.Fm publishes `info@wepa.fm` on its dedicated independent-music submission page. The page requests royalty-free independent music, a 320 kbps MP3 with correct title, artist, genre, artwork and other metadata, and a completed signed royalty-free licensing agreement. Explicit music is excluded and tracks must fit the station format.
+Latest route note: JAM Audio Live asks for a working Spotify, Apple Music, SoundCloud, YouTube, Bandcamp, Dropbox, Google Drive or direct music link; a short bio; artist origin; song context; an explicit-lyrics disclosure; and confirmation that the submitter has permission to submit the music. The official page links to Google Form ID `1FAIpQLSfXuI50gVuW34PspgEayoaAl5Op9Fi3_gdc1W0IeNsmWhR8YA`.
 
-Contact-verification note: `info@wepa.fm` is first-party published, syntactically valid, domain aligned and purpose aligned. `jojeda@wepa.fm` is published for the program/music director but excluded because the dedicated submission page names `info@wepa.fm` as the canonical route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: no public submission or business email was found on the first-party submission, homepage or about pages reviewed. The canonical route is the external Google Form. No protected address was decoded or inferred, and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: the current site exposes live-radio/now-playing surfaces, a current staff roster, 2026 artist spotlights and a 2026 Calle Ocho Freestyle/Latin Music Stage. The station publishes disco, salsa, freestyle, merengue, bachata, house, reggaeton and pop among its formats and describes a worldwide independent-music mission. Carnival or Curaçao may be the closest MarcsMusic fit, subject to a human check of the exact clean master and licence suitability.
+Activity and fit note: the current site exposes a 24/7 stream, real-time rotation surfaces, weekly artist battles and 2026 artist spotlights. The homepage states that artists from around the world are already spinning, with current examples from Brazil, Croatia and Glasgow. Published accepted styles include electronic, DnB, pop, alternative, indie and experimental music.
 
-Manual-review note: obtain legal approval before signing the royalty-free agreement; verify ownership and authority for the composition, master, samples and contributors; confirm licence exclusivity, duration, territory, revocation and royalty treatment; confirm international eligibility, track limits and attachment size; verify the 320 kbps MP3 metadata and artwork; check the current AI-origin policy; and send manually.
+Manual-review note: the external Google Form could not be passively fetched in this runtime. A human must inspect it for Google sign-in, CAPTCHA, email collection, upload controls, consent, privacy, broadcast-rights, AI-origin and payment boundaries; confirm ownership and permission; select the track; and submit manually. The separate optional $50 premium spotlight is not treated as a prerequisite for standard submission.
 
-Deduplication note: exact-name, domain, submission-path and mailbox searches in the accessible code-search surface returned no match before creation. The active branch contains a large unmerged historical dataset, so the canonical SQLite domain/email dedupe remains a required pre-send gate.
+Deduplication note: repository searches for the platform name, canonical domain, submission path and Google Form ID returned no match before creation. The landing page and linked form were consolidated as one opportunity; paid services, Discord and social-media routes were excluded.
 
-Runtime limitation: the dedicated `agent-browser` CLI and repository shell were unavailable in this runtime, so no browser screenshot, build, test, lint, `git diff` or `git status` result is claimed.
+Runtime limitation: the repository connector updated the artifacts, but the dedicated `agent-browser` CLI and repository shell were unavailable. No browser screenshot, successful build, test, lint, SQLite worker, `git diff` or `git status` result is claimed.
 
-Safety: No agreement was downloaded or signed. No email, attachment, music link, account, login, CAPTCHA, payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No form field was filled, no Google account was used, no email or upload was sent, no consent was accepted, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
 
 ## Run 430
 
@@ -161,3 +161,7 @@ Run 460 reached the final 45 untested routes using deterministic offsets 5 and 1
 ## Run 461
 
 Run 461 retried the four Run-460 error routes with a 20-second browser timeout. All four reproduced errors; no route became a successful inspection. The inventory remains 645 of 645 URLs represented by browser evidence, with four explicit error/manual-review routes. No outreach, upload, login, payment or submission was performed.
+
+## Run 462
+
+Run 462 added one first-party JAM Audio Live worldwide independent-artist submission route and queued it as `needs_manual_review`. The official landing page links to an external Google Form, accepts working music links and describes possible live rotation and artist features. Current activity and international participation were verified from 2026 first-party pages. The pipeline estimate is now 1,749. No form, account, upload, email, consent, CAPTCHA, payment or submission action was performed.
