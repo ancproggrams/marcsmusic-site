@@ -1,0 +1,4 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"PBS 106.7FM Melbourne Submit Your Music","https://www.pbsfm.org.au/submitmusic","inspected","[object Object]","true","false","false","false","true","run42-platform-database.json","2026-07-17T17:35:35.614Z"
+"Thomann 2026 Beatmaking Contest Social Hashtag Submission Route","https://www.thomann.de/blog/en/beatmaking-contest-2026/","inspected","[object Object]","false","false","false","false","true","run236-platform-database.json","2026-07-17T17:35:52.010Z"
+"WRIR-LP 97.3 Richmond Music Programming Contact Route","https://www.wrir.org/","error","","false","false","false","false","true","run31-platform-database.json","2026-07-17T17:36:05.098Z"

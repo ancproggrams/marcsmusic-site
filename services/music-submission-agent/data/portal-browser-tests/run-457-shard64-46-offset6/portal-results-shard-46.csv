@@ -1,0 +1,4 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Indie On The Move Venue Festival QuickPitch Booking Route","https://www.indieonthemove.com/home","error","","false","false","false","false","true","run250-platform-database.json","2026-07-17T17:39:01.460Z"
+"Music Crowns Submit Your Music Editorial Route","https://www.musiccrowns.org/submit-your-music/","inspected","[object Object]","false","false","false","false","true","run254-platform-database.json","2026-07-17T17:39:16.570Z"
+"WYSO Novaphonic WAV CD Music Department Airplay Submission Route","https://www.wyso.org/music-submission","inspected","[object Object]","false","false","false","false","true","run145-platform-database.json","2026-07-17T17:39:32.438Z"

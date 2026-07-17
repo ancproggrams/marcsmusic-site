@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KCRW Local Regional Recording Airplay Consideration Route","https://www.kcrw.com/","inspected","[object Object]","true","false","false","true","true","run181-platform-database.json","2026-07-17T17:36:45.110Z"
+"KSCU 103.3 Santa Clara Underground Sound Route","https://www.kscu.org/","inspected","[object Object]","false","false","false","false","true","run32-platform-database.json","2026-07-17T17:36:56.632Z"
+"LabelRadar Free Credits Record Label Demo Submission Route","https://www.labelradar.com/for-artists","inspected","[object Object]","false","false","true","false","true","run247-platform-database.json","2026-07-17T17:37:12.650Z"
+"Obscure Sound SubmitHub and MusoSoup Indie/Electronic Submission Route","https://www.obscuresound.com/","inspected","[object Object]","false","false","false","false","true","run25-platform-database.json","2026-07-17T17:37:29.473Z"

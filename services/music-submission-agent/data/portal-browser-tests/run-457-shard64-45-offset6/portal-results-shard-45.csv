@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"HAULIX Media Connect Artist Promo Page Industry Exposure Route","https://mediaconnect.haulix.com/","inspected","[object Object]","true","false","true","true","true","run218-platform-database.json","2026-07-17T17:37:57.497Z"
+"PUSH.fm Artist Smart Link Presave Fan Link Route","https://push.fm/","inspected","[object Object]","false","false","true","true","true","run259-platform-database.json","2026-07-17T17:38:12.315Z"
+"WFMU Physical Materials Music Director Review Route","https://wfmu.org/sendmusic","inspected","[object Object]","false","false","false","false","true","run192-platform-database.json","2026-07-17T17:38:27.205Z"
+"gigmit Free Pro Live Music Festival Venue Application Route","https://www.gigmit.com/en/","inspected","[object Object]","false","false","false","false","true","run250-platform-database.json","2026-07-17T17:38:43.437Z"

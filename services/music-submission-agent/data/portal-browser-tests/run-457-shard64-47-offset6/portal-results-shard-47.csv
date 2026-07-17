@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KEXP Airplay Consideration Digital Submission Route","https://www.kexp.org/about/submission-guidelines/","inspected","[object Object]","false","false","false","false","true","run23-platform-database.json","2026-07-17T17:39:04.005Z"
+"Marmoset Music Artist Licensing Submission Route","https://www.marmosetmusic.com/artists","inspected","[object Object]","true","false","true","true","true","run257-platform-database.json","2026-07-17T17:39:19.708Z"
+"musicto Free Global Playlist Track Submit Form","https://www.musicto.com/submit-a-track/","inspected","[object Object]","true","false","true","false","true","run88-platform-database.json","2026-07-17T17:39:34.491Z"
+"Play MPE Caster Radio Curator Supervisor and Media Release Promotion Route","https://www.plaympe.com/","inspected","[object Object]","false","false","true","false","true","run123-platform-database.json","2026-07-17T17:39:50.829Z"

@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"WUSB 90.1FM Stony Brook Music Director Submissions","https://wusb.fm/node/78380","inspected","[object Object]","false","false","true","false","true","run52-platform-database.json","2026-07-17T17:35:34.846Z"
+"NTS Radio Mixtape Submission Call Route","https://www.nts.live/","inspected","[object Object]","true","false","false","false","true","run94-platform-database.json","2026-07-17T17:35:50.466Z"
+"Radio Adelaide Submit Your Music","https://www.radioadelaide.org.au/submit-your-music/","inspected","[object Object]","false","false","false","false","true","run43-platform-database.json","2026-07-17T17:36:07.173Z"
+"WTJU 91.1 FM UVA Submit Music Route","https://www.wtju.net/submit-music/","inspected","[object Object]","false","false","true","false","true","run30-platform-database.json","2026-07-17T17:36:23.548Z"
