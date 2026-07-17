@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"4ZZZ Brisbane Music Submissions","https://4zzz.org.au/music-submissions","inspected","[object Object]","false","false","false","false","true","run57-platform-database.json","2026-07-17T15:16:31.166Z"
+"Airbit Beat Marketplace Upload License Contract Seller Route","https://airbit.com/","inspected","[object Object]","true","false","true","true","true","run241-platform-database.json","2026-07-17T15:16:42.785Z"

@@ -43,3 +43,7 @@ Safety: No email, attachment, music link, account, login, CAPTCHA, payment or su
 ## Run 430
 
 Run 430 added owner-supplied outreach routing for Carnival (Latin), Strijd (Dutch Pop/Pop), Geen Afscheid (Pop/Reggae) and Curaçao (Afrobeat/Pop). The fit matrix is stored in `data/run430-track-portal-routing.json`. PlaylistPartner received a passive agent-browser snapshot only. No outreach or final submission was performed; House/Electronic-only routes remain reserved for Summer Time or Weekend Mode.
+
+## Run 431
+
+Agent-browser passively inspected 32 unique routes from the 644-route inventory: 30 inspected, 2 errors/unreachable, 15 forms observed, 16 login boundaries, 1 payment boundary and no CAPTCHA/human-check surfaces. No forms, uploads, logins, payments or submissions were attempted. Full coverage remains in progress; 612 inventory candidates remain outside this run's unique coverage count.
