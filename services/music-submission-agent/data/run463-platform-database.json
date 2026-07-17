@@ -1,0 +1,163 @@
+{
+  "run": 463,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1749,
+  "pipelineEstimate": 1750,
+  "newPlatforms": [
+    {
+      "name": "IndieMusicFans Worldwide Free Rock Radio Submission Form",
+      "websiteUrl": "https://indiemusicfans.com/",
+      "submissionUrl": "https://indiemusicfans.com/contact",
+      "formUrl": "https://indiemusicfans.com/contact",
+      "sourceUrl": "https://indiemusicfans.com/contact",
+      "sourceType": "automation_run_463_public_research",
+      "country": "Worldwide; the first-party submission page welcomes indie rock bands and artists worldwide.",
+      "language": "en",
+      "genres": [
+        "independent-music",
+        "indie-rock",
+        "rock",
+        "metal",
+        "punk",
+        "ska",
+        "synthwave",
+        "edm",
+        "pop",
+        "acoustic",
+        "worldwide",
+        "free-first",
+        "public-form",
+        "meta-tagged-mp3",
+        "ai-disclosure",
+        "streaming-permission",
+        "manual-review"
+      ],
+      "submissionMethod": "official first-party free music-submission page with an embedded online form for radio consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public free-music-submission page with embedded online form",
+        "formLocation": "https://indiemusicfans.com/contact",
+        "email": null,
+        "fallbackBusinessEmail": "otat247@gmail.com",
+        "explicitPurpose": "Submit band or artist information and a meta-tagged MP3 for possible streaming on IndieMusicFans/OTAT247 radio.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the official contact page, inspect the embedded form manually without bypassing any control, verify rights and AI disclosures, select a suitable MarcsMusic track, complete approved fields and submit only after explicit owner approval.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "internationalAcceptanceEvidence": "The first-party submission page states that indie rock bands and artists worldwide are welcome.",
+        "standardRouteFeePublished": false,
+        "standardRouteFeeEvidence": "The first-party page describes the route as free music submission with no fees to get started."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submit as an independent artist or band",
+          "prepare track(s) in meta-tagged MP3 format",
+          "use the online form on the official contact page",
+          "disclose any AI elements",
+          "submit music within the published Rock, Metal, Ska, Punk or Synth/EDM/Pop scope",
+          "grant permission for IndieMusicFans radio to stream the submitted track while retaining ownership rights"
+        ],
+        "publishedReviewTiming": "Submissions are usually reviewed within 1–2 weeks, subject to availability and open on-air slots.",
+        "formFieldsObserved": [],
+        "safeReviewScope": [
+          "inspect the embedded online form manually",
+          "verify whether CAPTCHA, login, email collection or other human-verification controls are present",
+          "identify every required field, upload control, accepted file type and file-size limit",
+          "confirm privacy, data-use, streaming and promotional consent language",
+          "confirm the exact territory, duration, revocation and reuse scope of the streaming permission",
+          "confirm whether AI-assisted music is eligible and whether entirely AI-generated music is excluded",
+          "check track-count, release-recency and clean/explicit-content rules",
+          "verify MP3 metadata and select a genre-compatible MarcsMusic track",
+          "submit manually only after owner approval"
+        ],
+        "unresolvedEligibility": [
+          "all required embedded-form fields",
+          "CAPTCHA, login or email-verification requirement inside the embedded form",
+          "audio upload mechanism and maximum file size",
+          "privacy and promotional-use declarations",
+          "streaming permission territory, duration and revocation terms",
+          "AI-assisted versus entirely AI-generated music eligibility",
+          "track-count and release-recency limits",
+          "clean-edit or explicit-content policy",
+          "follow-up method and exact review timing for a specific submission"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "otat247@gmail.com",
+            "purpose": "First-party published fallback address for questions not answered in the FAQ.",
+            "firstPartyPublished": true,
+            "syntaxValid": true,
+            "domainAligned": false,
+            "contextAligned": true,
+            "submissionRoute": false
+          }
+        ],
+        "adjacentEmailsExcluded": [
+          "otat247@gmail.com is retained as a public business-question contact but excluded as the canonical music-submission route because the page instructs artists to use the online form."
+        ],
+        "emailStatus": "One public fallback business email is first-party published and syntactically valid. It uses Gmail rather than the site domain but is context aligned. The canonical authorized submission route remains the online form.",
+        "verification": "Email verification was limited to first-party publication, syntax and stated purpose. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "externalFormProvider": null,
+        "externalFormUrl": null,
+        "embeddedFormPage": "https://indiemusicfans.com/contact",
+        "multiStepForm": null,
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible in the accessible page text; the embedded form itself was not passively field-inspected and remains unverified.",
+        "loginObserved": false,
+        "loginStatus": "No login requirement was published on the accessible page; any embedded-form authentication boundary remains unverified.",
+        "paymentObserved": false,
+        "paymentStatus": "The route is explicitly described as free and no payment requirement was published.",
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The embedded form must be inspected by a human for fields, upload limits, CAPTCHA/login, privacy, consent, rights and AI-policy boundaries before use.",
+        "rightsOrConsentFields": [
+          "submission grants permission for IndieMusicFans radio to stream the track",
+          "submitter must disclose any AI elements"
+        ],
+        "adjacentRoutesExcluded": [
+          "fallback FAQ email as a direct music-submission route",
+          "social-media direct messages",
+          "any paid promotion not stated on the official free-submission page"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "The current first-party station page publishes active recurring programming, including weekly and monthly shows, and describes ongoing worldwide curation across rock, metal, punk, ska, synthwave, EDM and acoustic music."
+      },
+      "genreFitEvidence": [
+        "The first-party submission FAQ explicitly accepts Synth/EDM/Pop alongside Rock, Metal, Ska and Punk.",
+        "The current station page lists Synthwave and EDM in its rotation.",
+        "Selected MarcsMusic electronic, pop or crossover tracks may fit after human track-level review."
+      ],
+      "manualReviewReason": "The route is active, worldwide-facing and free, but the embedded form was not passively field-inspected. A human must verify all fields, audio-upload limits, CAPTCHA/login, privacy and streaming-permission terms; assess the AI disclosure policy and rights status; select a suitable track; and complete the form manually.",
+      "priority": 88,
+      "pricingModel": "free-first/first-party-public-form/meta-tagged-mp3/worldwide/rights-permission/ai-disclosure/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "IndieMusicFans",
+      "indiemusicfans.com",
+      "indiemusicfans.com/contact",
+      "otat247@gmail.com",
+      "IndieMusicFans Worldwide Free Rock Radio Submission Form"
+    ],
+    "repositoryEvidence": "Searches in the accessible repository code-search surface for the platform domain returned no match before creation.",
+    "consolidation": "The first-party contact/submission page and its embedded form are stored as one canonical opportunity. The FAQ email is retained only as a fallback business contact and not as a separate submission route."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One IndieMusicFans opportunity was queued as needs_manual_review. No form was filled, no email was sent, no file was uploaded, no login was used, no CAPTCHA was solved and no payment or submission action was completed."
+}
