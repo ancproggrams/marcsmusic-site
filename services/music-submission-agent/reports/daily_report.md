@@ -2,7 +2,7 @@
 
 Date: 2026-07-17
 
-Latest run: Run 429
+Latest run: Run 450
 
 New items added in latest run: 1
 
@@ -10,35 +10,27 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1747
+Pipeline estimate: 1748
 
 Items:
 
-- Run 429 added: WOLF Radio at the University of West Georgia — public music-director email route for music, SoundCloud pages or other listenable outlets
+- Run 450 added: Wepa.Fm — first-party independent-music email route requiring a correctly tagged 320 kbps MP3, artwork and a completed signed royalty-free licensing agreement.
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: WOLF Radio's first-party submission page asks local and unsigned artists to email their music, SoundCloud page or another outlet that lets station staff hear the music to `thewolfmusicdirector@gmail.com`. The page requests radio edits.
+Latest route note: Wepa.Fm publishes `info@wepa.fm` on its dedicated independent-music submission page. The page requests royalty-free independent music, a 320 kbps MP3 with correct title, artist, genre, artwork and other metadata, and a completed signed royalty-free licensing agreement. Explicit music is excluded and tracks must fit the station format.
 
-Form and cost note: the canonical route is an editorial email rather than a web form. No target-platform login, mandatory fee, payment or CAPTCHA is published. The station does not state whether attachments are accepted, so a stable listening or download link should be preferred unless a human confirms otherwise.
+Contact-verification note: `info@wepa.fm` is first-party published, syntactically valid, domain aligned and purpose aligned. `jojeda@wepa.fm` is published for the program/music director but excluded because the dedicated submission page names `info@wepa.fm` as the canonical route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Contact-verification note: `thewolfmusicdirector@gmail.com` is published in plaintext on the first-party music-submission page and is syntactically valid and purpose-aligned, but it uses Gmail rather than the University of West Georgia domain. `TheWolf@westga.edu` was verified as the current domain-aligned general station contact and excluded because the music-submission page directs artists to the music-director mailbox. No deliverability probing was performed.
+Activity and fit note: the current site exposes live-radio/now-playing surfaces, a current staff roster, 2026 artist spotlights and a 2026 Calle Ocho Freestyle/Latin Music Stage. The station publishes disco, salsa, freestyle, merengue, bachata, house, reggaeton and pop among its formats and describes a worldwide independent-music mission. Carnival or Curaçao may be the closest MarcsMusic fit, subject to a human check of the exact clean master and licence suitability.
 
-Eligibility and fit note: the submission page welcomes local and unsigned artists but does not explicitly confirm international eligibility. The official university describes WOLF Radio as serving a global audience, which supports reach but is not sufficient proof of submission eligibility. WOLFstock 2026 included dubstep/riddim, indie-folk, pop/funk/rock, lo-fi pop, psychedelic alternative and cloud rap. A human-selected clean MarcsMusic electronic, bass, dubstep, alternative, chill or genre-blending track has plausible medium fit.
+Manual-review note: obtain legal approval before signing the royalty-free agreement; verify ownership and authority for the composition, master, samples and contributors; confirm licence exclusivity, duration, territory, revocation and royalty treatment; confirm international eligibility, track limits and attachment size; verify the 320 kbps MP3 metadata and artwork; check the current AI-origin policy; and send manually.
 
-Activity note: WOLF Radio's official site exposes a live-listening surface and current content. The University of West Georgia published a June 9, 2026 feature describing WOLF Radio and WOLF Sports Network as active 24/7 college-radio stations and continues to list WOLF Radio as an experiential-learning station.
+Deduplication note: exact-name, domain, submission-path and mailbox searches in the accessible code-search surface returned no match before creation. The active branch contains a large unmerged historical dataset, so the canonical SQLite domain/email dedupe remains a required pre-send gate.
 
-Manual-review note: confirm international eligibility, select one suitable radio edit, prepare a concise personalized pitch, use a stable link, verify metadata and rights, check current explicit-content and AI-origin policies, avoid duplicate outreach through general or staff contacts, and send manually.
+Runtime limitation: the dedicated `agent-browser` CLI and repository shell were unavailable in this runtime, so no browser screenshot, build, test, lint, `git diff` or `git status` result is claimed.
 
-Deduplication note: repository searches returned no previous WOLF Radio submission opportunity, official submission path, public music-director mailbox or normalized opportunity record. The email and listenable-link options are stored as one canonical opportunity; general contacts, member login, listener-request surfaces and social channels are excluded.
-
-Runtime-linkage note: Run 428 now links to Run 429 in the active recursive seed chain.
-
-Commit note: Run 429 is complete on the branch. The branch-head SHA is reported in pull request #2 and in the automation result.
-
-Runtime limitation: passive verification used the available web-research runtime. The dedicated `agent-browser` CLI, screenshot capture and repository shell were unavailable, so no browser screenshot, build, test, lint, `git diff` or `git status` result is claimed.
-
-Safety: No email, attachment, music link, account, login, CAPTCHA, payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No agreement was downloaded or signed. No email, attachment, music link, account, login, CAPTCHA, payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
 
 ## Run 430
 
@@ -119,3 +111,7 @@ Run 448 continued offset 2 across shards 24–31 and added 32 new unique routes.
 ## Run 449
 
 Run 449 continued offset 2 across shards 32–39 and added 32 new unique routes. Twenty-four checks inspected successfully; 8 were errors or unreachable. Combined unique coverage for Runs 431–449 is 343 of 644 candidates, leaving 301 for continued passive testing. No outreach, upload, login, payment or submission was performed.
+
+## Run 450
+
+Run 450 added one first-party Wepa.Fm independent-music email route and queued it as `needs_manual_review` because a signed royalty-free licensing agreement, rights verification and human-controlled email delivery are required. The pipeline estimate is now 1,748. No agreement was executed and no outreach or submission was performed.
