@@ -163,22 +163,30 @@ handshake uit; log de credential nooit.
   geconfigureerde SMTP-user. De zichtbare afzender voor transactionele mail
   blijft `noreply@marcsmusic.nl`; outreach gebruikt `marc@marcsmusic.nl`.
   Roteer de SMTP-secret uitsluitend via Railway.
-- Het productie-EspoCRM weigert momenteel te starten wegens een
-  ontbrekend herstel-/rehearsal-attest voor een bestaande database. De
-  schema-contractfix staat op `main`, maar mag de migratie-evidence niet
-  omzeilen; matching en outreach blijven daarom geblokkeerd.
+- EspoCRM is op 17 juli 2026 als nieuwe productie-installatie uitgerold met
+  een lege, geïsoleerde database `espocrm_fresh_20260717` en een nieuwe
+  Railway-volume `marcsmusic-crm-fresh-volume`. De oude database en het oude
+  volume zijn niet gewist en blijven buiten de actieve route.
 - Op 16 juli 2026 zijn twee vergrendelde Railway-safety-copies aangemaakt:
   `crm-pre-recovery-2026-07-16` voor `/var/www/persistent` en
   `mysql-pre-recovery-2026-07-16` voor de MySQL-volume. Dit zijn afzonderlijke
   COW-preservation points; er is geen restore uitgevoerd en ze vormen nog geen
   bewezen consistency point.
-- De CRM-volume-inspectie bevestigt dat `data/config.php`,
-  `data/config-internal.php` en `data/state.php` ontbreken. De MySQL-database
-  bevat wel de EspoCRM-tabellen en 2.815 Leads, maar de productie-image weigert
-  het schema/config-contract. Een consistente, geteste EspoCRM recovery set
-  (database + volledige applicatiestate + beschermde config/key-metadata) blijft
-  vereist; zonder die set mag de bestaande database niet worden
-  gereconstrueerd.
+- De dedicated API-gebruiker `marcsmusic-outreach-api` gebruikt een beperkte
+  rol voor de CRM- en outreach-entiteiten. De API-key staat uitsluitend als
+  Railway-secret op `outreach-worker-production`, `marcsmusic-release-os` en
+  `marcsmusic-site`; de tijdelijke admin-sessietokens zijn na de bootstrap
+  ingetrokken.
+- De Mailgun-lijst `radio-stations@mg.marcsmusic.nl` is read-only gepagineerd
+  gevalideerd tegen 1.651 leden. Alle 1.651 records zijn rechtstreeks in
+  EspoCRM als `MediaContact` geïmporteerd met `status=Needs Validation` en
+  `doNotContact=true`; 1.649 behouden `optedOut=false` en 2 behouden
+  `optedOut=true`. Mailgun-lidmaatschap is niet als wettelijke toestemming
+  geïnterpreteerd. De import is idempotent en logt geen adressen, namen of
+  `vars`.
+- De actieve CRM- en matching-capabilities zijn groen. Verzenden blijft
+  bewust uitgeschakeld totdat de geïmporteerde contacten expliciet zijn
+  gevalideerd en de operator de outreach-policy goedkeurt.
 - De gecontroleerde outreach-test naar `marc@marcrene.com` is door Plunk
   geaccepteerd en als `SENT` opgeslagen vanuit `marc@marcsmusic.nl` met
   Message-ID `<marcsmusic-outreach-test-20260716-c087a788-fc7b-4715-95fc-b89b9a6ee15a@marcsmusic.nl>`.

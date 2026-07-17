@@ -59,14 +59,15 @@ The EPK is intentionally disabled when its manifest is absent. See [the public E
 ## EspoCRM setup
 
 1. Deploy EspoCRM on Railway using `deploy/espocrm/`.
-2. Use the Railway MySQL service as the database.
+2. Use a new, empty MySQL schema for a fresh build; never point a fresh
+   install at a non-empty EspoCRM schema with missing persistent config.
 3. Set the EspoCRM admin and database credentials as Railway variables.
-4. Create an API User in EspoCRM or via the admin API.
-5. Give the API User permissions for:
+4. Create a dedicated API User in EspoCRM or via the admin API.
+5. Give the API User only the permissions required by the integration:
    - `Contact`
    - `TargetList` if you want CRM mailing-list linking
    - custom entity `DJBooking`
-6. Set `ESPOCRM_API_KEY` in Railway.
+6. Set `ESPOCRM_API_KEY` in every consuming Railway service.
 7. Create custom entity `DJBooking` with fields matching:
    - `bookingId`
    - `contactId`
@@ -97,6 +98,26 @@ Optional newsletter custom fields on Contact:
 - `source`
 
 Set `ESPOCRM_USE_CUSTOM_FIELDS=true` only after those fields exist.
+
+### Historical Mailgun list import
+
+The one-time `scripts/import-mailgun-list-to-espocrm.mjs` command accepts only
+the verified Mailgun EU API and imports members into `MediaContact` quarantine.
+It performs a count-reconciled GET-only source read, deduplicates by a
+deterministic email fingerprint, preserves Mailgun unsubscribe state, and
+never treats list membership as consent. Dry-run is the default:
+
+```text
+railway run --service marcsmusic-release-os --environment production -- \
+  npm run crm:import-mailgun-list -- \
+  --list-address radio-stations@mg.marcsmusic.nl \
+  --outlet-id <approved-unverified-outlet-id>
+```
+
+Applying requires the explicit confirmation flag documented in the script.
+All imported contacts remain `Needs Validation` and `doNotContact=true`; no
+outreach send is enabled by this import. Do not export member addresses,
+names or Mailgun `vars` to Git, logs or unencrypted local files.
 
 ## Film director outreach search cron
 
