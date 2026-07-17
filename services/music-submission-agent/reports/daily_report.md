@@ -111,3 +111,7 @@ Run 446 continued offset 2 across shards 8–15 and added 31 new unique routes. 
 ## Run 447
 
 Run 447 continued offset 2 across shards 16–23 and added 32 new unique routes. Twenty-nine checks inspected successfully; 3 were errors or unreachable. Combined unique coverage for Runs 431–447 is 279 of 644 candidates, leaving 365 for continued passive testing. No outreach, upload, login, payment or submission was performed.
+
+## Run 448
+
+Run 448 continued offset 2 across shards 24–31 and added 32 new unique routes. Twenty-eight checks inspected successfully; 4 were errors or unreachable. One TIDAL human-check indicator was recorded for manual review without solving it. Combined unique coverage for Runs 431–448 is 311 of 644 candidates, leaving 333 for continued passive testing. No outreach, upload, login, payment or submission was performed.

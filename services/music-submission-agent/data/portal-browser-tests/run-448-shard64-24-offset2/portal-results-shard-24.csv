@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Sinusoidal Music Direct Editorial Submission Form","https://sinusoidalmusic.com/contact/","inspected","[object Object]","false","false","false","false","true","run311-platform-database.json","2026-07-17T16:08:29.168Z"
+"Three D Radio 93.7FM Adelaide Submit Your Music","https://threedradio.com/get-involved-page/submit-your-music/","inspected","[object Object]","true","false","true","true","true","run43-platform-database.json","2026-07-17T16:08:45.360Z"
+"Variety Vibes Radio & TV Global All-Genre Artist-Submission Form Opportunity","https://varietyvibesradio.com/music-submission/","inspected","[object Object]","true","false","false","false","true","run422-platform-database.json","2026-07-17T16:09:00.227Z"
+"Armada Music Demo Drop","https://www.armadamusic.com/demo-drop","inspected","[object Object]","true","false","false","false","true","run39-platform-database.json","2026-07-17T16:09:12.599Z"

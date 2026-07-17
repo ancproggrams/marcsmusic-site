@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Bandcamp Artist Store Direct-to-Fan Upload Route","https://bandcamp.com/artists","inspected","[object Object]","false","false","true","true","true","run20-platform-database.json","2026-07-17T16:08:22.026Z"
+"triple j Unearthed Artist Upload and Airplay Route","https://help.abc.net.au/hc/en-us/articles/360001154256-How-do-I-upload-my-music-to-triple-j-Unearthed","error","","false","false","false","false","true","run94-platform-database.json","2026-07-17T16:08:32.133Z"
+"TIDAL Upload Independent Artist Self-Publishing Route","https://tidal.com/","inspected","[object Object]","false","true","false","false","true","run20-platform-database.json","2026-07-17T16:08:41.232Z"
+"CJAM 99.1FM Windsor Digital Music Submissions","https://www.cjam.ca/submit/","inspected","[object Object]","false","false","false","false","true","run50-platform-database.json","2026-07-17T16:08:54.888Z"

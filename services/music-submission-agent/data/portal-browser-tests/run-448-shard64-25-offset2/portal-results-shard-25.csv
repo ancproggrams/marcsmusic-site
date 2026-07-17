@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Impact 89FM WDBM General Pre-Submission Inquiry Route","https://impact89fm.org/about-2/contact-us/","error","","false","false","false","false","true","run276-platform-database.json","2026-07-17T16:08:12.030Z"
+"UKF Submit Music Bass Electronic Editorial Route","https://ukf.com/submit-music/","inspected","[object Object]","false","false","false","false","true","run256-platform-database.json","2026-07-17T16:08:24.199Z"
+"Dandelion Radio Demo Link and DJ Contact Submission Route","https://www.dandelionradio.com/contact.htm","inspected","[object Object]","false","false","false","true","true","run103-platform-database.json","2026-07-17T16:08:32.332Z"
+"KUNM 89.9FM Music Director Contact Route","https://www.kunm.org/contact-info","inspected","[object Object]","false","false","false","false","true","run71-platform-database.json","2026-07-17T16:08:46.054Z"

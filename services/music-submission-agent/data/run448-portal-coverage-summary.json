@@ -1,0 +1,42 @@
+{
+  "run": 448,
+  "capturedAt": "2026-07-17T18:15:00+02:00",
+  "mode": "agent-browser passive inspect-only",
+  "candidateInventory": 644,
+  "shardCount": 64,
+  "offsetsTested": [2],
+  "shardsTested": [24, 25, 26, 27, 28, 29, 30, 31],
+  "routesTestedThisRun": 32,
+  "uniqueNewRoutesThisRun": 32,
+  "inspected": 28,
+  "errorsOrUnreachable": 4,
+  "formsObserved": 10,
+  "loginBoundariesObserved": 11,
+  "paymentBoundariesObserved": 9,
+  "captchaOrHumanChecksObserved": 1,
+  "totalUniqueCoverageAcrossRuns431To448": 311,
+  "remainingInventoryOutsideUniqueCoverage": 333,
+  "notableRoutes": [
+    "Armada Music Demo Drop",
+    "UKF Submit Music",
+    "Audiomack Creator Upload",
+    "Ditto Music Distribution",
+    "Symphonic Distribution",
+    "LANDR Distribution",
+    "Bandcamp Artists",
+    "TIDAL Independent Artist Route",
+    "KEXP Seattle",
+    "SomaFM Submit Music"
+  ],
+  "errorRoutes": [
+    "Impact 89FM WDBM General Pre-Submission Inquiry Route",
+    "KFAI Fresh Air Community Radio Music Programming Route",
+    "WUAG 103.1FM Music Submission Form",
+    "triple j Unearthed Artist Upload and Airplay Route"
+  ],
+  "manualReviewRoutes": [
+    "TIDAL Upload Independent Artist Self-Publishing Route"
+  ],
+  "evidenceDirectories": "data/portal-browser-tests/run-448-shard64-*-offset2",
+  "safety": "No fields filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated."
+}

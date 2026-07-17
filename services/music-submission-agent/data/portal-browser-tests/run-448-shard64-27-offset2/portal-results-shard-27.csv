@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KFAI Fresh Air Community Radio Music Programming Route","https://kfai.org/","error","","false","false","false","false","true","run32-platform-database.json","2026-07-17T16:08:12.083Z"
+"UMFM 101.5 Winnipeg Secure Download-Link Email and Physical Music Submission Route","https://umfm.com/about/music-faq","inspected","[object Object]","false","false","false","false","true","run269-platform-database.json","2026-07-17T16:08:25.952Z"
+"WRIU 90.3 Rhode Island Genre Music Director Digital and Physical Submission Route","https://wriu.org/submissions/","inspected","[object Object]","false","false","false","false","true","run282-platform-database.json","2026-07-17T16:08:36.955Z"
+"WUAG 103.1FM Music Submission Form","https://wuag.uncg.edu/music-submissions/","error","","false","false","false","false","true","run70-platform-database.json","2026-07-17T16:08:47.054Z"
