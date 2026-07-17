@@ -2,7 +2,7 @@
 
 Date: 2026-07-17
 
-Latest run: Run 417
+Latest run: Run 418
 
 New items added in latest run: 1
 
@@ -10,32 +10,34 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1735
+Pipeline estimate: 1736
 
 Items:
 
-- Run 417 added: SoundChat Radio & TV — free dedicated Caribbean music-submission form requiring a track link, metadata and an ownership and broadcast-permission affirmation
+- Run 418 added: Airhug Radio — conditional global independent-music submission form requiring registration identifiers, direct file uploads, rights authorization, consent choices and a digital signature
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: SoundChat Radio's official Submit Your Music page provides a dedicated first-party form requesting artist name, email, track title, genre, a SoundCloud, Spotify, YouTube or direct-download link, and information about the track and artist.
+Latest route note: Airhug Radio's official four-step Music Submission form accepts independent-artist material for possible airplay, educational features or licensing opportunities. It collects legal and artist identity, country of origin, song and royalty identifiers, genre, BPM, direct audio and lyrics uploads, a biography, content declarations, rights affirmations, consent choices and a digital signature.
 
-Delivery note: published guidance prefers high-quality 320 kbps MP3 or WAV audio, clean or radio edits alongside explicit versions when applicable, accurate artist, title and genre metadata, and a short bio plus social links. The visible form uses a track-link field rather than a direct file upload.
+Eligibility note: the official page requires registration with a Performing Rights Organization and SoundExchange. It asks for the work ID and SoundExchange Artist ID. A human must confirm that MarcsMusic satisfies these prerequisites and that non-US registrations are accepted for the exact submission.
 
-Rights note: the form requires confirmation that the submitter owns the music and grants SoundChat Radio permission to broadcast the submitted track. This rights-bearing affirmation requires human review and manual completion.
+Hard AI note: Airhug Radio states that AI use is strictly prohibited. No MarcsMusic master may be submitted unless a human can truthfully confirm compliance. Any Suno-generated or otherwise generative-AI music must remain excluded unless Airhug Radio explicitly authorizes the specific workflow.
 
-Contact-verification note: `info@SoundChatRadio.com` and `irishandchin@gmail.com` were verified through first-party plaintext publication on the official Contact page. Both are general office contacts and were excluded because neither is labelled for music submissions. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Delivery note: up to ten files may be uploaded, WAV is preferred, and lyrics must be provided as PDF. Maximum file sizes, alternate codecs, sample rate, bit depth and channel requirements are not published.
 
-Form and protection note: one dedicated public music-submission form was identified. Passive review exposed no visible CAPTCHA, login or mandatory-payment requirement, and standard submission is stated to be free. A human must still inspect the live form for any current anti-spam, session, consent or protected control.
+Rights and consent note: the form requires ownership and authority confirmations, permission for non-interactive broadcast, agreement to linked broadcast terms, a choice regarding promotional use of artist photo and cover art, and a typed legal-name digital signature with date/time.
 
-Eligibility note: explicit international artist eligibility, release-window rules, AI-origin policy, multi-version delivery and parts of the broadcast-permission scope remain unresolved. These points keep the route in `needs_manual_review`.
+Contact-verification note: no public business email labelled for music submissions was found on the reviewed first-party pages. No address was guessed, inferred from staff names, decoded or copied from a third-party directory. The dedicated form is the only authorized route.
 
-Activity and fit note: the official site exposed live listening, a populated weekly schedule, current featured rotation and a first-party article dated March 16, 2026. SoundChat's programming includes reggae, dancehall, soca, island and sound-system formats. Selected MarcsMusic reggae, electronic-reggae, dancehall-adjacent or world-fusion material has strong plausible fit.
+Form and protection note: passive review exposed no visible CAPTCHA, account login or mandatory-payment requirement. A human must recheck the live form and stop if CAPTCHA, anti-spam, authentication, payment, identity or another protected control appears.
 
-Manual-review note: reopen the official form, select one suitable clean or radio-ready track, verify its public link, audio quality, metadata and rights, review the broadcast permission, confirm eligibility and policy rules, and submit manually. Avoid general email, request-line, advertising, airtime, donation, shop and social routes.
+Activity and fit note: the official 2026 site contains an active submission workflow and current leadership roles, while the active Live365 station page lists Alternative, College, Indie Pop and Indie Rock. The form also includes Electronic and World genre choices. Selected MarcsMusic crossover material may fit only after the registration, rights and no-AI gates are satisfied.
 
-Deduplication note: the complete accessible pull-request patch was searched for SoundChat Radio, `soundchatradio.com`, the canonical submission path and both public business addresses. No existing platform, seed or queue record was found. The dedicated form is stored once; adjacent routes are excluded.
+Manual-review note: verify provenance, registrations, rights, identifiers, audio, lyrics, clean-version status, consent language and all current form controls, then sign and submit personally. This route is never eligible for unattended submission.
 
-Runtime-linkage note: Run 416 now links to Run 417 in the active recursive seed chain.
+Deduplication note: the complete accessible pull-request patch and repository search were checked for Airhug Radio, `airhugradio.com` and the canonical submission path. No existing platform, seed or queue record was found. The form is stored once; staff social routes and inferred contacts are excluded.
 
-Safety: No form field, track link, audio, metadata, biography, rights affirmation, email, account, login, CAPTCHA, consent, payment, advertising, airtime, donation or shop action was submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
+Runtime-linkage note: Run 417 now links to Run 418 in the active recursive seed chain.
+
+Safety: No form field, audio file, lyrics PDF, registration identifier, rights affirmation, consent choice, digital signature, account, login, CAPTCHA or payment was submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
