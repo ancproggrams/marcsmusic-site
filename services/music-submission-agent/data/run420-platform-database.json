@@ -1,0 +1,190 @@
+{
+  "run": 420,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1737,
+  "pipelineEstimate": 1738,
+  "newPlatforms": [
+    {
+      "name": "CKXU 88.3 FM EP/LP Digital Music-Submission Form Opportunity",
+      "websiteUrl": "https://ckxu.com/",
+      "submissionUrl": "https://ckxu.com/submit-music/",
+      "sourceUrl": "https://ckxu.com/submit-music/",
+      "sourceType": "automation_run_420_public_research",
+      "country": "Canada / Lethbridge, Alberta campus-community radio; the digital form requests hometown/location but international artist eligibility is not explicitly guaranteed",
+      "language": "en",
+      "genres": [
+        "campus-community-radio",
+        "independent-music",
+        "ep-lp-only",
+        "no-singles",
+        "electronic",
+        "house",
+        "techno",
+        "ambient",
+        "experimental",
+        "world",
+        "afrobeat",
+        "dancehall",
+        "hip-hop",
+        "indie",
+        "digital-submission-form",
+        "download-link-or-code",
+        "mp3-only",
+        "no-streaming-links",
+        "physical-submission-alternative",
+        "offensive-content-disclosure",
+        "optional-local-artist-mailout-consent",
+        "protected-music-department-contacts-not-decoded",
+        "no-visible-payment-requirement",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-digital-music-submission-form-requiring-an-ep-or-lp-download-link-or-code-in-mp3-format",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public digital music-submission form with an authorized physical-mail alternative",
+        "formLocation": "Embedded on https://ckxu.com/submit-music/",
+        "explicitPurpose": "EP and LP delivery to CKXU's Music Department for possible airplay",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Select one eligible EP or LP, prepare a permissioned MP3 download link or code, answer only accurate non-inferred fields, review all consent and disclosure fields, then submit manually.",
+        "audioDeliveryAuthorized": true,
+        "physicalDeliveryAuthorizedForMarcsMusic": true,
+        "standardRouteFeePublished": false,
+        "separatePaidMailoutExcluded": true
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submit EPs or LPs",
+          "do not submit singles",
+          "use MP3 audio only",
+          "do not supply WAV, MP4 or FLAC files",
+          "do not use Spotify, Apple Music, YouTube or other streaming links as radio distribution",
+          "provide a downloadable link or code, preferably Dropbox or Bandcamp",
+          "provide artist name and pronunciation",
+          "provide release title, release date, hometown/location and record label",
+          "provide a release track list",
+          "identify tracks containing offensive language or content",
+          "provide genre or subgenres and comparable artists",
+          "provide a band contact name and email",
+          "answer the local-artist-database email opt-in explicitly"
+        ],
+        "formFieldsObserved": [
+          "Artist Name",
+          "Release Title",
+          "Release Date",
+          "Hometown",
+          "Record Label",
+          "Release Track List",
+          "Offensive language or content disclosure",
+          "Genre(s)",
+          "Artists it sounds like",
+          "Download/Dropbox/Bandcamp Link",
+          "Band Contact Name",
+          "Email",
+          "Local artist database opt-in: Yes or No"
+        ],
+        "safeReviewScope": [
+          "select a complete EP or LP rather than a standalone single",
+          "confirm every audio file is MP3 and correctly tagged",
+          "verify the download link or code works in a logged-out browser without requiring CKXU to create an account",
+          "confirm the release title, date, track list, label status, genres and comparable artists",
+          "accurately identify offensive or explicit tracks and provide clean versions if requested",
+          "do not infer, guess or fabricate representative-identity information",
+          "confirm whether representative-identity descriptors are optional and omit them unless accurate, relevant and voluntarily supplied",
+          "leave the local artist database opt-in at No unless the artist deliberately consents",
+          "confirm international eligibility for a Netherlands-based artist",
+          "confirm ownership, collaborator, sample and distribution rights",
+          "confirm the current release-window and AI-assisted or AI-generated music policies",
+          "recheck the live form for CAPTCHA, anti-spam, login, payment or other protected controls",
+          "manually submit only after final human review"
+        ],
+        "unresolvedEligibility": [
+          "explicit eligibility for artists based outside Canada",
+          "whether representative-identity information is mandatory or optional",
+          "MP3 bitrate, sample rate, channel format and maximum release size",
+          "download-host expiry and permission requirements",
+          "required embedded metadata, artwork, one-sheet or EPK for the standard route",
+          "explicit-content and clean-edit acceptance",
+          "release-recency requirements for standard library submission",
+          "rights, territorial and sample-clearance language",
+          "AI-assisted and AI-generated music policy"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "protectedContactsObserved": [
+          {
+            "page": "Official Submit Music page",
+            "purpose": "questions about the music-submission process",
+            "protection": "Cloudflare email protection",
+            "plaintextStored": false
+          },
+          {
+            "page": "Official Contact page",
+            "purpose": "Volunteer & Music Director — physical and digital music submissions",
+            "protection": "Cloudflare email protection",
+            "plaintextStored": false,
+            "currentRole": "Laura Ponce, Volunteer & Music Director"
+          }
+        ],
+        "emailStatus": "First-party source and purpose verified, but plaintext addresses were Cloudflare-protected and were not decoded, guessed, inferred or stored.",
+        "verification": "No syntax, domain-alignment, SMTP, MX, catch-all, mailbox-level or deliverability claim was made for the protected addresses. The embedded official form remains the authorized digital route."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The form includes audio-distribution details, offensive-content disclosure, location, optional mailing-list consent and potentially sensitive representative-identity information. A human must verify accuracy, privacy, rights and live anti-spam controls before submission.",
+        "sensitiveOrConsentFields": [
+          "representative identities requested in the published instructions",
+          "offensive language or content disclosure",
+          "optional local artist database and mail-out email consent"
+        ],
+        "adjacentRoutesExcluded": [
+          "listener requests",
+          "general inquiries",
+          "advertising and sponsorship forms",
+          "volunteer workflows",
+          "shop and pledge routes",
+          "social-media direct messages",
+          "the separate Southern-Alberta local music mail-out described with 2023 deadlines and per-release fees"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "CKXU's official On-Air page links a January 2026 programming schedule, lists a populated seven-day lineup, and publishes station news dated June 18, June 19 and June 29, 2026. The official Contact page lists current staff and identifies Laura Ponce as Volunteer & Music Director."
+      },
+      "genreFitEvidence": [
+        "Current programming includes House of Crimson, The Encrypted Files, Factory Form, Eye of the Storm, Source, Afro Beats, Spinz808, Global Invasion and multiple indie, world, hip-hop and experimental programs.",
+        "Selected MarcsMusic electronic, house, techno, ambient, experimental, world-fusion, reggae/dancehall-adjacent or hip-hop-adjacent EP material has plausible fit.",
+        "The route rejects singles, so the catalogue must be reviewed for a coherent EP or LP before submission."
+      ],
+      "manualReviewReason": "The route is free and publicly authorized, but CKXU accepts EPs and LPs only, requires MP3 download delivery rather than streaming, requests content and identity-related information, and leaves international eligibility, technical limits, rights, release timing and AI-origin policy unresolved. Human review and manual submission are mandatory.",
+      "priority": 81,
+      "pricingModel": "free-first/ep-lp-only/digital-form/download-link-or-code/mp3-only/no-streaming/no-login/no-visible-captcha/no-payment/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "CKXU",
+      "CKXU 88.3 FM",
+      "ckxu.com",
+      "https://ckxu.com/submit-music/",
+      "Digital Music Submission Form"
+    ],
+    "repositoryEvidence": "Repository code search was checked for the station name, official domain and canonical submission path. No existing music-submission-agent record was found before creation.",
+    "consolidation": "The digital form, protected Music Department contacts and physical-mail alternative are stored as one canonical CKXU opportunity. The separate dated local music mail-out is excluded from the standard airplay route."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new CKXU opportunity was queued as needs_manual_review. No form field, download link, audio file, identity information, consent, email, login, CAPTCHA, payment or physical package was submitted."
+}
