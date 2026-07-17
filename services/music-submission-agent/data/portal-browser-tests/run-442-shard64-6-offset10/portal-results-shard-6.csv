@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"WSUM 91.7 FM Music Director Submission Route","https://wsum.org/the-station/our-staff/","inspected","[object Object]","false","false","false","false","true","run276-platform-database.json","2026-07-17T15:44:52.647Z"
+"Broadjam Song Licensing and Placement Opportunities","https://www.broadjam.com/delivery/opportunities.php","inspected","[object Object]","false","false","false","false","true","run65-platform-database.json","2026-07-17T15:45:04.390Z"
+"Horus Music Unlimited Artist Label Distribution Dashboard Route","https://www.horusmusic.global/music-distribution/","inspected","[object Object]","false","false","true","true","true","run173-platform-database.json","2026-07-17T15:45:18.018Z"
+"KZMU Moab Public Music and Programming Director Pre-Submission Inquiry Route","https://www.kzmu.org/contact-us/","inspected","[object Object]","true","false","false","false","true","run280-platform-database.json","2026-07-17T15:45:31.887Z"

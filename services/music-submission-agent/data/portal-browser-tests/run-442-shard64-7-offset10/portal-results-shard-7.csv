@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Haulix Promo Campaign Watermarked Music Delivery Route","https://www.haulix.com/","inspected","[object Object]","false","false","true","true","true","run258-platform-database.json","2026-07-17T15:44:54.209Z"
+"KCRW Radio Music Submission Airplay Consideration Route","https://www.kcrw.com/about/contact","inspected","[object Object]","true","false","false","false","true","run255-platform-database.json","2026-07-17T15:45:06.522Z"
+"We Write About Music Scheduled Review Interview and Playlist Placement Route","https://www.wewriteaboutmusic.com/book-now","inspected","[object Object]","false","false","false","false","true","run299-platform-database.json","2026-07-17T15:45:20.026Z"
+"WHRB 95.3 Harvard Department-Targeted Physical Promo Submission Route","https://www.whrb.org/contact/","inspected","[object Object]","false","false","false","false","true","run274-platform-database.json","2026-07-17T15:45:32.177Z"
