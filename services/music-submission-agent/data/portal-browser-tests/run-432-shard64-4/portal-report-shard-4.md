@@ -1,0 +1,20 @@
+# Portal Browser Test — shard 5/64
+
+Generated: 2026-07-17T15:21:18.688Z
+
+- Unique HTTP(S) portal candidates discovered: 644
+- Tested in this shard: 2
+- Inspected: 2
+- Errors/unreachable: 0
+- Forms observed: 1
+- CAPTCHA/human checks observed: 0
+- Login boundaries observed: 0
+- Payment boundaries observed: 0
+- Auto-submit candidates: 0
+
+> Inspect-only safety mode: no fields are filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated.
+
+| Platform | Status | Form | CAPTCHA | Login | Payment | URL |
+|---|---:|---:|---:|---:|---:|---|
+| CJSW 90.9 FM Official Jotform EP and Album Upload Route | inspected | yes | no | no | no | https://form.jotform.com/260625704327253 |
+| KWVA 88.1 FM Official Demo and Music Donation Physical Route | inspected | no | no | no | no | https://kwva.uoregon.edu/send-us-your-music |

@@ -47,3 +47,7 @@ Run 430 added owner-supplied outreach routing for Carnival (Latin), Strijd (Dutc
 ## Run 431
 
 Agent-browser passively inspected 32 unique routes from the 644-route inventory: 30 inspected, 2 errors/unreachable, 15 forms observed, 16 login boundaries, 1 payment boundary and no CAPTCHA/human-check surfaces. No forms, uploads, logins, payments or submissions were attempted. Full coverage remains in progress; 612 inventory candidates remain outside this run's unique coverage count.
+
+## Run 432
+
+Run 432 added 12 new unique portal routes and revalidated 4 routes. Fourteen of 16 checks inspected successfully; 2 were errors/unreachable. Combined unique coverage for Runs 431–432 is 44 of 644 candidates, leaving 600 for continued passive testing. No outreach, upload, login, payment or submission was performed.

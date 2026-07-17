@@ -1,0 +1,33 @@
+{
+  "run": 432,
+  "capturedAt": "2026-07-17T15:22:00+02:00",
+  "mode": "agent-browser passive inspect-only",
+  "candidateInventory": 644,
+  "routesTestedThisRun": 16,
+  "uniqueNewRoutesThisRun": 12,
+  "overlappingRevalidations": 4,
+  "inspected": 14,
+  "errorsOrUnreachable": 2,
+  "formsObserved": 9,
+  "loginBoundariesObserved": 9,
+  "paymentBoundariesObserved": 2,
+  "captchaOrHumanChecksObserved": 0,
+  "totalUniqueCoverageAcrossRuns431And432": 44,
+  "remainingInventoryOutsideUniqueCoverage": 600,
+  "newRoutes": [
+    {"name":"AudioJungle Envato Market Start Selling Music Author Upload Route","url":"https://author.envato.com/","status":"inspected"},
+    {"name":"https://chsrfm.ca/blog/about/get-your-music-on-chsr","url":"https://chsrfm.ca/blog/about/get-your-music-on-chsr","status":"inspected"},
+    {"name":"Audiomack Creator Upload Unlimited Music Discovery Route","url":"https://creators.audiomack.com/upload","status":"inspected"},
+    {"name":"Feature.fm Artist Smart Link Pre-Save Fan Activation and Campaign Route","url":"https://feature.fm/","status":"inspected"},
+    {"name":"CJSW 90.9 FM Official Jotform EP and Album Upload Route","url":"https://form.jotform.com/260625704327253","status":"inspected"},
+    {"name":"KWVA 88.1 FM Official Demo and Music Donation Physical Route","url":"https://kwva.uoregon.edu/send-us-your-music","status":"inspected"},
+    {"name":"Musosoup Music Promotion Platform","url":"https://app.musosoup.com/submissions/new","status":"inspected"},
+    {"name":"Dharma Worldwide Basic and Pro Demo Drop Route","url":"https://demos.dharmaworldwide.com/","status":"inspected"},
+    {"name":"NoCopyrightSounds NCS Electronic Label and Creator-Safe Music Route","url":"https://ncs.io/","status":"inspected"},
+    {"name":"UKF / Pilot Submit Your Demo","url":"https://ukf.com/submit-your-demo/","status":"error"},
+    {"name":"hearthis.at Artist Upload and Music Community Route","url":"https://hearthis.at/","status":"inspected"},
+    {"name":"KCOU 88.1 FM Official New-Submitter Music Director and Physical Review Route","url":"https://kcou.fm/contact/","status":"error"}
+  ],
+  "evidenceDirectory": "data/portal-browser-tests/run-432-shard64-0 through run-432-shard64-7",
+  "safety": "No fields filled, buttons clicked, files uploaded, forms submitted, logins attempted, CAPTCHAs solved, consents accepted, or payments initiated."
+}

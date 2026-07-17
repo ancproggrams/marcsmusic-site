@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"hearthis.at Artist Upload and Music Community Route","https://hearthis.at/","inspected","[object Object]","true","false","true","true","true","run98-platform-database.json","2026-07-17T15:21:03.930Z"
+"KCOU 88.1 FM Official New-Submitter Music Director and Physical Review Route","https://kcou.fm/contact/","error","","false","false","false","false","true","run297-platform-database.json","2026-07-17T15:21:14.075Z"

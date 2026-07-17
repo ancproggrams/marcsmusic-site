@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Audiomack Creator Upload Unlimited Music Discovery Route","https://creators.audiomack.com/upload","inspected","[object Object]","false","false","true","false","true","run150-platform-database.json","2026-07-17T15:21:03.144Z"
+"Feature.fm Artist Smart Link Pre-Save Fan Activation and Campaign Route","https://feature.fm/","inspected","[object Object]","true","false","true","true","true","run124-platform-database.json","2026-07-17T15:21:18.981Z"
