@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run421SeedPlatforms } from './run421PlatformSeeds.js';
 
 export const run420SeedPlatforms: PlatformInput[] = [
   {
@@ -49,5 +50,6 @@ export const run420SeedPlatforms: PlatformInput[] = [
       'CKXU accepts EPs and LPs but explicitly rejects singles, requires MP3 delivery through a downloadable link or code, rejects streaming links, asks for release metadata and offensive-content disclosure, and requests location plus representative-identity information. A human must choose an eligible release, avoid inferring or fabricating identity information, confirm whether those sensitive descriptors are optional, verify international eligibility, rights, release timing, bitrate, link access and the current AI-origin policy, leave the optional local-artist mail-out consent at No unless deliberately authorized, recheck the live form for CAPTCHA or protected controls, and submit manually.',
     notes:
       'Verified on 2026-07-17 from CKXU’s official Submit Music, Contact and On-Air pages. The standard route accepts physical and digital EP/LP submissions, rejects singles, accepts MP3 only, rejects WAV/MP4/FLAC and streaming links, and asks for a Dropbox, Bandcamp or equivalent download link or code. The form requests artist and release metadata, track list, offensive-language details, genre, similar artists, contact information and an optional local-artist-database opt-in. CKXU’s January 2026 schedule and June 2026 station posts verify current activity and include house, techno, electronic, ambient, experimental, world, Afrobeat, dancehall, hip-hop and indie programming. Music Department email links are first-party and purpose-labelled but Cloudflare-protected; no address was decoded, guessed or stored. No form field, link, file, identity detail, consent, login, CAPTCHA, payment or physical package was submitted.'
-  }
+  },
+  ...run421SeedPlatforms
 ];
