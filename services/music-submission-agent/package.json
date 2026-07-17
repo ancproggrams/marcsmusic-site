@@ -16,7 +16,9 @@
     "db:init": "tsx src/db/init.ts",
     "run:once": "tsx src/index.ts --once",
     "seed": "tsx src/db/seed.ts",
-    "test": "tsx --test \"test/**/*.test.ts\""
+    "test": "tsx --test \"test/**/*.test.ts\"",
+    "portal:test": "node scripts/test-portals-with-agent-browser.mjs",
+    "portal:test:sample": "node scripts/test-portals-with-agent-browser.mjs --limit 10"
   },
   "dependencies": {
     "better-sqlite3": "^11.10.0",
