@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"WOLF Radio UWG Public Music-Director Email Submission Route","https://thewolfuwg.com/musicsubmissions/","inspected","[object Object]","false","false","true","false","true","run429-platform-database.json","2026-07-17T17:57:35.020Z"
+"GYROstream Australian Global Distribution Artist Release Upload Route","https://www.gyrostream.com/","inspected","[object Object]","false","false","true","true","true","run151-platform-database.json","2026-07-17T17:57:50.600Z"
+"KBCS Music Director and Music Librarian Public Music Contact Route","https://www.kbcs.fm/about/staff/","inspected","[object Object]","false","false","false","false","true","run101-platform-database.json","2026-07-17T17:58:05.807Z"
+"Mixmash Records Human-Verification Demo Routing Inquiry Form","https://www.mixmashrecords.com/contact","inspected","[object Object]","true","false","false","false","true","run287-platform-database.json","2026-07-17T17:58:21.191Z"

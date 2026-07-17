@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"WCBN-FM Ann Arbor Music Director Physical Submission Route","https://wcbn.org/c/","error","","false","false","false","false","true","run27-platform-database.json","2026-07-17T17:57:30.640Z"
+"WUOG 90.5FM Athens Submit Music","https://wuog.org/contact/","inspected","[object Object]","true","false","true","false","true","run54-platform-database.json","2026-07-17T17:57:47.788Z"
+"RouteNote Free-First Distribution and Publishing","https://www.routenote.com/","inspected","[object Object]","true","false","true","true","true","run65-platform-database.json","2026-07-17T17:58:03.299Z"
+"SoundOn by TikTok Artist Distribution Route","https://www.soundon.global/","inspected","[object Object]","false","false","true","false","true","run20-platform-database.json","2026-07-17T17:58:19.180Z"

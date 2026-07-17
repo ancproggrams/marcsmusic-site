@@ -1,0 +1,265 @@
+{
+  "summary": {
+    "generatedAt": "2026-07-17T17:58:19.181Z",
+    "agentBrowserVersion": "0.31.2",
+    "mode": "inspect-only",
+    "shard": {
+      "index": 60,
+      "count": 64,
+      "offset": 6
+    },
+    "totalUniqueHttpPortalsDiscovered": 645,
+    "testedInThisShard": 4,
+    "inspected": 3,
+    "errors": 1,
+    "captchaOrHumanCheckObserved": 0,
+    "loginObserved": 3,
+    "paymentObserved": 1,
+    "formObserved": 2,
+    "autoSubmitCandidates": 0,
+    "safety": "No fields are filled, no buttons are clicked, no files are uploaded, and no submission, login, CAPTCHA, consent, or payment is attempted."
+  },
+  "results": [
+    {
+      "name": "WCBN-FM Ann Arbor Music Director Physical Submission Route",
+      "url": "https://wcbn.org/c/",
+      "sourceFile": "run27-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": null,
+      "priorCaptchaDetected": null,
+      "priorPaymentRequired": null,
+      "testedAt": "2026-07-17T17:57:30.640Z",
+      "status": "error",
+      "needsManualReview": true,
+      "error": "/opt/homebrew/bin/agent-browser exited null: "
+    },
+    {
+      "name": "WUOG 90.5FM Athens Submit Music",
+      "url": "https://wuog.org/contact/",
+      "sourceFile": "run54-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": false,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:57:47.788Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://wuog.org/contact/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "Contact – 26,000 Watts of College Debauchery"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": false,
+        "submitControlObserved": true,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": false,
+        "consentOrRightsObserved": false,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": false,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"789eec08115f75ea8d4880911d415b59\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"944d391502922606593b6d9115b4f830\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"JQMIGRATE: Migrate is installed, version 3.4.1\"}],\"text\":\"JQMIGRATE: Migrate is installed, version 3.4.1\",\"type\":\"log\"}]},\"error\":null,\"success\":true}",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"63f8a772ebaac31231052149f80db86c\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "RouteNote Free-First Distribution and Publishing",
+      "url": "https://www.routenote.com/",
+      "sourceFile": "run65-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": true,
+      "priorCaptchaDetected": false,
+      "priorPaymentRequired": false,
+      "testedAt": "2026-07-17T17:58:03.299Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.routenote.com/"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "RouteNote - Sell Your Music Online - Digital Music Distribution - Promotion - Publishing"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": true,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": true,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": true,
+        "captchaDetected": false,
+        "paymentRequired": false
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"c5c03e8e4bf214fc1cbc213828695f56\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"0ad5fc9a7e90d76d87ffc4c9868a7e20\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"Download the Vue Devtools extension for a better development experience:\\nhttps://github.com/vuejs/vue-devtools\"}],\"text\":\"Download the Vue Devtools extension for a better development experience:\\nhttps://github.com/vuejs/vue-devtools\",\"type\":\"info\"},{\"args\":[{\"type\":\"string\",\"value\":\"You are running Vue in development mode.\\nMake sure to turn on production mode when deploying for production.\\nSee more tips at https://vuejs.org/guide/deployment.html\"}],\"text\":\"You are running Vue in development mode.\\nMake sure to turn on production mode when deploying for production.\\nSee more tips at https://vuejs.org/guide/deployment.html\",\"type\":\"info\"},{\"args\":[{\"type\":\"undefined\"}],\"text\":\"undefined\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"Download the Vue Devtools extension for a better development experience:\\nhttps://github.com/vuejs/vue-devtools\"}],\"text\":\"Download the Vue Devtools extension for a better development experience:\\nhttps://github.com/vuejs/vue-devtools\",\"type\":\"info\"},{\"args\":[{\"type\":\"string\",\"value\":\"You are running Vue in development mode.\\nMake sure to turn on production mode when deploying for production.\\nSee more tips at https://vuejs.org/guide/deployment.html\"}],\"text\":\"You are running Vue in development mode.\\nMake sure to turn on production mode when deploying for production.\\nSee more tips at https://vuejs.org/guide/deployment.html\",\"type\":\"info\"},{\"args\":[{\"type\":\"string\",\"value\":\"dfMessengerUtterances_value\"}],\"text\":\"dfMessengerUtterances_value\",\"type\":\"log\"},{\"args\":[{\"type\":\"undefined\"}],\"text\":\"undefined\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"…",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"33e7787815ce22866ac587cb3d50ffc2\",\"origin\":\"unknown\"},\"data\":{\"errors\":[{\"column\":13,\"line\":212,\"text\":\"TypeError: Cannot read properties of null (reading 'appendChild')\\n    at https://www.routenote.com/rnb_nav.js:213:14\\n    at Array.forEach (<anonymous>)\\n    at https://www.routenote.com/rnb_nav.js:206:22\",\"url\":null},{\"column\":0,\"line\":0,\"text\":\"SyntaxError: Identifier 'languageList' has already been declared\",\"url\":null},{\"column\":0,\"line\":0,\"text\":\"SyntaxError: Identifier 'languageList' has already been declared\",\"url\":null}],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    },
+    {
+      "name": "SoundOn by TikTok Artist Distribution Route",
+      "url": "https://www.soundon.global/",
+      "sourceFile": "run20-platform-database.json",
+      "priorStatus": "needs_manual_review",
+      "priorLoginRequired": null,
+      "priorCaptchaDetected": null,
+      "priorPaymentRequired": null,
+      "testedAt": "2026-07-17T17:58:19.180Z",
+      "status": "inspected",
+      "finalUrl": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "url": "https://www.soundon.global/?lang=en"
+      },
+      "title": {
+        "lifecycle": {
+          "effectiveLaunch": {
+            "browserLaunched": true,
+            "engine": "chrome",
+            "launchHash": 7445744387455038000
+          },
+          "launched": false,
+          "relaunchedBrowser": false,
+          "restartedBackground": false,
+          "restoreStatus": "not_configured",
+          "reused": true,
+          "saveStatus": "not_attempted"
+        },
+        "title": "SoundOn"
+      },
+      "needsManualReview": true,
+      "autoSubmitEligible": false,
+      "detected": {
+        "formObserved": false,
+        "fileUploadObserved": false,
+        "submitControlObserved": false,
+        "captchaOrHumanCheckObserved": false,
+        "loginObserved": true,
+        "paymentObserved": false,
+        "consentOrRightsObserved": true,
+        "browserVerificationObserved": false
+      },
+      "priorClassification": {
+        "loginRequired": null,
+        "captchaDetected": null,
+        "paymentRequired": null
+      },
+      "screenshotPath": null,
+      "wait": {
+        "error": "/opt/homebrew/bin/agent-browser exited 1: {\"_boundary\":{\"nonce\":\"1dbd7f2f2e5cf8e62a235a7d14709da0\",\"origin\":\"unknown\"},\"data\":null,\"error\":\"Operation timed out. The page may still be loading or the element may not exist.\",\"success\":false}"
+      },
+      "consoleSummary": "{\"_boundary\":{\"nonce\":\"773a88f7091c6afc7c0ffdff883fe287\",\"origin\":\"unknown\"},\"data\":{\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"},\"messages\":[{\"args\":[{\"type\":\"string\",\"value\":\"[SoundOn] Front-end building version:\"},{\"type\":\"string\",\"value\":\"1.0.0.1763\"}],\"text\":\"[SoundOn] Front-end building version: 1.0.0.1763\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[SoundOn / Web ID] Web ID checking\"}],\"text\":\"[SoundOn / Web ID] Web ID checking\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[SoundOn / Tracking] user consent of cookie-banner for {\\\"tags\\\":[\\\"analytics\\\"]} was revoked\"}],\"text\":\"[SoundOn / Tracking] user consent of cookie-banner for {\\\"tags\\\":[\\\"analytics\\\"]} was revoked\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[SoundOn / Tracking] user consent of cookie-banner for {\\\"tags\\\":[\\\"advertising\\\"]} was revoked\"}],\"text\":\"[SoundOn / Tracking] user consent of cookie-banner for {\\\"tags\\\":[\\\"advertising\\\"]} was revoked\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"[SoundOn / Tracking] user consent of gpc for \\\"all\\\" was granted\"}],\"text\":\"[SoundOn / Tracking] user consent of gpc for \\\"all\\\" was granted\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"%c %s\"},{\"type\":\"string\",\"value\":\"color: yellow; background-color: black;\"},{\"type\":\"string\",\"value\":\"[instance: default] appid: 5049, userInfo:{\\\"user_unique_id\\\":\\\"7663556291709552139\\\",\\\"web_id\\\":\\\"7663556291709552139\\\"}\"}],\"text\":\"%c %s color: yellow; background-color: black; [instance: default] appid: 5049, userInfo:{\\\"user_unique_id\\\":\\\"7663556291709552139\\\",\\\"web_id\\\":\\\"7663556291709552139\\\"}\",\"type\":\"log\"},{\"args\":[{\"type\":\"string\",\"value\":\"%c %s\"},{\"type\":\"string\",\"value\":\"color: yellow; background-color: black;\"},{\"type\":\"string\",\"value\":\"[instance: default] appid: 5049, sdk is ready, …",
+      "errorSummary": "{\"_boundary\":{\"nonce\":\"408943067d555b08d495b78f7fbd7f8d\",\"origin\":\"unknown\"},\"data\":{\"errors\":[],\"lifecycle\":{\"effectiveLaunch\":{\"browserLaunched\":true,\"engine\":\"chrome\",\"launchHash\":7445744387455038000},\"launched\":false,\"relaunchedBrowser\":false,\"restartedBackground\":false,\"restoreStatus\":\"not_configured\",\"reused\":true,\"saveStatus\":\"not_attempted\"}},\"error\":null,\"success\":true}",
+      "safety": {
+        "formFieldsFilled": false,
+        "buttonsClicked": false,
+        "filesUploaded": false,
+        "formSubmitted": false,
+        "captchaSolved": false,
+        "loginAttempted": false,
+        "paymentAttempted": false,
+        "cookiesOrConsentAccepted": false
+      }
+    }
+  ]
+}

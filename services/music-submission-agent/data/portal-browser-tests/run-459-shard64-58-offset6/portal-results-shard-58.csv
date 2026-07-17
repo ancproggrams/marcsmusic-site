@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"SoundCloud Upload Your Music","https://soundcloud.com/upload","inspected","[object Object]","false","false","true","true","true","run62-platform-database.json","2026-07-17T17:56:16.562Z"
+"University Radio Nottingham Artist Collaboration Pre-Submission Inquiry Route","https://urn1350.net/pages/about","inspected","[object Object]","false","false","true","false","true","run298-platform-database.json","2026-07-17T17:56:32.133Z"
+"WTSR 91.3FM TCNJ Music Director Student Board Submission Route","https://wtsr.org/contacts/","inspected","[object Object]","false","false","false","false","true","run199-platform-database.json","2026-07-17T17:56:50.894Z"
+"CJSR 88.5 FM Edmonton Music Submission Route","https://www.cjsr.com/submit-music/","inspected","[object Object]","false","false","true","false","true","run28-platform-database.json","2026-07-17T17:57:12.139Z"

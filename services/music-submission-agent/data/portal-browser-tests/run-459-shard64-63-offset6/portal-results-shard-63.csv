@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"WPKN 89.5 Community Radio Music Submission","https://wpkn.org/contact-wpkn/","inspected","[object Object]","false","false","false","false","true","run72-platform-database.json","2026-07-17T17:58:45.490Z"
+"4ZZZ Brisbane Music Submissions Route","https://www.4zzz.org.au/music-submissions","inspected","[object Object]","false","false","false","false","true","run26-platform-database.json","2026-07-17T17:59:03.713Z"
+"KWDC 93.5 Clean-MP3 Music Submission and Consent Route","https://www.kwdc.fm/music-submissions","inspected","[object Object]","false","false","false","false","true","run411-platform-database.json","2026-07-17T17:59:18.608Z"
+"Music Connection New Music Critiques Free Review Form Route","https://www.musicconnection.com/reviews/new-music-critiques/","inspected","[object Object]","true","false","false","true","true","run108-platform-database.json","2026-07-17T17:59:36.479Z"

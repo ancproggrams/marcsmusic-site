@@ -149,3 +149,7 @@ Run 457 continued offset 6 across shards 40–47 and added 27 new unique routes.
 ## Run 458
 
 Run 458 continued offset 6 across shards 48–55 and added 28 new unique routes. Twenty-six checks inspected successfully; 2 were errors or unreachable. One Pond5 human-check indicator was recorded for manual review without solving it. Recomputed committed browser-result coverage is 579 of 645 candidates, leaving 66 for continued passive testing. No outreach, upload, login, payment or submission was performed.
+
+## Run 459
+
+Run 459 continued offset 6 across shards 56–63 and added 21 new unique routes. Twenty checks inspected successfully; 1 was an error or unreachable. Recomputed committed browser-result coverage is 600 of 645 candidates, leaving 45 for continued passive testing. No outreach, upload, login, payment or submission was performed.
