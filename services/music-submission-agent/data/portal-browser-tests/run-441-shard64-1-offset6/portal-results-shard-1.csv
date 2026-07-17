@@ -1,0 +1,4 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Mixcloud Creator Upload DJ Mix Radio Show and Live Stream Route","https://www.mixcloud.com/","inspected","[object Object]","true","false","true","false","true","run114-platform-database.json","2026-07-17T15:42:02.272Z"
+"Mixcloud Creator Upload and Discovery Platform","https://www.mixcloud.com/upload/","inspected","[object Object]","true","false","true","false","true","run64-platform-database.json","2026-07-17T15:42:15.728Z"
+"WUVT-FM 90.7 Blacksburg Physical Music Submission Route","https://www.wuvt.vt.edu/staff","inspected","[object Object]","false","false","false","false","true","run30-platform-database.json","2026-07-17T15:42:27.705Z"

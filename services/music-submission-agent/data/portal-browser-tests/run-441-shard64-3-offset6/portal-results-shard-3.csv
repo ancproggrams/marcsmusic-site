@@ -1,0 +1,4 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"Wild Dogs Radio Global Free Single-Song Submission Route","https://wilddogsradio.com/music-submissions/","inspected","[object Object]","false","false","false","false","true","run409-platform-database.json","2026-07-17T15:41:59.616Z"
+"KBOO Community Radio Portland Physical Music Submission Route","https://www.kboo.fm/submit-your-music","error","","false","false","false","false","true","run26-platform-database.json","2026-07-17T15:42:09.709Z"
+"WMNF 88.5 FM Submit Your Music Form","https://www.wmnf.org/submit-music/","inspected","[object Object]","false","false","true","false","true","run35-platform-database.json","2026-07-17T15:42:25.855Z"

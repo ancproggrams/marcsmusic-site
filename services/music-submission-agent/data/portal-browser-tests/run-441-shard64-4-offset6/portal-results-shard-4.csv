@@ -1,0 +1,4 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"KBOO Portland Physical Genre Routed Emerging Music Submission Route","https://www.kboo.fm/submit-music","error","","false","false","false","false","true","run171-platform-database.json","2026-07-17T15:41:55.660Z"
+"WMUA 91.1 UMass Music Communications and Archival Music Submission Route","https://www.umass.edu/wmua/about/staff","inspected","[object Object]","false","false","false","false","true","run282-platform-database.json","2026-07-17T15:42:07.966Z"
+"Worldwide FM Global Music Collaboration Contact and New Voices Pitch Route","https://www.worldwidefm.net/contact","inspected","[object Object]","true","false","true","false","true","run159-platform-database.json","2026-07-17T15:42:19.298Z"

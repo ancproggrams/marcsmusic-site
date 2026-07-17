@@ -1,0 +1,5 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"BayFM 99.9 Byron Bay Music Contact Form Pre-Submission Inquiry Route","https://www.bayfm.org/about/contact/","inspected","[object Object]","true","false","false","false","true","run381-platform-database.json","2026-07-17T15:42:03.824Z"
+"CJSF 90.1FM Burnaby Music CD Submissions","https://www.cjsf.ca/contact-us/submission","inspected","[object Object]","false","false","true","false","true","run50-platform-database.json","2026-07-17T15:42:19.373Z"
+"CKCU Ottawa Music Library CD Mail Program Director Review Route","https://www.ckcufm.com/contact/","inspected","[object Object]","false","false","false","false","true","run188-platform-database.json","2026-07-17T15:42:28.307Z"
+"Fredonia Radio Systems WCVF Airplay Inquiry Route","https://www.fredoniaradio.com/","inspected","[object Object]","false","false","false","false","true","run31-platform-database.json","2026-07-17T15:42:39.855Z"

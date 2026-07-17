@@ -83,3 +83,7 @@ Run 439 added 13 new unique portal routes and revalidated 3 routes. Twelve of 16
 ## Run 440
 
 Run 440 resumed shard coverage at offset 2 and added 32 new unique portal routes. Thirty of 32 checks inspected successfully; 2 were errors/unreachable. Combined unique coverage for Runs 431–440 is 162 of 644 candidates, leaving 482 for continued passive testing. No outreach, upload, login, payment or submission was performed.
+
+## Run 441
+
+Run 441 resumed shard coverage at offset 6 and added 27 new unique portal routes. Twenty-five of 27 checks inspected successfully; 2 were errors/unreachable. Combined unique coverage for Runs 431–441 is 189 of 644 candidates, leaving 455 for continued passive testing. One CAPTCHA/human-check indicator was recorded as manual review; no challenge was solved and no outreach, upload, login, payment or submission was performed.

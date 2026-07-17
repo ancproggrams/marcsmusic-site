@@ -1,0 +1,3 @@
+"name","url","status","finalUrl","formObserved","captchaObserved","loginObserved","paymentObserved","needsManualReview","sourceFile","testedAt"
+"ReverbNation Artist Opportunities and Profile Platform","https://www.reverbnation.com/band-promotion/opportunities","inspected","[object Object]","true","false","true","true","true","run65-platform-database.json","2026-07-17T15:42:01.663Z"
+"triple j Unearthed Australian Artist Upload and Radio Route","https://www.triplejunearthed.com/","inspected","[object Object]","true","false","true","false","true","run148-platform-database.json","2026-07-17T15:42:17.181Z"
