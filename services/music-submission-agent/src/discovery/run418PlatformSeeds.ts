@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run419SeedPlatforms } from './run419PlatformSeeds.js';
 
 export const run418SeedPlatforms: PlatformInput[] = [
   {
@@ -51,5 +52,6 @@ export const run418SeedPlatforms: PlatformInput[] = [
       'Airhug Radio requires current PRO membership, SoundExchange registration, legal-name and royalty identifiers, uploaded audio and lyrics, explicit-content disclosure, rights and broadcast authorization, promotional-media consent choices, a typed digital signature and a date/time affirmation. It also strictly prohibits AI in submissions. A human must verify that the exact MarcsMusic master has no prohibited AI origin, that all registrations and rights information are accurate, that the upload and lyrics are complete, and that the live form has no current CAPTCHA, login, payment or other protected boundary before manually signing and submitting.',
     notes:
       'Verified on 2026-07-17 from Airhug Radio’s official Music Submission, About and homepage surfaces, supported by the active Live365 station page. The form is for independent artists, asks for country of origin, permits up to ten uploaded files, prefers WAV, requires lyrics in PDF, requests BPM, PRO membership and work ID, SoundExchange registration and Artist ID, explicit-language and clean-version details, a short bio, promotional photo and artwork consent, rights and non-interactive broadcast authorization, a typed full-name signature and date/time. The official page states that AI use is strictly prohibited. No public business email labelled for music submissions was found, and no address was guessed or inferred. No form field, file, lyrics, consent, signature, account, CAPTCHA or payment was submitted.'
-  }
+  },
+  ...run419SeedPlatforms
 ];
