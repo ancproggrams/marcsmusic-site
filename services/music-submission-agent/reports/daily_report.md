@@ -2,7 +2,7 @@
 
 Date: 2026-07-17
 
-Latest run: Run 419
+Latest run: Run 420
 
 New items added in latest run: 1
 
@@ -10,32 +10,32 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1737
+Pipeline estimate: 1738
 
 Items:
 
-- Run 419 added: FBi.radio — free digital music servicing through the general Music Director or exactly one best-fit specialist program
+- Run 420 added: CKXU 88.3 FM — free-first digital EP/LP submission form with an authorized physical alternative
 
 One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: FBi.radio's official Music Submissions page authorizes general servicing through `music@fbiradio.com` and explicitly permits direct servicing to a suitable specialist program. Relevant current specialist alternatives were verified for Deep Web, Unfurl and presenter-led electronic/R&B/soul programming.
+Latest route note: CKXU's official Submit Music page accepts EPs and LPs, rejects singles, requires MP3 delivery through a downloadable link or code and rejects Spotify, Apple Music, YouTube and other streaming links as radio distribution.
 
-Delivery note: the email should contain a clear artist-and-release subject, short bio, press image or relevant gig context, one stream link and a separate free high-quality download link. The downloadable master must be 320 kbps MP3 or WAV. All servicing is digital; CDs are no longer accepted.
+Form note: the embedded form requests artist and release details, track list, offensive-content disclosure, genres, comparable artists, a download link, contact information and a separate Yes/No local-artist-database opt-in.
 
-Routing note: choose the general Music Director route or exactly one specialist contact. Do not send the same release to multiple FBi.radio addresses.
+Privacy note: the prose instructions request representative-identity information. No identity detail may be inferred or fabricated. A human must confirm whether this information is optional and disclose only accurate information deliberately supplied by the artist.
 
-Schedule note: music is auditioned on Wednesdays. Submission before midnight Tuesday is recommended for the next week's playlist consideration, and Music Director submissions are normally reviewed within two to three weeks.
+Consent note: keep the local artist database and mail-out opt-in at `No` unless Marc deliberately chooses to subscribe.
 
-Contact-verification note: four purpose-labelled addresses were verified through plaintext publication on current first-party FBi.radio pages, valid syntax and official-domain alignment. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: the official Submit Music and Contact pages contain purpose-labelled Music Department email links, but Cloudflare protected the plaintext destinations. Their source and purpose were verified; no address was decoded, guessed or stored, and no deliverability claim was made.
 
-Eligibility note: the schedule features music from Australia and beyond, but explicit eligibility for artists based outside Australia is not guaranteed. Explicit-content, rights, standard release-window and AI-origin policies are also unpublished.
+Eligibility note: explicit eligibility for artists based outside Canada is not guaranteed. MP3 bitrate, maximum size, rights, release-window, clean-edit and AI-origin policies are unpublished.
 
-Activity and fit note: the official schedule is populated, The Playlist published episodes through July 10, 2026, and M5 and Unfurl published episodes dated July 12, 2026. Selected MarcsMusic electronic, bass, ambient, experimental, world-fusion, soul-adjacent or reggae-adjacent material has plausible fit, but the station's strong Sydney and Australian-music mandate requires precise targeting.
+Activity and fit note: CKXU publishes a January 2026 schedule, a populated current lineup and station posts dated June 18, June 19 and June 29, 2026. Current shows cover house, techno, electronic, ambient, experimental, world, Afrobeat, dancehall, hip-hop and indie music. A coherent MarcsMusic EP or LP has plausible fit.
 
-Manual-review note: select one track and one route, verify all assets, metadata, rights, content, eligibility and policy details, then send manually without duplicate servicing.
+Manual-review note: select one eligible EP or LP, verify all MP3 files and the logged-out download workflow, review privacy and consent fields, confirm eligibility, rights, content and policy details, recheck the live form for protected controls, and submit manually.
 
-Deduplication note: repository search found no previous FBi.radio, `fbi.radio`, `fbiradio.com`, `music@fbiradio.com` or canonical submission-path record. General and specialist routes are consolidated into one platform opportunity.
+Deduplication note: repository search found no previous CKXU, `ckxu.com` or canonical submission-path record. The form, protected contacts and physical alternative are consolidated into one platform opportunity; the dated paid local mail-out is excluded.
 
-Runtime-linkage note: Run 418 now links to Run 419 in the active recursive seed chain.
+Runtime-linkage note: Run 419 now links to Run 420 in the active recursive seed chain.
 
-Safety: No email, stream link, download link, audio file, press image, form field, login, CAPTCHA, payment, supporter action or promotional purchase was submitted. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No form field, download link, audio file, identity information, consent, email, login, CAPTCHA, payment or physical package was submitted. No anti-bot, authentication, payment, privacy or platform restriction was bypassed.
