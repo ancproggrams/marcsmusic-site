@@ -142,8 +142,8 @@ export function createContactIntakeService({
    * This path is deliberately separate from processContact: historical
    * Mailgun contacts are imported with doNotContact=true and must still be
    * technically validated. Non-Valid outcomes are marked doNotContact=true;
-   * a validation result may never clear a suppression, consent, purpose,
-   * basis, or evidence gate.
+   * a Valid result may only release this technical quarantine. It never
+   * clears an explicit Blocked state, opt-out, hard bounce or evidence gate.
    */
   async function validateContactEmail(contactId) {
     return intakeRepository.withEntityFence("MediaContact", contactId, async () => {
@@ -156,7 +156,9 @@ export function createContactIntakeService({
       const outreachDisposition = emailValidationDisposition(validation.status);
       const payload = compactChanged(input, {
         emailValidationStatus: validation.status,
-        ...(!emailValidationAllowsOutreach(validation.status) ? { doNotContact: true } : {}),
+        ...(emailValidationAllowsOutreach(validation.status)
+          ? canReleaseValidationQuarantine(input) ? { doNotContact: false } : {}
+          : { doNotContact: true }),
         ...(validation.method === "smtp" ? { smtpValidationStatus: validation.status } : {}),
         ...(validation.checkedAt ? { lastValidatedAt: toEspoDateTime(validation.checkedAt) } : {})
       });
@@ -721,6 +723,14 @@ export function createContactIntakeService({
       });
     }
     return result;
+  }
+
+  function canReleaseValidationQuarantine(contact) {
+    return contact?.status !== "Blocked"
+      && contact?.contactPurpose !== "Blocked"
+      && contact?.contactBasis !== "Blocked"
+      && contact?.optedOut !== true
+      && contact?.hardBounced !== true;
   }
 
   async function hasActiveSuppression(subjects) {

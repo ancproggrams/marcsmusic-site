@@ -93,6 +93,21 @@ test("non-valid email validation is marked never-use and cannot clear later safe
   assert.equal(result.record.doNotContact, true);
 });
 
+test("valid email validation releases only the technical quarantine", async () => {
+  const capturedAt = new Date().toISOString();
+  const fixture = createFixture({
+    outlets: [validOutlet({ capturedAt })],
+    contacts: [validContact({ capturedAt, emailValidationStatus: "Unknown", doNotContact: true, status: "Needs Validation" })]
+  });
+
+  const result = await fixture.service.validateContactEmail("contact-1");
+
+  assert.equal(result.validationStatus, "Valid");
+  assert.equal(result.outreachDisposition, "usable");
+  assert.equal(result.record.doNotContact, false);
+  assert.equal(result.record.status, "Needs Validation");
+});
+
 test("same-domain outlet duplicates converge on the oldest canonical and no-submissions evidence denies every alias", async () => {
   const capturedAt = new Date().toISOString();
   const canonical = validOutlet({

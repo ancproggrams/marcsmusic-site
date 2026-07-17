@@ -178,8 +178,9 @@ refresh only their technical address status, queue the explicit
 the pending-work queue. It scans `MediaContact` records and enqueues
 `validate_contact_email`; that handler updates `emailValidationStatus` and
 `lastValidatedAt`, and marks every non-`Valid` result `doNotContact=true`.
-It never clears `doNotContact`, opt-out, hard-bounce, consent, purpose, basis,
-evidence, or campaign gates. A Mailgun `Valid` result
+An exact `Valid` result may clear only the import/validation quarantine; it
+never clears an explicit `Blocked` state, opt-out or hard-bounce, and never
+bypasses consent, purpose, basis, evidence or campaign gates. A Mailgun `Valid` result
 is therefore a necessary technical prerequisite, not permission to contact a
 person. Outreach requires the existing CRM consent/evidence policy to pass as
 well.
