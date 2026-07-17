@@ -1,0 +1,229 @@
+{
+  "run": 425,
+  "date": "2026-07-17",
+  "pipelineEstimateBefore": 1742,
+  "pipelineEstimate": 1743,
+  "newPlatforms": [
+    {
+      "name": "Brum Radio Free Non-Local Specialist-Show Form and Email Submission Opportunity",
+      "websiteUrl": "https://brumradio.com/",
+      "submissionUrl": "https://brumradio.com/submissions/",
+      "sourceUrl": "https://brumradio.com/submissions/",
+      "sourceType": "automation_run_425_public_research",
+      "country": "United Kingdom / Birmingham independent online radio station; Birmingham and West Midlands artists are eligible for the main playlist, while music from elsewhere is accepted for specialist-show consideration; international eligibility is not explicitly stated",
+      "language": "en",
+      "genres": [
+        "independent-radio",
+        "online-radio",
+        "specialist-radio-shows",
+        "non-local-artists-accepted",
+        "electronic",
+        "chill",
+        "indie",
+        "reggae",
+        "soul",
+        "world",
+        "experimental",
+        "one-track-only",
+        "mp3-192kbps-or-higher",
+        "wav",
+        "radio-edit-preferred",
+        "under-four-minutes-thirty-preferred",
+        "no-explicit-lyrics",
+        "no-spotify-or-youtube-links",
+        "bandcamp-or-soundcloud-downloads-enabled",
+        "direct-audio-upload-form",
+        "authorized-submission-email-alternative",
+        "no-visible-login-captcha-or-payment",
+        "manual-review"
+      ],
+      "submissionMethod": "official-first-party-one-track-upload-form-with-authorized-purpose-labelled-submission-email-alternative",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public one-track upload form with first-party purpose-labelled submission email alternative",
+        "formLocation": "https://brumradio.com/submissions/",
+        "email": "submissions@brumradio.com",
+        "physicalAddress": null,
+        "explicitPurpose": "Music submissions for the main playlist when locally eligible and specialist-show consideration for artists from elsewhere",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Choose one eligible clean track and exactly one authorized route, inspect the audio and metadata, confirm specialist-show eligibility, and submit manually.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "nonLocalArtistsExplicitlyAccepted": true,
+        "standardRouteFeePublished": false,
+        "optionalPaidServicesPublished": true
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "send one track only",
+          "main-playlist eligibility requires a Birmingham or West Midlands base",
+          "music from elsewhere is accepted for specialist-show consideration",
+          "upload MP3 at 192 kbps or higher or WAV",
+          "one audio file only",
+          "radio edit preferred",
+          "keep the track under 4 minutes 30 seconds where possible",
+          "ordinary Spotify and YouTube streaming links are rejected",
+          "Bandcamp or SoundCloud press links are acceptable only when downloads are enabled",
+          "confirm the track is radio friendly and does not contain explicit lyrics",
+          "the Music Team reviews submissions weekly",
+          "not every submission receives a reply"
+        ],
+        "formFieldsObserved": [
+          "name",
+          "email address",
+          "band or artist name",
+          "base postcode",
+          "track title",
+          "release date",
+          "radio-friendly and no-explicit-lyrics confirmation",
+          "one song upload",
+          "optional press-track link",
+          "notes for the Music Team"
+        ],
+        "safeReviewScope": [
+          "select one clean radio-ready MarcsMusic track",
+          "confirm the track is suitable for a currently active specialist show because Marc is not based in Birmingham or the West Midlands",
+          "prepare one MP3 at 192 kbps or higher or WAV master",
+          "verify runtime is preferably under 4:30",
+          "inspect filename, metadata and master quality",
+          "avoid Spotify-only or YouTube-only delivery",
+          "ensure any Bandcamp or SoundCloud link has downloads enabled",
+          "confirm international artist eligibility",
+          "verify composition, master, sample, contributor and artwork rights",
+          "confirm release timing and follow-up expectations",
+          "confirm the current AI-assisted and AI-generated music policy",
+          "recheck the live form for CAPTCHA, login, payment, session or anti-spam controls",
+          "choose either the form or submission email and avoid duplicate servicing",
+          "submit manually"
+        ],
+        "unresolvedEligibility": [
+          "international artist eligibility",
+          "which specialist programmes currently accept international non-local submissions",
+          "maximum upload size",
+          "preferred WAV bit depth, sample rate and channel layout",
+          "whether the email route accepts attachments or requires download links",
+          "release-recency expectations",
+          "rights and territorial requirements",
+          "AI-assisted and AI-generated music policy",
+          "follow-up timing"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "address": "submissions@brumradio.com",
+            "purpose": "music submissions",
+            "source": "https://brumradio.com/contact/",
+            "secondarySource": "https://brumradio.com/the-official-brum-radio-a-list/",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "domainAlignmentNote": "The mailbox exactly matches Brum Radio's official brumradio.com domain and is explicitly labelled for music submissions on first-party pages."
+          }
+        ],
+        "adjacentEmailsExcluded": [
+          {
+            "address": "studio@brumradio.com",
+            "purpose": "general enquiries and listener/studio contact",
+            "source": "https://brumradio.com/contact/",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "reasonExcluded": "The address is labelled for general enquiries rather than music submissions."
+          },
+          {
+            "address": "connect@brumradio.com",
+            "purpose": "press enquiries",
+            "source": "https://brumradio.com/contact/",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "reasonExcluded": "The address is reserved for press enquiries."
+          },
+          {
+            "address": "hello@brumradio.com",
+            "purpose": "advertising and partnerships",
+            "source": "https://brumradio.com/contact/",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "reasonExcluded": "The address is for advertising and partnerships, not music delivery."
+          },
+          {
+            "address": "help@brumradio.com",
+            "purpose": "volunteer recruitment applications",
+            "source": "https://brumradio.com/job/brum-radio-music-team-member/",
+            "sourceVerified": true,
+            "publishedInPlaintext": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "reasonExcluded": "The address is used for volunteer-role applications rather than music submissions."
+          }
+        ],
+        "emailStatus": "submissions@brumradio.com is a first-party, official-domain, purpose-labelled music-submission mailbox. General, press, advertising/partnership and recruitment mailboxes were verified and excluded.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "The form requires direct audio upload and a content certification. A human must recheck the live workflow for dynamic anti-spam or protected controls, inspect the final file and make the radio-friendly declaration personally.",
+        "rightsOrConsentFields": [
+          "radio-friendly and no-explicit-lyrics confirmation"
+        ],
+        "adjacentRoutesExcluded": [
+          "general contact mailbox",
+          "press mailbox",
+          "advertising and partnerships mailbox",
+          "volunteer recruitment mailbox",
+          "listener phone and WhatsApp line",
+          "newsletter",
+          "support donations",
+          "Mixcloud Select membership",
+          "shop and merchandise",
+          "social-media direct messages"
+        ]
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-17",
+        "evidence": "Brum Radio maintains a 2026 live-player surface, a populated current show directory and weekly schedule, active submission guidance, and a recent Music Team recruitment page describing responsibility for listening to new submissions and managing the station playlist."
+      },
+      "genreFitEvidence": [
+        "The official show directory includes Electronic, Chill, Indie, Reggae, Soul, World, DJ Mix and Eclectic categories.",
+        "Named specialist programmes include Algo|Afro Futures, Beauty in the Beats, Electric Soup, Find Your Happy Bass, WorldBeatUK, Roots 2 Love, Ruffer N Tuffer and experimental or alternative shows.",
+        "One clean MarcsMusic electronic, reggae, bass, ambient or world-fusion track has plausible specialist-show fit, subject to human programme selection."
+      ],
+      "manualReviewReason": "The route is first-party and free as published, but the main playlist is geographically restricted, MarcsMusic would be considered only for specialist shows, the form requires direct audio upload and a clean-content declaration, and international eligibility, upload-size, detailed WAV, rights, release-window and AI-origin rules remain unresolved.",
+      "priority": 86,
+      "pricingModel": "free-first/one-track/direct-upload-form/authorized-email-alternative/non-local-specialist-show-only/clean-radio-edit/no-spotify-or-youtube/international-eligibility-unconfirmed/no-visible-login-captcha-or-payment/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Brum Radio",
+      "brumradio.com",
+      "submissions@brumradio.com",
+      "https://brumradio.com/submissions/",
+      "Brum Radio Free Non-Local Specialist-Show Form and Email Submission Opportunity"
+    ],
+    "repositoryEvidence": "Repository code search and the complete PR patch were checked for the platform name, official domain, submission mailbox and canonical submission URL. No existing music-submission-agent record was found before creation.",
+    "consolidation": "The upload form and authorized submission mailbox are stored as one canonical opportunity. General, press, advertising, recruitment, listener, newsletter, donation, membership, shop and social routes are excluded."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One new Brum Radio opportunity was queued as needs_manual_review. No form field, audio, link, email, login, CAPTCHA, payment, content declaration or follow-up was submitted."
+}
