@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 476
+Latest run: Run 477
 
 New items added in latest run: 3
 
@@ -10,29 +10,29 @@ Existing items reverified or materially enriched: 1
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1775
+Pipeline estimate: 1778
 
 Items:
 
-- Run 476 added: Reggae Global Radio — a first-party MP3 email route requiring a biography, release-status disclosure and two custom station-ID jingles in one message.
-- Run 476 added: RekHeard Breakerz — a global Caribbean DJ-review form for one clean English-language Soca, Reggae or Dancehall single using Spotify plus durable MP3 and artist-photo links.
-- Run 476 added: Reggae Vibe Media — a global-facing direct-upload form for positive Reggae, Dancehall, Soca or Afrobeat, with a 320 kbps MP3/WAV requirement, a visible honeypot anti-spam boundary and broad submission-rights terms requiring legal review.
+- Run 477 added: Cacoteo Reggaeton Radio — a worldwide Reggaeton/urban MP3 form requiring at least 192 kbps, correct ID3 tags and royalty-free airplay plus affiliated-social permission.
+- Run 477 added: SMP Radio / SoulMusicPlaylists — a global-soul form with MP3 and JPEG/PNG cover-art uploads, preview links and an explicit newsletter opt-out.
+- Run 477 added: Electric Sunshine Cult — a worldwide A&R email route for electronic, bass and crossover music, with an adjacent extensive WAV/media roster form and published 70/30 release model.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Reggae Global Radio requires MP3 rather than WAV and two station IDs. RekHeard Breakerz requires one clean track already on Spotify, non-expiring media links and promotional plus email-update consent. Reggae Vibe Media accepts direct high-resolution audio uploads and exposes a honeypot, but its official Terms contain a broad submission clause that may assert extensive ownership and unrestricted use without compensation for covered submissions.
+Latest route note: Cacoteo rejects WAV and other non-MP3 formats and separates optional sponsored promotion from the standard route. SMP Radio screens heavily and does not guarantee airplay. ESC accepts a private streaming link or WAV through its official A&R mailbox; its adjacent roster form requests legal identity, artwork, photos, optional video, social links and terms acceptance.
 
-Contact-verification note: `music@reggaeglobalradio.com` is first-party published, syntactically valid, domain-aligned and explicitly designated for music submissions. `info@rekheardbreakerz.com` is first-party and domain-aligned but only the published Google Drive access address, not an email-submission route. `thereggaevibe@gmail.com` is first-party published and syntactically valid but Gmail-hosted, not domain-aligned and not a substitute submission route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `artistmgmt@electricsunshinecult.com` is first-party published, syntactically valid, domain-aligned and explicitly designated for music submissions. `info@electricsunshinecult.com` is first-party and domain-aligned but general inquiry only. No public business email was surfaced for Cacoteo or SMP Radio. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Reggae Global Radio publishes a current recurring schedule and worldwide 24/7 positioning. RekHeard Breakerz reports more than 440 submissions from more than 25 countries and current 2026 podcast episodes. Reggae Vibe Media publishes a current show display, 24/7 broadcast positioning and 2026 editorial activity. The first two are strong potential fits for MarcsMusic reggae, dub and Caribbean material; Reggae Vibe Media is reduced to low priority pending legal clarification.
+Activity and fit note: Cacoteo publishes fresh Reggaeton, hip-hop and dancehall items through July 16, 2026 and describes worldwide 24/7 broadcasting. SMP Radio describes current 24/7 global-soul broadcasting and Live365 licensing/royalty reporting in four countries. ESC documents releases throughout January-June 2026, including 19 May-June releases from 12 countries. All three are credible fits for MarcsMusic material in Reggaeton, Dancehall, Reggae, Afro-fusion, electronic, bass, Dubstep, Jungle and World Fusion.
 
-Manual-review note: Reggae Global Radio requires human review of MP3 attachments, biography, two station IDs, all rights and its non-exclusive worldwide content license. RekHeard Breakerz requires review of clean/genre/language fit, Spotify and durable links, image and likeness rights, broad cross-platform promotion and apparently bundled email consent. Reggae Vibe Media requires explicit legal review of the applicability of its broad submission-rights clause, in addition to direct upload, honeypot protection, clean and positive-content fit, rights, retention and AI eligibility.
+Manual-review note: Cacoteo requires review of MP3 metadata, media rights and the scope of royalty-free airplay/social permission. SMP Radio requires review of direct uploads, links, terms, rights, AI eligibility, optional newsletter choice and hidden Wix controls. ESC requires review of WAV/private-link delivery, contributor and media rights, AI disclosure, the published 70/30 model, any later agreement and final email or form action.
 
-Deduplication note: repository code search contained no existing canonical Reggae Global Radio, RekHeard Breakerz or Reggae Vibe Media record by platform name, official route or published contact before creation. Adjacent contact, advertising, technical, DJ, newsletter, visual-media, event, client and login routes were excluded rather than duplicated. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical Cacoteo, SMP Radio / SoulMusicPlaylists or Electric Sunshine Cult record by platform name, official route or published contact before creation. Adjacent contact, advertising, newsletter, sponsored-promotion, community, shop, services and roster routes were excluded or retained only as boundaries. Canonical SQLite domain and URL deduplication remains required before external use.
 
-Runtime limitation: repository and public-web connectors updated the artifacts. A local repository clone was attempted, but the execution container could not resolve `github.com`. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
+Runtime limitation: repository and public-web connectors updated the artifacts. Structural JSON and CSV validation was completed. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no audio or image was uploaded, no link or Google Drive permission was granted, no consent or terms were accepted, no login was used, no honeypot or CAPTCHA was bypassed and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No email was sent, no form field was filled, no audio, artwork, image or video was uploaded, no newsletter consent or terms were accepted, no login was used, no CAPTCHA or anti-spam control was bypassed and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
 
 ## Recent run history
 
@@ -103,5 +103,9 @@ Added The Relay Station's global ambient code/link form, rBeatz's free global di
 ### Run 476
 
 Added Reggae Global Radio's MP3 email route with two custom station IDs, RekHeard Breakerz's clean Caribbean Spotify/download-link form and Reggae Vibe Media's direct upload with a honeypot. Reggae Vibe Media was reduced to low priority after its official terms revealed a broad submission-rights and no-compensation clause whose applicability to music uploads requires legal review. Pipeline estimate: 1,775.
+
+### Run 477
+
+Added Cacoteo Reggaeton Radio's MP3-only worldwide form, SMP Radio's global-soul MP3/cover-art form and Electric Sunshine Cult's worldwide A&R email route with an adjacent extensive roster upload form. Royalty-free permissions, uploads, rights, AI/terms checks, optional marketing choices and final actions require manual review. Pipeline estimate: 1,778.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
