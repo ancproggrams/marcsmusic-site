@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 488
+Latest run: Run 489
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1811
+Pipeline estimate: 1814
 
 Items:
 
-- Run 488 added: SubCulture Recordings — a worldwide 2027 bass-music form/mailbox route using a downloadable private SoundCloud playlist, preferably 6–10 tracks.
-- Run 488 added: Pangea Recordings — a worldwide year-round progressive-house/melodic-techno demo mailbox for 1–3 private links with a hard AI-origin check.
-- Run 488 added: Symmetry Recordings — a drum-and-bass 320kbps MP3/WAV mailbox with attachment/cloud delivery and an adjacent LabelWorx DemoBox boundary.
+- Run 489 added: SoundChat Radio — a free Caribbean-focused first-party form using a SoundCloud, Spotify, YouTube or direct-download track link.
+- Run 489 added: JAM Audio Live — an all-genres worldwide submission landing page leading to an external Google Form for human review.
+- Run 489 added: Discover YOU RADIO — a free clean radio-ready rotation-evaluation form with iTunes or alternate-link requirements and separate optional paid services.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: SubCulture accepts music from anywhere for its 2027 release window, prefers 6–10 downloadable private SoundCloud tracks and also publishes a domain-aligned demo mailbox. Pangea accepts artists and labels worldwide year-round, expects 1–3 private streaming/download links and excludes AI-generated music in its 2026 guidance. Symmetry accepts labelled 320kbps MP3 or WAV by attachment or cloud link; SoundCloud downloads must be enabled.
+Latest route note: SoundChat accepts link-based submissions and requires ownership plus broadcast permission. JAM Audio Live accepts all genres and multiple link providers, but its external Google Form was not passively inspectable. Discover YOU RADIO accepts only its official application, requires non-explicit radio-ready material and separates free evaluation from optional paid certificates, pitching and promotion.
 
-Contact-verification note: `demos@subculture050.com`, `pangea@pangearecordings.com` and `demos@symmetryrecordings.co.uk` are first-party published, syntactically valid, domain-aligned and explicitly designated for demos. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: SoundChat's `info@SoundChatRadio.com` and `irishandchin@gmail.com` are first-party general contacts but were excluded as submission replacements. Discover YOU RADIO's `submit@discoveryouradio.com` and `admin@discoveryouradio.com` are first-party published in its privacy policy, but the official form remains canonical. JAM Audio Live's protected address was not decoded. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: SubCulture shows a current release, a June 26, 2026 release party and a weekly podcast. Pangea published its demo guide on January 16, 2026, lists podcast episode 131 from April 2026 and has editorial updates through May 2026. Symmetry lists releases in January, March, May and June 2026, including `SYMM074 – So Right` on June 5, 2026.
+Activity and fit note: SoundChat shows a live 24/7 schedule and a March 16, 2026 story. JAM Audio Live shows an active 24/7 stream and June 2026 artist spotlights from Croatia, Brazil and Glasgow. Discover YOU RADIO shows an active Human Ear Queue, a current request lineup and current 2026 policy and briefing pages.
 
-Manual-review note: all three require exact genre/catalog fit, track or playlist selection, link/file access, rights, Content ID, AI-policy, privacy/retention and final-action review. SubCulture additionally requires a 2027-window and embedded-form check. Pangea requires a hard AI-origin check. Symmetry requires attachment security and manual inspection of the adjacent LabelWorx portal if used.
+Manual-review note: all three require station/genre fit, track and clean-version selection, link access, metadata, rights, broadcast and promotional permission, Content ID, AI policy, privacy/retention, hidden controls, international eligibility and final-action review. JAM Audio Live additionally requires complete Google Form inspection. Discover YOU RADIO requires explicit opt-in and paid-service separation. SoundChat requires review of the broadcast-permission wording.
 
-Deduplication note: repository, current-branch and open-PR searches contained no existing canonical SubCulture Recordings, Pangea Recordings or Symmetry Recordings record by official name, domain, form URL or designated demo mailbox before creation. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository code search and pull-request metadata search contained no existing canonical SoundChat Radio, JAM Audio Live or Discover YOU RADIO match by official name or domain before creation. Recent-run artifacts 479–488 also contain no match. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
 
-Runtime limitation: repository and public-web connectors updated the artifacts. Generated JSON and CSV structures were validated before writes. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
+Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were validated before writes. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no file, playlist, artwork or link was shared, no terms were accepted, and no login, purchase, payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no link, file, lyrics, biography, social profile or contact data was shared, no terms or opt-ins were accepted, and no login, purchase, payment or submission action was performed.
 
 ## Recent run history
-
-### Run 479
-
-Added FBi Radio's weekly digital general-servicing email route, WNAA's one-track clean WAV/MP3 university email route and Kennesaw State Owl Radio's public multi-step MP3/WAV-or-link form. Programme and geographic eligibility, timing, uploads or attachments, links, rights, press assets, AI policy, external-form controls and final actions require manual review. Pipeline estimate: 1,784.
 
 ### Run 480
 
@@ -75,5 +71,9 @@ Added Radio 1190's clean full-album/EP email route, Sonair's official stream/dow
 ### Run 488
 
 Added SubCulture Recordings' worldwide 2027 bass-music playlist/form/mailbox route, Pangea Recordings' worldwide year-round 1–3-track private-link demo mailbox with a hard AI-origin check and Symmetry Recordings' 320kbps MP3/WAV drum-and-bass mailbox with an adjacent LabelWorx boundary. Genre fit, release-window and track selection, links/files, rights, Content ID, AI policy, privacy/retention, external-form controls and final actions require manual review. Pipeline estimate: 1,811.
+
+### Run 489
+
+Added SoundChat Radio's free Caribbean-focused link form, JAM Audio Live's all-genres worldwide external-Google-Form route and Discover YOU RADIO's free clean rotation-evaluation application with separate optional paid services. Track and programme fit, clean/explicit content, link access, rights, broadcast permission, AI policy, privacy/retention, form controls, paid-service separation and final actions require manual review. Pipeline estimate: 1,814.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
