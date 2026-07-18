@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 479
+Latest run: Run 480
 
 New items added in latest run: 3
 
@@ -10,29 +10,29 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1784
+Pipeline estimate: 1787
 
 Items:
 
-- Run 479 added: FBi Radio — an official general-servicing email route requiring a stream, a free 320 kbps MP3/WAV download link, biography and optional press material.
-- Run 479 added: WNAA 90.1 FM HD — a one-track clean WAV/MP3 email route requiring a digital press kit and exact submission subject.
-- Run 479 added: Kennesaw State Owl Radio — an official university-hosted multi-step MP3/WAV-or-link form open to anyone with recordings.
+- Run 480 added: PBS 106.7FM — an official international first-party form requiring a stream plus a high-quality 320 kbps AAC/MP3 or WAV download link.
+- Run 480 added: Brum Radio — a one-track direct-upload route that considers non-local artists for specialist shows while restricting its main playlist to Birmingham and the West Midlands.
+- Run 480 added: Radio Nano — an international first-party form or domain-aligned email route requiring an audio upload/link and one-page biography or press release.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: FBi auditions music weekly and separates free editorial servicing from paid promotion. WNAA rejects streaming links and accepts one original clean attachment plus a press kit. Owl Radio's later form steps could not be passively retrieved, so possible authentication, CAPTCHA, privacy, retention and consent boundaries remain unknown.
+Latest route note: PBS exposes a visible CAPTCHA, honeypot and optional newsletter opt-in. Brum Radio requires a clean MP3/WAV upload and routes non-local artists only to specialist shows. Radio Nano requires permissions from every rightsholder and contributor, including for covers and samples.
 
-Contact-verification note: `music@fbiradio.com` and `wnaafm@ncat.edu` are first-party published, syntactically valid and explicitly designated for music submissions. FBi uses a legacy station business domain and WNAA uses its parent university domain. `owlradioksu@gmail.com` is first-party published for form follow-up but uses a consumer domain; `programmingowlradio@kennesaw.edu` is a current programme contact and was not substituted for the canonical form. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `submissions@brumradio.com` and `music@radionano.com` are first-party published, syntactically valid, domain-aligned and explicitly designated for music submissions. PBS's current canonical route is its form; a historical `musicdept@pbsfm.org.au` address was not used because current mailbox status was not reconfirmed. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: FBi's current schedule and July 2026 archives include electronic, club, bass, ambient, diaspora and new-release programming. WNAA exposes live listening, a current weekly grid with House and Island Reggae, and a 2026 community calendar through August. Owl Radio exposes Now Spinning, a current weekly schedule and an official KSU description as a 24/7 student streaming station. These routes fit MarcsMusic material across Electronic, Bass, World Fusion, Reggae, Afrobeat, House, Dance and independent crossover formats.
+Activity and fit note: PBS published current July 2026 programming, sessions and events and carries global electronica, reggae, dub, soul, funk and experimental shows. Brum Radio exposes a current schedule/player and specialist electronic, reggae, world, chill and bass programming. Radio Nano published current May 2026 news/charts and a 2026 events calendar and fits MarcsMusic's more accessible pop, dance and electronic releases.
 
-Manual-review note: FBi requires international/local-priority, timing, audio/link, rights, AI and final-email checks. WNAA requires clean one-track selection, file/filename, press-kit, rights, attachment, international/AI and final-email review. Owl Radio requires complete multi-step form inspection, possible login/CAPTCHA controls, upload/link, rights, privacy/retention/licence, international/AI and final submission review.
+Manual-review note: PBS requires link, rights, AI-policy, privacy/licence, marketing-consent, CAPTCHA/honeypot and final-form checks. Brum Radio requires non-local specialist-show fit, one clean track, upload quality, rights, AI-policy and hidden-control checks. Radio Nano requires form-or-email route selection, all rightsholder permissions, audio/link, press material, AI-policy, privacy/licence, hidden Contact Form 7 controls and final send review.
 
-Deduplication note: repository code search contained no existing canonical FBi Radio, WNAA 90.1 FM HD or Kennesaw State Owl Radio record by official name, domain, route or published contact before creation. Adjacent programme contacts, paid promotion, general pages, advertising and physical-mail details were retained only as evidence or boundaries. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical PBS 106.7FM, Brum Radio or Radio Nano record by official name, domain, submission path or published contact before creation. Form/email alternatives, programme-specific contacts and physical delivery were consolidated or retained only as evidence and boundaries. Canonical SQLite domain and URL deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Structural JSON and CSV validation was completed. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no file, image or press kit was uploaded or attached, no physical item was mailed, no consent was accepted, no login was attempted, no CAPTCHA or anti-spam control was bypassed and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No email was sent, no form field was filled, no file, biography or press material was uploaded or attached, no link was shared, no physical media was mailed, no newsletter consent was given, no login was attempted, no CAPTCHA or honeypot was completed or bypassed and no payment or submission action was completed.
 
 ## Recent run history
 
@@ -115,5 +115,9 @@ Added YardHype Radio's free-first upload and fan-vote route, UnityXM Radio's cle
 ### Run 479
 
 Added FBi Radio's weekly digital general-servicing email route, WNAA's one-track clean WAV/MP3 university email route and Kennesaw State Owl Radio's public multi-step MP3/WAV-or-link form. Programme and geographic eligibility, timing, uploads or attachments, links, rights, press assets, AI policy, external-form controls and final actions require manual review. Pipeline estimate: 1,784.
+
+### Run 480
+
+Added PBS 106.7FM's international stream/download-link form with CAPTCHA, Brum Radio's non-local specialist-show upload route and Radio Nano's international form/email route. Links, uploads, rights, AI policy, privacy/licence terms, marketing consent, anti-spam controls and final actions require manual review. Pipeline estimate: 1,787.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
