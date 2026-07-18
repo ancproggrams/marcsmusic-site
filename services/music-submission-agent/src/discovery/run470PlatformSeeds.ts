@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run471SeedPlatforms } from './run471PlatformSeeds.js';
 
 export const run470SeedPlatforms: PlatformInput[] = [
   {
@@ -75,5 +76,6 @@ export const run470SeedPlatforms: PlatformInput[] = [
       'The route requires genre-specific track selection, MP3 and metadata preparation, a ZIP package, an external WeTransfer or Dropbox upload and a first-party contact-form submission. External-hosting privacy and permissions, unpublished AI eligibility, rights, hidden anti-spam controls and the final upload and submit actions require human approval.',
     notes:
       'Passively verified on 2026-07-18 from Qfm first-party home, programs, music-submission and contact pages. Qfm explicitly accepts international artists in Jazz, Smooth Jazz, Cool Jazz, Swing, Acid Jazz, Nu-Jazz, Soul, Funk, Blues and World Fusion. It requests 192 or 320 kbps constant-bitrate MP3 files sourced from masters, complete Artist + Title tags, trimmed silence, artist information or biography, a ZIP folder and a WeTransfer or Dropbox link pasted into the public contact form. YouTube, Facebook, Google Drive and SoundCloud links are rejected. The current site advertises FM, DAB+ and streaming plus Sunset Sessions, World Grooves, Chillout Zone and a monthly unsigned-artist show. No external file was uploaded, no form field was filled, no login was used, no CAPTCHA was solved and no payment or submission action was performed.'
-  }
+  },
+  ...run471SeedPlatforms
 ];
