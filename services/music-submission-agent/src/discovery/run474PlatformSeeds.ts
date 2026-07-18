@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run475SeedPlatforms } from './run475PlatformSeeds.js';
 
 export const run474SeedPlatforms: PlatformInput[] = [
   {
@@ -111,5 +112,6 @@ export const run474SeedPlatforms: PlatformInput[] = [
       'This is paid guaranteed promotional rotation rather than free editorial consideration. A human must decide whether the package is commercially and legally appropriate, review the invoice and terms, confirm original-music and all rights eligibility, assess AI policy and ROI, and explicitly authorize any email, payment and content delivery.',
     notes:
       'Passively verified on 2026-07-18 from Glacer FM\'s official submission, about and current chart pages. The route excludes cover music, publishes global all-genre broadcast packages and directs inquiries to administration@glacerfm.com for invoicing. The site displays a current Top 50, active programming blocks and a 2026 copyright notice. No package was selected, no email was sent, no invoice was requested, no track was delivered, no login was used, no CAPTCHA was solved and no payment or submission action was performed.'
-  }
+  },
+  ...run475SeedPlatforms
 ];
