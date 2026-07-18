@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 480
+Latest run: Run 481
 
 New items added in latest run: 3
 
@@ -10,29 +10,29 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1787
+Pipeline estimate: 1790
 
 Items:
 
-- Run 480 added: PBS 106.7FM — an official international first-party form requiring a stream plus a high-quality 320 kbps AAC/MP3 or WAV download link.
-- Run 480 added: Brum Radio — a one-track direct-upload route that considers non-local artists for specialist shows while restricting its main playlist to Birmingham and the West Midlands.
-- Run 480 added: Radio Nano — an international first-party form or domain-aligned email route requiring an audio upload/link and one-page biography or press release.
+- Run 481 added: Camaradio 101.3FM — a first-party one-song WAV/MP3 upload-or-download-link form with visible arithmetic human verification.
+- Run 481 added: WUAG 103.1 FM — a university-hosted single/EP/album WAV/MP3 upload or Dropbox/Google Drive route that accepts North Carolina and non-North-Carolina artists.
+- Run 481 added: KAZI 88.7 FM Untapped — a first-party domain-aligned one-track email route requiring a radio edit, stream and downloadable MP3/WAV.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: PBS exposes a visible CAPTCHA, honeypot and optional newsletter opt-in. Brum Radio requires a clean MP3/WAV upload and routes non-local artists only to specialist shows. Radio Nano requires permissions from every rightsholder and contributor, including for covers and samples.
+Latest route note: Camaradio requires one track, 44.1/48 kHz 16-bit WAV/MP3 under 10 MB for upload, rights affirmation and visible arithmetic verification. WUAG supports a song, EP or album by upload or cloud link, rejects non-downloadable streaming links and asks for FCC disclosure. KAZI requires one new radio edit, a stream and downloadable audio.
 
-Contact-verification note: `submissions@brumradio.com` and `music@radionano.com` are first-party published, syntactically valid, domain-aligned and explicitly designated for music submissions. PBS's current canonical route is its form; a historical `musicdept@pbsfm.org.au` address was not used because current mailbox status was not reconfirmed. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `music@kazifm.org` is first-party published, syntactically valid, domain-aligned and explicitly designated for submissions. `hello@camaradio.org` and `jdmonroe2@uncg.edu` are first-party general or staff contacts and were not substituted for the canonical forms. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: PBS published current July 2026 programming, sessions and events and carries global electronica, reggae, dub, soul, funk and experimental shows. Brum Radio exposes a current schedule/player and specialist electronic, reggae, world, chill and bass programming. Radio Nano published current May 2026 news/charts and a 2026 events calendar and fits MarcsMusic's more accessible pop, dance and electronic releases.
+Activity and fit note: Camaradio exposes a current seven-day schedule and 2026 events with indie, dance, jazz and eclectic programming. WUAG states it operates 24/7/365 and exposes current submission, FAQ and board-contact pages. KAZI shows current now-on-air programming, a weekly Untapped/Reggae/Afro/hip-hop/R&B schedule and an event dated 29 August 2026.
 
-Manual-review note: PBS requires link, rights, AI-policy, privacy/licence, marketing-consent, CAPTCHA/honeypot and final-form checks. Brum Radio requires non-local specialist-show fit, one clean track, upload quality, rights, AI-policy and hidden-control checks. Radio Nano requires form-or-email route selection, all rightsholder permissions, audio/link, press material, AI-policy, privacy/licence, hidden Contact Form 7 controls and final send review.
+Manual-review note: all three require international-eligibility confirmation, rights and AI-policy review, track/release fit, file or link checks, privacy/licence/retention review and final human approval. Camaradio also requires human arithmetic verification; WUAG may expose hidden form controls; KAZI requires final recipient and email-send approval.
 
-Deduplication note: repository code search contained no existing canonical PBS 106.7FM, Brum Radio or Radio Nano record by official name, domain, submission path or published contact before creation. Form/email alternatives, programme-specific contacts and physical delivery were consolidated or retained only as evidence and boundaries. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical Camaradio, WUAG or KAZI record by official name, domain, submission path or published contact before creation. Form/email alternatives and adjacent general or staff contacts were consolidated or retained only as evidence and boundaries. Canonical SQLite domain and URL deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Structural JSON and CSV validation was completed. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no file, biography or press material was uploaded or attached, no link was shared, no physical media was mailed, no newsletter consent was given, no login was attempted, no CAPTCHA or honeypot was completed or bypassed and no payment or submission action was completed.
+Safety: No email was sent, no form field was filled, no file or link was uploaded, attached or shared, no login was attempted, no CAPTCHA or arithmetic verification was completed or bypassed and no payment or submission action was completed.
 
 ## Recent run history
 
@@ -119,5 +119,9 @@ Added FBi Radio's weekly digital general-servicing email route, WNAA's one-track
 ### Run 480
 
 Added PBS 106.7FM's international stream/download-link form with CAPTCHA, Brum Radio's non-local specialist-show upload route and Radio Nano's international form/email route. Links, uploads, rights, AI policy, privacy/licence terms, marketing consent, anti-spam controls and final actions require manual review. Pipeline estimate: 1,787.
+
+### Run 481
+
+Added Camaradio's one-track upload/link form with arithmetic verification, WUAG's non-state university upload/cloud-link form and KAZI Untapped's domain-aligned email route. Eligibility, clean content, file/link delivery, rights, AI policy, privacy/licence terms, anti-spam controls and final actions require manual review. Pipeline estimate: 1,790.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
