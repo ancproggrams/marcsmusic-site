@@ -1,0 +1,229 @@
+{
+  "run": 472,
+  "date": "2026-07-18",
+  "pipelineEstimateBefore": 1762,
+  "pipelineEstimate": 1764,
+  "newPlatforms": [
+    {
+      "name": "SoundChat Radio Global Caribbean Music Submission",
+      "websiteUrl": "https://soundchatradio.com/",
+      "submissionUrl": "https://soundchatradio.com/submit-music",
+      "formUrl": "https://soundchatradio.com/submit-music",
+      "sourceType": "automation_run_472_public_research",
+      "country": "United States (New York) and Jamaica; the route explicitly promotes global exposure in more than 100 countries.",
+      "language": "en",
+      "genres": [
+        "reggae",
+        "dancehall",
+        "soca",
+        "caribbean",
+        "world",
+        "urban",
+        "clean-radio"
+      ],
+      "submissionMethod": "official first-party public form using a SoundCloud, Spotify, YouTube or direct-download track link",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission form",
+        "formLocation": "https://soundchatradio.com/submit-music",
+        "email": null,
+        "explicitPurpose": "Submit an original Caribbean-format track for review and possible airplay or online feature.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "internationalAcceptanceEvidence": "The submission page advertises exposure in more than 100 countries and invites the next generation of Caribbean artists to go global.",
+        "standardRouteFeePublished": false,
+        "standardRouteFeeEvidence": "The FAQ states that standard music submission is completely free."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "high-quality audio; MP3 at 320 kbps or WAV preferred",
+          "submit a radio edit or clean version alongside an explicit version when applicable",
+          "correct Artist Name, Track Title and Genre metadata",
+          "short biography and social-media links",
+          "artist name, email address, track title, genre, track link and artist/track information",
+          "SoundCloud, Spotify, YouTube or direct-download track link",
+          "confirm ownership of the submitted music rights",
+          "grant SoundChat Radio permission to broadcast the track if selected"
+        ],
+        "formFieldsObserved": [
+          "Artist Name",
+          "Email Address",
+          "Track Title",
+          "Genre",
+          "Track Link",
+          "About the Track / Artist"
+        ],
+        "safeReviewScope": [
+          "select a genre-compatible track and prepare a clean radio edit where needed",
+          "verify metadata, biography and social links",
+          "verify external-link accessibility, privacy and download permissions",
+          "confirm composition, master, sample, contributor and artwork rights",
+          "review the broadcast-permission grant and unpublished AI-music eligibility",
+          "inspect hidden anti-spam, CAPTCHA or submit-time controls",
+          "approve every field and the final submit action"
+        ],
+        "unresolvedEligibility": [
+          "AI-assisted or AI-generated music policy",
+          "hidden anti-spam or submit-time controls"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          "info@soundchatradio.com"
+        ],
+        "adjacentEmailsExcluded": [
+          "irishandchin@gmail.com"
+        ],
+        "emailStatus": "info@soundchatradio.com is first-party published on the official contact page, syntactically valid and domain-aligned, but it is a general business contact and not a replacement for the dedicated submission form.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "embeddedFormPage": "https://soundchatradio.com/submit-music",
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible in passive page content; hidden or submit-time controls remain unverified.",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "rightsOrConsentFields": [
+          "rights-ownership confirmation",
+          "permission for SoundChat Radio to broadcast the track"
+        ],
+        "manualRecheckReason": "Clean edit, metadata, external link, rights, broadcast permission, AI policy, hidden controls and final submission require human review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The first-party site publishes a live weekly schedule, 24/7 radio, current rotation and featured artists, plus a dated story from March 16, 2026."
+      },
+      "manualReviewReason": "The route is active, global-facing, free and genre-relevant, but clean-edit selection, external links, rights, broadcast authorization, unpublished AI eligibility, hidden controls and final submission require human approval.",
+      "priority": 94,
+      "pricingModel": "free/first-party-form/global-caribbean/track-link/broadcast-permission/manual-review"
+    },
+    {
+      "name": "All'It Radio Music Submission",
+      "websiteUrl": "https://allitradio.com/",
+      "submissionUrl": "https://forms.gle/efv6J4nT4gAWtac68",
+      "formUrl": "https://forms.gle/efv6J4nT4gAWtac68",
+      "sourceUrl": "https://allitradio.com/",
+      "sourceType": "automation_run_472_public_research",
+      "country": "United States; international-artist eligibility is not explicitly confirmed on the inspected submission text.",
+      "language": "en",
+      "genres": [
+        "reggae",
+        "hip-hop",
+        "r-and-b",
+        "urban",
+        "independent",
+        "one-track-only"
+      ],
+      "submissionMethod": "official first-party route to an external Google Form requiring Gmail authentication and direct audio plus cover-art upload",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": true,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party page linking to an external Google music-submission form",
+        "formLocation": "https://forms.gle/efv6J4nT4gAWtac68",
+        "email": null,
+        "explicitPurpose": "Submit one Hip Hop, R&B, Reggae or Urban track and cover art for selection, audience voting and possible station rotation.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "Hip Hop, R&B, Reggae or Urban genre",
+          "one track only",
+          "downloadable high-quality MP3 or WAV at 44.1 kHz, 16-bit stereo",
+          "cover artwork",
+          "Gmail account required",
+          "use only the linked form; email submissions are not accepted",
+          "authorize All'It Radio to broadcast the track if selected",
+          "selected tracks enter the All It or Not at All voting page for one week",
+          "100 valid-email All It votes are required for regular rotation",
+          "follow @allitradio on Instagram or Facebook to complete the process"
+        ],
+        "safeReviewScope": [
+          "confirm international and AI-music eligibility",
+          "authenticate manually only with an approved Gmail account",
+          "inspect all Google Form fields, consent text, privacy notices and hidden anti-abuse controls",
+          "verify audio format, metadata, cover-art rights and all music rights",
+          "review broadcast authorization, voting conditions and social-follow requirement",
+          "approve direct uploads and final submit action"
+        ],
+        "unresolvedEligibility": [
+          "international eligibility",
+          "AI-assisted or AI-generated music policy",
+          "complete Google Form fields and consent text"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          "info@allitradio.com"
+        ],
+        "adjacentEmailsExcluded": [
+          "hitus@allitradio.com"
+        ],
+        "emailStatus": "info@allitradio.com is first-party published, syntactically valid and domain-aligned, but the station explicitly rejects email submissions and requires the linked form.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "externalFormProvider": "Google Forms",
+        "externalFormUrl": "https://forms.gle/efv6J4nT4gAWtac68",
+        "externalFormInspectionComplete": false,
+        "externalFormFetchResult": "The route returned HTTP 401 Unauthorized in this runtime; the authentication boundary was not bypassed.",
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was passively observed. Google anti-abuse or submit-time verification remains unverified.",
+        "loginObserved": true,
+        "loginStatus": "The first-party page states that a Gmail account is required.",
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "uploadControls": [
+          "one MP3 or WAV track",
+          "cover artwork"
+        ],
+        "rightsOrConsentFields": [
+          "authorization for All'It Radio to broadcast the selected track"
+        ],
+        "manualRecheckReason": "Gmail authentication, direct media uploads, inaccessible form details, rights, audience-voting and social-follow conditions, AI/international eligibility and final submission require human review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official site publishes current weekly Friday and Saturday shows, named hosts, a 24-hour stream, a current submission process and active listener-voting workflow."
+      },
+      "manualReviewReason": "The route requires Gmail authentication, direct audio and cover-art uploads, broadcast authorization, fan voting and a social-follow condition. Form details, rights, AI/international eligibility, hidden controls and every final action require human approval.",
+      "priority": 82,
+      "pricingModel": "no-fee-visible/external-google-form/login-required/direct-upload/reggae-urban/audience-voting/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "SoundChat Radio",
+      "soundchatradio.com/submit-music",
+      "info@soundchatradio.com",
+      "All'It Radio",
+      "allitradio.com",
+      "forms.gle/efv6J4nT4gAWtac68",
+      "info@allitradio.com"
+    ],
+    "repositoryEvidence": "Repository code search returned no existing canonical match for either platform name, domain, submission route or published business address before creation.",
+    "consolidation": "SoundChat is one first-party form opportunity; general contact and donation routes are excluded. All'It Radio is one Google Form opportunity; general email, request, advertising, voting and social-follow routes are not separate submission records."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Two legitimate opportunities were queued as needs_manual_review. No form field was filled, no account was accessed, no file, artwork or external link was uploaded, no vote or social follow was performed, no email was sent, no CAPTCHA was solved and no payment or submission action was completed."
+}
