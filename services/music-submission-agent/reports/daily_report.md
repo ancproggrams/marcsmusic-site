@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 482
+Latest run: Run 483
 
 New items added in latest run: 3
 
@@ -10,29 +10,29 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1793
+Pipeline estimate: 1796
 
 Items:
 
-- Run 482 added: Resurge Audio — a free first-party electronic-music form and domain-aligned submission mailbox with a hard prohibition on wholly or partly AI-generated music.
-- Run 482 added: Joshua Tree Live — a free global first-party MP3/WAV/MP4 upload form for audio-show, live-show or interview consideration.
-- Run 482 added: Global Entry Radio — an international melodic-electronic programme using an exclusive, limited-capacity paid Groover curator route.
+- Run 483 added: WXDU 88.7 FM — an official Bandcamp-YUM-preferring first-party music mailbox for airplay consideration.
+- Run 483 added: Hot Wax Radio — a worldwide-facing first-party cloud-MP3 form with a hard AI prohibition and royalty-waiver terms.
+- Run 483 added: Zaccone Music / Music Therapy — an international electronic-label demo form and domain-aligned mailbox using a private music link.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Resurge Audio requires house, tech-house or techno fit, streamable/downloadable links, rights, submission and GDPR consent and a worldwide royalty-free promotional licence. Joshua Tree Live accepts direct media uploads up to 500 MB but does not publish a detailed submission-specific broadcast or retention licence. Global Entry Radio requires a Groover account, monthly availability and paid Grooviz credits; review and feedback are guaranteed, not airplay.
+Latest route note: WXDU prefers Bandcamp YUM codes through `music@wxdu.org`. Hot Wax requires an MP3 link from Dropbox or Google Drive, rejects AI submissions, and publishes promotional-distribution and royalty-waiver terms. Zaccone Music requests a private SoundCloud or other valid music link through its form or `music@zaccone-music.it`.
 
-Contact-verification note: `music@resurgeaudio.com` is first-party published, syntactically valid, domain-aligned and explicitly designated for music submissions. `media@joshuatreelive.tv` is a first-party general media contact and was not substituted for the canonical form; the inconsistent `.io` address shown on one page was excluded as unconfirmed. Global Entry Radio publishes no direct submission mailbox and links exclusively to Groover. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `music@wxdu.org` and `music@zaccone-music.it` are first-party published, syntactically valid, domain-aligned and explicitly designated for music/demo submissions. `wxdu@duke.edu`, `patrick@relaxmusicgroup.com`, `booking@zaccone-music.it` and `newsletter@zaccone-music.it` were not substituted for canonical routes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Resurge Audio carries current 2026 electronic editorial and playlists. Joshua Tree Live publishes a current 2026 live schedule and active artist/video catalogue. Global Entry Radio published episode 100 on 3 July 2026 and lists syndication through more than 40 outlets in at least 15 countries.
+Activity and fit note: WXDU publishes a Summer 2026 schedule and playlist archive with mid-July activity. Hot Wax presents an active 24/7 schedule, worldwide artist positioning and July 2026 playlist evidence. Zaccone Music carries 2026 label content and release records dated March and May 2026.
 
-Manual-review note: all three require final genre/track fit, rights and AI-policy review, link or upload checks, privacy/licence/retention review and final human approval. Resurge Audio also has a strict AI exclusion and broad promotional licence; Joshua Tree Live has JavaScript, schedule and contact inconsistencies; Global Entry Radio requires login, current-price confirmation and payment approval.
+Manual-review note: all three require final track/genre fit, rights and AI-policy review, link-access and privacy/licence/retention checks and human approval. Hot Wax additionally requires review of its royalty waiver, promotional/podcast rights, JavaScript controls and optional paid-service boundary.
 
-Deduplication note: repository and open-PR searches contained no existing canonical Resurge Audio, Joshua Tree Live or Global Entry Radio record by official name, domain, submission path, published contact or Groover influencer identifier before creation. Alternative routes and adjacent contacts were consolidated into one record per platform. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository and open-PR searches contained no existing canonical WXDU, Hot Wax Radio or Zaccone Music record by official name, domain, submission path or published submission address before creation. Adjacent contacts and routes were consolidated into one record per platform. Canonical SQLite domain and URL deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Structural JSON and CSV validation was completed. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no file or link was uploaded, attached or shared, no consent was accepted, no login was attempted, no CAPTCHA or anti-bot control was completed or bypassed and no purchase, payment or submission action was completed.
+Safety: No email was sent, no form field was filled, no Bandcamp code, file or link was shared, no consent was accepted, no login or CAPTCHA was attempted, and no purchase, payment or submission action was completed.
 
 ## Recent run history
 
@@ -127,5 +127,9 @@ Added Camaradio's one-track upload/link form with arithmetic verification, WUAG'
 ### Run 482
 
 Added Resurge Audio's rights- and GDPR-aware electronic form with a hard AI prohibition, Joshua Tree Live's free global direct-media-upload route and Global Entry Radio's monthly limited paid Groover route. Genre fit, links/uploads, rights, AI policy, promotional or broadcast licences, privacy, hidden controls, login/payment and final actions require manual review. Pipeline estimate: 1,793.
+
+### Run 483
+
+Added WXDU's Bandcamp-YUM-preferring official music mailbox, Hot Wax Radio's cloud-MP3 form with a hard AI prohibition and royalty-waiver boundary, and Zaccone Music's international electronic-label private-link form/mailbox. Eligibility, genre fit, links, rights, AI policy, licence/privacy/retention terms, JavaScript controls, optional paid-service separation and final actions require manual review. Pipeline estimate: 1,796.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
