@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run482SeedPlatforms } from './run482PlatformSeeds.js';
 
-export const run481SeedPlatforms: PlatformInput[] = [
+const run481NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "Camaradio 101.3FM Music Submission",
     "websiteUrl": "https://camaradio.org/",
@@ -108,4 +109,9 @@ export const run481SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "International eligibility, one radio-edited track, stream/download delivery, MP3/WAV quality, rights, AI eligibility, privacy/licence/retention terms, recipient verification and the final email send require human approval.",
     "notes": "Passively verified on 2026-07-18 from the official Untapped submission, live schedule, about and 2026 events pages. KAZI requests one new radio-edited song, a streaming link and downloadable MP3/WAV, plus artist and contact details. music@kazifm.org is first-party published, syntactically valid, domain-aligned and explicitly designated for music submissions; info@kazifm.org is general only. International eligibility, AI policy and submission-specific licence/retention terms remain unconfirmed. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed. No email was sent, no file or link was attached or shared and no payment or submission action was performed."
   }
+];
+
+export const run481SeedPlatforms: PlatformInput[] = [
+  ...run481NewSeedPlatforms,
+  ...run482SeedPlatforms
 ];
