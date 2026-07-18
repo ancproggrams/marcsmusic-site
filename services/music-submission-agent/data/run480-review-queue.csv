@@ -1,0 +1,4 @@
+run,platform,submission_url,status,manual_review_reason
+480,PBS 106.7FM International Music Submission,https://www.pbsfm.org.au/submitmusic,needs_manual_review,"International form with required stream/download links, 320 kbps AAC/MP3 or WAV quality, rights, AI-policy, privacy/licence, optional newsletter consent, visible CAPTCHA/honeypot and final submission require human review."
+480,Brum Radio Specialist-Show Music Submission,https://brumradio.com/submissions/,needs_manual_review,"Main-playlist geography versus specialist-show fit, one clean track, direct upload, MP3/WAV quality, rights, AI-policy, hidden anti-spam controls and final form submission require human review."
+480,Radio Nano International Music Submission,https://radionano.com/submit-your-music/,needs_manual_review,"Form-or-email route choice, audio upload/link, press release, all rightsholder permissions, AI-policy, privacy/licence, hidden Contact Form 7 controls and final send require human review."
