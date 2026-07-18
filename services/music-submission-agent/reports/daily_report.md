@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 490
+Latest run: Run 491
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1817
+Pipeline estimate: 1820
 
 Items:
 
-- Run 490 added: Get Known Radio — a free worldwide first-party electronic/Hip-Hop/R&B upload route with disclosed reCAPTCHA and a broad promotional licence.
-- Run 490 added: All'it Radio — a Gmail-gated external Google Form requiring one track, cover art, social follow and a 100-vote fan stage.
-- Run 490 added: Indie Global 365 — a free first-party upload form for up to two positive Reggae/Soca, Hip-Hop or R&B tracks with mandatory terms acceptance.
+- Run 491 added: Boomslang Recordings — an external Google Form for private downloadable-stream neurofunk and drum-and-bass demos.
+- Run 491 added: Bass Darkness — a finished Phonk/heavy-bass private-link form with a domain-aligned confirmation-failure fallback mailbox.
+- Run 491 added: BASSWAV — a Dutch DnB/dubstep/UK-bass two-step private-link form with artist-owned terms and a visible honeypot.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Get Known Radio accepts one 320kbps MP3 or WAV plus a short note and rights confirmation, explicitly accepts international artists and uses reCAPTCHA Enterprise. All'it Radio accepts only its Google Form, requires Gmail, one track and cover art, and conditions regular rotation on social follow and 100 positive votes. Indie Global 365 accepts up to two 192kbps MP3s plus images and requires a Terms & Conditions checkbox; optional paid memberships are separate.
+Latest route note: Boomslang requires a private streaming/downloadable demo link and rejects attachments and alternate email submissions; its Google Form remains uninspected. Bass Darkness accepts finished tracks through private SoundCloud or Dropbox and permits `demo@bassdarkness.com` only when form confirmation fails. BASSWAV accepts one private link, exposes step one of two and requires its honeypot to remain empty.
 
-Contact-verification note: Get Known Radio's `support@getknownradio.com` and All'it Radio's `info@allitradio.com` and `hitus@allitradio.com` are first-party published, syntactically valid and domain-aligned. Get Known Radio's protected submission fallback was not decoded. Indie Global 365's legacy `indieglobal365@gmail.com` is first-party published but conflicts with the current form-only instruction and was retained only as historical context. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `info@boomslangrecordings.com` and `demo@bassdarkness.com` are first-party published, syntactically valid and domain-aligned. The Boomslang address is general only and explicitly not a demo substitute. The Bass Darkness address is an authorized fallback only after confirmation failure. BASSWAV's official form is canonical and no public email was used. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Get Known Radio's home page is dated July 18, 2026 and its editorial index runs through July 17, 2026. All'it Radio shows a live current-track area and current weekly shows. Indie Global 365 maintains a live-radio/current-song area and active submission, membership, artist-directory and catalog pages.
+Activity and fit note: Boomslang has official SoundCloud and Beatport releases dated through March 6, 2026. Bass Darkness lists releases through July 3, 2026 and an upcoming July 24, 2026 release. BASSWAV's form metrics were verified May 23, 2026 and BW002 was released June 5, 2026.
 
-Manual-review note: all three require genre fit, track and file selection, rights, Content ID, AI policy, licence/terms, privacy/retention, form controls and final-action review. Get Known Radio additionally requires legal review of its worldwide royalty-free licence and human reCAPTCHA completion. All'it Radio requires Google authentication, external-form inspection, social follow and fan-vote participation. Indie Global 365 requires full terms inspection and resolution of its legacy-email/current-form conflict.
+Manual-review note: all three require label fit, private-link and release-status checks, rights, samples, Content ID, AI policy, privacy/retention, contract terms and final-action review. Boomslang additionally requires complete Google-Form inspection. Bass Darkness requires finished-track and social-contact validation plus strict fallback-email handling. BASSWAV requires step-two inspection and its honeypot must remain untouched.
 
-Deduplication note: repository code search contained no existing canonical Get Known Radio, All'it Radio or Indie Global 365 match by official name or domain before creation. Recent-run reports 480–489 also contain no match. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical Boomslang Recordings, Bass Darkness or BASSWAV match by official name or domain before creation. Recent-run reports 481–490 also contain no match. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
 
-Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were validated before writes. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
+Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were validated before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no login or account was used, no CAPTCHA was attempted, no file or cover art was uploaded, no terms, social follow or voting condition was accepted, and no payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no login was used, no CAPTCHA or honeypot was attempted, no private link or file was shared, no terms were accepted, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 481
-
-Added Camaradio's one-track upload/link form with arithmetic verification, WUAG's non-state university upload/cloud-link form and KAZI Untapped's domain-aligned email route. Eligibility, clean content, file/link delivery, rights, AI policy, privacy/licence terms, anti-spam controls and final actions require manual review. Pipeline estimate: 1,790.
 
 ### Run 482
 
@@ -75,5 +71,9 @@ Added SoundChat Radio's free Caribbean-focused link form, JAM Audio Live's all-g
 ### Run 490
 
 Added Get Known Radio's free global electronic/Hip-Hop/R&B upload route with reCAPTCHA and a broad promotional licence, All'it Radio's Gmail-gated one-track Google Form with fan-vote and social-follow conditions, and Indie Global 365's free two-track MP3-and-image form with mandatory terms acceptance. Genre fit, files, rights, Content ID, AI policy, licence/terms, privacy/retention, login/CAPTCHA, voting/social conditions and final actions require manual review. Pipeline estimate: 1,817.
+
+### Run 491
+
+Added Boomslang Recordings' private downloadable-stream neurofunk/DnB Google Form, Bass Darkness' finished Phonk/heavy-bass private-link form with confirmation-failure fallback email, and BASSWAV's two-step DnB/dubstep/UK-bass private-link form with artist-owned terms and a visible honeypot. Genre fit, private links, rights, Content ID, AI policy, form controls, privacy/retention, contract terms and final actions require manual review. Pipeline estimate: 1,820.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
