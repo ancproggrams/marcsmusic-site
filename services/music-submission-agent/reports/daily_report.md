@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 481
+Latest run: Run 482
 
 New items added in latest run: 3
 
@@ -10,29 +10,29 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1790
+Pipeline estimate: 1793
 
 Items:
 
-- Run 481 added: Camaradio 101.3FM — a first-party one-song WAV/MP3 upload-or-download-link form with visible arithmetic human verification.
-- Run 481 added: WUAG 103.1 FM — a university-hosted single/EP/album WAV/MP3 upload or Dropbox/Google Drive route that accepts North Carolina and non-North-Carolina artists.
-- Run 481 added: KAZI 88.7 FM Untapped — a first-party domain-aligned one-track email route requiring a radio edit, stream and downloadable MP3/WAV.
+- Run 482 added: Resurge Audio — a free first-party electronic-music form and domain-aligned submission mailbox with a hard prohibition on wholly or partly AI-generated music.
+- Run 482 added: Joshua Tree Live — a free global first-party MP3/WAV/MP4 upload form for audio-show, live-show or interview consideration.
+- Run 482 added: Global Entry Radio — an international melodic-electronic programme using an exclusive, limited-capacity paid Groover curator route.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Camaradio requires one track, 44.1/48 kHz 16-bit WAV/MP3 under 10 MB for upload, rights affirmation and visible arithmetic verification. WUAG supports a song, EP or album by upload or cloud link, rejects non-downloadable streaming links and asks for FCC disclosure. KAZI requires one new radio edit, a stream and downloadable audio.
+Latest route note: Resurge Audio requires house, tech-house or techno fit, streamable/downloadable links, rights, submission and GDPR consent and a worldwide royalty-free promotional licence. Joshua Tree Live accepts direct media uploads up to 500 MB but does not publish a detailed submission-specific broadcast or retention licence. Global Entry Radio requires a Groover account, monthly availability and paid Grooviz credits; review and feedback are guaranteed, not airplay.
 
-Contact-verification note: `music@kazifm.org` is first-party published, syntactically valid, domain-aligned and explicitly designated for submissions. `hello@camaradio.org` and `jdmonroe2@uncg.edu` are first-party general or staff contacts and were not substituted for the canonical forms. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `music@resurgeaudio.com` is first-party published, syntactically valid, domain-aligned and explicitly designated for music submissions. `media@joshuatreelive.tv` is a first-party general media contact and was not substituted for the canonical form; the inconsistent `.io` address shown on one page was excluded as unconfirmed. Global Entry Radio publishes no direct submission mailbox and links exclusively to Groover. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Camaradio exposes a current seven-day schedule and 2026 events with indie, dance, jazz and eclectic programming. WUAG states it operates 24/7/365 and exposes current submission, FAQ and board-contact pages. KAZI shows current now-on-air programming, a weekly Untapped/Reggae/Afro/hip-hop/R&B schedule and an event dated 29 August 2026.
+Activity and fit note: Resurge Audio carries current 2026 electronic editorial and playlists. Joshua Tree Live publishes a current 2026 live schedule and active artist/video catalogue. Global Entry Radio published episode 100 on 3 July 2026 and lists syndication through more than 40 outlets in at least 15 countries.
 
-Manual-review note: all three require international-eligibility confirmation, rights and AI-policy review, track/release fit, file or link checks, privacy/licence/retention review and final human approval. Camaradio also requires human arithmetic verification; WUAG may expose hidden form controls; KAZI requires final recipient and email-send approval.
+Manual-review note: all three require final genre/track fit, rights and AI-policy review, link or upload checks, privacy/licence/retention review and final human approval. Resurge Audio also has a strict AI exclusion and broad promotional licence; Joshua Tree Live has JavaScript, schedule and contact inconsistencies; Global Entry Radio requires login, current-price confirmation and payment approval.
 
-Deduplication note: repository code search contained no existing canonical Camaradio, WUAG or KAZI record by official name, domain, submission path or published contact before creation. Form/email alternatives and adjacent general or staff contacts were consolidated or retained only as evidence and boundaries. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository and open-PR searches contained no existing canonical Resurge Audio, Joshua Tree Live or Global Entry Radio record by official name, domain, submission path, published contact or Groover influencer identifier before creation. Alternative routes and adjacent contacts were consolidated into one record per platform. Canonical SQLite domain and URL deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Structural JSON and CSV validation was completed. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no file or link was uploaded, attached or shared, no login was attempted, no CAPTCHA or arithmetic verification was completed or bypassed and no payment or submission action was completed.
+Safety: No email was sent, no form field was filled, no file or link was uploaded, attached or shared, no consent was accepted, no login was attempted, no CAPTCHA or anti-bot control was completed or bypassed and no purchase, payment or submission action was completed.
 
 ## Recent run history
 
@@ -123,5 +123,9 @@ Added PBS 106.7FM's international stream/download-link form with CAPTCHA, Brum R
 ### Run 481
 
 Added Camaradio's one-track upload/link form with arithmetic verification, WUAG's non-state university upload/cloud-link form and KAZI Untapped's domain-aligned email route. Eligibility, clean content, file/link delivery, rights, AI policy, privacy/licence terms, anti-spam controls and final actions require manual review. Pipeline estimate: 1,790.
+
+### Run 482
+
+Added Resurge Audio's rights- and GDPR-aware electronic form with a hard AI prohibition, Joshua Tree Live's free global direct-media-upload route and Global Entry Radio's monthly limited paid Groover route. Genre fit, links/uploads, rights, AI policy, promotional or broadcast licences, privacy, hidden controls, login/payment and final actions require manual review. Pipeline estimate: 1,793.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
