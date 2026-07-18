@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run478SeedPlatforms } from './run478PlatformSeeds.js';
 
-export const run477SeedPlatforms: PlatformInput[] = [
+const run477NewSeedPlatforms: PlatformInput[] = [
   {
     name: 'Cacoteo Reggaeton Radio Music Submission',
     websiteUrl: 'https://cacoteo.com/',
@@ -99,4 +100,9 @@ export const run477SeedPlatforms: PlatformInput[] = [
     notes:
       'Passively verified on 2026-07-18. The official label blog documents May-June 2026 activity with 19 releases from 12 countries and publishes additional January-April 2026 release cycles across electronic, dubstep, hip-hop, trance, techno and experimental music. Both addresses are first-party published, syntactically valid and domain-aligned. artistmgmt@electricsunshinecult.com is explicitly designated for music submissions; info@electricsunshinecult.com is general inquiry only. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed. No email was sent, no form field was filled, no file was uploaded, no consent or terms were accepted, no login was used, no CAPTCHA or anti-spam control was bypassed and no payment or submission action was performed.'
   }
+];
+
+export const run477SeedPlatforms: PlatformInput[] = [
+  ...run477NewSeedPlatforms,
+  ...run478SeedPlatforms
 ];
