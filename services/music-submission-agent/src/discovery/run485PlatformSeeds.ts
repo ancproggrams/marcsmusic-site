@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run486SeedPlatforms } from './run486PlatformSeeds.js';
 
-export const run485SeedPlatforms: PlatformInput[] = [
+const run485NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "NOS Recordings House Demo Submission",
     "websiteUrl": "https://nosrecordings.com/home",
@@ -88,4 +89,9 @@ export const run485SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "House-subgenre fit, finished-track status, download-enabled private-link access, rights, AI policy, form anti-spam/privacy controls, possible contract terms and final submission require human approval.",
     "notes": "Passively verified on 2026-07-18 from COOL Recordings' official demo page and current Beatport catalogue. The Austrian label requests House, Tech House and Afro House; accepts private SoundCloud or Dropbox links only; rejects unfinished tracks and short snippets; and requires downloads to be enabled. Visible fields are Artist Name, Direct Email, Track Link, Social Media Portfolio and A&R Note. The page states that accepted-fit responses are generally sent within two weeks. No public submission mailbox was identified or substituted. Beatport lists COOL Recordings releases throughout 2026, including 'El Patronato' dated 2026-06-05. No form field was filled, no link was shared and no submission was sent."
   }
+];
+
+export const run485SeedPlatforms: PlatformInput[] = [
+  ...run485NewSeedPlatforms,
+  ...run486SeedPlatforms
 ];
