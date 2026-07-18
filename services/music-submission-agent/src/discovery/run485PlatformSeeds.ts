@@ -1,0 +1,91 @@
+import type { PlatformInput } from '../models/types.js';
+
+export const run485SeedPlatforms: PlatformInput[] = [
+  {
+    "name": "NOS Recordings House Demo Submission",
+    "websiteUrl": "https://nosrecordings.com/home",
+    "submissionUrl": "https://nosrecordings.com/demo-submissions",
+    "sourceUrl": "https://nosrecordings.com/demo-submissions",
+    "sourceType": "automation_run_485_public_research",
+    "country": "Country not explicitly stated on the public demo page / global-facing house label; universal international-artist eligibility is not expressly published.",
+    "language": "en",
+    "genres": [
+      "electronic",
+      "house",
+      "tech house",
+      "private SoundCloud",
+      "Box",
+      "Dropbox",
+      "label demo",
+      "optional livestream feedback",
+      "manual-review"
+    ],
+    "submissionMethod": "official first-party JavaScript demo form for up to three finished house tracks using private SoundCloud links with downloads enabled, or Box/Dropbox links",
+    "feeRequired": false,
+    "feeAmount": "No mandatory submission fee or payment is visible for the official direct demo form.",
+    "loginRequired": false,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "Exact house fit, maximum-three-track selection, finished-track status, private-link access, optional public livestream-feedback consent, rights, AI policy, hidden JavaScript form controls, privacy/retention and final submission require human approval.",
+    "notes": "Passively verified on 2026-07-18 from NOS Recordings' official demo page and current catalogue. The label accepts house only, limits submissions to three tracks, requests private SoundCloud links with download enabled and also accepts Box or Dropbox, asks for a brief professional introduction, and accepts finished polished work; unmastered tracks may be noted. An optional opt-in can expose a demo to livestream A&R feedback on YouTube or Twitch. The form requires JavaScript and its complete fields, anti-spam controls and consent wording were not exposed in passive text. No public submission email was identified or substituted. The official release page lists NOS 052 'NOS in Miami 2026' and NOS 053 'Whatchu Need' as out now. No field was filled and no link or submission was sent."
+  },
+  {
+    "name": "Diepgraven Records Chill, Tropical & Deep House Demo Submission",
+    "websiteUrl": "https://www.diepgravenrecords.com/",
+    "submissionUrl": "https://www.diepgravenrecords.com/demo-submission",
+    "sourceUrl": "https://www.diepgravenrecords.com/demo-submission",
+    "sourceType": "automation_run_485_public_research",
+    "country": "Netherlands / electronic label with international collaborators; universal international-artist eligibility is not expressly stated on the demo page.",
+    "language": "en",
+    "genres": [
+      "electronic",
+      "chill house",
+      "tropical house",
+      "deep house",
+      "private streaming link",
+      "SoundCloud",
+      "Dropbox",
+      "label demo",
+      "manual-review"
+    ],
+    "submissionMethod": "official first-party form for original Chill, Tropical or Deep House using a private streaming link; WeTransfer and other download links are rejected",
+    "feeRequired": false,
+    "feeAmount": "No mandatory submission fee or payment is visible for the official demo form.",
+    "loginRequired": false,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "Exact label fit, original-content and copyright confirmation, private-link access, cover/remix and artwork rights, mastering status, AI policy, hidden form controls, privacy/retention and final submission require human approval.",
+    "notes": "Passively verified on 2026-07-18 from Diepgraven Records' official demo, about and news pages. The form seeks fresh Chill, Tropical and Deep House, accepts private streaming links, rejects WeTransfer and other download links, prohibits duplicate submissions and requires confirmation of complete copyright in all submitted music and artwork. Visible form items include name, email, private SoundCloud URL or Dropbox link, rights confirmation, cover/remix disclosure and mastering status. contact@diepgravenrecords.com is first-party published, syntactically valid and domain-aligned, but is described for questions/business inquiries rather than as the canonical submission route. The official news page lists multiple 2026 releases, including entries dated 2026-05-22, 2026-06-05, 2026-06-12 and 2026-07-03. No field was filled and no link or submission was sent."
+  },
+  {
+    "name": "COOL Recordings House Demo Submission",
+    "websiteUrl": "https://www.coolrecordings.com/",
+    "submissionUrl": "https://www.coolrecordings.com/",
+    "sourceUrl": "https://www.coolrecordings.com/",
+    "sourceType": "automation_run_485_public_research",
+    "country": "Austria / electronic label; the direct form does not expressly state universal international-artist eligibility.",
+    "language": "en",
+    "genres": [
+      "electronic",
+      "house",
+      "tech house",
+      "Afro house",
+      "melodic house",
+      "private SoundCloud",
+      "Dropbox",
+      "label demo",
+      "manual-review"
+    ],
+    "submissionMethod": "official first-party form accepting finished House, Tech House and Afro House demos through private SoundCloud or Dropbox links with downloads enabled",
+    "feeRequired": false,
+    "feeAmount": "No mandatory submission fee or payment is visible for the official direct demo form.",
+    "loginRequired": false,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "House-subgenre fit, finished-track status, download-enabled private-link access, rights, AI policy, form anti-spam/privacy controls, possible contract terms and final submission require human approval.",
+    "notes": "Passively verified on 2026-07-18 from COOL Recordings' official demo page and current Beatport catalogue. The Austrian label requests House, Tech House and Afro House; accepts private SoundCloud or Dropbox links only; rejects unfinished tracks and short snippets; and requires downloads to be enabled. Visible fields are Artist Name, Direct Email, Track Link, Social Media Portfolio and A&R Note. The page states that accepted-fit responses are generally sent within two weeks. No public submission mailbox was identified or substituted. Beatport lists COOL Recordings releases throughout 2026, including 'El Patronato' dated 2026-06-05. No form field was filled, no link was shared and no submission was sent."
+  }
+];
