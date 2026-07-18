@@ -1,0 +1,315 @@
+{
+  "run": 470,
+  "date": "2026-07-18",
+  "pipelineEstimateBefore": 1756,
+  "pipelineEstimate": 1758,
+  "newPlatforms": [
+    {
+      "name": "KWDC 93.5 FM Music Submission",
+      "websiteUrl": "https://www.kwdc.fm/",
+      "submissionUrl": "https://www.kwdc.fm/music-submissions",
+      "formUrl": "https://forms.gle/2wWiysbMKriTbo8W8",
+      "sourceUrl": "https://www.kwdc.fm/music-submissions",
+      "sourceType": "automation_run_470_public_research",
+      "country": "United States (Stockton, California); international eligibility is not explicitly confirmed.",
+      "language": "en",
+      "genres": [
+        "dance",
+        "latin",
+        "top-40",
+        "rock",
+        "indie",
+        "unsigned",
+        "college-radio",
+        "clean-radio",
+        "email-attachment",
+        "consent-form",
+        "manual-review"
+      ],
+      "submissionMethod": "official first-party public email route requiring a signed music-consent form and MP3 attachment",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission email with mandatory consent form",
+        "formLocation": "https://forms.gle/2wWiysbMKriTbo8W8",
+        "downloadableConsentForm": "https://www.kwdc.fm/_files/ugd/f18289_9def52dbf9034edabfb19e20cdab7eca.pdf",
+        "email": "kwdc@deltacollege.edu",
+        "explicitPurpose": "Submit clean original music for possible KWDC airplay and the daily Underground Hour.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Review and sign the official consent form, select a compliant MP3 master, prepare the prescribed email and send only after explicit owner approval.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "internationalAcceptanceEvidence": "The page references unsigned artists and local music but does not expressly state that international artists are accepted.",
+        "standardRouteFeePublished": false,
+        "standardRouteFeeEvidence": "No fee or payment step is published on the first-party route."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submit only clean lyrics",
+          "avoid vulgar, discriminatory or explicit content",
+          "complete a music-consent form",
+          "send the submission to kwdc@deltacollege.edu",
+          "use the subject line Music Submission",
+          "provide submitter name, artist or performer name and song title",
+          "include a concise description of the music",
+          "include social-media handles or website when available",
+          "attach the signed consent form or state that the digital form was completed",
+          "provide MP3 files only",
+          "use a stereo master at minus 3 dB"
+        ],
+        "publishedReviewTiming": null,
+        "formFieldsObserved": [
+          "digital consent form linked but not passively retrievable",
+          "downloadable consent PDF linked but not passively retrievable",
+          "email subject",
+          "submitter name",
+          "artist or performer name",
+          "song title",
+          "music description",
+          "social handles or website",
+          "signed consent confirmation",
+          "MP3 attachment"
+        ],
+        "safeReviewScope": [
+          "inspect the complete consent form and all rights, release, license and revocation language",
+          "confirm that the selected MarcsMusic track is fully clean and appropriate for KWDC standards",
+          "verify MP3 encoding, stereo master level, metadata and attachment size",
+          "verify composition, master, sample and contributor rights",
+          "confirm international and AI-assisted-music eligibility before submission when needed",
+          "inspect the digital consent form for login, CAPTCHA, anti-spam, personal-data and signature controls",
+          "approve the signed form, email content, attachment and final send action"
+        ],
+        "unresolvedEligibility": [
+          "whether artists outside the United States are accepted",
+          "whether AI-assisted or AI-generated music is eligible",
+          "complete legal terms of the downloadable and digital consent forms",
+          "whether the Google form requires authentication or presents CAPTCHA or submit-time verification",
+          "maximum MP3 attachment size and accepted encoding bitrate",
+          "the precise interpretation of the minus 3 dB mastering requirement"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          "kwdc@deltacollege.edu"
+        ],
+        "adjacentEmailsExcluded": [],
+        "emailStatus": "The address is published on the official submission page, is syntactically valid, uses the Delta College domain and is explicitly designated for music submissions.",
+        "verification": "Verification was limited to first-party publication, syntax, explicit purpose and domain/context alignment. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "externalFormProvider": "Google Forms",
+        "externalFormUrl": "https://forms.gle/2wWiysbMKriTbo8W8",
+        "embeddedFormPage": null,
+        "multiStepForm": null,
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA is shown on the first-party guidance page. The linked Google form could not be passively retrieved, so hidden or submit-time controls remain unverified.",
+        "loginObserved": false,
+        "loginStatus": "The primary email route does not require an account. Authentication requirements for the optional digital consent form remain unverified.",
+        "paymentObserved": false,
+        "paymentStatus": "No fee, checkout or payment requirement is published.",
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "Human review is required for the mandatory consent, direct MP3 attachment, clean-content certification, international and AI eligibility, inaccessible form terms and any hidden Google-form controls.",
+        "rightsOrConsentFields": [
+          "mandatory music-consent form",
+          "possible digital signature or acknowledgement",
+          "authorization associated with airplay"
+        ],
+        "uploadControls": [
+          "MP3 attachment sent by email",
+          "optional digital consent-form submission"
+        ],
+        "adjacentRoutesExcluded": [
+          "general station hotline",
+          "digital media office phone",
+          "social-media links",
+          "PSA, shout-out, show and interview request forms"
+        ]
+      },
+      "legalReview": {
+        "publishedTermsUrl": "https://www.kwdc.fm/_files/ugd/f18289_9def52dbf9034edabfb19e20cdab7eca.pdf",
+        "publishedTermsAccessible": false,
+        "publishedTermsStatus": "The first-party page links a downloadable consent PDF and a Google consent form, but neither substantive consent surface was retrievable in this runtime.",
+        "publishedLicenseSummary": "KWDC requires a completed music-consent form before considering music for rotation.",
+        "manualLegalReviewRequired": true
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The first-party schedule is labelled Summer 2026, states that KWDC provides student and faculty programming plus music 24 hours every day, and the submission page states that The Underground Hour plays unsigned music daily."
+      },
+      "genreFitEvidence": [
+        "The Summer 2026 schedule states that KWDC plays Latin, Top 40, Rock and Dance.",
+        "The submission page specifically promotes unsigned artists through the daily Underground Hour.",
+        "Selected clean MarcsMusic dance, electronic-pop, Latin-adjacent or rock-adjacent tracks may fit after human editorial review."
+      ],
+      "manualReviewReason": "The active route is authorized and has a first-party business email, but it requires a signed consent form, a direct MP3 attachment and clean-content compliance. The consent terms, Google-form controls, international eligibility, AI policy, rights and final email require human review.",
+      "priority": 78,
+      "pricingModel": "no-fee-visible/first-party-email/mp3-attachment/mandatory-consent/clean-content/international-unconfirmed/manual-review"
+    },
+    {
+      "name": "Qfm 94.3 Tenerife Music Submissions",
+      "websiteUrl": "https://www.qmusica.com/",
+      "submissionUrl": "https://www.qmusica.com/music-submissions-qfm",
+      "formUrl": "https://www.qmusica.com/contact",
+      "sourceUrl": "https://www.qmusica.com/music-submissions-qfm",
+      "sourceType": "automation_run_470_public_research",
+      "country": "Spain (Tenerife, Canary Islands); the first-party page explicitly accepts regional, national and international artists.",
+      "language": "en",
+      "genres": [
+        "jazz",
+        "smooth-jazz",
+        "cool-jazz",
+        "acid-jazz",
+        "nu-jazz",
+        "soul",
+        "funk",
+        "blues",
+        "world-fusion",
+        "chillout",
+        "electronic",
+        "unsigned",
+        "radio-airplay",
+        "contact-form",
+        "external-download-link",
+        "manual-review"
+      ],
+      "submissionMethod": "official first-party public contact form carrying a WeTransfer or Dropbox download link",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party music-submission guidance plus public contact form",
+        "formLocation": "https://www.qmusica.com/contact",
+        "email": null,
+        "explicitPurpose": "Submit jazz, soul, funk, blues, world-fusion and related music for free airplay consideration and possible Jazz Roja festival consideration.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Prepare the approved files, create an authorized WeTransfer or Dropbox download link, paste it into the official contact form and submit only after explicit owner approval.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "internationalAcceptanceEvidence": "The first-party submission page explicitly states that Qfm promotes regional, national and international artists via airplay.",
+        "standardRouteFeePublished": false,
+        "standardRouteFeeEvidence": "The submission page states that artist promotion via airplay is totally free of charge."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submit only Jazz, Smooth Jazz, Cool Jazz, Swing, Acid Jazz, Nu-Jazz, Soul, Funk, Blues, World Fusion or closely related music",
+          "do not submit Rock, Pop, Country or unrelated genres through this route",
+          "provide MP3 files at 192 or 320 kbps constant bitrate",
+          "create the files from the master rather than lower-bitrate sources",
+          "tag each track with complete artist and title data",
+          "remove excessive silence at the beginning and end",
+          "place tracks and artist information or biography in a folder",
+          "create a ZIP package",
+          "provide a WeTransfer or Dropbox download link through the official contact form",
+          "do not provide YouTube, Facebook, Google Drive or SoundCloud links",
+          "provide name, email address, subject and message in the contact form"
+        ],
+        "publishedReviewTiming": null,
+        "formFieldsObserved": [
+          "Your name",
+          "Your e-mail address",
+          "Subject",
+          "Message"
+        ],
+        "safeReviewScope": [
+          "select only a genre-compatible MarcsMusic track",
+          "verify MP3 constant bitrate, source quality, metadata and silence trimming",
+          "verify biography and all composition, master, sample and contributor rights",
+          "inspect the ZIP contents before upload",
+          "review WeTransfer or Dropbox account, privacy, retention, expiry and download permissions",
+          "confirm AI-assisted-music eligibility because no policy is published",
+          "inspect the live contact form for CAPTCHA, anti-spam, consent and submit-time controls",
+          "approve the external upload, contact-form content and final submission action"
+        ],
+        "unresolvedEligibility": [
+          "whether AI-assisted or AI-generated music is eligible",
+          "maximum number of tracks or ZIP size",
+          "whether instrumental electronic or chillout tracks outside a strict jazz format are accepted",
+          "retention period and reviewer handling of externally hosted files",
+          "whether hidden or submit-time CAPTCHA or anti-spam controls appear"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "adjacentEmailsExcluded": [],
+        "emailStatus": "No public submission mailbox is published on the inspected first-party pages. Qfm directs music submissions through its public contact form after preparing a WeTransfer or Dropbox link.",
+        "verification": "Contact verification was limited to first-party route publication and purpose. No protected address was decoded and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": false,
+        "externalFormProvider": null,
+        "externalFormUrl": null,
+        "embeddedFormPage": "https://www.qmusica.com/contact",
+        "multiStepForm": false,
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA is exposed in the passively rendered contact form. Hidden or submit-time anti-spam controls remain unverified.",
+        "loginObserved": false,
+        "loginStatus": "The Qfm contact form is publicly rendered without a stated account requirement. The selected WeTransfer or Dropbox workflow may independently require account, email-verification or session choices.",
+        "paymentObserved": false,
+        "paymentStatus": "Qfm states that airplay promotion is totally free of charge. No payment control appears on the route.",
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "Human review is required for genre fit, external file hosting, privacy and link permissions, MP3 and ZIP suitability, rights, unpublished AI policy and hidden contact-form controls.",
+        "rightsOrConsentFields": [],
+        "uploadControls": [
+          "external WeTransfer or Dropbox ZIP upload performed outside Qfm",
+          "download link pasted into the first-party contact form"
+        ],
+        "adjacentRoutesExcluded": [
+          "sponsorship inquiry",
+          "technical-services inquiry",
+          "CD store",
+          "festival site without a separately published submission route",
+          "YouTube, Facebook, Google Drive and SoundCloud links explicitly rejected"
+        ]
+      },
+      "legalReview": {
+        "publishedTermsUrl": "https://www.qmusica.com/cookies-privacy",
+        "publishedTermsAccessible": true,
+        "publishedTermsStatus": "The contact page states that personal and contact information will not be shared with third parties. No detailed artist-license or AI policy is published on the submission page.",
+        "publishedLicenseSummary": "Qfm requests downloadable music for editorial airplay consideration but does not publish a detailed music-license grant on the inspected route.",
+        "manualLegalReviewRequired": true
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The first-party site carries a 2026 copyright notice, advertises current FM, DAB+ and three streaming formats, and publishes a current schedule including daily Sunset Sessions, weekly World Grooves and Chillout Zone, and a monthly unsigned-artist show."
+      },
+      "genreFitEvidence": [
+        "The official route accepts World Fusion, Nu-Jazz, Soul, Funk, Blues and related styles.",
+        "The current program page includes electronic and eclectic Sunset Sessions, World Grooves and the Chillout Zone.",
+        "A selected MarcsMusic world-fusion, chillout, downtempo or jazz-adjacent instrumental may fit after human editorial review."
+      ],
+      "manualReviewReason": "The route is active, free and explicitly international, but requires genre-specific selection, preparation of a ZIP, an external WeTransfer or Dropbox upload and a first-party contact-form submission. File rights, external-hosting permissions, unpublished AI policy and hidden live controls require human approval.",
+      "priority": 86,
+      "pricingModel": "free/first-party-contact-form/external-download-link/international/world-fusion-jazz/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "KWDC",
+      "kwdc.fm",
+      "kwdc.fm/music-submissions",
+      "kwdc@deltacollege.edu",
+      "Qfm 94.3",
+      "Qfm Tenerife",
+      "qmusica.com",
+      "qmusica.com/music-submissions-qfm",
+      "qmusica.com/contact"
+    ],
+    "repositoryEvidence": "The complete accessible open pull-request patch and repository code search were checked for both platform names, canonical domains, submission URLs and the KWDC submission mailbox; no match was found before creation.",
+    "consolidation": "KWDC is stored once as a single email-plus-consent program rather than separate email, PDF and Google-form opportunities. Qfm is stored once as one contact-form program rather than separate WeTransfer, Dropbox, festival and general-contact opportunities."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Two legitimate opportunities were queued as needs_manual_review. No form field was filled, no consent was signed, no file or ZIP was uploaded, no email was sent, no account or login was used, no CAPTCHA was solved and no payment or submission action was completed."
+}
