@@ -1,0 +1,290 @@
+{
+  "run": 478,
+  "date": "2026-07-18",
+  "pipelineEstimateBefore": 1778,
+  "pipelineEstimate": 1781,
+  "newPlatforms": [
+    {
+      "name": "YardHype Radio Free Song Submission",
+      "websiteUrl": "https://yardhyperadio.com/",
+      "submissionUrl": "https://yardhyperadio.com/song-submition/",
+      "sourceUrl": "https://yardhyperadio.com/song-submition/",
+      "sourceType": "automation_run_478_public_research",
+      "country": "United States / Jamaica-focused worldwide online radio and entertainment platform; the official route states that approved artists can reach a global audience.",
+      "language": "en",
+      "genres": [
+        "reggae",
+        "dancehall",
+        "hip-hop",
+        "Afrobeat",
+        "R&B",
+        "pop",
+        "Caribbean"
+      ],
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public direct-upload music-submission form",
+        "formLocation": "https://yardhyperadio.com/song-submition/",
+        "explicitPurpose": "Submit original music for review, possible courtesy airplay, chart placement and fan voting.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "internationalArtistsExplicitlyAccepted": true
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "artist name, song title and email address",
+          "optional comments, social-media details or song links",
+          "song upload in MP3, M4A or WAV",
+          "optional album artwork in JPG or PNG",
+          "non-exclusive broadcast licence for promotional airplay",
+          "approved tracks may appear on the live chart and become eligible for fan voting"
+        ],
+        "observedFields": [
+          "artist name",
+          "song title",
+          "email address",
+          "optional comments/social/song links",
+          "audio upload",
+          "optional artwork upload",
+          "broadcast-licence acknowledgement",
+          "submit button"
+        ],
+        "rightsAndTerms": [
+          "submitter grants a non-exclusive broadcast licence for promotional airplay",
+          "the page states that 90% of quality songs receive courtesy plays",
+          "approved songs can enter a public fan-voting and chart process",
+          "separate paid airplay-promotion packages exist and were excluded from the free editorial route"
+        ],
+        "manualChecks": [
+          "reggae, dancehall, hip-hop, Afrobeat, R&B or pop fit",
+          "audio format, quality, file size and metadata",
+          "composition, master, sample and contributor rights",
+          "artwork ownership and publicity rights",
+          "scope, duration, territory and revocability of the promotional-airplay licence",
+          "fan-voting participation and public chart exposure",
+          "AI-assisted or AI-generated music eligibility",
+          "hidden CAPTCHA, honeypot, rate-limit or anti-spam controls",
+          "strict separation from optional paid promotion",
+          "every field, upload, consent and final submission"
+        ]
+      },
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [],
+        "verification": "No first-party public submission email was identified on the official submission route during passive retrieval. The first-party form is the stored authorized route. No protected address was decoded and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official site showed recently played tracks, published new Dancehall and music items through July 13, 2026 and ran multiple fan-vote rounds in 2026, including a March 29 round."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "first-party WordPress form/plugin",
+        "directUploadObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible passively; hidden submit-time controls remain unverified.",
+        "paymentObserved": false,
+        "optionalPaidPromotionObserved": true,
+        "audienceVotingObserved": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 97,
+      "pricingModel": "free-first/first-party-direct-upload/non-exclusive-promotional-airplay/fan-voting/optional-paid-promotion/manual-review"
+    },
+    {
+      "name": "UnityXM Radio Reggae Samplers Submission",
+      "websiteUrl": "https://unityxm.com/",
+      "submissionUrl": "https://vibes.unityxm.com/",
+      "sourceUrl": "https://vibes.unityxm.com/",
+      "sourceType": "automation_run_478_public_research",
+      "country": "Jamaica / worldwide 24/7 online Caribbean music-discovery station; the official site expressly describes listeners and participation from around the world.",
+      "language": "en",
+      "genres": [
+        "reggae",
+        "Afro-Caribe",
+        "soca",
+        "kompa",
+        "fusion",
+        "contemporary dancehall",
+        "urban dancehall",
+        "Caribbean"
+      ],
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public submission guidance linking to an external DISCO upload inbox",
+        "formLocation": "https://vibes.unityxm.com/",
+        "externalFormLocation": "https://skankn.disco.ac/upload/7376885/reggae-samplers-inbox/",
+        "explicitPurpose": "Submit officially released clean Caribbean music for possible UnityXM airplay and discovery.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "internationalArtistsExplicitlyAccepted": true
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "professional production quality",
+          "music must be officially released and searchable on major streaming platforms",
+          "no explicit lyrics or prohibited themes such as sexual exploitation, politics, violence, drugs, scamming, reckless driving or alcohol",
+          "preferred genres include Reggae, Afro-Caribe, Fusions and Contemporary Dancehall",
+          "cover art must be at least 1000x1000 pixels",
+          "high-quality MP3 or WAV only"
+        ],
+        "observedFields": [
+          "official page contains a Submit Your Music link to an external DISCO upload inbox; the provider fields were not passively inspectable"
+        ],
+        "rightsAndTerms": [
+          "complete DISCO upload, privacy and submission terms were not exposed during passive retrieval",
+          "official page imposes strict content and release-availability conditions"
+        ],
+        "manualChecks": [
+          "official release is searchable on major streaming platforms",
+          "strict clean-content and prohibited-theme compliance",
+          "Reggae, Afro-Caribe, Soca, Kompa, Fusion or Contemporary Dancehall fit",
+          "MP3/WAV quality, metadata and file-size limits",
+          "minimum 1000x1000 cover-art quality and rights",
+          "composition, master, sample and contributor rights",
+          "AI-assisted or AI-generated music policy",
+          "external DISCO login, authentication, CAPTCHA, privacy and terms",
+          "external upload retention and permissions",
+          "every field, file, consent and final submission"
+        ]
+      },
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [],
+        "verification": "No first-party public business or music-submission email was surfaced on the official UnityXM pages during passive retrieval. Email addresses appearing only in third-party directories were excluded. No protected address was decoded and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official site describes 24/7 broadcasting from Kingston, a worldwide real-time listener-driven station and a current Just Played section; the active public site and linked submission guidance were accessible during verification."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "DISCO public upload inbox",
+        "directUploadObserved": true,
+        "loginObserved": false,
+        "loginStatus": "Not visible on the official page; the external provider could not be safely inspected.",
+        "captchaObserved": false,
+        "captchaStatus": "Unknown because the external DISCO upload inbox returned a passive cache-miss; no challenge was attempted.",
+        "paymentObserved": false,
+        "externalInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 96,
+      "pricingModel": "no-fee-visible/official-guidance/external-disco-upload/released-clean-caribbean-music/manual-review"
+    },
+    {
+      "name": "M3 Radio New Independent Music Submission",
+      "websiteUrl": "https://www.m3radio.com/",
+      "submissionUrl": "mailto:m3newmusic@yahoo.com",
+      "sourceUrl": "https://www.m3radio.com/submission-info/",
+      "sourceType": "automation_run_478_public_research",
+      "country": "United States / worldwide Internet broadcast; the station streams online, while eligibility for every international artist is not explicitly guaranteed on the submission page.",
+      "language": "en",
+      "genres": [
+        "independent music",
+        "electronic",
+        "world",
+        "hip-hop",
+        "jazz",
+        "heavy",
+        "rock"
+      ],
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-director submission mailbox",
+        "email": "m3newmusic@yahoo.com",
+        "explicitPurpose": "Submit independent music for editorial review and possible airplay.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "internationalArtistsExplicitlyAccepted": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "email submissions to m3newmusic@yahoo.com",
+          "download link preferred instead of attachments",
+          "music must be no more than one year old",
+          "AIFF, WAV or MP3 accepted",
+          "MP3 must be at least 128 kbps",
+          "CD submissions are no longer accepted",
+          "optional autographed photograph may be emailed for website display"
+        ],
+        "observedFields": [
+          "email recipient",
+          "download link preferred",
+          "optional attachment or photograph"
+        ],
+        "rightsAndTerms": [
+          "submission-specific licence, retention, compensation and AI terms are not published on the visible page",
+          "the station reports airplay charts to NACC, including Electronic, World, Hip Hop, Heavy and Jazz specialties"
+        ],
+        "manualChecks": [
+          "release date within one year",
+          "independent, Electronic, World, Hip-Hop, Jazz, Heavy or Rock fit",
+          "AIFF/WAV/MP3 quality and MP3 bitrate",
+          "download-link accessibility and least-privilege sharing",
+          "composition, master, sample and contributor rights",
+          "metadata and release information",
+          "international artist eligibility",
+          "AI-assisted or AI-generated music policy",
+          "optional photograph ownership and publicity rights",
+          "recipient, message, links or attachments and final send approval"
+        ]
+      },
+      "businessContact": {
+        "submissionEmails": [
+          "m3newmusic@yahoo.com"
+        ],
+        "generalEmails": [],
+        "verification": "m3newmusic@yahoo.com is first-party published, syntactically valid and explicitly designated for music submissions. It uses a consumer Yahoo domain rather than m3radio.com, so domain alignment is not claimed. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official page carries a 2026 copyright notice and links to an active Live365 station profile describing new independent music, a now-playing area and current genres including Electro, Underground Hip-Hop, Classic Jazz, Heavy Metal and Rock & Roll."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "emailRouteObserved": true,
+        "directUploadObserved": false,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true
+      },
+      "priority": 95,
+      "pricingModel": "no-fee-visible/public-submission-email/download-link-preferred/release-under-one-year/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "YardHype Radio",
+      "yardhyperadio.com/song-submition",
+      "UnityXM Radio",
+      "unityxm.com",
+      "vibes.unityxm.com",
+      "skankn.disco.ac/upload/7376885/reggae-samplers-inbox",
+      "M3 Radio",
+      "m3radio.com/submission-info",
+      "m3newmusic@yahoo.com"
+    ],
+    "repositoryEvidence": "Repository code search returned no existing canonical match for YardHype Radio, UnityXM Radio or M3 Radio by official platform name, route, domain or published submission address before creation.",
+    "consolidation": "YardHype's fan-chart and paid-promotion pages, UnityXM's request/suggest interfaces and third-party directory contacts, and M3's Live365 player and social profiles were retained as evidence or boundaries rather than duplicated as separate opportunities."
+  },
+  "activeQueueRowsAdded": 3,
+  "notes": "Three legitimate opportunities were queued as needs_manual_review. No email was sent, no form field was filled, no audio or artwork was uploaded, no licence or consent was accepted, no vote was cast, no login was attempted, no CAPTCHA or anti-spam control was bypassed and no payment or submission action was completed."
+}
