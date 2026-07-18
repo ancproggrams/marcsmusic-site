@@ -1,0 +1,4 @@
+run,platform,submission_url,status,manual_review_reason
+481,Camaradio 101.3FM Music Submission,https://camaradio.org/submissions/,needs_manual_review,"Nonlocal/international eligibility, one-track fit, WAV/MP3 limits, rights, AI policy, privacy/licence, visible arithmetic CAPTCHA, hidden anti-spam controls and final form submission require human review."
+481,WUAG 103.1 FM Music Submission,https://wuag.uncg.edu/music-submissions/,needs_manual_review,"International eligibility, song-or-release selection, FCC/clean-content review, upload or cloud-link access, rights, AI policy, privacy/licence, hidden form controls and final submission require human review."
+481,KAZI 88.7 FM Untapped Music Submission,mailto:music@kazifm.org,needs_manual_review,"International eligibility, one radio-edited track, stream/download delivery, file quality, rights, AI policy, licence/retention terms, recipient verification and final email send require human review."
