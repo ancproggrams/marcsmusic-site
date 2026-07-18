@@ -1,0 +1,288 @@
+{
+  "run": 475,
+  "date": "2026-07-18",
+  "pipelineEstimateBefore": 1769,
+  "pipelineEstimate": 1772,
+  "newPlatforms": [
+    {
+      "name": "The Relay Station Ambient Music Submission",
+      "websiteUrl": "https://stolace.com/relay-station/",
+      "submissionUrl": "https://stolace.com/relay-station/artists/submit-music/",
+      "formUrl": "https://stolace.com/relay-station/artists/submit-music/",
+      "sourceType": "automation_run_475_public_research",
+      "country": "United States / global syndicated programme; the official route explicitly accepts independent and signed ambient artists from around the globe and asks for the artist country.",
+      "language": "en",
+      "genres": ["ambient", "atmospheric", "neoclassical", "instrumental", "worldwide"],
+      "submissionMethod": "official first-party public form using unused Bandcamp codes or non-expiring account-free direct-download links for high-quality metadata-complete MP3 files",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public artist-submission form",
+        "formLocation": "https://stolace.com/relay-station/artists/submit-music/",
+        "email": null,
+        "explicitPurpose": "Submit ambient, atmospheric or neoclassical music for possible Relay Station airplay, syndication and promotion.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "internationalAcceptanceEvidence": "The page describes music from around the globe, accepts independent and signed artists and asks for the artist country.",
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "ambient, atmospheric or neoclassical music with a less chaotic character",
+          "prominent drums, vocals, electronica, techno, house, noise, solo piano and deeply experimental music are generally rejected",
+          "submit unused Bandcamp codes or non-expiring direct-download links that require no account",
+          "Spotify links are prohibited",
+          "320 kbps or variable-bitrate MP3 is preferred and metadata must be complete",
+          "submitter must own or control distribution rights and prevent automated Content ID takedowns",
+          "grant free-and-clear permission for programme, syndication, archives, monetization, promotions, advertisements and other Stolace Productions content"
+        ],
+        "formFieldsObserved": [
+          "artist or project name", "pronunciation", "contact name", "contact email", "optional updates consent", "country",
+          "independent or signed status", "label", "CD Baby status", "website", "Bandcamp URL", "Bandcamp codes or download links",
+          "Bandcamp YUM link", "statement-of-consent acceptance"
+        ],
+        "safeReviewScope": [
+          "select only a genuinely suitable ambient, atmospheric or neoclassical release",
+          "verify non-expiring links or unused Bandcamp codes and complete audio metadata",
+          "confirm composition, master, sample, contributor, artwork and distribution rights",
+          "confirm Content ID and distributor settings will not trigger claims or takedowns",
+          "review free-and-clear airplay, syndication, archive, monetization, advertisement and promotional consent",
+          "keep optional updates consent unselected unless separately approved",
+          "confirm AI-assisted or AI-generated music eligibility",
+          "inspect hidden anti-spam, CAPTCHA and submit-time controls",
+          "approve every field, code, link and final submission"
+        ],
+        "unresolvedEligibility": [
+          "AI-assisted or AI-generated music policy",
+          "duration, revocability and exact territorial scope of the free-and-clear consent",
+          "track truncation and derivative-use implications",
+          "hidden submit-time controls"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "emailStatus": "No public business email is needed or stored for the authorized route. The official general contact form expressly directs music submissions to the dedicated submission page; no protected address was decoded or inferred.",
+        "verification": "No protected-contact decoding, SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "externalProvider": null,
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible in passive page content; hidden or submit-time controls remain unverified.",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "deliveryControls": ["unused Bandcamp code", "Bandcamp YUM URL", "non-expiring account-free download link", "320 kbps or VBR MP3 metadata"],
+        "rightsOrConsentTerms": ["free-and-clear airplay and syndication", "archive and hosting", "platform monetization", "promotional materials and advertisements", "other Stolace Productions content"],
+        "manualRecheckReason": "Genre fit, link/code validity, metadata, Content ID, broad consent, rights, AI eligibility, optional subscription choice, hidden controls and final submission require human review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official programme page displayed Season 7 Episode 07.22 broadcast on May 31, 2026 and weekly episodes on May 24 and May 17, 2026, with active artist and radio-syndication pages."
+      },
+      "manualReviewReason": "The route is globally open and free, but its strict musical fit, Content ID handling and broad monetized promotional consent require human and legal approval.",
+      "priority": 90,
+      "pricingModel": "no-fee-visible/first-party-form/bandcamp-code-or-download-link/global/ambient-specialist/broad-promotional-consent/manual-review"
+    },
+    {
+      "name": "rBeatz Global Radio Free Music Submission",
+      "websiteUrl": "https://rbeatz.com/",
+      "submissionUrl": "https://rbeatz.com/music-submission/",
+      "formUrl": "https://rbeatz.com/music-submission/",
+      "sourceType": "automation_run_475_public_research",
+      "country": "United States / global network; the official form includes a worldwide country selector and routes music across multiple global and genre stations.",
+      "language": "en",
+      "genres": ["hip-hop", "R&B", "electronic", "house", "global", "pop", "rock", "gospel", "single", "album"],
+      "submissionMethod": "official first-party four-step public form requiring artist/contact details, release metadata, station selection, direct audio upload, AI-origin disclosure and a digital signature",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public direct-upload form with durable licensing agreement",
+        "formLocation": "https://rbeatz.com/music-submission/",
+        "email": null,
+        "explicitPurpose": "Submit a single or album for free merit-based consideration across the rBeatz station network.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "internationalAcceptanceEvidence": "The form includes a global country selector and multiple worldwide station options, while the network describes global artists and listeners.",
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "single or album",
+          "first name, last name, email, phone, social links and postal address",
+          "track title, artist, album, country or release date, genre, label and optional ISRC",
+          "disclose whether the music is AI-generated, partially AI-generated or not AI-generated",
+          "select one rBeatz network station",
+          "directly upload the audio track",
+          "accept the Durable Licensing Agreement and provide a digital signature"
+        ],
+        "formFieldsObserved": [
+          "contact identity", "phone", "social links", "street address", "city", "region", "postal code", "country",
+          "single or album", "track title", "artist name", "album title", "country or release date", "genre", "label", "ISRC",
+          "AI status and clarification", "station choice", "audio upload", "agreement checkbox", "signature"
+        ],
+        "safeReviewScope": [
+          "select the appropriate station and final audio master",
+          "verify every identity, address, release and social field",
+          "confirm composition, master, sample, contributor, artwork, publicity and persona rights",
+          "review AI provenance and disclosure accuracy",
+          "review the Durable Licensing Agreement and linked Terms in full",
+          "assess perpetual or extended, irrevocable, transferable, sublicensable, royalty-free, synchronization, modification, derivative, distribution and persona-use rights",
+          "review waiver, indemnity, jurisdiction and arbitration provisions",
+          "avoid optional newsletter or marketing consent unless separately approved",
+          "inspect upload limits, MIME restrictions, hidden anti-spam and CAPTCHA controls",
+          "approve the upload, agreement, signature and final submit action separately"
+        ],
+        "unresolvedEligibility": [
+          "maximum upload size and accepted audio formats",
+          "treatment of partially AI-generated music after disclosure",
+          "withdrawal or termination mechanisms for the durable license",
+          "complete linked Terms and privacy implications",
+          "hidden submit-time controls"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "emailStatus": "The authorized route is the dedicated first-party submission form. The official contact page provides a general contact form rather than a public submission mailbox and includes a separate Mailchimp marketing-consent disclosure.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "externalProvider": null,
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible in passive form content; hidden or submit-time controls remain unverified.",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "uploadControls": ["direct audio-track upload"],
+        "rightsOrConsentTerms": ["Durable Licensing Agreement", "perpetual or extended irrevocable universal license", "transfer and sublicense", "synchronization", "modification and derivative works", "persona and likeness use", "waiver and indemnity"],
+        "digitalSignatureObserved": true,
+        "manualRecheckReason": "Direct upload, sensitive personal data, AI disclosure, the exceptionally broad durable license, signature, linked terms, hidden controls and final submission require explicit human and legal review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official rBeatz Radio Live page described a free no-login 24/7 global stream, current independent-artist programming, multiple active network stations and a 2026 copyright notice."
+      },
+      "manualReviewReason": "The submission is free and globally available, but the direct upload and unusually broad perpetual, irrevocable and sublicensable license create a high legal-review boundary.",
+      "priority": 65,
+      "pricingModel": "free/first-party-four-step-form/direct-audio-upload/global-network/ai-disclosure/digital-signature/durable-perpetual-license/manual-review"
+    },
+    {
+      "name": "PDX Radio Independent Hip-Hop and R&B Submission",
+      "websiteUrl": "https://www.getpdxradio.com/",
+      "submissionUrl": "https://www.getpdxradio.com/song-submission.html",
+      "formUrl": "https://www.getpdxradio.com/song-submission.html",
+      "sourceType": "automation_run_475_public_research",
+      "country": "United States (Portland, Oregon) / global online radio; the official station streams worldwide and its policy explicitly accepts international submissions.",
+      "language": "en",
+      "genres": ["independent hip-hop", "R&B", "soul", "related subgenres", "worldwide"],
+      "submissionMethod": "official first-party song-submission page with an embedded intake form for final-master metadata, rights verification and possible free rotation consideration",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party page containing an embedded official song-submission form",
+        "formLocation": "https://www.getpdxradio.com/song-submission.html",
+        "email": null,
+        "generalBusinessEmail": "info@getpdxradio.com",
+        "explicitPurpose": "Submit a final master for free review and possible PDX Radio rotation, requests, charting and related editorial opportunities.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "internationalAcceptanceEvidence": "The content policy expressly states that international submissions may be accepted and the station presents itself as a worldwide stream.",
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submitter must be at least 18 and be the artist, producer, manager, copyright owner or another authorized representative",
+          "submit the final master rather than a rough draft or partial edit",
+          "provide official track title, primary artist and featured artists",
+          "provide an ISRC or album title and label name, using self-released or independent when applicable",
+          "maintain accurate song splits, metadata, PRO and SoundExchange information",
+          "own or control all rights including samples and featured performances",
+          "music must fit independent Hip-Hop, R&B or related subgenres",
+          "AI-generated music is not accepted and submissions are not used for AI training",
+          "if selected, grant a non-exclusive revocable license for station, livestream, affiliated-platform and promotional use"
+        ],
+        "formFieldsObserved": [
+          "The page describes required identity, contact, role, location, artist-verification links, title, artist, featured artist, ISRC or album/label and rights data, but the embedded live form rendered only as an iframe/loading boundary during passive retrieval."
+        ],
+        "safeReviewScope": [
+          "inspect the live embedded form and identify its provider before any interaction",
+          "verify adult identity, role, contact data and authority to submit",
+          "select only the final master and verify technical audio requirements",
+          "confirm accurate title, artist, featured-artist, ISRC, album, label, splits and release metadata",
+          "confirm composition, master, sample, contributor and featured-performance rights",
+          "confirm strict exclusion of AI-generated music and review any AI-assisted disclosure under the AI policy",
+          "review explicit-content and clean-version requirements",
+          "review the non-exclusive revocable worldwide broadcast and promotional license",
+          "inspect upload, login, anti-spam, CAPTCHA and identity-verification controls",
+          "approve every field, upload and final submit action"
+        ],
+        "unresolvedEligibility": [
+          "complete live form fields and provider",
+          "audio file formats and upload limits presented at submit time",
+          "exact treatment of AI-assisted but not AI-generated material",
+          "explicit-content and clean-edit requirements",
+          "extent of any follow-up creator-profile verification",
+          "hidden submit-time controls"
+        ]
+      },
+      "businessContact": {
+        "emails": ["info@getpdxradio.com"],
+        "emailStatus": "info@getpdxradio.com is published on the official song-submission page, syntactically valid and domain-aligned, but it is a general contact address and is not stored as a substitute submission route.",
+        "adjacentRoutesExcluded": ["New Music Monday livestream-only Nero submission route", "paid interview and media services"],
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "externalProvider": "embedded provider not exposed in passive page content",
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible on the first-party page; the embedded form and submit-time controls remain unverified.",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "uploadControls": ["final-master delivery is required but the live upload mechanism and limits were not passively exposed"],
+        "rightsOrConsentTerms": ["rights and authority warranty", "non-exclusive revocable worldwide broadcast license", "promotional use", "no pay-to-play", "strict AI-generated-music exclusion"],
+        "manualRecheckReason": "The embedded form was not fully inspectable. Identity, final-master data, metadata, rights, AI policy, form provider, upload and anti-abuse controls and final submission require human review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official about page states that PDX Radio has streamed independent Hip-Hop and R&B worldwide 24/7 since 2019. The active New Music Monday page lists a weekly Monday 6–8 PM Pacific live review programme, and the site displays 2026 policy updates and copyright."
+      },
+      "manualReviewReason": "The route is free and explicitly international, but its embedded form, identity checks, strict AI rule, metadata and rights requirements and final-master delivery require human review.",
+      "priority": 88,
+      "pricingModel": "free/no-pay-to-play/first-party-embedded-form/global/independent-hip-hop-and-r-and-b/strict-ai-prohibition/rights-aware/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "The Relay Station", "stolace.com/relay-station/artists/submit-music",
+      "rBeatz", "rbeatz.com/music-submission",
+      "PDX Radio", "getpdxradio.com/song-submission", "info@getpdxradio.com"
+    ],
+    "repositoryEvidence": "Repository code search returned no existing canonical match for The Relay Station, rBeatz or PDX Radio before creation.",
+    "consolidation": "The Relay Station is one first-party form opportunity despite Bandcamp-code and direct-link choices. rBeatz is one network submission opportunity despite multiple station selections. PDX Radio is one standing rotation-submission opportunity; the separate livestream-only New Music Monday route and paid media services were excluded."
+  },
+  "activeQueueRowsAdded": 3,
+  "notes": "Three legitimate global opportunities were queued as needs_manual_review. No form field was filled, no code, link, identity data or audio file was submitted, no agreement was accepted or signed, no mailing-list consent was given, no login was used, no CAPTCHA was solved and no payment or submission action was completed."
+}
