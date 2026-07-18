@@ -88,6 +88,7 @@ export const run476SeedPlatforms: PlatformInput[] = [
       'positive-music',
       'direct-audio-upload',
       'honeypot-antispam',
+      'broad-exclusive-rights-terms',
       'manual-review'
     ],
     submissionMethod:
@@ -99,8 +100,8 @@ export const run476SeedPlatforms: PlatformInput[] = [
     paymentRequired: false,
     manualReviewRequired: true,
     manualReviewReason:
-      'The route requires a direct audio upload through a form protected by a honeypot. Clean and positive-content fit, metadata, production credits, rights, incomplete visible contact and consent fields, linked terms, AI eligibility, upload controls and final submission require human review.',
+      'The route requires a direct audio upload through a form protected by a honeypot. The official Terms of Service contain a broad submission clause asserting ownership and unrestricted worldwide use without compensation for covered submissions. Its applicability to requested music uploads, along with rights, retention, clean/positive fit, AI eligibility, hidden controls and final submission, requires explicit human and legal review.',
     notes:
-      'Passively verified on 2026-07-18 from the official media-submission page, current show display and 2026 editorial pages. The form accepts a 320 kbps MP3 or WAV, shows a 268.44 MB limit and contains an anti-spam field instructing humans to leave it blank. thereggaevibe@gmail.com is first-party published as a general contact, but is not domain-aligned and is not a substitute submission route. No file was selected or uploaded, no honeypot or other anti-spam control was interacted with, no form field was filled, no login was used, no CAPTCHA was solved and no payment or submission action was performed.'
+      'Passively verified on 2026-07-18 from the official media-submission page, Terms of Service, current show display and 2026 editorial pages. The form accepts a 320 kbps MP3 or WAV, shows a 268.44 MB limit and contains an anti-spam field instructing humans to leave it blank. The Terms contain a materially broad submissions provision that must be legally assessed before any upload. thereggaevibe@gmail.com is first-party published as a general contact, but is not domain-aligned and is not a substitute submission route. No file was selected or uploaded, no honeypot or other anti-spam control was interacted with, no term was accepted, no form field was filled, no login was used, no CAPTCHA was solved and no payment or submission action was performed.'
   }
 ];
