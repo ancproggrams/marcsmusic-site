@@ -2,36 +2,38 @@
 
 Date: 2026-07-18
 
-Latest run: Run 470
+Latest run: Run 471
 
-New items added in latest run: 2
+New items added in latest run: 4
 
 Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1758
+Pipeline estimate: 1762
 
 Items:
 
-- Run 470 added: KWDC 93.5 FM — a first-party clean-MP3 email route requiring a signed music-consent form.
-- Run 470 added: Qfm 94.3 Tenerife — a free international first-party contact-form route using a WeTransfer or Dropbox download link.
+- Run 471 added: WRIU 90.3 FM — first-party genre mailboxes for RPM/Electronic, World and Reggae.
+- Run 471 added: The Edge 105.1 & 105.3 FM — a clean, radio-ready global-reggae single form with a Jamaican music-industry-association prerequisite.
+- Run 471 added: Indie Global 365 — an explicitly free two-song MP3 and artwork upload form with mandatory terms acceptance.
+- Run 471 added: Smooth Jazz Club — an international email-and-link route for smooth jazz, radio-friendly jazz fusion and chill/lounge material.
 
-Two new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
+Four new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: KWDC requires clean content, a signed or digitally completed consent form, MP3 files and a stereo master at -3 dB. Qfm requires genre-compatible 192 or 320 kbps constant-bitrate MP3 files, complete metadata, trimmed silence, artist information, a ZIP package and a WeTransfer or Dropbox link; YouTube, Facebook, Google Drive and SoundCloud links are rejected.
+Latest route note: WRIU requires careful genre-department selection but does not publish central digital file rules. The Edge requires clean 320 kbps-or-higher MP3 singles, online presence, an external music link and Jamaican association membership. Indie Global 365 requires 192 kbps MP3 files, size limits, artwork, rights authority and terms acceptance. Smooth Jazz Club requests release metadata, biography, high-quality audio, artwork or press photo and artist links.
 
-Contact-verification note: `kwdc@deltacollege.edu` is first-party published, syntactically valid, aligned with the Delta College domain and explicitly designated for music submissions. Qfm publishes no submission mailbox and directs artists through its contact form. No protected address was decoded. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: WRIU's `rpmsubmissions@wriu.org`, `worldsubmissions@wriu.org` and `reggaesubmissions@wriu.org`, plus `info@smoothjazz.club`, are first-party published, syntactically valid, domain-aligned and explicitly designated for music submissions. The Edge directs artists to its form and uses protected contact rendering; Indie Global 365 exposes no submission mailbox. No protected address was decoded. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: KWDC's first-party Summer 2026 schedule states that it runs 24 hours every day and plays Latin, Top 40, Rock and Dance; its Underground Hour highlights unsigned music daily. Qfm's first-party pages carry a 2026 copyright notice, advertise current FM, DAB+ and streaming, and list Sunset Sessions, World Grooves, Chillout Zone and a monthly unsigned-artist show. Qfm explicitly accepts regional, national and international artists in Jazz, Soul, Funk, Blues, World Fusion and related styles.
+Activity and fit note: WRIU's official site carries a 2026 copyright notice and active streams and programme routes. The Edge publishes a current Monday-Saturday schedule, nationwide FM and daily live-stream access. Indie Global 365 displays a current-song area, open free submissions, live-radio and catalog routes. Smooth Jazz Club lists programme posts from March 1-3, 2026 and states that its programmes run on 71 stations. The strongest MarcsMusic fits are WRIU's Electronic, World and Reggae departments and selected clean reggae for The Edge; Indie Global 365 is appropriate for positive Caribbean/Afro-influenced tracks, while Smooth Jazz Club is only suitable for genuine chill/lounge or jazz-fusion-adjacent material.
 
-Manual-review note: KWDC's consent PDF and Google consent form were not passively retrievable, and international and AI eligibility remain unresolved. Qfm requires an external file-hosting upload and publishes no AI policy. A human must review legal terms, rights, metadata, files, privacy and link permissions, hidden controls, all consent choices and every final upload, send or submit action.
+Manual-review note: The Edge's association prerequisite may block eligibility. Indie Global 365's current upload flow and linked 2019 policy are inconsistent and require legal review. All four routes have unpublished AI eligibility. Humans must review eligibility, genre and content fit, rights, media and artwork, external-link permissions, terms, hidden controls and every final email, upload or submit action.
 
-Deduplication note: the accessible open pull-request patch and repository search contained no existing KWDC, kwdc.fm, kwdc@deltacollege.edu, Qfm 94.3, Qfm Tenerife or qmusica.com record. KWDC is consolidated into one email-plus-consent opportunity and Qfm into one contact-form opportunity. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository code search and the accessible open pull-request inventory contained no existing canonical WRIU, Edge 105, Indie Global 365 or Smooth Jazz Club record before creation. Each platform is consolidated into one opportunity. Canonical SQLite domain and URL deduplication remains required before external use.
 
-Runtime limitation: repository and public-web connectors updated the artifacts. A mounted repository worktree and the dedicated `agent-browser` runner were unavailable. The linked KWDC consent surfaces were not retrievable. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
+Runtime limitation: repository and public-web connectors updated the artifacts. A mounted repository worktree and dedicated `agent-browser` runner were unavailable. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
 
-Safety: No form field was filled, no consent was signed, no file or ZIP was uploaded, no email was sent, no account or login was used, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No form field was filled, no terms checkbox was accepted, no file, artwork or external link was uploaded, no email was sent, no account or login was used, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
 
 ## Recent run history
 
@@ -78,5 +80,9 @@ Added Airhug Radio as a worldwide-facing four-step direct-upload form. PRO and S
 ### Run 470
 
 Added KWDC 93.5 FM as a clean-MP3 email route with mandatory consent and Qfm 94.3 Tenerife as a free international contact-form route using an external download link. Consent terms, rights, uploads, hidden controls and AI eligibility require manual review. Pipeline estimate: 1,758.
+
+### Run 471
+
+Added WRIU's Electronic, World and Reggae department mailboxes, The Edge 105's clean global-reggae form, Indie Global 365's free direct-upload form and Smooth Jazz Club's international specialist email route. Eligibility, rights, content and genre fit, terms, files, external links, hidden controls and final actions require manual review. Pipeline estimate: 1,762.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
