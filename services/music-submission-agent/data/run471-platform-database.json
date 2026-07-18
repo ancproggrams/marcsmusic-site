@@ -1,0 +1,305 @@
+{
+  "run": 471,
+  "date": "2026-07-18",
+  "pipelineEstimateBefore": 1758,
+  "pipelineEstimate": 1762,
+  "newPlatforms": [
+    {
+      "name": "WRIU 90.3 FM Genre Department Music Submissions",
+      "websiteUrl": "https://wriufm.org/",
+      "submissionUrl": "https://wriufm.org/submissions/",
+      "sourceType": "automation_run_471_public_research",
+      "country": "United States (Kingston, Rhode Island); international eligibility is not explicitly confirmed.",
+      "language": "en",
+      "genres": ["electronic", "rpm", "world", "reggae", "indie", "college-radio", "radio-airplay"],
+      "submissionMethod": "official first-party public genre-department email routes",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission email directory",
+        "emails": ["rpmsubmissions@wriu.org", "worldsubmissions@wriu.org", "reggaesubmissions@wriu.org"],
+        "explicitPurpose": "Send music to the appropriate WRIU genre department for possible airplay.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "use the correct genre-department email address",
+          "copy multiple relevant departments only when the release genuinely fits more than one",
+          "route electronic music to rpmsubmissions@wriu.org",
+          "route world music to worldsubmissions@wriu.org",
+          "route reggae music to reggaesubmissions@wriu.org"
+        ],
+        "safeReviewScope": [
+          "select the correct department and avoid unnecessary multi-address sending",
+          "confirm digital file, attachment-size, subject-line and clean-content requirements",
+          "verify metadata and composition, master, sample and contributor rights",
+          "confirm international and AI-assisted-music eligibility",
+          "approve the final email, links or attachments and send action"
+        ],
+        "unresolvedEligibility": [
+          "international eligibility",
+          "AI-music eligibility",
+          "digital formats, bitrate and attachment limits",
+          "clean or explicit-content policy"
+        ]
+      },
+      "businessContact": {
+        "emails": ["rpmsubmissions@wriu.org", "worldsubmissions@wriu.org", "reggaesubmissions@wriu.org"],
+        "adjacentEmailsExcluded": ["rpmreport@wriu.org", "worldlistings@wriu.org", "pressreleasesubmissions@wriu.org"],
+        "emailStatus": "First-party published, syntactically valid, domain-aligned and explicitly assigned to RPM/Electronic, World and Reggae submissions.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "Department selection, unpublished delivery and content rules, international and AI eligibility, rights and final email action require human review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official site carries a 2026 copyright notice and publishes active FM and RIU2 stream links, programme archives, a programme guide and current submission addresses."
+      },
+      "manualReviewReason": "The route is active and first-party, but department choice, unpublished digital specifications, content rules, international and AI eligibility, rights and every final email action require human approval.",
+      "priority": 92,
+      "pricingModel": "no-fee-visible/first-party-genre-email/electronic-world-reggae/manual-review"
+    },
+    {
+      "name": "The Edge 105.1 & 105.3 FM Music Submission",
+      "websiteUrl": "https://edge105.com/",
+      "submissionUrl": "https://edge105.com/submit-your-music/",
+      "formUrl": "https://edge105.com/submit-your-music/",
+      "sourceType": "automation_run_471_public_research",
+      "country": "Jamaica; global-reggae focus, with a Jamaican music-industry-association membership prerequisite.",
+      "language": "en",
+      "genres": ["reggae", "reggae-fusion", "gospel", "triple-a", "global-reggae", "clean-radio", "single-only"],
+      "submissionMethod": "official first-party public form using a Dropbox or comparable music link",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission form",
+        "formLocation": "https://edge105.com/submit-your-music/",
+        "email": null,
+        "explicitPurpose": "Submit a radio-ready reggae or reggae-fusion single to the musical director.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "internationalAcceptanceEvidence": "The station discusses reggae artists across 82 countries, but requires membership in a Jamaican music-industry association.",
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "radio-ready singles only; no albums",
+          "MP3 at 320 kbps or higher",
+          "visible online presence",
+          "artist name, email, phone, social handles, music link and description",
+          "no profanity, curse words, defamatory lyrics, glorification of violence, guns, scamming or illegal activity",
+          "no derogatory or objectifying lyrics",
+          "uplifting, feel-good or informative content",
+          "Broadcasting Commission of Jamaica compliance",
+          "membership in a Jamaican music-industry association"
+        ],
+        "formFieldsObserved": ["Artist Name", "Email Address", "Contact Number", "Social Handles", "Links To Music", "Music Description"],
+        "safeReviewScope": [
+          "confirm qualifying association membership",
+          "select one fully clean radio-ready reggae or reggae-fusion single",
+          "verify 320 kbps-or-higher MP3 quality, online presence and external-link permissions",
+          "review lyrics against all station restrictions",
+          "verify all music rights and unpublished AI eligibility",
+          "inspect hidden anti-spam or submit-time controls and approve the final submission"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "emailStatus": "The contact page uses protected rendering and directs artists to the dedicated form. No protected address was decoded or stored.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "embeddedFormPage": "https://edge105.com/submit-your-music/",
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible passively; hidden or submit-time controls remain unverified.",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "Association eligibility, strict clean-content rules, external music link, unpublished AI policy and hidden controls require human review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official site publishes a current Monday-Saturday schedule, named hosts and shows, daily streaming, nationwide FM frequencies and active Reggae, R&B and gospel programming."
+      },
+      "manualReviewReason": "A Jamaican association prerequisite may block eligibility. Strict content rules, file quality, links, rights, AI eligibility, hidden controls and final submission require human approval.",
+      "priority": 72,
+      "pricingModel": "no-fee-visible/first-party-form/global-reggae/clean-single/association-prerequisite/manual-review"
+    },
+    {
+      "name": "Indie Global 365 Free Music Submission",
+      "websiteUrl": "https://indieglobal365.com/",
+      "submissionUrl": "https://indieglobal365.com/music-submission/",
+      "formUrl": "https://indieglobal365.com/music-submission/",
+      "sourceType": "automation_run_471_public_research",
+      "country": "Global independent-artist internet-radio platform; operator location is not clearly stated.",
+      "language": "en",
+      "genres": ["reggae", "soca", "caribbean", "afro-pop", "hip-hop", "r-and-b", "positive-music"],
+      "submissionMethod": "official first-party free upload form for up to two MP3 files and artwork",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party free music-submission upload form",
+        "formLocation": "https://indieglobal365.com/music-submission/",
+        "email": null,
+        "explicitPurpose": "Submit up to two independent-artist songs for possible daily radio rotation.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "standardRouteFeePublished": false,
+        "standardRouteFeeEvidence": "The route is explicitly free; a separate $15 artist-membership plan is optional."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "Hip-hop, R&B, Caribbean reggae or soca; the home page also lists Afro Pop",
+          "up to two songs",
+          "positive, uplifting, motivational, conscious or feel-good content",
+          "192 kbps MP3 files",
+          "maximum 10 MB per MP3",
+          "artist-and-title filenames",
+          "copyright authority",
+          "artist name, email and song title",
+          "up to two song files and one image per song within the stated 25 MB upload control",
+          "accept Terms & Conditions"
+        ],
+        "safeReviewScope": [
+          "resolve the mismatch between the current upload form and legacy local-station/CD policy",
+          "review ASCAP/BMI or personally controlled performance rights and SoundExchange or personally controlled streaming rights",
+          "verify MP3 bitrate, file size, filenames, artwork rights and total upload size",
+          "verify all composition, master, sample and contributor rights",
+          "confirm unpublished AI eligibility",
+          "inspect hidden CAPTCHA, login, anti-spam and submit-time controls",
+          "approve terms, uploads and final submit action"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "emailStatus": "No public submission mailbox was identified; the upload form is the only authorized route stored.",
+        "verification": "No protected address was decoded and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "embeddedFormPage": "https://indieglobal365.com/music-submission/",
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "paymentStatus": "The standard route is free; the $15 membership is optional and excluded.",
+        "manualRecheckRequired": true,
+        "rightsOrConsentFields": ["Terms & Conditions acceptance", "copyright authority warranty", "performance and streaming rights representations"],
+        "uploadControls": ["up to two MP3 files", "one image per song", "25 MB upload control"]
+      },
+      "legalReview": {
+        "publishedTermsUrl": "https://indieglobal365.com/terms-conditions/",
+        "publishedTermsAccessible": true,
+        "publishedTermsStatus": "The linked 2019 terms discuss local-station and CD workflows that do not align cleanly with the current upload form.",
+        "publishedLicenseSummary": "Submitting parties warrant performance and streaming rights or grant broadcast and non-interactive streaming rights.",
+        "manualLegalReviewRequired": true
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The home page displays a current-song area, states that free submissions are open, and maintains live-radio, catalog, DJ and artist-community routes."
+      },
+      "manualReviewReason": "Direct MP3 and artwork uploads, mandatory terms acceptance, rights warranties, inconsistent legacy policy text, optional paid membership, unpublished AI eligibility and hidden controls require human approval.",
+      "priority": 75,
+      "pricingModel": "free/first-party-direct-upload/two-songs/artwork/rights-terms/optional-membership/manual-review"
+    },
+    {
+      "name": "Smooth Jazz Club International Radio Programme Submission",
+      "websiteUrl": "https://www.smoothjazz.club/",
+      "submissionUrl": "https://www.smoothjazz.club/submitmusic/amp/",
+      "sourceType": "automation_run_471_public_research",
+      "country": "El Salvador-based international smooth-jazz programming project syndicated to radio and digital platforms.",
+      "language": "en",
+      "genres": ["smooth-jazz", "contemporary-jazz", "instrumental-jazz", "jazz-fusion", "chill", "lounge"],
+      "submissionMethod": "official first-party public email with a high-quality audio download or private streaming link",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission email",
+        "email": "info@smoothjazz.club",
+        "explicitPurpose": "Submit compatible releases for possible airplay on Smooth Jazz Discover, TOP 100 and Classics programmes.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "Smooth Jazz, Contemporary Jazz, Instrumental Jazz, radio-friendly Jazz Fusion or Chill/Lounge with a Smooth Jazz feel",
+          "artist name, song title, album title and release date",
+          "short biography",
+          "streaming or download link; WAV or high-quality MP3 preferred",
+          "album artwork or press photo",
+          "artist website and social links",
+          "email to info@smoothjazz.club or use WeTransfer, Dropbox, Google Drive or private SoundCloud"
+        ],
+        "safeReviewScope": [
+          "select only a genuinely compatible release",
+          "verify audio quality, metadata, biography, artwork and press-photo rights",
+          "review external-link privacy, expiry and permissions",
+          "verify all composition, master, sample and contributor rights",
+          "confirm unpublished AI eligibility",
+          "approve email content, links or files and final send action"
+        ]
+      },
+      "businessContact": {
+        "emails": ["info@smoothjazz.club"],
+        "emailStatus": "Published on the official submission and contact pages, syntactically valid, domain-aligned and explicitly invited for music submissions.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "Narrow genre fit, audio and artwork preparation, external-link permissions, rights, AI policy and final email require human review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The contact page lists programme posts dated March 1-3, 2026; the submission page states carriage on 71 stations and more than 250,000 weekly listeners."
+      },
+      "manualReviewReason": "Narrow genre fit, external link or file preparation, artwork and rights, unpublished AI eligibility and every final email action require human approval.",
+      "priority": 66,
+      "pricingModel": "no-fee-visible/first-party-email/international-syndication/smooth-jazz-chill/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": ["WRIU", "wriufm.org", "rpmsubmissions@wriu.org", "worldsubmissions@wriu.org", "reggaesubmissions@wriu.org", "The Edge 105", "edge105.com/submit-your-music", "Indie Global 365", "indieglobal365.com/music-submission", "Smooth Jazz Club", "smoothjazz.club/submitmusic", "info@smoothjazz.club"],
+    "repositoryEvidence": "Repository code search and the accessible open pull-request changed-file inventory found no existing canonical record for the four names, domains, routes or public submission addresses before creation.",
+    "consolidation": "WRIU is one record with three relevant genre mailboxes; The Edge one form record; Indie Global 365 one free upload record excluding membership, store and DJ workflows; Smooth Jazz Club one email-plus-link record."
+  },
+  "activeQueueRowsAdded": 4,
+  "notes": "Four legitimate opportunities were queued as needs_manual_review. No form field was filled, no terms checkbox was accepted, no file, artwork or external link was uploaded, no email was sent, no login was used, no CAPTCHA was solved and no payment or submission action was completed."
+}
