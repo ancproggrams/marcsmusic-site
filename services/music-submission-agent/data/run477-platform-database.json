@@ -1,0 +1,270 @@
+{
+  "run": 477,
+  "date": "2026-07-18",
+  "pipelineEstimateBefore": 1775,
+  "pipelineEstimate": 1778,
+  "newPlatforms": [
+    {
+      "name": "Cacoteo Reggaeton Radio Music Submission",
+      "websiteUrl": "https://cacoteo.com/",
+      "submissionUrl": "https://cacoteo.com/submit-music/",
+      "sourceUrl": "https://cacoteo.com/submit-music/",
+      "sourceType": "automation_run_477_public_research",
+      "country": "United States / Puerto Rico / worldwide online Reggaeton station; the official route describes 24/7 worldwide broadcasting and support for upcoming artists.",
+      "language": "en/es",
+      "genres": ["reggaeton", "Latin urban", "Latin hip-hop", "dancehall", "urban", "Caribbean"],
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission form with media-upload fields",
+        "formLocation": "https://cacoteo.com/submit-music/",
+        "explicitPurpose": "Submit Reggaeton and related urban music for possible airplay and affiliated social promotion.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "internationalArtistsExplicitlyAccepted": true
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "MP3 only; MP4, AIFF, OGG, WAV and other formats are deleted",
+          "minimum MP3 quality of 192 kbps",
+          "correct ID3 metadata with no website URLs in ID3 tags",
+          "submitter acknowledges ownership of submitted material",
+          "submitter grants royalty-free permission for airplay and affiliated social-media video posting"
+        ],
+        "observedFields": ["name", "email", "subject", "message", "additional media-upload controls visible but not safely exercised"],
+        "rightsAndTerms": [
+          "ownership acknowledgement",
+          "royalty-free permission to air submitted music",
+          "royalty-free permission to post submitted video material on Cacoteo Radio and affiliated social networks",
+          "separate sponsored-airplay and sponsored-promotion route exists and was excluded from the standard submission path"
+        ],
+        "manualChecks": [
+          "Reggaeton, Latin urban, hip-hop or dancehall fit",
+          "MP3 bitrate, file type and ID3 metadata",
+          "composition, master, sample, contributor, video and artwork rights",
+          "scope, duration, territory and revocability of royalty-free airplay and social-media permission",
+          "clean or explicit-content policy",
+          "AI-assisted or AI-generated music eligibility",
+          "all live upload fields and file-size limits",
+          "hidden CAPTCHA, honeypot, rate-limit or anti-spam controls",
+          "separation from paid sponsored airplay and promotion",
+          "every field, upload, consent and final submission"
+        ]
+      },
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [],
+        "verification": "No public business email was found on the official submission or contact pages during passive retrieval. The first-party form is the only stored authorized route. No protected address was decoded and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official site describes 24/7 worldwide broadcasting, carries a 2026-2027 copyright notice and published fresh Reggaeton, hip-hop and dancehall posts through July 16, 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "first-party WordPress form/plugin",
+        "directUploadObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible passively; hidden submit-time controls remain unverified.",
+        "paymentObserved": false,
+        "optionalPaidPromotionObserved": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 95,
+      "pricingModel": "no-fee-visible/first-party-upload-form/mp3-only/royalty-free-airplay-and-social-permission/optional-sponsored-promotion/manual-review"
+    },
+    {
+      "name": "SMP Radio Global Soul Music Submission",
+      "websiteUrl": "https://www.soulmusicplaylists.com/",
+      "submissionUrl": "https://www.soulmusicplaylists.com/music-submission",
+      "sourceUrl": "https://www.soulmusicplaylists.com/music-submission",
+      "sourceType": "automation_run_477_public_research",
+      "country": "United States (Baltimore / Greater Maryland / Washington, D.C.) / worldwide online soul station.",
+      "language": "en",
+      "genres": ["AfroRhythms", "Afro-Latin", "dancehall", "funk", "hip-hop", "house", "neo-soul", "R&B", "reggae", "global soul"],
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public direct-upload music-submission form",
+        "formLocation": "https://www.soulmusicplaylists.com/music-submission",
+        "explicitPurpose": "Submit independent or label music for screened editorial consideration and possible post or airplay.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "internationalArtistsExplicitlyAccepted": true
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "artist first name and contact email",
+          "track name and release date",
+          "music category or other genre",
+          "artist biography or press release",
+          "music preview URLs such as Bandcamp, SoundCloud, Spotify, TikTok or YouTube",
+          "cover art in JPEG or PNG",
+          "music file in MP3 format",
+          "explicit newsletter choice with Yes opt-in and No opt-out"
+        ],
+        "observedFields": [
+          "artist first and last name",
+          "contact email",
+          "track and album",
+          "release date",
+          "record label",
+          "category and other genre",
+          "bio or press release",
+          "preview URLs",
+          "cover-art upload",
+          "MP3 upload",
+          "newsletter Yes/No choice"
+        ],
+        "rightsAndTerms": [
+          "submission is heavily screened for niche fit",
+          "submission does not guarantee a post or airplay",
+          "station states Live365 licensing and royalty reporting for the United States, Mexico, Canada and the United Kingdom",
+          "complete submission-specific terms were not exposed during passive retrieval"
+        ],
+        "manualChecks": [
+          "global-soul, reggae, dancehall, house, R&B, hip-hop or Afro-fusion fit",
+          "MP3 quality, metadata and release date",
+          "JPEG/PNG cover-art quality and rights",
+          "preview-link accessibility and least-privilege sharing",
+          "composition, master, sample and contributor rights",
+          "newsletter opt-out selection unless separately approved",
+          "AI-assisted or AI-generated music policy",
+          "full privacy and submission terms",
+          "file-size and upload limits",
+          "hidden Wix anti-abuse or CAPTCHA controls",
+          "every field, file, choice and final submission"
+        ]
+      },
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [],
+        "verification": "No public business email was surfaced on the official submission, home or advertising pages during passive retrieval. The official music-submission form is the only stored route. No protected address was decoded and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official site presents SMP Radio as a global 24/7 station, publishes current listening integrations and states Live365 licensing and royalty reporting across the U.S., Mexico, Canada and the U.K."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "Wix-hosted first-party form",
+        "directUploadObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible passively; hidden Wix submit-time verification remains unconfirmed.",
+        "paymentObserved": false,
+        "manualRecheckRequired": true
+      },
+      "priority": 96,
+      "pricingModel": "no-fee-visible/first-party-direct-upload/global-soul/mp3-plus-cover-art/optional-newsletter-choice/manual-review"
+    },
+    {
+      "name": "Electric Sunshine Cult Worldwide A&R Submission",
+      "websiteUrl": "https://www.electricsunshinecult.com/",
+      "submissionUrl": "mailto:artistmgmt@electricsunshinecult.com",
+      "sourceUrl": "https://www.electricsunshinecult.com/faq",
+      "sourceType": "automation_run_477_public_research",
+      "country": "International independent label and creative collective; the official FAQ expressly accepts independent artists worldwide.",
+      "language": "en",
+      "genres": ["electronic", "dubstep", "bass music", "drum and bass", "jungle", "moombahton", "reggaeton", "dancehall", "Afrobeat", "world fusion"],
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public A&R submission email with an adjacent official roster upload form",
+        "email": "artistmgmt@electricsunshinecult.com",
+        "adjacentFormLocation": "https://www.electricsunshinecult.com/label-roster",
+        "explicitPurpose": "Submit original independent music for A&R review and possible worldwide label release.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "internationalArtistsExplicitlyAccepted": true
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "artist name, track title and genre",
+          "private streaming link or WAV file",
+          "cover artwork when available",
+          "release information",
+          "social-media links",
+          "artist biography and promotional information",
+          "professionally finished final master, preferably 24-bit WAV at 44.1 kHz or higher",
+          "original or properly licensed square artwork, with 3000x3000 pixels recommended",
+          "all contributor splits, permissions, samples and remixes must be cleared"
+        ],
+        "observedFields": [
+          "the adjacent roster form requests legal first and last name",
+          "email, producer name, genre, tempo, key, city, state or province and country",
+          "WAV upload",
+          "featured-artist legal names and links",
+          "logo, 3000x3000 artwork and personal promo image",
+          "optional music video and project-overview video uploads",
+          "Spotify, Facebook, YouTube, Instagram and SoundCloud links",
+          "artist biography",
+          "newsletter checkbox and terms acceptance"
+        ],
+        "rightsAndTerms": [
+          "artists retain master ownership unless a separate written agreement states otherwise",
+          "ESC requires rights to distribute and promote accepted releases during an agreed partnership period",
+          "published revenue-share model is 70% of net royalties to artists and 30% to ESC",
+          "significant AI involvement should be disclosed and primarily AI-generated projects receive additional review",
+          "a separate release or distribution agreement may follow selection"
+        ],
+        "manualChecks": [
+          "track and catalog fit with ESC's electronic, bass, world and crossover roster",
+          "final-master quality, WAV specifications and clean metadata",
+          "composition, master, sample, remix, contributor and split clearances",
+          "cover-art, logo, photograph, video and publicity rights",
+          "AI-assistance disclosure and platform eligibility",
+          "private-link permissions or outbound WAV attachment size",
+          "whether to use the lighter email route or the extensive upload form",
+          "newsletter checkbox must remain unselected unless separately approved",
+          "full terms, 70/30 revenue share and any later label/distribution agreement",
+          "hidden Wix anti-abuse or CAPTCHA controls on the adjacent form",
+          "recipient, message, links or attachments and final send approval"
+        ]
+      },
+      "businessContact": {
+        "submissionEmails": ["artistmgmt@electricsunshinecult.com"],
+        "generalEmails": ["info@electricsunshinecult.com"],
+        "verification": "Both addresses are first-party published, syntactically valid and domain-aligned. artistmgmt@electricsunshinecult.com is explicitly designated for music submissions; info@electricsunshinecult.com is general inquiry only. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official label blog documents May-June 2026 activity with 19 releases from 12 countries and publishes additional January-April 2026 release cycles across electronic, dubstep, hip-hop, trance, techno and experimental music."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "Wix-hosted first-party roster form",
+        "directUploadObserved": true,
+        "emailRouteObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible passively; hidden Wix submit-time verification remains unconfirmed.",
+        "paymentObserved": false,
+        "termsAcceptanceObserved": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 98,
+      "pricingModel": "no-submission-fee-visible/first-party-ar-email/worldwide-label-review/adjacent-wav-and-media-upload-form/70-30-if-released/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": ["Cacoteo Reggaeton Radio", "cacoteo.com/submit-music", "SMP Radio", "SoulMusicPlaylists", "soulmusicplaylists.com/music-submission", "Electric Sunshine Cult", "electricsunshinecult.com/faq", "artistmgmt@electricsunshinecult.com", "info@electricsunshinecult.com"],
+    "repositoryEvidence": "Repository code search returned no existing canonical match for Cacoteo Reggaeton Radio, SMP Radio / SoulMusicPlaylists or Electric Sunshine Cult before creation.",
+    "consolidation": "Cacoteo's general contact and paid sponsored-promotion paths, SMP Radio's advertising and newsletter forms, and ESC's general inquiry, community, shop, services and adjacent roster form were excluded or linked as boundaries rather than duplicated as separate opportunities."
+  },
+  "activeQueueRowsAdded": 3,
+  "notes": "Three legitimate worldwide-facing opportunities were queued as needs_manual_review. No email was sent, no form field was filled, no audio, artwork, image or video was uploaded, no newsletter consent or terms were accepted, no login was used, no CAPTCHA or anti-spam control was bypassed and no payment or submission action was completed."
+}
