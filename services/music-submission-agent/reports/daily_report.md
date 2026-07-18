@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 472
+Latest run: Run 473
 
 New items added in latest run: 2
 
@@ -10,28 +10,28 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1764
+Pipeline estimate: 1766
 
 Items:
 
-- Run 472 added: SoundChat Radio — a free global-facing first-party form for Caribbean music using a track link and broadcast-permission confirmation.
-- Run 472 added: All'It Radio — a one-track Google Form route for Reggae, Hip Hop, R&B and Urban music requiring Gmail authentication, audio and cover-art uploads, voting and a social follow.
+- Run 473 added: Most FM — a first-party alternative-radio form requiring a streaming link, download link, focus single, explicit-lyrics disclosure and release information.
+- Run 473 added: The Detour Network — a public music-submission mailbox for up to three MP3, WAV or AAC attachments, with strict metadata rules and a postal CD alternative.
 
 Two new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: SoundChat requests high-quality MP3 or WAV audio, a clean edit where applicable, complete metadata, a short bio, social links and a SoundCloud, Spotify, YouTube or direct-download link. All'It requests one downloadable 44.1 kHz, 16-bit stereo MP3 or WAV plus cover art through a Gmail-authenticated Google Form; selected tracks must then reach 100 valid-email votes and satisfy a station social-follow condition.
+Latest route note: Most FM accepts WAV, MP3 and M4A, requests singles rather than full releases, and asks for a clean version where possible. The Detour requires `Artist Name – Song Title` filenames, complete ID3 metadata, clean or explicit labeling and no more than three tracks.
 
-Contact-verification note: `info@soundchatradio.com` and `info@allitradio.com` are first-party published, syntactically valid and domain-aligned business addresses. Neither is an authorized music-submission mailbox: SoundChat uses its dedicated form, and All'It explicitly rejects email submissions. Adjacent `irishandchin@gmail.com` and `hitus@allitradio.com` routes were excluded. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `mostfm@mostfm.com` and `most@mostfm.com` are first-party published, syntactically valid and domain-aligned station contacts, but Most FM uses its dedicated submission form. `music@thedetour.us` is first-party published and explicitly designated for music submissions. Advertising, governance, general-office, request and comments mailboxes were excluded. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: SoundChat publishes 24/7 streaming, an active weekly schedule, current rotation and featured artists, and a story dated March 16, 2026. All'It publishes a 24-hour station description and current Friday and Saturday programmes with named hosts. SoundChat is a strong fit for MarcsMusic reggae, dancehall, soca and Caribbean-fusion tracks. All'It is a plausible fit for reggae and urban material, but international eligibility is not explicit.
+Activity and fit note: Most FM publishes a current weekly schedule, live-stream access and June 2026 music events, with new-music, reggae, electronic and world-music programming relevant to MarcsMusic. The Detour currently exposes worldwide detour MUSIC and detour TALK streams and a January 2026 acceptable-use policy; its freeform format includes reggae, techno, rap, pop, jazz and other genres.
 
-Manual-review note: SoundChat's form includes a rights-ownership confirmation and broadcast permission. All'It requires Gmail authentication, direct audio and artwork uploads, broadcast permission, audience voting and a social-follow condition; its external Google Form returned HTTP 401 Unauthorized and was not bypassed. Humans must review track and clean-edit fit, metadata, external links, rights, AI eligibility, complete consent text, privacy, hidden controls and every final action.
+Manual-review note: Most FM requires human review of international and AI eligibility, clean-edit choice, streaming/download-link permissions, metadata, rights, hidden controls and the final form action. The Detour requires legal review of broadcast permission, foreign-law eligibility and an explicit clause stating that the network need not pay royalties, plus human approval of attachments and the final email.
 
-Deduplication note: repository code search contained no existing canonical SoundChat Radio or All'It Radio record, domain, submission route or public business address before creation. Each platform is consolidated into one opportunity. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical Most FM or The Detour Network record, domain, submission route or published submission address before creation. Each platform is consolidated into one opportunity. Canonical SQLite domain and URL deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. A mounted repository worktree and dedicated `agent-browser` runner were unavailable. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
 
-Safety: No form field was filled, no account was accessed, no track link, audio or artwork was uploaded, no email was sent, no vote was cast, no social follow was made, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No form field was filled, no link or file was submitted, no audio was attached, no email was sent, no postal delivery was made, no login was used, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
 
 ## Recent run history
 
@@ -86,5 +86,9 @@ Added WRIU's Electronic, World and Reggae department mailboxes, The Edge 105's c
 ### Run 472
 
 Added SoundChat Radio's free global Caribbean track-link form and All'It Radio's Gmail-authenticated one-track Google Form. Rights and broadcast consent, clean edits, direct media uploads, audience voting, social-follow conditions, AI/international eligibility, hidden controls and final actions require manual review. Pipeline estimate: 1,764.
+
+### Run 473
+
+Added Most FM's alternative-radio streaming/download-link form and The Detour Network's public audio-attachment mailbox. International and AI eligibility, links, metadata, rights, clean versions, broadcast permission, foreign-law terms and an explicit no-royalty clause require manual and legal review. Pipeline estimate: 1,766.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
