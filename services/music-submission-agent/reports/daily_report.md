@@ -2,37 +2,37 @@
 
 Date: 2026-07-18
 
-Latest run: Run 478
+Latest run: Run 479
 
 New items added in latest run: 3
 
-Existing items reverified or materially enriched: 1
+Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1781
+Pipeline estimate: 1784
 
 Items:
 
-- Run 478 added: YardHype Radio — a free-first MP3/M4A/WAV upload form with a non-exclusive promotional-airplay licence, optional artwork, chart placement and fan voting.
-- Run 478 added: UnityXM Radio — official clean Caribbean-music guidance linking to an external DISCO upload inbox, requiring a released track, high-quality MP3/WAV and at least 1000x1000 artwork.
-- Run 478 added: M3 Radio — a public music-director email route preferring a download link for music no more than one year old in AIFF, WAV or MP3 format.
+- Run 479 added: FBi Radio — an official general-servicing email route requiring a stream, a free 320 kbps MP3/WAV download link, biography and optional press material.
+- Run 479 added: WNAA 90.1 FM HD — a one-track clean WAV/MP3 email route requiring a digital press kit and exact submission subject.
+- Run 479 added: Kennesaw State Owl Radio — an official university-hosted multi-step MP3/WAV-or-link form open to anyone with recordings.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: YardHype separates its free submission/fan-vote route from optional paid airplay promotion. UnityXM's external DISCO upload provider could not be passively inspected. M3 prefers a download link, requires MP3 at 128 kbps or higher and no longer accepts CDs.
+Latest route note: FBi auditions music weekly and separates free editorial servicing from paid promotion. WNAA rejects streaming links and accepts one original clean attachment plus a press kit. Owl Radio's later form steps could not be passively retrieved, so possible authentication, CAPTCHA, privacy, retention and consent boundaries remain unknown.
 
-Contact-verification note: `m3newmusic@yahoo.com` is first-party published, syntactically valid and explicitly designated for submissions, but it uses a consumer Yahoo domain rather than the M3 domain. No first-party public submission email was found for YardHype or UnityXM. Third-party UnityXM directory contacts were excluded. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `music@fbiradio.com` and `wnaafm@ncat.edu` are first-party published, syntactically valid and explicitly designated for music submissions. FBi uses a legacy station business domain and WNAA uses its parent university domain. `owlradioksu@gmail.com` is first-party published for form follow-up but uses a consumer domain; `programmingowlradio@kennesaw.edu` is a current programme contact and was not substituted for the canonical form. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: YardHype showed current recently played material, published music through July 13, 2026 and ran multiple 2026 fan-vote rounds. UnityXM describes current 24/7 worldwide broadcasting from Kingston and exposes live discovery/Just Played elements. M3 links to a current Live365 profile and reports Electronic, World, Hip-Hop, Heavy and Jazz specialty charts. These routes are relevant to MarcsMusic material in Reggae, Dancehall, Afro-Caribbean, Afrobeat, World Fusion, Electronic and independent crossover formats.
+Activity and fit note: FBi's current schedule and July 2026 archives include electronic, club, bass, ambient, diaspora and new-release programming. WNAA exposes live listening, a current weekly grid with House and Island Reggae, and a 2026 community calendar through August. Owl Radio exposes Now Spinning, a current weekly schedule and an official KSU description as a 24/7 student streaming station. These routes fit MarcsMusic material across Electronic, Bass, World Fusion, Reggae, Afrobeat, House, Dance and independent crossover formats.
 
-Manual-review note: YardHype requires review of direct uploads, rights, its promotional-airplay licence, fan-voting exposure, AI eligibility and paid-route separation. UnityXM requires strict clean-content and release compliance plus review of the external DISCO provider, rights, AI eligibility and final upload. M3 requires release-age, format/bitrate, link, rights, international/AI eligibility and final email review.
+Manual-review note: FBi requires international/local-priority, timing, audio/link, rights, AI and final-email checks. WNAA requires clean one-track selection, file/filename, press-kit, rights, attachment, international/AI and final-email review. Owl Radio requires complete multi-step form inspection, possible login/CAPTCHA controls, upload/link, rights, privacy/retention/licence, international/AI and final submission review.
 
-Deduplication note: repository code search contained no existing canonical YardHype Radio, UnityXM Radio or M3 Radio record by official name, route, domain or published submission address before creation. Adjacent paid-promotion, fan-chart, request/suggest, directory, player and social routes were retained only as evidence or boundaries. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical FBi Radio, WNAA 90.1 FM HD or Kennesaw State Owl Radio record by official name, domain, route or published contact before creation. Adjacent programme contacts, paid promotion, general pages, advertising and physical-mail details were retained only as evidence or boundaries. Canonical SQLite domain and URL deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Structural JSON and CSV validation was completed. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no audio or artwork was uploaded, no licence or consent was accepted, no vote was cast, no login was attempted, no CAPTCHA or anti-spam control was bypassed and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No email was sent, no form field was filled, no file, image or press kit was uploaded or attached, no physical item was mailed, no consent was accepted, no login was attempted, no CAPTCHA or anti-spam control was bypassed and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
 
 ## Recent run history
 
@@ -111,5 +111,9 @@ Added Cacoteo Reggaeton Radio's MP3-only worldwide form, SMP Radio's global-soul
 ### Run 478
 
 Added YardHype Radio's free-first upload and fan-vote route, UnityXM Radio's clean Caribbean guidance with an external DISCO inbox, and M3 Radio's public independent-music email route. Uploads, rights, licences, clean/release requirements, external-provider controls, AI/international eligibility and final actions require manual review. Pipeline estimate: 1,781.
+
+### Run 479
+
+Added FBi Radio's weekly digital general-servicing email route, WNAA's one-track clean WAV/MP3 university email route and Kennesaw State Owl Radio's public multi-step MP3/WAV-or-link form. Programme and geographic eligibility, timing, uploads or attachments, links, rights, press assets, AI policy, external-form controls and final actions require manual review. Pipeline estimate: 1,784.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
