@@ -1,0 +1,245 @@
+{
+  "run": 473,
+  "date": "2026-07-18",
+  "pipelineEstimateBefore": 1764,
+  "pipelineEstimate": 1766,
+  "newPlatforms": [
+    {
+      "name": "Most FM Alternative Music Submission",
+      "websiteUrl": "https://mostfm.co.nz/",
+      "submissionUrl": "https://mostfm.co.nz/submit-music/",
+      "formUrl": "https://mostfm.co.nz/submit-music/",
+      "sourceType": "automation_run_473_public_research",
+      "country": "New Zealand (New Plymouth, Taranaki); the station has worldwide listeners, but international-artist submission eligibility is not explicitly confirmed.",
+      "language": "en",
+      "genres": [
+        "alternative",
+        "indie",
+        "electronic",
+        "reggae",
+        "world",
+        "blues",
+        "jazz",
+        "singer-songwriter"
+      ],
+      "submissionMethod": "official first-party public music-submission form requiring a streaming link and a downloadable audio link",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission form",
+        "formLocation": "https://mostfm.co.nz/submit-music/",
+        "email": null,
+        "explicitPurpose": "Submit a focus single for editorial review and possible addition to Most FM's alternative-music library.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "internationalAcceptanceEvidence": "The form asks where the artist is from or based and the station welcomes worldwide listeners, but the submission page does not explicitly state that overseas artists are eligible.",
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submit a streaming link and a downloadable audio link",
+          "submit singles rather than a complete album or EP",
+          "identify the focus track when sending more than one song",
+          "provide album or EP name and release date when applicable",
+          "provide a short artist description plus origin and current base",
+          "disclose explicit lyrics and provide a clean version wherever possible",
+          "accepted formats are WAV, MP3 and M4A",
+          "the station is alternative and asks for suitable non-mainstream material"
+        ],
+        "formFieldsObserved": [
+          "Name",
+          "Email",
+          "Song Name",
+          "Artist Name",
+          "Explicit Lyrics — Yes or No",
+          "Streaming Link",
+          "Download Link",
+          "Where are you from/based",
+          "Release Date",
+          "Message"
+        ],
+        "safeReviewScope": [
+          "select a suitable focus single and clean edit where needed",
+          "verify streaming and download-link accessibility, privacy and authorization",
+          "verify artist, track, release and origin metadata",
+          "confirm composition, master, sample, contributor and artwork rights",
+          "confirm international and AI-music eligibility",
+          "inspect hidden anti-spam, CAPTCHA or submit-time controls",
+          "approve every field and the final submit action"
+        ],
+        "unresolvedEligibility": [
+          "international-artist eligibility",
+          "AI-assisted or AI-generated music policy",
+          "hidden anti-spam or submit-time controls"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          "mostfm@mostfm.com",
+          "most@mostfm.com"
+        ],
+        "adjacentEmailsExcluded": [
+          "olena@mostfm.com",
+          "warren@mostfm.com"
+        ],
+        "emailStatus": "mostfm@mostfm.com appears on the official submission-page footer and most@mostfm.com appears on the official contact page. Both are syntactically valid first-party station contacts, but neither is published as a replacement for the dedicated music-submission form.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "embeddedFormPage": "https://mostfm.co.nz/submit-music/",
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible in passive page content; hidden or submit-time controls remain unverified.",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "uploadControls": [],
+        "externalLinkControls": [
+          "streaming link",
+          "download link"
+        ],
+        "manualRecheckReason": "Track fit, clean-edit choice, external links, metadata, rights, AI/international eligibility, hidden controls and final submission require human review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official site publishes a current weekly schedule, named presenters, live-stream access and June 2026 music and station events. Current shows include Fresh Cuts New Music, Studio Kinda Cloudy, The BPM Radio Show and Music Without Frontiers."
+      },
+      "manualReviewReason": "The route is active and genre-relevant, but international and AI eligibility, clean-edit selection, streaming and download-link permissions, metadata, rights, hidden controls and final submission require human approval.",
+      "priority": 91,
+      "pricingModel": "no-fee-visible/first-party-form/alternative-radio/streaming-and-download-links/manual-review"
+    },
+    {
+      "name": "The Detour Network Freeform Radio Music Submission",
+      "websiteUrl": "https://thedetour.us/",
+      "submissionUrl": "https://thedetour.us/submit_music.php",
+      "formUrl": null,
+      "sourceType": "automation_run_473_public_research",
+      "country": "United States (Tennessee); the station broadcasts worldwide online and its submission terms expressly address music submitted from foreign jurisdictions.",
+      "language": "en",
+      "genres": [
+        "alternative",
+        "rap",
+        "reggae",
+        "pop",
+        "techno",
+        "blues",
+        "jazz",
+        "world",
+        "freeform"
+      ],
+      "submissionMethod": "official first-party public music-submission mailbox for MP3, WAV or AAC attachments, with postal CD delivery as an alternative",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission email",
+        "formLocation": null,
+        "email": "music@thedetour.us",
+        "postalAlternative": "the detour network, PO Box 31201, Knoxville, TN 37930 USA",
+        "explicitPurpose": "Submit up to three songs for editorial review and possible broadcast on detour MUSIC.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "internationalAcceptanceEvidence": "The published submission terms explicitly require foreign submissions to be lawful for US broadcast and not restricted by the submitter's jurisdiction.",
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "submit MP3, WAV or AAC only",
+          "for MP3, use at least 96 kbps and preferably no more than 192 kbps",
+          "format the filename as Artist Name – Song Title",
+          "provide a clean version where possible and label dirty or unedited material",
+          "complete the ID3 metadata or provide artist and album information in the email",
+          "submit no more than the best three songs",
+          "attach the files to an email sent to music@thedetour.us",
+          "represent that the submitter is authorized to submit the music",
+          "grant terrestrial and internet broadcast permission",
+          "accept the published clause stating that the network need not pay royalties",
+          "confirm the music may lawfully be broadcast in the United States"
+        ],
+        "safeReviewScope": [
+          "select no more than three suitable tracks and clean versions",
+          "verify file type, bitrate, filenames and ID3 metadata",
+          "confirm composition, master, sample and contributor rights",
+          "review foreign-law and US-broadcast eligibility",
+          "obtain legal approval for the broadcast and no-royalty clauses",
+          "confirm unpublished AI-music eligibility",
+          "approve attachments, message text, recipients and the final send action"
+        ],
+        "unresolvedEligibility": [
+          "AI-assisted or AI-generated music policy",
+          "legal effect and compatibility of the no-royalty permission clause",
+          "territory, term and revocability of the broadcast permission"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          "music@thedetour.us"
+        ],
+        "adjacentEmailsExcluded": [
+          "help@thedetour.us",
+          "request@thedetour.us",
+          "comments@thedetour.us"
+        ],
+        "emailStatus": "music@thedetour.us is first-party published, syntactically valid, domain-aligned and explicitly designated for music submissions. General office, request and comments mailboxes were excluded.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "emailRouteIdentified": true,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "attachmentControls": [
+          "MP3",
+          "WAV",
+          "AAC",
+          "up to three tracks"
+        ],
+        "rightsOrConsentTerms": [
+          "authorized-representative warranty",
+          "terrestrial and internet broadcast permission",
+          "permission not to pay royalties",
+          "US and foreign-law broadcast eligibility"
+        ],
+        "manualRecheckReason": "Attachments, metadata, music rights, legal terms, AI eligibility and the final email send require human review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official site currently exposes detour MUSIC and detour TALK streams, a listening page and a January 2026 acceptable-use policy. The music service describes worldwide internet availability and a current freeform format covering independent and mainstream music."
+      },
+      "manualReviewReason": "The route is authorized and active, but file preparation, metadata, clean-content labeling, all rights, foreign-law eligibility and an explicit no-royalty clause require legal and human approval before email delivery.",
+      "priority": 78,
+      "pricingModel": "no-fee-visible/public-submission-email/audio-attachments/freeform-radio/royalty-waiver/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Most FM",
+      "mostfm.co.nz/submit-music",
+      "mostfm@mostfm.com",
+      "most@mostfm.com",
+      "The Detour Network",
+      "thedetour.us/submit_music.php",
+      "music@thedetour.us"
+    ],
+    "repositoryEvidence": "Repository code search returned no existing canonical match for either platform name, domain, submission route or published business address before creation.",
+    "consolidation": "Most FM is one first-party form opportunity; its general contact and staff addresses are not separate submission routes. The Detour Network is one email opportunity; its postal alternative and general office, request and comments mailboxes are not separate records."
+  },
+  "activeQueueRowsAdded": 2,
+  "notes": "Two legitimate opportunities were queued as needs_manual_review. No form field was filled, no external link or file was submitted, no email was sent, no postal delivery was made, no login was used, no CAPTCHA was solved and no payment or submission action was completed."
+}
