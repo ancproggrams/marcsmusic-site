@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run481SeedPlatforms } from './run481PlatformSeeds.js';
 
-export const run480SeedPlatforms: PlatformInput[] = [
+const run480NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "PBS 106.7FM International Music Submission",
     "websiteUrl": "https://www.pbsfm.org.au/",
@@ -102,4 +103,9 @@ export const run480SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "Form-versus-email route choice, audio upload or link quality, biography/press release, all rightsholder permissions, AI eligibility, upload limits, privacy/licence/retention terms, possible hidden Contact Form 7 anti-spam controls and final send require human approval.",
     "notes": "Passively verified on 2026-07-18 from the official submission, privacy, about, chart, event and news pages. Radio Nano expressly welcomes local and international acts and requires permission from all rightsholders and contributors, including for covers and samples. music@radionano.com is first-party published, syntactically valid, domain-aligned and explicitly designated for music submissions. privacy@radionano.com is a privacy contact only. No visible CAPTCHA appeared in passive indexing; hidden Contact Form 7 or submit-time controls remain unconfirmed. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed. No email was sent, no form field was filled, no file or biography was uploaded or attached and no payment or submission action was performed."
   }
+];
+
+export const run480SeedPlatforms: PlatformInput[] = [
+  ...run480NewSeedPlatforms,
+  ...run481SeedPlatforms
 ];
