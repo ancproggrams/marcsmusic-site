@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run480SeedPlatforms } from './run480PlatformSeeds.js';
 
-export const run479SeedPlatforms: PlatformInput[] = [
+const run479NewSeedPlatforms: PlatformInput[] = [
   {
     name: 'FBi Radio General Music Servicing',
     websiteUrl: 'https://www.fbi.radio/',
@@ -121,4 +122,9 @@ export const run479SeedPlatforms: PlatformInput[] = [
     notes:
       'Passively verified on 2026-07-18 from the official KSU-hosted submission form, Owl Radio homepage, current weekly schedule, team page and Kennesaw State Student Media pages. The form states that anyone with recordings may submit. owlradioksu@gmail.com is first-party published for follow-up but uses a consumer domain; programmingowlradio@kennesaw.edu is a current official programme contact, not a substitute submission route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed. No form field was filled, no file or link was uploaded, no physical media was mailed, no login was attempted, no CAPTCHA or anti-spam control was bypassed and no payment or submission action was performed.'
   }
+];
+
+export const run479SeedPlatforms: PlatformInput[] = [
+  ...run479NewSeedPlatforms,
+  ...run480SeedPlatforms
 ];
