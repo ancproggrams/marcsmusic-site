@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 477
+Latest run: Run 478
 
 New items added in latest run: 3
 
@@ -10,29 +10,29 @@ Existing items reverified or materially enriched: 1
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1778
+Pipeline estimate: 1781
 
 Items:
 
-- Run 477 added: Cacoteo Reggaeton Radio — a worldwide Reggaeton/urban MP3 form requiring at least 192 kbps, correct ID3 tags and royalty-free airplay plus affiliated-social permission.
-- Run 477 added: SMP Radio / SoulMusicPlaylists — a global-soul form with MP3 and JPEG/PNG cover-art uploads, preview links and an explicit newsletter opt-out.
-- Run 477 added: Electric Sunshine Cult — a worldwide A&R email route for electronic, bass and crossover music, with an adjacent extensive WAV/media roster form and published 70/30 release model.
+- Run 478 added: YardHype Radio — a free-first MP3/M4A/WAV upload form with a non-exclusive promotional-airplay licence, optional artwork, chart placement and fan voting.
+- Run 478 added: UnityXM Radio — official clean Caribbean-music guidance linking to an external DISCO upload inbox, requiring a released track, high-quality MP3/WAV and at least 1000x1000 artwork.
+- Run 478 added: M3 Radio — a public music-director email route preferring a download link for music no more than one year old in AIFF, WAV or MP3 format.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Cacoteo rejects WAV and other non-MP3 formats and separates optional sponsored promotion from the standard route. SMP Radio screens heavily and does not guarantee airplay. ESC accepts a private streaming link or WAV through its official A&R mailbox; its adjacent roster form requests legal identity, artwork, photos, optional video, social links and terms acceptance.
+Latest route note: YardHype separates its free submission/fan-vote route from optional paid airplay promotion. UnityXM's external DISCO upload provider could not be passively inspected. M3 prefers a download link, requires MP3 at 128 kbps or higher and no longer accepts CDs.
 
-Contact-verification note: `artistmgmt@electricsunshinecult.com` is first-party published, syntactically valid, domain-aligned and explicitly designated for music submissions. `info@electricsunshinecult.com` is first-party and domain-aligned but general inquiry only. No public business email was surfaced for Cacoteo or SMP Radio. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `m3newmusic@yahoo.com` is first-party published, syntactically valid and explicitly designated for submissions, but it uses a consumer Yahoo domain rather than the M3 domain. No first-party public submission email was found for YardHype or UnityXM. Third-party UnityXM directory contacts were excluded. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Cacoteo publishes fresh Reggaeton, hip-hop and dancehall items through July 16, 2026 and describes worldwide 24/7 broadcasting. SMP Radio describes current 24/7 global-soul broadcasting and Live365 licensing/royalty reporting in four countries. ESC documents releases throughout January-June 2026, including 19 May-June releases from 12 countries. All three are credible fits for MarcsMusic material in Reggaeton, Dancehall, Reggae, Afro-fusion, electronic, bass, Dubstep, Jungle and World Fusion.
+Activity and fit note: YardHype showed current recently played material, published music through July 13, 2026 and ran multiple 2026 fan-vote rounds. UnityXM describes current 24/7 worldwide broadcasting from Kingston and exposes live discovery/Just Played elements. M3 links to a current Live365 profile and reports Electronic, World, Hip-Hop, Heavy and Jazz specialty charts. These routes are relevant to MarcsMusic material in Reggae, Dancehall, Afro-Caribbean, Afrobeat, World Fusion, Electronic and independent crossover formats.
 
-Manual-review note: Cacoteo requires review of MP3 metadata, media rights and the scope of royalty-free airplay/social permission. SMP Radio requires review of direct uploads, links, terms, rights, AI eligibility, optional newsletter choice and hidden Wix controls. ESC requires review of WAV/private-link delivery, contributor and media rights, AI disclosure, the published 70/30 model, any later agreement and final email or form action.
+Manual-review note: YardHype requires review of direct uploads, rights, its promotional-airplay licence, fan-voting exposure, AI eligibility and paid-route separation. UnityXM requires strict clean-content and release compliance plus review of the external DISCO provider, rights, AI eligibility and final upload. M3 requires release-age, format/bitrate, link, rights, international/AI eligibility and final email review.
 
-Deduplication note: repository code search contained no existing canonical Cacoteo, SMP Radio / SoulMusicPlaylists or Electric Sunshine Cult record by platform name, official route or published contact before creation. Adjacent contact, advertising, newsletter, sponsored-promotion, community, shop, services and roster routes were excluded or retained only as boundaries. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical YardHype Radio, UnityXM Radio or M3 Radio record by official name, route, domain or published submission address before creation. Adjacent paid-promotion, fan-chart, request/suggest, directory, player and social routes were retained only as evidence or boundaries. Canonical SQLite domain and URL deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Structural JSON and CSV validation was completed. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no audio, artwork, image or video was uploaded, no newsletter consent or terms were accepted, no login was used, no CAPTCHA or anti-spam control was bypassed and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No email was sent, no form field was filled, no audio or artwork was uploaded, no licence or consent was accepted, no vote was cast, no login was attempted, no CAPTCHA or anti-spam control was bypassed and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
 
 ## Recent run history
 
@@ -107,5 +107,9 @@ Added Reggae Global Radio's MP3 email route with two custom station IDs, RekHear
 ### Run 477
 
 Added Cacoteo Reggaeton Radio's MP3-only worldwide form, SMP Radio's global-soul MP3/cover-art form and Electric Sunshine Cult's worldwide A&R email route with an adjacent extensive roster upload form. Royalty-free permissions, uploads, rights, AI/terms checks, optional marketing choices and final actions require manual review. Pipeline estimate: 1,778.
+
+### Run 478
+
+Added YardHype Radio's free-first upload and fan-vote route, UnityXM Radio's clean Caribbean guidance with an external DISCO inbox, and M3 Radio's public independent-music email route. Uploads, rights, licences, clean/release requirements, external-provider controls, AI/international eligibility and final actions require manual review. Pipeline estimate: 1,781.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
