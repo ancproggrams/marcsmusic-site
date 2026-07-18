@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run473SeedPlatforms } from './run473PlatformSeeds.js';
 
 export const run472SeedPlatforms: PlatformInput[] = [
   {
@@ -71,5 +72,6 @@ export const run472SeedPlatforms: PlatformInput[] = [
       'The route requires a Gmail-authenticated external form, direct audio and cover-art uploads, broadcast authorization, social-follow confirmation and a fan-voting threshold before rotation. International and AI eligibility, Google form fields and consent text, hidden anti-abuse controls, media rights and every final action require human approval.',
     notes:
       'Passively verified on 2026-07-18 from the first-party home, submission, schedule and contact content. The station publishes active weekly shows and 24-hour Hip Hop, R&B and Reggae programming. It requests one downloadable 44.1 kHz 16-bit stereo MP3 or WAV, cover art and a Gmail account; selected tracks enter a one-week vote and require 100 valid-email votes plus following the station on Instagram or Facebook before regular rotation. The external forms.gle route returned 401 Unauthorized in this runtime and was not bypassed. No account was accessed, no form field was filled, no file or artwork was uploaded, no social follow was made, no vote was cast and no payment or submission action was performed.'
-  }
+  },
+  ...run473SeedPlatforms
 ];
