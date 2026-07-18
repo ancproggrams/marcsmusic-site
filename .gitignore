@@ -15,6 +15,9 @@
 !index.html
 !booking.html
 !admin.html
+!styles.css
+!app.js
+!booking.js
 !package.json
 !package-lock.json
 !railway.json
@@ -36,6 +39,7 @@
 !tests/epk.test.mjs
 !tests/film-lead-security.test.mjs
 !tests/trusted-proxy-rate-limit.test.mjs
+!tests/frontend-static.test.mjs
 !examples/
 !examples/epk-manifest.example.json
 !soundcloud-growth-os/
@@ -43,9 +47,15 @@
 !assets/
 !assets/marcsmusic-logo-black.png
 !assets/marcsmusic-logo-white.png
+!assets/logo-black-transparent.png
 !assets/artist-portrait.jpg
+!assets/portrait-full.png
+!assets/fonts/
+!assets/fonts/**
 !assets/covers/
 !assets/covers/*.svg
+!assets/covers/*.png
+!assets/covers/*.jpg
 !data/
 !data/.gitkeep
 !data/*.csv

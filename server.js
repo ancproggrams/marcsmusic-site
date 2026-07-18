@@ -100,6 +100,7 @@ const contentTypes = {
   ".jpeg": "image/jpeg",
   ".png": "image/png",
   ".svg": "image/svg+xml",
+  ".ttf": "font/ttf",
   ".ico": "image/x-icon",
   ".mp3": "audio/mpeg",
   ".m4a": "audio/mp4",
@@ -344,7 +345,14 @@ function getFilePath(urlPath) {
     "/admin": "/admin.html"
   };
   const safeRequested = aliases[requested] || requested;
-  const publicFiles = new Set(["/index.html", "/booking.html", "/admin.html"]);
+  const publicFiles = new Set([
+    "/index.html",
+    "/booking.html",
+    "/admin.html",
+    "/styles.css",
+    "/app.js",
+    "/booking.js"
+  ]);
   const publicDirectories = ["/assets/", "/soundcloud-growth-os/outreach-mp3/"];
 
   if (!publicFiles.has(safeRequested) && !publicDirectories.some((directory) => safeRequested.startsWith(directory))) {
