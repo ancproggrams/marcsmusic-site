@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run491SeedPlatforms } from './run491PlatformSeeds.js';
 
-export const run490SeedPlatforms: PlatformInput[] = [
+const run490NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "Get Known Radio Global Electronic, Hip-Hop & R&B Submission",
     "websiteUrl": "https://getknownradio.com/",
@@ -93,4 +94,9 @@ export const run490SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "Positive-content and genre fit, direct audio and image uploads, bitrate and file-size checks, copyright authority, mandatory terms acceptance, inconsistent legacy email-versus-form guidance, optional membership separation, privacy, hidden anti-spam controls and final submission require human review.",
     "notes": "Passively verified on 2026-07-19 from Indie Global 365's official music-submission, home, artist-membership and legacy about pages. The current canonical page says the first-party form is the only route and accepts up to two Hip-Hop, R&B or Caribbean Reggae/Soca songs. Music must be positive, uplifting, motivational, conscious or feel-good; MP3 files should be 192kbps, no more than 10MB each and named with artist and title. The visible form asks for artist name, email, song titles, up to two songs and one image per song, shows a 25MB aggregate upload limit and requires acceptance of Terms & Conditions. The separate membership page confirms the free submission tier and lists optional paid community plans. A legacy first-party page still says submissions are by indieglobal365@gmail.com, creating a route conflict; the current form was retained as canonical and the email was stored only as historical context. Activity is supported by a live-radio/current-song area, an active music catalog and current open submission and membership pages. The linked Terms & Conditions page could not be passively fetched, so licence, retention and indemnity wording remain unresolved. No form field, upload, terms checkbox, email, membership or payment was used."
   }
+];
+
+export const run490SeedPlatforms: PlatformInput[] = [
+  ...run490NewSeedPlatforms,
+  ...run491SeedPlatforms
 ];
