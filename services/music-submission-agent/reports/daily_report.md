@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 484
+Latest run: Run 485
 
 New items added in latest run: 3
 
@@ -10,63 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1799
+Pipeline estimate: 1802
 
 Items:
 
-- Run 484 added: WHCR 90.3 FM — official show-directed MP3 email instructions with relevant DNB, house and soulful/deep programme addresses.
-- Run 484 added: VANTA Recordings — a melodic-house/techno private-SoundCloud demo form and domain-aligned mailbox protected by reCAPTCHA.
-- Run 484 added: YHV Music Group / YHV Records — an unreleased electronic-demo email/form route with WAV and extended-version guidance and an optional paid Groover boundary.
+- Run 485 added: NOS Recordings — a House-only, maximum-three-track JavaScript demo form using private SoundCloud, Box or Dropbox links, with optional public livestream feedback.
+- Run 485 added: Diepgraven Records — a Chill/Tropical/Deep House private-link form with original-rights, artwork, cover/remix and mastering confirmations.
+- Run 485 added: COOL Recordings — a House/Tech House/Afro House private SoundCloud-or-Dropbox form requiring finished tracks and enabled downloads.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: WHCR requires artists to select a matching show and email an MP3 directly to its published address; walk-ins are prohibited and a show-addressed CD is optional. VANTA requests name, email, private SoundCloud and social links through a reCAPTCHA-protected form or `demo@vantarecordings.com`. YHV publishes `demos@yhvmusic.group`, accepts unreleased demos through email or an embedded form, prefers WAV and requires an extended version.
+Latest route note: NOS accepts up to three finished House demos and asks for private downloadable links plus a brief introduction; its complete JavaScript fields and submit-time controls remain unconfirmed. Diepgraven rejects WeTransfer and other download links, requires original-content and complete music/artwork copyright confirmation and asks whether the demo is a cover remix and mastered. COOL accepts private SoundCloud or Dropbox links for finished House, Tech House and Afro House tracks and requests an artist name, direct email, track link, social portfolio and A&R note.
 
-Contact-verification note: `demo@vantarecordings.com` and `demos@yhvmusic.group` are first-party published, syntactically valid, domain-aligned and explicitly designated for demos. WHCR's `dnbnycradio@gmail.com`, `tinad903@gmail.com` and `mysticvybes@gmail.com` are first-party published and show-specific but use consumer Gmail domains. `paul@vantarecordings.com` and `info@yhvmusic.group` were not substituted for canonical routes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `contact@diepgravenrecords.com` is first-party published, syntactically valid and domain-aligned, but is a general/business-inquiry address and was not substituted for the official form. No public submission mailbox was inferred for NOS Recordings or COOL Recordings. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: WHCR presents current 2026 station and show pages, including scheduled DNB, house and soulful/deep programmes. Beatport lists VANTA Recordings activity through 19 June 2026. YHV Records has releases through 17 July 2026 and scheduled releases dated 24 July 2026.
+Activity and fit note: NOS's official catalogue lists current 2026 releases including NOS 052 and NOS 053. Diepgraven's official news page contains releases dated through 3 July 2026. Beatport lists COOL Recordings releases through 5 June 2026.
 
-Manual-review note: all three require exact track/genre fit, rights, Content ID and AI-policy review, delivery and privacy/licence/retention checks and final human approval. WHCR also requires show selection and attachment/postal review; VANTA requires human reCAPTCHA completion; YHV requires unreleased/extended-version checks, embedded-form inspection and separation from optional paid Groover review.
+Manual-review note: all three require exact label fit, private-link access, rights, Content ID, AI-policy, privacy/retention, hidden form-control and possible contract review plus final human approval. NOS additionally requires a decision on optional public livestream feedback. Diepgraven requires explicit copyright, cover/remix and mastering checks. COOL requires a finished full track and downloads enabled.
 
-Deduplication note: repository and open-PR searches contained no existing canonical WHCR, VANTA Recordings or YHV Music Group record by official name, domain, submission path or published submission address before creation. Related show, form, email and optional paid-review references were consolidated into one record per platform. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository and open-PR searches contained no existing canonical NOS Recordings, Diepgraven Records or COOL Recordings record by official name or domain before creation. Variety Vibes Radio was excluded because the daily history records it in Run 468. Canonical SQLite domain and URL deduplication remains required before external use.
 
-Runtime limitation: repository and public-web connectors updated the artifacts. Structural JSON and CSV validation was completed. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
+Runtime limitation: repository and public-web connectors updated the artifacts. Generated JSON and CSV structures were validated before writes. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no MP3, CD, private link, WAV or social profile was shared, no consent was accepted, no CAPTCHA was completed, and no login, purchase, payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no private SoundCloud, Box, Dropbox or other link was shared, no consent was accepted, and no login, purchase, payment or submission action was performed.
 
 ## Recent run history
-
-### Run 450
-
-Added Wepa.Fm as a first-party independent-music email route requiring a signed royalty-free licensing agreement. It remains `needs_manual_review`.
-
-### Runs 451–461
-
-Completed passive evidence coverage for the existing 645-route browser inventory and retried the final four explicit error routes. No external action was performed.
-
-### Run 462
-
-Added JAM Audio Live as a worldwide free-first route linking to an external Google Form. It remains `needs_manual_review` because the external form boundaries were not inspectable.
-
-### Run 463
-
-Added IndieMusicFans as a worldwide free-first embedded-form route. Meta-tagged MP3 delivery, AI disclosure and streaming permission are published; form fields and legal boundaries remain manual-review items. Pipeline estimate: 1,750.
-
-### Run 464
-
-Added OurTownRadio as a free-first public email route. Metadata, original-music, download-link and rights requirements are published; international and AI eligibility and the promotional-use grant remain manual-review items. Pipeline estimate: 1,751.
-
-### Run 465
-
-Added KDBR Dain Bramage Radio as a free worldwide-facing upload/private-link route. reCAPTCHA, direct uploads and a later permission form require manual review. Pipeline estimate: 1,752.
-
-### Run 466
-
-Added MOCRadio Network as a free-first public MP3 email route. Clean-version, metadata, rights, AI/international eligibility and optional paid-promotion boundaries require manual review. Pipeline estimate: 1,753.
-
-### Run 467
-
-Added Discover YOU RADIO as a free first-party rotation-evaluation form. Clean-track suitability, iTunes-link accuracy, rights, AI/international eligibility, mailing-list consent, hidden live controls and optional paid/sync boundaries require manual review. Pipeline estimate: 1,754.
 
 ### Run 468
 
@@ -135,5 +103,9 @@ Added WXDU's Bandcamp-YUM-preferring official music mailbox, Hot Wax Radio's clo
 ### Run 484
 
 Added WHCR's show-directed MP3 email route, VANTA Recordings' reCAPTCHA-protected private-SoundCloud demo form/mailbox and YHV Music Group's unreleased WAV/extended-demo form/email route with a separate optional paid Groover boundary. Programme and international eligibility, genre fit, delivery, rights, Content ID, AI policy, licence/privacy/retention, CAPTCHA/embedded controls, paid-route separation and final actions require manual review. Pipeline estimate: 1,799.
+
+### Run 485
+
+Added NOS Recordings' House-only maximum-three-track private-link form with optional livestream feedback, Diepgraven Records' rights-confirming Chill/Tropical/Deep House form and COOL Recordings' finished House/Tech House/Afro House private-link form. Genre fit, link access, rights, Content ID, AI policy, privacy/retention, hidden controls, optional public-feedback consent and possible contract terms require manual review. Pipeline estimate: 1,802.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
