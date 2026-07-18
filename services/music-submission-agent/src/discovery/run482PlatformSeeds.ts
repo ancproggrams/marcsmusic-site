@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run483SeedPlatforms } from './run483PlatformSeeds.js';
 
-export const run482SeedPlatforms: PlatformInput[] = [
+const run482NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "Resurge Audio Electronic Music Submission",
     "websiteUrl": "https://www.resurgeaudio.com/",
@@ -99,4 +100,9 @@ export const run482SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "Monthly capacity, melodic-electronic fit, exact curator identity, Groover login/account, current credit price and payment, track/campaign metadata, rights, AI policy, platform terms/privacy, hidden controls and final campaign require human approval.",
     "notes": "Passively verified on 2026-07-18 from the official Global Entry Radio page and official Groover help/terms pages. Global Entry Radio reviews a limited number of melodic-electronic submissions monthly through its exact Groover influencer route, and the show published episode 100 on 2026-07-03 while broadcasting through 40+ outlets in 15+ countries. Groover requires an account and paid Grooviz credits and guarantees review/feedback rather than airplay. The radio page exposes no direct submission email; its contact form is for syndication/partnerships. support@groover.co is platform support only. No login, CAPTCHA, account creation, payment or submission was attempted."
   }
+];
+
+export const run482SeedPlatforms: PlatformInput[] = [
+  ...run482NewSeedPlatforms,
+  ...run483SeedPlatforms
 ];
