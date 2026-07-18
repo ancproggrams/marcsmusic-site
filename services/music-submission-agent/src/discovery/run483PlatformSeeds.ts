@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run484SeedPlatforms } from './run484PlatformSeeds.js';
 
-export const run483SeedPlatforms: PlatformInput[] = [
+const run483NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "WXDU 88.7 FM Airplay Submission",
     "websiteUrl": "https://www.wxdu.org/",
@@ -102,4 +103,9 @@ export const run483SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "Electronic subgenre and label fit, private-link access, rights, AI policy, privacy/retention, newsletter separation, possible contract terms and the final form/email action require human approval.",
     "notes": "Passively verified on 2026-07-18 from the official 2026 label/demo page and 2026 Beatport release records. music@zaccone-music.it is first-party published, syntactically valid, domain-aligned and explicitly designated for demos. The label works internationally and requests a private SoundCloud or valid music link, but publishes no detailed AI, rights, privacy, retention or contract terms for demos. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed. No form field was filled, no link was shared and no email or submission was sent."
   }
+];
+
+export const run483SeedPlatforms: PlatformInput[] = [
+  ...run483NewSeedPlatforms,
+  ...run484SeedPlatforms
 ];
