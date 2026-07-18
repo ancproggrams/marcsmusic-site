@@ -1,0 +1,230 @@
+{
+  "run": 468,
+  "date": "2026-07-18",
+  "pipelineEstimateBefore": 1754,
+  "pipelineEstimate": 1755,
+  "newPlatforms": [
+    {
+      "name": "Variety Vibes Radio & TV Rolling Artist Submission Form",
+      "websiteUrl": "https://varietyvibesradio.com/",
+      "submissionUrl": "https://varietyvibesradio.com/music-submission/",
+      "formUrl": "https://varietyvibesradio.com/music-submission/",
+      "sourceUrl": "https://varietyvibesradio.com/music-submission/",
+      "sourceType": "automation_run_468_public_research",
+      "country": "United States (Portland, Oregon) independent radio and TV network explicitly serving artists worldwide.",
+      "language": "en",
+      "genres": [
+        "electronic",
+        "hip-hop",
+        "r-and-b",
+        "pop",
+        "rock",
+        "indie",
+        "jazz",
+        "gospel",
+        "country",
+        "reggae",
+        "dancehall",
+        "world",
+        "afrobeats",
+        "metal",
+        "experimental",
+        "classical",
+        "folk",
+        "latin",
+        "radio-airplay",
+        "tv-play",
+        "direct-upload",
+        "rights-declaration",
+        "external-agreement",
+        "optional-paid-promotion",
+        "manual-review"
+      ],
+      "submissionMethod": "official first-party public artist-submission form with audio or video and promotional-image uploads",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public artist-submission form",
+        "formLocation": "https://varietyvibesradio.com/music-submission/",
+        "email": null,
+        "explicitPurpose": "Submit an original broadcast-ready track or video for consideration for radio airplay, TV play, website features and related promotional opportunities.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "safeHumanAction": "Open the current official form, review the external agreement and all legal terms, select only approved service interests, verify every file and right, and submit only after explicit owner approval.",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "internationalAcceptanceEvidence": "The first-party site describes the network as serving artists worldwide, the artists page features artists from around the world, and the form requires city and country.",
+        "standardRouteFeePublished": false,
+        "standardRouteFeeEvidence": "No mandatory price or payment step is displayed in the standard rolling artist-submission form. Separate featured-artist slots and marketing or promotional services are paid offerings."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "use the official Artist Submission form",
+          "provide artist or band name",
+          "provide contact name and email address",
+          "provide city and country",
+          "select career stage and label or signed status",
+          "select one or more primary genres",
+          "provide release history and featured track or video title",
+          "upload an MP3, WAV or MP4 file up to 50 MB",
+          "provide broadcast-ready audio at 192 kbps or better",
+          "upload 3000x3000 JPG or PNG cover art",
+          "upload a JPG or PNG press photo up to 10 MB",
+          "provide relevant streaming, social and website links",
+          "select the services or opportunities of interest",
+          "provide an artist bio of up to 700 characters",
+          "confirm the music is original and that distribution rights are controlled",
+          "read and accept the Radio Airplay & Promotion Agreement"
+        ],
+        "publishedReviewTiming": "The submission page states that a confirmation email is sent and that the team responds within 14 business days.",
+        "formFieldsObserved": [
+          "Artist / Band Name",
+          "Contact Name",
+          "Email Address",
+          "Phone Number",
+          "City / Country",
+          "Career Stage",
+          "Label / Signed Status",
+          "Primary Genre(s)",
+          "Releases to Date",
+          "Featured Track / Video Title",
+          "Track or Video File upload",
+          "Cover Art upload",
+          "Press Photo upload",
+          "Spotify",
+          "SoundCloud",
+          "Apple Music",
+          "YouTube",
+          "Instagram",
+          "TikTok",
+          "Facebook",
+          "Telegram",
+          "Bandcamp",
+          "Twitch",
+          "Website",
+          "Interested In service selections",
+          "Artist Bio",
+          "EPK Link",
+          "How did you hear about us?",
+          "Additional Notes",
+          "original-music and distribution-rights confirmation",
+          "external Radio Airplay & Promotion Agreement acceptance"
+        ],
+        "safeReviewScope": [
+          "select a broadcast-ready MarcsMusic track or video that fits an accepted genre",
+          "verify MP3, WAV or MP4 format, bitrate, file size and metadata",
+          "verify cover-art dimensions and press-photo rights",
+          "confirm master, composition, sample, contributor, artwork and likeness rights",
+          "review the externally hosted Radio Airplay & Promotion Agreement in full",
+          "review the published perpetual worldwide royalty-free promotional license and indemnity language",
+          "confirm AI-assisted and fully generated music eligibility",
+          "select only desired radio, TV or promotional interests and exclude paid services unless separately approved",
+          "inspect the live form for CAPTCHA, anti-spam, authentication and payment controls",
+          "approve all personal data, links, biography, notes, files and the final submission action"
+        ],
+        "unresolvedEligibility": [
+          "AI-assisted and fully generated music policy",
+          "whether a standard submission remains free after review or selection",
+          "the complete terms in the separately hosted Radio Airplay & Promotion Agreement",
+          "withdrawal or takedown mechanics for the perpetual license",
+          "whether all selected promotional interests are editorial or may trigger paid follow-up",
+          "whether hidden or submit-time CAPTCHA, anti-spam, login or payment controls appear"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          {
+            "email": "support@varietyvibesradio.com",
+            "purpose": "First-party general support and management contact; not the authorized substitute for the dedicated artist-submission form.",
+            "firstPartyPublished": true,
+            "syntaxValid": true,
+            "domainAligned": true,
+            "contextAligned": true,
+            "submissionRoute": false
+          }
+        ],
+        "adjacentEmailsExcluded": [
+          "support@varietyvibesradio.com is a general support and management address rather than the dedicated music-submission route",
+          "a separately displayed protected press address was not decoded or inferred"
+        ],
+        "emailStatus": "One first-party domain-aligned general business address was verified. The official form remains the only authorized music-submission route.",
+        "verification": "Email verification was limited to first-party publication, syntax, domain alignment and stated purpose. No protected address was decoded and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "externalFormProvider": null,
+        "externalFormUrl": null,
+        "embeddedFormPage": "https://varietyvibesradio.com/music-submission/",
+        "multiStepForm": false,
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible in the passively rendered page content. The dedicated agent-browser runner was unavailable, so hidden or submit-time anti-spam controls remain unverified.",
+        "loginObserved": false,
+        "loginStatus": "The submission form is publicly rendered and no login requirement is stated.",
+        "paymentObserved": false,
+        "paymentStatus": "No mandatory payment control is visible on the standard form. Separate featured-artist placement and marketing or promotional services are paid boundaries and are excluded.",
+        "manualRecheckRequired": true,
+        "manualRecheckReason": "Human review is required for direct uploads, personal data, rights and promotional-consent declarations, external agreement acceptance, the broad perpetual promotional license, AI eligibility, service selection and live anti-spam or payment controls.",
+        "rightsOrConsentFields": [
+          "confirmation that the music is original and the submitter owns or controls distribution rights",
+          "acceptance of the external Radio Airplay & Promotion Agreement",
+          "selection of radio, TV, marketing, social, interview, website, EPK, video, email-blast, sponsorship and other promotional interests"
+        ],
+        "uploadControls": [
+          "MP3, WAV or MP4 track or video upload up to 50 MB at 192 kbps or better",
+          "JPG or PNG cover-art upload requesting 3000x3000 pixels",
+          "JPG or PNG press-photo upload up to 10 MB"
+        ],
+        "adjacentRoutesExcluded": [
+          "general contact form and support mailbox",
+          "protected press contact",
+          "paid featured-artist page placement",
+          "paid marketing and promotional packages",
+          "sponsorship and advertising services",
+          "newsletter subscription"
+        ]
+      },
+      "legalReview": {
+        "publishedTermsUrl": "https://varietyvibesradio.com/terms-of-service/",
+        "externalAgreementUrl": "https://hidrive.ionos.com/lnk/XZoVr6bML",
+        "externalAgreementAccessible": false,
+        "externalAgreementStatus": "The official form links to a HiDrive-hosted Radio Airplay & Promotion Agreement. The public fetch surface required JavaScript and did not expose the document contents, so a human must inspect the document before acceptance.",
+        "publishedLicenseSummary": "The first-party terms state a non-exclusive, worldwide, royalty-free, perpetual license to stream and broadcast submitted content, display it on the app and website, use names, likenesses and biographies, and distribute snippets or full versions through social media and marketing campaigns.",
+        "publishedCompensationSummary": "The terms state that submissions do not create an entitlement to royalties, fees or other compensation unless a separate written agreement applies.",
+        "manualLegalReviewRequired": true
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The first-party site has a current Rolling Admissions 2026 submission form, featured audio uploaded in May 2026, first-party blog posts dated June 5 and June 8, 2026, and current 2026 artist and event surfaces."
+      },
+      "genreFitEvidence": [
+        "The official form explicitly accepts electronic, reggae or dancehall, world or Afrobeats, pop, experimental, classical or instrumental and other genres relevant to MarcsMusic.",
+        "The network states that it serves independent and established artists worldwide and offers radio and TV consideration.",
+        "A specific broadcast-ready MarcsMusic track must still be selected by a human after legal and promotional-scope review."
+      ],
+      "manualReviewReason": "The active first-party route is legitimate and globally oriented, but it requires direct media uploads, personal data, rights declarations, acceptance of an externally hosted agreement and broad perpetual promotional terms. AI eligibility, hidden live controls, the precise cost boundary and all selected services require human review.",
+      "priority": 84,
+      "pricingModel": "no-mandatory-fee-visible/first-party-upload-form/optional-paid-services/external-agreement/perpetual-promotional-license/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Variety Vibes Radio",
+      "Variety Vibes Radio & TV",
+      "varietyvibesradio.com",
+      "varietyvibesradio.com/music-submission",
+      "support@varietyvibesradio.com",
+      "Variety Vibes Radio & TV Rolling Artist Submission Form"
+    ],
+    "repositoryEvidence": "The complete accessible open pull-request patch and repository code search were checked for the platform name and canonical domain and returned no match before creation.",
+    "consolidation": "The rolling artist-submission form is stored once as the canonical opportunity. General support, protected press contact, newsletter, sponsorship, advertising, paid featured-artist placement and paid marketing services are excluded as separate submission routes."
+  },
+  "activeQueueRowsAdded": 1,
+  "notes": "One Variety Vibes Radio & TV opportunity was queued as needs_manual_review. No form field was filled, no file was uploaded, no agreement was accepted, no login was used, no CAPTCHA was solved and no payment or submission action was completed."
+}
