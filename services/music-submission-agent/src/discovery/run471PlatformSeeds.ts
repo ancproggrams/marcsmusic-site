@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run472SeedPlatforms } from './run472PlatformSeeds.js';
 
 export const run471SeedPlatforms: PlatformInput[] = [
   {
@@ -120,5 +121,6 @@ export const run471SeedPlatforms: PlatformInput[] = [
     manualReviewRequired: true,
     manualReviewReason: 'The route is active, international and first-party, with a published submission mailbox, but narrow genre fit, external link or file preparation, artwork and rights, unpublished AI eligibility and every final email action require human approval.',
     notes: 'The official contact page lists programme posts dated March 1-3, 2026, and the submission page states that its programmes are carried by 71 stations and reach more than 250,000 weekly listeners. No form field was filled, no terms were accepted, no file or external link was uploaded, no email was sent, no login was used, no CAPTCHA was solved and no payment or submission action was performed.'
-  }
+  },
+  ...run472SeedPlatforms
 ];
