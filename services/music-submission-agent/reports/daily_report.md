@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 475
+Latest run: Run 476
 
 New items added in latest run: 3
 
@@ -10,29 +10,29 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1772
+Pipeline estimate: 1775
 
 Items:
 
-- Run 475 added: The Relay Station — a global ambient, atmospheric and neoclassical first-party form using unused Bandcamp codes or non-expiring download links with metadata and Content ID requirements.
-- Run 475 added: rBeatz — a free global four-step direct-audio-upload form with AI disclosure, network-station selection and a mandatory digital signature accepting a broad Durable Licensing Agreement.
-- Run 475 added: PDX Radio — a free worldwide independent Hip-Hop and R&B submission page with rights-aware metadata requirements, a strict AI-generated-music prohibition and an embedded form requiring live inspection.
+- Run 476 added: Reggae Global Radio — a first-party MP3 email route requiring a biography, release-status disclosure and two custom station-ID jingles in one message.
+- Run 476 added: RekHeard Breakerz — a global Caribbean DJ-review form for one clean English-language Soca, Reggae or Dancehall single using Spotify plus durable MP3 and artist-photo links.
+- Run 476 added: Reggae Vibe Media — a global-facing direct-upload form for positive Reggae, Dancehall, Soca or Afrobeat, with a 320 kbps MP3/WAV requirement and a visible honeypot anti-spam boundary.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: The Relay Station generally rejects prominent drums, vocals, electronica, techno, house, noise, solo piano and deeply experimental work and requires non-expiring downloadable media plus broad promotional consent. rBeatz accepts singles or albums across several network stations but requires a direct upload and signature. PDX Radio accepts qualified final masters for independent Hip-Hop, R&B and related genres worldwide without pay-to-play.
+Latest route note: Reggae Global Radio requires MP3 rather than WAV and two station IDs. RekHeard Breakerz requires one clean track already on Spotify, non-expiring media links and promotional plus email-update consent. Reggae Vibe Media accepts direct high-resolution audio uploads, prefers clean daytime edits and exposes a honeypot that must not be interacted with or bypassed.
 
-Contact-verification note: The Relay Station and rBeatz use dedicated first-party forms, so no submission mailbox was inferred. `info@getpdxradio.com` is first-party published, syntactically valid and domain-aligned, but it is a general contact rather than a replacement submission route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `music@reggaeglobalradio.com` is first-party published, syntactically valid, domain-aligned and explicitly designated for music submissions. `info@rekheardbreakerz.com` is first-party and domain-aligned but only the published Google Drive access address, not an email-submission route. `thereggaevibe@gmail.com` is first-party published and syntactically valid but Gmail-hosted, not domain-aligned and not a substitute submission route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: The Relay Station's archive shows weekly Season 7 episodes through May 31, 2026 and is a specialist prospect only for MarcsMusic material without prominent beats or vocals. rBeatz publishes active 24/7 global station streams and multiple current genre channels. PDX Radio states that it streams independent Hip-Hop and R&B worldwide 24/7 and publishes a current weekly New Music Monday programme and 2026 policies.
+Activity and fit note: Reggae Global Radio publishes a current recurring Monday-Sunday schedule and worldwide 24/7 positioning. RekHeard Breakerz reports more than 440 submissions from more than 25 countries and current 2026 podcast episodes. Reggae Vibe Media publishes a current show display, 24/7 broadcast positioning and editorial activity through June 4, 2026. All three are strong potential fits for MarcsMusic reggae, dub, Caribbean and Afro-fusion material, subject to individual track requirements.
 
-Manual-review note: The Relay Station requires human and legal review of genre fit, links or codes, metadata, Content ID, rights and its free-and-clear monetized promotional consent. rBeatz requires explicit legal review of its transferable, sublicensable, royalty-free, perpetual or extended, irrevocable license, direct upload, AI disclosure, identity data, waiver, indemnity and signature. PDX Radio requires live embedded-form inspection, identity and authority verification, final-master and metadata checks, rights and sample clearance, strict AI eligibility review and final-submit approval.
+Manual-review note: Reggae Global Radio requires human review of MP3 attachments, biography, two station IDs, all rights and its non-exclusive worldwide content license. RekHeard Breakerz requires review of clean/genre/language fit, Spotify and durable links, image and likeness rights, broad cross-platform promotion and apparently bundled email consent. Reggae Vibe Media requires review of direct upload, honeypot protection, clean and positive-content fit, incomplete visible contact and consent fields, linked terms, rights, retention and AI eligibility.
 
-Deduplication note: repository code search contained no existing canonical The Relay Station, rBeatz or PDX Radio record by platform name or official submission route before creation. Alternative delivery choices, network-station selections and adjacent livestream or paid-service routes were consolidated or excluded. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical Reggae Global Radio, RekHeard Breakerz or Reggae Vibe Media record by platform name, official route or published contact before creation. Adjacent contact, advertising, technical, DJ, newsletter, visual-media, event, client and login routes were excluded rather than duplicated. Canonical SQLite domain and URL deduplication remains required before external use.
 
-Runtime limitation: repository and public-web connectors updated the artifacts. A mounted repository worktree and dedicated `agent-browser` runner were unavailable. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
+Runtime limitation: repository and public-web connectors updated the artifacts. A local repository clone was attempted, but the execution container could not resolve `github.com`. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
 
-Safety: No form field was filled, no Bandcamp code, link, identity data or audio file was submitted, no agreement was accepted or signed, no mailing-list consent was given, no login was used, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No email was sent, no form field was filled, no audio or image was uploaded, no link or Google Drive permission was granted, no consent was accepted, no login was used, no honeypot or CAPTCHA was bypassed and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
 
 ## Recent run history
 
@@ -99,5 +99,9 @@ Added CJSW's recent full-release Jotform, KAOS's clean full-release email/link r
 ### Run 475
 
 Added The Relay Station's global ambient code/link form, rBeatz's free global direct-upload and durable-license form, and PDX Radio's free worldwide rights-aware Hip-Hop/R&B form. Genre fit, Content ID, rights, broad consent or durable-license terms, identity and metadata, AI eligibility, embedded-form controls and final actions require manual review. Pipeline estimate: 1,772.
+
+### Run 476
+
+Added Reggae Global Radio's MP3 email route with two custom station IDs, RekHeard Breakerz's clean Caribbean Spotify/download-link form and Reggae Vibe Media's direct upload with a honeypot anti-spam boundary. Files and links, rights, broad promotional or license terms, consent, international/AI eligibility, hidden controls and final actions require manual review. Pipeline estimate: 1,775.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
