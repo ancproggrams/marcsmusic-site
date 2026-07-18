@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run485SeedPlatforms } from './run485PlatformSeeds.js';
 
-export const run484SeedPlatforms: PlatformInput[] = [
+const run484NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "WHCR 90.3 FM Show-Directed Music Submission",
     "websiteUrl": "https://whcr.org/",
@@ -104,4 +105,9 @@ export const run484SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "Unreleased-demo and extended-version eligibility, exact sublabel fit, WAV/link delivery, rights and Content ID, AI policy, embedded-form controls, privacy/retention, optional Groover login/payment separation and final submission require human approval.",
     "notes": "Passively verified on 2026-07-18 from YHV Music Group's official demo and YHV Records pages plus current catalogue records. The official route publishes demos@yhvmusic.group and states that electronic producers may submit by email or the embedded form. Current first-party guidance lists unreleased demos, WAV preferred and an extended version as requirements for YHV Records genres. demos@yhvmusic.group is first-party published, syntactically valid, domain-aligned and designated for demos; info@yhvmusic.group is general contact only. Beatport shows YHV Records releases through 2026-07-17 and upcoming releases dated 2026-07-24. No embedded field, login, Groover route, payment or submission was used."
   }
+];
+
+export const run484SeedPlatforms: PlatformInput[] = [
+  ...run484NewSeedPlatforms,
+  ...run485SeedPlatforms
 ];
