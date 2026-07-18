@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 486
+Latest run: Run 487
 
 New items added in latest run: 3
 
@@ -10,71 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1805
+Pipeline estimate: 1808
 
 Items:
 
-- Run 486 added: GoodBrother — a finished, unreleased Dubstep/DnB/House/Garage/Techno private-SoundCloud demo form with a domain-aligned demo mailbox.
-- Run 486 added: NexGen Music Group — a minimum-four-track bass/electronic upload or email route with a 300MB uploader and broad website licence.
-- Run 486 added: KPEO World Community Radio — an all-genres clean MP3 and cover-art form with file-size limits and visible human CAPTCHA.
+- Run 487 added: Radio 1190 — a clean full-album/EP email route using WAV or constant-320kbps MP3 files, release information and an artist bio.
+- Run 487 added: Sonair — an official all-genres independent-artist airplay form accepting streaming or download links only.
+- Run 487 added: Without Warning Radio — a weekly reviewed constant-320kbps MP3 submission mailbox requiring metadata, artwork and artist contact information.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: GoodBrother requires a finished unreleased track, private SoundCloud access with downloads enabled and acknowledgement that the route is for possible label signing rather than playlist placement. NexGen requires at least four unreleased tracks, minimum 320kbps quality, attachments or download links rather than streaming-only links, and acceptance of upload terms. KPEO requires a clean embedded MP3, cover art, name, email, phone and manual `I'm not a robot` verification.
+Latest route note: Radio 1190 accepts full-length albums and EPs rather than a canonical single route, requires clean digital files and allows physical media only as a supplement. Sonair accepts links rather than uploads and explicitly rejects music sent through its general contact form. Without Warning Radio requires a specified subject, formal genre fit, broadcast-quality constant-320kbps MP3, metadata, artwork, social details and booking or management information.
 
-Contact-verification note: `demo@goodbrother.io` and `demos@nexgenmusicgroup.com` are first-party published and explicitly designated for demos. `info@goodbrother.io`, `info@nexgen.music`, `info@nexgenmusicgroup.com` and `info@kpeo.org` are first-party general or legal contacts and were not substituted for canonical routes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `music@1190.radio` and `submissions@withoutwarningradio.com` are first-party published, syntactically valid, domain-aligned and explicitly designated for music. Radio 1190's production/governance contacts were excluded. Sonair's general address remained obfuscated and was not decoded or substituted. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: GoodBrother's official 2026 site shows current genre playlists and releases dated through 3 July 2026. NexGen's official release feed lists releases dated 19 June and 3 July 2026. KPEO exposes current on-air and recently-played surfaces, a full weekly schedule, worldwide coverage and active independent reggae, world, Afrobeat, electronic-dance and multi-genre programming.
+Activity and fit note: Radio 1190 publishes a Summer 2026 schedule, June 2026 new-add posts and 24/7/365 programming. Sonair published its airplay call on 16 March 2026, a February 2026 playlist update and current weekly music-refresh claims. Without Warning Radio shows an active 24/7 station, current team schedule, app/TuneIn/Alexa/Roku distribution and a blog post published seven days before verification.
 
-Manual-review note: all three require exact fit, rights, Content ID, AI-policy, privacy/retention and final-action review. GoodBrother additionally requires private-link and release-signing acknowledgement checks. NexGen requires legal approval of its non-exclusive royalty-free sublicensable worldwide website licence, warranties and indemnity. KPEO requires clean-content and file-size checks, direct audio/artwork uploads, clarification of social-follow wording and manual CAPTCHA completion.
+Manual-review note: all three require exact fit, content, delivery, rights, Content ID, AI-policy, privacy/retention, international eligibility and final-action review. Radio 1190 additionally requires full-release and University-retention checks. Sonair requires manual inspection of the complete form and submit-time controls. Without Warning Radio requires constant-bitrate, metadata, artwork, contact-package and formal-genre checks.
 
-Deduplication note: repository and open-PR searches contained no existing canonical GoodBrother, NexGen Music Group or KPEO record by official name, domain, form URL or designated submission mailbox before creation. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository, current-branch and open-PR searches contained no existing canonical Radio 1190, Sonair or Without Warning Radio record by official name, domain, form URL or designated submission mailbox before creation. Canonical SQLite domain and URL deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated JSON and CSV structures were validated before writes. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no file, artwork or private link was shared, no CAPTCHA was completed, no terms or consent were accepted, and no login, purchase, payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no file, artwork, link or physical media was shared, no terms were accepted, and no login, purchase, payment or submission action was performed.
 
 ## Recent run history
-
-### Run 468
-
-Added Variety Vibes Radio & TV as a worldwide-facing rolling 2026 direct-upload form. External agreement acceptance, broad perpetual promotional terms, direct media uploads, rights, AI eligibility, live controls and optional paid-service boundaries require manual review. Pipeline estimate: 1,755.
-
-### Run 469
-
-Added Airhug Radio as a worldwide-facing four-step direct-upload form. PRO and SoundExchange prerequisites, legal and royalty data, media consent, broadcast authorization, digital signature, linked terms and a strict AI prohibition require manual review. Pipeline estimate: 1,756.
-
-### Run 470
-
-Added KWDC 93.5 FM as a clean-MP3 email route with mandatory consent and Qfm 94.3 Tenerife as a free international contact-form route using an external download link. Consent terms, rights, uploads, hidden controls and AI eligibility require manual review. Pipeline estimate: 1,758.
-
-### Run 471
-
-Added WRIU's Electronic, World and Reggae department mailboxes, The Edge 105's clean global-reggae form, Indie Global 365's free direct-upload form and Smooth Jazz Club's international specialist email route. Eligibility, rights, content and genre fit, terms, files, external links, hidden controls and final actions require manual review. Pipeline estimate: 1,762.
-
-### Run 472
-
-Added SoundChat Radio's free global Caribbean track-link form and All'It Radio's Gmail-authenticated one-track Google Form. Rights and broadcast consent, clean edits, direct media uploads, audience voting, social-follow conditions, AI/international eligibility, hidden controls and final actions require manual review. Pipeline estimate: 1,764.
-
-### Run 473
-
-Added Most FM's alternative-radio streaming/download-link form and The Detour Network's public audio-attachment mailbox. International and AI eligibility, links, metadata, rights, clean versions, broadcast permission, foreign-law terms and an explicit no-royalty clause require manual and legal review. Pipeline estimate: 1,766.
-
-### Run 474
-
-Added CJSW's recent full-release Jotform, KAOS's clean full-release email/link route and Glacer FM's paid global promotional-airplay route. Uploads, release eligibility, rights, consent, links, clean-content rules, international/AI eligibility, package terms, invoice and payment boundaries require manual review. Pipeline estimate: 1,769.
-
-### Run 475
-
-Added The Relay Station's global ambient code/link form, rBeatz's free global direct-upload and durable-license form, and PDX Radio's free worldwide rights-aware Hip-Hop/R&B form. Genre fit, Content ID, rights, broad consent or durable-license terms, identity and metadata, AI eligibility, embedded-form controls and final actions require manual review. Pipeline estimate: 1,772.
-
-### Run 476
-
-Added Reggae Global Radio's MP3 email route with two custom station IDs, RekHeard Breakerz's clean Caribbean Spotify/download-link form and Reggae Vibe Media's direct upload with a honeypot. Reggae Vibe Media was reduced to low priority after its official terms revealed a broad submission-rights and no-compensation clause whose applicability to music uploads requires legal review. Pipeline estimate: 1,775.
-
-### Run 477
-
-Added Cacoteo Reggaeton Radio's MP3-only worldwide form, SMP Radio's global-soul MP3/cover-art form and Electric Sunshine Cult's worldwide A&R email route with an adjacent extensive roster upload form. Royalty-free permissions, uploads, rights, AI/terms checks, optional marketing choices and final actions require manual review. Pipeline estimate: 1,778.
 
 ### Run 478
 
@@ -111,5 +71,9 @@ Added NOS Recordings' House-only maximum-three-track private-link form with opti
 ### Run 486
 
 Added GoodBrother's finished-unreleased Dubstep/DnB/House/Garage/Techno private-SoundCloud route, NexGen Music Group's minimum-four-track upload/email route with a broad website licence, and KPEO's clean MP3-plus-cover-art form with visible human CAPTCHA. Genre and programme fit, files and links, rights, Content ID, AI policy, privacy/retention, licence terms, social-follow wording, CAPTCHA and final actions require manual review. Pipeline estimate: 1,805.
+
+### Run 487
+
+Added Radio 1190's clean full-album/EP email route, Sonair's official stream/download-link airplay form and Without Warning Radio's weekly constant-320kbps MP3 submission mailbox. Full-release, content, form, attachment, rights, AI, privacy, international-eligibility and final-action checks require manual review. Pipeline estimate: 1,808.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
