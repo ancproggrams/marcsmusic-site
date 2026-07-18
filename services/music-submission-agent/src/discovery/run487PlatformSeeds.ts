@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run488SeedPlatforms } from './run488PlatformSeeds.js';
 
-export const run487SeedPlatforms: PlatformInput[] = [
+const run487NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "KVCU Radio 1190 Album & EP Music Submission",
     "websiteUrl": "https://1190.radio/",
@@ -91,4 +92,9 @@ export const run487SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "Genre and programming fit, constant-320kbps MP3 delivery, metadata, artwork and contact data, attachment-size and security checks, clean/explicit version selection, rights and broadcast permission, AI policy, privacy/retention and final email require human review.",
     "notes": "Passively verified on 2026-07-18 from Without Warning Radio's official music-submission, station, team, contact and blog pages. The route publishes submissions@withoutwarningradio.com and requires the subject 'Artist Music Submission – Artist Name'. Accepted submission-page genres are Hip Hop, R&B, Soul, Dancehall, Poetry, Jazz and Gospel. Music must be broadcast quality, constant 320kbps MP3 and tagged with artist/band name, song title and version; the submission package also asks for album/single artwork, social information and booking/management information. Management reviews submissions weekly and does not guarantee placement. The station describes itself as a 24/7 online outlet distributed through its app, TuneIn, Alexa and Roku; its current blog showed a post published seven days before this verification and the site carries © 2026. The station page also says it plays house, but house is not listed in the formal submission-genre line, so fit must be confirmed manually. submissions@withoutwarningradio.com is first-party published, syntactically valid, domain-aligned and explicitly designated for submissions. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed. No email, attachment, artwork or submission was sent."
   }
+];
+
+export const run487SeedPlatforms: PlatformInput[] = [
+  ...run487NewSeedPlatforms,
+  ...run488SeedPlatforms
 ];
