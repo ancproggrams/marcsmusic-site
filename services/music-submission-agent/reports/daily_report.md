@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 483
+Latest run: Run 484
 
 New items added in latest run: 3
 
@@ -10,29 +10,29 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1796
+Pipeline estimate: 1799
 
 Items:
 
-- Run 483 added: WXDU 88.7 FM — an official Bandcamp-YUM-preferring first-party music mailbox for airplay consideration.
-- Run 483 added: Hot Wax Radio — a worldwide-facing first-party cloud-MP3 form with a hard AI prohibition and royalty-waiver terms.
-- Run 483 added: Zaccone Music / Music Therapy — an international electronic-label demo form and domain-aligned mailbox using a private music link.
+- Run 484 added: WHCR 90.3 FM — official show-directed MP3 email instructions with relevant DNB, house and soulful/deep programme addresses.
+- Run 484 added: VANTA Recordings — a melodic-house/techno private-SoundCloud demo form and domain-aligned mailbox protected by reCAPTCHA.
+- Run 484 added: YHV Music Group / YHV Records — an unreleased electronic-demo email/form route with WAV and extended-version guidance and an optional paid Groover boundary.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: WXDU prefers Bandcamp YUM codes through `music@wxdu.org`. Hot Wax requires an MP3 link from Dropbox or Google Drive, rejects AI submissions, and publishes promotional-distribution and royalty-waiver terms. Zaccone Music requests a private SoundCloud or other valid music link through its form or `music@zaccone-music.it`.
+Latest route note: WHCR requires artists to select a matching show and email an MP3 directly to its published address; walk-ins are prohibited and a show-addressed CD is optional. VANTA requests name, email, private SoundCloud and social links through a reCAPTCHA-protected form or `demo@vantarecordings.com`. YHV publishes `demos@yhvmusic.group`, accepts unreleased demos through email or an embedded form, prefers WAV and requires an extended version.
 
-Contact-verification note: `music@wxdu.org` and `music@zaccone-music.it` are first-party published, syntactically valid, domain-aligned and explicitly designated for music/demo submissions. `wxdu@duke.edu`, `patrick@relaxmusicgroup.com`, `booking@zaccone-music.it` and `newsletter@zaccone-music.it` were not substituted for canonical routes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `demo@vantarecordings.com` and `demos@yhvmusic.group` are first-party published, syntactically valid, domain-aligned and explicitly designated for demos. WHCR's `dnbnycradio@gmail.com`, `tinad903@gmail.com` and `mysticvybes@gmail.com` are first-party published and show-specific but use consumer Gmail domains. `paul@vantarecordings.com` and `info@yhvmusic.group` were not substituted for canonical routes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: WXDU publishes a Summer 2026 schedule and playlist archive with mid-July activity. Hot Wax presents an active 24/7 schedule, worldwide artist positioning and July 2026 playlist evidence. Zaccone Music carries 2026 label content and release records dated March and May 2026.
+Activity and fit note: WHCR presents current 2026 station and show pages, including scheduled DNB, house and soulful/deep programmes. Beatport lists VANTA Recordings activity through 19 June 2026. YHV Records has releases through 17 July 2026 and scheduled releases dated 24 July 2026.
 
-Manual-review note: all three require final track/genre fit, rights and AI-policy review, link-access and privacy/licence/retention checks and human approval. Hot Wax additionally requires review of its royalty waiver, promotional/podcast rights, JavaScript controls and optional paid-service boundary.
+Manual-review note: all three require exact track/genre fit, rights, Content ID and AI-policy review, delivery and privacy/licence/retention checks and final human approval. WHCR also requires show selection and attachment/postal review; VANTA requires human reCAPTCHA completion; YHV requires unreleased/extended-version checks, embedded-form inspection and separation from optional paid Groover review.
 
-Deduplication note: repository and open-PR searches contained no existing canonical WXDU, Hot Wax Radio or Zaccone Music record by official name, domain, submission path or published submission address before creation. Adjacent contacts and routes were consolidated into one record per platform. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository and open-PR searches contained no existing canonical WHCR, VANTA Recordings or YHV Music Group record by official name, domain, submission path or published submission address before creation. Related show, form, email and optional paid-review references were consolidated into one record per platform. Canonical SQLite domain and URL deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Structural JSON and CSV validation was completed. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no Bandcamp code, file or link was shared, no consent was accepted, no login or CAPTCHA was attempted, and no purchase, payment or submission action was completed.
+Safety: No email was sent, no form field was filled, no MP3, CD, private link, WAV or social profile was shared, no consent was accepted, no CAPTCHA was completed, and no login, purchase, payment or submission action was performed.
 
 ## Recent run history
 
@@ -131,5 +131,9 @@ Added Resurge Audio's rights- and GDPR-aware electronic form with a hard AI proh
 ### Run 483
 
 Added WXDU's Bandcamp-YUM-preferring official music mailbox, Hot Wax Radio's cloud-MP3 form with a hard AI prohibition and royalty-waiver boundary, and Zaccone Music's international electronic-label private-link form/mailbox. Eligibility, genre fit, links, rights, AI policy, licence/privacy/retention terms, JavaScript controls, optional paid-service separation and final actions require manual review. Pipeline estimate: 1,796.
+
+### Run 484
+
+Added WHCR's show-directed MP3 email route, VANTA Recordings' reCAPTCHA-protected private-SoundCloud demo form/mailbox and YHV Music Group's unreleased WAV/extended-demo form/email route with a separate optional paid Groover boundary. Programme and international eligibility, genre fit, delivery, rights, Content ID, AI policy, licence/privacy/retention, CAPTCHA/embedded controls, paid-route separation and final actions require manual review. Pipeline estimate: 1,799.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
