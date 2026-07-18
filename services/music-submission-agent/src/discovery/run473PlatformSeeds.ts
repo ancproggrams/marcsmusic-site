@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run474SeedPlatforms } from './run474PlatformSeeds.js';
 
 export const run473SeedPlatforms: PlatformInput[] = [
   {
@@ -73,5 +74,6 @@ export const run473SeedPlatforms: PlatformInput[] = [
       'The specific public mailbox is authorized and active, but audio attachment preparation, ID3 and filename rules, clean/explicit labeling, all music rights, foreign-law eligibility and an explicit no-royalty permission clause require legal and human approval before any email is sent.',
     notes:
       'Passively verified on 2026-07-18 from the official submission, home, listening, contact and January 2026 acceptable-use pages. The station requests no more than three tracks, MP3/WAV/AAC only, a correctly formatted Artist Name – Song Title filename, completed ID3 metadata and clean versions where possible. The published terms grant broadcast permission and state that the station need not pay royalties, so the route is not eligible for automatic submission. No file was attached, no email was sent, no login was used, no CAPTCHA was solved and no payment or submission action was performed.'
-  }
+  },
+  ...run474SeedPlatforms
 ];
