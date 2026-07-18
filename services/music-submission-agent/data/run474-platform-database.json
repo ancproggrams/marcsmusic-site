@@ -1,0 +1,263 @@
+{
+  "run": 474,
+  "date": "2026-07-18",
+  "pipelineEstimateBefore": 1766,
+  "pipelineEstimate": 1769,
+  "newPlatforms": [
+    {
+      "name": "CJSW 90.9 FM Digital Album Submission",
+      "websiteUrl": "https://cjsw.com/",
+      "submissionUrl": "https://cjsw.com/music/submit/",
+      "formUrl": "https://form.jotform.com/260625704327253",
+      "sourceType": "automation_run_474_public_research",
+      "country": "Canada (Calgary, Alberta); the form asks for artist location but does not explicitly confirm or exclude international artists.",
+      "language": "en",
+      "genres": ["electronic", "reggae", "world", "global bass", "indie", "hip-hop", "experimental", "multicultural"],
+      "submissionMethod": "official first-party route to a public Jotform requiring a complete recent EP or album as an MP3 ZIP plus artwork and airplay/library permission",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party page linking to an external public Jotform",
+        "formLocation": "https://form.jotform.com/260625704327253",
+        "email": null,
+        "explicitPurpose": "Submit a new EP or album for CJSW library review and possible airplay.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "internationalAcceptanceEvidence": "The form asks where the artist is located and displays no local-only restriction, but international eligibility is not stated.",
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "digital submissions only",
+          "EP with at least three unique tracks or a full-length album; no singles",
+          "release must be within the previous three months",
+          "MP3 files uploaded as a ZIP",
+          "release metadata, artist location, bio or release description, RIYL and website/streaming URL",
+          "album-artwork upload and optional PDF one-sheet",
+          "permission to share the release with programmers for airplay and permanently add it to the digital library"
+        ],
+        "formFieldsObserved": [
+          "email address", "artist or band name", "release name", "label or self-released", "EP or full-length",
+          "release date", "genre and subgenre", "website or streaming URL", "artist location", "bio or release description",
+          "RIYL", "MP3 ZIP upload", "optional one-sheet", "artwork upload", "broadcast/library permission",
+          "optional local-artist campus-mailout consent and signature"
+        ],
+        "safeReviewScope": [
+          "confirm three-plus tracks and release age",
+          "verify ZIP, MP3, artwork and optional one-sheet files",
+          "confirm composition, master, sample, contributor and artwork rights",
+          "review permanent-library and airplay permission",
+          "leave local-only mailout unselected unless eligible and approved",
+          "confirm international and AI-music eligibility",
+          "inspect hidden upload, anti-spam, CAPTCHA and submit-time controls",
+          "approve every field, upload and final submit action"
+        ],
+        "unresolvedEligibility": [
+          "international-artist eligibility",
+          "AI-assisted or AI-generated music policy",
+          "maximum upload sizes",
+          "territory, duration and revocability of library/airplay permission",
+          "hidden submit-time controls"
+        ]
+      },
+      "businessContact": {
+        "emails": [],
+        "protectedContactsObserved": ["Helen Young, Music & Performance Director — first-party email link protected and not decoded"],
+        "emailStatus": "The official contact page identifies the Music & Performance Director as the submissions contact, but the authorized route is the Jotform. No protected address was decoded or inferred.",
+        "verification": "No protected-contact decoding, SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "externalProvider": "Jotform",
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible in passive form content; hidden or submit-time controls remain unverified.",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "uploadControls": ["MP3 ZIP release", "optional PDF one-sheet", "album artwork"],
+        "rightsOrConsentTerms": ["airplay/programmer sharing permission", "permanent digital-library addition", "optional separate local campus-mailout consent"],
+        "manualRecheckReason": "Direct uploads, release freshness, rights, consent scope, international/AI eligibility, hidden controls and final submission require human review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official programming page showed a current July 17–23, 2026 schedule and active now-playing information. Relevant shows include Road Pops, Electric Company, Fade to Bass, Remote Emissions, Speaking in Tongues, Level The Vibes and Carnival Mix."
+      },
+      "manualReviewReason": "The active route rejects singles and requires direct multi-file uploads plus airplay/permanent-library consent; rights, eligibility, upload boundaries and the final action require human approval.",
+      "priority": 92,
+      "pricingModel": "no-fee-visible/external-jotform/direct-zip-and-artwork-upload/full-release-only/permanent-library-consent/manual-review"
+    },
+    {
+      "name": "KAOS 89.3 FM Olympia Digital Music Submission",
+      "websiteUrl": "https://www.kaosradio.org/",
+      "submissionUrl": "https://www.kaosradio.org/submitmusic",
+      "formUrl": null,
+      "sourceType": "automation_run_474_public_research",
+      "country": "United States (Olympia, Washington); digital submissions are accepted, but international-artist eligibility is not explicitly published.",
+      "language": "en",
+      "genres": ["independent", "freeform", "electronic", "reggae", "world", "alternative"],
+      "submissionMethod": "official public music-department email route using streaming and download links, with CD, vinyl or cassette delivery as a preferred physical alternative",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission email",
+        "formLocation": null,
+        "email": "kaosmusicdirector@gmail.com",
+        "postalAlternative": "ATTN: Music Dept, KAOS-FM, CAB 101, 2700 Evergreen Parkway NW, Olympia, WA 98505, USA",
+        "explicitPurpose": "Submit a full release for KAOS music-department review and possible DJ airplay.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "internationalAcceptanceEvidence": "No geographic restriction is published, but the station emphasizes Pacific Northwest artists and does not explicitly confirm international eligibility.",
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "no singles; submit a full release",
+          "include a one-sheet or press release with bio, album description and focus tracks",
+          "identify FCC violations or clean radio edits",
+          "KAOS never airs profane or indecent material and has no safe harbor",
+          "use the email subject Music Submission",
+          "send streaming and download links",
+          "do not send attachments or files directly",
+          "physical CD, vinyl and cassette submissions are accepted and preferred"
+        ],
+        "safeReviewScope": [
+          "select a complete release and prepare a one-sheet",
+          "verify streaming/download-link accessibility and authorization",
+          "confirm all composition, master, sample, contributor and artwork rights",
+          "confirm no profane or indecent content",
+          "confirm international and AI-music eligibility",
+          "approve the recipient, subject, body, links and final email send",
+          "obtain separate approval before physical shipment"
+        ],
+        "unresolvedEligibility": ["international-artist eligibility", "AI-music policy", "acceptable release age and download format", "current intake capacity"]
+      },
+      "businessContact": {
+        "emails": ["kaosmusicdirector@gmail.com"],
+        "adjacentEmailsExcluded": ["kaos@evergreen.edu", "hamiltoj@evergreen.edu", "kaosradioevents@gmail.com"],
+        "emailStatus": "kaosmusicdirector@gmail.com is first-party published, syntactically valid and explicitly designated for the Music Department and digital music submissions. It is a Gmail address rather than a domain mailbox. General, manager and events addresses were excluded.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "emailRouteIdentified": true,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "attachmentControls": ["attachments prohibited", "streaming link", "download link", "full release only"],
+        "physicalAlternatives": ["CD", "vinyl", "cassette"],
+        "manualRecheckReason": "Full-release selection, clean-content review, external links, rights, eligibility and final email or physical delivery require human review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The linked Spinitron page displayed current July 16, 2026 programming and recent music shows, while the official site exposed a schedule, playlist and live stream."
+      },
+      "manualReviewReason": "Singles are rejected, profanity/indecency is prohibited, links rather than attachments are required and international/AI eligibility is unpublished. Human approval is required before email or physical delivery.",
+      "priority": 89,
+      "pricingModel": "no-fee-visible/public-submission-email/no-attachments/streaming-and-download-links/full-release-only/physical-alternative/manual-review"
+    },
+    {
+      "name": "Glacer FM Paid Global Music Broadcast",
+      "websiteUrl": "https://www.glacerfm.com/",
+      "submissionUrl": "https://www.glacerfm.com/services/submit-your-music/",
+      "formUrl": null,
+      "sourceType": "automation_run_474_public_research",
+      "country": "United States / global internet radio; the official route explicitly offers global broadcast for original music from artists worldwide.",
+      "language": "en",
+      "genres": ["electronic", "reggae", "world", "dance", "house", "hip-hop", "R&B", "all genres"],
+      "submissionMethod": "official paid promotional-airplay email route requiring selection of a broadcast package and receipt of a payment invoice",
+      "status": "needs_manual_review",
+      "feeRequired": true,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": true,
+      "authorizedRoute": {
+        "routeType": "first-party paid promotional-airplay email",
+        "formLocation": null,
+        "email": "administration@glacerfm.com",
+        "explicitPurpose": "Request an invoice for a guaranteed Glacer Underground rotation or music-focus package.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": false,
+        "internationalArtistsExplicitlyAccepted": true,
+        "internationalAcceptanceEvidence": "The page describes a global broadcast, asks for the artist's country and accepts original music in all genres.",
+        "standardRouteFeePublished": true
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "original songs only; cover music is not accepted",
+          "select a paid broadcast, genre-block or album-focus option",
+          "email the option, referral source, email address, first name, last name, country and state if applicable",
+          "receive a payment request or invoice",
+          "regular rotation: USD 30 for at least 30 days or USD 50 for at least 90 days",
+          "genre blocks: USD 40 or USD 60",
+          "album focus: USD 30 or USD 45"
+        ],
+        "safeReviewScope": [
+          "classify as paid promotional airplay rather than free editorial consideration",
+          "review exact package, duration, spin frequency and deliverables",
+          "review terms, invoice, refund/cancellation policy and payment method",
+          "confirm original-music and all composition/master/sample/contributor/artwork rights",
+          "confirm AI-music eligibility",
+          "evaluate commercial value and return on investment",
+          "approve email, invoice, payment and later media delivery separately"
+        ],
+        "unresolvedEligibility": ["AI-music policy", "post-payment audio/metadata requirements", "refund/cancellation terms", "territory and reporting details"]
+      },
+      "businessContact": {
+        "emails": ["administration@glacerfm.com"],
+        "adjacentEmailsExcluded": ["glacermusicradio@yahoo.com"],
+        "emailStatus": "administration@glacerfm.com is first-party published, syntactically valid, domain-aligned and explicitly designated for starting paid music-broadcast packages and receiving invoice information. The Yahoo address is a general feedback contact and was excluded.",
+        "verification": "No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "emailRouteIdentified": true,
+        "captchaObserved": false,
+        "loginObserved": false,
+        "paymentObserved": true,
+        "paymentStatus": "Mandatory for every published music-broadcast option; payment is invoiced after the initial email.",
+        "manualRecheckRequired": true,
+        "packageOptions": [
+          "USD 30 — one song, 3+ daily spins, at least 30 days",
+          "USD 50 — one song, 3+ daily spins, at least 90 days",
+          "USD 40 or USD 60 — genre-specific music block",
+          "USD 30 or USD 45 — album or compilation music focus"
+        ],
+        "manualRecheckReason": "Package choice, invoice, payment, terms, rights, AI eligibility, commercial value and all later content delivery require explicit human approval."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official site showed active daily programming blocks, a current Top 50 chart, 24/7 broadcast claims and a 2026 copyright notice."
+      },
+      "manualReviewReason": "The route is active and globally open, but it is paid guaranteed promotional rotation. No email, invoice request, payment or media delivery may occur without explicit commercial, legal and human approval.",
+      "priority": 55,
+      "pricingModel": "paid-guaranteed-airplay/email-invoice/original-music-only/global/all-genres/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "CJSW", "cjsw.com/music/submit", "form.jotform.com/260625704327253",
+      "KAOS 89.3 FM", "kaosradio.org/submitmusic", "kaosmusicdirector@gmail.com",
+      "Glacer FM", "glacerfm.com/services/submit-your-music", "administration@glacerfm.com"
+    ],
+    "repositoryEvidence": "Repository code search returned no existing canonical match for the three platform names or official submission routes before creation.",
+    "consolidation": "CJSW is one external-form opportunity; its protected staff contact and optional local campus-mailout route are not separate records. KAOS is one digital email opportunity with a physical alternative; general and events mailboxes are excluded. Glacer FM is one paid promotional-airplay opportunity despite multiple package tiers."
+  },
+  "activeQueueRowsAdded": 3,
+  "notes": "Three legitimate opportunities were queued as needs_manual_review. No form field was filled, no file or artwork was uploaded, no email or physical delivery was sent, no package was selected, no invoice was requested, no login was used, no CAPTCHA was solved and no payment or submission action was completed."
+}
