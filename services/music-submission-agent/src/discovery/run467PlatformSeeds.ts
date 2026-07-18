@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run468SeedPlatforms } from './run468PlatformSeeds.js';
 
 export const run467SeedPlatforms: PlatformInput[] = [
   {
@@ -36,5 +37,6 @@ export const run467SeedPlatforms: PlatformInput[] = [
       'The public form requests identity/contact data, an iTunes track link, artist history and song context, and includes an optional mailing-list choice. A human must confirm clean/radio-friendly suitability, ownership and contributor rights, international and AI-assisted-music eligibility, the accuracy of all artist metadata, and the live form controls before final submission. Optional paid services and the separate sync-licensing route must remain excluded.',
     notes:
       'Passively verified on 2026-07-18 from Discover YOU RADIO first-party Artist Submissions, Real Radio, Shows, Privacy, Terms and Music Licensing surfaces. The current submission page says initial rotation evaluation is free, requires a clean/radio-friendly track and shows fields for name, artist name, song title, email, an optional mailing-list choice, an iTunes purchase link, biography/history and song inspiration, plus questions/comments. If accepted, the station says it purchases the song on iTunes and adds it to its request catalog. Current July 2026 live-show listings and the active request/scouting pages support recent activity. submit@discoveryouradio.com and admin@discoveryouradio.com are support contacts rather than authorized music-submission substitutes; uploads@discoveryouradio.com belongs to a separate sync-licensing workflow. No form field was filled, no link was submitted, no mailing-list consent was given, no login was used, no CAPTCHA was solved and no payment or submission action was performed.'
-  }
+  },
+  ...run468SeedPlatforms
 ];
