@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 485
+Latest run: Run 486
 
 New items added in latest run: 3
 
@@ -10,29 +10,29 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1802
+Pipeline estimate: 1805
 
 Items:
 
-- Run 485 added: NOS Recordings — a House-only, maximum-three-track JavaScript demo form using private SoundCloud, Box or Dropbox links, with optional public livestream feedback.
-- Run 485 added: Diepgraven Records — a Chill/Tropical/Deep House private-link form with original-rights, artwork, cover/remix and mastering confirmations.
-- Run 485 added: COOL Recordings — a House/Tech House/Afro House private SoundCloud-or-Dropbox form requiring finished tracks and enabled downloads.
+- Run 486 added: GoodBrother — a finished, unreleased Dubstep/DnB/House/Garage/Techno private-SoundCloud demo form with a domain-aligned demo mailbox.
+- Run 486 added: NexGen Music Group — a minimum-four-track bass/electronic upload or email route with a 300MB uploader and broad website licence.
+- Run 486 added: KPEO World Community Radio — an all-genres clean MP3 and cover-art form with file-size limits and visible human CAPTCHA.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: NOS accepts up to three finished House demos and asks for private downloadable links plus a brief introduction; its complete JavaScript fields and submit-time controls remain unconfirmed. Diepgraven rejects WeTransfer and other download links, requires original-content and complete music/artwork copyright confirmation and asks whether the demo is a cover remix and mastered. COOL accepts private SoundCloud or Dropbox links for finished House, Tech House and Afro House tracks and requests an artist name, direct email, track link, social portfolio and A&R note.
+Latest route note: GoodBrother requires a finished unreleased track, private SoundCloud access with downloads enabled and acknowledgement that the route is for possible label signing rather than playlist placement. NexGen requires at least four unreleased tracks, minimum 320kbps quality, attachments or download links rather than streaming-only links, and acceptance of upload terms. KPEO requires a clean embedded MP3, cover art, name, email, phone and manual `I'm not a robot` verification.
 
-Contact-verification note: `contact@diepgravenrecords.com` is first-party published, syntactically valid and domain-aligned, but is a general/business-inquiry address and was not substituted for the official form. No public submission mailbox was inferred for NOS Recordings or COOL Recordings. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `demo@goodbrother.io` and `demos@nexgenmusicgroup.com` are first-party published and explicitly designated for demos. `info@goodbrother.io`, `info@nexgen.music`, `info@nexgenmusicgroup.com` and `info@kpeo.org` are first-party general or legal contacts and were not substituted for canonical routes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: NOS's official catalogue lists current 2026 releases including NOS 052 and NOS 053. Diepgraven's official news page contains releases dated through 3 July 2026. Beatport lists COOL Recordings releases through 5 June 2026.
+Activity and fit note: GoodBrother's official 2026 site shows current genre playlists and releases dated through 3 July 2026. NexGen's official release feed lists releases dated 19 June and 3 July 2026. KPEO exposes current on-air and recently-played surfaces, a full weekly schedule, worldwide coverage and active independent reggae, world, Afrobeat, electronic-dance and multi-genre programming.
 
-Manual-review note: all three require exact label fit, private-link access, rights, Content ID, AI-policy, privacy/retention, hidden form-control and possible contract review plus final human approval. NOS additionally requires a decision on optional public livestream feedback. Diepgraven requires explicit copyright, cover/remix and mastering checks. COOL requires a finished full track and downloads enabled.
+Manual-review note: all three require exact fit, rights, Content ID, AI-policy, privacy/retention and final-action review. GoodBrother additionally requires private-link and release-signing acknowledgement checks. NexGen requires legal approval of its non-exclusive royalty-free sublicensable worldwide website licence, warranties and indemnity. KPEO requires clean-content and file-size checks, direct audio/artwork uploads, clarification of social-follow wording and manual CAPTCHA completion.
 
-Deduplication note: repository and open-PR searches contained no existing canonical NOS Recordings, Diepgraven Records or COOL Recordings record by official name or domain before creation. Variety Vibes Radio was excluded because the daily history records it in Run 468. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository and open-PR searches contained no existing canonical GoodBrother, NexGen Music Group or KPEO record by official name, domain, form URL or designated submission mailbox before creation. Canonical SQLite domain and URL deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated JSON and CSV structures were validated before writes. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no private SoundCloud, Box, Dropbox or other link was shared, no consent was accepted, and no login, purchase, payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no file, artwork or private link was shared, no CAPTCHA was completed, no terms or consent were accepted, and no login, purchase, payment or submission action was performed.
 
 ## Recent run history
 
@@ -107,5 +107,9 @@ Added WHCR's show-directed MP3 email route, VANTA Recordings' reCAPTCHA-protecte
 ### Run 485
 
 Added NOS Recordings' House-only maximum-three-track private-link form with optional livestream feedback, Diepgraven Records' rights-confirming Chill/Tropical/Deep House form and COOL Recordings' finished House/Tech House/Afro House private-link form. Genre fit, link access, rights, Content ID, AI policy, privacy/retention, hidden controls, optional public-feedback consent and possible contract terms require manual review. Pipeline estimate: 1,802.
+
+### Run 486
+
+Added GoodBrother's finished-unreleased Dubstep/DnB/House/Garage/Techno private-SoundCloud route, NexGen Music Group's minimum-four-track upload/email route with a broad website licence, and KPEO's clean MP3-plus-cover-art form with visible human CAPTCHA. Genre and programme fit, files and links, rights, Content ID, AI policy, privacy/retention, licence terms, social-follow wording, CAPTCHA and final actions require manual review. Pipeline estimate: 1,805.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
