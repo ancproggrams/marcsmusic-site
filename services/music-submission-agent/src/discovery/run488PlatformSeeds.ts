@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run489SeedPlatforms } from './run489PlatformSeeds.js';
 
-export const run488SeedPlatforms: PlatformInput[] = [
+const run488NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "SubCulture Recordings 2027 Bass Music Demo Submission",
     "websiteUrl": "https://www.subculture050.com/",
@@ -85,4 +86,9 @@ export const run488SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "Drum-and-bass fit, file/link delivery, download permissions, metadata, attachment security and size, rights, Content ID, AI policy, international eligibility, privacy/retention and final email require human review; the adjacent LabelWorx form also needs manual inspection.",
     "notes": "Passively verified on 2026-07-18 from Symmetry Recordings' official demo page and official Bandcamp catalog. The label publishes demos@symmetryrecordings.co.uk and asks for 320kbps MP3 or WAV versions attached to email or supplied through a storage/cloud link. Tracks must be labelled with producer and track name; SoundCloud links are accepted only when downloading is enabled. The label states that every submitted track is heard. Its official Bandcamp also links an alternative LabelWorx DemoBox at https://www.label-worx.com/demo/symmetry-recordings; the exact live fields, JavaScript requirements, upload limits, consent, CAPTCHA and login state were not passively inspected, so that route remains a manual boundary rather than an automated path. demos@symmetryrecordings.co.uk is first-party published, syntactically valid, domain-aligned and explicitly designated for demos. Current activity is confirmed by releases in January, March, May and June 2026, including SYMM074 – So Right on June 5, 2026. No email, attachment, link, upload or submission was sent."
   }
+];
+
+export const run488SeedPlatforms: PlatformInput[] = [
+  ...run488NewSeedPlatforms,
+  ...run489SeedPlatforms
 ];
