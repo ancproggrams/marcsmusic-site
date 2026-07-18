@@ -2,35 +2,36 @@
 
 Date: 2026-07-18
 
-Latest run: Run 469
+Latest run: Run 470
 
-New items added in latest run: 1
+New items added in latest run: 2
 
 Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1756
+Pipeline estimate: 1758
 
 Items:
 
-- Run 469 added: Airhug Radio — a first-party four-step independent-artist submission form for possible radio airplay, educational features, artist spotlights and licensing opportunities.
+- Run 470 added: KWDC 93.5 FM — a first-party clean-MP3 email route requiring a signed music-consent form.
+- Run 470 added: Qfm 94.3 Tenerife — a free international first-party contact-form route using a WeTransfer or Dropbox download link.
 
-One new queue row was created with `needs_manual_review`. No auto-submit candidate was created.
+Two new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: the form requires English responses, independent-artist ownership, PRO and SoundExchange registration, legal and artist identity, royalty metadata, genre and BPM, direct song and lyrics uploads, explicit-content information, a biography, promotional-media consent, broadcast authorization, linked terms, a digital signature and date/time. WAV is preferred, lyrics are requested as PDF and up to ten files are shown.
+Latest route note: KWDC requires clean content, a signed or digitally completed consent form, MP3 files and a stereo master at -3 dB. Qfm requires genre-compatible 192 or 320 kbps constant-bitrate MP3 files, complete metadata, trimmed silence, artist information, a ZIP package and a WeTransfer or Dropbox link; YouTube, Facebook, Google Drive and SoundCloud links are rejected.
 
-Contact-verification note: no public business email was identified on the inspected first-party submission, home or about surfaces as an authorized submission route. The official form is the only recorded route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `kwdc@deltacollege.edu` is first-party published, syntactically valid, aligned with the Delta College domain and explicitly designated for music submissions. Qfm publishes no submission mailbox and directs artists through its contact form. No protected address was decoded. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: the linked Live365 page displayed a current now-playing track and multiple recently played entries on 2026-07-18. The official form lists Electronic and World alongside Pop, Rock, Hip-Hop, R&B, Country, Jazz, Blues, Folk, Classical and Latin and the About page states a worldwide independent-artist focus.
+Activity and fit note: KWDC's first-party Summer 2026 schedule states that it runs 24 hours every day and plays Latin, Top 40, Rock and Dance; its Underground Hour highlights unsigned music daily. Qfm's first-party pages carry a 2026 copyright notice, advertise current FM, DAB+ and streaming, and list Sunset Sessions, World Grooves, Chillout Zone and a monthly unsigned-artist show. Qfm explicitly accepts regional, national and international artists in Jazz, Soul, Funk, Blues, World Fusion and related styles.
 
-Manual-review note: Airhug Radio explicitly prohibits AI in submissions. A human must confirm that the selected MarcsMusic track contains no prohibited AI-generated or AI-assisted element, verify all PRO/SoundExchange and rights data, inspect the linked Live365 terms and hidden live controls, review every upload and consent, and explicitly approve the digital signature and final submission.
+Manual-review note: KWDC's consent PDF and Google consent form were not passively retrievable, and international and AI eligibility remain unresolved. Qfm requires an external file-hosting upload and publishes no AI policy. A human must review legal terms, rights, metadata, files, privacy and link permissions, hidden controls, all consent choices and every final upload, send or submit action.
 
-Deduplication note: the complete accessible open pull-request patch and repository search contained no existing `Airhug Radio`, `airhugradio.com` or canonical submission-page record. The four-step first-party form is canonical; social links, Live365 broadcaster registration, interview interest and unspecific licensing references are excluded. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: the accessible open pull-request patch and repository search contained no existing KWDC, kwdc.fm, kwdc@deltacollege.edu, Qfm 94.3, Qfm Tenerife or qmusica.com record. KWDC is consolidated into one email-plus-consent opportunity and Qfm into one contact-form opportunity. Canonical SQLite domain and URL deduplication remains required before external use.
 
-Runtime limitation: repository and public-web connectors updated the artifacts. A mounted repository worktree and the dedicated `agent-browser` runner were unavailable. The linked Live365 terms did not expose substantive text through passive retrieval. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
+Runtime limitation: repository and public-web connectors updated the artifacts. A mounted repository worktree and the dedicated `agent-browser` runner were unavailable. The linked KWDC consent surfaces were not retrievable. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
 
-Safety: No form field was filled, no file was uploaded, no agreement was accepted, no signature was entered, no email was sent, no account or login was used, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No form field was filled, no consent was signed, no file or ZIP was uploaded, no email was sent, no account or login was used, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
 
 ## Recent run history
 
@@ -73,5 +74,9 @@ Added Variety Vibes Radio & TV as a worldwide-facing rolling 2026 direct-upload 
 ### Run 469
 
 Added Airhug Radio as a worldwide-facing four-step direct-upload form. PRO and SoundExchange prerequisites, legal and royalty data, media consent, broadcast authorization, digital signature, linked terms and a strict AI prohibition require manual review. Pipeline estimate: 1,756.
+
+### Run 470
+
+Added KWDC 93.5 FM as a clean-MP3 email route with mandatory consent and Qfm 94.3 Tenerife as a free international contact-form route using an external download link. Consent terms, rights, uploads, hidden controls and AI eligibility require manual review. Pipeline estimate: 1,758.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
