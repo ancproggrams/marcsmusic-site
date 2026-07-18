@@ -1,4 +1,5 @@
 import type { PlatformInput } from '../models/types.js';
+import { run476SeedPlatforms } from './run476PlatformSeeds.js';
 
 export const run475SeedPlatforms: PlatformInput[] = [
   {
@@ -108,5 +109,6 @@ export const run475SeedPlatforms: PlatformInput[] = [
       'The embedded form did not expose its complete live fields during passive retrieval. A human must inspect identity/contact verification, final-master and metadata fields, rights and sample/feature clearances, explicit-content handling, PRO/SoundExchange relevance, strict AI-generated-music exclusion, any permitted AI-assisted disclosure, hidden anti-spam or upload controls, the non-exclusive revocable promotional license and final submission.',
     notes:
       'Passively verified on 2026-07-18 from PDX Radio official song-submission, content-policy, about and New Music Monday pages. The route is free, accepts independent Hip-Hop, R&B and related genres worldwide, requires an adult authorized submitter, final master, accurate artist/title/featured-artist and ISRC or album/label metadata, and grants a non-exclusive revocable broadcast and promotional license if selected. The FAQ states that AI-generated music is not accepted and submissions are not used for AI training. info@getpdxradio.com is a first-party published general contact, not a substitute submission route. The separate livestream-only Nero route was excluded. No form field was filled, no identity data or track was submitted, no login was used, no CAPTCHA was solved and no payment or submission action was performed.'
-  }
+  },
+  ...run476SeedPlatforms
 ];
