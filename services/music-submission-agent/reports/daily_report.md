@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-Latest run: Run 474
+Latest run: Run 475
 
 New items added in latest run: 3
 
@@ -10,29 +10,29 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1769
+Pipeline estimate: 1772
 
 Items:
 
-- Run 474 added: CJSW 90.9 FM — an external Jotform for recent EPs or albums containing at least three tracks, uploaded as an MP3 ZIP with artwork and broadcast/library permission.
-- Run 474 added: KAOS 89.3 FM Olympia — a full-release email route using streaming and download links, a one-sheet and strict clean-content rules, with a physical-media alternative.
-- Run 474 added: Glacer FM — a worldwide paid promotional-airplay email route with published guaranteed-rotation and album-focus packages.
+- Run 475 added: The Relay Station — a global ambient, atmospheric and neoclassical first-party form using unused Bandcamp codes or non-expiring download links with metadata and Content ID requirements.
+- Run 475 added: rBeatz — a free global four-step direct-audio-upload form with AI disclosure, network-station selection and a mandatory digital signature accepting a broad Durable Licensing Agreement.
+- Run 475 added: PDX Radio — a free worldwide independent Hip-Hop and R&B submission page with rights-aware metadata requirements, a strict AI-generated-music prohibition and an embedded form requiring live inspection.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: CJSW rejects singles and requires a release under three months old plus direct ZIP and artwork uploads. KAOS rejects singles, prohibits profane or indecent material and forbids email attachments. Glacer FM accepts original music only and requires package selection, an invoice and payment.
+Latest route note: The Relay Station generally rejects prominent drums, vocals, electronica, techno, house, noise, solo piano and deeply experimental work and requires non-expiring downloadable media plus broad promotional consent. rBeatz accepts singles or albums across several network stations but requires a direct upload and signature. PDX Radio accepts qualified final masters for independent Hip-Hop, R&B and related genres worldwide without pay-to-play.
 
-Contact-verification note: CJSW's official contact page identifies its Music & Performance Director as the submissions contact, but the protected address was not decoded because the Jotform is the authorized route. `kaosmusicdirector@gmail.com` is first-party published and explicitly designated for KAOS digital music submissions. `administration@glacerfm.com` is first-party published, syntactically valid, domain-aligned and designated for paid music-package inquiries and invoices. General, manager, events and feedback addresses were excluded. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: The Relay Station and rBeatz use dedicated first-party forms, so no submission mailbox was inferred. `info@getpdxradio.com` is first-party published, syntactically valid and domain-aligned, but it is a general contact rather than a replacement submission route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: CJSW publishes a live July 17–23, 2026 schedule with electronic, global-bass, reggae, world and Caribbean programming. KAOS's Spinitron page displayed current July 16, 2026 activity and recent music shows. Glacer FM displays active daily programming blocks, a current Top 50 chart and a 2026 site copyright notice. CJSW and KAOS are strong non-commercial full-release prospects; Glacer is explicitly categorized as paid promotional airplay.
+Activity and fit note: The Relay Station's archive shows weekly Season 7 episodes through May 31, 2026 and is a specialist prospect only for MarcsMusic material without prominent beats or vocals. rBeatz publishes active 24/7 global station streams and multiple current genre channels. PDX Radio states that it streams independent Hip-Hop and R&B worldwide 24/7 and publishes a current weekly New Music Monday programme and 2026 policies.
 
-Manual-review note: CJSW requires human review of release age, full-release eligibility, uploads, media rights, permanent-library consent, international/AI eligibility and hidden controls. KAOS requires clean full-release selection, a one-sheet, external-link and rights checks, international/AI eligibility and final email or physical-shipment approval. Glacer requires explicit commercial and legal approval of package, invoice, payment, terms, rights, AI eligibility and return on investment.
+Manual-review note: The Relay Station requires human and legal review of genre fit, links or codes, metadata, Content ID, rights and its free-and-clear monetized promotional consent. rBeatz requires explicit legal review of its transferable, sublicensable, royalty-free, perpetual or extended, irrevocable license, direct upload, AI disclosure, identity data, waiver, indemnity and signature. PDX Radio requires live embedded-form inspection, identity and authority verification, final-master and metadata checks, rights and sample clearance, strict AI eligibility review and final-submit approval.
 
-Deduplication note: repository code search contained no existing canonical CJSW, KAOS or Glacer FM record by platform name or official submission route before creation. CJSW's optional local mailout, KAOS's physical alternative and Glacer's package tiers were consolidated rather than duplicated. Canonical SQLite domain and URL deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical The Relay Station, rBeatz or PDX Radio record by platform name or official submission route before creation. Alternative delivery choices, network-station selections and adjacent livestream or paid-service routes were consolidated or excluded. Canonical SQLite domain and URL deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. A mounted repository worktree and dedicated `agent-browser` runner were unavailable. No browser screenshot, successful build, test, lint, SQLite-worker, `git diff` or `git status` result is claimed.
 
-Safety: No form field was filled, no link, file or artwork was submitted, no email or physical delivery was sent, no package was selected, no invoice was requested, no login was used, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
+Safety: No form field was filled, no Bandcamp code, link, identity data or audio file was submitted, no agreement was accepted or signed, no mailing-list consent was given, no login was used, no CAPTCHA was solved and no payment or submission action was completed. No anti-bot, authentication, payment or platform restriction was bypassed.
 
 ## Recent run history
 
@@ -95,5 +95,9 @@ Added Most FM's alternative-radio streaming/download-link form and The Detour Ne
 ### Run 474
 
 Added CJSW's recent full-release Jotform, KAOS's clean full-release email/link route and Glacer FM's paid global promotional-airplay route. Uploads, release eligibility, rights, consent, links, clean-content rules, international/AI eligibility, package terms, invoice and payment boundaries require manual review. Pipeline estimate: 1,769.
+
+### Run 475
+
+Added The Relay Station's global ambient code/link form, rBeatz's free global direct-upload and durable-license form, and PDX Radio's free worldwide rights-aware Hip-Hop/R&B form. Genre fit, Content ID, rights, broad consent or durable-license terms, identity and metadata, AI eligibility, embedded-form controls and final actions require manual review. Pipeline estimate: 1,772.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
