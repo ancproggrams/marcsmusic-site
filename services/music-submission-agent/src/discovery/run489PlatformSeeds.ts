@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run490SeedPlatforms } from './run490PlatformSeeds.js';
 
-export const run489SeedPlatforms: PlatformInput[] = [
+const run489NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "SoundChat Radio Global Caribbean Music Submission",
     "websiteUrl": "https://soundchatradio.com/",
@@ -92,4 +93,9 @@ export const run489SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "Clean radio-ready selection, iTunes or alternate-link access, lyrics and metadata, AI/Suno disclosure and label-interest choice, rights, mailing and paid-promotion opt-ins, optional paid-service separation, privacy/retention, hidden submit-time controls and final submission require human review.",
     "notes": "Passively verified on 2026-07-18 from Discover YOU RADIO's official artist-submission, artist-portal, real-radio, privacy and terms pages. The official page says initial rotation evaluation is free, only the official application is reviewed and general-contact or social-DM submissions can be disqualified. The visible form asks for artist/contact data, song title, iTunes or alternate link, biography, song inspiration, lyrics or instrumental status, one or two genres, optional ISRC, PRO, social and website links, purchase link, fit statement, Suno Pro/record-label interest and an explicit yes/no paid-promotional-opportunities choice. Tracks must be radio-ready and non-explicit. If selected, the station says it purchases the song on iTunes and adds it to rotation and its request catalog. submit@discoveryouradio.com and admin@discoveryouradio.com are first-party published in the privacy policy, but the official application remains canonical. The active Human Ear Queue, current request lineup, 2026 privacy policy and current 2026 briefing support activity. No form field, email, opt-in, purchase or submission was used."
   }
+];
+
+export const run489SeedPlatforms: PlatformInput[] = [
+  ...run489NewSeedPlatforms,
+  ...run490SeedPlatforms
 ];
