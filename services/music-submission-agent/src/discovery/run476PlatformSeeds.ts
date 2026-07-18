@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run477SeedPlatforms } from './run477PlatformSeeds.js';
 
-export const run476SeedPlatforms: PlatformInput[] = [
+const run476NewSeedPlatforms: PlatformInput[] = [
   {
     name: 'Reggae Global Radio Email Music Submission',
     websiteUrl: 'https://reggaeglobalradio.com/',
@@ -104,4 +105,9 @@ export const run476SeedPlatforms: PlatformInput[] = [
     notes:
       'Passively verified on 2026-07-18 from the official media-submission page, Terms of Service, current show display and 2026 editorial pages. The form accepts a 320 kbps MP3 or WAV, shows a 268.44 MB limit and contains an anti-spam field instructing humans to leave it blank. The Terms contain a materially broad submissions provision that must be legally assessed before any upload. thereggaevibe@gmail.com is first-party published as a general contact, but is not domain-aligned and is not a substitute submission route. No file was selected or uploaded, no honeypot or other anti-spam control was interacted with, no term was accepted, no form field was filled, no login was used, no CAPTCHA was solved and no payment or submission action was performed.'
   }
+];
+
+export const run476SeedPlatforms: PlatformInput[] = [
+  ...run476NewSeedPlatforms,
+  ...run477SeedPlatforms
 ];
