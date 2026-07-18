@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run479SeedPlatforms } from './run479PlatformSeeds.js';
 
-export const run478SeedPlatforms: PlatformInput[] = [
+const run478NewSeedPlatforms: PlatformInput[] = [
   {
     name: 'YardHype Radio Free Song Submission',
     websiteUrl: 'https://yardhyperadio.com/',
@@ -109,4 +110,9 @@ export const run478SeedPlatforms: PlatformInput[] = [
     notes:
       'Passively verified on 2026-07-18 from the official submission page and its linked Live365 station profile. The station says it broadcasts new independent music 24/7 and reports Top 200 plus Hip Hop, Heavy, Electronic, World and Jazz charts to NACC. It prefers a download link, accepts AIFF, WAV or MP3 at 128 kbps or higher, requires submissions to be no more than one year old and no longer accepts CDs. m3newmusic@yahoo.com is first-party published, syntactically valid and explicitly designated for music submissions, but it uses a consumer email domain rather than m3radio.com. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed. No email was drafted or sent, no link was shared, no attachment was added, no login was used and no payment or submission action was performed.'
   }
+];
+
+export const run478SeedPlatforms: PlatformInput[] = [
+  ...run478NewSeedPlatforms,
+  ...run479SeedPlatforms
 ];
