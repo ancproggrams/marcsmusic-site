@@ -1,0 +1,390 @@
+{
+  "run": 476,
+  "date": "2026-07-18",
+  "pipelineEstimateBefore": 1772,
+  "pipelineEstimate": 1775,
+  "newPlatforms": [
+    {
+      "name": "Reggae Global Radio Email Music Submission",
+      "websiteUrl": "https://reggaeglobalradio.com/",
+      "submissionUrl": "mailto:music@reggaeglobalradio.com",
+      "formUrl": null,
+      "sourceType": "automation_run_476_public_research",
+      "country": "United States (Florida) / worldwide online reggae station; the station describes worldwide listeners and international presenters, but the submission page does not explicitly guarantee eligibility for every foreign artist.",
+      "language": "en",
+      "genres": [
+        "reggae",
+        "roots reggae",
+        "dub",
+        "dancehall",
+        "Caribbean",
+        "worldwide"
+      ],
+      "submissionMethod": "official first-party public music-submission mailbox requiring one complete email with correctly named MP3 files, a biography, release-status disclosure and two station-ID jingles",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public music-submission email",
+        "formLocation": null,
+        "email": "music@reggaeglobalradio.com",
+        "explicitPurpose": "Submit reggae music for airplay consideration.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": false,
+        "internationalAcceptanceEvidence": "The station identifies itself as a worldwide 24/7 reggae platform with international presenters, but the submission instructions do not expressly promise acceptance from every country.",
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "include a biography for new, upcoming or emerging artists",
+          "submit MP3 only; WAV is expressly rejected",
+          "name each track Artist Name - Title of Song",
+          "state whether the music is released or pre-release",
+          "include two correctly labelled Reggae Global Radio station-ID jingles",
+          "send all requirements in one email rather than multiple messages",
+          "submitter must own or control the content and grants a non-exclusive worldwide license to use, stream, promote and distribute submitted content under the site terms"
+        ],
+        "formFieldsObserved": [
+          "email subject and body are not prescribed on the page",
+          "biography",
+          "released or pre-release status",
+          "correctly labelled MP3 tracks",
+          "two correctly labelled station-ID jingles"
+        ],
+        "safeReviewScope": [
+          "select a clearly suitable reggae, dub or dancehall track",
+          "prepare a radio-safe MP3 and verify filename and embedded metadata",
+          "confirm released or pre-release status",
+          "create and approve two station-ID jingles without unauthorized third-party material",
+          "confirm composition, master, sample, contributor, voice and artwork rights",
+          "review the non-exclusive worldwide use, stream, promote and distribute license in the April 5, 2026 site terms",
+          "confirm AI-assisted or AI-generated music eligibility",
+          "check attachment-size limits and whether download links are acceptable before sending",
+          "approve recipient, subject, body, attachments and final send action"
+        ],
+        "unresolvedEligibility": [
+          "international artist acceptance beyond the station's worldwide positioning",
+          "AI-assisted or AI-generated music policy",
+          "maximum attachment size and whether cloud-download links are accepted",
+          "license duration, termination and revocability",
+          "clean or explicit-content policy",
+          "royalty and reporting treatment"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          "music@reggaeglobalradio.com",
+          "stationmgr@reggaeglobalradio.com",
+          "operations@reggaeglobalradio.com"
+        ],
+        "emailStatus": "music@reggaeglobalradio.com is first-party published, syntactically valid, domain-aligned and explicitly designated for music submissions. stationmgr@reggaeglobalradio.com and operations@reggaeglobalradio.com are first-party general operational contacts and were excluded as submission substitutes.",
+        "adjacentRoutesExcluded": [
+          "question/contact form",
+          "advertising form",
+          "technical-support mailbox"
+        ],
+        "verification": "First-party publication, syntax, domain alignment and explicit route purpose were verified. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "dedicatedMusicFormIdentified": false,
+        "externalProvider": null,
+        "captchaObserved": false,
+        "captchaStatus": "The authorized music route is email, so no CAPTCHA applies to the route. The adjacent question form was not used.",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "deliveryControls": [
+          "MP3 attachments",
+          "one complete email",
+          "two station-ID jingles",
+          "biography",
+          "release-status disclosure"
+        ],
+        "rightsOrConsentTerms": [
+          "ownership or legal-rights warranty",
+          "non-exclusive worldwide license",
+          "use",
+          "stream",
+          "promote",
+          "distribute"
+        ],
+        "manualRecheckReason": "Audio attachments, custom station IDs, rights, the worldwide license, international and AI eligibility, email-size constraints and the final outbound message require human review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official site publishes a current 24/7 stream, a recurring Monday-Sunday show roster, a 2026 copyright notice and site terms last updated April 5, 2026."
+      },
+      "manualReviewReason": "The mailbox is authorized and publicly published, but attachments, two custom station IDs, rights, license scope, international and AI eligibility and final email transmission require human approval.",
+      "priority": 94,
+      "pricingModel": "no-fee-visible/first-party-email/mp3-only/two-station-ids/reggae/worldwide-facing/non-exclusive-worldwide-license/manual-review"
+    },
+    {
+      "name": "RekHeard Breakerz Caribbean DJ Review Submission",
+      "websiteUrl": "https://www.rekheardbreakerz.com/",
+      "submissionUrl": "https://www.rekheardbreakerz.com/#submit",
+      "formUrl": "https://www.rekheardbreakerz.com/#submit",
+      "sourceType": "automation_run_476_public_research",
+      "country": "Canada / global Caribbean-music discovery platform; the form requests country, reports submissions from more than 25 countries and reviews independent artists for podcast and playlist support.",
+      "language": "en",
+      "genres": [
+        "soca",
+        "reggae",
+        "dancehall",
+        "Caribbean",
+        "clean single",
+        "Spotify",
+        "DJ review"
+      ],
+      "submissionMethod": "official first-party public form for one clean English-language Soca, Reggae or Dancehall single, using a Spotify link plus non-expiring MP3 and artist-photo download links",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public artist-submission form",
+        "formLocation": "https://www.rekheardbreakerz.com/#submit",
+        "email": null,
+        "generalBusinessEmail": "info@rekheardbreakerz.com",
+        "explicitPurpose": "Submit one clean, club-ready and radio-friendly Caribbean single for anonymous DJ-panel review and possible podcast, playlist and promotional support.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "internationalAcceptanceEvidence": "The form requests country, the platform states that more than 25 countries are represented and the process is presented to independent Caribbean artists broadly.",
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "one song per submission",
+          "Soca, Reggae or Dancehall only; no riddim tracks",
+          "clean, radio-friendly and club-ready single",
+          "song must be in English",
+          "track must already be available on Spotify",
+          "provide a tagged MP3 through a non-expiring direct-download link; YouTube and streaming links are not accepted for the MP3 field",
+          "provide a non-expiring high-resolution solo artist-photo download link without cover art, writing or profanity",
+          "grant permission to review, discuss, play excerpts, feature, publish, share and promote the track, artist name, image, likeness and submitted materials across podcast, video, website, playlists, social media, email and promotional platforms",
+          "agree to receive submission, episode, playlist, opportunity and platform-update emails, with stated unsubscribe rights"
+        ],
+        "formFieldsObserved": [
+          "artist name",
+          "email address",
+          "city",
+          "country",
+          "Instagram handle",
+          "optional TikTok handle",
+          "genre",
+          "clean Spotify link",
+          "non-expiring tagged MP3 download link",
+          "non-expiring high-resolution artist-photo download link",
+          "clean-version confirmation",
+          "song story or inspiration",
+          "rights and promotional-permission confirmation",
+          "email-updates consent"
+        ],
+        "safeReviewScope": [
+          "confirm the track is one English-language clean Soca, Reggae or Dancehall single and not a riddim track",
+          "verify the public Spotify release and the exact clean version",
+          "prepare non-expiring least-privilege download links for the tagged MP3 and approved artist photo",
+          "when using Google Drive, grant only the published info@rekheardbreakerz.com address the minimum required access",
+          "confirm composition, master, sample, contributor, image, likeness and publicity rights",
+          "review excerpt, publication, sharing and multi-platform promotional permission",
+          "review whether the apparently bundled email-updates consent is acceptable",
+          "confirm AI-assisted or AI-generated music eligibility",
+          "inspect hidden anti-spam, CAPTCHA and submit-time controls",
+          "approve every field, link, consent and final submission"
+        ],
+        "unresolvedEligibility": [
+          "AI-assisted or AI-generated music policy",
+          "whether email-updates consent is mandatory and sufficiently separable",
+          "duration, revocability and territorial scope of the promotional permission",
+          "download-link retention and deletion practices",
+          "hidden submit-time controls"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          "info@rekheardbreakerz.com"
+        ],
+        "emailStatus": "info@rekheardbreakerz.com is first-party published inside the submission instructions as the account to grant Google Drive access. It is syntactically valid and domain-aligned but is not stored as an email-submission route.",
+        "adjacentRoutesExcluded": [
+          "general contact form",
+          "DJ-panel application",
+          "newsletter form"
+        ],
+        "verification": "First-party publication, syntax, domain alignment and access-purpose context were verified. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "externalProvider": "Wix-hosted first-party page/form",
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible in passive page content; hidden Wix anti-abuse or submit-time controls remain unverified.",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "deliveryControls": [
+          "Spotify link",
+          "non-expiring tagged MP3 download link",
+          "non-expiring artist-photo download link",
+          "Google Drive access to published address when used"
+        ],
+        "rightsOrConsentTerms": [
+          "rights-and-permissions warranty",
+          "excerpt and review permission",
+          "publication and sharing",
+          "artist-name/image/likeness use",
+          "cross-platform promotion",
+          "email-updates consent"
+        ],
+        "manualRecheckReason": "Genre and clean-version fit, non-expiring links, image and music rights, broad promotional permission, email consent, AI eligibility, hidden form controls and final submission require human review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official site reports more than 440 submissions from more than 25 countries and lists four Season 1 episodes. Apple Podcasts identifies the show as active in 2026 and dates Episodes 1 and 2 to June 1 and June 15, 2026."
+      },
+      "manualReviewReason": "The route is globally open and no fee is published, but it requires public-release and clean-track fit, durable download links, image/likeness permissions and an apparently bundled marketing-consent decision.",
+      "priority": 97,
+      "pricingModel": "no-fee-visible/first-party-form/one-clean-caribbean-single/spotify-plus-download-links/global/dj-panel/promotion-and-email-consent/manual-review"
+    },
+    {
+      "name": "Reggae Vibe Media Direct Music Upload",
+      "websiteUrl": "https://reggaevibe.org/",
+      "submissionUrl": "https://reggaevibe.org/media-submission/",
+      "formUrl": "https://reggaevibe.org/media-submission/",
+      "sourceType": "automation_run_476_public_research",
+      "country": "United States / Jamaica / global digital reggae-media audience; the official page describes selected airplay across the United States, Jamaica, the United Kingdom and beyond.",
+      "language": "en",
+      "genres": [
+        "reggae",
+        "dancehall",
+        "soca",
+        "Afrobeat",
+        "Caribbean",
+        "African",
+        "positive music"
+      ],
+      "submissionMethod": "official first-party direct-upload form for a high-resolution MP3 or WAV, with artist name, song title and a visible anti-spam honeypot",
+      "status": "needs_manual_review",
+      "feeRequired": false,
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "authorizedRoute": {
+        "routeType": "first-party public direct-audio-upload form",
+        "formLocation": "https://reggaevibe.org/media-submission/",
+        "email": null,
+        "generalBusinessEmail": "thereggaevibe@gmail.com",
+        "explicitPurpose": "Submit positive Reggae, Dancehall, Soca or Afrobeat music for possible radio rotation, DJ consideration and multimedia exposure.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "audioDeliveryAuthorized": true,
+        "internationalArtistsExplicitlyAccepted": true,
+        "internationalAcceptanceEvidence": "The submission page promises a global audience and describes selected tracks reaching the United States, Jamaica, the United Kingdom and beyond.",
+        "standardRouteFeePublished": false
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "high-resolution MP3 at 320 kbps or WAV",
+          "clean radio edits are preferred for daytime rotation",
+          "tag files with artist name, song title and production credits",
+          "a brief biography and high-quality promotional photo are strongly encouraged for editorial consideration",
+          "material should align with the platform's positive, uplifting message"
+        ],
+        "formFieldsObserved": [
+          "artist name",
+          "song title",
+          "direct file upload",
+          "maximum visible upload size 268.44 MB",
+          "blank honeypot field labelled for humans"
+        ],
+        "safeReviewScope": [
+          "select only a genuinely suitable positive Reggae, Dancehall, Soca or Afrobeat track",
+          "prepare a clean radio edit where applicable",
+          "verify 320 kbps MP3 or WAV quality, metadata and production credits",
+          "confirm composition, master, sample, contributor and production-credit rights",
+          "inspect the live form for missing contact, bio, photo, rights and consent fields before upload",
+          "review the site's privacy policy and terms, which were linked but not retrievable during passive inspection",
+          "confirm AI-assisted or AI-generated music eligibility",
+          "do not interact with or bypass the honeypot or any hidden anti-spam control",
+          "approve the file selection, any consent and the final submit action"
+        ],
+        "unresolvedEligibility": [
+          "complete live form schema and whether contact data, bio or photo are required at submit time",
+          "copyright, license, retention and deletion terms for uploaded audio",
+          "AI-assisted or AI-generated music policy",
+          "international artist eligibility details beyond the global-audience claim",
+          "hidden CAPTCHA, rate-limit or anti-spam controls",
+          "whether any paid follow-up or promotional upsell applies after submission"
+        ]
+      },
+      "businessContact": {
+        "emails": [
+          "thereggaevibe@gmail.com"
+        ],
+        "emailStatus": "thereggaevibe@gmail.com is first-party published as a general contact on the official site and is syntactically valid, but it is not domain-aligned and is not stored as a substitute music-submission mailbox.",
+        "adjacentRoutesExcluded": [
+          "visual-media form",
+          "event-submission form",
+          "client portal",
+          "site registration/login"
+        ],
+        "verification": "First-party publication, syntax and general-business context were verified. The address is Gmail-hosted rather than domain-aligned. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "dedicatedMusicFormIdentified": true,
+        "externalProvider": "first-party WordPress form/plugin",
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA was visible, but a honeypot field reading 'If you are human, leave this field blank' was present. It was not activated, filled or bypassed.",
+        "antiSpamObserved": true,
+        "antiSpamType": "honeypot",
+        "loginObserved": false,
+        "paymentObserved": false,
+        "manualRecheckRequired": true,
+        "uploadControls": [
+          "direct audio upload",
+          "320 kbps MP3 or WAV",
+          "268.44 MB visible maximum"
+        ],
+        "rightsOrConsentTerms": [
+          "not fully exposed on the submission page",
+          "linked privacy policy and terms require manual retrieval"
+        ],
+        "manualRecheckReason": "Direct upload, honeypot protection, incomplete consent and contact fields, rights and retention terms, clean/positive fit, AI eligibility and final submission require human review."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-18",
+        "evidence": "The official submission page displayed a current scheduled show and a 24/7 broadcast claim. The site published current articles through June 4, 2026, including a Buju Banton album article, and the media page lists 2026 event coverage."
+      },
+      "manualReviewReason": "The route is public and globally oriented, but direct upload, honeypot anti-spam, incomplete visible consent fields, linked terms, rights, AI eligibility and final submission require human approval.",
+      "priority": 95,
+      "pricingModel": "no-fee-visible/first-party-direct-upload/reggae-dancehall-soca-afrobeat/global/positive-content/honeypot/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": [
+      "Reggae Global Radio",
+      "reggaeglobalradio.com/music-submission",
+      "music@reggaeglobalradio.com",
+      "RekHeard Breakerz",
+      "rekheardbreakerz.com/#submit",
+      "info@rekheardbreakerz.com",
+      "Reggae Vibe Media",
+      "reggaevibe.org/media-submission",
+      "thereggaevibe@gmail.com"
+    ],
+    "repositoryEvidence": "Repository code search returned no existing canonical match for Reggae Global Radio, RekHeard Breakerz or Reggae Vibe Media before creation.",
+    "consolidation": "Reggae Global Radio is one email opportunity despite adjacent contact, advertising and support routes. RekHeard Breakerz is one artist-submission opportunity despite separate DJ and newsletter forms. Reggae Vibe Media is one music-upload opportunity; its visual-media, event, client and login routes were excluded."
+  },
+  "activeQueueRowsAdded": 3,
+  "notes": "Three legitimate worldwide-facing opportunities were queued as needs_manual_review. No email was sent, no form field was filled, no file or link was submitted, no download permission was granted, no consent was accepted, no login was used, no anti-spam or CAPTCHA control was bypassed and no payment or submission action was completed."
+}
