@@ -1,8 +1,8 @@
 # Daily Report
 
-Date: 2026-07-18
+Date: 2026-07-19
 
-Latest run: Run 489
+Latest run: Run 490
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1814
+Pipeline estimate: 1817
 
 Items:
 
-- Run 489 added: SoundChat Radio — a free Caribbean-focused first-party form using a SoundCloud, Spotify, YouTube or direct-download track link.
-- Run 489 added: JAM Audio Live — an all-genres worldwide submission landing page leading to an external Google Form for human review.
-- Run 489 added: Discover YOU RADIO — a free clean radio-ready rotation-evaluation form with iTunes or alternate-link requirements and separate optional paid services.
+- Run 490 added: Get Known Radio — a free worldwide first-party electronic/Hip-Hop/R&B upload route with disclosed reCAPTCHA and a broad promotional licence.
+- Run 490 added: All'it Radio — a Gmail-gated external Google Form requiring one track, cover art, social follow and a 100-vote fan stage.
+- Run 490 added: Indie Global 365 — a free first-party upload form for up to two positive Reggae/Soca, Hip-Hop or R&B tracks with mandatory terms acceptance.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: SoundChat accepts link-based submissions and requires ownership plus broadcast permission. JAM Audio Live accepts all genres and multiple link providers, but its external Google Form was not passively inspectable. Discover YOU RADIO accepts only its official application, requires non-explicit radio-ready material and separates free evaluation from optional paid certificates, pitching and promotion.
+Latest route note: Get Known Radio accepts one 320kbps MP3 or WAV plus a short note and rights confirmation, explicitly accepts international artists and uses reCAPTCHA Enterprise. All'it Radio accepts only its Google Form, requires Gmail, one track and cover art, and conditions regular rotation on social follow and 100 positive votes. Indie Global 365 accepts up to two 192kbps MP3s plus images and requires a Terms & Conditions checkbox; optional paid memberships are separate.
 
-Contact-verification note: SoundChat's `info@SoundChatRadio.com` and `irishandchin@gmail.com` are first-party general contacts but were excluded as submission replacements. Discover YOU RADIO's `submit@discoveryouradio.com` and `admin@discoveryouradio.com` are first-party published in its privacy policy, but the official form remains canonical. JAM Audio Live's protected address was not decoded. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: Get Known Radio's `support@getknownradio.com` and All'it Radio's `info@allitradio.com` and `hitus@allitradio.com` are first-party published, syntactically valid and domain-aligned. Get Known Radio's protected submission fallback was not decoded. Indie Global 365's legacy `indieglobal365@gmail.com` is first-party published but conflicts with the current form-only instruction and was retained only as historical context. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: SoundChat shows a live 24/7 schedule and a March 16, 2026 story. JAM Audio Live shows an active 24/7 stream and June 2026 artist spotlights from Croatia, Brazil and Glasgow. Discover YOU RADIO shows an active Human Ear Queue, a current request lineup and current 2026 policy and briefing pages.
+Activity and fit note: Get Known Radio's home page is dated July 18, 2026 and its editorial index runs through July 17, 2026. All'it Radio shows a live current-track area and current weekly shows. Indie Global 365 maintains a live-radio/current-song area and active submission, membership, artist-directory and catalog pages.
 
-Manual-review note: all three require station/genre fit, track and clean-version selection, link access, metadata, rights, broadcast and promotional permission, Content ID, AI policy, privacy/retention, hidden controls, international eligibility and final-action review. JAM Audio Live additionally requires complete Google Form inspection. Discover YOU RADIO requires explicit opt-in and paid-service separation. SoundChat requires review of the broadcast-permission wording.
+Manual-review note: all three require genre fit, track and file selection, rights, Content ID, AI policy, licence/terms, privacy/retention, form controls and final-action review. Get Known Radio additionally requires legal review of its worldwide royalty-free licence and human reCAPTCHA completion. All'it Radio requires Google authentication, external-form inspection, social follow and fan-vote participation. Indie Global 365 requires full terms inspection and resolution of its legacy-email/current-form conflict.
 
-Deduplication note: repository code search and pull-request metadata search contained no existing canonical SoundChat Radio, JAM Audio Live or Discover YOU RADIO match by official name or domain before creation. Recent-run artifacts 479–488 also contain no match. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical Get Known Radio, All'it Radio or Indie Global 365 match by official name or domain before creation. Recent-run reports 480–489 also contain no match. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were validated before writes. No successful local repository build, test, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no link, file, lyrics, biography, social profile or contact data was shared, no terms or opt-ins were accepted, and no login, purchase, payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no login or account was used, no CAPTCHA was attempted, no file or cover art was uploaded, no terms, social follow or voting condition was accepted, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 480
-
-Added PBS 106.7FM's international stream/download-link form with CAPTCHA, Brum Radio's non-local specialist-show upload route and Radio Nano's international form/email route. Links, uploads, rights, AI policy, privacy/licence terms, marketing consent, anti-spam controls and final actions require manual review. Pipeline estimate: 1,787.
 
 ### Run 481
 
@@ -75,5 +71,9 @@ Added SubCulture Recordings' worldwide 2027 bass-music playlist/form/mailbox rou
 ### Run 489
 
 Added SoundChat Radio's free Caribbean-focused link form, JAM Audio Live's all-genres worldwide external-Google-Form route and Discover YOU RADIO's free clean rotation-evaluation application with separate optional paid services. Track and programme fit, clean/explicit content, link access, rights, broadcast permission, AI policy, privacy/retention, form controls, paid-service separation and final actions require manual review. Pipeline estimate: 1,814.
+
+### Run 490
+
+Added Get Known Radio's free global electronic/Hip-Hop/R&B upload route with reCAPTCHA and a broad promotional licence, All'it Radio's Gmail-gated one-track Google Form with fan-vote and social-follow conditions, and Indie Global 365's free two-track MP3-and-image form with mandatory terms acceptance. Genre fit, files, rights, Content ID, AI policy, licence/terms, privacy/retention, login/CAPTCHA, voting/social conditions and final actions require manual review. Pipeline estimate: 1,817.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
