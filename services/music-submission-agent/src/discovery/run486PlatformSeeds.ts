@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run487SeedPlatforms } from './run487PlatformSeeds.js';
 
-export const run486SeedPlatforms: PlatformInput[] = [
+const run486NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "GoodBrother Electronic Label Demo Submission",
     "websiteUrl": "https://www.goodbrother.io/",
@@ -95,4 +96,9 @@ export const run486SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "Track and programme fit, no-explicit-lyrics check, MP3 and artwork uploads, file-size limits, phone/contact data, rights and broadcast authorization, AI policy, social-follow wording, privacy/retention, mandatory human CAPTCHA and final submission require human approval.",
     "notes": "Passively verified on 2026-07-18 from KPEO's official music-submission, programming, schedule, station-info and underwriting pages. KPEO says it accepts all genres but no explicit lyrics, and asks for a fully embedded MP3 plus cover art for each single. All visible fields are required: name, email, phone, audio file and image file. Audio may be up to 50MB and artwork up to 20MB. The form displays an 'I'm not a robot' spam-protection checkbox, which was not completed or bypassed. The page asks artists to like KPEO's Facebook and Instagram pages so the station may tag them, but it is not clear whether this is a mandatory eligibility condition. Current programming includes a weekly independent-reggae show covering roots, dub, dancehall and global artists; a world-music show; a multi-genre show spanning Afrobeat and electronic dance; and recurring independent-music programming. KPEO lists worldwide coverage, current on-air and recently-played surfaces, and © 2026. info@kpeo.org is first-party published as a general contact, not the canonical music-submission route. No field, upload, CAPTCHA, social action or submission was performed."
   }
+];
+
+export const run486SeedPlatforms: PlatformInput[] = [
+  ...run486NewSeedPlatforms,
+  ...run487SeedPlatforms
 ];
