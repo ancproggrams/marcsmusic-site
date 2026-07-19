@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 495
+Latest run: Run 496
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1832
+Pipeline estimate: 1835
 
 Items:
 
-- Run 495 added: Rhythm House — an uplifting, dancefloor-focused drum-and-bass private SoundCloud/Dropbox form with a four-week response target.
-- Run 495 added: Beat Intelligence Network — a Dubstep FBI bass-label form for one or more song URLs, backed by current July 2026 label activity.
-- Run 495 added: Us & Machines — a worldwide house/EDM direct-upload or private-SoundCloud form with explicit Original/Sample Pack/Suno-AI vocal-source disclosure.
+- Run 496 added: Protocol Zero — an official private-SoundCloud drum-and-bass/neurofunk demo mailbox with current July 2026 release activity.
+- Run 496 added: Quantum Circle Records — a private-SoundCloud form with strict unreleased/WAV requirements, a visible verification code and a hard no-AI rule.
+- Run 496 added: ACTIVATED Records — a worldwide hard-dance WAV/MP3 upload form with mandatory terms/privacy acceptance, optional newsletter consent and documented 30-day demo-file deletion.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Rhythm House uses a first-party private-link form. Beat Intelligence Network uses a first-party name/email/URL form and only replies if interested in signing. Us & Machines accepts direct audio or a private SoundCloud link and explicitly asks for vocal provenance, including Suno/AI.
+Latest route note: Protocol Zero uses a first-party demo mailbox. Quantum Circle uses a first-party private-link form protected by an image verification code. ACTIVATED uses a first-party direct-upload form and optional cloud-link field.
 
-Contact-verification note: `bookings@krakota.com`, `exec@dubstepfbi.com` and `info@usandmachines.com` are first-party published and syntactically valid. `exec@` and `info@` are domain-aligned; `bookings@` is organizationally linked on a different domain. All three are adjacent business contacts only, not authorized demo substitutes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `demo@protocolzero.online` and `demo@qcrecords.com` are first-party published, syntactically valid and domain-aligned; the Quantum Circle email is restricted to artists already in contact with the label. `k.schroetter@activated-network.com` and `info@activated-network.com` are first-party management/general contacts, not demo-form substitutes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Rhythm House lists releases dated May 29 and June 26, 2026. Beat Intelligence Network has a July 10, 2026 release and documented 2026 Rampage activity. Us & Machines has releases through July 3, 2026 and a July 17, 2026 compilation.
+Activity and fit note: Protocol Zero's Command was released July 11, 2026. Quantum Circle has 2026 releases including Hybridised on May 15. ACTIVATED has frequent 2026 hard-dance releases, including Heart Of A Lion on June 12.
 
-Manual-review note: all three require exact fit, private-link or upload access, release status, rights, samples and vocals, Content ID, AI policy, privacy/retention, hidden form controls, post-selection terms and final-action review. Us & Machines additionally requires explicit Suno/AI provenance and file-limit checks.
+Manual-review note: all three require exact fit, links/uploads, release status, rights, Content ID, AI eligibility, privacy/retention, hidden controls, post-selection terms and final actions. Quantum Circle additionally requires human verification and rejects AI-generated music. ACTIVATED additionally requires review of mandatory terms/privacy acceptance, internal demo-contact-list use, 30-day file retention and optional newsletter consent.
 
-Deduplication note: repository code search contained no existing canonical Rhythm House, Beat Intelligence Network or Us & Machines match by official name, domain, route or published business email before creation. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical Protocol Zero, Quantum Circle Records or ACTIVATED Records match by official name, domain, route or published business email before creation. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were validated before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no account was used, no CAPTCHA or human verification was attempted, no audio or private link was shared, no terms were accepted, and no payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no account was used, no CAPTCHA or verification code was attempted, no audio or private link was shared, no terms or privacy policy were accepted, no newsletter consent was given, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 486
-
-Added GoodBrother's finished-unreleased Dubstep/DnB/House/Garage/Techno private-SoundCloud route, NexGen Music Group's minimum-four-track upload/email route with a broad website licence, and KPEO's clean MP3-plus-cover-art form with visible human CAPTCHA. Genre and programme fit, files and links, rights, Content ID, AI policy, privacy/retention, licence terms, social-follow wording, CAPTCHA and final actions require manual review. Pipeline estimate: 1,805.
 
 ### Run 487
 
@@ -75,5 +71,9 @@ Added Coldharbour Recordings' explicit worldwide trance/progressive/techno form 
 ### Run 495
 
 Added Rhythm House's uplifting DnB private-link form, Beat Intelligence Network's bass-music URL form and Us & Machines' worldwide house/EDM upload-or-private-link form with explicit Suno/AI disclosure. Genre fit, links/uploads, rights, Content ID, AI provenance, privacy/retention, hidden controls, contract terms and final actions require manual review. Pipeline estimate: 1,832.
+
+### Run 496
+
+Added Protocol Zero's private-SoundCloud neurofunk/DnB demo mailbox, Quantum Circle Records' visible-verification-code private-link form with a hard no-AI rule and ACTIVATED Records' worldwide hard-dance direct-upload form with mandatory terms/privacy and documented 30-day file retention. Genre fit, links/uploads, rights, Content ID, AI eligibility, verification/consent, privacy/retention, contract terms and final actions require manual review. Pipeline estimate: 1,835.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
