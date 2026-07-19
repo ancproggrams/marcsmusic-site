@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 493
+Latest run: Run 494
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1826
+Pipeline estimate: 1829
 
 Items:
 
-- Run 493 added: OVERCLOCKIN Records — a first-party bass-music demo form requesting stage name, email, socials and a streamable/downloadable private link.
-- Run 493 added: Magnetic Magazine — a dedicated electronic editorial/demo form requesting a private stream, release data, biography, artwork and press assets, with an optional commercial-package boundary.
-- Run 493 added: Frequency State — an electronic-music curation route through its official SubmitHub profile, with login plus standard-free or optional premium-paid credits.
+- Run 494 added: Coldharbour Recordings — a worldwide trance/progressive/techno private-link form with the authorized `promos@coldharbourrecordings.com` alternative and no attachments.
+- Run 494 added: Palmlands Records — a Tech House/Bass House website form with an optional Trackstack-app route and separate optional mixing/mastering services.
+- Run 494 added: Get The Sound Records — an original-music private SoundCloud/Dropbox form with a material non-confidential/no-compensation/waiver legal-terms boundary.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: OVERCLOCKIN uses a first-party private-link form. Magnetic accepts tracks, EPs, albums, mixes and related projects for editorial, premiere or label-demo consideration. Frequency State uses SubmitHub for playlist, review, Mixcloud-programme and mailing-list consideration.
+Latest route note: Coldharbour accepts producers worldwide through its first-party form or demo mailbox. Palmlands uses a website form or Trackstack and promises A&R feedback within days. Get The Sound accepts only original rights-owned content through a private streaming link and prohibits duplicate tracks and WeTransfer/download links.
 
-Contact-verification note: `contact@overclockin.uk` and Magnetic Magazine's `info@`, `editorial@`, `advertise@`, `reviews@` and `demo@` mailboxes are first-party published, syntactically valid and domain-aligned. Magnetic's `reviews@` and `demo@` are music/editorial contacts; OVERCLOCKIN's `contact@` is general only. Frequency State uses SubmitHub and no public submission mailbox was stored. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: Coldharbour's `promos@`, `info@` and `licensing@` mailboxes and Palmlands' `info@` mailbox are first-party published, syntactically valid and domain-aligned. Only `promos@coldharbourrecordings.com` is explicitly authorized for submissions. `contact@getthesound.fr` is first-party published and organizationally aligned through Get The Sound's official terms/privacy pages, but is general/privacy contact on a different first-party domain. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: OVERCLOCKIN's official catalogue dates a Drum & Bass release to January 16, 2026. Magnetic's homepage contains numerous publications dated July 17, 2026. Frequency State's official review archive contains posts dated July 5 and July 6, 2026.
+Activity and fit note: Coldharbour's official catalogue includes releases dated July 3 and July 10, 2026. Palmlands has July 10, 2026 catalogue activity and 2026 event programming. Get The Sound has an active 2026 catalogue, July 2026 Beatport listings and a June 19, 2026 release.
 
-Manual-review note: all three require exact fit, links/assets, rights, samples, Content ID, AI policy, privacy/retention and final-action review. OVERCLOCKIN also requires hidden-control inspection. Magnetic requires editorial-versus-paid-promotional separation. Frequency State requires an authenticated SubmitHub session and a deliberate free-standard-versus-paid-premium credit decision.
+Manual-review note: all three require exact fit, private links, rights, samples, Content ID, AI policy, privacy/retention and final-action review. Palmlands additionally requires embedded-form or Trackstack inspection and paid-service separation. Get The Sound requires explicit legal approval of the broad site-wide submission terms.
 
-Deduplication note: repository code search contained no existing canonical OVERCLOCKIN, Magnetic Magazine or Frequency State match by official name, domain, route or published submission email before creation. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical Coldharbour Recordings, Palmlands Records or Get The Sound Records match by official name, domain, route or published business email before creation. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were validated before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no account was used, no CAPTCHA or human verification was attempted, no private link or asset was shared, no terms were accepted, and no credit, payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no account or app was used, no CAPTCHA or human verification was attempted, no private link or asset was shared, no terms were accepted, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 484
-
-Added WHCR's show-directed MP3 email route, VANTA Recordings' reCAPTCHA-protected private-SoundCloud demo form/mailbox and YHV Music Group's unreleased WAV/extended-demo form/email route with a separate optional paid Groover boundary. Programme and international eligibility, genre fit, delivery, rights, Content ID, AI policy, licence/privacy/retention, CAPTCHA/embedded controls, paid-route separation and final actions require manual review. Pipeline estimate: 1,799.
 
 ### Run 485
 
@@ -75,5 +71,9 @@ Added MelodicLab Records' exclusive downloadable progressive-house/melodic-techn
 ### Run 493
 
 Added OVERCLOCKIN Records' first-party bass-music private-link form, Magnetic Magazine's electronic editorial/demo form with an optional commercial-package boundary, and Frequency State's official SubmitHub curation route with login plus free-standard or paid-premium credits. Genre fit, links/assets, rights, Content ID, AI policy, privacy/retention, hidden or external platform controls, commercial separation and final actions require manual review. Pipeline estimate: 1,826.
+
+### Run 494
+
+Added Coldharbour Recordings' explicit worldwide trance/progressive/techno form and demo mailbox, Palmlands Records' Tech House/Bass House website-or-Trackstack route with optional production services, and Get The Sound Records' original-content private-link form with broad legal terms. Genre fit, private-link access, rights, Content ID, AI policy, form/app controls, legal terms, privacy/retention and final actions require manual review. Pipeline estimate: 1,829.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
