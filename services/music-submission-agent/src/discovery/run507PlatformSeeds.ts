@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run508SeedPlatforms } from './run508PlatformSeeds.js';
 
-export const run507SeedPlatforms: PlatformInput[] = [
+const run507NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "OX Recordings Drum & Bass / Neurofunk Demo Email",
     "websiteUrl": "https://oxrecordings.com/",
@@ -88,4 +89,9 @@ export const run507SeedPlatforms: PlatformInput[] = [
     "manualReviewRequired": true,
     "manualReviewReason": "Electronic/hip-hop/R&B programme fit, one-track file format and quality, direct upload versus published email route, mandatory broadcast-rights confirmation, broad non-exclusive worldwide royalty-free promotional and broadcast licence, indemnity, sample clearance, Content ID, AI-origin disclosure, Google reCAPTCHA Enterprise, privacy/US processing, file retention/removal handling and the final upload or email require human and legal review."
   }
+];
+
+export const run507SeedPlatforms: PlatformInput[] = [
+  ...run507NewSeedPlatforms,
+  ...run508SeedPlatforms
 ];
