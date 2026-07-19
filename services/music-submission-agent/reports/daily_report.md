@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 499
+Latest run: Run 500
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1844
+Pipeline estimate: 1847
 
 Items:
 
-- Run 499 added: 7clouds — a worldwide first-party multi-channel demo form with stream-link submission, mandatory Terms/Privacy acceptance and documented retention of up to two years.
-- Run 499 added: DNBB Music Group — a global Drum & Bass/Bass Music LabelRadar route with published file, filename, biography, social and private-link guidelines.
-- Run 499 added: Reggae Global Radio — an authorized reggae-airplay mailbox requiring MP3s, release status, a biography and two custom station-ID jingles in one email.
+- Run 500 added: Reggae Vibe Media — a global reggae/dancehall/soca/Afrobeat direct-upload form with a visible honeypot and broad generic submission terms requiring legal review.
+- Run 500 added: Crags Radio — a global community-radio track-upload form with current unsigned/electronic programming but an unreliable default privacy page.
+- Run 500 added: Future SynthPop Radio — an officially linked Jotform for worldwide electronic submissions with mandatory broadcast permission and optional YouTube video permission.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: 7clouds uses a first-party stream-link form and offers genre channels relevant to MarcsMusic. DNBB routes demos through LabelRadar, where a direct submission requires five credits and the free Lite tier provides five monthly credits; extra credits and PRO are optional. Reggae Global Radio uses a canonical public music-submission email and rejects WAV files.
+Latest route note: Reggae Vibe Media accepts 320 kbps MP3 or WAV uploads and encourages clean edits, metadata and EPK material. Crags Radio accepts a direct track upload for presenter review. Future SynthPop Radio requires a downloadable link and mandatory broadcast terms through Jotform.
 
-Contact-verification note: `contact@7clouds.org`, `dnbbrecords@dnbb.com.br` and `suporte@dnbb.com.br` are first-party, syntactically valid and domain-aligned general/business contacts but are not authorized replacements for their canonical form or portal. `music@reggaeglobalradio.com` is first-party, domain-aligned and explicitly authorized for music submissions. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `thereggaevibe@gmail.com` and `futuresynthpopradio@gmail.com` are first-party published and syntactically valid free-mail general contacts, but neither is domain-aligned or authorized as a form substitute. `studio@cragsradio.co.uk` and `info@cragsradio.co.uk` are first-party, syntactically valid and domain-aligned general contacts, not canonical submission routes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: 7clouds reports 45 million YouTube subscribers in 2026, more than 7,000 curated releases and continuous talent discovery. DNBB reports 12 active labels, more than 1,400 releases, listeners in 180 countries, more than 120 current-month demos and eight signings in 2026. Reggae Global Radio publishes current 2026 pages and active daily and weekly reggae programming.
+Activity and fit note: Reggae Vibe Media shows live 24/7 programming and published editorial items on 9 and 15 July 2026. Crags Radio has a current weekly schedule, a July 2026 studio launch and a news item dated 16 July 2026. Future SynthPop Radio displayed recently played tracks dated 18 July 2026, a live schedule and a June 2026 chart.
 
-Manual-review note: all three require exact fit, release status, rights, Content ID, AI eligibility, privacy/retention and final-action review. 7clouds additionally requires Terms/Privacy acceptance and documents two-year retention. DNBB additionally requires LabelRadar account, credits, file preparation and metadata. Reggae Global Radio additionally requires MP3-only delivery, a biography, one-email packaging and two original or licensed station IDs.
+Manual-review note: all three require exact fit, audio or link preparation, rights, Content ID, AI-origin disclosure, privacy/retention and final-action review. Reggae Vibe Media additionally has a visible honeypot and broad generic submission-rights language. Crags Radio additionally has an uncustomized default privacy page. Future SynthPop Radio additionally requires broadcast-permission acceptance and offers separate optional video-feature permission.
 
-Deduplication note: repository code search contained no existing canonical 7clouds, DNBB Music Group or Reggae Global Radio match by official name, domain, portal identifier or contact address before creation. Canonical SQLite domain, normalized URL, portal identifier and contact deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical Reggae Vibe Media, Crags Radio or Future SynthPop Radio match by official name, domain, Jotform identifier or public contact address before creation. Canonical SQLite domain, normalized URL, form identifier and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were checked for structural consistency before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no stream link, audio, biography, social profile or station-ID file was shared, no account or login was used, no CAPTCHA or browser challenge was attempted, no terms were accepted, and no credit, payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no audio, downloadable link, biography, artwork, social profile or video permission was shared, no account or login was used, no CAPTCHA or honeypot was attempted, no terms or licence were accepted, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 490
-
-Added Get Known Radio's free global electronic/Hip-Hop/R&B upload route with reCAPTCHA and a broad promotional licence, All'it Radio's Gmail-gated one-track Google Form with fan-vote and social-follow conditions, and Indie Global 365's free two-track MP3-and-image form with mandatory terms acceptance. Genre fit, files, rights, Content ID, AI policy, licence/terms, privacy/retention, login/CAPTCHA, voting/social conditions and final actions require manual review. Pipeline estimate: 1,817.
 
 ### Run 491
 
@@ -75,5 +71,9 @@ Added Monstercat's Uncaged/Instinct/Silk LabelRadar portals, NCS's official Labe
 ### Run 499
 
 Added 7clouds' worldwide multi-channel stream-link form, DNBB Music Group's global bass-focused LabelRadar portal and Reggae Global Radio's authorized MP3 email route requiring two station IDs. Channel/label/programme fit, links/files, rights, Content ID, AI eligibility, terms/privacy, login/credits, retention, custom station IDs and final actions require manual review. Pipeline estimate: 1,844.
+
+### Run 500
+
+Added Reggae Vibe Media's global Caribbean/Afro direct-upload form, Crags Radio's global community-radio upload form and Future SynthPop Radio's official Jotform route. Genre/programme fit, uploads/links, rights, Content ID, AI-origin disclosure, broad terms, privacy defects, honeypot/Jotform controls, broadcast/video permissions and final actions require manual review. Pipeline estimate: 1,847.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
