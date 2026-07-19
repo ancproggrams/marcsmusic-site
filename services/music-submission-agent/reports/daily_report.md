@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 498
+Latest run: Run 499
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1841
+Pipeline estimate: 1844
 
 Items:
 
-- Run 498 added: Monstercat — Uncaged, Instinct and Silk LabelRadar demo portals with account, five-credit and optional paid-credit boundaries.
-- Run 498 added: NCS / NoCopyrightSounds — an official electronic-music LabelRadar route with account, upload, preview and credit controls.
-- Run 498 added: Steyoyoke — an exclusive private-SoundCloud-playlist form with rights/data confirmations and an optional newsletter opt-in.
+- Run 499 added: 7clouds — a worldwide first-party multi-channel demo form with stream-link submission, mandatory Terms/Privacy acceptance and documented retention of up to two years.
+- Run 499 added: DNBB Music Group — a global Drum & Bass/Bass Music LabelRadar route with published file, filename, biography, social and private-link guidelines.
+- Run 499 added: Reggae Global Radio — an authorized reggae-airplay mailbox requiring MP3s, release status, a biography and two custom station-ID jingles in one email.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Monstercat and NCS officially route demos through LabelRadar. A direct label submission consumes five credits; a free Lite account can provide five credits monthly when the balance is zero, while extra credits and PRO are optional. Steyoyoke uses a first-party form and requires exclusive submission with no concurrent label delivery or DJ testing.
+Latest route note: 7clouds uses a first-party stream-link form and offers genre channels relevant to MarcsMusic. DNBB routes demos through LabelRadar, where a direct submission requires five credits and the free Lite tier provides five monthly credits; extra credits and PRO are optional. Reggae Global Radio uses a canonical public music-submission email and rejects WAV files.
 
-Contact-verification note: Steyoyoke publishes six first-party domain-aligned business contacts, but none is authorized for demos. Monstercat exposes protected support, press and event contacts that were not decoded. NCS publishes no authorized demo email alternative. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `contact@7clouds.org`, `dnbbrecords@dnbb.com.br` and `suporte@dnbb.com.br` are first-party, syntactically valid and domain-aligned general/business contacts but are not authorized replacements for their canonical form or portal. `music@reggaeglobalradio.com` is first-party, domain-aligned and explicitly authorized for music submissions. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Monstercat published current releases and shows through July 15, 2026. NCS lists releases through July 14, 2026. Steyoyoke's current catalogue includes its 15th-anniversary releases, with Beatport activity dated May 15, 2026.
+Activity and fit note: 7clouds reports 45 million YouTube subscribers in 2026, more than 7,000 curated releases and continuous talent discovery. DNBB reports 12 active labels, more than 1,400 releases, listeners in 180 countries, more than 120 current-month demos and eight signings in 2026. Reggae Global Radio publishes current 2026 pages and active daily and weekly reggae programming.
 
-Manual-review note: all three require exact fit, release status, rights, Content ID, AI eligibility, privacy/retention, platform or form controls, post-selection terms and final actions. Monstercat and NCS additionally require account, credit, upload and 20-second-preview handling. Steyoyoke additionally requires exclusivity, private-playlist access, rights/data consent, optional marketing-consent separation and human handling of the browser-verification boundary.
+Manual-review note: all three require exact fit, release status, rights, Content ID, AI eligibility, privacy/retention and final-action review. 7clouds additionally requires Terms/Privacy acceptance and documents two-year retention. DNBB additionally requires LabelRadar account, credits, file preparation and metadata. Reggae Global Radio additionally requires MP3-only delivery, a biography, one-email packaging and two original or licensed station IDs.
 
-Deduplication note: repository code search contained no existing canonical Monstercat, NCS/NoCopyrightSounds or Steyoyoke match by official name or domain before creation. Canonical SQLite domain, normalized URL, portal identifier and contact deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical 7clouds, DNBB Music Group or Reggae Global Radio match by official name, domain, portal identifier or contact address before creation. Canonical SQLite domain, normalized URL, portal identifier and contact deduplication remains required before external use.
 
-Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were validated before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
+Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were checked for structural consistency before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no account or login was used, no CAPTCHA or browser challenge was attempted, no audio, private playlist or preview was shared, no terms, exclusivity or consent statement was accepted, and no credit, payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no stream link, audio, biography, social profile or station-ID file was shared, no account or login was used, no CAPTCHA or browser challenge was attempted, no terms were accepted, and no credit, payment or submission action was performed.
 
 ## Recent run history
-
-### Run 489
-
-Added SoundChat Radio's free Caribbean-focused link form, JAM Audio Live's all-genres worldwide external-Google-Form route and Discover YOU RADIO's free clean rotation-evaluation application with separate optional paid services. Track and programme fit, clean/explicit content, link access, rights, broadcast permission, AI policy, privacy/retention, form controls, paid-service separation and final actions require manual review. Pipeline estimate: 1,814.
 
 ### Run 490
 
@@ -75,5 +71,9 @@ Added Dirty Disco Recordings' all-electronic unreleased-track form, Play Records
 ### Run 498
 
 Added Monstercat's Uncaged/Instinct/Silk LabelRadar portals, NCS's official LabelRadar demo route and Steyoyoke's exclusive private-playlist form. Genre and imprint fit, accounts/credits, uploads/previews, exclusivity, rights, Content ID, AI eligibility, privacy/retention, form/platform controls, post-selection terms and final actions require manual review. Pipeline estimate: 1,841.
+
+### Run 499
+
+Added 7clouds' worldwide multi-channel stream-link form, DNBB Music Group's global bass-focused LabelRadar portal and Reggae Global Radio's authorized MP3 email route requiring two station IDs. Channel/label/programme fit, links/files, rights, Content ID, AI eligibility, terms/privacy, login/credits, retention, custom station IDs and final actions require manual review. Pipeline estimate: 1,844.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
