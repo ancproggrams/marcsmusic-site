@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 501
+Latest run: Run 502
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1850
+Pipeline estimate: 1853
 
 Items:
 
-- Run 501 added: Stonx Music — a global neurofunk/DnB private-SoundCloud demo mailbox with downloads enabled and 320 kbps MP3 preferred.
-- Run 501 added: Red Devil Radio — an authenticated independent-radio upload route using free starter credits, with optional paid credits and a versioned submission agreement.
-- Run 501 added: WCOM 103.5 FM — a host-specific community-radio form plus named-DJ physical alternative, with local-fit and current form/session boundaries.
+- Run 502 added: NOS Recordings — a house-only first-party form for up to three finished private-link demos, with no attachments and an optional livestream A&R-feedback choice.
+- Run 502 added: RekHeard Breakerz — a global Soca/Reggae/Dancehall form for one clean English Spotify single plus non-expiring MP3/photo links and mandatory promotional and email-update consents.
+- Run 502 added: COOL Recordings — an Austrian House/Tech House/Afro House private-link A&R form for finished tracks with downloads enabled.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Stonx requires a manually prepared demo email and private downloadable SoundCloud link. Red Devil requires an account, verified email, one credit, one original MP3, cover art, context and agreement acceptance. WCOM requires a specific host or programme and currently renders a one-submission/session message in the form area.
+Latest route note: NOS requires a private SoundCloud, Box or Dropbox route, a maximum of three tracks, no attachments and a brief label-fit introduction. RekHeard requires Spotify availability, a tagged non-expiring MP3, a non-expiring artist photo, clean English single status and two mandatory consent choices. COOL requires a finished private SoundCloud or Dropbox track, direct email, social portfolio and an A&R note.
 
-Contact-verification note: `Demo@StonxMusic.co.uk`, `Hello@StonxMusic.co.uk`, `Mgmt@StonxMusic.co.uk` and `stationmanager@wcomfm.org` are first-party published, syntactically valid and domain-aligned. Only the Stonx demo mailbox is authorized for new music. Red Devil publishes four role-specific @reddevilradio.com mailboxes behind Cloudflare protection; their local parts were not decoded or inferred. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `info@rekheardbreakerz.com` is first-party published, syntactically valid and domain-aligned, but is specified for Google Drive access/general contact and does not replace the artist form. NOS support addresses rendered as obfuscated placeholders and were not decoded or inferred. COOL publishes no exact business mailbox on its official form. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Stonx published STX070 on 16 July 2026 and a podcast on 4 July 2026. Red Devil reports 24/7 streaming and public airplays through 29 June 2026. WCOM posted a listener survey on 9 July 2026, current June music/news and a schedule for 12–18 July 2026. Stonx is the strongest direct fit for heavy DnB material; Red Devil is limited to a matching hip-hop/alternative crossover; WCOM requires careful host selection and does not explicitly guarantee non-local eligibility.
+Activity and fit note: NOS currently lists NOS 053 — Whatchu Need as its newest release, NOS in Miami 2026 and a live Summer 2026 collection. RekHeard reports 440+ submissions, 25+ represented countries, 12k+ YouTube subscribers and four streaming Season 1 episodes. COOL has Beatport releases dated 5 June, 15 May and 25 April 2026. RekHeard is the strongest direct fit for clean Caribbean releases; NOS and COOL require precise House-family material.
 
-Manual-review note: all three require exact fit, files/links/context, rights, Content ID, AI-origin disclosure, privacy/retention and final-action review. Red Devil additionally has account, verification, credit, agreement and optional-paid boundaries. WCOM additionally has host-selection, local-fit, physical-delivery and form/session boundaries. Stonx additionally requires a private downloadable link and a manually sent email.
+Manual-review note: all three require exact fit, private links, rights, samples, Content ID, AI-origin disclosure, privacy/retention and final-form review. NOS additionally has a three-track limit, no-attachment rule and optional livestream-feedback choice. RekHeard additionally has Spotify, clean-version, non-expiring-link, broad promotional-permission and mandatory marketing-consent boundaries. COOL additionally requires a finished track, social portfolio and A&R note.
 
-Deduplication note: the complete accessible pull-request patch and repository code search contained no prior Stonx Music, Red Devil Radio or WCOM canonical record by name, domain, route or exact public address. Canonical SQLite domain, normalized URL, account/form identifier and contact deduplication remains required before external use.
+Deduplication note: indexed repository code search contained no prior NOS Recordings, RekHeard Breakerz or COOL Recordings canonical record by name, domain, route or exact recoverable address. Canonical SQLite domain, normalized URL, form identifier and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON, CSV and Markdown structures were checked for structural consistency before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no account was created, no email was verified, no credit was spent, no audio, private link, artwork, metadata or physical package was shared, no CAPTCHA or session control was tested, no agreement was accepted, and no payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no music or media link was shared, no Drive permission was granted, no audio or image was uploaded, no promotional or marketing consent was accepted, no CAPTCHA or hidden anti-spam control was tested, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 492
-
-Added MelodicLab Records' exclusive downloadable progressive-house/melodic-techno email route, Another Life Music's emotional-progressive private-SoundCloud demo mailbox and Plazma Records' Minimal/Techno form with visible CAPTCHA, honeypot and mandatory post-invitation paid plans. Genre fit, private-link access, rights, Content ID, AI policy, privacy/retention, human verification, pricing/payment and contract terms require manual review. Pipeline estimate: 1,823.
 
 ### Run 493
 
@@ -75,5 +71,9 @@ Added Reggae Vibe Media's global Caribbean/Afro direct-upload form, Crags Radio'
 ### Run 501
 
 Added Stonx Music's global neurofunk/DnB private-link demo mailbox, Red Devil Radio's authenticated independent-radio upload route with free starter credits and WCOM's host-specific community-radio form plus physical alternative. Genre/programme fit, links/files/artwork, rights, Content ID, AI provenance, accounts/credits/agreements, local fit, form/session controls and final actions require manual review. Pipeline estimate: 1,850.
+
+### Run 502
+
+Added NOS Recordings' house-only up-to-three-track private-link form, RekHeard Breakerz' global clean Caribbean single form with mandatory promotional and marketing-email consents, and COOL Recordings' House/Tech House/Afro House private-link A&R form. Genre fit, finished-track and clean-version status, private-link access, rights, Content ID, AI provenance, promotional/marketing consent, privacy/retention, hidden form controls and final actions require manual review. Pipeline estimate: 1,853.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
