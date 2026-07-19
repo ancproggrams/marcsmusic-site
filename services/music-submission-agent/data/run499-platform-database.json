@@ -1,0 +1,194 @@
+{
+  "run": 499,
+  "date": "2026-07-19",
+  "pipelineEstimateBefore": 1841,
+  "pipelineEstimate": 1844,
+  "newPlatforms": [
+    {
+      "name": "7clouds Worldwide Multi-Channel Demo Submission Form",
+      "websiteUrl": "https://7clouds.org/",
+      "submissionUrl": "https://7clouds.org/",
+      "sourceUrl": "https://7clouds.org/",
+      "sourceType": "automation_run_499_public_research",
+      "country": "Worldwide / internet-based global music-channel network.",
+      "language": "en",
+      "genres": ["drum and bass", "dubstep", "Afro House", "Afrobeats", "Amapiano", "dance", "future house", "tech house", "techno", "trance", "trap", "tropical", "phonk", "R&B", "rap", "chill"],
+      "submissionMethod": "Official first-party demo form requesting full name, email, artist, track name, stream link, release status, artist status, desired channel and additional context.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory fee is visible.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Channel and genre fit, release status, link access, rights, Content ID, AI eligibility, mandatory Terms and Privacy acceptance, two-year demo retention, hidden anti-spam controls and final submission require human review.",
+      "notes": "Passively verified on 2026-07-19 from the official homepage, embedded demo form, Terms of Service and Privacy Policy. The form offers national and genre channels including Drum N Bass, Dubstep, Afro House, Afrobeats, Amapiano, Dance, Future House, Tech House, Techno, Trance, Trap and Tropical. The site states that it is worldwide, searches for talent continuously, has 45 million YouTube subscribers in 2026 and has curated more than 7,000 releases. The terms require ownership or authorization for all submitted music, do not guarantee a feature and allow selected tracks to be featured with credit. The privacy policy states that demo details may be used for review and potential collaboration and retained for up to two years unless deletion is requested. contact@7clouds.org is first-party, syntactically valid and domain-aligned, but it is a general/privacy contact rather than the canonical demo route. No field, checkbox, link, account, CAPTCHA, payment or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official first-party demo form",
+        "formLocation": "https://7clouds.org/",
+        "explicitPurpose": "Submit music for potential feature on a selected 7clouds channel.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "internationalArtistsExplicitlyAccepted": true,
+        "eligibilityNote": "The site identifies its headquarters as the Internet, Worldwide and provides country-specific and global genre channels."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": ["provide a stream link", "select release status", "identify whether label-signed or independent", "select one desired channel", "agree to Terms of Service and Privacy Policy", "own or control all submitted music rights"],
+        "observedFields": ["full name", "email", "artist/s", "track name", "stream link", "release status", "applicant status", "desired channel", "more info", "terms/privacy agreement"],
+        "rightsAndTerms": ["rights ownership required", "feature not guaranteed", "selected tracks may be featured with credit", "demo data retained up to two years", "policy may be updated"],
+        "manualChecks": ["channel and genre fit", "stream-link access", "released/unreleased status", "master, composition, samples and contributors", "Content ID", "AI eligibility", "terms and privacy", "data retention", "hidden verification", "final form"]
+      },
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": ["contact@7clouds.org"],
+        "verification": "First-party published, syntactically valid and domain-aligned. It is a general/privacy contact, not an authorized replacement for the demo form. No SMTP, MX, catch-all or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official site is marked © 2026, states 45 million YouTube subscribers in 2026, more than 7,000 curated releases and continuous talent discovery."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "first-party embedded form",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively observed; hidden or submit-time controls remain unknown.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": true,
+        "documentedRetention": "Demo submissions retained for up to two years unless earlier deletion is requested.",
+        "manualRecheckRequired": true
+      },
+      "priority": 100,
+      "pricingModel": "free-first/first-party-form/mandatory-terms/two-year-retention/multi-channel/manual-review"
+    },
+    {
+      "name": "DNBB Music Group Global Drum & Bass / Bass LabelRadar Demo Portal",
+      "websiteUrl": "https://dnbbrecords.com/",
+      "submissionUrl": "https://www.labelradar.com/labels/dnbb/portal",
+      "sourceUrl": "https://dnbbrecords.com/",
+      "sourceType": "automation_run_499_public_research",
+      "country": "Brazil / São Paulo-based global Drum & Bass and Bass Music ecosystem.",
+      "language": "pt/en/es",
+      "genres": ["drum and bass", "jungle", "dubstep", "breakbeat", "UK garage", "bass house", "house", "tech house", "progressive house", "Afro House", "techno", "melodic techno", "trance"],
+      "submissionMethod": "Official DNBB website linking to the external DNBB LabelRadar portal and publishing file, filename, biography, social and private-link guidelines.",
+      "feeRequired": false,
+      "feeAmount": "Five LabelRadar credits are required for a direct label submission. The Lite plan provides five free credits monthly; additional credits and PRO are optional paid products.",
+      "loginRequired": true,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "LabelRadar login and credit balance, correct DNBB imprint and genre fit, file preparation, BPM/key/title metadata, biography and socials, private-link access, rights, Content ID, AI policy, privacy, hidden verification, post-selection terms and final submission require human review.",
+      "notes": "Passively verified on 2026-07-19 from DNBB Music Group's official website and the officially linked LabelRadar route. DNBB describes a global ecosystem built around Drum & Bass and Bass Music, reports 12 active labels, more than 1,400 releases and streaming in 180 countries, and publishes genres including DnB, Jungle, Dubstep, Breakbeat, UK Garage, Bass House, House, Techno and Trance. Its submission guidelines ask for WAV 24-bit or MP3 320 kbps, BPM/key/title in the filename, a short biography plus social links and a private SoundCloud or Dropbox link. The site reports more than 120 demos in the current month, eight signings in 2026 and a 14-day average response. dnbbrecords@dnbb.com.br and suporte@dnbb.com.br are first-party, syntactically valid and domain-aligned business contacts, but the official demo call routes submissions to LabelRadar. LabelRadar requires an artist account and five credits for a direct label submission; the Lite plan supplies five free monthly credits while extra credits and PRO are optional. No account, credit, upload, link, email, CAPTCHA, payment or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official first-party page linking to external LabelRadar portal",
+        "formLocation": "https://www.labelradar.com/labels/dnbb/portal",
+        "explicitPurpose": "Submit underground Drum & Bass, Bass Music and related electronic music to DNBB Music Group for A&R review.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only; account, credit and submission actions remain manual",
+        "internationalArtistsExplicitlyAccepted": true,
+        "eligibilityNote": "DNBB describes itself as global, reports listeners in 180 countries and states distribution is worldwide."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": ["WAV 24-bit or MP3 320 kbps", "BPM, key and title in filename", "short biography and social links", "private SoundCloud or Dropbox link", "use the official LabelRadar portal", "LabelRadar artist account and five credits"],
+        "observedFields": [],
+        "rightsAndTerms": ["master, composition, sample and contributor authority require review", "LabelRadar terms and AI policy apply", "five credits per direct submission", "free Lite credits and optional paid products are separate", "post-selection DNBB terms are not public"],
+        "manualChecks": ["correct DNBB label and genre fit", "account and login", "credit balance", "file format and filename", "biography and socials", "private-link access", "release status", "rights and samples", "Content ID", "AI eligibility", "privacy", "hidden verification", "contract terms", "final submission"]
+      },
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": ["dnbbrecords@dnbb.com.br", "suporte@dnbb.com.br"],
+        "verification": "Both contacts are first-party published, syntactically valid and domain-aligned, but neither is published as a replacement for the canonical LabelRadar demo portal. No SMTP, MX, catch-all or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official 2026 site reports more than 120 demos in the current month, eight artists signed in 2026, 12 active labels and more than 1,400 releases."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "LabelRadar",
+        "directUploadObserved": true,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": true,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed; login, anti-abuse or human-verification controls may appear in the account or submission flow.",
+        "paymentObserved": true,
+        "paymentStatus": "Five credits are required. Five monthly Lite credits are available for free; additional credits and PRO are optional paid products.",
+        "externalFormInspectionIncomplete": true,
+        "mandatoryTermsAcceptanceObserved": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 99,
+      "pricingModel": "free-credit-possible/LabelRadar/account-boundary/optional-paid-credits/global-bass/manual-review"
+    },
+    {
+      "name": "Reggae Global Radio Worldwide Reggae Airplay Email Submission",
+      "websiteUrl": "https://reggaeglobalradio.com/",
+      "submissionUrl": "https://reggaeglobalradio.com/music-submission",
+      "sourceUrl": "https://reggaeglobalradio.com/music-submission",
+      "sourceType": "automation_run_499_public_research",
+      "country": "United States / globally oriented online reggae radio station.",
+      "language": "en",
+      "genres": ["reggae", "roots reggae", "dub", "dancehall", "lovers rock", "Caribbean music", "radio airplay"],
+      "submissionMethod": "Official music-submission mailbox requiring one complete email with biography, correctly named MP3 tracks, released or pre-release status and two correctly named station-ID jingles.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory submission or airplay-review fee is published.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Reggae fit, biography, release status, MP3-only format and filenames, two custom station-ID jingles, one-email packaging, rights and broadcast authorization, Content ID, AI disclosure, privacy/retention, editorial review and the final email action require human review.",
+      "notes": "Passively verified on 2026-07-19 from Reggae Global Radio's official submission, homepage, shows and site-terms pages. The canonical route is music@reggaeglobalradio.com. New, upcoming and inspiring artists must include a biography. MP3 tracks must be labeled Artist Name - Title of Song; WAV files are not accepted. The sender must identify released or pre-release status, provide two correctly named Reggae Global Radio station-ID jingles and place all required material in one email. The official site is marked © 2026, publishes an active programme roster and positions the station as a worldwide reggae hub. The mailbox is first-party published, syntactically valid, domain-aligned and explicitly authorized for music submissions. No email, attachment, station ID, form field, login, CAPTCHA, payment or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official public music-submission business email",
+        "formLocation": null,
+        "email": "music@reggaeglobalradio.com",
+        "explicitPurpose": "Submit reggae music for airplay consideration.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only; composing attachments and sending remain manual",
+        "internationalArtistsExplicitlyAccepted": true,
+        "eligibilityNote": "The station presents itself as worldwide and does not publish a territorial restriction on the submission page."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": ["biography for new/upcoming/inspiring artists", "MP3 only", "filename Artist Name - Title of Song", "state released or pre-release", "two correctly labeled Reggae Global Radio station-ID jingles", "send all requirements in one email"],
+        "observedFields": [],
+        "rightsAndTerms": ["master, composition, samples and contributors require review", "broadcast authorization requires review", "custom station-ID jingles require original or licensed production", "AI-origin policy is not published", "privacy and retention are not specified on the submission page"],
+        "manualChecks": ["reggae and programme fit", "biography", "release status", "MP3 format", "filenames and metadata", "two station IDs", "all material in one email", "rights and samples", "broadcast permission", "Content ID", "AI disclosure", "privacy and retention", "final email"]
+      },
+      "businessContact": {
+        "submissionEmails": ["music@reggaeglobalradio.com"],
+        "generalEmails": [],
+        "verification": "First-party published, syntactically valid, domain-aligned and explicitly designated for music submissions. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official site is marked © 2026, publishes active daily and weekly shows and describes worldwide reggae streaming and presenters."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "externalProvider": null,
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": false,
+        "emailAttachmentRouteObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "paymentObserved": false,
+        "customStationIdRequired": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 98,
+      "pricingModel": "free-first/public-submission-email/MP3-only/custom-station-id/manual-review"
+    }
+  ],
+  "canonicalPlatformsReverified": [],
+  "deduplication": {
+    "duplicateRuntimeSeedsRemoved": 0,
+    "duplicateQueueRowsRemoved": 0,
+    "dedupeTerms": ["7clouds", "7clouds.org", "contact@7clouds.org", "DNBB Music Group", "dnbbrecords.com", "labelradar.com/labels/dnbb", "dnbbrecords@dnbb.com.br", "suporte@dnbb.com.br", "Reggae Global Radio", "reggaeglobalradio.com", "music@reggaeglobalradio.com"],
+    "result": "Repository code search returned no existing canonical match for the three names, domains, portal identifier or contact addresses before creation. Canonical SQLite domain, normalized URL, portal identifier and contact deduplication remains required before external action."
+  },
+  "safety": "No email was sent, no form field was filled, no stream link, audio, biography, social profile or station-ID file was shared, no account or login was used, no CAPTCHA or anti-bot control was attempted, no terms were accepted, no credit or payment was used and no submission was performed."
+}
