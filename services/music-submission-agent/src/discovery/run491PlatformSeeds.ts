@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run492SeedPlatforms } from './run492PlatformSeeds.js';
 
-export const run491SeedPlatforms: PlatformInput[] = [
+const run491NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "Boomslang Recordings Global Neurofunk & Drum-and-Bass Demo",
     "websiteUrl": "https://boomslangrecordings.com/",
@@ -86,4 +87,9 @@ export const run491SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "Two-step form completion, visible honeypot, private-link access, track and genre fit, released-versus-unreleased status, rights and samples, AI policy, privacy/terms, later-step fields and the final submission require human review.",
     "notes": "Passively verified on 2026-07-19 from BASSWAV's official home, demo and release pages. The label signs drum and bass, hard techno, hard bass, dubstep and UK bass. Its form states one private link is the submission; step one exposes email and private-track-link fields, while the FAQ requests a short fit note and accepts private SoundCloud, Drive, Dropbox or WeTransfer links. The page allows an unfinished track when the direction is clear, discourages sending a public release already out everywhere, and states artists keep masters and options with no exclusivity or upfront cost. A visible 'Leave this field empty' honeypot was identified and not touched. The second step, full privacy wording and full terms were not passively available. Activity is current: the form metrics were verified May 23, 2026 and the label's BW002 release was issued June 5, 2026. No field, honeypot, private link or submission was used."
   }
+];
+
+export const run491SeedPlatforms: PlatformInput[] = [
+  ...run491NewSeedPlatforms,
+  ...run492SeedPlatforms
 ];
