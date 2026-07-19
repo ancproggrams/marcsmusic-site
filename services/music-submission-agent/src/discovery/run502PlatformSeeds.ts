@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run503SeedPlatforms } from './run503PlatformSeeds.js';
 
-export const run502SeedPlatforms: PlatformInput[] = [
+const run502NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "NOS Recordings House Demo Submission Form",
     "websiteUrl": "https://nosrecordings.com/",
@@ -79,4 +80,9 @@ export const run502SeedPlatforms: PlatformInput[] = [
     "manualReviewRequired": true,
     "manualReviewReason": "House/Tech House/Afro House fit, finished-track status, private-link access and downloads, direct contact and social portfolio, rights, samples, Content ID, AI-origin disclosure, hidden form controls, privacy/retention, post-selection terms and the final submission require human review."
   }
+];
+
+export const run502SeedPlatforms: PlatformInput[] = [
+  ...run502NewSeedPlatforms,
+  ...run503SeedPlatforms
 ];
