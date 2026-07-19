@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 500
+Latest run: Run 501
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1847
+Pipeline estimate: 1850
 
 Items:
 
-- Run 500 added: Reggae Vibe Media — a global reggae/dancehall/soca/Afrobeat direct-upload form with a visible honeypot and broad generic submission terms requiring legal review.
-- Run 500 added: Crags Radio — a global community-radio track-upload form with current unsigned/electronic programming but an unreliable default privacy page.
-- Run 500 added: Future SynthPop Radio — an officially linked Jotform for worldwide electronic submissions with mandatory broadcast permission and optional YouTube video permission.
+- Run 501 added: Stonx Music — a global neurofunk/DnB private-SoundCloud demo mailbox with downloads enabled and 320 kbps MP3 preferred.
+- Run 501 added: Red Devil Radio — an authenticated independent-radio upload route using free starter credits, with optional paid credits and a versioned submission agreement.
+- Run 501 added: WCOM 103.5 FM — a host-specific community-radio form plus named-DJ physical alternative, with local-fit and current form/session boundaries.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Reggae Vibe Media accepts 320 kbps MP3 or WAV uploads and encourages clean edits, metadata and EPK material. Crags Radio accepts a direct track upload for presenter review. Future SynthPop Radio requires a downloadable link and mandatory broadcast terms through Jotform.
+Latest route note: Stonx requires a manually prepared demo email and private downloadable SoundCloud link. Red Devil requires an account, verified email, one credit, one original MP3, cover art, context and agreement acceptance. WCOM requires a specific host or programme and currently renders a one-submission/session message in the form area.
 
-Contact-verification note: `thereggaevibe@gmail.com` and `futuresynthpopradio@gmail.com` are first-party published and syntactically valid free-mail general contacts, but neither is domain-aligned or authorized as a form substitute. `studio@cragsradio.co.uk` and `info@cragsradio.co.uk` are first-party, syntactically valid and domain-aligned general contacts, not canonical submission routes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `Demo@StonxMusic.co.uk`, `Hello@StonxMusic.co.uk`, `Mgmt@StonxMusic.co.uk` and `stationmanager@wcomfm.org` are first-party published, syntactically valid and domain-aligned. Only the Stonx demo mailbox is authorized for new music. Red Devil publishes four role-specific @reddevilradio.com mailboxes behind Cloudflare protection; their local parts were not decoded or inferred. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Reggae Vibe Media shows live 24/7 programming and published editorial items on 9 and 15 July 2026. Crags Radio has a current weekly schedule, a July 2026 studio launch and a news item dated 16 July 2026. Future SynthPop Radio displayed recently played tracks dated 18 July 2026, a live schedule and a June 2026 chart.
+Activity and fit note: Stonx published STX070 on 16 July 2026 and a podcast on 4 July 2026. Red Devil reports 24/7 streaming and public airplays through 29 June 2026. WCOM posted a listener survey on 9 July 2026, current June music/news and a schedule for 12–18 July 2026. Stonx is the strongest direct fit for heavy DnB material; Red Devil is limited to a matching hip-hop/alternative crossover; WCOM requires careful host selection and does not explicitly guarantee non-local eligibility.
 
-Manual-review note: all three require exact fit, audio or link preparation, rights, Content ID, AI-origin disclosure, privacy/retention and final-action review. Reggae Vibe Media additionally has a visible honeypot and broad generic submission-rights language. Crags Radio additionally has an uncustomized default privacy page. Future SynthPop Radio additionally requires broadcast-permission acceptance and offers separate optional video-feature permission.
+Manual-review note: all three require exact fit, files/links/context, rights, Content ID, AI-origin disclosure, privacy/retention and final-action review. Red Devil additionally has account, verification, credit, agreement and optional-paid boundaries. WCOM additionally has host-selection, local-fit, physical-delivery and form/session boundaries. Stonx additionally requires a private downloadable link and a manually sent email.
 
-Deduplication note: repository code search contained no existing canonical Reggae Vibe Media, Crags Radio or Future SynthPop Radio match by official name, domain, Jotform identifier or public contact address before creation. Canonical SQLite domain, normalized URL, form identifier and contact deduplication remains required before external use.
+Deduplication note: the complete accessible pull-request patch and repository code search contained no prior Stonx Music, Red Devil Radio or WCOM canonical record by name, domain, route or exact public address. Canonical SQLite domain, normalized URL, account/form identifier and contact deduplication remains required before external use.
 
-Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were checked for structural consistency before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
+Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON, CSV and Markdown structures were checked for structural consistency before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no audio, downloadable link, biography, artwork, social profile or video permission was shared, no account or login was used, no CAPTCHA or honeypot was attempted, no terms or licence were accepted, and no payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no account was created, no email was verified, no credit was spent, no audio, private link, artwork, metadata or physical package was shared, no CAPTCHA or session control was tested, no agreement was accepted, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 491
-
-Added Boomslang Recordings' private downloadable-stream neurofunk/DnB Google Form, Bass Darkness' finished Phonk/heavy-bass private-link form with confirmation-failure fallback email, and BASSWAV's two-step DnB/dubstep/UK-bass private-link form with artist-owned terms and a visible honeypot. Genre fit, private links, rights, Content ID, AI policy, form controls, privacy/retention, contract terms and final actions require manual review. Pipeline estimate: 1,820.
 
 ### Run 492
 
@@ -75,5 +71,9 @@ Added 7clouds' worldwide multi-channel stream-link form, DNBB Music Group's glob
 ### Run 500
 
 Added Reggae Vibe Media's global Caribbean/Afro direct-upload form, Crags Radio's global community-radio upload form and Future SynthPop Radio's official Jotform route. Genre/programme fit, uploads/links, rights, Content ID, AI-origin disclosure, broad terms, privacy defects, honeypot/Jotform controls, broadcast/video permissions and final actions require manual review. Pipeline estimate: 1,847.
+
+### Run 501
+
+Added Stonx Music's global neurofunk/DnB private-link demo mailbox, Red Devil Radio's authenticated independent-radio upload route with free starter credits and WCOM's host-specific community-radio form plus physical alternative. Genre/programme fit, links/files/artwork, rights, Content ID, AI provenance, accounts/credits/agreements, local fit, form/session controls and final actions require manual review. Pipeline estimate: 1,850.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
