@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 506
+Latest run: Run 507
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1865
+Pipeline estimate: 1868
 
 Items:
 
-- Run 506 added: Bass Darkness — a first-party Phonk/heavy-bass private-link form with an authorized demo-email fallback when form confirmation is absent.
-- Run 506 added: Boomslang Recordings — an official neurofunk/DnB Google Form route requiring a streaming link with download access and rejecting email attachments.
-- Run 506 added: Indie Global 365 — a free Caribbean/positive-music direct MP3-and-image upload form with mandatory terms, route-policy conflicts and an optional paid membership boundary.
+- Run 507 added: OX Recordings — an authorized Drum & Bass/Neurofunk demo mailbox for finished, unpublished tracks delivered as private full-track links without audio attachments.
+- Run 507 added: Sonaxx Records — a first-party Hard Techno/Schranz private-link or direct-MP3 form with never-public/private-sharing requirements and no demo email route.
+- Run 507 added: Get Known Radio — a free global Electronic/Hip-Hop/R&B airplay portal with direct upload, a published email alternative, mandatory rights confirmation and Google reCAPTCHA Enterprise.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Bass Darkness requires finished tracks and prefers private SoundCloud or Dropbox links, with `demo@bassdarkness.com` authorized only as a fallback. Boomslang directs demos to its official Google Form and asks for a streaming link with download access rather than attachments or direct files. Indie Global 365 accepts up to two 192kbps MP3s plus one image per song, requires positive/uplifting content and terms acceptance, but its current form, older email instructions and linked policy conflict.
+Latest route note: OX requires a private full-track streaming link, short introduction and description, and rejects audio attachments. Sonaxx accepts complete MP3 320kbps or WAV tracks through private links or direct MP3 fields, requires that the music was never public and says email/social-media demos are ignored. Get Known Radio accepts one MP3 320kbps or WAV plus a short note and rights confirmation; the official homepage also publishes `contact@getknownradio.com` for direct submissions.
 
-Contact-verification note: `demo@bassdarkness.com` is first-party published, syntactically valid, domain-aligned and authorized as a conditional fallback. `info@boomslangrecordings.com` is first-party and domain-aligned but is not a demo route. `indieglobal365@gmail.com` is first-party published as a legacy submission address, syntactically valid but free-mail and inconsistent with the current form-only instruction. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `demos@oxrecordings.com` is first-party published, syntactically valid, domain-aligned and explicitly authorized; `info@oxrecordings.com` is general only. `info@sonaxxrecords.com` is first-party and domain-aligned, but the label requires its form and rejects demo email. `contact@getknownradio.com` is first-party published as a track-submission route; `support@getknownradio.com` is support only. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Bass Darkness lists releases dated April through July 2026, including SPARK on 3 July and Fade Away scheduled for 24 July. Boomslang's official site was updated on 10 June 2026, its official SoundCloud posted Mindfield EP material on 6 March and V: Black Venom Cycle was released on 13 February. Indie Global 365 had an active live-radio/current-song site and open form on 19 July 2026. Bass Darkness and Boomslang fit MarcsMusic' heavier bass output; Indie Global 365 is the strongest fit for positive Reggae, Soca and Caribbean crossover material.
+Activity and fit note: OX's official catalogue and demo page were active on 19 July 2026, but exact dates for its top-listed releases were not exposed in the accessible first-party cache, so recency remains a manual recheck. Sonaxx released CENSURE – Cosa Nostra on 10 July 2026. Get Known Radio displayed a current issue dated 18 July 2026, a 24/7 stream and recently submitted tracks. OX is the strongest fit for MarcsMusic' Drum & Bass/Neurofunk material, Sonaxx for harder Techno/Industrial material and Get Known Radio for electronic, club, Hip-Hop and R&B crossover tracks.
 
-Manual-review note: all three require fit, links/uploads, rights, samples, Content ID, AI provenance, privacy/retention and final-action review. Bass Darkness additionally requires form-versus-fallback handling and social contact review. Boomslang additionally has an incompletely inspected Google Form. Indie Global 365 additionally requires legal review of conflicting submission instructions, terms, performance/streaming-rights representations, upload limits and optional membership.
+Manual-review note: all three require fit, links/files, rights, samples, Content ID, AI provenance, privacy/retention and final-action review. OX additionally requires unpublished status and an email-only no-attachment workflow. Sonaxx additionally has private/never-public sharing language, upload limits, privacy acknowledgement and hidden form controls. Get Known Radio additionally requires legal review of broadcast permission, a broad non-exclusive worldwide royalty-free licence, indemnity, reCAPTCHA and US data processing.
 
-Deduplication note: exact-name, canonical-domain and published-contact searches across the accessible repository index and recent seed chain found no prior Bass Darkness, Boomslang Recordings or Indie Global 365 canonical route. Their fallback, general, legacy and optional-paid representations were consolidated into one canonical record each. Canonical SQLite domain, normalized URL, external form identifier and contact deduplication remains required before external use.
+Deduplication note: exact-name, canonical-domain and published-contact searches across the accessible repository index and recent seed chain found no prior OX Recordings, Sonaxx Records or Get Known Radio canonical submission record. General, prohibited and alternative route representations were consolidated into one canonical record per opportunity. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON, CSV and Markdown structures were checked for structural consistency before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no account was used, no private music link was shared, no MP3 or image was attached or uploaded, no rights, broadcast, streaming or terms statement was accepted, no CAPTCHA, hidden anti-spam or Google Form control was tested, and no optional membership, payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no account was used, no private music link was shared, no MP3 or WAV was attached or uploaded, no rights, privacy, broadcast or licence statement was accepted, no CAPTCHA, reCAPTCHA, hidden anti-spam or submit-time control was tested, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 497
-
-Added Dirty Disco Recordings' all-electronic unreleased-track form, Play Records' international LabelWorx form with a hard manual-only/no-automation rule, and HEXAGON's House/Bass House Trackstack inbox with account, terms, licence and optional-paid-tier boundaries. Genre fit, links/uploads, rights, Content ID, AI eligibility, privacy/retention, external form/app controls, account/terms and final actions require manual review. Pipeline estimate: 1,838.
 
 ### Run 498
 
@@ -75,5 +71,9 @@ Added SoundChat Radio's global Caribbean track-link form, Symmetry Recordings' a
 ### Run 506
 
 Added Bass Darkness's Phonk/heavy-bass private-link form and authorized fallback email, Boomslang Recordings' neurofunk/DnB Google Form and Indie Global 365's free Caribbean/positive-music MP3-and-image upload route. Genre/programme fit, finished-track and positive-content status, links/uploads, rights, Content ID, AI provenance, external-form controls, conflicting terms/routes, optional membership and final actions require manual review. Pipeline estimate: 1,865.
+
+### Run 507
+
+Added OX Recordings' authorized DnB/Neurofunk demo email, Sonaxx Records' private-link/direct-MP3 Hard Techno form and Get Known Radio's global Electronic/Hip-Hop/R&B upload route. Genre/programme fit, unpublished/private status, links/uploads, rights, Content ID, AI provenance, privacy, broadcast permission, licence/indemnity terms, reCAPTCHA and final actions require manual review. Pipeline estimate: 1,868.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
