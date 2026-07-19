@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run496SeedPlatforms } from './run496PlatformSeeds.js';
 
-export const run495SeedPlatforms: PlatformInput[] = [
+const run495NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "Rhythm House Uplifting Drum & Bass Private-Link Demo Form",
     "websiteUrl": "https://rhythm-house.co.uk/",
@@ -88,4 +89,9 @@ export const run495SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "House/EDM catalogue fit, file type and size limits, direct-upload or private-link access, vocal-source and Suno/AI disclosure, release status, master/composition/sample/contributor rights, Content ID, privacy and retention, hidden or submit-time controls, post-selection contract terms and the final upload/form action require human review.",
     "notes": "Passively verified on 2026-07-19 from Us & Machines' official demo, releases and terms pages plus current catalogue evidence. The form accepts a direct upload or private SoundCloud link and visibly requests artist name, track title, email, city/country and social links. It expressly asks whether vocals are Original, from a Sample Pack or Suno/AI, making AI-origin disclosure a required fit check rather than a published ban. The releases page invites artists worldwide and lists house, tech house, progressive house, deep house and EDM. Activity is current: Beatport lists AMT High by Wolf Story on July 3, 2026, and the label's Inertia Vol. 1 compilation was scheduled for July 17, 2026. info@usandmachines.com is first-party published, syntactically valid and domain-aligned, but is general contact and not a demo-form substitute. No file, link, form field, login, CAPTCHA, payment or submission was used."
   }
+];
+
+export const run495SeedPlatforms: PlatformInput[] = [
+  ...run495NewSeedPlatforms,
+  ...run496SeedPlatforms
 ];
