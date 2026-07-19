@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 503
+Latest run: Run 504
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1856
+Pipeline estimate: 1859
 
 Items:
 
-- Run 503 added: GoodBrother — a Dubai electronic-label form and authorized demo mailbox for finished, unreleased Techno, House, Garage, DnB or Dubstep tracks through private downloadable SoundCloud links.
-- Run 503 added: SubCulture Recordings — a Groningen global bass-music form/email route preferring a downloadable private SoundCloud playlist of 6 to 10 finished or WIP tracks.
-- Run 503 added: NexGen Music Group — a broad-genre 300MB upload or authorized email route requesting at least four unreleased high-quality tracks and carrying substantial licence, warranty and indemnity terms.
+- Run 504 added: UKF / Pilot — an official external Jotform for private-SoundCloud label-release or channel-upload consideration, with rights, premiere, press-material and broad-terms review.
+- Run 504 added: V Recordings / Liquid V / Chronic / Philly Blunt — a first-party embedded drum-and-bass demo box with incomplete passive field visibility and a Databeats login/session boundary.
+- Run 504 added: Future House Music — an official Trackstack inbox accepting up to five MP3/WAV tracks plus an official Discord demo-drop community, with account, availability and external-platform boundaries.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: GoodBrother requires a finished unreleased private SoundCloud track, downloads enabled and a label-signing acknowledgement. SubCulture requests Artist–Title naming, a downloadable private playlist, preferably 6 to 10 tracks, and offers `demos@subculture050.com`. NexGen requests at least four high-quality tracks, supports a 300MB upload or file-transfer email route, rejects streaming-only links and requires age and legal-term review.
+Latest route note: UKF requires a private SoundCloud link and selection between an authorized channel upload and an unsigned UKF/Pilot release; the Jotform contains a honeypot and may invoke broad site terms. V Recordings accepts demos across four DnB imprints, but the embedded box is not passively inspectable and a Databeats account interface is present. Future House Music accepts up to five MP3/WAV tracks through Trackstack and also directs artists to recurring Discord demo drops.
 
-Contact-verification note: `demo@goodbrother.io`, `demos@subculture050.com` and `demos@nexgenmusicgroup.com` are first-party published, syntactically valid and explicitly authorized for demos. `info@goodbrother.io`, `info@subculture050.com`, `info@nexgen.music` and `info@nexgenmusicgroup.com` are general, privacy or terms contacts and do not replace the canonical routes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: no mailbox was treated as a demo route. `orders@ukf.com` is store support, `dpo@aei.co.uk` is UKF privacy contact, `support@databeats.com` is V Recordings' platform/privacy support and `info@futurehousemusic.net` is Future House Music's published general/privacy contact. All are first-party published for their stated non-demo purposes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: GoodBrother's official catalogue showed multiple releases dated 3 July 2026 across its accepted electronic genres. SubCulture released Physis: Deuterion Stasimon on 26 June 2026 and held an official release event. NexGen released Immunity EP on 3 July 2026 and Zurcon's Prayer EP on 19 June 2026. SubCulture is the strongest fit for MarcsMusic' darker bass and genre-crossing work; GoodBrother is strong for finished DnB/Dubstep tracks; NexGen is relevant but carries the heaviest legal review boundary.
+Activity and fit note: UKF released T & Sugah — The Rush on 15 July 2026 and Pilot released YAANO — 4NOW4EVER on 9 July 2026. Planet V published V Podcast 178 on 8 May 2026 and current V Recordings tracks on 14 April 2026. Future House Music's Cobra by 22Bullets and Bruno Martini was released on 10 July 2026. UKF is the strongest fit for MarcsMusic' bass, DnB and dubstep material; Future House Music is relevant for house-oriented tracks; V Recordings requires a strong DnB/jungle fit.
 
-Manual-review note: all three require exact fit, rights, samples, Content ID, AI-origin disclosure, privacy/retention and final-action review. GoodBrother additionally requires finished unreleased status and label-signing acknowledgement. SubCulture additionally has a multi-track playlist preference and incomplete privacy-retention placeholders. NexGen additionally requires four tracks, file delivery, age 18 and review of a broad royalty-free sublicensable licence, warranties and indemnity.
+Manual-review note: all three require exact fit, rights, samples, Content ID, AI-origin disclosure, privacy/retention, external terms and final-action review. UKF additionally requires permission/exclusivity and legal review of broad user-content terms. V Recordings additionally has unresolved form-field and login/session requirements. Future House Music additionally has Trackstack/Discord account, availability and possible optional-feature boundaries.
 
-Deduplication note: the complete open PR patch contained no prior GoodBrother, SubCulture Recordings or NexGen Music Group canonical record by name, domain or authorized demo mailbox. Canonical SQLite domain, normalized URL, form identifier and contact deduplication remains required before external use.
+Deduplication note: the complete open PR patch contained no prior UKF/Pilot Jotform, V Recordings multi-imprint demo-box or Future House Music Trackstack/Discord record by official name, domain or form identifier. Canonical SQLite domain, normalized URL, form identifier and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON, CSV and Markdown structures were checked for structural consistency before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no private music or playlist link was shared, no audio was uploaded, no acknowledgement or terms were accepted, no CAPTCHA or hidden anti-spam control was tested, and no payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no account or Discord invite was used, no private music link was shared, no audio or press file was uploaded, no consent or terms were accepted, no CAPTCHA, honeypot or hidden anti-spam control was tested, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 494
-
-Added Coldharbour Recordings' explicit worldwide trance/progressive/techno form and demo mailbox, Palmlands Records' Tech House/Bass House website-or-Trackstack route with optional production services, and Get The Sound Records' original-content private-link form with broad legal terms. Genre fit, private-link access, rights, Content ID, AI policy, form/app controls, legal terms, privacy/retention and final actions require manual review. Pipeline estimate: 1,829.
 
 ### Run 495
 
@@ -75,5 +71,9 @@ Added NOS Recordings' house-only up-to-three-track private-link form, RekHeard B
 ### Run 503
 
 Added GoodBrother's finished-unreleased electronic private-link form/demo mailbox, SubCulture Recordings' global bass-music multi-track private-playlist form/email route and NexGen Music Group's broad-genre upload/email workflow with substantial legal terms. Genre fit, links/uploads, rights, Content ID, AI provenance, acknowledgements, privacy/retention, legal terms, hidden form controls and final actions require manual review. Pipeline estimate: 1,856.
+
+### Run 504
+
+Added UKF/Pilot's private-SoundCloud Jotform, V Recordings' multi-imprint embedded DnB demo box and Future House Music's Trackstack/Discord route. Fit, links/uploads, rights, Content ID, AI provenance, honeypot/account/session controls, broad terms, privacy/retention, optional platform features and final actions require manual review. Pipeline estimate: 1,859.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
