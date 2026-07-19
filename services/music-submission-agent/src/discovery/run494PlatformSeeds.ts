@@ -1,0 +1,91 @@
+import type { PlatformInput } from '../models/types.js';
+
+export const run494SeedPlatforms: PlatformInput[] = [
+  {
+    "name": "Coldharbour Recordings Worldwide Trance / Progressive / Techno Demo",
+    "websiteUrl": "https://www.coldharbourrecordings.com/",
+    "submissionUrl": "https://www.coldharbourrecordings.com/send-demo/",
+    "sourceUrl": "https://www.coldharbourrecordings.com/send-demo/",
+    "sourceType": "automation_run_494_public_research",
+    "country": "United States / Miami-based trance, progressive and techno label; the official May 1, 2026 call explicitly accepts producers worldwide.",
+    "language": "en",
+    "genres": [
+      "trance",
+      "progressive",
+      "progressive house",
+      "techno",
+      "vocal electronic",
+      "private or unlisted streaming link",
+      "download link",
+      "first-party form",
+      "email submission",
+      "manual-review"
+    ],
+    "submissionMethod": "official first-party demo form or published demo mailbox using a private or unlisted SoundCloud, Dropbox, WeTransfer or Google Drive link; email attachments are prohibited",
+    "feeRequired": false,
+    "feeAmount": "No mandatory demo-review, submission or release fee is visible on the official form or worldwide submission announcement.",
+    "loginRequired": false,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "Trance/progressive/techno fit, private-link access, download permission, release status, composition/master/sample rights, Content ID, AI policy, privacy and retention, hidden or submit-time form controls, post-selection contract terms and the final form or email action require human review.",
+    "notes": "Passively verified on 2026-07-19 from Coldharbour Recordings' official demo form, worldwide submission announcement, contact page and current catalogue. The form requests Artist / Act Name, Email Address, Demo Link and optional Additional Notes. It accepts private or unlisted SoundCloud, Dropbox, WeTransfer or Google Drive links and prohibits email attachments. promos@coldharbourrecordings.com is first-party published, syntactically valid, domain-aligned and explicitly authorized for demo submissions. info@coldharbourrecordings.com and licensing@coldharbourrecordings.com are first-party business contacts but were not treated as submission substitutes. Activity is current: the official catalogue lists Elias Erium - Raha on July 10, 2026 and Markus Schulz x Daxson - Reverence (Robert Nickson Remix) on July 3, 2026. No form field, email, private link, attachment, login, payment or submission was used."
+  },
+  {
+    "name": "Palmlands Records Tech House & Bass House Demo Drop",
+    "websiteUrl": "https://palmlands.de/",
+    "submissionUrl": "https://palmlands.de/demo-submit/",
+    "sourceUrl": "https://palmlands.de/demo-submit/",
+    "sourceType": "automation_run_494_public_research",
+    "country": "Germany / Palmlands Records GbR; the label presents a global dance-scene focus, but universal international demo eligibility is not expressly guaranteed.",
+    "language": "en",
+    "genres": [
+      "tech house",
+      "bass house",
+      "modern tech house",
+      "club music",
+      "private demo link",
+      "first-party form",
+      "Trackstack",
+      "manual-review"
+    ],
+    "submissionMethod": "official first-party demo page offering a website submission form or an optional Trackstack-app route, with A&R review and feedback by email or in the app",
+    "feeRequired": false,
+    "feeAmount": "No mandatory demo-review or submission fee is visible. Palmlands separately markets optional paid mixing and mastering services, which are not a condition of the demo route.",
+    "loginRequired": false,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "The embedded website form fields and submit-time controls were not passively exposed; optional Trackstack account/app use, exact genre fit, track and link requirements, release status, rights and samples, Content ID, AI policy, privacy and retention, separation from paid mixing/mastering, post-selection terms and the final action require human review.",
+    "notes": "Passively verified on 2026-07-19 from Palmlands Records' official demo, homepage, discography and contact pages plus current catalogue evidence. The current demo page authorizes submissions through the website form or Trackstack and states that every submission is reviewed by A&R with feedback within the next days by email or in the app. The complete embedded fields, CAPTCHA status, account requirement and consent wording were not passively exposed and were not exercised. info@palmlands.de is first-party published, syntactically valid and domain-aligned, but is a general business mailbox rather than a confirmed replacement for the canonical form. Activity is current: Palmlands promotes 2026 events, and its Beatport catalogue lists Vinylsurfer - The Frequency and instrumental version on July 10, 2026. No field, app, account, link, payment or submission was used."
+  },
+  {
+    "name": "Get The Sound Records Original-Music Private-Link Demo Drop",
+    "websiteUrl": "https://www.getthesoundrecords.com/",
+    "submissionUrl": "https://www.getthesoundrecords.com/demo-drop",
+    "sourceUrl": "https://www.getthesoundrecords.com/demo-drop",
+    "sourceType": "automation_run_494_public_research",
+    "country": "France / Paris-based electronic label, publishing, sync and events operation; the site describes global reach, but universal international demo eligibility is not expressly guaranteed.",
+    "language": "en",
+    "genres": [
+      "electronic music",
+      "chill electronic",
+      "deep house",
+      "downtempo",
+      "indie electronic",
+      "dance pop",
+      "private streaming link",
+      "first-party form",
+      "manual legal review"
+    ],
+    "submissionMethod": "official first-party demo form requesting artist/contact details and a private SoundCloud or Dropbox streaming link; duplicate tracks, WeTransfer and other download links are prohibited",
+    "feeRequired": false,
+    "feeAmount": "No mandatory demo-review or submission fee is visible on the demo page. The general terms reserve a right to introduce or change site fees, so the live flow must be rechecked before use.",
+    "loginRequired": false,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "Original-content and private-link checks, duplicate prevention, release status, rights and samples, Content ID, AI policy, privacy, submit-time controls and especially the site's broad non-confidential submission, no-compensation, moral-rights-waiver and indemnity terms require explicit human and legal approval before the final form action.",
+    "notes": "Passively verified on 2026-07-19 from Get The Sound's official demo form, terms, privacy policy, contact, about and release pages. The form requests name, artist name, email, social profile, a selection field and a private SoundCloud or Dropbox track link. It says to submit only original rights-owned content, not to submit the same track twice, and not to use WeTransfer or other download links. The site-wide terms state that submissions are non-confidential, may be used without an attribution obligation, may be exploited without compensation, and include broad waiver and indemnity language; this route therefore has a hard legal-review boundary. contact@getthesound.fr is first-party published on the official privacy policy and terms, syntactically valid and organizationally aligned, but it is a general/privacy address on a different first-party domain and not a substitute for the form. Activity is current: the official release page lists current catalogue items, Beatport exposes July 2026 label releases, and Get The Sound's Chapter 3 was released June 19, 2026. No form field, private link, consent, payment or submission was used."
+  }
+];
