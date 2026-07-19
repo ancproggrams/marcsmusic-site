@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run494SeedPlatforms } from './run494PlatformSeeds.js';
 
-export const run493SeedPlatforms: PlatformInput[] = [
+const run493NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "OVERCLOCKIN Records Bass-Music Demo Form",
     "websiteUrl": "https://www.overclockin.uk/",
@@ -91,4 +92,9 @@ export const run493SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "SubmitHub registration and session use, current standard-versus-premium credit availability, curator fit, platform terms, rights, AI and privacy settings, possible human verification and the final campaign action require human review.",
     "notes": "Passively verified on 2026-07-19 from Frequency State's official submission and about pages, its linked SubmitHub profile, current review archive and SubmitHub's official terms. Frequency State seeks independent electronica, ambient, downtempo, experimental, bass music and drum-and-bass releases and may use selected music in Spotify playlists, reviews, Mixcloud programmes or mailing-list features. Its official page says SubmitHub is the preferred route and every submission is listened to, with responses where possible. SubmitHub requires registration and offers both standard free and premium paid credits; account, credit, current curator availability and platform-control details were not exercised. Activity is current: the official review archive shows posts dated July 5 and July 6, 2026. No account, credit, music link, payment or submission was used."
   }
+];
+
+export const run493SeedPlatforms: PlatformInput[] = [
+  ...run493NewSeedPlatforms,
+  ...run494SeedPlatforms
 ];
