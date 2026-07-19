@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 492
+Latest run: Run 493
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1823
+Pipeline estimate: 1826
 
 Items:
 
-- Run 492 added: MelodicLab Records — a domain-aligned email route for exclusive private downloadable progressive-house and melodic-techno demos.
-- Run 492 added: Another Life Music — a Swiss emotional and melancholic progressive-house demo mailbox requiring a private SoundCloud link, personal introduction and social links.
-- Run 492 added: Plazma Records — a first-party Minimal/Techno private-link form with visible CAPTCHA and honeypot plus mandatory post-invitation paid plans.
+- Run 493 added: OVERCLOCKIN Records — a first-party bass-music demo form requesting stage name, email, socials and a streamable/downloadable private link.
+- Run 493 added: Magnetic Magazine — a dedicated electronic editorial/demo form requesting a private stream, release data, biography, artwork and press assets, with an optional commercial-package boundary.
+- Run 493 added: Frequency State — an electronic-music curation route through its official SubmitHub profile, with login plus standard-free or optional premium-paid credits.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: MelodicLab requires an exclusive downloadable private SoundCloud link, personal introduction and socials. Another Life Music requires an exclusive private SoundCloud link, introduction and socials. Plazma requires a finished 320 kbps private-SoundCloud demo, privacy confirmation and human verification; accepted artists must choose a €199, €299 or €699 one-time plan.
+Latest route note: OVERCLOCKIN uses a first-party private-link form. Magnetic accepts tracks, EPs, albums, mixes and related projects for editorial, premiere or label-demo consideration. Frequency State uses SubmitHub for playlist, review, Mixcloud-programme and mailing-list consideration.
 
-Contact-verification note: `info@melodiclabrecords.com`, `demo@anotherlifemusic.ch`, `info@anotherlifemusic.ch`, `demo@plazmarec.com` and `info@plazmarec.com` are first-party published, syntactically valid and domain-aligned. MelodicLab's `info@` and Another Life Music's `demo@` are canonical submission routes. Plazma's dedicated form is canonical; its published mailboxes were retained as business-contact context. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `contact@overclockin.uk` and Magnetic Magazine's `info@`, `editorial@`, `advertise@`, `reviews@` and `demo@` mailboxes are first-party published, syntactically valid and domain-aligned. Magnetic's `reviews@` and `demo@` are music/editorial contacts; OVERCLOCKIN's `contact@` is general only. Frequency State uses SubmitHub and no public submission mailbox was stored. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: MelodicLab's official home page lists MLR036 with a June 19, 2026 release date. Another Life Music's official profile shows releases through March 30, 2026 and mixes published April 29, 2026. Plazma's official release page dates PLZM092 to May 8, 2026 and its label profile shows tracks published March 24, 2026.
+Activity and fit note: OVERCLOCKIN's official catalogue dates a Drum & Bass release to January 16, 2026. Magnetic's homepage contains numerous publications dated July 17, 2026. Frequency State's official review archive contains posts dated July 5 and July 6, 2026.
 
-Manual-review note: all three require exact genre fit, private-link access, release status, rights, samples, Content ID, AI policy, privacy/retention, contract terms and final-action review. MelodicLab additionally requires exclusive downloadable access. Another Life Music requires emotional-progressive fit. Plazma requires human CAPTCHA completion, the honeypot to remain untouched and explicit review of invitation, pricing, payment/refund and service-versus-label-contract terms.
+Manual-review note: all three require exact fit, links/assets, rights, samples, Content ID, AI policy, privacy/retention and final-action review. OVERCLOCKIN also requires hidden-control inspection. Magnetic requires editorial-versus-paid-promotional separation. Frequency State requires an authenticated SubmitHub session and a deliberate free-standard-versus-paid-premium credit decision.
 
-Deduplication note: repository code search contained no existing canonical MelodicLab Records, Another Life Music or Plazma Records match by official name, domain or published submission email before creation. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical OVERCLOCKIN, Magnetic Magazine or Frequency State match by official name, domain, route or published submission email before creation. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were validated before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no login was used, no CAPTCHA or honeypot was attempted, no private link or file was shared, no terms were accepted, and no payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no account was used, no CAPTCHA or human verification was attempted, no private link or asset was shared, no terms were accepted, and no credit, payment or submission action was performed.
 
 ## Recent run history
-
-### Run 483
-
-Added WXDU's Bandcamp-YUM-preferring official music mailbox, Hot Wax Radio's cloud-MP3 form with a hard AI prohibition and royalty-waiver boundary, and Zaccone Music's international electronic-label private-link form/mailbox. Eligibility, genre fit, links, rights, AI policy, licence/privacy/retention terms, JavaScript controls, optional paid-service separation and final actions require manual review. Pipeline estimate: 1,796.
 
 ### Run 484
 
@@ -75,5 +71,9 @@ Added Boomslang Recordings' private downloadable-stream neurofunk/DnB Google For
 ### Run 492
 
 Added MelodicLab Records' exclusive downloadable progressive-house/melodic-techno email route, Another Life Music's emotional-progressive private-SoundCloud demo mailbox and Plazma Records' Minimal/Techno form with visible CAPTCHA, honeypot and mandatory post-invitation paid plans. Genre fit, private-link access, rights, Content ID, AI policy, privacy/retention, human verification, pricing/payment and contract terms require manual review. Pipeline estimate: 1,823.
+
+### Run 493
+
+Added OVERCLOCKIN Records' first-party bass-music private-link form, Magnetic Magazine's electronic editorial/demo form with an optional commercial-package boundary, and Frequency State's official SubmitHub curation route with login plus free-standard or paid-premium credits. Genre fit, links/assets, rights, Content ID, AI policy, privacy/retention, hidden or external platform controls, commercial separation and final actions require manual review. Pipeline estimate: 1,826.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
