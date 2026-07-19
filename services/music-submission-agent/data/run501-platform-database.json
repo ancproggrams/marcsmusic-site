@@ -1,0 +1,187 @@
+{
+  "run": 501,
+  "date": "2026-07-19",
+  "pipelineEstimateBefore": 1847,
+  "pipelineEstimate": 1850,
+  "newPlatforms": [
+    {
+      "name": "Stonx Music Global Neurofunk Drum & Bass Demo Email",
+      "websiteUrl": "https://stonxmusic.co.uk/",
+      "submissionUrl": "https://stonxmusic.co.uk/about/",
+      "sourceUrl": "https://stonxmusic.co.uk/about/",
+      "sourceType": "automation_run_501_public_research",
+      "country": "United Kingdom / global neurofunk and heavy drum-and-bass label and community with an international roster.",
+      "language": "en",
+      "genres": ["drum and bass", "neurofunk", "dark drum and bass", "heavy drum and bass", "bass music", "private SoundCloud link", "public demo email"],
+      "submissionMethod": "Official first-party demo mailbox Demo@StonxMusic.co.uk. Send a private SoundCloud link with downloads enabled, MP3 320 kbps preferred, plus artist, achievement, track, style and label-fit context.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review, submission or release fee is published on the official demo-process page.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Neurofunk/heavy-DnB fit, private-link access and download settings, MP3 quality, artist and track context, master/composition/sample/contributor rights, Content ID, AI-origin disclosure, unpublished privacy/retention and contract terms, and the final email require human review.",
+      "notes": "Passively verified on 2026-07-19 from Stonx Music's official home and about pages. The label describes itself as a global neurofunk community, states that demos are always welcome and publishes Demo@StonxMusic.co.uk for private SoundCloud links with downloads enabled and MP3 320 kbps preferred. The email should explain the artist, notable achievements, the track, the artist's style and why the track suits the label. Hello@StonxMusic.co.uk and Mgmt@StonxMusic.co.uk are first-party, syntactically valid and domain-aligned general/management contacts but are not alternatives to the demo mailbox. Current activity is evidenced by STX070, Croo — Toy Soldiers / Plastic Man, published 16 July 2026, and Stonxcast episode 196 on 4 July 2026. No email, private link, attachment, account, CAPTCHA, payment or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official first-party public demo email",
+        "formLocation": null,
+        "explicitPurpose": "Submit neurofunk and heavy drum-and-bass demos to Stonx Music A&R.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only; every email action remains manual",
+        "internationalArtistsExplicitlyAccepted": true,
+        "eligibilityNote": "The label identifies itself as a global collective with artists spanning the globe."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": ["private SoundCloud link", "downloads enabled", "MP3 320 kbps preferred", "information about the artist", "notable musical achievements", "information about the track", "description of musical style", "reason the track suits the label"],
+        "observedFields": [],
+        "rightsAndTerms": ["master, composition, sample and contributor authority require review", "Content ID and distributor conflicts require review", "AI-origin policy is not published", "privacy, retention and post-selection contract terms are not published on the demo page"],
+        "manualChecks": ["neurofunk and label fit", "private-link access", "downloads enabled", "MP3 quality", "artist and track context", "rights and samples", "Content ID", "AI disclosure", "privacy and retention", "post-selection contract", "final email"]
+      },
+      "businessContact": {
+        "submissionEmails": ["Demo@StonxMusic.co.uk"],
+        "generalEmails": ["Hello@StonxMusic.co.uk", "Mgmt@StonxMusic.co.uk"],
+        "verification": "All three addresses are first-party published, syntactically valid and exactly aligned to the official stonxmusic.co.uk domain. Only Demo@StonxMusic.co.uk is explicitly authorized for demos. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official site published STX070 on 16 July 2026 and Stonxcast episode 196 on 4 July 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "externalProvider": null,
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No form or CAPTCHA is part of the published canonical email route.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "manualRecheckRequired": true
+      },
+      "priority": 100,
+      "pricingModel": "free/public-demo-email/private-SoundCloud/download-enabled/global-neurofunk/manual-review"
+    },
+    {
+      "name": "Red Devil Radio Independent Artist Account Submission",
+      "websiteUrl": "https://reddevilradio.com/",
+      "submissionUrl": "https://reddevilradio.com/submit-music.html",
+      "sourceUrl": "https://reddevilradio.com/submit-music.html",
+      "sourceType": "automation_run_501_public_research",
+      "country": "United States / 24/7 independent underground internet-radio and artist-discovery platform.",
+      "language": "en",
+      "genres": ["hip-hop", "alternative", "indie rock", "rock", "country", "folk", "experimental", "artist radio", "listener voting", "Hot 50"],
+      "submissionMethod": "Official artist-account workflow: create a free account, verify email, use one submission credit and upload one original rights-cleared MP3 with cover art, metadata and track context for human review.",
+      "feeRequired": false,
+      "feeAmount": "Each submission uses one credit. New artist accounts receive free starter credits; additional credit packs and monthly/yearly Unlimited plans are optional paid products.",
+      "loginRequired": true,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Current genre fit, age and authority, account creation, email verification, credit balance, MP3 and cover-art upload, metadata and artist context, agreement acceptance, non-exclusive worldwide royalty-free broadcast/promotion licence, rights and samples, Content ID, AI-origin disclosure, privacy/retention, optional payment and the final submission require human review.",
+      "notes": "Passively verified on 2026-07-19 from Red Devil Radio's official submission, artist, contact, submission-agreement, privacy, terms and public airplay pages. The current submission cycle accepts one original track in rock, country, hip-hop, indie rock, folk or alternative. Artists must create an account, verify email, upload one rights-cleared MP3 with cover art and context and spend one credit. Starter credits are free; extra packs and Unlimited plans are optional paid boundaries. The 11 June 2026 agreement keeps ownership with the artist but grants a non-exclusive worldwide royalty-free, technically sublicensable and removal-request-based licence to store, transcode, review, stream, publicly perform and promote approved tracks and supporting materials; no direct payment is promised. The platform records legal/account acceptance data including a hashed IP value and user agent. The contact page publishes Cloudflare-protected @reddevilradio.com mailboxes for support, artist review follow-up, press/partnerships and DMCA, but their local parts were not decoded and none replaces the account queue. Activity is evidenced by 24/7 streaming and public logged airplays through 29 June 2026. No account, email verification, credit, upload, agreement, CAPTCHA, payment or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official first-party authenticated artist-submission portal",
+        "formLocation": "https://reddevilradio.com/submit-music.html",
+        "explicitPurpose": "Submit one original track for reviewed radio rotation, artist-page, listener-voting and Hot 50 eligibility.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only; registration, verification, credits, uploads and submission remain manual",
+        "internationalArtistsExplicitlyAccepted": true,
+        "eligibilityNote": "The official FAQ says anyone aged 18 or older who owns, controls or is authorized to submit the recording and composition may submit; no geographic restriction is stated."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": ["artist must be at least 18", "free artist account", "email verification", "one submission credit", "one original rights-cleared MP3", "cover art", "metadata", "creation story, meaning, credits and artist context", "acceptance of the current submission agreement"],
+        "observedFields": ["account creation", "email verification", "authenticated upload workflow", "submission credit", "MP3 upload", "cover art", "metadata and context", "agreement acceptance"],
+        "rightsAndTerms": ["artist retains recording and composition ownership", "non-exclusive worldwide royalty-free licence for technical processing, station streaming, public performance, metadata display and connected promotion", "licence is revocable through a removal request, subject to retained security, audit, legal, payment, moderation and backup records", "no direct payment or royalty promise", "unauthorized samples and third-party rights are prohibited", "AI-origin policy is not published"],
+        "manualChecks": ["current genre fit", "age and authority", "account and email verification", "starter-credit availability", "MP3 and cover art", "metadata and context", "rights and samples", "Content ID", "AI disclosure", "agreement version", "privacy and retention", "optional paid credits", "final submission"]
+      },
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [],
+        "protectedEmailsObserved": ["general and listener support @reddevilradio.com", "artist submissions and reviews follow-up @reddevilradio.com", "press and partnerships @reddevilradio.com", "DMCA notices @reddevilradio.com"],
+        "verification": "The official contact page publishes role-specific, exact-domain addresses behind Cloudflare email protection. Their local parts were not decoded or inferred. The artist-review address is only for status, rights questions and follow-up; new submissions must use the portal. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official station reports continuous 24/7 streaming and public artist pages record airplays through 29 June 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "first-party authenticated artist portal",
+        "directUploadObserved": true,
+        "streamOrDownloadLinkObserved": false,
+        "loginObserved": true,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed before authentication; account verification and submit-time anti-abuse controls remain unknown.",
+        "paymentObserved": true,
+        "paymentStatus": "Starter credits are free. Optional additional credits and Unlimited subscriptions are paid and processed through Stripe.",
+        "mandatoryTermsAcceptanceObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 84,
+      "pricingModel": "free-starter-credit/authenticated-account/email-verification/one-MP3/optional-paid-credits/manual-review"
+    },
+    {
+      "name": "WCOM 103.5 FM Host-Specific Independent Music Submission",
+      "websiteUrl": "https://wcomfm.org/",
+      "submissionUrl": "https://wcomfm.org/submit-music/",
+      "sourceUrl": "https://wcomfm.org/submit-music/",
+      "sourceType": "automation_run_501_public_research",
+      "country": "United States / Carrboro and Chapel Hill community FM station streaming worldwide.",
+      "language": "en",
+      "genres": ["electronic", "folk", "world", "country", "funk", "soul", "hip-hop", "indie", "jazz", "Latin", "pop", "R&B", "reggae", "rock", "community radio"],
+      "submissionMethod": "Official first-party music-submission page with an electronic form that requires the artist to select a specific host or show. A physical-mail alternative is available only when addressed to a named DJ.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory music-submission or airplay-review fee is published. Donations and underwriting are separate from editorial music consideration.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Local/community and programme fit, selection of a specific host, electronic-form availability, the page's current one-submission/session gate, delivery format, clean/broadcast suitability, metadata and context, master/composition/sample/contributor rights, Content ID, AI-origin disclosure, physical-mail costs if used and the final form or package require human review.",
+      "notes": "Passively verified on 2026-07-19 from WCOM's official submission, home, schedule and contact pages. WCOM is an all-volunteer station without a music director or central library; hosts select music independently. The station advises addressing recordings to a specific host or programme and states that its electronic form requires a host selection. The general new-release and coming-soon boxes receive only sporadic airplay. A physical package may be mailed to a named DJ at WCOM's Carrboro PO box. During passive inspection the form area rendered 'sorry, we can only accept one submission', so the live fields, upload mechanism, CAPTCHA and anti-spam controls were not exercised. stationmanager@wcomfm.org is first-party, syntactically valid and domain-aligned but is a general station contact, not a substitute for the host-specific route. Current activity is evidenced by the 2026 listener survey posted 9 July 2026, news and music posts in June 2026, a live schedule for 12–18 July 2026 and worldwide streaming. No form, host contact, email, package, login, CAPTCHA, donation, underwriting or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official first-party host-specific electronic form with named-DJ physical alternative",
+        "formLocation": "https://wcomfm.org/submit-music/",
+        "explicitPurpose": "Address independent music to a relevant WCOM host or show for discretionary airplay consideration.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only; host selection, form use and physical delivery remain manual",
+        "internationalArtistsExplicitlyAccepted": false,
+        "eligibilityNote": "The station streams worldwide but emphasizes independent local music and upcoming performances in the Raleigh–Durham–Chapel Hill area. Non-local eligibility is not guaranteed and a precise programme fit is required."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": ["select a specific WCOM host or show for electronic submission", "address physical music to a named DJ if using mail", "do not rely on telephone confirmation", "understand that general new-release boxes receive only sporadic airplay"],
+        "observedFields": ["host/show selection requirement", "current one-submission/session message"],
+        "rightsAndTerms": ["master, composition, sample and contributor authority require review", "broadcast suitability and permission require review", "AI-origin policy is not published", "electronic-form privacy, retention and upload details were not visible in the gated state"],
+        "manualChecks": ["local and programme fit", "specific host choice", "form availability", "delivery format", "clean/broadcast suitability", "metadata and context", "rights and samples", "Content ID", "AI disclosure", "privacy and retention", "physical-mail cost if used", "final form or package"]
+      },
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": ["stationmanager@wcomfm.org"],
+        "verification": "The address is first-party published, syntactically valid and exactly aligned to the official wcomfm.org domain. It is a station-management contact and is not published as an alternative to the host-specific submission route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official site posted a listener survey on 9 July 2026, showed June 2026 music/news activity, provided a schedule for 12–18 July 2026 and advertised worldwide streaming."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "first-party embedded form",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": false,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "The current form state showed a one-submission/session message. Exact CAPTCHA or submit-time verification could not be passively confirmed and was not attempted.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "physicalDeliveryAlternativeObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 78,
+      "pricingModel": "free/host-specific-form/local-fit/worldwide-stream/physical-alternative/session-gate/manual-review"
+    }
+  ]
+}
