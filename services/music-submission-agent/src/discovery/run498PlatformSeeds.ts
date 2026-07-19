@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run499SeedPlatforms } from './run499PlatformSeeds.js';
 
-export const run498SeedPlatforms: PlatformInput[] = [
+const run498NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "Monstercat Uncaged / Instinct / Silk LabelRadar Demo Portals",
     "websiteUrl": "https://www.monstercat.com/",
@@ -103,4 +104,9 @@ export const run498SeedPlatforms: PlatformInput[] = [
     "manualReviewRequired": true,
     "manualReviewReason": "The route requires exclusivity and confirmation that no other labels or DJs are reviewing or testing the music. Catalogue fit, private-playlist access, exclusivity window, rights, Content ID, AI eligibility, personal-data consent, optional marketing consent, Cloudflare/browser verification, post-selection terms and the final form action require human review."
   }
+];
+
+export const run498SeedPlatforms: PlatformInput[] = [
+  ...run498NewSeedPlatforms,
+  ...run499SeedPlatforms
 ];
