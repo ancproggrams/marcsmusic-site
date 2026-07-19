@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run500SeedPlatforms } from './run500PlatformSeeds.js';
 
-export const run499SeedPlatforms: PlatformInput[] = [
+const run499NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "7clouds Worldwide Multi-Channel Demo Submission Form",
     "websiteUrl": "https://7clouds.org/",
@@ -107,4 +108,9 @@ export const run499SeedPlatforms: PlatformInput[] = [
     "manualReviewRequired": true,
     "manualReviewReason": "Reggae fit, released/pre-release status, biography, MP3-only format and filename checks, creation and rights clearance for two custom station-ID jingles, one-email packaging, master/composition/sample/contributor and broadcast rights, Content ID, generative-AI disclosure, privacy/retention, editorial review and the final email action require human review."
   }
+];
+
+export const run499SeedPlatforms: PlatformInput[] = [
+  ...run499NewSeedPlatforms,
+  ...run500SeedPlatforms
 ];
