@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run497SeedPlatforms } from './run497PlatformSeeds.js';
 
-export const run496SeedPlatforms: PlatformInput[] = [
+const run496NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "Protocol Zero European Drum & Bass / Neurofunk Demo Email",
     "websiteUrl": "https://protocolzero.online/",
@@ -92,4 +93,9 @@ export const run496SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "Direct file upload, exact hard-dance fit, file format and size, track metadata, rights and samples, Content ID, AI policy, required terms/privacy acceptance, demo-email retention and targeted contact-list use, optional newsletter consent, hidden anti-abuse controls, post-selection terms and the final form action require human review.",
     "notes": "Passively verified on 2026-07-19 from ACTIVATED Records' official demo, homepage, releases, legal-notice and privacy pages plus current Beatport evidence. The form requires first name, artist name, contact email plus confirmation, track title, genre/style and a WAV or MP3 upload up to 100 MB. Phone/WhatsApp, streaming/cloud link, social links and notes are optional. The newsletter checkbox is optional, while acceptance of the Terms and Privacy Policy is mandatory. The privacy policy says demo email addresses are stored in an internal demo-submitter contact list for feedback, special submission calls and relevant label information; demo audio files are automatically deleted after 30 days, and IP addresses are collected for abuse protection. k.schroetter@activated-network.com and info@activated-network.com are first-party published, syntactically valid and organizationally domain-aligned, but they are management/general contacts and not replacements for the demo form. Activity is current: Beatport lists Heart Of A Lion on June 12, 2026 and multiple other 2026 hard-dance releases; the official releases hub states it is updated continuously. No field, file, consent, email, CAPTCHA, login, payment or submission was used."
   }
+];
+
+export const run496SeedPlatforms: PlatformInput[] = [
+  ...run496NewSeedPlatforms,
+  ...run497SeedPlatforms
 ];
