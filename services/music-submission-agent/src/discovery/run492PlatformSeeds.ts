@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run493SeedPlatforms } from './run493PlatformSeeds.js';
 
-export const run492SeedPlatforms: PlatformInput[] = [
+const run492NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "MelodicLab Records Progressive House & Melodic-Techno Demo",
     "websiteUrl": "https://www.melodiclabrecords.com/",
@@ -84,4 +85,9 @@ export const run492SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "Visible CAPTCHA and honeypot, private-link and metadata checks, full-finished-track and genre fit, privacy consent, rights and samples, AI policy, mandatory post-invitation pricing and payment, service-versus-label-contract terms and the final form require human review.",
     "notes": "Passively verified on 2026-07-19 from Plazma Records' official demo, contact, privacy and release pages. The form requires a 320kbps full-length finished track in a private SoundCloud link, proper Artist - Title naming, artist and email details, biography/fit explanations, optional profile links and privacy confirmation. A visible CAPTCHA and a 'If you are human, leave this field blank' honeypot are present and were not touched. The published process says matching demos receive an invitation and must then select a one-time Essential (€199), Spotlight (€299) or Residential (€699) plan. info@plazmarec.com and demo@plazmarec.com are first-party published, syntactically valid and domain-aligned, but the form was retained as canonical. Activity is current: the official release page dates Michael Morra's ZERØ EP (PLZM092) to May 8, 2026, and the official label profile shows tracks published March 24, 2026. No form field, CAPTCHA, honeypot, private link, payment or submission was used."
   }
+];
+
+export const run492SeedPlatforms: PlatformInput[] = [
+  ...run492NewSeedPlatforms,
+  ...run493SeedPlatforms
 ];
