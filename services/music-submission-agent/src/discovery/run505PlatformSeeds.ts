@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run506SeedPlatforms } from './run506PlatformSeeds.js';
 
-export const run505SeedPlatforms: PlatformInput[] = [
+const run505NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "SoundChat Radio Global Caribbean Music Submission Form",
     "websiteUrl": "https://soundchatradio.com/",
@@ -81,4 +82,9 @@ export const run505SeedPlatforms: PlatformInput[] = [
     "manualReviewRequired": true,
     "manualReviewReason": "Techno/house catalogue fit, minimum-two-track exclusivity, private SoundCloud or demo-link format, rejection of Drive/Dropbox routes, hard AI-generated-music exclusion and provenance evidence, master/composition/sample/contributor rights, Content ID, privacy/retention, JavaScript and hidden anti-spam or submit-time verification, adjacent commercial-service selectors, post-selection contract and the final form require human review."
   }
+];
+
+export const run505SeedPlatforms: PlatformInput[] = [
+  ...run505NewSeedPlatforms,
+  ...run506SeedPlatforms
 ];
