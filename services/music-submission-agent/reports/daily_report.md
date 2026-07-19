@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 491
+Latest run: Run 492
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1820
+Pipeline estimate: 1823
 
 Items:
 
-- Run 491 added: Boomslang Recordings — an external Google Form for private downloadable-stream neurofunk and drum-and-bass demos.
-- Run 491 added: Bass Darkness — a finished Phonk/heavy-bass private-link form with a domain-aligned confirmation-failure fallback mailbox.
-- Run 491 added: BASSWAV — a Dutch DnB/dubstep/UK-bass two-step private-link form with artist-owned terms and a visible honeypot.
+- Run 492 added: MelodicLab Records — a domain-aligned email route for exclusive private downloadable progressive-house and melodic-techno demos.
+- Run 492 added: Another Life Music — a Swiss emotional and melancholic progressive-house demo mailbox requiring a private SoundCloud link, personal introduction and social links.
+- Run 492 added: Plazma Records — a first-party Minimal/Techno private-link form with visible CAPTCHA and honeypot plus mandatory post-invitation paid plans.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Boomslang requires a private streaming/downloadable demo link and rejects attachments and alternate email submissions; its Google Form remains uninspected. Bass Darkness accepts finished tracks through private SoundCloud or Dropbox and permits `demo@bassdarkness.com` only when form confirmation fails. BASSWAV accepts one private link, exposes step one of two and requires its honeypot to remain empty.
+Latest route note: MelodicLab requires an exclusive downloadable private SoundCloud link, personal introduction and socials. Another Life Music requires an exclusive private SoundCloud link, introduction and socials. Plazma requires a finished 320 kbps private-SoundCloud demo, privacy confirmation and human verification; accepted artists must choose a €199, €299 or €699 one-time plan.
 
-Contact-verification note: `info@boomslangrecordings.com` and `demo@bassdarkness.com` are first-party published, syntactically valid and domain-aligned. The Boomslang address is general only and explicitly not a demo substitute. The Bass Darkness address is an authorized fallback only after confirmation failure. BASSWAV's official form is canonical and no public email was used. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `info@melodiclabrecords.com`, `demo@anotherlifemusic.ch`, `info@anotherlifemusic.ch`, `demo@plazmarec.com` and `info@plazmarec.com` are first-party published, syntactically valid and domain-aligned. MelodicLab's `info@` and Another Life Music's `demo@` are canonical submission routes. Plazma's dedicated form is canonical; its published mailboxes were retained as business-contact context. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Boomslang has official SoundCloud and Beatport releases dated through March 6, 2026. Bass Darkness lists releases through July 3, 2026 and an upcoming July 24, 2026 release. BASSWAV's form metrics were verified May 23, 2026 and BW002 was released June 5, 2026.
+Activity and fit note: MelodicLab's official home page lists MLR036 with a June 19, 2026 release date. Another Life Music's official profile shows releases through March 30, 2026 and mixes published April 29, 2026. Plazma's official release page dates PLZM092 to May 8, 2026 and its label profile shows tracks published March 24, 2026.
 
-Manual-review note: all three require label fit, private-link and release-status checks, rights, samples, Content ID, AI policy, privacy/retention, contract terms and final-action review. Boomslang additionally requires complete Google-Form inspection. Bass Darkness requires finished-track and social-contact validation plus strict fallback-email handling. BASSWAV requires step-two inspection and its honeypot must remain untouched.
+Manual-review note: all three require exact genre fit, private-link access, release status, rights, samples, Content ID, AI policy, privacy/retention, contract terms and final-action review. MelodicLab additionally requires exclusive downloadable access. Another Life Music requires emotional-progressive fit. Plazma requires human CAPTCHA completion, the honeypot to remain untouched and explicit review of invitation, pricing, payment/refund and service-versus-label-contract terms.
 
-Deduplication note: repository code search contained no existing canonical Boomslang Recordings, Bass Darkness or BASSWAV match by official name or domain before creation. Recent-run reports 481–490 also contain no match. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical MelodicLab Records, Another Life Music or Plazma Records match by official name, domain or published submission email before creation. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were validated before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
 Safety: No email was sent, no form field was filled, no login was used, no CAPTCHA or honeypot was attempted, no private link or file was shared, no terms were accepted, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 482
-
-Added Resurge Audio's rights- and GDPR-aware electronic form with a hard AI prohibition, Joshua Tree Live's free global direct-media-upload route and Global Entry Radio's monthly limited paid Groover route. Genre fit, links/uploads, rights, AI policy, promotional or broadcast licences, privacy, hidden controls, login/payment and final actions require manual review. Pipeline estimate: 1,793.
 
 ### Run 483
 
@@ -75,5 +71,9 @@ Added Get Known Radio's free global electronic/Hip-Hop/R&B upload route with reC
 ### Run 491
 
 Added Boomslang Recordings' private downloadable-stream neurofunk/DnB Google Form, Bass Darkness' finished Phonk/heavy-bass private-link form with confirmation-failure fallback email, and BASSWAV's two-step DnB/dubstep/UK-bass private-link form with artist-owned terms and a visible honeypot. Genre fit, private links, rights, Content ID, AI policy, form controls, privacy/retention, contract terms and final actions require manual review. Pipeline estimate: 1,820.
+
+### Run 492
+
+Added MelodicLab Records' exclusive downloadable progressive-house/melodic-techno email route, Another Life Music's emotional-progressive private-SoundCloud demo mailbox and Plazma Records' Minimal/Techno form with visible CAPTCHA, honeypot and mandatory post-invitation paid plans. Genre fit, private-link access, rights, Content ID, AI policy, privacy/retention, human verification, pricing/payment and contract terms require manual review. Pipeline estimate: 1,823.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
