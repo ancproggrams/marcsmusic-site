@@ -1,0 +1,326 @@
+{
+  "run": 500,
+  "date": "2026-07-19",
+  "pipelineEstimateBefore": 1844,
+  "pipelineEstimate": 1847,
+  "newPlatforms": [
+    {
+      "name": "Reggae Vibe Media Global Reggae / Dancehall / Soca / Afrobeat Upload Form",
+      "websiteUrl": "https://reggaevibe.org/",
+      "submissionUrl": "https://reggaevibe.org/media-submission/",
+      "sourceUrl": "https://reggaevibe.org/media-submission/",
+      "sourceType": "automation_run_500_public_research",
+      "country": "United States / Caribbean-focused media network with global digital radio, app and editorial reach.",
+      "language": "en",
+      "genres": [
+        "reggae",
+        "roots reggae",
+        "dub",
+        "dancehall",
+        "soca",
+        "Afrobeat",
+        "Caribbean music",
+        "African music",
+        "radio airplay",
+        "editorial coverage"
+      ],
+      "submissionMethod": "Official first-party music-upload form requesting artist name, song title and audio file, with published quality, clean-edit, metadata and optional EPK guidance.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory submission or review fee is visible on the official media-submission page.",
+      "loginRequired": false,
+      "captchaDetected": true,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Genre and positive-content fit, clean radio edit, 320 kbps MP3 or WAV, metadata and credits, optional EPK assets, master/composition/sample/contributor rights, Content ID, AI-origin disclosure, the site's unusually broad generic submission-rights language, privacy/retention, visible honeypot handling and the final upload require human and legal review.",
+      "notes": "Passively verified on 2026-07-19 from Reggae Vibe Media's official media-submission, live-radio, current editorial and terms pages. The form accepts a direct audio upload up to 268.44 MB and shows a visible 'If you are human, leave this field blank' honeypot. Published guidance requests high-resolution MP3 320 kbps or WAV, prefers clean radio edits, requires properly tagged artist/title/production-credit metadata and encourages a short biography plus promotional photo. Selected submissions may receive 24/7 global airplay, DJ consideration, editorial/social coverage and app placement. The generic site Terms contain broad ownership/use language for 'Submissions'; because the music-upload page is a specifically requested submission route, the exact interaction between those provisions and uploaded masters requires legal review before use. thereggaevibe@gmail.com is first-party published and syntactically valid but is a free-mail general contact rather than the canonical form. Current activity is evidenced by a live 24/7 programme schedule and editorial posts dated 9 and 15 July 2026. No field, file, honeypot, checkbox, account, payment or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official first-party direct audio-upload form",
+        "formLocation": "https://reggaevibe.org/media-submission/",
+        "explicitPurpose": "Submit reggae, dancehall, soca or Afrobeat music for radio, DJ and possible editorial consideration.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "internationalArtistsExplicitlyAccepted": true,
+        "eligibilityNote": "The page promotes a global audience and airplay across the United States, Jamaica, the United Kingdom and beyond."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "high-resolution MP3 320 kbps or WAV",
+          "clean radio edit preferred",
+          "artist name, song title and production credits in metadata",
+          "positive or uplifting content preferred",
+          "direct audio upload",
+          "brief biography and high-quality promotional photo encouraged for editorial consideration"
+        ],
+        "observedFields": [
+          "artist name",
+          "song title",
+          "file upload",
+          "submit button",
+          "honeypot field"
+        ],
+        "rightsAndTerms": [
+          "master, composition, sample and contributor authority require review",
+          "broadcast/editorial permission scope requires review",
+          "generic site submission terms contain broad rights language",
+          "AI-origin policy is not published",
+          "privacy and retention for music files are not specified on the submission page"
+        ],
+        "manualChecks": [
+          "genre and message fit",
+          "clean edit",
+          "file quality and size",
+          "metadata and credits",
+          "EPK assets",
+          "rights and samples",
+          "Content ID",
+          "AI disclosure",
+          "broad terms",
+          "privacy and retention",
+          "honeypot boundary",
+          "final form"
+        ]
+      },
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [
+          "thereggaevibe@gmail.com"
+        ],
+        "verification": "First-party published and syntactically valid, but free-mail rather than domain-aligned and not presented as a replacement for the canonical upload form. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official station page shows a live 24/7 schedule and current programme information; official editorial posts were published on 9 and 15 July 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "first-party embedded upload form",
+        "directUploadObserved": true,
+        "streamOrDownloadLinkObserved": false,
+        "loginObserved": false,
+        "captchaObserved": true,
+        "captchaStatus": "A visible honeypot instructs humans to leave the field blank. It was not touched or bypassed; additional submit-time controls remain unknown.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "broadTermsLegalReview": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 100,
+      "pricingModel": "free-first/first-party-upload/honeypot/broad-terms/global-reggae/manual-review"
+    },
+    {
+      "name": "Crags Radio Global Community Airplay Direct-Upload Form",
+      "websiteUrl": "https://cragsradio.co.uk/",
+      "submissionUrl": "https://cragsradio.co.uk/submit/",
+      "sourceUrl": "https://cragsradio.co.uk/submit/",
+      "sourceType": "automation_run_500_public_research",
+      "country": "United Kingdom / community station serving North Nottinghamshire and North East Derbyshire while streaming to a global online audience.",
+      "language": "en",
+      "genres": [
+        "unsigned music",
+        "indie",
+        "electronic",
+        "dance",
+        "house",
+        "chillout",
+        "pop",
+        "rock",
+        "reggae",
+        "soul",
+        "global music",
+        "radio airplay"
+      ],
+      "submissionMethod": "Official first-party airplay form requesting artist or band name, track title, email, direct track upload, social links and background information.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory submission, review or airplay fee is visible on the official form.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Programme and genre fit, upload format and size, clean/broadcast suitability, metadata, artist context and socials, master/composition/sample/contributor rights, Content ID, AI-origin disclosure, the site's incomplete/default privacy policy, hidden anti-spam controls, presenter review and the final upload require human review.",
+      "notes": "Passively verified on 2026-07-19 from Crags Radio's official submission, contact, schedule, about and privacy pages. The canonical first-party form asks for artist/band name, track title, email, an uploaded track, social links and additional information. A presenter reviews submissions and may notify the artist if a show will play the track. The current schedule includes Unsigned Sessions, dance, house, electronic, chillout and globally oriented programming. The station streams 24/7 and reports a new Studio 2 podcast facility opening in July 2026; the site also published news on 16 July 2026. studio@cragsradio.co.uk and info@cragsradio.co.uk are first-party published, syntactically valid and domain-aligned general contacts, not authorized replacements for the form. The published privacy page is an uncustomized demo template naming a demo URL, so personal-data and audio-file handling require manual review. No field, file, checkbox, email, CAPTCHA, payment or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official first-party direct track-upload form",
+        "formLocation": "https://cragsradio.co.uk/submit/",
+        "explicitPurpose": "Submit a track to Crags Radio presenters for possible airplay.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only",
+        "internationalArtistsExplicitlyAccepted": true,
+        "eligibilityNote": "The station states that it streams online to a global audience and runs an Unsigned Music Awards category for Best International Artist."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "artist or band name",
+          "track title",
+          "email address",
+          "track upload",
+          "social media links",
+          "information about the track or artist"
+        ],
+        "observedFields": [
+          "artist or bands name",
+          "title of track",
+          "email",
+          "upload track",
+          "social media links",
+          "artist/track information"
+        ],
+        "rightsAndTerms": [
+          "master, composition, sample and contributor authority require review",
+          "broadcast suitability and permission require review",
+          "AI-origin policy is not published",
+          "upload format and size are not published in the parsed form",
+          "privacy and retention are unclear because the privacy page is a default demo template"
+        ],
+        "manualChecks": [
+          "programme and genre fit",
+          "broadcast cleanliness",
+          "file format and size",
+          "metadata",
+          "socials and context",
+          "rights and samples",
+          "Content ID",
+          "AI disclosure",
+          "privacy and retention",
+          "hidden verification",
+          "final form"
+        ]
+      },
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [
+          "studio@cragsradio.co.uk",
+          "info@cragsradio.co.uk"
+        ],
+        "verification": "Both are first-party published, syntactically valid and domain-aligned general/studio contacts. Neither is published as a replacement for the canonical music-submission form. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official site shows a current full weekly schedule and 24/7 streaming, describes a Studio 2 launch in July 2026, and published a news item dated 16 July 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "first-party embedded upload form",
+        "directUploadObserved": true,
+        "streamOrDownloadLinkObserved": false,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively observed; hidden or submit-time anti-spam controls remain unknown.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "privacyPolicyDefectObserved": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 99,
+      "pricingModel": "free-first/first-party-upload/global-community-radio/privacy-defect/manual-review"
+    },
+    {
+      "name": "Future SynthPop Radio Worldwide Electronic Jotform Submission",
+      "websiteUrl": "https://www.synthpopradio.com/",
+      "submissionUrl": "https://form.jotform.com/252044079959063",
+      "sourceUrl": "https://synthpopradio.com/music-submission",
+      "sourceType": "automation_run_500_public_research",
+      "country": "United States / worldwide 24/7 online electronic radio station.",
+      "language": "en",
+      "genres": [
+        "synthpop",
+        "futurepop",
+        "darkwave",
+        "EBM",
+        "industrial",
+        "electronic pop",
+        "synthwave",
+        "electronic music",
+        "radio airplay",
+        "video feature"
+      ],
+      "submissionMethod": "Official first-party submission page linking to an external Jotform requesting name, email, a downloadable music/context link, optional video-feature permission and mandatory broadcast-rights terms acceptance.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory submission or review fee is visible on the official page or linked form.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Electronic/synth catalogue fit, downloadable link access, supporting artist and social information, master/composition/sample/contributor and broadcast rights, optional YouTube video permission, mandatory form terms, Content ID, AI-origin disclosure, Jotform privacy/retention and hidden verification, plus the final submission require human review.",
+      "notes": "Passively verified on 2026-07-19 from Future SynthPop Radio's official music-submission, home and privacy pages and the officially linked Jotform. The form requests name, email, a link from which the station can download music plus relevant website/social information, an optional yes/no permission for the station to upload and feature a music video on its YouTube channel, and mandatory agreement granting broadcast permission while stating that all music rights remain with the original owner and removal can be requested. futuresynthpopradio@gmail.com is first-party published and syntactically valid but is a free-mail contact rather than domain-aligned and is not identified as an alternative to the form. The station is currently active: the official site showed recently played entries dated 18 July 2026, a current schedule and a June 2026 chart. No field, link, checkbox, account, CAPTCHA, payment or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official first-party page linking to external Jotform",
+        "formLocation": "https://form.jotform.com/252044079959063",
+        "explicitPurpose": "Submit synthpop, futurepop, darkwave or electronic music for possible radio rotation, playlists, shows and optional video featuring.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only; all Jotform actions remain manual",
+        "internationalArtistsExplicitlyAccepted": true,
+        "eligibilityNote": "The official submission page explicitly targets a worldwide audience and the station describes itself as streaming worldwide 24/7."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": [
+          "name",
+          "email",
+          "downloadable music link",
+          "relevant artist, website and social information",
+          "yes/no video-feature permission",
+          "agreement to broadcast permission terms"
+        ],
+        "observedFields": [
+          "first name",
+          "last name",
+          "email",
+          "download and context link",
+          "video-feature permission yes/no",
+          "terms agreement yes/no",
+          "submit button"
+        ],
+        "rightsAndTerms": [
+          "broadcast permission granted on submission",
+          "music rights remain with the original owner",
+          "removal may be requested",
+          "optional YouTube video-upload permission is separate",
+          "master, composition, sample and contributor authority require review",
+          "AI-origin policy is not published"
+        ],
+        "manualChecks": [
+          "genre fit",
+          "download-link access",
+          "artist/social context",
+          "rights and samples",
+          "broadcast permission",
+          "optional video permission",
+          "Content ID",
+          "AI disclosure",
+          "Jotform privacy and retention",
+          "hidden verification",
+          "final form"
+        ]
+      },
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [
+          "futuresynthpopradio@gmail.com"
+        ],
+        "verification": "First-party published and syntactically valid, but free-mail rather than domain-aligned and not presented as a replacement for the canonical Jotform. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official home page displayed recently played tracks dated 18 July 2026, current show scheduling and a June 2026 synthpop chart."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "Jotform",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed; Jotform anti-abuse or submit-time human verification may still appear.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": true,
+        "optionalPromotionalMediaConsentObserved": true,
+        "externalFormInspectionIncomplete": false,
+        "manualRecheckRequired": true
+      },
+      "priority": 98,
+      "pricingModel": "free-first/Jotform/download-link/mandatory-broadcast-terms/optional-video-permission/manual-review"
+    }
+  ]
+}
