@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run509SeedPlatforms } from './run509PlatformSeeds.js';
 
-export const run508SeedPlatforms: PlatformInput[] = [
+const run508NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "Intrigue Music Drum & Bass Demo Email",
     "websiteUrl": "https://www.intrigue.org.uk/",
@@ -76,4 +77,9 @@ export const run508SeedPlatforms: PlatformInput[] = [
     "manualReviewRequired": true,
     "manualReviewReason": "Liquid/deep/dark Drum & Bass catalogue fit, downloadable-link access, artist and legal-name handling, biography/context quality, rights and samples, Content ID, AI-origin disclosure, privacy/retention, separation from adjacent paid mastering services, hidden anti-spam or submit-time controls, possible post-selection contract and the final form require human review."
   }
+];
+
+export const run508SeedPlatforms: PlatformInput[] = [
+  ...run508NewSeedPlatforms,
+  ...run509SeedPlatforms
 ];
