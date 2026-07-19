@@ -1,0 +1,177 @@
+{
+  "run": 508,
+  "date": "2026-07-19",
+  "pipelineEstimateBefore": 1868,
+  "pipelineEstimate": 1871,
+  "newPlatforms": [
+    {
+      "name": "Intrigue Music Drum & Bass Demo Email",
+      "websiteUrl": "https://www.intrigue.org.uk/",
+      "submissionUrl": "mailto:demobox@intrigue.org.uk",
+      "sourceUrl": "https://www.intrigue.org.uk/contact/",
+      "sourceType": "automation_run_508_public_research",
+      "country": "United Kingdom / Bristol-based Drum & Bass label and club night with international digital reach; the public demo route does not publish a geographic exclusion.",
+      "language": "en",
+      "genres": [
+        "drum and bass",
+        "liquid drum and bass",
+        "deep drum and bass",
+        "soulful drum and bass",
+        "label demo",
+        "DJ mix"
+      ],
+      "submissionMethod": "Official first-party demo mailbox. Email demobox@intrigue.org.uk to submit a label demo or a DJ set for the Intrigue club night. The official page asks DJ-mix submissions to include contact information and a tracklist. It publishes info@intrigue.org.uk for general contact, not as a substitute for the demo mailbox.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review, submission, account or payment fee is published on the official contact page.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Exact Drum & Bass catalogue or club-night fit, selection of label demo versus DJ mix, audio/link format, contact details and DJ-mix tracklist, release status, master/composition/sample/contributor rights, Content ID, AI-origin disclosure, email privacy/retention, possible post-selection agreement and the final email require human review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [
+          "demobox@intrigue.org.uk"
+        ],
+        "generalEmails": [
+          "info@intrigue.org.uk"
+        ],
+        "verification": "The official Intrigue contact page publishes the addresses in human-readable 'demobox AT intrigue.org.uk' and 'info AT intrigue.org.uk' form. They normalize to syntactically valid, domain-aligned addresses. demobox@intrigue.org.uk is explicitly authorized for label demos and DJ sets; info@intrigue.org.uk is general only. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official contact route remained live on 19 July 2026. Intrigue Music's official Bandcamp discography listed Who Can Say EP in July 2026, Ease Yr Mind / On The Level in June 2026 and Control feat. Rift / Echo feat. Ben Soundscape, released 29 May 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "externalProvider": "Authorized first-party demo email",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": false,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "Not applicable to the canonical email route. No email was sent.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "labelDemoOrDjMixChoiceObserved": true,
+        "djMixTracklistRequirementObserved": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 99,
+      "pricingModel": "free-first/drum-and-bass/authorized-demo-email/label-demo-or-DJ-mix/manual-review"
+    },
+    {
+      "name": "behind the sun Recordings Liquid DnB / Breakbeat Demo Form",
+      "websiteUrl": "https://behindthesunrecordings.com/",
+      "submissionUrl": "https://behindthesunrecordings.com/contact/",
+      "sourceUrl": "https://behindthesunrecordings.com/contact/",
+      "sourceType": "automation_run_508_public_research",
+      "country": "South America / independent digital label focused on Liquid Drum & Bass, atmospheric Breaks and Breakbeat; the public demo route does not publish a geographic exclusion.",
+      "language": "en",
+      "genres": [
+        "liquid drum and bass",
+        "soulful drum and bass",
+        "atmospheric breaks",
+        "breakbeat",
+        "original productions",
+        "private SoundCloud",
+        "Dropbox"
+      ],
+      "submissionMethod": "Official first-party contact form. Select Demo Submission as the subject and provide an original, finished production through a private SoundCloud or Dropbox link. The label accepts Liquid Drum & Bass, Atmospheric Breaks and Breakbeat and explicitly rejects works in progress, remixes, bootlegs and mash-ups. The form requires acknowledgement of the Privacy Policy.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review, submission, account or payment fee is published on the official contact and demo page.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Liquid-DnB/Breakbeat catalogue fit, original and finished status, exclusion of WIPs/remixes/bootlegs/mash-ups, private-link access, mandatory privacy-policy acknowledgement, rights and samples, Content ID, AI-origin disclosure, privacy/retention, cookie and hidden anti-spam or submit-time controls, possible post-selection contract and the final form require human review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [],
+        "verification": "No exact public business or demo email address was found on the accessible first-party contact, about, release or privacy-linked pages. No address was guessed or inferred. The first-party contact form is the only stored route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official website continued to invite demos and display a current catalogue on 19 July 2026. The official Bandcamp catalogue listed Nightfall / Don't Get Me Wrong in June 2026 and two releases in February 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "First-party behind the sun Recordings contact form",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed in the accessible form text. Hidden anti-spam and submit-time checks were not exercised.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "privacyAcknowledgementObserved": true,
+        "originalFinishedOnlyObserved": true,
+        "wipRemixBootlegMashupRejected": true,
+        "privateSoundCloudOrDropboxObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 98,
+      "pricingModel": "free-first/liquid-dnb-breakbeat/first-party-form/private-link/privacy-acknowledgement/manual-review"
+    },
+    {
+      "name": "Sub Wavelength Recordings Liquid / Deep DnB Demo Form",
+      "websiteUrl": "https://sub-wavelength.com/sub-wavelength-recordings",
+      "submissionUrl": "https://sub-wavelength.com/demo-submissions",
+      "sourceUrl": "https://sub-wavelength.com/demo-submissions",
+      "sourceType": "automation_run_508_public_research",
+      "country": "United Kingdom / Birmingham-based Drum & Bass label with internationally available releases; the public demo route does not publish a geographic exclusion.",
+      "language": "en",
+      "genres": [
+        "drum and bass",
+        "liquid drum and bass",
+        "deep drum and bass",
+        "dark drum and bass",
+        "downloadable music link"
+      ],
+      "submissionMethod": "Official first-party demo form. Provide artist name, legal/full name or names, email, downloadable music links and information about yourself. The label states that it is looking for new Liquid, Deep or Dark Drum & Bass. The official site separately publishes subwavelengthrecordings@gmail.com as the record-label contact, but the form remains the canonical demo route.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review, submission, account or payment fee is published on the official label or demo-submission pages. Separate mastering services are commercial but are not presented as a condition of label review.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Liquid/deep/dark Drum & Bass catalogue fit, downloadable-link access, artist and legal-name handling, biography/context quality, rights and samples, Content ID, AI-origin disclosure, privacy/retention, separation from adjacent paid mastering services, hidden anti-spam or submit-time controls, possible post-selection contract and the final form require human review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [
+          "subwavelengthrecordings@gmail.com"
+        ],
+        "verification": "subwavelengthrecordings@gmail.com is syntactically valid and first-party published on the official label and demo pages as the record-label contact. It is a free-mail address rather than a domain mailbox and is not explicitly designated as the demo route, so it is retained as general context only. The first-party form remains canonical. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official label and demo pages remained live on 19 July 2026. The official Bandcamp discography listed No Contact in June 2026, Water / Astir Integration in May 2026 and Year Three Remixed, released 24 April 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "First-party Sub Wavelength Recordings form",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed in the accessible form text. Hidden anti-spam and submit-time checks were not exercised.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "artistNameObserved": true,
+        "legalFullNamesObserved": true,
+        "downloadableMusicLinksRequired": true,
+        "artistInformationObserved": true,
+        "adjacentPaidMasteringServiceObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 97,
+      "pricingModel": "free-first/liquid-deep-dark-dnb/first-party-form/downloadable-links/adjacent-mastering-boundary/manual-review"
+    }
+  ]
+}
