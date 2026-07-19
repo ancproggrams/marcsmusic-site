@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 497
+Latest run: Run 498
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1838
+Pipeline estimate: 1841
 
 Items:
 
-- Run 497 added: Dirty Disco Recordings — an all-electronic unreleased-track form with an imprint selector and rights confirmation.
-- Run 497 added: Play Records — an international electronic/dance LabelWorx route that expressly rejects automated and third-party submissions and is permanently manual-only.
-- Run 497 added: HEXAGON — a House/Bass House/Club Bangers Trackstack inbox with account, terms, licence and optional-paid-tier boundaries.
+- Run 498 added: Monstercat — Uncaged, Instinct and Silk LabelRadar demo portals with account, five-credit and optional paid-credit boundaries.
+- Run 498 added: NCS / NoCopyrightSounds — an official electronic-music LabelRadar route with account, upload, preview and credit controls.
+- Run 498 added: Steyoyoke — an exclusive private-SoundCloud-playlist form with rights/data confirmations and an optional newsletter opt-in.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Dirty Disco uses a first-party track-link form. Play Records uses an externally hosted LabelWorx form that must only be completed manually. HEXAGON uses an external Trackstack inbox with account, terms and anti-automation boundaries.
+Latest route note: Monstercat and NCS officially route demos through LabelRadar. A direct label submission consumes five credits; a free Lite account can provide five credits monthly when the balance is zero, while extra credits and PRO are optional. Steyoyoke uses a first-party form and requires exclusive submission with no concurrent label delivery or DJ testing.
 
-Contact-verification note: Play Records publishes `melody@playrecords.net`, `simon@playrecords.net`, `sydney@playrecords.net` and `admin@playrecords.net` as first-party domain-aligned business contacts, but explicitly prohibits sending demos to those staff addresses. `support@trackstack.app` is provider support rather than a HEXAGON submission address. Dirty Disco publishes no authorized public email alternative. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: Steyoyoke publishes six first-party domain-aligned business contacts, but none is authorized for demos. Monstercat exposes protected support, press and event contacts that were not decoded. NCS publishes no authorized demo email alternative. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Dirty Disco has current 2026 releases including Techno Beat on April 10. Play Records lists BOOM on July 17 plus releases scheduled for July 24 and August 7. HEXAGON has releases through May 15 and advertises an ADE label night for October 22, 2026.
+Activity and fit note: Monstercat published current releases and shows through July 15, 2026. NCS lists releases through July 14, 2026. Steyoyoke's current catalogue includes its 15th-anniversary releases, with Beatport activity dated May 15, 2026.
 
-Manual-review note: all three require exact fit, links/uploads, release status, rights, Content ID, AI eligibility, privacy/retention, hidden controls, post-selection terms and final actions. Play Records additionally prohibits automated or third-party submissions. HEXAGON additionally requires manual handling of Trackstack registration, account/OTP controls, age eligibility, platform licences and free-versus-paid tier separation.
+Manual-review note: all three require exact fit, release status, rights, Content ID, AI eligibility, privacy/retention, platform or form controls, post-selection terms and final actions. Monstercat and NCS additionally require account, credit, upload and 20-second-preview handling. Steyoyoke additionally requires exclusivity, private-playlist access, rights/data consent, optional marketing-consent separation and human handling of the browser-verification boundary.
 
-Deduplication note: repository code search contained no existing canonical Dirty Disco Recordings, Play Records or HEXAGON HQ match by official name or domain before creation. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical Monstercat, NCS/NoCopyrightSounds or Steyoyoke match by official name or domain before creation. Canonical SQLite domain, normalized URL, portal identifier and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were validated before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no account, login or OTP was used, no CAPTCHA was attempted, no audio or private link was shared, no terms or licences were accepted, and no payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no account or login was used, no CAPTCHA or browser challenge was attempted, no audio, private playlist or preview was shared, no terms, exclusivity or consent statement was accepted, and no credit, payment or submission action was performed.
 
 ## Recent run history
-
-### Run 488
-
-Added SubCulture Recordings' worldwide 2027 bass-music playlist/form/mailbox route, Pangea Recordings' worldwide year-round 1–3-track private-link demo mailbox with a hard AI-origin check and Symmetry Recordings' 320kbps MP3/WAV drum-and-bass mailbox with an adjacent LabelWorx boundary. Genre fit, release-window and track selection, links/files, rights, Content ID, AI policy, privacy/retention, external-form controls and final actions require manual review. Pipeline estimate: 1,811.
 
 ### Run 489
 
@@ -75,5 +71,9 @@ Added Protocol Zero's private-SoundCloud neurofunk/DnB demo mailbox, Quantum Cir
 ### Run 497
 
 Added Dirty Disco Recordings' all-electronic unreleased-track form, Play Records' international LabelWorx form with a hard manual-only/no-automation rule, and HEXAGON's House/Bass House Trackstack inbox with account, terms, licence and optional-paid-tier boundaries. Genre fit, links/uploads, rights, Content ID, AI eligibility, privacy/retention, external form/app controls, account/terms and final actions require manual review. Pipeline estimate: 1,838.
+
+### Run 498
+
+Added Monstercat's Uncaged/Instinct/Silk LabelRadar portals, NCS's official LabelRadar demo route and Steyoyoke's exclusive private-playlist form. Genre and imprint fit, accounts/credits, uploads/previews, exclusivity, rights, Content ID, AI eligibility, privacy/retention, form/platform controls, post-selection terms and final actions require manual review. Pipeline estimate: 1,841.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
