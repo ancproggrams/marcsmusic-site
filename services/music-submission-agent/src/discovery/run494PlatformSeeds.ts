@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run495SeedPlatforms } from './run495PlatformSeeds.js';
 
-export const run494SeedPlatforms: PlatformInput[] = [
+const run494NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "Coldharbour Recordings Worldwide Trance / Progressive / Techno Demo",
     "websiteUrl": "https://www.coldharbourrecordings.com/",
@@ -88,4 +89,9 @@ export const run494SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "Original-content and private-link checks, duplicate prevention, release status, rights and samples, Content ID, AI policy, privacy, submit-time controls and especially the site's broad non-confidential submission, no-compensation, moral-rights-waiver and indemnity terms require explicit human and legal approval before the final form action.",
     "notes": "Passively verified on 2026-07-19 from Get The Sound's official demo form, terms, privacy policy, contact, about and release pages. The form requests name, artist name, email, social profile, a selection field and a private SoundCloud or Dropbox track link. It says to submit only original rights-owned content, not to submit the same track twice, and not to use WeTransfer or other download links. The site-wide terms state that submissions are non-confidential, may be used without an attribution obligation, may be exploited without compensation, and include broad waiver and indemnity language; this route therefore has a hard legal-review boundary. contact@getthesound.fr is first-party published on the official privacy policy and terms, syntactically valid and organizationally aligned, but it is a general/privacy address on a different first-party domain and not a substitute for the form. Activity is current: the official release page lists current catalogue items, Beatport exposes July 2026 label releases, and Get The Sound's Chapter 3 was released June 19, 2026. No form field, private link, consent, payment or submission was used."
   }
+];
+
+export const run494SeedPlatforms: PlatformInput[] = [
+  ...run494NewSeedPlatforms,
+  ...run495SeedPlatforms
 ];
