@@ -1,0 +1,192 @@
+{
+  "run": 507,
+  "date": "2026-07-19",
+  "pipelineEstimateBefore": 1865,
+  "pipelineEstimate": 1868,
+  "newPlatforms": [
+    {
+      "name": "OX Recordings Drum & Bass / Neurofunk Demo Email",
+      "websiteUrl": "https://oxrecordings.com/",
+      "submissionUrl": "mailto:demos@oxrecordings.com",
+      "sourceUrl": "https://oxrecordings.com/contacts/",
+      "sourceType": "automation_run_507_public_research",
+      "country": "Italy / independent Drum & Bass and Neurofunk label with worldwide digital distribution; the public route does not publish a geographic exclusion.",
+      "language": "en",
+      "genres": [
+        "drum and bass",
+        "neurofunk",
+        "unreleased music",
+        "finished tracks",
+        "private SoundCloud",
+        "private streaming link",
+        "no email attachments"
+      ],
+      "submissionMethod": "Official first-party demo mailbox. Email demos@oxrecordings.com with a private full-track SoundCloud or other streaming link, a brief introduction and track description. Send only finished, unpublished music. Do not attach the audio file and do not send the demo to other addresses.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review, submission or release fee is published on the official first-party contact and demo page.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Drum-and-bass/neurofunk catalogue fit, finished and unpublished status, private-link access, introduction and track-description quality, rights and samples, Content ID, AI-origin disclosure, email privacy/retention, possible post-selection contract and the final email require human review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [
+          "demos@oxrecordings.com"
+        ],
+        "generalEmails": [
+          "info@oxrecordings.com"
+        ],
+        "verification": "Both addresses are first-party published on the official OX Recordings contact page, syntactically valid and domain-aligned. demos@oxrecordings.com is explicitly authorized for demo submissions; info@oxrecordings.com is general only. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official release catalogue and contact page were active on 19 July 2026 and continue to invite demos. The public catalogue lists recent releases at the top, including Cherry Sky / Foul Play by Loma, Miles Away by Meesteik and Haze Days by The Witch Doctor. Exact release dates were not exposed in the accessible first-party cache, so final recency should be rechecked before submission."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": false,
+        "externalProvider": "Authorized first-party demo email",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "Not applicable to the canonical email route. No email was sent.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "noAttachmentsRequired": true,
+        "finishedUnreleasedOnlyObserved": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 99,
+      "pricingModel": "free-first/drum-and-bass-neurofunk/authorized-demo-email/private-streaming-link/no-attachments/manual-review"
+    },
+    {
+      "name": "Sonaxx Records Hard Techno / Schranz Demo Form",
+      "websiteUrl": "https://www.sonaxxrecords.com/",
+      "submissionUrl": "https://www.sonaxxrecords.com/en/contact-and-demos",
+      "sourceUrl": "https://www.sonaxxrecords.com/en/contact-and-demos",
+      "sourceType": "automation_run_507_public_research",
+      "country": "Switzerland / internationally distributed Hard Techno, Techno, Industrial and Schranz label; the public demo page does not publish a geographic exclusion.",
+      "language": "en",
+      "genres": [
+        "hard techno",
+        "techno",
+        "industrial",
+        "schranz",
+        "hard dance",
+        "private SoundCloud",
+        "Dropbox",
+        "WeTransfer",
+        "MP3 320kbps",
+        "WAV"
+      ],
+      "submissionMethod": "Official first-party contact-and-demo form only. Submit complete MP3 320kbps or WAV tracks through private SoundCloud, Dropbox, WeTransfer or similar private links, or upload MP3 files directly. The form exposes multiple link and MP3-upload fields, with a displayed 15MB limit per upload field. Demos sent by email or social media are not considered. Music must not have been publicly accessible and should be shared only with Sonaxx.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review, submission or release fee is published on the official demo page.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Hard-techno/Schranz catalogue fit, complete-track and private-never-public status, exclusive sharing language, choice of direct MP3 upload versus private link, 15MB upload limits, privacy acknowledgement, rights and samples, Content ID, AI-origin disclosure, hidden anti-spam or submit-time controls, seven-day no-response rejection rule, post-selection contract and the final form require human review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [
+          "info@sonaxxrecords.com"
+        ],
+        "verification": "info@sonaxxrecords.com is first-party published in the official Sonaxx Records contact-and-demo page footer, syntactically valid and domain-aligned. The page explicitly rejects demo submissions by email and requires the form, so the address is retained only as a general business contact. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "Sonaxx Records remained active in July 2026. Its official Bandcamp catalogue released CENSURE – Cosa Nostra worldwide on 10 July 2026, and the official demo page contains submission-process changes effective 1 January 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "First-party Sonaxx Records form",
+        "directUploadObserved": true,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed in the accessible form text. Hidden anti-spam and submit-time checks were not exercised.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "privacyAcknowledgementObserved": true,
+        "emailSubmissionProhibited": true,
+        "privateNeverPublicRequirementObserved": true,
+        "directAudioUploadLimitObserved": "Multiple MP3 upload fields, each displaying a 15MB maximum; WAV is accepted through the general instructions but the visible upload controls are labeled MP3.",
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 98,
+      "pricingModel": "free-first/hard-techno-schranz/first-party-form/private-link-or-MP3-upload/privacy-acknowledgement/manual-review"
+    },
+    {
+      "name": "Get Known Radio Global Electronic / Hip-Hop Airplay Submission",
+      "websiteUrl": "https://getknownradio.com/",
+      "submissionUrl": "https://getknownradio.com/submit-music.html",
+      "sourceUrl": "https://getknownradio.com/submit-music.html",
+      "sourceType": "automation_run_507_public_research",
+      "country": "United States / New York-based independent 24/7 internet radio station with collaborators in Detroit and London; the official submission page explicitly accepts non-US artists without geographic restriction.",
+      "language": "en",
+      "genres": [
+        "electronic",
+        "drum and bass",
+        "house",
+        "UK garage",
+        "Jersey club",
+        "footwork",
+        "baile funk",
+        "amapiano",
+        "hip-hop",
+        "R&B",
+        "MP3 320kbps",
+        "WAV",
+        "direct audio upload"
+      ],
+      "submissionMethod": "Official first-party free submission portal. Submit one MP3 at 320kbps minimum or WAV file, a short two-to-three-sentence note, genre tag, contact email and a mandatory rights confirmation. The official homepage also publishes contact@getknownradio.com as a direct-email submission route. The station says every submission gets at least a sixty-second human listen and normally receives a decision within about two weeks.",
+      "feeRequired": false,
+      "feeAmount": "The official submission page states there is no application fee, paid-placement tier, required social follow, playlist exchange or premium submission lane.",
+      "loginRequired": false,
+      "captchaDetected": true,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Electronic/hip-hop/R&B programme fit, one-track file format and quality, direct upload versus published email route, mandatory broadcast-rights confirmation, broad non-exclusive worldwide royalty-free promotional and broadcast licence, indemnity, sample clearance, Content ID, AI-origin disclosure, Google reCAPTCHA Enterprise, privacy/US processing, file retention/removal handling and the final upload or email require human and legal review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [
+          "contact@getknownradio.com"
+        ],
+        "generalEmails": [
+          "support@getknownradio.com"
+        ],
+        "verification": "contact@getknownradio.com is explicitly published on the official homepage as the direct-email track-submission route and is syntactically valid and domain-aligned. support@getknownradio.com is first-party published for support/newsletter use and is not a submission substitute. The dedicated submission page also references protected email links that could not all be resolved consistently in the public cache, so the web portal remains canonical. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official homepage was published/updated on 18 July 2026, displayed a 24/7 live station, a current issue dated 18 July 2026 and recently submitted tracks. Its submission, terms and privacy pages were accessible in July 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "First-party Get Known Radio upload portal",
+        "directUploadObserved": true,
+        "streamOrDownloadLinkObserved": false,
+        "loginObserved": false,
+        "captchaObserved": true,
+        "captchaStatus": "The official privacy policy states that Google reCAPTCHA Enterprise is used for spam protection. No CAPTCHA or form interaction was attempted.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": true,
+        "mandatoryBroadcastPermissionObserved": true,
+        "broadNonExclusiveLicenceObserved": true,
+        "royaltyFreeLicenceObserved": true,
+        "indemnityObserved": true,
+        "internationalEligibilityConfirmed": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 97,
+      "pricingModel": "free-first/global-radio/electronic-hip-hop-R&B/direct-audio-upload/authorized-email-fallback/reCAPTCHA/broad-licence/manual-review"
+    }
+  ]
+}
