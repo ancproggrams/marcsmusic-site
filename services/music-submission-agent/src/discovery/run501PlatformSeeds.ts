@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run502SeedPlatforms } from './run502PlatformSeeds.js';
 
-export const run501SeedPlatforms: PlatformInput[] = [
+const run501NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "Stonx Music Global Neurofunk Drum & Bass Demo Email",
     "websiteUrl": "https://stonxmusic.co.uk/",
@@ -90,4 +91,9 @@ export const run501SeedPlatforms: PlatformInput[] = [
     "manualReviewRequired": true,
     "manualReviewReason": "Local/community and programme fit, selection of a specific host, electronic-form availability, the page's current one-submission/session gate, delivery format, clean/broadcast suitability, metadata and context, master/composition/sample/contributor rights, Content ID, AI-origin disclosure, physical-mail costs if used and the final form or package require human review."
   }
+];
+
+export const run501SeedPlatforms: PlatformInput[] = [
+  ...run501NewSeedPlatforms,
+  ...run502SeedPlatforms
 ];
