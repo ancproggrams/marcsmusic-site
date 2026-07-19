@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run505SeedPlatforms } from './run505PlatformSeeds.js';
 
-export const run504SeedPlatforms: PlatformInput[] = [
+const run504NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "UKF / Pilot Bass Music Demo Inbox",
     "websiteUrl": "https://ukf.com/",
@@ -84,4 +85,9 @@ export const run504SeedPlatforms: PlatformInput[] = [
     "manualReviewRequired": true,
     "manualReviewReason": "House subgenre and catalogue fit, up-to-five-track selection, MP3/WAV files, Trackstack or Discord account/session, current inbox availability, external-platform terms, rights and samples, Content ID, AI-origin disclosure, privacy/retention, optional paid features, post-selection contract and the final upload require human review."
   }
+];
+
+export const run504SeedPlatforms: PlatformInput[] = [
+  ...run504NewSeedPlatforms,
+  ...run505SeedPlatforms
 ];
