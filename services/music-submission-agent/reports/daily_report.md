@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 504
+Latest run: Run 505
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1859
+Pipeline estimate: 1862
 
 Items:
 
-- Run 504 added: UKF / Pilot — an official external Jotform for private-SoundCloud label-release or channel-upload consideration, with rights, premiere, press-material and broad-terms review.
-- Run 504 added: V Recordings / Liquid V / Chronic / Philly Blunt — a first-party embedded drum-and-bass demo box with incomplete passive field visibility and a Databeats login/session boundary.
-- Run 504 added: Future House Music — an official Trackstack inbox accepting up to five MP3/WAV tracks plus an official Discord demo-drop community, with account, availability and external-platform boundaries.
+- Run 505 added: SoundChat Radio — a free first-party global Caribbean music form using a track link, clean-radio guidance and mandatory ownership/broadcast permission.
+- Run 505 added: Symmetry Recordings — an authorized drum-and-bass demo mailbox accepting 320kbps MP3/WAV attachments or downloadable cloud links, with an adjacent LabelWorx DemoBox consolidated into the same opportunity.
+- Run 505 added: Frequenza Records — a first-party electronic demo form requiring at least two exclusive private-link tracks and explicitly rejecting AI-generated music.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: UKF requires a private SoundCloud link and selection between an authorized channel upload and an unsigned UKF/Pilot release; the Jotform contains a honeypot and may invoke broad site terms. V Recordings accepts demos across four DnB imprints, but the embedded box is not passively inspectable and a Databeats account interface is present. Future House Music accepts up to five MP3/WAV tracks through Trackstack and also directs artists to recurring Discord demo drops.
+Latest route note: SoundChat's standard route is free and requests a SoundCloud, Spotify, YouTube or direct-download link, complete metadata, a short bio and clean radio edits where applicable. Symmetry authorizes `demos@symmetryrecordings.co.uk`, permits email attachments or storage links and requires download-enabled SoundCloud links. Frequenza requires a minimum two-track exclusive set via private SoundCloud or dedicated demo links, rejects Drive/Dropbox delivery and excludes AI-generated music.
 
-Contact-verification note: no mailbox was treated as a demo route. `orders@ukf.com` is store support, `dpo@aei.co.uk` is UKF privacy contact, `support@databeats.com` is V Recordings' platform/privacy support and `info@futurehousemusic.net` is Future House Music's published general/privacy contact. All are first-party published for their stated non-demo purposes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `demos@symmetryrecordings.co.uk` is first-party published, syntactically valid, domain-aligned and explicitly authorized for demos. `info@soundchatradio.com` is published as support for SoundChat's official app but is not a submission mailbox. Frequenza exposed no public mailbox on the inspected route, so no address was guessed. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: UKF released T & Sugah — The Rush on 15 July 2026 and Pilot released YAANO — 4NOW4EVER on 9 July 2026. Planet V published V Podcast 178 on 8 May 2026 and current V Recordings tracks on 14 April 2026. Future House Music's Cobra by 22Bullets and Bruno Martini was released on 10 July 2026. UKF is the strongest fit for MarcsMusic' bass, DnB and dubstep material; Future House Music is relevant for house-oriented tracks; V Recordings requires a strong DnB/jungle fit.
+Activity and fit note: SoundChat has active current live and schedule pages plus an official story dated 16 March 2026. Symmetry's official catalogue lists releases in January, March, May and June 2026. Frequenza's official site and Beatport catalogue show active releases and pre-orders in July 2026. SoundChat is the strongest fit for MarcsMusic' reggae, dancehall, soca and Caribbean crossover material; Symmetry requires a strong drum-and-bass fit; Frequenza is relevant only for eligible techno/house material with no prohibited AI generation.
 
-Manual-review note: all three require exact fit, rights, samples, Content ID, AI-origin disclosure, privacy/retention, external terms and final-action review. UKF additionally requires permission/exclusivity and legal review of broad user-content terms. V Recordings additionally has unresolved form-field and login/session requirements. Future House Music additionally has Trackstack/Discord account, availability and possible optional-feature boundaries.
+Manual-review note: all three require fit, links/files, rights, samples, Content ID, AI provenance, privacy/retention and final-action review. SoundChat additionally requires clean-version control and broadcast authorization. Symmetry additionally requires attachment/link security and review of an adjacent LabelWorx route. Frequenza additionally requires exclusivity, at least two tracks, exact private-link delivery and hard AI-eligibility review.
 
-Deduplication note: the complete open PR patch contained no prior UKF/Pilot Jotform, V Recordings multi-imprint demo-box or Future House Music Trackstack/Discord record by official name, domain or form identifier. Canonical SQLite domain, normalized URL, form identifier and contact deduplication remains required before external use.
+Deduplication note: exact-name and canonical-domain searches across the accessible repository index and recent seed chain found no prior SoundChat Radio, Symmetry Recordings or Frequenza Records canonical route. The SoundChat support mailbox, Symmetry LabelWorx representation and Frequenza adjacent service selectors were consolidated or excluded. Canonical SQLite domain, normalized URL, form identifier and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON, CSV and Markdown structures were checked for structural consistency before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no account or Discord invite was used, no private music link was shared, no audio or press file was uploaded, no consent or terms were accepted, no CAPTCHA, honeypot or hidden anti-spam control was tested, and no payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no track link was shared, no MP3 or WAV was attached or uploaded, no broadcast permission, exclusivity, rights statement or terms were accepted, no CAPTCHA, hidden anti-spam or JavaScript submit-time control was tested, and no donation, payment or submission action was performed.
 
 ## Recent run history
-
-### Run 495
-
-Added Rhythm House's uplifting DnB private-link form, Beat Intelligence Network's bass-music URL form and Us & Machines' worldwide house/EDM upload-or-private-link form with explicit Suno/AI disclosure. Genre fit, links/uploads, rights, Content ID, AI provenance, privacy/retention, hidden controls, contract terms and final actions require manual review. Pipeline estimate: 1,832.
 
 ### Run 496
 
@@ -75,5 +71,9 @@ Added GoodBrother's finished-unreleased electronic private-link form/demo mailbo
 ### Run 504
 
 Added UKF/Pilot's private-SoundCloud Jotform, V Recordings' multi-imprint embedded DnB demo box and Future House Music's Trackstack/Discord route. Fit, links/uploads, rights, Content ID, AI provenance, honeypot/account/session controls, broad terms, privacy/retention, optional platform features and final actions require manual review. Pipeline estimate: 1,859.
+
+### Run 505
+
+Added SoundChat Radio's global Caribbean track-link form, Symmetry Recordings' authorized DnB email/adjacent DemoBox route and Frequenza Records' exclusive minimum-two-track electronic form with a hard no-AI rule. Genre/programme fit, clean versions, links/attachments, broadcast permission, exclusivity, rights, Content ID, AI eligibility, privacy/retention, hidden form controls, contracts and final actions require manual review. Pipeline estimate: 1,862.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
