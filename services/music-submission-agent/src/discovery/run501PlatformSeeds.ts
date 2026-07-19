@@ -1,0 +1,93 @@
+import type { PlatformInput } from '../models/types.js';
+
+export const run501SeedPlatforms: PlatformInput[] = [
+  {
+    "name": "Stonx Music Global Neurofunk Drum & Bass Demo Email",
+    "websiteUrl": "https://stonxmusic.co.uk/",
+    "submissionUrl": "https://stonxmusic.co.uk/about/",
+    "sourceUrl": "https://stonxmusic.co.uk/about/",
+    "sourceType": "automation_run_501_public_research",
+    "country": "United Kingdom / global neurofunk and heavy drum-and-bass label and community with an international roster.",
+    "language": "en",
+    "genres": [
+      "drum and bass",
+      "neurofunk",
+      "dark drum and bass",
+      "heavy drum and bass",
+      "bass music",
+      "private SoundCloud link",
+      "public demo email"
+    ],
+    "submissionMethod": "Official first-party demo mailbox Demo@StonxMusic.co.uk. Send a private SoundCloud link with downloads enabled, MP3 320 kbps preferred, plus artist, achievement, track, style and label-fit context.",
+    "feeRequired": false,
+    "feeAmount": "No mandatory demo-review, submission or release fee is published on the official demo-process page.",
+    "loginRequired": false,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "Neurofunk/heavy-DnB fit, private-link access and download settings, MP3 quality, artist and track context, master/composition/sample/contributor rights, Content ID, AI-origin disclosure, unpublished privacy/retention and contract terms, and the final email require human review."
+  },
+  {
+    "name": "Red Devil Radio Independent Artist Account Submission",
+    "websiteUrl": "https://reddevilradio.com/",
+    "submissionUrl": "https://reddevilradio.com/submit-music.html",
+    "sourceUrl": "https://reddevilradio.com/submit-music.html",
+    "sourceType": "automation_run_501_public_research",
+    "country": "United States / 24/7 independent underground internet-radio and artist-discovery platform.",
+    "language": "en",
+    "genres": [
+      "hip-hop",
+      "alternative",
+      "indie rock",
+      "rock",
+      "country",
+      "folk",
+      "experimental",
+      "artist radio",
+      "listener voting",
+      "Hot 50"
+    ],
+    "submissionMethod": "Official artist-account workflow: create a free account, verify email, use one submission credit and upload one original rights-cleared MP3 with cover art, metadata and track context for human review.",
+    "feeRequired": false,
+    "feeAmount": "Each submission uses one credit. New artist accounts receive free starter credits; additional credit packs and monthly/yearly Unlimited plans are optional paid products.",
+    "loginRequired": true,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "Current genre fit, age and authority, account creation, email verification, credit balance, MP3 and cover-art upload, metadata and artist context, agreement acceptance, non-exclusive worldwide royalty-free broadcast/promotion licence, rights and samples, Content ID, AI-origin disclosure, privacy/retention, optional payment and the final submission require human review."
+  },
+  {
+    "name": "WCOM 103.5 FM Host-Specific Independent Music Submission",
+    "websiteUrl": "https://wcomfm.org/",
+    "submissionUrl": "https://wcomfm.org/submit-music/",
+    "sourceUrl": "https://wcomfm.org/submit-music/",
+    "sourceType": "automation_run_501_public_research",
+    "country": "United States / Carrboro and Chapel Hill community FM station streaming worldwide.",
+    "language": "en",
+    "genres": [
+      "electronic",
+      "folk",
+      "world",
+      "country",
+      "funk",
+      "soul",
+      "hip-hop",
+      "indie",
+      "jazz",
+      "Latin",
+      "pop",
+      "R&B",
+      "reggae",
+      "rock",
+      "community radio"
+    ],
+    "submissionMethod": "Official first-party music-submission page with an electronic form that requires the artist to select a specific host or show. A physical-mail alternative is available only when addressed to a named DJ.",
+    "feeRequired": false,
+    "feeAmount": "No mandatory music-submission or airplay-review fee is published. Donations and underwriting are separate from editorial music consideration.",
+    "loginRequired": false,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "Local/community and programme fit, selection of a specific host, electronic-form availability, the page's current one-submission/session gate, delivery format, clean/broadcast suitability, metadata and context, master/composition/sample/contributor rights, Content ID, AI-origin disclosure, physical-mail costs if used and the final form or package require human review."
+  }
+];
