@@ -1,0 +1,178 @@
+{
+  "run": 505,
+  "date": "2026-07-19",
+  "pipelineEstimateBefore": 1859,
+  "pipelineEstimate": 1862,
+  "newPlatforms": [
+    {
+      "name": "SoundChat Radio Global Caribbean Music Submission Form",
+      "websiteUrl": "https://soundchatradio.com/",
+      "submissionUrl": "https://soundchatradio.com/submit-music",
+      "sourceUrl": "https://soundchatradio.com/submit-music",
+      "sourceType": "automation_run_505_public_research",
+      "country": "United States / New York-based Caribbean radio and media platform explicitly promoting global reach to more than 100 countries.",
+      "language": "en",
+      "genres": [
+        "reggae",
+        "dancehall",
+        "soca",
+        "Caribbean music",
+        "clean radio edit",
+        "MP3 320kbps",
+        "WAV",
+        "stream or download link"
+      ],
+      "submissionMethod": "Official first-party music-submission form. Provide artist name, email, track title, genre, a SoundCloud/Spotify/YouTube/direct-download link and artist or track context. High-quality MP3 320kbps or WAV is preferred, clean radio edits should accompany explicit versions, metadata should be complete, and a short bio plus social links are requested.",
+      "feeRequired": false,
+      "feeAmount": "The official submission page states that standard music submission is completely free. A separate Stripe donation page is optional and is not part of the submission route.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Caribbean-programme and clean-radio fit, track-link accessibility, metadata, biography and social links, master/composition/sample/contributor rights, explicit-to-clean version handling, the mandatory ownership confirmation and broadcast permission, Content ID, AI-origin disclosure, privacy/retention, hidden anti-spam or submit-time controls and the final form require human review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [
+          "info@soundchatradio.com"
+        ],
+        "verification": "The official SoundChat app listing publishes info@soundchatradio.com as its support address and links the soundchatradio.com website. The address is syntactically valid and domain-aligned, but it is not published as a music-submission mailbox; the first-party web form remains canonical. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The first-party live and schedule pages show active 24/7 programming, including current on-air and upcoming shows, and the official homepage carries a dated SoundChat discussion published on 16 March 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "First-party SoundChat Radio web form",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed. Hidden anti-spam and submit-time verification were not exercised.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": true,
+        "mandatoryBroadcastPermissionObserved": true,
+        "optionalDonationBoundaryObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 99,
+      "pricingModel": "free-first/global-Caribbean-radio/first-party-form/link/clean-edit/broadcast-permission/manual-review"
+    },
+    {
+      "name": "Symmetry Recordings Drum & Bass Demo Email / DemoBox",
+      "websiteUrl": "https://www.symmetryrecordings.co.uk/",
+      "submissionUrl": "https://www.symmetryrecordings.co.uk/demos",
+      "sourceUrl": "https://www.symmetryrecordings.co.uk/demos",
+      "sourceType": "automation_run_505_public_research",
+      "country": "United Kingdom / Bristol drum-and-bass label; the public route does not publish a geographic exclusion.",
+      "language": "en",
+      "genres": [
+        "drum and bass",
+        "jungle",
+        "bass music",
+        "320kbps MP3",
+        "WAV",
+        "download-enabled SoundCloud",
+        "cloud storage link"
+      ],
+      "submissionMethod": "Official first-party demo page authorizes demos@symmetryrecordings.co.uk. Send producer and track names with 320kbps MP3 or WAV files attached to an email or linked from cloud storage. SoundCloud is accepted only when downloading is enabled. The official Bandcamp catalogue also links to a LabelWorx DemoBox, retained as an adjacent representation of the same opportunity rather than a separate queue item.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review, submission or release fee is published on the official first-party demo page.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Drum-and-bass catalogue fit, producer and track naming, choosing email attachment versus downloadable cloud/SoundCloud delivery, attachment security and size, master/composition/sample/contributor rights, unreleased or exclusivity status, Content ID, AI-origin disclosure, email privacy/retention, the adjacent LabelWorx form and its consent controls, post-selection contract and the final email or form require human review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [
+          "demos@symmetryrecordings.co.uk"
+        ],
+        "generalEmails": [],
+        "verification": "demos@symmetryrecordings.co.uk is first-party published on the official Symmetry Recordings demo page, syntactically valid, domain-aligned and explicitly authorized for demos. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official Symmetry Bandcamp catalogue lists SYMM074 — So Right in June 2026, SYMM073 — The Set EP on 1 May 2026, SYMM072 in March 2026 and SYMM071 in January 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "Authorized email plus adjacent LabelWorx DemoBox",
+        "directUploadObserved": true,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No CAPTCHA applies to the authorized email route. The adjacent LabelWorx DemoBox and any submit-time controls were not exercised.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "emailAttachmentObserved": true,
+        "adjacentExternalDemoBoxObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 98,
+      "pricingModel": "free-first/drum-and-bass/authorized-email/MP3-WAV/cloud-link/adjacent-LabelWorx/manual-review"
+    },
+    {
+      "name": "Frequenza Records Exclusive Electronic Demo Contact Form",
+      "websiteUrl": "https://www.frequenzarec.com/",
+      "submissionUrl": "https://www.frequenzarec.com/contact/",
+      "sourceUrl": "https://www.frequenzarec.com/contact/",
+      "sourceType": "automation_run_505_public_research",
+      "country": "Italy / internationally distributed electronic label; the public route does not publish a geographic exclusion.",
+      "language": "en",
+      "genres": [
+        "techno",
+        "melodic house and techno",
+        "tech house",
+        "electronic music",
+        "exclusive demos",
+        "private SoundCloud link",
+        "minimum two tracks",
+        "no AI-generated music"
+      ],
+      "submissionMethod": "Official first-party contact form with a DEMO selector. Submit an exclusive set of at least two fitting tracks using private SoundCloud or dedicated demo links. Dropbox, Google Drive and similar links are rejected, and the label explicitly rejects AI-generated music.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review, submission or release fee is published on the official contact and demo page. Adjacent mixing, mastering, distribution and publishing services are separate enquiries and not submission requirements.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Techno/house catalogue fit, minimum-two-track exclusivity, private SoundCloud or demo-link format, rejection of Drive/Dropbox routes, hard AI-generated-music exclusion and provenance evidence, master/composition/sample/contributor rights, Content ID, privacy/retention, JavaScript and hidden anti-spam or submit-time verification, adjacent commercial-service selectors, post-selection contract and the final form require human review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [],
+        "verification": "No public first-party demo or general mailbox was exposed on the inspected contact route, so no address was guessed or inferred. The official contact form with the DEMO selector remains canonical. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official Frequenza website displays current latest releases, and Beatport's Frequenza label catalogue shows active releases and pre-orders in July 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "First-party JavaScript contact form",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed. JavaScript, hidden anti-spam fields and submit-time verification were not exercised.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "hardAiProhibitionObserved": true,
+        "minimumTrackCountObserved": 2,
+        "exclusiveSubmissionObserved": true,
+        "adjacentCommercialServicesObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 96,
+      "pricingModel": "free-first/techno-house/first-party-form/minimum-two/exclusive/private-link/no-AI/manual-review"
+    }
+  ]
+}
