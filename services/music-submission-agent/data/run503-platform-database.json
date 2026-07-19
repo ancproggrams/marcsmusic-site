@@ -1,0 +1,186 @@
+{
+  "run": 503,
+  "date": "2026-07-19",
+  "pipelineEstimateBefore": 1853,
+  "pipelineEstimate": 1856,
+  "newPlatforms": [
+    {
+      "name": "GoodBrother Electronic Label Demo Form",
+      "websiteUrl": "https://www.goodbrother.io/",
+      "submissionUrl": "https://www.goodbrother.io/demos",
+      "sourceUrl": "https://www.goodbrother.io/demos",
+      "sourceType": "automation_run_503_public_research",
+      "country": "United Arab Emirates / Dubai-based independent electronic label; international eligibility is not explicitly guaranteed.",
+      "language": "en",
+      "genres": ["techno", "house", "garage", "drum and bass", "dubstep", "electronic music", "private SoundCloud link"],
+      "submissionMethod": "Official first-party demo form for a finished, unreleased Techno, House, Garage, Drum & Bass or Dubstep track using a private SoundCloud link with downloads enabled. The official site also publishes demo@goodbrother.io for demos.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review, submission or release fee is published on the official demo route.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Electronic-genre and catalogue fit, finished and unreleased status, private SoundCloud access and downloads, track metadata and notes, label-signing acknowledgement, master/composition/sample/contributor rights, Content ID, AI-origin disclosure, privacy/retention, hidden form controls, post-selection terms and the final form or email require human review.",
+      "notes": "Passively verified on 2026-07-19 from GoodBrother's official demo and home pages. The Dubai-based label accepts Techno, House, Garage, Drum & Bass and Dubstep, requests a finished unreleased track and a private SoundCloud link with downloads enabled, and states that the form is for potential label signing rather than playlist placement. The rendered home page showed artist name, email, track title, genre, private link, notes/socials and a required acknowledgement. The official site publishes demo@goodbrother.io for demos and info@goodbrother.io for other inquiries. No mandatory fee, login or visible CAPTCHA was observed; hidden anti-spam, privacy, retention and submit-time controls were not exercised. Current activity is confirmed by multiple official catalogue entries dated 3 July 2026 across DnB, Dubstep, Techno, House and Garage. No form field, private link, email, consent, payment or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official first-party public demo form with authorized demo mailbox",
+        "formLocation": "https://www.goodbrother.io/demos",
+        "explicitPurpose": "Submit a finished unreleased electronic track for possible GoodBrother label signing, not playlist placement.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only; every private-link, acknowledgement, email and submission action remains manual",
+        "internationalArtistsExplicitlyAccepted": false,
+        "eligibilityNote": "The label is based in Dubai and publishes no geographic restriction, but the official demo page does not explicitly guarantee worldwide eligibility."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": ["Techno, House, Garage, Drum & Bass or Dubstep", "finished unreleased track only", "no works in progress", "private SoundCloud link", "downloads enabled", "potential label-release signing rather than playlist placement"],
+        "observedFields": ["artist name", "email", "track title", "genre", "private link", "additional notes or social links", "label-signing acknowledgement", "send button"],
+        "rightsAndTerms": ["master, composition, sample and contributor authority require review", "Content ID and distributor conflicts require review", "AI-origin policy is not published", "privacy, retention and post-selection contract terms are not published on the demo page"],
+        "manualChecks": ["genre and catalogue fit", "finished and unreleased status", "private-link access", "downloads enabled", "metadata and artist context", "label-signing acknowledgement", "rights and samples", "Content ID", "AI disclosure", "privacy and retention", "post-selection contract", "final form or email"]
+      },
+      "businessContact": {
+        "submissionEmails": ["demo@goodbrother.io"],
+        "generalEmails": ["info@goodbrother.io"],
+        "verification": "Both addresses are first-party published, syntactically valid and exactly aligned to goodbrother.io. demo@goodbrother.io is explicitly presented for demos; info@goodbrother.io is for other inquiries and is not a replacement for the canonical form. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official GoodBrother home catalogue listed numerous releases dated 3 July 2026, including current Drum & Bass and Dubstep entries, and promoted active 2026 genre playlists."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "first-party embedded form",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed. Hidden anti-spam or submit-time verification remains unknown and was not tested.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 94,
+      "pricingModel": "free/electronic-label/private-SoundCloud/finished-unreleased/demo-form-or-email/manual-review"
+    },
+    {
+      "name": "SubCulture Recordings Global Bass Music Demo Form / Email",
+      "websiteUrl": "https://www.subculture050.com/",
+      "submissionUrl": "https://www.subculture050.com/demos",
+      "sourceUrl": "https://www.subculture050.com/demos",
+      "sourceType": "automation_run_503_public_research",
+      "country": "Netherlands / Groningen bass-music label explicitly accepting music from anywhere.",
+      "language": "en",
+      "genres": ["drum and bass", "dubstep", "140", "halftime", "jungle", "leftfield bass", "experimental bass music", "private SoundCloud playlist"],
+      "submissionMethod": "Official first-party demo page offering an embedded form or demos@subculture050.com. Send a downloadable private SoundCloud playlist with downloads enabled; 6 to 10 tracks are preferred, finished tracks and works in progress are accepted, and WAV is preferred.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review, submission or release fee is published on the official demo page.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Deep/minimal/experimental bass fit, 6-to-10-track playlist preference, private SoundCloud access and downloads, Demo/WIP naming, audio format, artist introduction, master/composition/sample/contributor rights, Content ID, AI-origin disclosure, incomplete privacy-retention documentation, hidden embedded-form controls, post-selection terms and the final form or email require human review.",
+      "notes": "Passively verified on 2026-07-19 from SubCulture Recordings' official demo, privacy, home and event pages. The Groningen label is accepting demos for 2027 from artists anywhere, with a preference for deeper, darker and minimal Drum & Bass, Dubstep/140, Halftime, Jungle, Leftfield and experimental bass. It requests a downloadable private SoundCloud playlist, prefers 6 to 10 tracks, accepts finished tracks and works in progress and prefers WAV. The official page authorizes both an embedded form and demos@subculture050.com. info@subculture050.com is published for privacy/general contact. The privacy policy contains uncompleted placeholders for automated systems and exact retention periods, so data-handling review is required. Current activity is confirmed by Physis: Deuterion Stasimon, released 26 June 2026, and its official release event. No form field, private playlist, email, cookie choice, consent, payment or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official first-party public demo form or authorized demo mailbox",
+        "formLocation": "https://www.subculture050.com/demos",
+        "explicitPurpose": "Submit bass-music demos for SubCulture Recordings' 2027 release planning.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only; every playlist, form, email and submission action remains manual",
+        "internationalArtistsExplicitlyAccepted": true,
+        "eligibilityNote": "The official page explicitly says artists can send music from anywhere, while noting a soft spot for Groningen and northern Netherlands artists."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": ["deeper, darker, minimal or experimental bass-music fit", "downloadable private SoundCloud playlist", "downloads enabled", "Artist – Track Title (Demo/WIP) naming", "6 to 10 tracks preferred", "finished tracks and works in progress accepted", "WAV preferred; high-quality MP3 accepted", "artist introduction encouraged"],
+        "observedFields": ["embedded form referenced but fields not exposed in passive text", "authorized demo email"],
+        "rightsAndTerms": ["master, composition, sample and contributor authority require review", "Content ID and distributor conflicts require review", "AI-origin policy is not published", "privacy policy omits exact retention periods and contains placeholder text for automated systems", "post-selection contract terms are not published"],
+        "manualChecks": ["bass-music and label fit", "playlist length", "private-playlist access", "downloads enabled", "track naming", "WIP or finished status", "audio format", "artist introduction", "rights and samples", "Content ID", "AI disclosure", "privacy and retention", "post-selection contract", "final form or email"]
+      },
+      "businessContact": {
+        "submissionEmails": ["demos@subculture050.com"],
+        "generalEmails": ["info@subculture050.com"],
+        "verification": "Both addresses are first-party published, syntactically valid and exactly aligned to subculture050.com. demos@subculture050.com is explicitly authorized for demos; info@subculture050.com is the privacy/general contact and is not needed for submission. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official site promotes Physis: Deuterion Stasimon, released 26 June 2026, and documented a release party on that date; current storefront listings identify SubCulture Recordings as the label."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "first-party embedded form plus first-party email alternative",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed because the embedded form fields were not exposed. Hidden anti-spam or submit-time verification remains unknown and was not tested.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "privacyPolicyDefectObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 97,
+      "pricingModel": "free/global-bass/private-playlist/6-to-10-preferred/form-or-email/privacy-review/manual-review"
+    },
+    {
+      "name": "NexGen Music Group Demo Upload / Email",
+      "websiteUrl": "https://nexgen.music/",
+      "submissionUrl": "https://nexgen.music/demos/submission",
+      "sourceUrl": "https://nexgen.music/demos",
+      "sourceType": "automation_run_503_public_research",
+      "country": "United States / United Kingdom / European Union music group; international artist eligibility is not explicitly guaranteed.",
+      "language": "en",
+      "genres": ["drum and bass", "dubstep", "EDM", "house", "UK garage", "downtempo", "future jazz", "chill-out", "leftfield", "trip-hop", "pop", "R&B", "indie", "rock", "music licensing"],
+      "submissionMethod": "Official first-party upload form capped at 300MB or authorized demos@nexgenmusicgroup.com email route. Submit at least four unreleased high-quality tracks, minimum 320 kbps with 16/24-bit WAV or AIFF preferred, plus real name, artist name, links and background. Streaming-only links are rejected.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review, upload or submission fee is published on the official demo workflow.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Broad label/imprint and licensing fit, unreleased status, at-least-four-track requirement, 300MB upload or file-transfer delivery, audio quality, no-streaming-link rule, artist identity and history, age-18 requirement, broad non-exclusive worldwide royalty-free sublicensable licence, warranties and indemnity, rights and samples, Content ID, AI-origin disclosure, privacy/retention, hidden upload controls and the final form or email require human and legal review.",
+      "notes": "Passively verified on 2026-07-19 from NexGen Music's official demo guidelines, upload form, submission terms, contact and release pages. The group accepts unreleased work across Bass Music, House/UK Garage, Downtempo, Future Jazz, Chill-out, Leftfield, Trip-Hop, Pop, R&B, Indie, Rock and other genres, and also considers music-library material. The first-party form requests name, email, info and a file upload up to 300MB. The email route requests the subject 'Demo Submission: (artist name)', real and artist names, links, background and at least four high-quality files or FTP-style download links; streaming-only SoundCloud profiles are rejected. By submitting, the artist must be at least 18 and agrees to broad non-exclusive worldwide royalty-free sublicensable use rights through the website, warranties and indemnity terms. No mandatory fee, login or visible CAPTCHA was observed; hidden upload and submit-time controls were not exercised. Current activity is confirmed by Rob Sparx & Afua's Immunity EP dated 3 July 2026 and Kachina's Zurcon's Prayer EP dated 19 June 2026. No form field, file, link, email, terms acceptance, payment or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official first-party direct-upload form with authorized demo-email alternative",
+        "formLocation": "https://nexgen.music/demos/submission",
+        "explicitPurpose": "Submit unreleased music for NexGen Music label, publishing or music-library consideration.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only; every upload, file-transfer, terms and email action remains manual",
+        "internationalArtistsExplicitlyAccepted": false,
+        "eligibilityNote": "The site identifies US, UK and EU operations and publishes no visible geographic exclusion, but it does not explicitly guarantee acceptance from every country."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": ["unreleased original music", "no remixes or mashups of commercial artists", "at least four best tracks", "minimum 320 kbps", "16/24-bit or higher WAV/AIFF preferred", "300MB form upload limit", "real name", "artist name", "website or profile links", "artist background and prior affiliations", "email subject Demo Submission: (artist name)", "file attachments or FTP-style download links accepted", "streaming-only links rejected", "submitter must be at least 18"],
+        "observedFields": ["full name", "email", "info", "required file upload with 300MB limit", "submit button"],
+        "rightsAndTerms": ["submitter owns or licenses all rights", "non-exclusive fully paid and royalty-free sublicensable worldwide licence to use, modify, display, perform, reproduce, communicate and distribute the file on or through the website", "third-party samples require express permission", "warranties and indemnity apply", "Content ID and distributor conflicts require review", "AI-origin policy is not published", "privacy, retention and post-selection deal terms require review"],
+        "manualChecks": ["label or licensing fit", "unreleased status", "four-track minimum", "upload or file-transfer method", "audio quality and format", "no-streaming-link rule", "identity and artist history", "age", "rights and samples", "broad licence", "warranties and indemnity", "Content ID", "AI disclosure", "privacy and retention", "post-selection terms", "final form or email"]
+      },
+      "businessContact": {
+        "submissionEmails": ["demos@nexgenmusicgroup.com"],
+        "generalEmails": ["info@nexgen.music", "info@nexgenmusicgroup.com"],
+        "verification": "demos@nexgenmusicgroup.com is first-party published and explicitly authorized for demos. info@nexgen.music is the current first-party general/licensing address, while info@nexgenmusicgroup.com appears in the official submission terms. The legacy demo domain differs from the current nexgen.music website but is directly published by the official site. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official NexGen release feed lists Rob Sparx & Afua — Immunity EP dated 3 July 2026 and Kachina — Zurcon's Prayer EP dated 19 June 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "first-party direct-upload form",
+        "directUploadObserved": true,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed. Hidden upload validation, anti-spam or submit-time verification remains unknown and was not tested.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 92,
+      "pricingModel": "free/broad-genre/direct-upload-or-email/at-least-four-tracks/broad-licence/manual-legal-review"
+    }
+  ]
+}
