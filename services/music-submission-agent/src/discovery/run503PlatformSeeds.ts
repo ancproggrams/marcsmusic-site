@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run504SeedPlatforms } from './run504PlatformSeeds.js';
 
-export const run503SeedPlatforms: PlatformInput[] = [
+const run503NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "GoodBrother Electronic Label Demo Form",
     "websiteUrl": "https://www.goodbrother.io/",
@@ -88,4 +89,9 @@ export const run503SeedPlatforms: PlatformInput[] = [
     "manualReviewRequired": true,
     "manualReviewReason": "Broad label/imprint and licensing fit, unreleased status, at-least-four-track requirement, 300MB upload or file-transfer delivery, audio quality, no-streaming-link rule, artist identity and history, age-18 requirement, broad non-exclusive worldwide royalty-free sublicensable licence, warranties and indemnity, rights and samples, Content ID, AI-origin disclosure, privacy/retention, hidden upload controls and the final form or email require human and legal review."
   }
+];
+
+export const run503SeedPlatforms: PlatformInput[] = [
+  ...run503NewSeedPlatforms,
+  ...run504SeedPlatforms
 ];
