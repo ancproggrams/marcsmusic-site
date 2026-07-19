@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run501SeedPlatforms } from './run501PlatformSeeds.js';
 
-export const run500SeedPlatforms: PlatformInput[] = [
+const run500NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "Reggae Vibe Media Global Reggae / Dancehall / Soca / Afrobeat Upload Form",
     "websiteUrl": "https://reggaevibe.org/",
@@ -90,4 +91,9 @@ export const run500SeedPlatforms: PlatformInput[] = [
     "manualReviewRequired": true,
     "manualReviewReason": "Electronic/synth catalogue fit, downloadable link access, supporting artist and social information, master/composition/sample/contributor and broadcast rights, optional YouTube video permission, mandatory form terms, Content ID, AI-origin disclosure, Jotform privacy/retention and hidden verification, plus the final submission require human review."
   }
+];
+
+export const run500SeedPlatforms: PlatformInput[] = [
+  ...run500NewSeedPlatforms,
+  ...run501SeedPlatforms
 ];
