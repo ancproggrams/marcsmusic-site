@@ -1,0 +1,179 @@
+{
+  "run": 506,
+  "date": "2026-07-19",
+  "pipelineEstimateBefore": 1862,
+  "pipelineEstimate": 1865,
+  "newPlatforms": [
+    {
+      "name": "Bass Darkness Phonk & Heavy Bass Demo Form",
+      "websiteUrl": "https://www.bassdarkness.com/",
+      "submissionUrl": "https://www.bassdarkness.com/submissions",
+      "sourceUrl": "https://www.bassdarkness.com/submissions",
+      "sourceType": "automation_run_506_public_research",
+      "country": "Germany / independent label with internationally distributed Phonk, Bass and dark electronic releases; the public route does not publish a geographic exclusion.",
+      "language": "en",
+      "genres": [
+        "phonk",
+        "bass music",
+        "dark electronic",
+        "heavy bass",
+        "finished tracks",
+        "private SoundCloud",
+        "Dropbox"
+      ],
+      "submissionMethod": "Official first-party demo form. Submit artist name(s), email, track title, a private SoundCloud or Dropbox link, optional notes and Discord/Instagram contact details. Finished tracks are required. If the form confirmation does not arrive, the official page authorizes demo@bassdarkness.com as a fallback.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review, submission or release fee is published on the official submission page. The label advertises distribution and marketing services, but those are not presented as conditions of demo review.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Phonk/heavy-bass catalogue fit, finished-track status, private-link access and downloads, Discord/Instagram contact fields, form-confirmation versus authorized fallback email, master/composition/sample/contributor rights, Content ID, AI-origin disclosure, privacy/retention, hidden anti-spam or submit-time controls, post-selection contract and the final form or email require human review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [
+          "demo@bassdarkness.com"
+        ],
+        "generalEmails": [],
+        "verification": "demo@bassdarkness.com is first-party published on the official Bass Darkness submission page, syntactically valid, domain-aligned and explicitly authorized as a fallback when form confirmation is not received. The form remains the preferred canonical route. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official homepage lists SPARK dated 3 July 2026 and the forthcoming Fade Away dated 24 July 2026, alongside additional releases dated April, May and June 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "First-party Bass Darkness web form",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed. Hidden anti-spam and submit-time verification were not exercised.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "authorizedFallbackEmailObserved": true,
+        "socialContactFieldsObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 99,
+      "pricingModel": "free-first/phonk-heavy-bass/first-party-form/private-link/authorized-email-fallback/manual-review"
+    },
+    {
+      "name": "Boomslang Recordings Neurofunk Demo Google Form",
+      "websiteUrl": "https://boomslangrecordings.com/",
+      "submissionUrl": "https://forms.gle/cCHYTFYf6WTakspM7",
+      "sourceUrl": "https://boomslangrecordings.com/submit-a-demo/",
+      "sourceType": "automation_run_506_public_research",
+      "country": "United States / Dallas-based drum-and-bass and neurofunk label with artists and listeners worldwide; the public route does not publish a geographic exclusion.",
+      "language": "en",
+      "genres": [
+        "drum and bass",
+        "neurofunk",
+        "dark drum and bass",
+        "technical bass music",
+        "private SoundCloud",
+        "streaming download link"
+      ],
+      "submissionMethod": "Official first-party demo page links to an external Google Form. Provide a streaming link with download access, such as a private SoundCloud link. Do not send attachments or direct download files and do not email demos to other addresses.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review, submission or release fee is published on the official first-party demo page.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Drum-and-bass/neurofunk catalogue fit, streaming-link and download-access requirements, external Google Form fields, session/login and CAPTCHA status, rights and samples, Content ID, AI-origin disclosure, privacy/retention, Google and label terms, hidden anti-spam controls, post-selection contract and the final form require human review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [
+          "info@boomslangrecordings.com"
+        ],
+        "verification": "info@boomslangrecordings.com is first-party published in the official site footer, syntactically valid and domain-aligned, but the demo page explicitly directs submissions to the linked Google Form and says demos sent to other email addresses will be ignored. No submission mailbox was guessed. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official homepage was updated on 10 June 2026, the official SoundCloud published the Mindfield EP material on 6 March 2026, and V: Black Venom Cycle was released by Boomslang Recordings on 13 February 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "Google Forms linked from the official Boomslang Recordings site",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "The Google Form could not be passively fetched through the available public-web cache. Login, CAPTCHA, consent and submit-time controls were not tested.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 98,
+      "pricingModel": "free-first/drum-and-bass-neurofunk/official-Google-Form/private-streaming-download-link/manual-review"
+    },
+    {
+      "name": "Indie Global 365 Caribbean & Positive Music Airplay Upload",
+      "websiteUrl": "https://indieglobal365.com/",
+      "submissionUrl": "https://indieglobal365.com/music-submission/",
+      "sourceUrl": "https://indieglobal365.com/music-submission/",
+      "sourceType": "automation_run_506_public_research",
+      "country": "United States / internet-radio and independent-artist platform presented for global digital listening; no geographic exclusion is published.",
+      "language": "en",
+      "genres": [
+        "reggae",
+        "soca",
+        "Caribbean music",
+        "hip-hop",
+        "R&B",
+        "positive music",
+        "uplifting music",
+        "motivational music",
+        "192kbps MP3",
+        "direct upload"
+      ],
+      "submissionMethod": "Official first-party free airplay form. Submit artist name, email and song title, upload up to two MP3 songs plus one image per song, use artist-and-title file names and accept the linked Terms & Conditions. The page specifies 192kbps MP3 files and a 10MB limit per song, while the upload widget displays a 25MB overall limit.",
+      "feeRequired": false,
+      "feeAmount": "The airplay-submission route is explicitly free. A separate optional artist-membership plan is advertised at a one-time USD 15 fee and is not required for the free submission route.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Caribbean/positive-content and programme fit, conflicting Afro-Pop eligibility text, MP3 bitrate and upload-size limits, image requirements, mandatory Terms acceptance, conflicting current-form versus legacy email/CD instructions, ASCAP/BMI/SoundExchange or direct-rights representations, broadcast/streaming permission, rights and samples, Content ID, AI-origin disclosure, privacy/retention, optional membership, hidden anti-spam controls and the final upload require human and legal review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [
+          "indieglobal365@gmail.com"
+        ],
+        "generalEmails": [],
+        "verification": "indieglobal365@gmail.com is first-party published on an older official Indie Global 365 information page as its music-submission address and is syntactically valid, but it is a free-mail address and conflicts with the current submission page, which says the web form is the only submission route. It is retained as a legacy/adjacent contact and not queued separately. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The first-party site was serving an active current-song/live-radio experience and an open free music-submission form on 19 July 2026; the platform states that it was established in 2024."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "First-party Indie Global 365 upload form",
+        "directUploadObserved": true,
+        "streamOrDownloadLinkObserved": false,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed. Hidden anti-spam and submit-time verification were not exercised.",
+        "paymentObserved": true,
+        "mandatoryTermsAcceptanceObserved": true,
+        "mandatoryBroadcastPermissionObserved": true,
+        "optionalPaidMembershipBoundaryObserved": true,
+        "legacyEmailRouteConflictObserved": true,
+        "termsRouteConflictObserved": true,
+        "directAudioUploadLimitObserved": "Up to two 192kbps MP3 songs, stated 10MB per song; form widget displays 25MB overall, plus one image per song.",
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 97,
+      "pricingModel": "free-first/Caribbean-positive-radio/direct-MP3-image-upload/mandatory-terms/optional-membership/manual-review"
+    }
+  ]
+}
