@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 507
+Latest run: Run 508
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1868
+Pipeline estimate: 1871
 
 Items:
 
-- Run 507 added: OX Recordings — an authorized Drum & Bass/Neurofunk demo mailbox for finished, unpublished tracks delivered as private full-track links without audio attachments.
-- Run 507 added: Sonaxx Records — a first-party Hard Techno/Schranz private-link or direct-MP3 form with never-public/private-sharing requirements and no demo email route.
-- Run 507 added: Get Known Radio — a free global Electronic/Hip-Hop/R&B airplay portal with direct upload, a published email alternative, mandatory rights confirmation and Google reCAPTCHA Enterprise.
+- Run 508 added: Intrigue Music — an authorized Drum & Bass demobox for label demos or DJ sets, with contact details and a tracklist required for DJ mixes.
+- Run 508 added: behind the sun Recordings — a first-party Liquid DnB/Atmospheric Breaks/Breakbeat private-link form for finished original music with mandatory privacy acknowledgement.
+- Run 508 added: Sub Wavelength Recordings — a first-party Liquid/Deep/Dark DnB form requiring artist and full names, email, downloadable music links and artist context.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: OX requires a private full-track streaming link, short introduction and description, and rejects audio attachments. Sonaxx accepts complete MP3 320kbps or WAV tracks through private links or direct MP3 fields, requires that the music was never public and says email/social-media demos are ignored. Get Known Radio accepts one MP3 320kbps or WAV plus a short note and rights confirmation; the official homepage also publishes `contact@getknownradio.com` for direct submissions.
+Latest route note: Intrigue uses `demobox@intrigue.org.uk` and accepts both label demos and DJ sets; DJ mixes need contact information and a tracklist. behind the sun requires the Demo Submission subject, a private SoundCloud or Dropbox link and finished original music, while rejecting WIPs, remixes, bootlegs and mash-ups. Sub Wavelength asks for artist name, full legal name or names, email, downloadable links and artist information.
 
-Contact-verification note: `demos@oxrecordings.com` is first-party published, syntactically valid, domain-aligned and explicitly authorized; `info@oxrecordings.com` is general only. `info@sonaxxrecords.com` is first-party and domain-aligned, but the label requires its form and rejects demo email. `contact@getknownradio.com` is first-party published as a track-submission route; `support@getknownradio.com` is support only. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: Intrigue's official page publishes `demobox AT intrigue.org.uk` and `info AT intrigue.org.uk`; both normalize to syntactically valid, domain-aligned addresses and only the demobox is authorized for music. behind the sun exposes no exact public business email in the accessible first-party pages, so none was guessed. Sub Wavelength first-party publishes `subwavelengthrecordings@gmail.com` as its record-label contact, but not explicitly as the demo route; the form remains canonical. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: OX's official catalogue and demo page were active on 19 July 2026, but exact dates for its top-listed releases were not exposed in the accessible first-party cache, so recency remains a manual recheck. Sonaxx released CENSURE – Cosa Nostra on 10 July 2026. Get Known Radio displayed a current issue dated 18 July 2026, a 24/7 stream and recently submitted tracks. OX is the strongest fit for MarcsMusic' Drum & Bass/Neurofunk material, Sonaxx for harder Techno/Industrial material and Get Known Radio for electronic, club, Hip-Hop and R&B crossover tracks.
+Activity and fit note: Intrigue's official Bandcamp discography listed a July 2026 EP and releases in June and May 2026. behind the sun listed a June 2026 release and two February 2026 releases. Sub Wavelength listed releases in June, May and April 2026. Intrigue and Sub Wavelength are strong fits for MarcsMusic' Drum & Bass material; behind the sun is strongest for liquid, soulful and atmospheric DnB or breakbeat material.
 
-Manual-review note: all three require fit, links/files, rights, samples, Content ID, AI provenance, privacy/retention and final-action review. OX additionally requires unpublished status and an email-only no-attachment workflow. Sonaxx additionally has private/never-public sharing language, upload limits, privacy acknowledgement and hidden form controls. Get Known Radio additionally requires legal review of broadcast permission, a broad non-exclusive worldwide royalty-free licence, indemnity, reCAPTCHA and US data processing.
+Manual-review note: all three require fit, links/audio, rights, samples, Content ID, AI provenance, privacy/retention and final-action review. Intrigue additionally needs label-demo versus DJ-mix selection and a tracklist for mixes. behind the sun requires finished originals and privacy acknowledgement and excludes WIPs/remixes/bootlegs/mash-ups. Sub Wavelength requests legal/full names and has an adjacent paid mastering service that is not a submission prerequisite.
 
-Deduplication note: exact-name, canonical-domain and published-contact searches across the accessible repository index and recent seed chain found no prior OX Recordings, Sonaxx Records or Get Known Radio canonical submission record. General, prohibited and alternative route representations were consolidated into one canonical record per opportunity. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
+Deduplication note: exact-name, canonical-domain and published-contact searches across the accessible repository index, the full open pull-request patch and recent seed chain found no prior Intrigue Music, behind the sun Recordings or Sub Wavelength Recordings canonical submission record. General contacts and adjacent newsletter/mastering surfaces were consolidated or excluded. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON, CSV and Markdown structures were checked for structural consistency before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no account was used, no private music link was shared, no MP3 or WAV was attached or uploaded, no rights, privacy, broadcast or licence statement was accepted, no CAPTCHA, reCAPTCHA, hidden anti-spam or submit-time control was tested, and no payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no private music link was shared, no audio file was attached or uploaded, no privacy statement or agreement was accepted, no CAPTCHA, hidden anti-spam or submit-time control was tested, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 498
-
-Added Monstercat's Uncaged/Instinct/Silk LabelRadar portals, NCS's official LabelRadar demo route and Steyoyoke's exclusive private-playlist form. Genre and imprint fit, accounts/credits, uploads/previews, exclusivity, rights, Content ID, AI eligibility, privacy/retention, form/platform controls, post-selection terms and final actions require manual review. Pipeline estimate: 1,841.
 
 ### Run 499
 
@@ -75,5 +71,9 @@ Added Bass Darkness's Phonk/heavy-bass private-link form and authorized fallback
 ### Run 507
 
 Added OX Recordings' authorized DnB/Neurofunk demo email, Sonaxx Records' private-link/direct-MP3 Hard Techno form and Get Known Radio's global Electronic/Hip-Hop/R&B upload route. Genre/programme fit, unpublished/private status, links/uploads, rights, Content ID, AI provenance, privacy, broadcast permission, licence/indemnity terms, reCAPTCHA and final actions require manual review. Pipeline estimate: 1,868.
+
+### Run 508
+
+Added Intrigue Music's authorized DnB demobox, behind the sun Recordings' finished-original Liquid DnB/Breakbeat private-link form and Sub Wavelength Recordings' Liquid/Deep/Dark DnB downloadable-link form. Genre/catalogue fit, label-demo versus DJ-mix selection, links/audio, rights, Content ID, AI provenance, privacy acknowledgement, legal-name handling, adjacent mastering separation, hidden form controls and final actions require manual review. Pipeline estimate: 1,871.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
