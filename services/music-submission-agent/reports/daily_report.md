@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 494
+Latest run: Run 495
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1829
+Pipeline estimate: 1832
 
 Items:
 
-- Run 494 added: Coldharbour Recordings — a worldwide trance/progressive/techno private-link form with the authorized `promos@coldharbourrecordings.com` alternative and no attachments.
-- Run 494 added: Palmlands Records — a Tech House/Bass House website form with an optional Trackstack-app route and separate optional mixing/mastering services.
-- Run 494 added: Get The Sound Records — an original-music private SoundCloud/Dropbox form with a material non-confidential/no-compensation/waiver legal-terms boundary.
+- Run 495 added: Rhythm House — an uplifting, dancefloor-focused drum-and-bass private SoundCloud/Dropbox form with a four-week response target.
+- Run 495 added: Beat Intelligence Network — a Dubstep FBI bass-label form for one or more song URLs, backed by current July 2026 label activity.
+- Run 495 added: Us & Machines — a worldwide house/EDM direct-upload or private-SoundCloud form with explicit Original/Sample Pack/Suno-AI vocal-source disclosure.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Coldharbour accepts producers worldwide through its first-party form or demo mailbox. Palmlands uses a website form or Trackstack and promises A&R feedback within days. Get The Sound accepts only original rights-owned content through a private streaming link and prohibits duplicate tracks and WeTransfer/download links.
+Latest route note: Rhythm House uses a first-party private-link form. Beat Intelligence Network uses a first-party name/email/URL form and only replies if interested in signing. Us & Machines accepts direct audio or a private SoundCloud link and explicitly asks for vocal provenance, including Suno/AI.
 
-Contact-verification note: Coldharbour's `promos@`, `info@` and `licensing@` mailboxes and Palmlands' `info@` mailbox are first-party published, syntactically valid and domain-aligned. Only `promos@coldharbourrecordings.com` is explicitly authorized for submissions. `contact@getthesound.fr` is first-party published and organizationally aligned through Get The Sound's official terms/privacy pages, but is general/privacy contact on a different first-party domain. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `bookings@krakota.com`, `exec@dubstepfbi.com` and `info@usandmachines.com` are first-party published and syntactically valid. `exec@` and `info@` are domain-aligned; `bookings@` is organizationally linked on a different domain. All three are adjacent business contacts only, not authorized demo substitutes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Coldharbour's official catalogue includes releases dated July 3 and July 10, 2026. Palmlands has July 10, 2026 catalogue activity and 2026 event programming. Get The Sound has an active 2026 catalogue, July 2026 Beatport listings and a June 19, 2026 release.
+Activity and fit note: Rhythm House lists releases dated May 29 and June 26, 2026. Beat Intelligence Network has a July 10, 2026 release and documented 2026 Rampage activity. Us & Machines has releases through July 3, 2026 and a July 17, 2026 compilation.
 
-Manual-review note: all three require exact fit, private links, rights, samples, Content ID, AI policy, privacy/retention and final-action review. Palmlands additionally requires embedded-form or Trackstack inspection and paid-service separation. Get The Sound requires explicit legal approval of the broad site-wide submission terms.
+Manual-review note: all three require exact fit, private-link or upload access, release status, rights, samples and vocals, Content ID, AI policy, privacy/retention, hidden form controls, post-selection terms and final-action review. Us & Machines additionally requires explicit Suno/AI provenance and file-limit checks.
 
-Deduplication note: repository code search contained no existing canonical Coldharbour Recordings, Palmlands Records or Get The Sound Records match by official name, domain, route or published business email before creation. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical Rhythm House, Beat Intelligence Network or Us & Machines match by official name, domain, route or published business email before creation. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were validated before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no account or app was used, no CAPTCHA or human verification was attempted, no private link or asset was shared, no terms were accepted, and no payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no account was used, no CAPTCHA or human verification was attempted, no audio or private link was shared, no terms were accepted, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 485
-
-Added NOS Recordings' House-only maximum-three-track private-link form with optional livestream feedback, Diepgraven Records' rights-confirming Chill/Tropical/Deep House form and COOL Recordings' finished House/Tech House/Afro House private-link form. Genre fit, link access, rights, Content ID, AI policy, privacy/retention, hidden controls, optional public-feedback consent and possible contract terms require manual review. Pipeline estimate: 1,802.
 
 ### Run 486
 
@@ -75,5 +71,9 @@ Added OVERCLOCKIN Records' first-party bass-music private-link form, Magnetic Ma
 ### Run 494
 
 Added Coldharbour Recordings' explicit worldwide trance/progressive/techno form and demo mailbox, Palmlands Records' Tech House/Bass House website-or-Trackstack route with optional production services, and Get The Sound Records' original-content private-link form with broad legal terms. Genre fit, private-link access, rights, Content ID, AI policy, form/app controls, legal terms, privacy/retention and final actions require manual review. Pipeline estimate: 1,829.
+
+### Run 495
+
+Added Rhythm House's uplifting DnB private-link form, Beat Intelligence Network's bass-music URL form and Us & Machines' worldwide house/EDM upload-or-private-link form with explicit Suno/AI disclosure. Genre fit, links/uploads, rights, Content ID, AI provenance, privacy/retention, hidden controls, contract terms and final actions require manual review. Pipeline estimate: 1,832.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
