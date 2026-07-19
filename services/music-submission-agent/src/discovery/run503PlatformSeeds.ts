@@ -1,0 +1,91 @@
+import type { PlatformInput } from '../models/types.js';
+
+export const run503SeedPlatforms: PlatformInput[] = [
+  {
+    "name": "GoodBrother Electronic Label Demo Form",
+    "websiteUrl": "https://www.goodbrother.io/",
+    "submissionUrl": "https://www.goodbrother.io/demos",
+    "sourceUrl": "https://www.goodbrother.io/demos",
+    "sourceType": "automation_run_503_public_research",
+    "country": "United Arab Emirates / Dubai-based independent electronic label; international eligibility is not explicitly guaranteed.",
+    "language": "en",
+    "genres": [
+      "techno",
+      "house",
+      "garage",
+      "drum and bass",
+      "dubstep",
+      "electronic music",
+      "private SoundCloud link"
+    ],
+    "submissionMethod": "Official first-party demo form for a finished, unreleased Techno, House, Garage, Drum & Bass or Dubstep track using a private SoundCloud link with downloads enabled. The official site also publishes demo@goodbrother.io for demos.",
+    "feeRequired": false,
+    "feeAmount": "No mandatory demo-review, submission or release fee is published on the official demo route.",
+    "loginRequired": false,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "Electronic-genre and catalogue fit, finished and unreleased status, private SoundCloud access and downloads, track metadata and notes, label-signing acknowledgement, master/composition/sample/contributor rights, Content ID, AI-origin disclosure, privacy/retention, hidden form controls, post-selection terms and the final form or email require human review."
+  },
+  {
+    "name": "SubCulture Recordings Global Bass Music Demo Form / Email",
+    "websiteUrl": "https://www.subculture050.com/",
+    "submissionUrl": "https://www.subculture050.com/demos",
+    "sourceUrl": "https://www.subculture050.com/demos",
+    "sourceType": "automation_run_503_public_research",
+    "country": "Netherlands / Groningen bass-music label explicitly accepting music from anywhere.",
+    "language": "en",
+    "genres": [
+      "drum and bass",
+      "dubstep",
+      "140",
+      "halftime",
+      "jungle",
+      "leftfield bass",
+      "experimental bass music",
+      "private SoundCloud playlist"
+    ],
+    "submissionMethod": "Official first-party demo page offering an embedded form or demos@subculture050.com. Send a downloadable private SoundCloud playlist with downloads enabled; 6 to 10 tracks are preferred, finished tracks and works in progress are accepted, and WAV is preferred.",
+    "feeRequired": false,
+    "feeAmount": "No mandatory demo-review, submission or release fee is published on the official demo page.",
+    "loginRequired": false,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "Deep/minimal/experimental bass fit, 6-to-10-track playlist preference, private SoundCloud access and downloads, Demo/WIP naming, audio format, artist introduction, master/composition/sample/contributor rights, Content ID, AI-origin disclosure, incomplete privacy-retention documentation, hidden embedded-form controls, post-selection terms and the final form or email require human review."
+  },
+  {
+    "name": "NexGen Music Group Demo Upload / Email",
+    "websiteUrl": "https://nexgen.music/",
+    "submissionUrl": "https://nexgen.music/demos/submission",
+    "sourceUrl": "https://nexgen.music/demos",
+    "sourceType": "automation_run_503_public_research",
+    "country": "United States / United Kingdom / European Union music group; international artist eligibility is not explicitly guaranteed.",
+    "language": "en",
+    "genres": [
+      "drum and bass",
+      "dubstep",
+      "EDM",
+      "house",
+      "UK garage",
+      "downtempo",
+      "future jazz",
+      "chill-out",
+      "leftfield",
+      "trip-hop",
+      "pop",
+      "R&B",
+      "indie",
+      "rock",
+      "music licensing"
+    ],
+    "submissionMethod": "Official first-party upload form capped at 300MB or authorized demos@nexgenmusicgroup.com email route. Submit at least four unreleased high-quality tracks, minimum 320 kbps with 16/24-bit WAV or AIFF preferred, plus real name, artist name, links and background. Streaming-only links are rejected.",
+    "feeRequired": false,
+    "feeAmount": "No mandatory demo-review, upload or submission fee is published on the official demo workflow.",
+    "loginRequired": false,
+    "captchaDetected": false,
+    "paymentRequired": false,
+    "manualReviewRequired": true,
+    "manualReviewReason": "Broad label/imprint and licensing fit, unreleased status, at-least-four-track requirement, 300MB upload or file-transfer delivery, audio quality, no-streaming-link rule, artist identity and history, age-18 requirement, broad non-exclusive worldwide royalty-free sublicensable licence, warranties and indemnity, rights and samples, Content ID, AI-origin disclosure, privacy/retention, hidden upload controls and the final form or email require human and legal review."
+  }
+];
