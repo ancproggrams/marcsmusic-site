@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 496
+Latest run: Run 497
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1835
+Pipeline estimate: 1838
 
 Items:
 
-- Run 496 added: Protocol Zero — an official private-SoundCloud drum-and-bass/neurofunk demo mailbox with current July 2026 release activity.
-- Run 496 added: Quantum Circle Records — a private-SoundCloud form with strict unreleased/WAV requirements, a visible verification code and a hard no-AI rule.
-- Run 496 added: ACTIVATED Records — a worldwide hard-dance WAV/MP3 upload form with mandatory terms/privacy acceptance, optional newsletter consent and documented 30-day demo-file deletion.
+- Run 497 added: Dirty Disco Recordings — an all-electronic unreleased-track form with an imprint selector and rights confirmation.
+- Run 497 added: Play Records — an international electronic/dance LabelWorx route that expressly rejects automated and third-party submissions and is permanently manual-only.
+- Run 497 added: HEXAGON — a House/Bass House/Club Bangers Trackstack inbox with account, terms, licence and optional-paid-tier boundaries.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Protocol Zero uses a first-party demo mailbox. Quantum Circle uses a first-party private-link form protected by an image verification code. ACTIVATED uses a first-party direct-upload form and optional cloud-link field.
+Latest route note: Dirty Disco uses a first-party track-link form. Play Records uses an externally hosted LabelWorx form that must only be completed manually. HEXAGON uses an external Trackstack inbox with account, terms and anti-automation boundaries.
 
-Contact-verification note: `demo@protocolzero.online` and `demo@qcrecords.com` are first-party published, syntactically valid and domain-aligned; the Quantum Circle email is restricted to artists already in contact with the label. `k.schroetter@activated-network.com` and `info@activated-network.com` are first-party management/general contacts, not demo-form substitutes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: Play Records publishes `melody@playrecords.net`, `simon@playrecords.net`, `sydney@playrecords.net` and `admin@playrecords.net` as first-party domain-aligned business contacts, but explicitly prohibits sending demos to those staff addresses. `support@trackstack.app` is provider support rather than a HEXAGON submission address. Dirty Disco publishes no authorized public email alternative. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Protocol Zero's Command was released July 11, 2026. Quantum Circle has 2026 releases including Hybridised on May 15. ACTIVATED has frequent 2026 hard-dance releases, including Heart Of A Lion on June 12.
+Activity and fit note: Dirty Disco has current 2026 releases including Techno Beat on April 10. Play Records lists BOOM on July 17 plus releases scheduled for July 24 and August 7. HEXAGON has releases through May 15 and advertises an ADE label night for October 22, 2026.
 
-Manual-review note: all three require exact fit, links/uploads, release status, rights, Content ID, AI eligibility, privacy/retention, hidden controls, post-selection terms and final actions. Quantum Circle additionally requires human verification and rejects AI-generated music. ACTIVATED additionally requires review of mandatory terms/privacy acceptance, internal demo-contact-list use, 30-day file retention and optional newsletter consent.
+Manual-review note: all three require exact fit, links/uploads, release status, rights, Content ID, AI eligibility, privacy/retention, hidden controls, post-selection terms and final actions. Play Records additionally prohibits automated or third-party submissions. HEXAGON additionally requires manual handling of Trackstack registration, account/OTP controls, age eligibility, platform licences and free-versus-paid tier separation.
 
-Deduplication note: repository code search contained no existing canonical Protocol Zero, Quantum Circle Records or ACTIVATED Records match by official name, domain, route or published business email before creation. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
+Deduplication note: repository code search contained no existing canonical Dirty Disco Recordings, Play Records or HEXAGON HQ match by official name or domain before creation. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON and CSV structures were validated before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no account was used, no CAPTCHA or verification code was attempted, no audio or private link was shared, no terms or privacy policy were accepted, no newsletter consent was given, and no payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no account, login or OTP was used, no CAPTCHA was attempted, no audio or private link was shared, no terms or licences were accepted, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 487
-
-Added Radio 1190's clean full-album/EP email route, Sonair's official stream/download-link airplay form and Without Warning Radio's weekly constant-320kbps MP3 submission mailbox. Full-release, content, form, attachment, rights, AI, privacy, international-eligibility and final-action checks require manual review. Pipeline estimate: 1,808.
 
 ### Run 488
 
@@ -75,5 +71,9 @@ Added Rhythm House's uplifting DnB private-link form, Beat Intelligence Network'
 ### Run 496
 
 Added Protocol Zero's private-SoundCloud neurofunk/DnB demo mailbox, Quantum Circle Records' visible-verification-code private-link form with a hard no-AI rule and ACTIVATED Records' worldwide hard-dance direct-upload form with mandatory terms/privacy and documented 30-day file retention. Genre fit, links/uploads, rights, Content ID, AI eligibility, verification/consent, privacy/retention, contract terms and final actions require manual review. Pipeline estimate: 1,835.
+
+### Run 497
+
+Added Dirty Disco Recordings' all-electronic unreleased-track form, Play Records' international LabelWorx form with a hard manual-only/no-automation rule, and HEXAGON's House/Bass House Trackstack inbox with account, terms, licence and optional-paid-tier boundaries. Genre fit, links/uploads, rights, Content ID, AI eligibility, privacy/retention, external form/app controls, account/terms and final actions require manual review. Pipeline estimate: 1,838.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
