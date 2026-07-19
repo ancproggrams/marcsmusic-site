@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run498SeedPlatforms } from './run498PlatformSeeds.js';
 
-export const run497SeedPlatforms: PlatformInput[] = [
+const run497NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "Dirty Disco Recordings All-Electronic Unreleased-Track Demo Form",
     "websiteUrl": "https://www.dirtydiscorecordings.com/",
@@ -91,4 +92,9 @@ export const run497SeedPlatforms: PlatformInput[] = [
     "manualReviewReason": "The external Trackstack route is account-, terms- and platform-controlled and expressly prohibits automated use. A human must confirm the exact HEXAGON inbox, registration/login requirements, track upload and metadata, age eligibility, label fit, rights, Trackstack and receiver licences, privacy and retention, optional paid-tier separation, hidden verification, post-selection terms and the final send action.",
     "notes": "Passively verified on 2026-07-19 from HEXAGON's official homepage, about and events pages, current Beatport catalogue evidence and Trackstack's official help and terms. HEXAGON's first-party demo section states that demos are open, that Don Diablo opens every file, and that it seeks House, Bass House and Club Bangers through a Trackstack-powered inbox. Trackstack says tracks can be sent free to public inbox links, while its terms state that most functionality requires an account, users must be over 18, automated use is prohibited and artists grant limited platform and receiver review/promotional-performance licences. The exact embedded HEXAGON inbox fields, login flow and any CAPTCHA were not passively exposed. No public HEXAGON business email was identified as an authorized demo alternative; support@trackstack.app is provider support only. Activity is current: Beatport lists multiple HEXAGON releases through May 15, 2026, and the official site advertises a HEXAGON ADE label night on October 22, 2026. No account, track, form field, CAPTCHA, payment or submission was used."
   }
+];
+
+export const run497SeedPlatforms: PlatformInput[] = [
+  ...run497NewSeedPlatforms,
+  ...run498SeedPlatforms
 ];
