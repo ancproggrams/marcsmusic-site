@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 505
+Latest run: Run 506
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1862
+Pipeline estimate: 1865
 
 Items:
 
-- Run 505 added: SoundChat Radio — a free first-party global Caribbean music form using a track link, clean-radio guidance and mandatory ownership/broadcast permission.
-- Run 505 added: Symmetry Recordings — an authorized drum-and-bass demo mailbox accepting 320kbps MP3/WAV attachments or downloadable cloud links, with an adjacent LabelWorx DemoBox consolidated into the same opportunity.
-- Run 505 added: Frequenza Records — a first-party electronic demo form requiring at least two exclusive private-link tracks and explicitly rejecting AI-generated music.
+- Run 506 added: Bass Darkness — a first-party Phonk/heavy-bass private-link form with an authorized demo-email fallback when form confirmation is absent.
+- Run 506 added: Boomslang Recordings — an official neurofunk/DnB Google Form route requiring a streaming link with download access and rejecting email attachments.
+- Run 506 added: Indie Global 365 — a free Caribbean/positive-music direct MP3-and-image upload form with mandatory terms, route-policy conflicts and an optional paid membership boundary.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: SoundChat's standard route is free and requests a SoundCloud, Spotify, YouTube or direct-download link, complete metadata, a short bio and clean radio edits where applicable. Symmetry authorizes `demos@symmetryrecordings.co.uk`, permits email attachments or storage links and requires download-enabled SoundCloud links. Frequenza requires a minimum two-track exclusive set via private SoundCloud or dedicated demo links, rejects Drive/Dropbox delivery and excludes AI-generated music.
+Latest route note: Bass Darkness requires finished tracks and prefers private SoundCloud or Dropbox links, with `demo@bassdarkness.com` authorized only as a fallback. Boomslang directs demos to its official Google Form and asks for a streaming link with download access rather than attachments or direct files. Indie Global 365 accepts up to two 192kbps MP3s plus one image per song, requires positive/uplifting content and terms acceptance, but its current form, older email instructions and linked policy conflict.
 
-Contact-verification note: `demos@symmetryrecordings.co.uk` is first-party published, syntactically valid, domain-aligned and explicitly authorized for demos. `info@soundchatradio.com` is published as support for SoundChat's official app but is not a submission mailbox. Frequenza exposed no public mailbox on the inspected route, so no address was guessed. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `demo@bassdarkness.com` is first-party published, syntactically valid, domain-aligned and authorized as a conditional fallback. `info@boomslangrecordings.com` is first-party and domain-aligned but is not a demo route. `indieglobal365@gmail.com` is first-party published as a legacy submission address, syntactically valid but free-mail and inconsistent with the current form-only instruction. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: SoundChat has active current live and schedule pages plus an official story dated 16 March 2026. Symmetry's official catalogue lists releases in January, March, May and June 2026. Frequenza's official site and Beatport catalogue show active releases and pre-orders in July 2026. SoundChat is the strongest fit for MarcsMusic' reggae, dancehall, soca and Caribbean crossover material; Symmetry requires a strong drum-and-bass fit; Frequenza is relevant only for eligible techno/house material with no prohibited AI generation.
+Activity and fit note: Bass Darkness lists releases dated April through July 2026, including SPARK on 3 July and Fade Away scheduled for 24 July. Boomslang's official site was updated on 10 June 2026, its official SoundCloud posted Mindfield EP material on 6 March and V: Black Venom Cycle was released on 13 February. Indie Global 365 had an active live-radio/current-song site and open form on 19 July 2026. Bass Darkness and Boomslang fit MarcsMusic' heavier bass output; Indie Global 365 is the strongest fit for positive Reggae, Soca and Caribbean crossover material.
 
-Manual-review note: all three require fit, links/files, rights, samples, Content ID, AI provenance, privacy/retention and final-action review. SoundChat additionally requires clean-version control and broadcast authorization. Symmetry additionally requires attachment/link security and review of an adjacent LabelWorx route. Frequenza additionally requires exclusivity, at least two tracks, exact private-link delivery and hard AI-eligibility review.
+Manual-review note: all three require fit, links/uploads, rights, samples, Content ID, AI provenance, privacy/retention and final-action review. Bass Darkness additionally requires form-versus-fallback handling and social contact review. Boomslang additionally has an incompletely inspected Google Form. Indie Global 365 additionally requires legal review of conflicting submission instructions, terms, performance/streaming-rights representations, upload limits and optional membership.
 
-Deduplication note: exact-name and canonical-domain searches across the accessible repository index and recent seed chain found no prior SoundChat Radio, Symmetry Recordings or Frequenza Records canonical route. The SoundChat support mailbox, Symmetry LabelWorx representation and Frequenza adjacent service selectors were consolidated or excluded. Canonical SQLite domain, normalized URL, form identifier and contact deduplication remains required before external use.
+Deduplication note: exact-name, canonical-domain and published-contact searches across the accessible repository index and recent seed chain found no prior Bass Darkness, Boomslang Recordings or Indie Global 365 canonical route. Their fallback, general, legacy and optional-paid representations were consolidated into one canonical record each. Canonical SQLite domain, normalized URL, external form identifier and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON, CSV and Markdown structures were checked for structural consistency before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no track link was shared, no MP3 or WAV was attached or uploaded, no broadcast permission, exclusivity, rights statement or terms were accepted, no CAPTCHA, hidden anti-spam or JavaScript submit-time control was tested, and no donation, payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no account was used, no private music link was shared, no MP3 or image was attached or uploaded, no rights, broadcast, streaming or terms statement was accepted, no CAPTCHA, hidden anti-spam or Google Form control was tested, and no optional membership, payment or submission action was performed.
 
 ## Recent run history
-
-### Run 496
-
-Added Protocol Zero's private-SoundCloud neurofunk/DnB demo mailbox, Quantum Circle Records' visible-verification-code private-link form with a hard no-AI rule and ACTIVATED Records' worldwide hard-dance direct-upload form with mandatory terms/privacy and documented 30-day file retention. Genre fit, links/uploads, rights, Content ID, AI eligibility, verification/consent, privacy/retention, contract terms and final actions require manual review. Pipeline estimate: 1,835.
 
 ### Run 497
 
@@ -75,5 +71,9 @@ Added UKF/Pilot's private-SoundCloud Jotform, V Recordings' multi-imprint embedd
 ### Run 505
 
 Added SoundChat Radio's global Caribbean track-link form, Symmetry Recordings' authorized DnB email/adjacent DemoBox route and Frequenza Records' exclusive minimum-two-track electronic form with a hard no-AI rule. Genre/programme fit, clean versions, links/attachments, broadcast permission, exclusivity, rights, Content ID, AI eligibility, privacy/retention, hidden form controls, contracts and final actions require manual review. Pipeline estimate: 1,862.
+
+### Run 506
+
+Added Bass Darkness's Phonk/heavy-bass private-link form and authorized fallback email, Boomslang Recordings' neurofunk/DnB Google Form and Indie Global 365's free Caribbean/positive-music MP3-and-image upload route. Genre/programme fit, finished-track and positive-content status, links/uploads, rights, Content ID, AI provenance, external-form controls, conflicting terms/routes, optional membership and final actions require manual review. Pipeline estimate: 1,865.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
