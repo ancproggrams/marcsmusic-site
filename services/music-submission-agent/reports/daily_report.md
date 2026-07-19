@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 508
+Latest run: Run 509
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1871
+Pipeline estimate: 1874
 
 Items:
 
-- Run 508 added: Intrigue Music — an authorized Drum & Bass demobox for label demos or DJ sets, with contact details and a tracklist required for DJ mixes.
-- Run 508 added: behind the sun Recordings — a first-party Liquid DnB/Atmospheric Breaks/Breakbeat private-link form for finished original music with mandatory privacy acknowledgement.
-- Run 508 added: Sub Wavelength Recordings — a first-party Liquid/Deep/Dark DnB form requiring artist and full names, email, downloadable music links and artist context.
+- Run 509 added: Madox Records — a first-party EDM SoundCloud-link form with an authorized dedicated demo mailbox and a separate business mailbox.
+- Run 509 added: Cosmic Fairy Records — a New York electronic-label form for unreleased private SoundCloud playlists or Dropbox links, with contact, country, Instagram and prior-label-submission fields.
+- Run 509 added: UNS Records / United Nations Sounds — a global electronic/pop/dance form requiring a track link and an artist-world message.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: Intrigue uses `demobox@intrigue.org.uk` and accepts both label demos and DJ sets; DJ mixes need contact information and a tracklist. behind the sun requires the Demo Submission subject, a private SoundCloud or Dropbox link and finished original music, while rejecting WIPs, remixes, bootlegs and mash-ups. Sub Wavelength asks for artist name, full legal name or names, email, downloadable links and artist information.
+Latest route note: Madox asks for name, email, genre, SoundCloud URL and optional notes, and also publishes `demo@madoxrecords.com`. Cosmic Fairy accepts unreleased music through a private SoundCloud playlist or Dropbox link and asks whether the music was sent to other labels. UNS asks for artist name, email, genre, a track link and context about the world around the track.
 
-Contact-verification note: Intrigue's official page publishes `demobox AT intrigue.org.uk` and `info AT intrigue.org.uk`; both normalize to syntactically valid, domain-aligned addresses and only the demobox is authorized for music. behind the sun exposes no exact public business email in the accessible first-party pages, so none was guessed. Sub Wavelength first-party publishes `subwavelengthrecordings@gmail.com` as its record-label contact, but not explicitly as the demo route; the form remains canonical. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: Madox first-party publishes `demo@madoxrecords.com` for demos and `info@madoxrecords.com` for business; both are syntactically valid and domain-aligned. Cosmic Fairy exposes a protected contact link that was not decoded or guessed. UNS first-party publishes `contact@unsrcrds.com` as a syntactically valid, domain-aligned general contact, not an explicit demo inbox. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: Intrigue's official Bandcamp discography listed a July 2026 EP and releases in June and May 2026. behind the sun listed a June 2026 release and two February 2026 releases. Sub Wavelength listed releases in June, May and April 2026. Intrigue and Sub Wavelength are strong fits for MarcsMusic' Drum & Bass material; behind the sun is strongest for liquid, soulful and atmospheric DnB or breakbeat material.
+Activity and fit note: Madox had releases in June and July 2026, including FONTS – Attention on 26 June and Meteos – Healing in July. Cosmic Fairy's official site remained active and Beatport listed Your Spiral Galaxy on 31 March 2026. UNS listed your planet in June 2026 and Save Me in May 2026. Madox is strongest for MarcsMusic' festival, techno and EDM material; Cosmic Fairy for melodic, atmospheric and emotional electronic tracks; UNS for electronic/pop, cinematic and genre-blending material with a developed artistic concept.
 
-Manual-review note: all three require fit, links/audio, rights, samples, Content ID, AI provenance, privacy/retention and final-action review. Intrigue additionally needs label-demo versus DJ-mix selection and a tracklist for mixes. behind the sun requires finished originals and privacy acknowledgement and excludes WIPs/remixes/bootlegs/mash-ups. Sub Wavelength requests legal/full names and has an adjacent paid mastering service that is not a submission prerequisite.
+Manual-review note: all three require fit, private-link access, rights, samples, Content ID, AI provenance, privacy/retention, hidden controls, post-selection terms and final-action review. Madox additionally needs form-versus-email routing. Cosmic Fairy requires unreleased status, personal/contact fields and prior-label-submission disclosure; its protected contact was not decoded. UNS requires a substantive artist-world message and keeps its general mailbox separate from the demo form.
 
-Deduplication note: exact-name, canonical-domain and published-contact searches across the accessible repository index, the full open pull-request patch and recent seed chain found no prior Intrigue Music, behind the sun Recordings or Sub Wavelength Recordings canonical submission record. General contacts and adjacent newsletter/mastering surfaces were consolidated or excluded. Canonical SQLite domain, normalized URL and contact deduplication remains required before external use.
+Deduplication note: exact-name, canonical-domain and published-contact checks against the accessible repository index and current/recent seed and report artifacts found no prior Madox Records, Cosmic Fairy Records or UNS Records canonical submission record. GitHub rejected a full pull-request diff because the pull request exceeds the 300-file diff limit. Canonical SQLite domain, normalized-URL and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON, CSV and Markdown structures were checked for structural consistency before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no private music link was shared, no audio file was attached or uploaded, no privacy statement or agreement was accepted, no CAPTCHA, hidden anti-spam or submit-time control was tested, and no payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no private music link was shared, no audio file was attached or uploaded, no protected contact was decoded, no terms, privacy statement or agreement was accepted, no CAPTCHA, hidden anti-spam or submit-time control was tested, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 499
-
-Added 7clouds' worldwide multi-channel stream-link form, DNBB Music Group's global bass-focused LabelRadar portal and Reggae Global Radio's authorized MP3 email route requiring two station IDs. Channel/label/programme fit, links/files, rights, Content ID, AI eligibility, terms/privacy, login/credits, retention, custom station IDs and final actions require manual review. Pipeline estimate: 1,844.
 
 ### Run 500
 
@@ -75,5 +71,9 @@ Added OX Recordings' authorized DnB/Neurofunk demo email, Sonaxx Records' privat
 ### Run 508
 
 Added Intrigue Music's authorized DnB demobox, behind the sun Recordings' finished-original Liquid DnB/Breakbeat private-link form and Sub Wavelength Recordings' Liquid/Deep/Dark DnB downloadable-link form. Genre/catalogue fit, label-demo versus DJ-mix selection, links/audio, rights, Content ID, AI provenance, privacy acknowledgement, legal-name handling, adjacent mastering separation, hidden form controls and final actions require manual review. Pipeline estimate: 1,871.
+
+### Run 509
+
+Added Madox Records' EDM SoundCloud-link form and authorized demo mailbox, Cosmic Fairy Records' unreleased electronic private-link form, and UNS Records' global electronic/pop/dance track-link form. Catalogue fit, links, contact data, rights, Content ID, AI provenance, privacy/terms, protected-contact handling, hidden controls, post-selection agreements and final actions require manual review. Pipeline estimate: 1,874.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
