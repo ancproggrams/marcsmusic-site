@@ -1,6 +1,7 @@
 import type { PlatformInput } from '../models/types.js';
+import { run507SeedPlatforms } from './run507PlatformSeeds.js';
 
-export const run506SeedPlatforms: PlatformInput[] = [
+const run506NewSeedPlatforms: PlatformInput[] = [
   {
     "name": "Bass Darkness Phonk & Heavy Bass Demo Form",
     "websiteUrl": "https://www.bassdarkness.com/",
@@ -81,4 +82,9 @@ export const run506SeedPlatforms: PlatformInput[] = [
     "manualReviewRequired": true,
     "manualReviewReason": "Caribbean/positive-content and programme fit, conflicting Afro-Pop eligibility text, MP3 bitrate and upload-size limits, image requirements, mandatory Terms acceptance, conflicting current-form versus legacy email/CD instructions, ASCAP/BMI/SoundExchange or direct-rights representations, broadcast/streaming permission, rights and samples, Content ID, AI-origin disclosure, privacy/retention, optional membership, hidden anti-spam controls and the final upload require human and legal review."
   }
+];
+
+export const run506SeedPlatforms: PlatformInput[] = [
+  ...run506NewSeedPlatforms,
+  ...run507SeedPlatforms
 ];
