@@ -2,7 +2,7 @@
 
 Date: 2026-07-19
 
-Latest run: Run 502
+Latest run: Run 503
 
 New items added in latest run: 3
 
@@ -10,35 +10,31 @@ Existing items reverified or materially enriched: 0
 
 Duplicate opportunity counts retired: 0
 
-Pipeline estimate: 1853
+Pipeline estimate: 1856
 
 Items:
 
-- Run 502 added: NOS Recordings — a house-only first-party form for up to three finished private-link demos, with no attachments and an optional livestream A&R-feedback choice.
-- Run 502 added: RekHeard Breakerz — a global Soca/Reggae/Dancehall form for one clean English Spotify single plus non-expiring MP3/photo links and mandatory promotional and email-update consents.
-- Run 502 added: COOL Recordings — an Austrian House/Tech House/Afro House private-link A&R form for finished tracks with downloads enabled.
+- Run 503 added: GoodBrother — a Dubai electronic-label form and authorized demo mailbox for finished, unreleased Techno, House, Garage, DnB or Dubstep tracks through private downloadable SoundCloud links.
+- Run 503 added: SubCulture Recordings — a Groningen global bass-music form/email route preferring a downloadable private SoundCloud playlist of 6 to 10 finished or WIP tracks.
+- Run 503 added: NexGen Music Group — a broad-genre 300MB upload or authorized email route requesting at least four unreleased high-quality tracks and carrying substantial licence, warranty and indemnity terms.
 
 Three new queue rows were created with `needs_manual_review`. No auto-submit candidate was created.
 
-Latest route note: NOS requires a private SoundCloud, Box or Dropbox route, a maximum of three tracks, no attachments and a brief label-fit introduction. RekHeard requires Spotify availability, a tagged non-expiring MP3, a non-expiring artist photo, clean English single status and two mandatory consent choices. COOL requires a finished private SoundCloud or Dropbox track, direct email, social portfolio and an A&R note.
+Latest route note: GoodBrother requires a finished unreleased private SoundCloud track, downloads enabled and a label-signing acknowledgement. SubCulture requests Artist–Title naming, a downloadable private playlist, preferably 6 to 10 tracks, and offers `demos@subculture050.com`. NexGen requests at least four high-quality tracks, supports a 300MB upload or file-transfer email route, rejects streaming-only links and requires age and legal-term review.
 
-Contact-verification note: `info@rekheardbreakerz.com` is first-party published, syntactically valid and domain-aligned, but is specified for Google Drive access/general contact and does not replace the artist form. NOS support addresses rendered as obfuscated placeholders and were not decoded or inferred. COOL publishes no exact business mailbox on its official form. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
+Contact-verification note: `demo@goodbrother.io`, `demos@subculture050.com` and `demos@nexgenmusicgroup.com` are first-party published, syntactically valid and explicitly authorized for demos. `info@goodbrother.io`, `info@subculture050.com`, `info@nexgen.music` and `info@nexgenmusicgroup.com` are general, privacy or terms contacts and do not replace the canonical routes. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed.
 
-Activity and fit note: NOS currently lists NOS 053 — Whatchu Need as its newest release, NOS in Miami 2026 and a live Summer 2026 collection. RekHeard reports 440+ submissions, 25+ represented countries, 12k+ YouTube subscribers and four streaming Season 1 episodes. COOL has Beatport releases dated 5 June, 15 May and 25 April 2026. RekHeard is the strongest direct fit for clean Caribbean releases; NOS and COOL require precise House-family material.
+Activity and fit note: GoodBrother's official catalogue showed multiple releases dated 3 July 2026 across its accepted electronic genres. SubCulture released Physis: Deuterion Stasimon on 26 June 2026 and held an official release event. NexGen released Immunity EP on 3 July 2026 and Zurcon's Prayer EP on 19 June 2026. SubCulture is the strongest fit for MarcsMusic' darker bass and genre-crossing work; GoodBrother is strong for finished DnB/Dubstep tracks; NexGen is relevant but carries the heaviest legal review boundary.
 
-Manual-review note: all three require exact fit, private links, rights, samples, Content ID, AI-origin disclosure, privacy/retention and final-form review. NOS additionally has a three-track limit, no-attachment rule and optional livestream-feedback choice. RekHeard additionally has Spotify, clean-version, non-expiring-link, broad promotional-permission and mandatory marketing-consent boundaries. COOL additionally requires a finished track, social portfolio and A&R note.
+Manual-review note: all three require exact fit, rights, samples, Content ID, AI-origin disclosure, privacy/retention and final-action review. GoodBrother additionally requires finished unreleased status and label-signing acknowledgement. SubCulture additionally has a multi-track playlist preference and incomplete privacy-retention placeholders. NexGen additionally requires four tracks, file delivery, age 18 and review of a broad royalty-free sublicensable licence, warranties and indemnity.
 
-Deduplication note: indexed repository code search contained no prior NOS Recordings, RekHeard Breakerz or COOL Recordings canonical record by name, domain, route or exact recoverable address. Canonical SQLite domain, normalized URL, form identifier and contact deduplication remains required before external use.
+Deduplication note: the complete open PR patch contained no prior GoodBrother, SubCulture Recordings or NexGen Music Group canonical record by name, domain or authorized demo mailbox. Canonical SQLite domain, normalized URL, form identifier and contact deduplication remains required before external use.
 
 Runtime limitation: repository and public-web connectors updated the artifacts. Generated TypeScript, JSON, CSV and Markdown structures were checked for structural consistency before writes. No successful local repository build, lint, SQLite-worker, browser screenshot, `git diff` or `git status` result is claimed.
 
-Safety: No email was sent, no form field was filled, no music or media link was shared, no Drive permission was granted, no audio or image was uploaded, no promotional or marketing consent was accepted, no CAPTCHA or hidden anti-spam control was tested, and no payment or submission action was performed.
+Safety: No email was sent, no form field was filled, no private music or playlist link was shared, no audio was uploaded, no acknowledgement or terms were accepted, no CAPTCHA or hidden anti-spam control was tested, and no payment or submission action was performed.
 
 ## Recent run history
-
-### Run 493
-
-Added OVERCLOCKIN Records' first-party bass-music private-link form, Magnetic Magazine's electronic editorial/demo form with an optional commercial-package boundary, and Frequency State's official SubmitHub curation route with login plus free-standard or paid-premium credits. Genre fit, links/assets, rights, Content ID, AI policy, privacy/retention, hidden or external platform controls, commercial separation and final actions require manual review. Pipeline estimate: 1,826.
 
 ### Run 494
 
@@ -75,5 +71,9 @@ Added Stonx Music's global neurofunk/DnB private-link demo mailbox, Red Devil Ra
 ### Run 502
 
 Added NOS Recordings' house-only up-to-three-track private-link form, RekHeard Breakerz' global clean Caribbean single form with mandatory promotional and marketing-email consents, and COOL Recordings' House/Tech House/Afro House private-link A&R form. Genre fit, finished-track and clean-version status, private-link access, rights, Content ID, AI provenance, promotional/marketing consent, privacy/retention, hidden form controls and final actions require manual review. Pipeline estimate: 1,853.
+
+### Run 503
+
+Added GoodBrother's finished-unreleased electronic private-link form/demo mailbox, SubCulture Recordings' global bass-music multi-track private-playlist form/email route and NexGen Music Group's broad-genre upload/email workflow with substantial legal terms. Genre fit, links/uploads, rights, Content ID, AI provenance, acknowledgements, privacy/retention, legal terms, hidden form controls and final actions require manual review. Pipeline estimate: 1,856.
 
 Earlier run details remain available in the dated per-run reports under `services/music-submission-agent/reports/`.
