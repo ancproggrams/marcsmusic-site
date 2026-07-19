@@ -1,0 +1,189 @@
+{
+  "run": 502,
+  "date": "2026-07-19",
+  "pipelineEstimateBefore": 1850,
+  "pipelineEstimate": 1853,
+  "newPlatforms": [
+    {
+      "name": "NOS Recordings House Demo Submission Form",
+      "websiteUrl": "https://nosrecordings.com/",
+      "submissionUrl": "https://nosrecordings.com/demo-submissions",
+      "sourceUrl": "https://nosrecordings.com/demo-submissions",
+      "sourceType": "automation_run_502_public_research",
+      "country": "United States / active underground-house label and media platform; international eligibility is not explicitly guaranteed.",
+      "language": "en",
+      "genres": ["house", "tech house", "underground house", "private SoundCloud link", "Dropbox", "Box", "livestream A&R feedback"],
+      "submissionMethod": "Official first-party demo form for up to three finished house tracks. Use private SoundCloud links with downloads enabled, or Box/Dropbox, add a brief artist and label-fit introduction, and do not attach files.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review or submission fee is published. Mastering and merchandise are separate optional commercial offerings.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "House-only catalogue fit, maximum-three-track limit, private-link access and downloads, finished-track quality, artist and label-fit context, optional livestream-feedback consent, rights, samples, Content ID, AI-origin disclosure, hidden form controls, privacy/retention, post-selection contract terms and the final submission require human review.",
+      "notes": "Passively verified on 2026-07-19 from NOS Recordings' official demo, home and release pages. The label accepts house music only, limits each submission to three tracks, prohibits attachments, requests private SoundCloud links with downloads enabled or Box/Dropbox, asks for a brief artist and label-fit introduction and accepts finished polished work even when unmastered. A separate opt-in can make a demo eligible for livestream A&R feedback on YouTube or Twitch. No mandatory fee, login or visible CAPTCHA was observed in the publicly rendered route, but the complete live form controls, consent text and submit-time anti-abuse checks were not exercised. The official site currently lists NOS 053 — Whatchu Need as its newest release, NOS in Miami 2026 as NOS 052 and a live Summer 2026 collection. Exact public support addresses on the terms page were obfuscated by the renderer and were not recovered or inferred. No form field, link, upload, email, opt-in, payment or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official first-party public demo form",
+        "formLocation": "https://nosrecordings.com/demo-submissions",
+        "explicitPurpose": "Submit up to three finished house demos to NOS Recordings A&R.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only; links, consent choices and submission remain manual",
+        "internationalArtistsExplicitlyAccepted": false,
+        "eligibilityNote": "No geographic restriction is visible, but the official page does not explicitly guarantee international eligibility. House-only fit is mandatory."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": ["house music only", "maximum three tracks", "private SoundCloud link with downloads enabled or Box/Dropbox", "no file attachments", "brief introduction with name, achievements, style and label fit", "complete polished tracks only", "unmastered tracks permitted when disclosed"],
+        "observedFields": ["NOS Demo Submission form", "optional livestream A&R feedback opt-in"],
+        "rightsAndTerms": ["master, composition, sample and contributor authority require review", "Content ID and distributor conflicts require review", "AI-origin policy is not published", "privacy, retention and post-selection contract terms are not fully visible in the passive form rendering"],
+        "manualChecks": ["house-only fit", "three-track limit", "private-link access", "downloads enabled", "finished-track quality", "artist and label-fit introduction", "livestream-feedback choice", "rights and samples", "Content ID", "AI disclosure", "privacy and retention", "post-selection contract", "final form"]
+      },
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [],
+        "protectedOrObfuscatedEmailsObserved": ["support contact rendered as [email protected] on the official terms page"],
+        "verification": "No exact, safely recoverable first-party business mailbox was visible in the rendered official pages. The canonical route is the demo form. Obfuscated addresses were not decoded or inferred. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official catalogue lists 62 releases with NOS 053 — Whatchu Need newest, NOS 052 — NOS in Miami 2026 and an active Summer 2026 collection, alongside current NOS Radio and NOS TV links."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "first-party embedded form",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed. Hidden anti-spam or submit-time verification remains unknown and was not tested.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "optionalPromotionalConsentObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 91,
+      "pricingModel": "free/house-only/up-to-three/private-links/no-attachments/optional-livestream-feedback/manual-review"
+    },
+    {
+      "name": "RekHeard Breakerz Global Caribbean Music Submission",
+      "websiteUrl": "https://www.rekheardbreakerz.com/",
+      "submissionUrl": "https://www.rekheardbreakerz.com/",
+      "sourceUrl": "https://www.rekheardbreakerz.com/",
+      "sourceType": "automation_run_502_public_research",
+      "country": "Canada / global DJ-driven Caribbean music-discovery platform reporting submissions from more than 25 countries.",
+      "language": "en",
+      "genres": ["soca", "reggae", "dancehall", "Caribbean music", "podcast", "DJ review", "playlist support", "radio-friendly single"],
+      "submissionMethod": "Official first-party artist form for one clean English-language Soca, Reggae or Dancehall single already on Spotify, with a non-expiring tagged MP3 download link, high-resolution artist photo, social profiles, song story and mandatory rights/promotional and email-update consents.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory submission, review, playlist or podcast fee is published on the official artist workflow.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Exact Caribbean genre fit, clean English single and no-riddim rules, Spotify availability, non-expiring tagged MP3 and photo access, Google Drive permissions, artist story and socials, ownership, samples, Content ID, AI-origin disclosure, broad cross-channel promotional permission, mandatory email-marketing consent, hidden Wix anti-spam controls, privacy/retention and the final submission require human review.",
+      "notes": "Passively verified on 2026-07-19 from the official RekHeard Breakerz website and embedded artist workflow. The platform accepts one clean, club-ready, radio-friendly English-language Soca, Reggae or Dancehall single; riddim tracks are excluded and the song must already be on Spotify. The form requests artist and location details, Instagram, optional TikTok, a clean Spotify URL, a tagged non-expiring MP3 download link, a non-expiring high-resolution artist-photo link and a meaningful song story. Google Drive links must grant access to info@rekheardbreakerz.com. Mandatory consent grants permission to review, discuss, play excerpts, feature, publish, share and promote the track and submitted identity/media across podcast, video, website, playlists, social media, email and promotional platforms when selected. A separate mandatory checkbox also subscribes the artist to submission and platform email updates, with unsubscribe stated. The site reports more than 440 submissions, more than 25 countries, more than 12,000 YouTube subscribers and four currently streaming Season 1 episodes. No fee, login or visible CAPTCHA was observed, but hidden Wix controls and the final submit boundary were not exercised. No form field, Drive permission, link, consent, email or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official first-party public artist-submission form",
+        "formLocation": "https://www.rekheardbreakerz.com/",
+        "explicitPurpose": "Submit one qualifying Caribbean single for anonymous DJ review, podcast consideration and possible RekHeard Break support.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only; every link, permission, consent and submission remains manual",
+        "internationalArtistsExplicitlyAccepted": true,
+        "eligibilityNote": "The platform reports submissions from more than 25 countries, requests city and country, and operates a global DJ network."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": ["one song per submission", "Soca, Reggae or Dancehall only", "clean radio-friendly and club-ready version", "no riddim tracks", "English language", "track available on Spotify", "artist owns or controls all rights", "tagged non-expiring MP3 download link", "non-expiring high-resolution artist photo", "Instagram handle", "song story or inspiration", "mandatory rights and promotional permission", "mandatory email-update consent"],
+        "observedFields": ["artist name", "email", "city", "country", "Instagram", "optional TikTok", "genre", "clean Spotify link", "MP3 download link", "artist-photo link", "clean-version confirmation", "song story", "rights/promotional consent", "email-update consent"],
+        "rightsAndTerms": ["artist confirms all required rights and permissions", "permission covers review, discussion, excerpts, feature, publication, sharing and promotion across multiple channels if selected", "marketing email consent is mandatory in the rendered form", "Content ID and distributor conflicts require review", "AI-origin policy is not published", "privacy, retention, licence duration and withdrawal mechanics require review"],
+        "manualChecks": ["Soca/Reggae/Dancehall fit", "clean English single", "no-riddim rule", "Spotify availability", "tagged MP3 and photo links", "non-expiring access", "Drive sharing to exact address", "artist story and socials", "rights and samples", "Content ID", "AI disclosure", "promotional permission", "mandatory marketing consent", "privacy and retention", "final form"]
+      },
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": ["info@rekheardbreakerz.com"],
+        "verification": "info@rekheardbreakerz.com is first-party published, syntactically valid and exactly aligned to the official rekheardbreakerz.com domain. It is specified for Google Drive access and general platform contact, not as a replacement for the artist form. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official site reports 440+ submissions, 25+ represented countries, 12k+ YouTube subscribers, new episodes streaming and four live Season 1 podcast episodes, plus active curated playlists."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "first-party Wix embedded form",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was rendered in passive inspection. Wix anti-spam or submit-time verification remains unknown and was not tested.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": true,
+        "mandatoryMarketingConsentObserved": true,
+        "promotionalMediaConsentObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 96,
+      "pricingModel": "free/global-Caribbean/one-clean-single/Spotify-plus-download-links/mandatory-promo-and-email-consents/manual-review"
+    },
+    {
+      "name": "COOL Recordings House / Tech House / Afro House Demo Form",
+      "websiteUrl": "https://www.coolrecordings.com/",
+      "submissionUrl": "https://www.coolrecordings.com/",
+      "sourceUrl": "https://www.coolrecordings.com/",
+      "sourceType": "automation_run_502_public_research",
+      "country": "Austria / active electronic label; international artist eligibility is not explicitly stated.",
+      "language": "en",
+      "genres": ["house", "tech house", "Afro house", "electronic music", "private SoundCloud link", "Dropbox"],
+      "submissionMethod": "Official first-party A&R form requesting artist name, direct email, private SoundCloud or Dropbox link with downloads enabled, social portfolio and an A&R note. Finished full tracks only; no short snippets or unfinished work.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review, submission or release fee is visible on the official form.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "House/Tech House/Afro House fit, finished-track status, private-link access and downloads, direct contact and social portfolio, rights, samples, Content ID, AI-origin disclosure, hidden form controls, privacy/retention, post-selection terms and the final submission require human review.",
+      "notes": "Passively verified on 2026-07-19 from COOL Recordings' official public A&R form and its current Beatport catalogue. The Austrian label accepts House, Tech House and Afro House through private SoundCloud or Dropbox links only, rejects unfinished tracks and short snippets, requires downloads enabled and says it contacts fitting artists within two weeks. Visible fields request artist name, direct email, track link, social portfolio and an A&R note. No mandatory fee, login or visible CAPTCHA was observed; hidden anti-spam, consent and submit-time controls remain unknown because the form was not used. Current marketplace activity is confirmed by El Patronato, released on COOL Recordings on 5 June 2026, Banger Recipe and Disco Nect on 15 May 2026 and Midnight on 25 April 2026. No exact first-party business mailbox is published on the single-page official form, so the form remains the only stored route. No field, private link, email, payment or submission was used.",
+      "status": "needs_manual_review",
+      "authorizedRoute": {
+        "routeType": "official first-party public A&R form",
+        "formLocation": "https://www.coolrecordings.com/",
+        "explicitPurpose": "Submit finished House, Tech House or Afro House demos to COOL Recordings A&R.",
+        "permittedAutomatedScope": "discovery, passive verification, enrichment, deduplication and queueing only; every private-link and form action remains manual",
+        "internationalArtistsExplicitlyAccepted": false,
+        "eligibilityNote": "The label is based in Austria and publishes no geographic restriction, but international eligibility is not explicitly guaranteed."
+      },
+      "submissionRequirements": {
+        "publishedRequirements": ["House, Tech House or Afro House", "private SoundCloud or Dropbox link", "downloads enabled", "finished full track", "no short snippet", "artist name", "direct email", "social media portfolio", "A&R note"],
+        "observedFields": ["artist name", "direct email", "track link", "social media portfolio", "A&R note", "submit button"],
+        "rightsAndTerms": ["master, composition, sample and contributor authority require review", "Content ID and distributor conflicts require review", "AI-origin policy is not published", "privacy, retention, consent and post-selection contract terms are not visible on the single-page form"],
+        "manualChecks": ["House/Tech House/Afro House fit", "finished-track status", "private-link access", "downloads enabled", "direct contact", "social portfolio", "A&R note", "rights and samples", "Content ID", "AI disclosure", "privacy and retention", "post-selection terms", "final form"]
+      },
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [],
+        "verification": "No exact first-party business or demo mailbox was published in the rendered official form. The first-party form is canonical. No address was guessed or inferred, and no SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "Beatport lists COOL Recordings releases El Patronato dated 5 June 2026, Banger Recipe and Disco Nect dated 15 May 2026 and Midnight dated 25 April 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "first-party single-page form",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed. Hidden anti-spam or submit-time verification remains unknown and was not tested.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 89,
+      "pricingModel": "free/house-tech-house-Afro-house/private-links/finished-tracks/no-visible-login-or-payment/manual-review"
+    }
+  ]
+}
