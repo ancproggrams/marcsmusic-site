@@ -1,0 +1,181 @@
+{
+  "run": 504,
+  "date": "2026-07-19",
+  "pipelineEstimateBefore": 1856,
+  "pipelineEstimate": 1859,
+  "newPlatforms": [
+    {
+      "name": "UKF / Pilot Bass Music Demo Inbox",
+      "websiteUrl": "https://ukf.com/",
+      "submissionUrl": "https://form.jotform.com/241682584698373",
+      "sourceUrl": "https://ukf.com/submit-your-demo/",
+      "sourceType": "automation_run_504_public_research",
+      "country": "United Kingdom / global bass-music platform and labels; the public route does not publish a geographic exclusion.",
+      "language": "en",
+      "genres": [
+        "drum and bass",
+        "dubstep",
+        "bass music",
+        "trap",
+        "bass house",
+        "electro house",
+        "chillout",
+        "wave",
+        "UKF",
+        "Pilot",
+        "private SoundCloud link"
+      ],
+      "submissionMethod": "Official UKF page embeds and links to a Jotform demo inbox for possible UKF/Pilot release or UKF channel upload. Submit a private SoundCloud link, choose upload versus unsigned label release, identify premiere status, genre, artist, socials, release/label context, rights-cleared destination and press information.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory submission, review or release fee is published. The form asks whether an existing release is free or paid, which is release metadata rather than a submission charge.",
+      "loginRequired": false,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "UKF-versus-Pilot and upload-versus-release fit, unsigned or label-authorized status, premiere/exclusivity, private SoundCloud access, rights and samples, selected channel, release date, press material, broad UKF user-content terms, optional newsletter consent, Jotform honeypot/hidden controls, privacy/retention, Content ID, AI-origin disclosure and the final form require human and legal review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [
+          "orders@ukf.com",
+          "dpo@aei.co.uk"
+        ],
+        "verification": "orders@ukf.com is first-party published for store/customer support and dpo@aei.co.uk is the official privacy contact. Neither is authorized for music submissions, and UKF explicitly says demos must not be sent to its support address. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "UKF's official release catalogue lists T & Sugah — The Rush dated 15 July 2026 and Pilot release YAANO — 4NOW4EVER dated 9 July 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "Jotform",
+        "directUploadObserved": true,
+        "streamOrDownloadLinkObserved": true,
+        "loginObserved": false,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed. A visible 'Should be Empty' honeypot field and possible submit-time Jotform verification were not touched or tested.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": false,
+        "optionalMarketingConsentObserved": true,
+        "honeypotObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 99,
+      "pricingModel": "free-first/global-bass/Jotform/private-SoundCloud/upload-or-release/broad-terms/honeypot/manual-review"
+    },
+    {
+      "name": "V Recordings / Liquid V / Chronic / Philly Blunt Demo Box",
+      "websiteUrl": "https://www.vrecordings.com/",
+      "submissionUrl": "https://www.vrecordings.com/content/demos",
+      "sourceUrl": "https://www.vrecordings.com/content/demos",
+      "sourceType": "automation_run_504_public_research",
+      "country": "United Kingdom / London drum-and-bass label group; international eligibility is not explicitly guaranteed.",
+      "language": "en",
+      "genres": [
+        "drum and bass",
+        "jungle",
+        "liquid drum and bass",
+        "V Recordings",
+        "Liquid V",
+        "Chronic",
+        "Philly Blunt"
+      ],
+      "submissionMethod": "Official first-party demo page with an embedded submission box for release consideration across V Recordings, Liquid V, Chronic and Philly Blunt. The embedded form fields are not exposed in passive extraction.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory demo-review or submission fee is published on the official demo page.",
+      "loginRequired": true,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "Imprint and drum-and-bass fit, account/session status, embedded-form fields, file or link requirements, unreleased status, rights and samples, Content ID, AI-origin disclosure, Databeats terms/privacy, optional marketing consent, hidden anti-spam controls, post-selection contract and the final form require human review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [
+          "support@databeats.com"
+        ],
+        "verification": "support@databeats.com is first-party published in the current Databeats-powered V Recordings terms and privacy policy for platform, privacy and customer support. It is not authorized for demos. No public demo mailbox was identified and no address was guessed. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official Planet V feed published V Podcast 178 on 8 May 2026 and multiple V Recordings tracks on 14 April 2026; the first-party store also displays an active current catalogue."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "Databeats embedded form",
+        "directUploadObserved": false,
+        "streamOrDownloadLinkObserved": false,
+        "loginObserved": true,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed. The embedded demo box, account/session controls and submit-time anti-spam checks were not exercised.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": true,
+        "optionalMarketingConsentObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 96,
+      "pricingModel": "free-first/drum-and-bass/multi-imprint/embedded-Databeats/login-session-boundary/manual-review"
+    },
+    {
+      "name": "Future House Music Trackstack / Discord Demo Drop",
+      "websiteUrl": "https://futurehousemusic.com/",
+      "submissionUrl": "https://tstack.app/futurehousemusic",
+      "sourceUrl": "https://futurehousemusic.com/contact/",
+      "sourceType": "automation_run_504_public_research",
+      "country": "Netherlands / globally oriented house-music label and community; international eligibility is not explicitly guaranteed.",
+      "language": "en",
+      "genres": [
+        "house",
+        "future house",
+        "bass house",
+        "melodic house and techno",
+        "progressive house",
+        "electro house",
+        "tech house",
+        "up to five tracks"
+      ],
+      "submissionMethod": "Official Future House Music site links to a Trackstack demo inbox accepting up to five MP3/WAV tracks and also to its Discord community for recurring demo drops and feedback sessions.",
+      "feeRequired": false,
+      "feeAmount": "No mandatory fee is visible on the public Trackstack landing page or official Future House Music demo link. Any Trackstack plan, feature or later commercial option must be reviewed manually.",
+      "loginRequired": true,
+      "captchaDetected": false,
+      "paymentRequired": false,
+      "manualReviewRequired": true,
+      "manualReviewReason": "House subgenre and catalogue fit, up-to-five-track selection, MP3/WAV files, Trackstack or Discord account/session, current inbox availability, external-platform terms, rights and samples, Content ID, AI-origin disclosure, privacy/retention, optional paid features, post-selection contract and the final upload require human review.",
+      "status": "needs_manual_review",
+      "businessContact": {
+        "submissionEmails": [],
+        "generalEmails": [
+          "info@futurehousemusic.net"
+        ],
+        "verification": "info@futurehousemusic.net is published in the official Future House Music privacy policy as a general/privacy contact. It is a different first-party domain from the current .com website and is not authorized as a demo route. No public demo mailbox was identified. No SMTP, MX, catch-all, mailbox-level or deliverability probing was performed."
+      },
+      "activityVerification": {
+        "verified": true,
+        "checkedOn": "2026-07-19",
+        "evidence": "The official Future House Music site currently promotes 22Bullets & Bruno Martini — Cobra as FHM439; Beatport lists its release date as 10 July 2026."
+      },
+      "formBoundary": {
+        "publicSubmissionFormIdentified": true,
+        "externalProvider": "Trackstack and Discord",
+        "directUploadObserved": true,
+        "streamOrDownloadLinkObserved": false,
+        "loginObserved": true,
+        "captchaObserved": false,
+        "captchaStatus": "No visible CAPTCHA was passively confirmed. Trackstack/Discord account, JavaScript, anti-spam and submit-time verification were not exercised.",
+        "paymentObserved": false,
+        "mandatoryTermsAcceptanceObserved": true,
+        "optionalPaidFeatureBoundaryObserved": true,
+        "scheduleOrCapacityGateObserved": true,
+        "externalFormInspectionIncomplete": true,
+        "manualRecheckRequired": true
+      },
+      "priority": 95,
+      "pricingModel": "free-first/house/Trackstack/Discord/up-to-five-files/login-session-availability/manual-review"
+    }
+  ]
+}
