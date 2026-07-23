@@ -167,6 +167,59 @@ test("a payment ID bound to more than one booking is rejected as ambiguous", () 
   );
 });
 
+test("support offers €5, €10, €15 and a custom amount field", async () => {
+  const html = await readFile(join(process.cwd(), "index.html"), "utf8");
+  assert.match(html, /name="support-amount" value="5"/);
+  assert.match(html, /name="support-amount" value="10"/);
+  assert.match(html, /name="support-amount" value="15"/);
+  assert.match(html, /name="custom-amount"[^>]*aria-label="Eigen bedrag"/);
+  assert.match(html, /class="support-submit" type="submit">[\s\S]*?Support/);
+});
+
+test("support creates a bound Mollie payment and a paid webhook completes it without booking side effects", async (t) => {
+  const fixture = await integrationFixture(t);
+  const createResponse = await fetch(`${fixture.baseUrl}/api/support/create`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ amount: "10" })
+  });
+  assert.equal(createResponse.status, 201);
+  const created = await createResponse.json();
+  assert.equal(created.checkoutUrl, "https://checkout.example.test/support");
+  let db = await fixture.readDb();
+  assert.equal(db.supports.length, 1);
+  assert.equal(db.supports[0].amountCents, 1000);
+  assert.equal(db.supports[0].status, "pending_payment");
+  assert.equal(db.payments.find((entry) => entry.supportId === created.supportId).amountCents, 1000);
+  fixture.state.payment = {
+    id: "tr_supportpayment12",
+    status: "paid",
+    mode: "test",
+    profileId: PROFILE_ID,
+    amount: { currency: "EUR", value: "10.00" },
+    metadata: { supportId: created.supportId, purpose: "artist_support" }
+  };
+  assert.equal((await postWebhook(fixture.baseUrl, "tr_supportpayment12")).status, 200);
+  db = await fixture.readDb();
+  assert.equal(db.supports[0].status, "paid");
+  assert.equal(db.bookings[0].status, "pending_payment");
+  assert.equal(fixture.state.counts.calendarPut, 0);
+  assert.equal(fixture.state.counts.crm, 0);
+});
+
+test("support rejects malformed, too small, and excessive custom amounts before Mollie I/O", async (t) => {
+  const fixture = await integrationFixture(t);
+  for (const amount of ["", "0.99", "500.01", "5abc"]) {
+    const response = await fetch(`${fixture.baseUrl}/api/support/create`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ amount })
+    });
+    assert.equal(response.status, 400, amount);
+  }
+  assert.equal(fixture.state.counts.molliePost, 0);
+});
+
 async function integrationFixture(t, options = {}) {
   const directory = await mkdtemp(join(tmpdir(), "marcsmusic-booking-integrity-"));
   const upstream = await startUpstream(options);
@@ -246,7 +299,7 @@ async function integrationFixture(t, options = {}) {
 }
 
 async function startUpstream(options) {
-  const counts = { mollieGet: 0, crm: 0, calendarReport: 0, calendarPut: 0, calendarGet: 0 };
+  const counts = { mollieGet: 0, molliePost: 0, crm: 0, calendarReport: 0, calendarPut: 0, calendarGet: 0 };
   const state = {
     counts,
     payment: validMolliePayment(),
@@ -258,6 +311,20 @@ async function startUpstream(options) {
   const server = createServer(async (request, response) => {
     const url = new URL(request.url || "/", "http://127.0.0.1");
     try {
+      if (request.method === "POST" && url.pathname === "/v2/payments") {
+        counts.molliePost += 1;
+        const input = JSON.parse(await readRequestBody(request));
+        state.payment = {
+          id: "tr_supportpayment12",
+          status: "open",
+          mode: "test",
+          profileId: PROFILE_ID,
+          amount: input.amount,
+          metadata: input.metadata,
+          _links: { checkout: { href: "https://checkout.example.test/support" } }
+        };
+        return sendJson(response, 201, state.payment);
+      }
       if (request.method === "GET" && url.pathname.startsWith("/v2/payments/")) {
         counts.mollieGet += 1;
         return sendJson(response, 200, state.payment);

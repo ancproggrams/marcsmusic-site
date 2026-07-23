@@ -167,6 +167,80 @@ export function validateCreatedMolliePayment(payment, booking, configured = {}) 
   );
 }
 
+export function resolveBoundSupportPayment(db, rawPaymentId) {
+  const paymentId = requireMolliePaymentId(rawPaymentId);
+  const paymentEntries = db.payments.filter((entry) => entry?.molliePaymentId === paymentId);
+  if (paymentEntries.length !== 1) {
+    throw new MollieIntegrityError(
+      paymentEntries.length === 0 ? "MOLLIE_PAYMENT_UNBOUND" : "MOLLIE_PAYMENT_BINDING_AMBIGUOUS"
+    );
+  }
+  const paymentEntry = paymentEntries[0];
+  const supports = (db.supports || []).filter((entry) => entry?.molliePaymentId === paymentId);
+  if (supports.length !== 1 || supports[0]?.id !== paymentEntry.supportId) {
+    throw new MollieIntegrityError("MOLLIE_SUPPORT_BINDING_MISSING");
+  }
+  const support = supports[0];
+  if (!Number.isSafeInteger(support.amountCents) || support.amountCents < 100) {
+    throw new MollieIntegrityError("MOLLIE_SUPPORT_AMOUNT_INVALID");
+  }
+  if (!Number.isSafeInteger(paymentEntry.amountCents) || paymentEntry.amountCents !== support.amountCents) {
+    throw new MollieIntegrityError("MOLLIE_STORED_AMOUNT_MISMATCH");
+  }
+  if (support.currency !== "EUR" || paymentEntry.currency !== "EUR") {
+    throw new MollieIntegrityError("MOLLIE_STORED_CURRENCY_MISMATCH");
+  }
+  requireMollieProfileId(paymentEntry.profileId);
+  if (!new Set(["test", "live"]).has(paymentEntry.mode)) {
+    throw new MollieIntegrityError("MOLLIE_STORED_MODE_INVALID");
+  }
+  return {
+    paymentId,
+    support,
+    paymentEntry,
+    expected: {
+      paymentId,
+      supportId: support.id,
+      amountCents: support.amountCents,
+      currency: "EUR",
+      profileId: paymentEntry.profileId,
+      mode: paymentEntry.mode
+    }
+  };
+}
+
+export function validateSupportMolliePayment(payment, expected, configured = {}) {
+  const supportId = payment?.metadata?.supportId;
+  if (typeof supportId !== "string" || supportId !== expected.supportId) {
+    throw new MollieIntegrityError("MOLLIE_METADATA_SUPPORT_MISMATCH");
+  }
+  const compatiblePayment = { ...payment, metadata: { ...payment.metadata, bookingId: supportId } };
+  const verified = validateMolliePayment(
+    compatiblePayment,
+    { ...expected, bookingId: supportId },
+    configured
+  );
+  return { ...verified, supportId };
+}
+
+export function validateCreatedSupportMolliePayment(payment, support, configured = {}) {
+  const paymentId = requireMolliePaymentId(payment?.id);
+  const profileId = requireMollieProfileId(payment?.profileId);
+  const mode = resolveMollieMode(configured.apiKey, configured.mode);
+  return validateSupportMolliePayment(
+    payment,
+    {
+      paymentId,
+      supportId: support.id,
+      amountCents: support.amountCents,
+      currency: "EUR",
+      profileId,
+      mode
+    },
+    { profileId: configured.profileId, mode }
+  );
+}
+
 export function requireCheckoutUrl(value) {
   let url;
   try {

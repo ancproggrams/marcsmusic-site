@@ -11,8 +11,11 @@ import {
   requireCheckoutUrl,
   requireMollieProfileId,
   resolveBoundMolliePayment,
+  resolveBoundSupportPayment,
   resolveMollieMode,
   validateCreatedMolliePayment,
+  validateCreatedSupportMolliePayment,
+  validateSupportMolliePayment,
   validateMolliePayment
 } from "./src/booking/mollie-policy.mjs";
 import {
@@ -245,7 +248,7 @@ async function ensureDbFile() {
   await mkdir(dirname(bookingDbPath), { recursive: true });
   await writeFile(
     bookingDbPath,
-    JSON.stringify({ bookings: [], payments: [], newsletterSubscriptions: [], trackPlayCounts: defaultTrackPlayCounts(), audit: [] }, null, 2),
+    JSON.stringify({ bookings: [], supports: [], payments: [], newsletterSubscriptions: [], trackPlayCounts: defaultTrackPlayCounts(), audit: [] }, null, 2),
     "utf8"
   );
 }
@@ -256,6 +259,7 @@ async function readDb() {
   const parsed = JSON.parse(raw);
   return {
     bookings: Array.isArray(parsed.bookings) ? parsed.bookings : [],
+    supports: Array.isArray(parsed.supports) ? parsed.supports : [],
     payments: Array.isArray(parsed.payments) ? parsed.payments : [],
     newsletterSubscriptions: Array.isArray(parsed.newsletterSubscriptions) ? parsed.newsletterSubscriptions : [],
     trackPlayCounts: normalizeTrackPlayCounts(parsed.trackPlayCounts),
@@ -547,6 +551,7 @@ async function handleApi(request, response, url) {
       url.pathname.startsWith("/api/booking") ||
       url.pathname.startsWith("/api/newsletter") ||
       url.pathname.startsWith("/api/tracks") ||
+      url.pathname.startsWith("/api/support") ||
       url.pathname === "/api/webhooks/mollie"
     ) &&
     !enforceRateLimit(request, response)
@@ -602,6 +607,29 @@ async function handleApi(request, response, url) {
   if (request.method === "POST" && url.pathname === "/api/tracks/plays") {
     const result = await recordTrackPlay(await readJsonBody(request));
     sendJson(response, 200, result);
+    return;
+  }
+
+  if (request.method === "POST" && url.pathname === "/api/support/create") {
+    const result = await createSupportPayment(await readJsonBody(request));
+    sendJson(response, 201, result);
+    return;
+  }
+
+  if (request.method === "GET" && url.pathname === "/api/support/status") {
+    const supportId = url.searchParams.get("id") || "";
+    const db = await readDb();
+    const support = db.supports.find((entry) => entry.id === supportId);
+    if (!support) {
+      sendJson(response, 404, { error: "Supportbetaling niet gevonden." });
+      return;
+    }
+    sendJson(response, 200, {
+      id: support.id,
+      status: support.status,
+      amountCents: support.amountCents,
+      currency: support.currency
+    });
     return;
   }
 
@@ -1131,6 +1159,104 @@ async function createMolliePayment(booking) {
   };
 }
 
+function normalizeSupportAmount(value) {
+  const raw = String(value ?? "").replace(",", ".").trim();
+  if (!/^\d+(?:\.\d{1,2})?$/.test(raw)) {
+    throw Object.assign(new Error("Kies €5, €10, €15 of vul een geldig bedrag in."), { statusCode: 400 });
+  }
+  const amountCents = Math.round(Number(raw) * 100);
+  if (!Number.isSafeInteger(amountCents) || amountCents < 100 || amountCents > 50_000) {
+    throw Object.assign(new Error("Het supportbedrag moet tussen €1 en €500 liggen."), { statusCode: 400 });
+  }
+  return amountCents;
+}
+
+async function createSupportPayment(input) {
+  if (!isMollieConfigured()) {
+    throw Object.assign(new Error("Mollie is nog niet geconfigureerd."), { statusCode: 503 });
+  }
+  const amountCents = normalizeSupportAmount(input.amount);
+  const support = {
+    id: randomUUID(),
+    status: "pending_payment",
+    amountCents,
+    currency: "EUR",
+    molliePaymentId: null,
+    checkoutUrl: null,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  };
+  await withDb(async (db) => {
+    db.supports ||= [];
+    db.supports.unshift(support);
+    audit(db, "support.created", { supportId: support.id, amountCents });
+  });
+  try {
+    const config = getMollieIntegrityConfig();
+    const response = await boundedFetch(`${mollieApiBaseUrl}/v2/payments`, {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${process.env.MOLLIE_API_KEY}`,
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        amount: { currency: "EUR", value: centsToMollieValue(amountCents) },
+        description: "Support MarcsMusic",
+        redirectUrl: `${appBaseUrl}/?support=${encodeURIComponent(support.id)}#support`,
+        cancelUrl: `${appBaseUrl}/?support=${encodeURIComponent(support.id)}#support`,
+        webhookUrl: `${appBaseUrl}/api/webhooks/mollie`,
+        metadata: { supportId: support.id, purpose: "artist_support" }
+      })
+    }, {
+      timeoutMs: mollieHttpTimeoutMs,
+      maxResponseBytes: 256 * 1024
+    });
+    const payload = parseBoundedJson(response, "MOLLIE_RESPONSE_INVALID_JSON");
+    if (!response.ok) {
+      throw Object.assign(new Error("MOLLIE_PAYMENT_CREATE_REJECTED"), {
+        code: "MOLLIE_PAYMENT_CREATE_REJECTED",
+        statusCode: response.status >= 500 || response.status === 429 ? 502 : 409
+      });
+    }
+    const verified = validateCreatedSupportMolliePayment(payload, support, {
+      apiKey: process.env.MOLLIE_API_KEY,
+      profileId: config.profileId,
+      mode: config.mode
+    });
+    const checkoutUrl = requireCheckoutUrl(payload?._links?.checkout?.href);
+    await withDb(async (db) => {
+      const current = db.supports.find((entry) => entry.id === support.id);
+      current.molliePaymentId = verified.id;
+      current.checkoutUrl = checkoutUrl;
+      current.updatedAt = new Date().toISOString();
+      db.payments.unshift({
+        id: randomUUID(),
+        supportId: support.id,
+        molliePaymentId: verified.id,
+        status: verified.status,
+        amountCents,
+        currency: verified.currency,
+        profileId: verified.profileId,
+        mode: verified.mode,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      });
+      audit(db, "mollie.support_payment_created", { supportId: support.id, molliePaymentId: verified.id });
+    });
+    return { supportId: support.id, status: "pending_payment", checkoutUrl };
+  } catch (error) {
+    await withDb(async (db) => {
+      const current = db.supports.find((entry) => entry.id === support.id);
+      if (current) {
+        current.status = "setup_failed";
+        current.updatedAt = new Date().toISOString();
+      }
+      audit(db, "support.setup_failed", { supportId: support.id, error: publicErrorMessage(error) });
+    });
+    throw error;
+  }
+}
+
 async function getMolliePayment(paymentId) {
   if (!isMollieConfigured()) {
     throw Object.assign(new Error("Mollie is nog niet geconfigureerd."), { statusCode: 503 });
@@ -1158,6 +1284,15 @@ async function getMolliePayment(paymentId) {
 }
 
 async function handleMollieWebhook(payload) {
+  const initialDb = await readDb();
+  const supportPayment = initialDb.payments.find(
+    (entry) => entry?.molliePaymentId === payload?.id && entry?.supportId
+  );
+  if (supportPayment) {
+    await handleSupportMollieWebhook(payload);
+    return;
+  }
+
   let binding;
   try {
     binding = resolveBoundMolliePayment(await readDb(), payload?.id);
@@ -1228,6 +1363,27 @@ async function handleMollieWebhook(payload) {
       console.error(`CRM non-paid status sync failed: ${publicErrorMessage(error)}`);
     });
   }
+}
+
+async function handleSupportMollieWebhook(payload) {
+  const config = getMollieIntegrityConfig();
+  const binding = resolveBoundSupportPayment(await readDb(), payload?.id);
+  const payment = await getMolliePayment(binding.paymentId);
+  validateSupportMolliePayment(payment, binding.expected, config);
+  await withDb(async (db) => {
+    const current = resolveBoundSupportPayment(db, binding.paymentId);
+    const verified = validateSupportMolliePayment(payment, current.expected, config);
+    const effectiveStatus = advanceMollieStatus(current.paymentEntry.status, verified.status);
+    const now = new Date().toISOString();
+    current.paymentEntry.status = effectiveStatus;
+    current.paymentEntry.updatedAt = now;
+    current.support.status = effectiveStatus === "paid" ? "paid" : `payment_${effectiveStatus}`;
+    current.support.updatedAt = now;
+    audit(db, "mollie.support_webhook_verified", {
+      supportId: current.support.id,
+      paymentStatus: effectiveStatus
+    });
+  });
 }
 
 function getMollieIntegrityConfig() {
