@@ -435,64 +435,7 @@ function setupPlayer() {
   document.documentElement.classList.add("player-ready");
 }
 
-function setupSupport() {
-  const form = document.querySelector("[data-support-form]");
-  const status = document.querySelector("[data-support-status]");
-  if (!form || !status) return;
-  const submit = form.querySelector("[type='submit']");
-  const customAmount = form.querySelector("[name='custom-amount']");
-  const choices = [...form.querySelectorAll("[name='support-amount']")];
-  customAmount.addEventListener("input", () => {
-    if (customAmount.value.trim()) choices.forEach((choice) => { choice.checked = false; });
-  });
-  choices.forEach((choice) => {
-    choice.addEventListener("change", () => {
-      if (choice.checked) customAmount.value = "";
-    });
-  });
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const preset = form.querySelector("[name='support-amount']:checked");
-    const amount = customAmount.value.trim() || preset?.value || "";
-    submit.disabled = true;
-    submit.firstChild.textContent = "Naar Mollie… ";
-    status.textContent = "";
-    try {
-      const response = await fetch("/api/support/create", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ amount })
-      });
-      const payload = await response.json();
-      if (!response.ok) throw new Error(payload.error || "Betaling starten mislukt.");
-      window.location.assign(payload.checkoutUrl);
-    } catch (error) {
-      status.textContent = error.message || "Betaling starten mislukt. Probeer het opnieuw.";
-      submit.disabled = false;
-      submit.firstChild.textContent = "Support ";
-    }
-  });
-  const supportId = new URLSearchParams(window.location.search).get("support");
-  if (!supportId) return;
-  status.textContent = "Betaling controleren…";
-  void fetch(`/api/support/status?id=${encodeURIComponent(supportId)}`, {
-    headers: { accept: "application/json" },
-    cache: "no-store"
-  })
-    .then(async (response) => {
-      const payload = await response.json();
-      if (!response.ok) throw new Error(payload.error);
-      status.textContent = payload.status === "paid"
-        ? "Dank je wel voor je support! 💛"
-        : "Je betaling wordt nog verwerkt. Ververs deze pagina over een moment.";
-    })
-    .catch(() => {
-      status.textContent = "De betaalstatus kon niet worden opgehaald.";
-    });
-}
-
 if (typeof window !== "undefined" && typeof document !== "undefined") {
   setupReveals();
   setupPlayer();
-  setupSupport();
 }

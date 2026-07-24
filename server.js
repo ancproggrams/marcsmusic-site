@@ -551,7 +551,6 @@ async function handleApi(request, response, url) {
       url.pathname.startsWith("/api/booking") ||
       url.pathname.startsWith("/api/newsletter") ||
       url.pathname.startsWith("/api/tracks") ||
-      url.pathname.startsWith("/api/support") ||
       url.pathname === "/api/webhooks/mollie"
     ) &&
     !enforceRateLimit(request, response)
@@ -607,29 +606,6 @@ async function handleApi(request, response, url) {
   if (request.method === "POST" && url.pathname === "/api/tracks/plays") {
     const result = await recordTrackPlay(await readJsonBody(request));
     sendJson(response, 200, result);
-    return;
-  }
-
-  if (request.method === "POST" && url.pathname === "/api/support/create") {
-    const result = await createSupportPayment(await readJsonBody(request));
-    sendJson(response, 201, result);
-    return;
-  }
-
-  if (request.method === "GET" && url.pathname === "/api/support/status") {
-    const supportId = url.searchParams.get("id") || "";
-    const db = await readDb();
-    const support = db.supports.find((entry) => entry.id === supportId);
-    if (!support) {
-      sendJson(response, 404, { error: "Supportbetaling niet gevonden." });
-      return;
-    }
-    sendJson(response, 200, {
-      id: support.id,
-      status: support.status,
-      amountCents: support.amountCents,
-      currency: support.currency
-    });
     return;
   }
 
