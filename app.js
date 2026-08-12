@@ -4,6 +4,15 @@ if (typeof document !== "undefined") {
 
 export const TRACKS = Object.freeze([
   {
+    slug: "man-den-man",
+    title: "Man den Man",
+    audio: "/soundcloud-growth-os/outreach-mp3/09%20Man%20Den%20Man/Man%20den%20Man%20(Remastered).mp3",
+    cover: "assets/covers/man-den-man.svg",
+    coverType: "image/svg+xml",
+    coverSize: "600x600",
+    duration: 262.84
+  },
+  {
     slug: "curacao-radio-edit",
     title: "Curaçao (Radio Edit)",
     audio: "/soundcloud-growth-os/outreach-mp3/07%20Curacao/Curacao%20Radio%20Edit.mp3",

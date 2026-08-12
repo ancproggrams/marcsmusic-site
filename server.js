@@ -136,7 +136,8 @@ const publicTrackIds = new Set([
   "strijd",
   "geen-afscheid",
   "weekend-mode",
-  "summer-time"
+  "summer-time",
+  "man-den-man"
 ]);
 
 const bookingTypes = [
