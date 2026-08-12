@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#141414"/>
+  <circle cx="300" cy="270" r="205" fill="none" stroke="#d9b36c" stroke-width="16"/>
+  <path d="M95 375 300 105l205 270-205 120z" fill="#f0ece2"/>
+  <path d="M190 410 300 245l110 165-110 65z" fill="#b22f2f"/>
+  <text x="300" y="525" fill="#f0ece2" font-family="Arial,sans-serif" font-size="58" font-weight="900" text-anchor="middle">MAN DEN MAN</text>
+  <text x="300" y="562" fill="#d9b36c" font-family="Arial,sans-serif" font-size="20" letter-spacing="8" text-anchor="middle">MARCSMUSIC</text>
+</svg>

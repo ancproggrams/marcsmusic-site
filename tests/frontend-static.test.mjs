@@ -26,10 +26,10 @@ test("the production server explicitly serves the new root assets and font MIME 
   assert.match(serverSource, /"\.ttf": "font\/ttf"/);
 });
 
-test("the player reuses the seven existing production MP3 files", async () => {
+test("the player serves all eight production MP3 files", async () => {
   const audioPaths = [...appSource.matchAll(/audio: "([^"]+)"/g)].map((match) => match[1]);
-  assert.equal(audioPaths.length, 7);
-  assert.equal(new Set(audioPaths).size, 7);
+  assert.equal(audioPaths.length, 8);
+  assert.equal(new Set(audioPaths).size, 8);
 
   for (const audioPath of audioPaths) {
     assert.match(audioPath, /^\/soundcloud-growth-os\/outreach-mp3\//);
@@ -37,10 +37,10 @@ test("the player reuses the seven existing production MP3 files", async () => {
   }
 });
 
-test("all active raster covers, portrait, logo and font exist", async () => {
+test("all active covers, portrait, logo and font exist", async () => {
   const combinedSource = [indexHtml, bookingHtml, appSource].join("\n");
   const assetPaths = new Set(
-    [...combinedSource.matchAll(/assets\/[a-z0-9_./-]+\.(?:jpg|png|ttf)/gi)].map((match) => match[0])
+    [...combinedSource.matchAll(/assets\/[a-z0-9_./-]+\.(?:jpg|png|svg|ttf)/gi)].map((match) => match[0])
   );
   assert.ok(assetPaths.size >= 10);
 

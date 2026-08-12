@@ -9,7 +9,7 @@
     <title>MarcsMusic — Luister en lees het verhaal</title>
     <link rel="icon" href="assets/covers/curacao.png" type="image/png">
     <link rel="preload" href="assets/fonts/roboto-flex.ttf" as="font" type="font/ttf" crossorigin>
-    <link rel="preload" href="assets/covers/curacao.png" as="image" type="image/png">
+    <link rel="preload" href="assets/covers/man-den-man.svg" as="image" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="app.js"></script>
   </head>
@@ -34,7 +34,7 @@
         <div class="hero-intro" data-reveal>
           <p class="eyebrow">Muziek van Marc</p>
           <h1 id="hero-title">Dit ben ik, maar dan in muziek.</h1>
-          <p class="hero-lead">Zeven tracks, één verhaal. Kies een nummer en luister direct.</p>
+          <p class="hero-lead">Acht tracks, één verhaal. Kies een nummer en luister direct.</p>
         </div>
 
         <div class="player-shell" data-player data-reveal>
@@ -45,9 +45,9 @@
             <img
               class="cover-art"
               data-cover
-              src="assets/covers/curacao.png"
-              width="1400"
-              height="1400"
+              src="assets/covers/man-den-man.svg"
+              width="600"
+              height="600"
               alt=""
             >
             <span class="artwork-mark">MM</span>
@@ -57,8 +57,8 @@
             <div class="now-playing">
               <div>
                 <p class="player-eyebrow">Nu geselecteerd</p>
-                <h2 data-track-title>Curaçao (Radio Edit)</h2>
-                <p class="track-meta" data-track-meta>MarcsMusic · track 1 van 7</p>
+                <h2 data-track-title>Man den Man</h2>
+                <p class="track-meta" data-track-meta>MarcsMusic · track 1 van 8</p>
               </div>
               <span class="sound-status" aria-hidden="true">
                 <i></i><i></i><i></i><i></i>
@@ -66,7 +66,7 @@
             </div>
 
             <audio class="native-audio" data-audio controls preload="metadata">
-              <source src="/soundcloud-growth-os/outreach-mp3/07%20Curacao/Curacao%20Radio%20Edit.mp3" type="audio/mpeg">
+              <source src="/soundcloud-growth-os/outreach-mp3/09%20Man%20Den%20Man/Man%20den%20Man%20(Remastered).mp3" type="audio/mpeg">
               Je browser ondersteunt deze audiospeler niet.
             </audio>
 
@@ -76,7 +76,7 @@
                   <path d="M6 5h2v14H6zm3.5 7L18 5v14z"></path>
                 </svg>
               </button>
-              <button class="play-button" type="button" data-play aria-label="Curaçao (Radio Edit) afspelen">
+              <button class="play-button" type="button" data-play aria-label="Man den Man afspelen">
                 <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path d="M8 5v14l11-7z"></path>
                 </svg>
@@ -99,12 +99,12 @@
                 data-progress
                 type="range"
                 min="0"
-                max="140.88"
+                max="262.84"
                 value="0"
                 step="0.1"
                 aria-label="Positie in de track"
               >
-              <output data-duration for="track-progress">2:21</output>
+              <output data-duration for="track-progress">4:22</output>
             </div>
 
             <div class="player-utilities">
@@ -133,12 +133,22 @@
             <div class="playlist-block">
               <div class="playlist-heading">
                 <h3>Alle tracks</h3>
-                <span>7 nummers</span>
+                <span>8 nummers</span>
               </div>
               <ol class="playlist" data-playlist>
                 <li>
-                  <button class="track-button" type="button" data-track-index="0" aria-current="true" aria-label="Curaçao (Radio Edit) afspelen">
+                  <button class="track-button" type="button" data-track-index="0" aria-current="true" aria-label="Man den Man afspelen">
                     <span class="track-number">01</span>
+                    <span class="track-copy">
+                      <span class="track-name">Man den Man</span>
+                      <span class="track-plays" data-row-plays="man-den-man">0 keer beluisterd</span>
+                    </span>
+                    <time datetime="PT4M22S">4:22</time>
+                  </button>
+                </li>
+                <li>
+                  <button class="track-button" type="button" data-track-index="1" aria-label="Curaçao (Radio Edit) afspelen">
+                    <span class="track-number">02</span>
                     <span class="track-copy">
                       <span class="track-name">Curaçao (Radio Edit)</span>
                       <span class="track-plays" data-row-plays="curacao-radio-edit">0 keer beluisterd</span>
@@ -147,8 +157,8 @@
                   </button>
                 </li>
                 <li>
-                  <button class="track-button" type="button" data-track-index="1" aria-label="Carnival afspelen">
-                    <span class="track-number">02</span>
+                  <button class="track-button" type="button" data-track-index="2" aria-label="Carnival afspelen">
+                    <span class="track-number">03</span>
                     <span class="track-copy">
                       <span class="track-name">Carnival</span>
                       <span class="track-plays" data-row-plays="carnival">0 keer beluisterd</span>
@@ -157,8 +167,8 @@
                   </button>
                 </li>
                 <li>
-                  <button class="track-button" type="button" data-track-index="2" aria-label="Door de Storm afspelen">
-                    <span class="track-number">03</span>
+                  <button class="track-button" type="button" data-track-index="3" aria-label="Door de Storm afspelen">
+                    <span class="track-number">04</span>
                     <span class="track-copy">
                       <span class="track-name">Door de Storm</span>
                       <span class="track-plays" data-row-plays="door-de-storm">0 keer beluisterd</span>
@@ -167,8 +177,8 @@
                   </button>
                 </li>
                 <li>
-                  <button class="track-button" type="button" data-track-index="3" aria-label="Strijd afspelen">
-                    <span class="track-number">04</span>
+                  <button class="track-button" type="button" data-track-index="4" aria-label="Strijd afspelen">
+                    <span class="track-number">05</span>
                     <span class="track-copy">
                       <span class="track-name">Strijd</span>
                       <span class="track-plays" data-row-plays="strijd">0 keer beluisterd</span>
@@ -177,8 +187,8 @@
                   </button>
                 </li>
                 <li>
-                  <button class="track-button" type="button" data-track-index="4" aria-label="Geen Afscheid afspelen">
-                    <span class="track-number">05</span>
+                  <button class="track-button" type="button" data-track-index="5" aria-label="Geen Afscheid afspelen">
+                    <span class="track-number">06</span>
                     <span class="track-copy">
                       <span class="track-name">Geen Afscheid</span>
                       <span class="track-plays" data-row-plays="geen-afscheid">0 keer beluisterd</span>
@@ -187,8 +197,8 @@
                   </button>
                 </li>
                 <li>
-                  <button class="track-button" type="button" data-track-index="5" aria-label="Weekend Mode afspelen">
-                    <span class="track-number">06</span>
+                  <button class="track-button" type="button" data-track-index="6" aria-label="Weekend Mode afspelen">
+                    <span class="track-number">07</span>
                     <span class="track-copy">
                       <span class="track-name">Weekend Mode</span>
                       <span class="track-plays" data-row-plays="weekend-mode">0 keer beluisterd</span>
@@ -197,8 +207,8 @@
                   </button>
                 </li>
                 <li>
-                  <button class="track-button" type="button" data-track-index="6" aria-label="Summer Time afspelen">
-                    <span class="track-number">07</span>
+                  <button class="track-button" type="button" data-track-index="7" aria-label="Summer Time afspelen">
+                    <span class="track-number">08</span>
                     <span class="track-copy">
                       <span class="track-name">Summer Time</span>
                       <span class="track-plays" data-row-plays="summer-time">0 keer beluisterd</span>
