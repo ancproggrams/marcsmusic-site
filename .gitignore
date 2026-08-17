@@ -104,8 +104,11 @@ deploy/dj-source-crawler/**/*.py[cod]
 !deploy/radicale/config
 !deploy/radicale/requirements.txt
 !deploy/radicale/start.py
+!deploy/radicale/runtime.py
+!deploy/radicale/pyproject.toml
 !deploy/radicale/railway.json
 !deploy/radicale/users.example
+!deploy/radicale/test_runtime.py
 !deploy/radicale/README.md
 !deploy/radicale/Procfile
 !deploy/plunk/
