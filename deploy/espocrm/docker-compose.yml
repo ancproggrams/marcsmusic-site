@@ -1,17 +1,17 @@
 services:
   mariadb:
-    image: mariadb:11
+    image: mariadb:11.8.9-noble
     restart: unless-stopped
     environment:
-      MARIADB_ROOT_PASSWORD: ${ESPOCRM_DB_ROOT_PASSWORD:-change-root-password}
-      MARIADB_DATABASE: ${ESPOCRM_DB_NAME:-espocrm}
-      MARIADB_USER: ${ESPOCRM_DB_USER:-espocrm}
-      MARIADB_PASSWORD: ${ESPOCRM_DB_PASSWORD:-change-db-password}
+      MARIADB_ROOT_PASSWORD: ${ESPOCRM_DB_ROOT_PASSWORD:?ESPOCRM_DB_ROOT_PASSWORD is required}
+      MARIADB_DATABASE: ${ESPOCRM_DB_NAME:?ESPOCRM_DB_NAME is required}
+      MARIADB_USER: ${ESPOCRM_DB_USER:?ESPOCRM_DB_USER is required}
+      MARIADB_PASSWORD: ${ESPOCRM_DB_PASSWORD:?ESPOCRM_DB_PASSWORD is required}
     volumes:
       - espocrm-db:/var/lib/mysql
 
   espocrm:
-    image: espocrm/espocrm:latest
+    image: espocrm/espocrm:10.0.8-apache-trixie
     restart: unless-stopped
     depends_on:
       - mariadb
@@ -19,12 +19,12 @@ services:
       - "8080:80"
     environment:
       ESPOCRM_DATABASE_HOST: mariadb
-      ESPOCRM_DATABASE_NAME: ${ESPOCRM_DB_NAME:-espocrm}
-      ESPOCRM_DATABASE_USER: ${ESPOCRM_DB_USER:-espocrm}
-      ESPOCRM_DATABASE_PASSWORD: ${ESPOCRM_DB_PASSWORD:-change-db-password}
-      ESPOCRM_ADMIN_USERNAME: ${ESPOCRM_ADMIN_USERNAME:-admin}
-      ESPOCRM_ADMIN_PASSWORD: ${ESPOCRM_ADMIN_PASSWORD:-change-admin-password}
-      ESPOCRM_SITE_URL: ${ESPOCRM_SITE_URL:-https://crm.marcsmusic.nl}
+      ESPOCRM_DATABASE_NAME: ${ESPOCRM_DB_NAME:?ESPOCRM_DB_NAME is required}
+      ESPOCRM_DATABASE_USER: ${ESPOCRM_DB_USER:?ESPOCRM_DB_USER is required}
+      ESPOCRM_DATABASE_PASSWORD: ${ESPOCRM_DB_PASSWORD:?ESPOCRM_DB_PASSWORD is required}
+      ESPOCRM_ADMIN_USERNAME: ${ESPOCRM_ADMIN_USERNAME:?ESPOCRM_ADMIN_USERNAME is required}
+      ESPOCRM_ADMIN_PASSWORD: ${ESPOCRM_ADMIN_PASSWORD:?ESPOCRM_ADMIN_PASSWORD is required}
+      ESPOCRM_SITE_URL: ${ESPOCRM_SITE_URL:?ESPOCRM_SITE_URL is required}
     volumes:
       - espocrm-data:/var/www/html
 

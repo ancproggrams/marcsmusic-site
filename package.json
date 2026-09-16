@@ -5,9 +5,18 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "test": "node --check server.js"
+    "test": "node --check server.js && node --test test/*.test.js",
+    "test:e2e": "playwright test"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22.5"
+  },
+  "dependencies": {
+    "fast-xml-parser": "5.11.1",
+    "ical.js": "2.2.1",
+    "pg": "8.23.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
   }
 }

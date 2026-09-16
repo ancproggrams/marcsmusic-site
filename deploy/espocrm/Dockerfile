@@ -1,4 +1,4 @@
-FROM espocrm/espocrm:latest
+FROM espocrm/espocrm:10.0.8-apache-trixie
 
 COPY start-railway.sh /usr/local/bin/start-railway-espocrm
 

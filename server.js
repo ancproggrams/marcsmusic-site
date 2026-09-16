@@ -1,12 +1,20 @@
-import { createReadStream, existsSync, statSync } from "node:fs";
-import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
+import { createReadStream, existsSync, statSync, realpathSync } from "node:fs";
 import { createServer } from "node:http";
-import { createHash, randomUUID } from "node:crypto";
-import { dirname, extname, join, normalize, resolve, sep } from "node:path";
+import { createHash, randomUUID, timingSafeEqual } from "node:crypto";
+import { dirname, extname, join, resolve, sep } from "node:path";
+import { fileURLToPath } from "node:url";
+import { AsyncLocalStorage } from "node:async_hooks";
+import { fetchTransparanteBrokerAssignments, mergeAssignments } from "./lib/transparante-broker.js";
+import { openStore } from "./lib/store.js";
+import { createHttpClient } from "./lib/http-client.js";
+import { parseCalendarResponse, eventMatchesBooking } from "./lib/calendar.js";
+import { createBookingService, reservesSlot } from "./lib/booking-service.js";
+import { createRateLimiter, clientIp } from "./lib/rate-limit.js";
 
-const root = resolve(".");
-const port = Number.parseInt(process.env.PORT || "3000", 10);
-const bookingDbPath = process.env.BOOKING_DB_PATH || (process.env.RAILWAY_ENVIRONMENT ? "/data/bookings.json" : join(root, "data", "bookings.json"));
+const root = dirname(fileURLToPath(import.meta.url));
+const port = numberFromEnv("PORT", 3000);
+const legacyBookingDbPath = process.env.BOOKING_DB_PATH || (process.env.RAILWAY_ENVIRONMENT ? "/data/bookings.json" : join(root, "data", "bookings.json"));
+const bookingSqlitePath = process.env.BOOKING_SQLITE_PATH || legacyBookingDbPath.replace(/\.json$/i, ".sqlite");
 const bookingTimeZone = process.env.BOOKING_TIMEZONE || "Europe/Amsterdam";
 const pendingHoldMinutes = numberFromEnv("BOOKING_PENDING_HOLD_MINUTES", 20);
 const bookingBufferMinutes = numberFromEnv("BOOKING_BUFFER_MINUTES", 30);
@@ -18,11 +26,23 @@ const maxConsecutiveSlots = Math.max(1, numberFromEnv("BOOKING_MAX_CONSECUTIVE_S
 const travelRateCentsPerHour = Math.max(0, numberFromEnv("BOOKING_TRAVEL_RATE_CENTS_PER_HOUR", 7500));
 const maxTravelHours = Math.max(0, numberFromEnv("BOOKING_MAX_TRAVEL_HOURS", 24));
 const appBaseUrl = stripTrailingSlash(process.env.APP_BASE_URL || "https://www.marcsmusic.nl");
+const mollieApiBaseUrl = stripTrailingSlash(process.env.MOLLIE_API_BASE_URL || "https://api.mollie.com");
 const crmSource = process.env.CRM_SOURCE_WEBSITE || "marcsmusic.nl";
 const crmBookingEntity = process.env.CRM_BOOKING_ENTITY || "DJBooking";
 const crmNewsletterList = process.env.CRM_NEWSLETTER_LIST || "MarcsMusic Newsletter";
 const newsletterFromEmail = process.env.NEWSLETTER_FROM_EMAIL || "noreply@marcsmusic.nl";
 const newsletterFromName = process.env.NEWSLETTER_FROM_NAME || "MarcsMusic";
+const transparanteBrokerBaseUrl = process.env.TRANSPARANTE_BROKER_BASE_URL || "https://www.detransparantebroker.nl";
+const transparanteBrokerSyncEnabled =
+  process.env.TRANSPARANTE_BROKER_SYNC_ENABLED === "true" ||
+  (!process.env.TRANSPARANTE_BROKER_SYNC_ENABLED && Boolean(process.env.RAILWAY_ENVIRONMENT));
+const transparanteBrokerSyncIntervalMinutes = Math.max(
+  15,
+  numberFromEnv("TRANSPARANTE_BROKER_SYNC_INTERVAL_MINUTES", 60)
+);
+const auditRetentionDays = numberFromEnv("AUDIT_RETENTION_DAYS", 365);
+const completedJobRetentionDays = numberFromEnv("COMPLETED_JOB_RETENTION_DAYS", 30);
+const inactiveAssignmentRetentionDays = numberFromEnv("INACTIVE_ASSIGNMENT_RETENTION_DAYS", 180);
 
 if (process.env.RAILWAY_ENVIRONMENT && !process.env.PRIVACY_HASH_SALT) {
   throw new Error("PRIVACY_HASH_SALT must be set for Railway deployments.");
@@ -68,12 +88,13 @@ const bookingTypes = [
   }
 ];
 
-let dbQueue = Promise.resolve();
-const rateLimitBuckets = new Map();
+
 
 function numberFromEnv(name, fallback) {
-  const value = Number.parseInt(process.env[name] || "", 10);
-  return Number.isFinite(value) ? value : fallback;
+  if (!process.env[name]) return fallback;
+  const value = Number(process.env[name]);
+  if (!Number.isSafeInteger(value)) throw new Error(`${name} must be an integer`);
+  return value;
 }
 
 function stripTrailingSlash(value) {
@@ -134,94 +155,12 @@ function isCrmConfigured() {
   return Boolean(process.env.ESPOCRM_BASE_URL && process.env.ESPOCRM_API_KEY);
 }
 
-async function ensureDbFile() {
-  if (existsSync(bookingDbPath)) {
-    return;
-  }
 
-  await mkdir(dirname(bookingDbPath), { recursive: true });
-  await writeFile(
-    bookingDbPath,
-    JSON.stringify({ bookings: [], payments: [], newsletterSubscriptions: [], audit: [] }, null, 2),
-    "utf8"
-  );
-}
 
-async function readDb() {
-  await ensureDbFile();
-  const raw = await readFile(bookingDbPath, "utf8");
-  const parsed = JSON.parse(raw);
-  return {
-    bookings: Array.isArray(parsed.bookings) ? parsed.bookings : [],
-    payments: Array.isArray(parsed.payments) ? parsed.payments : [],
-    newsletterSubscriptions: Array.isArray(parsed.newsletterSubscriptions) ? parsed.newsletterSubscriptions : [],
-    audit: Array.isArray(parsed.audit) ? parsed.audit : []
-  };
-}
 
-async function writeDb(db) {
-  await mkdir(dirname(bookingDbPath), { recursive: true });
-  const tmpPath = `${bookingDbPath}.${process.pid}.tmp`;
-  await writeFile(tmpPath, JSON.stringify(db, null, 2), "utf8");
-  await rename(tmpPath, bookingDbPath);
-}
 
-function withDb(work) {
-  const next = dbQueue.then(async () => {
-    const db = await readDb();
-    expireOldPendingBookings(db);
-    const result = await work(db);
-    await writeDb(db);
-    return result;
-  });
 
-  dbQueue = next.catch(() => {});
-  return next;
-}
 
-function audit(db, action, details = {}) {
-  db.audit.unshift({
-    id: randomUUID(),
-    action,
-    at: new Date().toISOString(),
-    details
-  });
-  db.audit = db.audit.slice(0, 1000);
-}
-
-function expireOldPendingBookings(db) {
-  const now = Date.now();
-  for (const booking of db.bookings) {
-    if (booking.status === "pending_payment" && Date.parse(booking.expiresAt) <= now) {
-      booking.status = "expired";
-      booking.updatedAt = new Date().toISOString();
-      if (booking.crmBookingId) {
-        queueCrmStatusUpdate(booking, "expired");
-      }
-    }
-  }
-}
-
-function getFilePath(urlPath) {
-  const decoded = decodeURIComponent(urlPath.split("?")[0]);
-  const requested = decoded === "/" ? "/index.html" : decoded;
-  const aliases = {
-    "/booking": "/booking.html",
-    "/booking/": "/booking.html",
-    "/booking/success": "/booking.html",
-    "/booking/cancelled": "/booking.html",
-    "/admin": "/admin.html"
-  };
-  const safeRequested = aliases[requested] || requested;
-  const safePath = normalize(safeRequested).replace(/^(\.\.(\/|\\|$))+/, "");
-  const filePath = join(root, safePath);
-
-  if (!filePath.startsWith(root + sep) && filePath !== root) {
-    return null;
-  }
-
-  return filePath;
-}
 
 function sendJson(response, status, payload, extraHeaders = {}) {
   response.writeHead(status, {
@@ -269,231 +208,19 @@ async function readFormBody(request) {
   return Object.fromEntries(new URLSearchParams(body));
 }
 
-function getClientIp(request) {
-  return String(
-    request.headers["cf-connecting-ip"] ||
-      request.headers["x-forwarded-for"]?.split(",")[0]?.trim() ||
-      request.socket.remoteAddress ||
-      "unknown"
-  );
-}
 
 function hashIp(request) {
-  return createHash("sha256").update(`${getClientIp(request)}:${privacyHashSalt}`).digest("hex");
+  return createHash("sha256").update(`${clientIp(request, trustedProxies)}:${privacyHashSalt}`).digest("hex");
 }
 
-function enforceRateLimit(request, response) {
-  const key = getClientIp(request);
-  const now = Date.now();
-  const windowMs = 60 * 1000;
-  const maxRequests = 30;
-  const bucket = rateLimitBuckets.get(key) || { count: 0, resetAt: now + windowMs };
 
-  if (bucket.resetAt <= now) {
-    bucket.count = 0;
-    bucket.resetAt = now + windowMs;
-  }
 
-  bucket.count += 1;
-  rateLimitBuckets.set(key, bucket);
 
-  if (bucket.count > maxRequests) {
-    sendJson(response, 429, { error: "Te veel aanvragen. Probeer het zo opnieuw." });
-    return false;
-  }
 
-  return true;
-}
 
-async function handleApi(request, response, url) {
-  if (request.method === "GET" && url.pathname === "/api/health") {
-    sendJson(response, 200, {
-      status: "ok",
-      service: "marcsmusic-booking",
-      environment: process.env.RAILWAY_ENVIRONMENT || "production",
-      uptimeSeconds: Math.round(process.uptime()),
-      storagePath: bookingDbPath,
-      integrations: getPublicConfig().integrations
-    });
-    return;
-  }
 
-  if ((url.pathname.startsWith("/api/booking") || url.pathname.startsWith("/api/newsletter")) && !enforceRateLimit(request, response)) {
-    return;
-  }
 
-  if (request.method === "GET" && url.pathname === "/api/booking/config") {
-    sendJson(response, 200, getPublicConfig());
-    return;
-  }
 
-  if (request.method === "GET" && url.pathname === "/api/booking/availability") {
-    const availability = await getAvailability({
-      date: url.searchParams.get("date") || "",
-      bookingType: url.searchParams.get("bookingType") || ""
-    });
-    sendJson(response, 200, availability);
-    return;
-  }
-
-  if (request.method === "POST" && url.pathname === "/api/booking/create") {
-    const booking = await createBooking(await readJsonBody(request));
-    sendJson(response, 201, booking);
-    return;
-  }
-
-  if (request.method === "GET" && url.pathname === "/api/booking/status") {
-    const id = url.searchParams.get("id") || "";
-    const db = await readDb();
-    const booking = db.bookings.find((entry) => entry.id === id);
-    if (!booking) {
-      sendJson(response, 404, { error: "Booking niet gevonden." });
-      return;
-    }
-
-    sendJson(response, 200, publicBookingStatus(booking));
-    return;
-  }
-
-  if (request.method === "POST" && url.pathname === "/api/newsletter/subscribe") {
-    const result = await subscribeNewsletter(await readJsonBody(request), request);
-    sendJson(response, 200, result);
-    return;
-  }
-
-  if (request.method === "POST" && url.pathname === "/api/webhooks/mollie") {
-    const payload = request.headers["content-type"]?.includes("application/json")
-      ? await readJsonBody(request)
-      : await readFormBody(request);
-    await handleMollieWebhook(payload);
-    sendText(response, 200, "ok");
-    return;
-  }
-
-  if (request.method === "GET" && url.pathname === "/api/admin/bookings") {
-    if (!requireAdmin(request, response)) {
-      return;
-    }
-
-    const db = await readDb();
-    sendJson(response, 200, {
-      bookings: db.bookings
-        .slice()
-        .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
-        .map((booking) => ({ ...booking, customer: redactCustomerForAdmin(booking.customer) }))
-    });
-    return;
-  }
-
-  const cancelMatch = url.pathname.match(/^\/api\/admin\/bookings\/([^/]+)\/cancel$/);
-  if (request.method === "POST" && cancelMatch) {
-    if (!requireAdmin(request, response)) {
-      return;
-    }
-
-    const result = await cancelBooking(cancelMatch[1]);
-    sendJson(response, 200, result);
-    return;
-  }
-
-  sendJson(response, 404, { error: "API endpoint niet gevonden." });
-}
-
-function requireAdmin(request, response) {
-  if (!process.env.ADMIN_TOKEN) {
-    sendJson(response, 503, { error: "ADMIN_TOKEN is nog niet ingesteld." });
-    return false;
-  }
-
-  const token = request.headers.authorization?.replace(/^Bearer\s+/i, "");
-  if (token !== process.env.ADMIN_TOKEN) {
-    sendJson(response, 401, { error: "Ongeldige admin token." });
-    return false;
-  }
-
-  return true;
-}
-
-function redactCustomerForAdmin(customer) {
-  return {
-    name: customer?.name || "",
-    email: customer?.email || "",
-    phone: customer?.phone || "",
-    location: customer?.location || "",
-    message: customer?.message || ""
-  };
-}
-
-async function subscribeNewsletter(input, request) {
-  const email = cleanText(input.email, 160).toLowerCase();
-  const name = cleanText(input.name, 120);
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    throw Object.assign(new Error("Vul een geldig e-mailadres in."), { statusCode: 400 });
-  }
-
-  const now = new Date().toISOString();
-  let crmStatus = "not_configured";
-  let crmContactId = null;
-
-  try {
-    if (isCrmConfigured()) {
-      const contact = await createOrUpdateCrmContact({
-        name,
-        email,
-        phone: "",
-        location: "",
-        message: "",
-        newsletterOptIn: true,
-        consentAt: now,
-        consentSource: "website",
-        consentIpHash: hashIp(request),
-        newsletterFromEmail,
-        newsletterFromName
-      });
-      crmStatus = "synced";
-      crmContactId = contact.id || null;
-      await addContactToNewsletterList(contact.id).catch((error) => {
-        console.error(`CRM newsletter list sync failed: ${publicErrorMessage(error)}`);
-      });
-    }
-  } catch (error) {
-    crmStatus = "pending_retry";
-    console.error(`CRM newsletter sync failed: ${publicErrorMessage(error)}`);
-  }
-
-  await withDb(async (db) => {
-    const existing = db.newsletterSubscriptions.find((entry) => entry.email === email);
-    const record = {
-      email,
-      name,
-      newsletterOptIn: true,
-      consentAt: existing?.consentAt || now,
-      consentSource: "website",
-      consentIpHash: hashIp(request),
-      newsletterFromEmail,
-      newsletterFromName,
-      crmStatus,
-      crmContactId,
-      updatedAt: now
-    };
-
-    if (existing) {
-      Object.assign(existing, record);
-    } else {
-      db.newsletterSubscriptions.unshift(record);
-    }
-    audit(db, "newsletter.subscribed", { email, crmStatus, crmContactId });
-  });
-
-  return {
-    ok: true,
-    status: crmStatus,
-    message:
-      crmStatus === "synced"
-        ? "Je staat op de MarcsMusic mailing list."
-        : "Je inschrijving is ontvangen. CRM-sync wordt afgerond zodra de CRM-koppeling actief is."
-  };
-}
 
 async function getAvailability({ date, bookingType }) {
   const type = getBookingType(bookingType);
@@ -509,11 +236,9 @@ async function getAvailability({ date, bookingType }) {
   const dayEnd = localDateTimeToUtc(date, workdayEnd, bookingTimeZone);
   const calendarResult = await getCalDavBusyIntervals(dayStart, dayEnd);
 
-  const db = await readDb();
-  expireOldPendingBookings(db);
-
-  const localBusy = getReservedIntervals(db);
-  const calendarBusy = calendarResult.status === "error" ? [] : calendarResult.busy;
+  const localBusy = await localBusyIntervals(dayStart, dayEnd);
+  if (calendarResult.status === "error") throw Object.assign(new Error("Agenda tijdelijk niet beschikbaar."), { statusCode: 503 });
+  const calendarBusy = calendarResult.busy;
   const busy = [...localBusy, ...calendarBusy];
   const minStart = new Date(Date.now() + minLeadHours * 60 * 60 * 1000);
   const slots = [];
@@ -561,153 +286,6 @@ async function getAvailability({ date, bookingType }) {
   };
 }
 
-async function createBooking(input) {
-  requireBookingIntegrations();
-  const type = getBookingType(String(input.bookingType || ""));
-  if (!type) {
-    throw Object.assign(new Error("Kies een geldig bookingtype."), { statusCode: 400 });
-  }
-
-  const startUtc = new Date(String(input.startUtc || ""));
-  if (!Number.isFinite(startUtc.getTime())) {
-    throw Object.assign(new Error("Kies een geldige datum en tijd."), { statusCode: 400 });
-  }
-
-  const slotCount = normalizeSlotCount(input.slotCount);
-  const travelHours = normalizeTravelHours(input.travelHours);
-  const quote = calculateBookingQuote(type, slotCount, travelHours);
-  const endUtc = new Date(startUtc.getTime() + quote.durationMinutes * 60 * 1000);
-  const dayEnd = localDateTimeToUtc(formatLocalInputDate(startUtc), workdayEnd, bookingTimeZone);
-  if (endUtc > dayEnd) {
-    throw Object.assign(new Error("Kies minder aansluitende blokken; deze booking valt buiten de beschikbare dag."), { statusCode: 409 });
-  }
-
-  const customer = validateCustomer(input);
-  const availability = await getAvailability({
-    date: formatLocalInputDate(startUtc),
-    bookingType: type.id
-  });
-  const selectedSlot = availability.slots.find((slot) => slot.startUtc === startUtc.toISOString());
-
-  if (!selectedSlot) {
-    throw Object.assign(new Error("Dit tijdslot is niet meer beschikbaar."), { statusCode: 409 });
-  }
-
-  const intervalAvailability = await isBookingWindowAvailable(startUtc, endUtc);
-  if (!intervalAvailability.ok) {
-    throw Object.assign(new Error(intervalAvailability.reason), { statusCode: 409 });
-  }
-
-  const bookingId = randomUUID();
-  const now = new Date();
-  const expiresAt = new Date(now.getTime() + pendingHoldMinutes * 60 * 1000);
-
-  const created = await withDb(async (db) => {
-    const localBusy = getReservedIntervals(db);
-    const protectedStart = new Date(startUtc.getTime() - bookingBufferMinutes * 60 * 1000);
-    const protectedEnd = new Date(endUtc.getTime() + bookingBufferMinutes * 60 * 1000);
-    if (localBusy.some((interval) => intervalsOverlap(protectedStart, protectedEnd, interval.start, interval.end))) {
-      throw Object.assign(new Error("Dit tijdslot is net gereserveerd door iemand anders."), { statusCode: 409 });
-    }
-
-    const booking = {
-      id: bookingId,
-      status: "pending_payment",
-      createdAt: now.toISOString(),
-      updatedAt: now.toISOString(),
-      expiresAt: expiresAt.toISOString(),
-      bookingType: type.id,
-      bookingTypeLabel: type.label,
-      startUtc: startUtc.toISOString(),
-      endUtc: endUtc.toISOString(),
-      timeZone: bookingTimeZone,
-      slotCount,
-      unitDurationMinutes: type.durationMinutes,
-      durationMinutes: quote.durationMinutes,
-      unitPriceCents: type.priceCents,
-      performancePriceCents: quote.performancePriceCents,
-      travelHours: quote.travelHours,
-      billableTravelHours: quote.billableTravelHours,
-      travelRateCentsPerHour,
-      travelCostCents: quote.travelCostCents,
-      priceCents: quote.totalPriceCents,
-      currency: "EUR",
-      customer,
-      crmContactId: null,
-      crmBookingId: null,
-      molliePaymentId: null,
-      checkoutUrl: null,
-      caldavEventUid: null,
-      calendarUrl: null
-    };
-
-    db.bookings.unshift(booking);
-    audit(db, "booking.created", { bookingId, status: booking.status });
-    return booking;
-  });
-
-  try {
-    const crmContact = await createOrUpdateCrmContact({
-      ...created.customer,
-      newsletterOptIn: false,
-      consentAt: null,
-      consentSource: "booking",
-      consentIpHash: null
-    });
-    const crmBooking = await createCrmBookingRecord(created, crmContact.id);
-    await withDb(async (db) => {
-      const booking = db.bookings.find((entry) => entry.id === bookingId);
-      if (!booking) {
-        return;
-      }
-      booking.crmContactId = crmContact.id || null;
-      booking.crmBookingId = crmBooking.id || null;
-      booking.updatedAt = new Date().toISOString();
-      audit(db, "crm.booking_created", { bookingId, crmContactId: booking.crmContactId, crmBookingId: booking.crmBookingId });
-    });
-
-    const payment = await createMolliePayment({ ...created, crmContactId: crmContact.id, crmBookingId: crmBooking.id });
-    await withDb(async (db) => {
-      const booking = db.bookings.find((entry) => entry.id === bookingId);
-      if (!booking) {
-        return;
-      }
-
-      booking.molliePaymentId = payment.id;
-      booking.checkoutUrl = payment.checkoutUrl;
-      booking.updatedAt = new Date().toISOString();
-      db.payments.unshift({
-        id: randomUUID(),
-        bookingId,
-        molliePaymentId: payment.id,
-        status: payment.status || "open",
-        amountCents: created.priceCents,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      });
-      audit(db, "mollie.payment_created", { bookingId, molliePaymentId: payment.id });
-    });
-    await updateCrmBookingRecord({ ...created, crmBookingId: crmBooking.id }, { molliePaymentId: payment.id, molliePaymentStatus: payment.status || "open" });
-
-    return {
-      bookingId,
-      status: "pending_payment",
-      checkoutUrl: payment.checkoutUrl,
-      expiresAt: created.expiresAt
-    };
-  } catch (error) {
-    await withDb(async (db) => {
-      const booking = db.bookings.find((entry) => entry.id === bookingId);
-      if (!booking) {
-        return;
-      }
-      booking.status = "setup_failed";
-      booking.updatedAt = new Date().toISOString();
-      audit(db, "booking.setup_failed", { bookingId, error: publicErrorMessage(error) });
-    });
-    throw error;
-  }
-}
 
 function requireBookingIntegrations() {
   const integrations = getBookingIntegrationStatus();
@@ -798,11 +376,12 @@ async function createMolliePayment(booking) {
     throw Object.assign(new Error("Mollie is nog niet geconfigureerd."), { statusCode: 503 });
   }
 
-  const response = await fetch("https://api.mollie.com/v2/payments", {
+  const response = await http(`${mollieApiBaseUrl}/v2/payments`, {
     method: "POST",
     headers: {
       authorization: `Bearer ${process.env.MOLLIE_API_KEY}`,
-      "content-type": "application/json"
+      "content-type": "application/json",
+      "Idempotency-Key": booking.id
     },
     body: JSON.stringify({
       amount: {
@@ -816,7 +395,7 @@ async function createMolliePayment(booking) {
       metadata: {
         bookingId: booking.id,
         bookingType: booking.bookingType,
-        crmBookingId: booking.crmBookingId || ""
+        crmBookingId: ""
       }
     })
   });
@@ -845,7 +424,7 @@ async function getMolliePayment(paymentId) {
     throw Object.assign(new Error("Mollie is nog niet geconfigureerd."), { statusCode: 503 });
   }
 
-  const response = await fetch(`https://api.mollie.com/v2/payments/${encodeURIComponent(paymentId)}`, {
+  const response = await http(`${mollieApiBaseUrl}/v2/payments/${encodeURIComponent(paymentId)}`, {
     headers: {
       authorization: `Bearer ${process.env.MOLLIE_API_KEY}`,
       "content-type": "application/json"
@@ -862,199 +441,10 @@ async function getMolliePayment(paymentId) {
   return payload;
 }
 
-async function handleMollieWebhook(payload) {
-  const paymentId = cleanText(payload.id, 80);
-  if (!paymentId) {
-    throw Object.assign(new Error("Webhook mist Mollie payment id."), { statusCode: 400 });
-  }
 
-  const payment = await getMolliePayment(paymentId);
-  const bookingId = cleanText(payment.metadata?.bookingId, 80);
 
-  const booking = await withDb(async (db) => {
-    const found =
-      db.bookings.find((entry) => entry.id === bookingId) ||
-      db.bookings.find((entry) => entry.molliePaymentId === paymentId);
 
-    if (!found) {
-      audit(db, "mollie.webhook_without_booking", { paymentId });
-      return null;
-    }
 
-    found.molliePaymentId = paymentId;
-    found.updatedAt = new Date().toISOString();
-    const paymentEntry = db.payments.find((entry) => entry.molliePaymentId === paymentId);
-    if (paymentEntry) {
-      paymentEntry.status = payment.status;
-      paymentEntry.updatedAt = new Date().toISOString();
-    } else {
-      db.payments.unshift({
-        id: randomUUID(),
-        bookingId: found.id,
-        molliePaymentId: paymentId,
-        status: payment.status,
-        amountCents: found.priceCents,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      });
-    }
-
-    audit(db, "mollie.webhook_received", { bookingId: found.id, paymentId, status: payment.status });
-    return { ...found };
-  });
-
-  if (!booking) {
-    return;
-  }
-
-  await updateCrmBookingRecord(booking, { molliePaymentId: paymentId, molliePaymentStatus: payment.status }).catch((error) => {
-    console.error(`CRM payment status sync failed: ${publicErrorMessage(error)}`);
-  });
-
-  if (payment.status === "paid") {
-    await confirmPaidBooking(booking.id);
-    return;
-  }
-
-  if (["canceled", "expired", "failed"].includes(payment.status)) {
-    const status = payment.status === "canceled" ? "cancelled" : `payment_${payment.status}`;
-    await withDb(async (db) => {
-      const found = db.bookings.find((entry) => entry.id === booking.id);
-      if (!found || found.status === "confirmed") {
-        return;
-      }
-      found.status = status;
-      found.updatedAt = new Date().toISOString();
-      audit(db, "booking.payment_not_paid", { bookingId: found.id, paymentStatus: payment.status });
-    });
-    await updateCrmBookingRecord(booking, { status, molliePaymentStatus: payment.status }).catch((error) => {
-      console.error(`CRM non-paid status sync failed: ${publicErrorMessage(error)}`);
-    });
-  }
-}
-
-async function confirmPaidBooking(bookingId) {
-  const snapshot = await withDb(async (db) => {
-    const booking = db.bookings.find((entry) => entry.id === bookingId);
-    if (!booking) {
-      return null;
-    }
-
-    if (booking.status === "confirmed" && booking.caldavEventUid) {
-      return { booking: { ...booking }, alreadyConfirmed: true };
-    }
-
-    booking.status = "paid_calendar_pending";
-    booking.updatedAt = new Date().toISOString();
-    audit(db, "booking.payment_paid", { bookingId });
-    return { booking: { ...booking }, alreadyConfirmed: false };
-  });
-
-  if (!snapshot?.booking || snapshot.alreadyConfirmed) {
-    return;
-  }
-
-  const booking = snapshot.booking;
-  await updateCrmBookingRecord(booking, { status: "paid" }).catch((error) => {
-    console.error(`CRM paid status sync failed: ${publicErrorMessage(error)}`);
-  });
-
-  const available = await isSlotStillFreeForConfirmation(booking);
-  if (!available.ok) {
-    await withDb(async (db) => {
-      const found = db.bookings.find((entry) => entry.id === booking.id);
-      if (!found) {
-        return;
-      }
-      found.status = "manual_review";
-      found.updatedAt = new Date().toISOString();
-      audit(db, "booking.calendar_conflict_after_payment", { bookingId: booking.id, reason: available.reason });
-    });
-    await updateCrmBookingRecord(booking, { status: "manual_review" }).catch((error) => {
-      console.error(`CRM manual review status sync failed: ${publicErrorMessage(error)}`);
-    });
-    return;
-  }
-
-  try {
-    const event = await createCalDavEvent(booking);
-    await withDb(async (db) => {
-      const found = db.bookings.find((entry) => entry.id === booking.id);
-      if (!found) {
-        return;
-      }
-      found.status = "confirmed";
-      found.caldavEventUid = event.uid;
-      found.calendarUrl = event.url;
-      found.updatedAt = new Date().toISOString();
-      audit(db, "caldav.event_created", { bookingId: booking.id, caldavEventUid: event.uid });
-    });
-    await updateCrmBookingRecord(booking, {
-      status: "confirmed",
-      caldavEventUid: event.uid,
-      calendarUrl: event.url
-    }).catch((error) => {
-      console.error(`CRM calendar event sync failed: ${publicErrorMessage(error)}`);
-    });
-  } catch (error) {
-    await withDb(async (db) => {
-      const found = db.bookings.find((entry) => entry.id === booking.id);
-      if (!found) {
-        return;
-      }
-      found.status = "calendar_failed";
-      found.updatedAt = new Date().toISOString();
-      audit(db, "caldav.event_failed", { bookingId: booking.id, error: publicErrorMessage(error) });
-    });
-    await updateCrmBookingRecord(booking, { status: "calendar_failed" }).catch((crmError) => {
-      console.error(`CRM calendar failure sync failed: ${publicErrorMessage(crmError)}`);
-    });
-  }
-}
-
-async function isSlotStillFreeForConfirmation(booking) {
-  const start = new Date(booking.startUtc);
-  const end = new Date(booking.endUtc);
-  return isBookingWindowAvailable(start, end, booking.id);
-}
-
-async function isBookingWindowAvailable(start, end, excludeBookingId = null) {
-  const protectedStart = new Date(start.getTime() - bookingBufferMinutes * 60 * 1000);
-  const protectedEnd = new Date(end.getTime() + bookingBufferMinutes * 60 * 1000);
-  const calendarResult = await getCalDavBusyIntervals(protectedStart, protectedEnd);
-  if (calendarResult.status === "error") {
-    return { ok: false, reason: calendarResult.message };
-  }
-
-  const db = await readDb();
-  expireOldPendingBookings(db);
-  const localBusy = getReservedIntervals(db, excludeBookingId);
-  const hasConflict = [...calendarResult.busy, ...localBusy].some((interval) =>
-    intervalsOverlap(protectedStart, protectedEnd, interval.start, interval.end)
-  );
-
-  if (hasConflict) {
-    return { ok: false, reason: "Het gekozen tijdsblok overlapt met een bestaande agenda-afspraak." };
-  }
-
-  return { ok: true };
-}
-
-function getReservedIntervals(db, excludeBookingId = null) {
-  const now = Date.now();
-  return db.bookings
-    .filter((booking) => booking.id !== excludeBookingId)
-    .filter((booking) => {
-      if (booking.status === "confirmed" || booking.status === "paid_calendar_pending") {
-        return true;
-      }
-      return booking.status === "pending_payment" && Date.parse(booking.expiresAt) > now;
-    })
-    .map((booking) => ({
-      start: new Date(Date.parse(booking.startUtc) - bookingBufferMinutes * 60 * 1000),
-      end: new Date(Date.parse(booking.endUtc) + bookingBufferMinutes * 60 * 1000)
-    }));
-}
 
 function getCalendarUrl() {
   const base = stripTrailingSlash(process.env.CALDAV_BASE_URL || "");
@@ -1064,7 +454,7 @@ function getCalendarUrl() {
 
 async function caldavRequest(method, url, { body = null, headers = {} } = {}) {
   const auth = Buffer.from(`${process.env.CALDAV_USERNAME}:${process.env.CALDAV_PASSWORD}`).toString("base64");
-  return fetch(url, {
+  return http(url, {
     method,
     headers: {
       authorization: `Basic ${auth}`,
@@ -1074,96 +464,7 @@ async function caldavRequest(method, url, { body = null, headers = {} } = {}) {
   });
 }
 
-async function getCalDavBusyIntervals(startUtc, endUtc) {
-  if (!isCalendarConfigured()) {
-    return {
-      status: "not_configured",
-      message: "Agenda is nog niet gekoppeld; alleen bestaande pending reserveringen worden gecontroleerd.",
-      busy: []
-    };
-  }
 
-  const reportBody = `<?xml version="1.0" encoding="utf-8" ?>
-<c:calendar-query xmlns:d="DAV:" xmlns:c="urn:ietf:params:xml:ns:caldav">
-  <d:prop>
-    <d:getetag />
-    <c:calendar-data />
-  </d:prop>
-  <c:filter>
-    <c:comp-filter name="VCALENDAR">
-      <c:comp-filter name="VEVENT">
-        <c:time-range start="${formatIcsDate(startUtc)}" end="${formatIcsDate(endUtc)}" />
-      </c:comp-filter>
-    </c:comp-filter>
-  </c:filter>
-</c:calendar-query>`;
-  const propfindBody = `<?xml version="1.0" encoding="utf-8" ?>
-<d:propfind xmlns:d="DAV:" xmlns:c="urn:ietf:params:xml:ns:caldav">
-  <d:prop>
-    <d:getetag />
-    <c:calendar-data />
-  </d:prop>
-</d:propfind>`;
-
-  try {
-    const response = await caldavRequest("REPORT", getCalendarUrl(), {
-      body: reportBody,
-      headers: {
-        depth: "1",
-        "content-type": "application/xml; charset=utf-8"
-      }
-    });
-    const text = await response.text();
-
-    if (![200, 207].includes(response.status)) {
-      if (response.status === 405) {
-        const fallback = await caldavRequest("PROPFIND", getCalendarUrl(), {
-          body: propfindBody,
-          headers: {
-            depth: "1",
-            "content-type": "application/xml; charset=utf-8"
-          }
-        });
-        const fallbackText = await fallback.text();
-
-        if ([200, 207].includes(fallback.status)) {
-          return {
-            status: "connected",
-            message: "Agenda beschikbaarheid is live gecontroleerd.",
-            busy: parseBusyIntervalsFromCalendarXml(fallbackText, startUtc, endUtc)
-          };
-        }
-      }
-
-      return {
-        status: "error",
-        message: `Agenda availability request mislukt met status ${response.status}.`,
-        busy: []
-      };
-    }
-
-    return {
-      status: "connected",
-      message: "Agenda beschikbaarheid is live gecontroleerd.",
-      busy: parseBusyIntervalsFromCalendarXml(text, startUtc, endUtc)
-    };
-  } catch (error) {
-    return {
-      status: "error",
-      message: `Agenda kon niet worden gecontroleerd: ${publicErrorMessage(error)}`,
-      busy: []
-    };
-  }
-}
-
-function parseBusyIntervalsFromCalendarXml(xml, rangeStart, rangeEnd) {
-  return parseCalendarDataFromMultiStatus(xml)
-    .flatMap(parseIcsEvents)
-    .filter((event) => event.status !== "CANCELLED" && event.transp !== "TRANSPARENT")
-    .map((event) => ({ start: event.start, end: event.end }))
-    .filter((interval) => Number.isFinite(interval.start.getTime()) && Number.isFinite(interval.end.getTime()))
-    .filter((interval) => intervalsOverlap(rangeStart, rangeEnd, interval.start, interval.end));
-}
 
 async function createCalDavEvent(booking) {
   if (!isCalendarConfigured()) {
@@ -1180,6 +481,10 @@ async function createCalDavEvent(booking) {
     }
   });
 
+  if (response.status === 412) {
+    const existing = await findOwnEvent(booking);
+    if (existing) return existing;
+  }
   if (![200, 201, 204].includes(response.status)) {
     const text = await response.text().catch(() => "");
     throw new Error(`Agenda-event kon niet worden aangemaakt (${response.status}). ${text}`.trim());
@@ -1200,15 +505,6 @@ async function deleteCalDavEvent(eventUid) {
   }
 }
 
-async function findEventByBookingId(bookingId) {
-  const now = new Date();
-  const rangeEnd = new Date(now.getTime() + 3 * 365 * 24 * 60 * 60 * 1000);
-  const result = await getCalDavBusyIntervals(now, rangeEnd);
-  if (result.status === "error") {
-    return null;
-  }
-  return result.busy.find((event) => event.bookingId === bookingId) || null;
-}
 
 function buildIcsEvent(booking, uid) {
   const created = formatIcsDate(new Date(booking.createdAt || Date.now()));
@@ -1228,7 +524,7 @@ function buildIcsEvent(booking, uid) {
     booking.customer.message ? `Bericht: ${booking.customer.message}` : ""
   ]
     .filter(Boolean)
-    .join("\\n");
+    .join("\n");
   const organizer = process.env.BOOKING_ADMIN_EMAIL ? [`ORGANIZER:MAILTO:${process.env.BOOKING_ADMIN_EMAIL}`] : [];
 
   return [
@@ -1258,51 +554,8 @@ function buildIcsEvent(booking, uid) {
   ].join("\r\n");
 }
 
-function parseCalendarDataFromMultiStatus(xml) {
-  const matches = [...xml.matchAll(/<[^>]*calendar-data[^>]*>([\s\S]*?)<\/[^>]*calendar-data>/gi)];
-  return matches.map((match) => decodeXml(match[1]).trim()).filter(Boolean);
-}
 
-function parseIcsEvents(ics) {
-  const unfolded = ics.replace(/\r?\n[ \t]/g, "");
-  const eventBlocks = [...unfolded.matchAll(/BEGIN:VEVENT([\s\S]*?)END:VEVENT/g)].map((match) => match[1]);
-  return eventBlocks.map((block) => {
-    const lines = block.split(/\r?\n/).filter(Boolean);
-    const get = (name) => {
-      const line = lines.find((entry) => entry.toUpperCase().startsWith(name));
-      return line ? line.slice(line.indexOf(":") + 1).trim() : "";
-    };
 
-    return {
-      uid: get("UID"),
-      start: parseIcsDate(get("DTSTART")),
-      end: parseIcsDate(get("DTEND")),
-      status: get("STATUS").toUpperCase(),
-      transp: get("TRANSP").toUpperCase(),
-      bookingId: get("X-MARCSMUSIC-BOOKING-ID")
-    };
-  });
-}
-
-function parseIcsDate(value) {
-  const clean = String(value || "").trim();
-  const dateTime = clean.match(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z?$/);
-  if (dateTime) {
-    return new Date(Date.UTC(
-      Number(dateTime[1]),
-      Number(dateTime[2]) - 1,
-      Number(dateTime[3]),
-      Number(dateTime[4]),
-      Number(dateTime[5]),
-      Number(dateTime[6])
-    ));
-  }
-  const dateOnly = clean.match(/^(\d{4})(\d{2})(\d{2})$/);
-  if (dateOnly) {
-    return new Date(Date.UTC(Number(dateOnly[1]), Number(dateOnly[2]) - 1, Number(dateOnly[3])));
-  }
-  return new Date(Number.NaN);
-}
 
 function formatIcsDate(date) {
   return date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
@@ -1316,15 +569,6 @@ function escapeIcs(value) {
     .replace(/;/g, "\\;");
 }
 
-function decodeXml(value) {
-  return String(value || "")
-    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&apos;/g, "'")
-    .replace(/&amp;/g, "&");
-}
 
 async function crmRequest(method, path, body = null) {
   if (!isCrmConfigured()) {
@@ -1333,7 +577,7 @@ async function crmRequest(method, path, body = null) {
 
   const base = stripTrailingSlash(process.env.ESPOCRM_BASE_URL);
   const apiPath = path.replace(/^\/+/, "");
-  const response = await fetch(`${base}/api/v1/${apiPath}`, {
+  const response = await http(`${base}/api/v1/${apiPath}`, {
     method,
     headers: {
       "X-Api-Key": process.env.ESPOCRM_API_KEY,
@@ -1408,6 +652,14 @@ function buildCrmContactPayload(input) {
 async function createOrUpdateCrmContact(input) {
   const existing = await findCrmContactByEmail(input.email);
   const payload = buildCrmContactPayload(input);
+  if (!Object.hasOwn(input, "newsletterOptIn")) {
+    delete payload.newsletterOptIn; delete payload.consentAt; delete payload.consentSource;
+  }
+  if (existing?.id) {
+    for (const field of ["firstName", "lastName", "phoneNumber"]) if (!payload[field]) delete payload[field];
+    // Notes and historical consent are not replaced by a booking or signup.
+    delete payload.description;
+  }
   if (existing?.id) {
     const updated = await crmRequest("PUT", `Contact/${encodeURIComponent(existing.id)}`, payload);
     return { ...existing, ...updated, id: existing.id };
@@ -1430,7 +682,7 @@ async function addContactToNewsletterList(contactId) {
   });
   const targetList = await crmRequest("GET", `TargetList?${query.toString()}`).then((result) => result.list?.[0] || null);
   if (!targetList?.id) {
-    return null;
+    throw new Error("Nieuwsbriefdoellijst ontbreekt.");
   }
   return crmRequest("POST", `TargetList/${encodeURIComponent(targetList.id)}/contacts`, { id: contactId });
 }
@@ -1479,34 +731,10 @@ async function updateCrmBookingRecord(booking, patch) {
   if (!isCrmConfigured() || !booking.crmBookingId) {
     return null;
   }
-  return crmRequest("PUT", `${crmBookingEntity}/${encodeURIComponent(booking.crmBookingId)}`, buildCrmBookingPayload(booking, booking.crmContactId, patch));
+  return crmRequest("PUT", `${crmBookingEntity}/${encodeURIComponent(booking.crmBookingId)}`, buildCrmBookingPayload(booking, booking.crmContactId, { molliePaymentStatus: booking.molliePaymentStatus || null, ...patch }));
 }
 
-function queueCrmStatusUpdate(booking, status) {
-  updateCrmBookingRecord(booking, { status }).catch((error) => {
-    console.error(`CRM status update failed: ${publicErrorMessage(error)}`);
-  });
-}
 
-async function cancelBooking(bookingId) {
-  const snapshot = await withDb(async (db) => {
-    const booking = db.bookings.find((entry) => entry.id === bookingId);
-    if (!booking) {
-      throw Object.assign(new Error("Booking niet gevonden."), { statusCode: 404 });
-    }
-    booking.status = "cancelled";
-    booking.updatedAt = new Date().toISOString();
-    audit(db, "booking.cancelled_by_admin", { bookingId });
-    return { ...booking };
-  });
-
-  if (snapshot.caldavEventUid) {
-    await deleteCalDavEvent(snapshot.caldavEventUid).catch((error) => console.error(`CalDAV delete failed: ${publicErrorMessage(error)}`));
-  }
-  await updateCrmBookingRecord(snapshot, { status: "cancelled" }).catch((error) => console.error(`CRM cancel sync failed: ${publicErrorMessage(error)}`));
-
-  return { ok: true, bookingId };
-}
 
 function publicBookingStatus(booking) {
   return {
@@ -1528,7 +756,7 @@ function intervalsOverlap(startA, endA, startB, endB) {
 }
 
 function isIsoDate(value) {
-  return /^\d{4}-\d{2}-\d{2}$/.test(value);
+  return /^\d{4}-\d{2}-\d{2}$/.test(value) && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
 }
 
 function parseHourMinute(value) {
@@ -1624,51 +852,355 @@ function publicErrorMessage(error) {
   return error instanceof Error ? error.message : "Onbekende fout";
 }
 
-function serveStatic(request, response) {
-  const filePath = getFilePath(request.url || "/");
 
-  if (!filePath || !existsSync(filePath) || !statSync(filePath).isFile()) {
-    sendText(response, 404, "Not found");
-    return;
+
+async function prepareBooking(input) {
+  requireBookingIntegrations();
+  const type = getBookingType(String(input.bookingType || ""));
+  if (!type) {
+    throw Object.assign(new Error("Kies een geldig bookingtype."), { statusCode: 400 });
   }
 
-  response.writeHead(200, {
-    "content-type": contentTypes[extname(filePath)] || "application/octet-stream",
-    "cache-control": "public, max-age=300"
+  const startUtc = new Date(String(input.startUtc || ""));
+  if (!Number.isFinite(startUtc.getTime())) {
+    throw Object.assign(new Error("Kies een geldige datum en tijd."), { statusCode: 400 });
+  }
+
+  const slotCount = normalizeSlotCount(input.slotCount);
+  const travelHours = normalizeTravelHours(input.travelHours);
+  const quote = calculateBookingQuote(type, slotCount, travelHours);
+  const endUtc = new Date(startUtc.getTime() + quote.durationMinutes * 60 * 1000);
+  const dayEnd = localDateTimeToUtc(formatLocalInputDate(startUtc), workdayEnd, bookingTimeZone);
+  if (endUtc > dayEnd) {
+    throw Object.assign(new Error("Kies minder aansluitende blokken; deze booking valt buiten de beschikbare dag."), { statusCode: 409 });
+  }
+
+  const customer = validateCustomer(input);
+  const availability = await getAvailability({
+    date: formatLocalInputDate(startUtc),
+    bookingType: type.id
   });
+  const selectedSlot = availability.slots.find((slot) => slot.startUtc === startUtc.toISOString());
 
-  if (request.method === "HEAD") {
-    response.end();
-    return;
+  if (!selectedSlot) {
+    throw Object.assign(new Error("Dit tijdslot is niet meer beschikbaar."), { statusCode: 409 });
   }
 
-  createReadStream(filePath).pipe(response);
+  const calendar = await getCalDavBusyIntervals(new Date(startUtc.getTime()-bookingBufferMinutes*60000), new Date(endUtc.getTime()+bookingBufferMinutes*60000));
+  if (calendar.status === "error" || calendar.busy.length) throw Object.assign(new Error("Dit tijdsblok is niet beschikbaar."), { statusCode: 409 });
+
+  const bookingId = randomUUID();
+  const now = new Date();
+  const expiresAt = new Date(now.getTime() + pendingHoldMinutes * 60 * 1000);
+
+  return {
+      id: bookingId,
+      status: "pending_payment",
+      createdAt: now.toISOString(),
+      updatedAt: now.toISOString(),
+      expiresAt: expiresAt.toISOString(),
+      bookingType: type.id,
+      bookingTypeLabel: type.label,
+      startUtc: startUtc.toISOString(),
+      endUtc: endUtc.toISOString(),
+      timeZone: bookingTimeZone,
+      slotCount,
+      unitDurationMinutes: type.durationMinutes,
+      durationMinutes: quote.durationMinutes,
+      unitPriceCents: type.priceCents,
+      performancePriceCents: quote.performancePriceCents,
+      travelHours: quote.travelHours,
+      billableTravelHours: quote.billableTravelHours,
+      travelRateCentsPerHour,
+      travelCostCents: quote.travelCostCents,
+      priceCents: quote.totalPriceCents,
+      currency: "EUR",
+      customer,
+      crmContactId: null,
+      crmBookingId: null,
+      molliePaymentId: null,
+      checkoutUrl: null,
+      caldavEventUid: null,
+      calendarUrl: null
+    };
+
 }
 
-const server = createServer(async (request, response) => {
+const trustedProxies = String(process.env.TRUSTED_PROXY_IPS || "").split(",").map((value) => value.trim()).filter(Boolean);
+const http = createHttpClient({ timeoutMs: numberFromEnv("INTEGRATION_TIMEOUT_MS", 10_000), maxConcurrent: numberFromEnv("INTEGRATION_MAX_CONCURRENT", 16) });
+const rateLimiter = createRateLimiter({ maxKeys: numberFromEnv("RATE_LIMIT_MAX_KEYS", 10_000) });
+const requestContext = new AsyncLocalStorage();
+let acceptingRequests = true;
+
+validateConfiguration();
+const store = await openStore({
+  url: process.env.DATABASE_URL || "",
+  path: bookingSqlitePath,
+  legacyPath: existsSync(legacyBookingDbPath) ? legacyBookingDbPath : undefined
+});
+
+async function localBusyIntervals(start, end) {
+  const bookings = await store.list("bookings", { before: end.toISOString(), after: start.toISOString(), limit: 10_001 });
+  if (bookings.length > 10_000) throw Object.assign(new Error("Te veel reserveringen in dit tijdvenster."), { statusCode: 503 });
+  return bookings.filter((booking) => reservesSlot(booking)).map((booking) => ({
+    start: new Date(booking.startUtc), end: new Date(booking.endUtc), bookingId: booking.id
+  }));
+}
+
+async function getCalDavBusyIntervals(startUtc, endUtc) {
+  if (!isCalendarConfigured()) return { status: "not_configured", message: "Agenda is nog niet gekoppeld.", busy: [] };
+  const body = `<?xml version="1.0" encoding="utf-8"?>
+<c:calendar-query xmlns:d="DAV:" xmlns:c="urn:ietf:params:xml:ns:caldav">
+<d:prop><c:calendar-data><c:expand start="${formatIcsDate(startUtc)}" end="${formatIcsDate(endUtc)}"/></c:calendar-data></d:prop>
+<c:filter><c:comp-filter name="VCALENDAR"><c:comp-filter name="VEVENT"><c:time-range start="${formatIcsDate(startUtc)}" end="${formatIcsDate(endUtc)}"/></c:comp-filter></c:comp-filter></c:filter>
+</c:calendar-query>`;
   try {
-    const url = new URL(request.url || "/", request.headers.host ? `http://${request.headers.host}` : config.appBaseUrl);
-
-    if (url.pathname.startsWith("/api/")) {
-      await handleApi(request, response, url);
-      return;
-    }
-
-    if (!["GET", "HEAD"].includes(request.method || "")) {
-      sendText(response, 405, "Method not allowed");
-      return;
-    }
-
-    serveStatic(request, response);
+    const response = await caldavRequest("REPORT", getCalendarUrl(), { body, headers: { depth: "1", "content-type": "application/xml; charset=utf-8" } });
+    const text = await response.text();
+    if (![200, 207].includes(response.status)) throw new Error(`CalDAV gaf HTTP ${response.status}`);
+    const busy = parseCalendarResponse(text, startUtc, endUtc, bookingTimeZone);
+    return { status: "connected", message: "Agenda beschikbaarheid is live gecontroleerd.", busy };
   } catch (error) {
-    const statusCode = error.statusCode || 500;
-    if (statusCode >= 500 && error.logAsError !== false) {
-      console.error(error);
-    }
-    sendJson(response, statusCode, { error: publicErrorMessage(error) });
+    log("error", "calendar.query_failed", { error: publicErrorMessage(error) });
+    return { status: "error", message: "Agenda kon niet betrouwbaar worden gecontroleerd.", busy: [] };
+  }
+}
+
+function calendarEventUid(booking) {
+  return booking.caldavEventUid || `marcsmusic-${booking.id}@marcsmusic.nl`;
+}
+
+async function findOwnEvent(booking) {
+  const uid = calendarEventUid(booking);
+  const url = new URL(`${encodeURIComponent(uid)}.ics`, getCalendarUrl()).toString();
+  const response = await caldavRequest("GET", url);
+  if (response.status === 404) return null;
+  if (!response.ok) throw new Error(`Agenda-event kon niet worden gecontroleerd (${response.status}).`);
+  if (!eventMatchesBooking(await response.text(), booking, uid, bookingTimeZone)) throw new Error("Bestaand agenda-event komt niet overeen met de booking.");
+  return { uid, url };
+}
+
+async function calendarWindowAvailable(booking) {
+  const start = new Date(Date.parse(booking.startUtc) - bookingBufferMinutes * 60_000);
+  const end = new Date(Date.parse(booking.endUtc) + bookingBufferMinutes * 60_000);
+  const result = await getCalDavBusyIntervals(start, end);
+  if (result.status !== "connected") throw new Error("Agenda tijdelijk niet beschikbaar.");
+  return !result.busy.some((event) => event.bookingId !== booking.id && event.uid !== calendarEventUid(booking));
+}
+
+async function ensureCrmBooking(booking, contactId) {
+  if (booking.crmBookingId) return { id: booking.crmBookingId };
+  const query = new URLSearchParams({ "where[0][type]": "equals", "where[0][attribute]": "bookingId", "where[0][value]": booking.id, maxSize: "1" });
+  const existing = await crmRequest("GET", `${crmBookingEntity}?${query}`);
+  return existing.list?.[0] || createCrmBookingRecord(booking, contactId);
+}
+
+const bookingService = createBookingService({
+  store, prepareBooking, bufferMinutes: bookingBufferMinutes,
+  logger: (details) => log("error", details.event, details),
+  integrations: {
+    createPayment: createMolliePayment, getPayment: getMolliePayment,
+    createEvent: createCalDavEvent, findOwnEvent, windowAvailable: calendarWindowAvailable,
+    deleteEvent: deleteCalDavEvent, eventUid: calendarEventUid,
+    upsertContact: createOrUpdateCrmContact, ensureCrmBooking,
+    updateCrmBooking: (booking) => updateCrmBookingRecord(booking, {}), addToNewsletter: addContactToNewsletterList
   }
 });
 
-server.listen(port, "0.0.0.0", () => {
-  console.log(`MarcsMusic site listening on port ${port}`);
-});
+async function subscribeNewsletter(input, request) {
+  const email = cleanText(input.email, 160).toLowerCase();
+  const name = cleanText(input.name, 120);
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw Object.assign(new Error("Vul een geldig e-mailadres in."), { statusCode: 400 });
+  const consentAt = new Date().toISOString();
+  const subscription = await bookingService.subscribe({ email, name, phone: "", newsletterOptIn: true, consentAt,
+    consentSource: "website", consentIpHash: hashIp(request), newsletterFromEmail, newsletterFromName });
+  return { ok: true, status: subscription.crmStatus, message: subscription.crmStatus === "synced"
+    ? "Je staat op de MarcsMusic mailing list." : "Je inschrijving is ontvangen en wordt automatisch gesynchroniseerd." };
+}
+
+function requireAdmin(request, response) {
+  const configured = Buffer.from(process.env.ADMIN_TOKEN || "");
+  const provided = Buffer.from(String(request.headers.authorization || "").replace(/^Bearer\s+/i, ""));
+  if (!configured.length) { sendJson(response, 503, { error: "Admin is niet geconfigureerd." }); return false; }
+  if (provided.length !== configured.length || !timingSafeEqual(provided, configured)) {
+    sendJson(response, 401, { error: "Ongeldige admin token." }); return false;
+  }
+  return true;
+}
+
+async function syncAssignments() {
+  const startedAt = new Date().toISOString();
+  const incoming = await fetchTransparanteBrokerAssignments({ baseUrl: transparanteBrokerBaseUrl, fetchImpl: http });
+  return store.transaction(async (tx) => {
+    const existing = [];
+    for (let offset = 0; ; offset += 500) {
+      const page = await tx.list("assignments", { source: "de-transparante-broker", limit: 500, offset });
+      existing.push(...page);
+      if (page.length < 500) break;
+    }
+    const merged = mergeAssignments(existing, incoming, startedAt);
+    for (const assignment of merged) await tx.put("assignments", assignment);
+    const state = { id: "de-transparante-broker", status: "ok", startedAt, completedAt: new Date().toISOString(),
+      receivedCount: incoming.length, activeCount: merged.filter((item) => item.active).length };
+    await tx.put("sync_state", state);
+    await tx.audit("assignments.sync_completed", { receivedCount: incoming.length });
+    return { ok: true, receivedCount: incoming.length, activeCount: state.activeCount };
+  });
+}
+
+async function handleApi(request, response, url) {
+  if (request.method === "GET" && url.pathname === "/api/health/live") { sendJson(response, 200, { status: "ok", uptimeSeconds: Math.round(process.uptime()) }); return; }
+  if (request.method === "GET" && url.pathname === "/api/health") {
+    const storage = await store.readiness();
+    const deadJobs = await store.count("jobs", "dead");
+    const integrations = getBookingIntegrationStatus();
+    const syncState = transparanteBrokerSyncEnabled ? await store.get("sync_state", "de-transparante-broker") : null;
+    const syncFresh = !transparanteBrokerSyncEnabled || (syncState?.status === "ok" && Date.parse(syncState.completedAt) > Date.now() - 2 * transparanteBrokerSyncIntervalMinutes * 60_000);
+    const ready = storage && deadJobs === 0 && integrations.ready && syncFresh;
+    sendJson(response, ready ? 200 : 503, { status: ready ? "ok" : "degraded", integrations, deadJobs, assignmentSyncFresh: syncFresh }); return;
+  }
+  const ip = clientIp(request, trustedProxies);
+  const isAdmin = url.pathname.startsWith("/api/admin");
+  const rateClass = isAdmin ? "admin" : url.pathname === "/api/webhooks/mollie" ? "webhook" : "public";
+  const rateLimit = isAdmin ? 10 : rateClass === "webhook" ? 300 : 30;
+  if (!rateLimiter.allow(`${ip}:${rateClass}`, rateLimit)) {
+    sendJson(response, 429, { error: "Te veel aanvragen. Probeer het later opnieuw." }, { "retry-after": "60" }); return;
+  }
+  if (request.method === "GET" && url.pathname === "/api/booking/config") { sendJson(response, 200, getPublicConfig()); return; }
+  if (request.method === "GET" && url.pathname === "/api/booking/availability") {
+    sendJson(response, 200, await getAvailability({ date: url.searchParams.get("date") || "", bookingType: url.searchParams.get("bookingType") || "" })); return;
+  }
+  if (request.method === "POST" && url.pathname === "/api/booking/create") {
+    sendJson(response, 201, await bookingService.create(await readJsonBody(request), request.headers["idempotency-key"])); return;
+  }
+  if (request.method === "GET" && url.pathname === "/api/booking/status") {
+    const booking = await store.get("bookings", url.searchParams.get("id") || "");
+    if (!booking) { sendJson(response, 404, { error: "Booking niet gevonden." }); return; }
+    sendJson(response, 200, publicBookingStatus(booking)); return;
+  }
+  if (request.method === "POST" && url.pathname === "/api/newsletter/subscribe") { sendJson(response, 200, await subscribeNewsletter(await readJsonBody(request), request)); return; }
+  if (request.method === "POST" && url.pathname === "/api/webhooks/mollie") {
+    const payload = request.headers["content-type"]?.includes("application/json") ? await readJsonBody(request) : await readFormBody(request);
+    await bookingService.webhook(cleanText(payload.id, 80)); sendText(response, 200, "ok"); return;
+  }
+  if (isAdmin && !requireAdmin(request, response)) return;
+  if (request.method === "GET" && url.pathname === "/api/admin/bookings") {
+    const limit = Math.min(100, Math.max(1, Number(url.searchParams.get("limit")) || 50));
+    const offset = Math.max(0, Number(url.searchParams.get("offset")) || 0);
+    sendJson(response, 200, { bookings: await store.list("bookings", { limit, offset }), limit, offset }); return;
+  }
+  if (request.method === "GET" && url.pathname === "/api/admin/assignments") {
+    const assignments = await store.list("assignments", { source: url.searchParams.get("source") || undefined, limit: 100, offset: Number(url.searchParams.get("offset")) || 0 });
+    sendJson(response, 200, { assignments, syncState: await store.get("sync_state", "de-transparante-broker") }); return;
+  }
+  if (request.method === "GET" && url.pathname === "/api/admin/jobs") {
+    const status = url.searchParams.get("status") || undefined;
+    sendJson(response, 200, { jobs: await store.list("jobs", { status, limit: 100, offset: Number(url.searchParams.get("offset")) || 0 }) }); return;
+  }
+  if (request.method === "POST" && url.pathname === "/api/admin/assignments/sync") { sendJson(response, 200, await syncAssignments()); return; }
+  const cancel = url.pathname.match(/^\/api\/admin\/bookings\/([^/]+)\/cancel$/);
+  if (request.method === "POST" && cancel) { sendJson(response, 200, await bookingService.cancel(decodeURIComponent(cancel[1]))); return; }
+  sendJson(response, 404, { error: "API endpoint niet gevonden." });
+}
+
+const publicFiles = new Map([
+  ["/", "index.html"], ["/index.html", "index.html"], ["/booking", "booking.html"], ["/booking/", "booking.html"],
+  ["/booking/success", "booking.html"], ["/booking/cancelled", "booking.html"], ["/admin", "admin.html"], ["/admin.html", "admin.html"],
+  ["/assets/artist-portrait.jpg", "assets/artist-portrait.jpg"], ["/assets/marcsmusic-logo-black.png", "assets/marcsmusic-logo-black.png"],
+  ["/assets/marcsmusic-logo-white.png", "assets/marcsmusic-logo-white.png"]
+]);
+
+function serveStatic(request, response, pathname) {
+  const relative = publicFiles.get(pathname);
+  if (!relative) { sendText(response, 404, "Not found"); return; }
+  const realRoot = realpathSync(root);
+  const realPath = realpathSync(resolve(root, relative));
+  if (!realPath.startsWith(realRoot + sep) || !statSync(realPath).isFile()) { sendText(response, 404, "Not found"); return; }
+  response.writeHead(200, { "content-type": contentTypes[extname(realPath)] || "application/octet-stream",
+    "cache-control": extname(realPath) === ".html" ? "no-cache" : "public, max-age=86400", "x-content-type-options": "nosniff",
+    "content-security-policy": "default-src 'self'; img-src 'self' data: https:; media-src 'self' https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'",
+    "referrer-policy": "strict-origin-when-cross-origin" });
+  if (request.method === "HEAD") response.end(); else createReadStream(realPath).pipe(response);
+}
+
+function log(level, event, details = {}) {
+  const context = requestContext.getStore() || {};
+  const line = JSON.stringify({ level, event, at: new Date().toISOString(), requestId: context.requestId, ...details });
+  (level === "error" ? console.error : console.log)(line);
+}
+
+const server = createServer((request, response) => requestContext.run({ requestId: randomUUID() }, async () => {
+  const started = Date.now();
+  response.setHeader("x-request-id", requestContext.getStore().requestId);
+  try {
+    if (!acceptingRequests) { sendJson(response, 503, { error: "Server wordt opnieuw gestart." }); return; }
+    const url = new URL(request.url || "/", appBaseUrl);
+    if (url.pathname.startsWith("/api/")) await handleApi(request, response, url);
+    else if (["GET", "HEAD"].includes(request.method || "")) serveStatic(request, response, url.pathname);
+    else sendText(response, 405, "Method not allowed");
+  } catch (error) {
+    const status = Number(error.statusCode) || 500;
+    if (status >= 500 && error.logAsError !== false) log("error", "request.failed", { error: publicErrorMessage(error), method: request.method, path: request.url });
+    const safeMessage = status >= 500 && process.env.RAILWAY_ENVIRONMENT ? "De aanvraag kon niet worden verwerkt." : publicErrorMessage(error);
+    if (!response.headersSent) sendJson(response, status, { error: safeMessage });
+    else response.destroy();
+  } finally { log("info", "request.completed", { method: request.method, path: request.url, status: response.statusCode, durationMs: Date.now() - started }); }
+}));
+
+await bookingService.recover();
+await bookingService.worker.tick();
+await applyRetention();
+const workerTimer = setInterval(() => void bookingService.worker.tick().catch((error) => log("error", "worker.tick_failed", { error: publicErrorMessage(error) })), 5_000);
+workerTimer.unref();
+const retentionTimer = setInterval(() => void applyRetention().catch((error) => log("error", "retention.failed", { error: publicErrorMessage(error) })), 24 * 60 * 60_000);
+retentionTimer.unref();
+let syncPromise = null;
+const scheduleSync = () => {
+  if (!syncPromise) syncPromise = syncAssignments().catch((error) => log("error", "assignments.sync_failed", { error: publicErrorMessage(error) })).finally(() => { syncPromise = null; });
+  return syncPromise;
+};
+if (transparanteBrokerSyncEnabled) void scheduleSync();
+const syncTimer = transparanteBrokerSyncEnabled ? setInterval(() => void scheduleSync(), transparanteBrokerSyncIntervalMinutes * 60_000) : null;
+syncTimer?.unref();
+server.listen(port, "0.0.0.0", () => log("info", "server.started", { port }));
+
+async function shutdown(signal) {
+  if (!acceptingRequests) return;
+  acceptingRequests = false;
+  clearInterval(workerTimer); if (syncTimer) clearInterval(syncTimer);
+  clearInterval(retentionTimer);
+  log("info", "server.stopping", { signal });
+  server.closeIdleConnections?.();
+  await Promise.race([new Promise((resolve) => server.close(resolve)), new Promise((resolve) => setTimeout(resolve, 15_000))]);
+  await bookingService.worker.stop(); await store.close(); process.exit(0);
+}
+process.once("SIGTERM", () => void shutdown("SIGTERM"));
+process.once("SIGINT", () => void shutdown("SIGINT"));
+
+function validateConfiguration() {
+  const positive = { PORT: port, BOOKING_PENDING_HOLD_MINUTES: pendingHoldMinutes, BOOKING_SLOT_STEP_MINUTES: slotStepMinutes, BOOKING_MAX_CONSECUTIVE_SLOTS: maxConsecutiveSlots };
+  for (const [name, value] of Object.entries(positive)) if (!Number.isSafeInteger(value) || value <= 0) throw new Error(`${name} must be a positive integer`);
+  for (const [name, value] of [["BOOKING_BUFFER_MINUTES", bookingBufferMinutes], ["BOOKING_MIN_LEAD_HOURS", minLeadHours], ["BOOKING_MAX_TRAVEL_HOURS", maxTravelHours], ["BOOKING_TRAVEL_RATE_CENTS_PER_HOUR", travelRateCentsPerHour]]) if (!Number.isSafeInteger(value) || value < 0) throw new Error(`${name} must be a non-negative integer`);
+  for (const [name, value] of [["AUDIT_RETENTION_DAYS", auditRetentionDays], ["COMPLETED_JOB_RETENTION_DAYS", completedJobRetentionDays], ["INACTIVE_ASSIGNMENT_RETENTION_DAYS", inactiveAssignmentRetentionDays]]) if (!Number.isSafeInteger(value) || value < 1) throw new Error(`${name} must be a positive integer`);
+  for (const type of bookingTypes) if (!Number.isSafeInteger(type.durationMinutes) || type.durationMinutes <= 0 || !Number.isSafeInteger(type.priceCents) || type.priceCents < 0) throw new Error(`Invalid booking type ${type.id}`);
+  if (port > 65_535) throw new Error("PORT must not exceed 65535");
+  if (pendingHoldMinutes > 1_440 || slotStepMinutes > 1_440 || bookingBufferMinutes > 1_440) throw new Error("Booking minute settings must not exceed one day");
+  if (maxConsecutiveSlots > 24 || minLeadHours > 8_760 || maxTravelHours > 168) throw new Error("Booking range setting exceeds its supported maximum");
+  for (const type of bookingTypes) if (type.durationMinutes > 1_440 || type.priceCents > 100_000_000) throw new Error(`Booking type ${type.id} exceeds its supported maximum`);
+  new Intl.DateTimeFormat("en", { timeZone: bookingTimeZone }).format();
+  const start = parseHourMinute(workdayStart), end = parseHourMinute(workdayEnd);
+  if (start.hour > 23 || end.hour > 23 || start.minute > 59 || end.minute > 59 || start.hour * 60 + start.minute >= end.hour * 60 + end.minute) throw new Error("Booking workday is invalid");
+  if (process.env.RAILWAY_ENVIRONMENT) {
+    for (const name of ["ADMIN_TOKEN", "PRIVACY_HASH_SALT"]) { const value = process.env[name] || ""; if (value.length < 32 || /^change-/i.test(value)) throw new Error(`${name} must contain at least 32 non-default characters`); }
+    if (!process.env.DATABASE_URL && !process.env.BOOKING_SQLITE_PATH) throw new Error("DATABASE_URL or BOOKING_SQLITE_PATH is required in production");
+  }
+}
+
+async function applyRetention() {
+  const cutoff = (days) => new Date(Date.now() - days * 86_400_000).toISOString();
+  await store.transaction(async (tx) => {
+    await tx.prune("audit_events", cutoff(auditRetentionDays));
+    await tx.prune("jobs", cutoff(completedJobRetentionDays), { status: "done" });
+    await tx.prune("assignments", cutoff(inactiveAssignmentRetentionDays), { active: false });
+  });
+}

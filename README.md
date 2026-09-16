@@ -10,6 +10,7 @@ This project serves the MarcsMusic site and a server-side booking flow with a se
 - Server-side CalDAV integration for availability checks and confirmed calendar events
 - Server-side Mollie Payments API integration and webhook verification
 - Newsletter endpoint at `/api/newsletter/subscribe`
+- Periodic, idempotent import of public assignments from De Transparante Broker
 - Admin page at `/admin`
 - Deployment starter files for EspoCRM and Radicale
 
@@ -40,6 +41,7 @@ Important production values:
 - `MOLLIE_API_KEY`
 - `ADMIN_TOKEN`
 - `PRIVACY_HASH_SALT`
+- `DATABASE_URL` (recommended for production and required for multiple replicas)
 
 ## EspoCRM setup
 
@@ -168,8 +170,64 @@ Open:
 https://www.marcsmusic.nl/admin
 ```
 
-Use `ADMIN_TOKEN` in the admin form. Admin can view bookings and cancel a booking. If a booking has a CalDAV event, cancellation deletes that event.
+Use `ADMIN_TOKEN` in the admin form. Use a random value of at least 32 characters. Admin can view
+bookings and request cancellation. Calendar deletion and CRM synchronization are durable jobs; a
+failed integration remains visible and is retried instead of being reported as completed.
+
+Assignment administration is available through authenticated API endpoints:
+
+- `GET /api/admin/assignments?source=de-transparante-broker`
+- `POST /api/admin/assignments/sync`
+- `GET /api/admin/jobs?status=dead`
+
+Both require `Authorization: Bearer <ADMIN_TOKEN>`.
+
+## De Transparante Broker assignment sync
+
+On Railway the sync is enabled automatically unless `TRANSPARANTE_BROKER_SYNC_ENABLED=false`.
+It runs once after startup and then every 60 minutes by default. The importer reads every public
+source page, upserts by the stable external assignment ID, and marks disappeared assignments
+inactive only after a complete import.
+
+Configuration:
+
+```text
+TRANSPARANTE_BROKER_SYNC_ENABLED=true
+TRANSPARANTE_BROKER_SYNC_INTERVAL_MINUTES=60
+TRANSPARANTE_BROKER_BASE_URL=https://www.detransparantebroker.nl
+```
 
 ## Railway data storage
 
-The booking database path is `/data/bookings.json`. Mount a Railway volume at `/data` on the website service. For multiple replicas, high volume, or long-term audit retention, replace the file store with Railway Postgres and enforce the same overlap check inside a database transaction.
+Use Railway Postgres through `DATABASE_URL` in production. The SQL store keeps bookings, payments,
+newsletter consent, assignments, durable jobs and audit events in separate indexed records. Booking
+overlap checks and state changes run under a cross-process transaction lock, so multiple replicas do
+not overwrite each other.
+
+For a single local process, set `BOOKING_SQLITE_PATH`. On first startup the application imports an
+existing `BOOKING_DB_PATH` JSON file into the empty SQL database and records the migration. Keep the
+JSON file as a rollback backup until booking, payment, newsletter and assignment counts have been
+verified; the importer refuses to merge it into a non-empty database.
+
+The browser sends an idempotency key when creating a booking. Mollie receives the booking ID as its
+idempotency key. Paid bookings continue to reserve their time while calendar creation is retried,
+and cancellations cannot be changed back into confirmed bookings by a replayed webhook.
+
+## Operations
+
+- `/api/health/live` is the process liveness endpoint used by Railway.
+- `/api/health` verifies writable storage and reports dead integration jobs.
+- Logs are structured JSON and contain a request ID. HTTP responses expose the same ID.
+- Integration requests have a deadline and concurrency limit.
+- `TRUSTED_PROXY_IPS` must list only direct reverse-proxy addresses before forwarded client IPs are trusted.
+- Audit events, completed jobs and inactive assignments use the configurable retention periods in `.env.example`; financial and consent records require an explicit operator-approved retention/deletion process.
+
+Back up Postgres independently of the application and run a restore exercise before production use.
+Alert on a non-200 `/api/health`, dead jobs, `calendar_failed`, `manual_review`, `refund_review`, and
+the age of the oldest pending job. Reconcile Mollie payments against bookings after an outage.
+
+## Verification
+
+Run `npm test`. The suite covers the public-file boundary, payment replay, cancellation, calendar
+failure recovery, recurrence and time zones, concurrent reservations, paginated imports, rate-limit
+memory bounds, network deadlines and invalid startup configuration. Run `npm audit` before release.

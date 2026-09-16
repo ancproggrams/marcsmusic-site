@@ -1,1 +1,2 @@
-radicale[bcrypt]==3.*
+radicale[bcrypt]==3.8.0
+bcrypt==5.0.0

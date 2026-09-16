@@ -774,6 +774,8 @@
     let selectedSlot = null;
     let selectedDate = null;
     let availableSlots = [];
+    let availabilityRequest = 0;
+    let bookingRequestKey = null;
     const today = stripTime(new Date());
     const minDate = addDays(today, 1);
     let monthCursor = new Date(minDate.getFullYear(), minDate.getMonth(), 1);
@@ -1017,6 +1019,7 @@
     }
 
     async function loadAvailability() {
+      const requestNumber = ++availabilityRequest;
       if (!bookingConfig || !areBookingIntegrationsReady()) {
         renderSlots([]);
         setBookingStatus(getBookingUnavailableMessage(), true);
@@ -1044,6 +1047,7 @@
         });
         const response = await fetch(`/api/booking/availability?${params.toString()}`);
         const payload = await response.json();
+        if (requestNumber !== availabilityRequest) return;
         if (!response.ok) {
           throw new Error(payload.error || "Beschikbaarheid kon niet worden opgehaald.");
         }
@@ -1122,6 +1126,7 @@
       payload.startUtc = selectedSlot.startUtc;
       payload.slotCount = getSelectedSlotCount();
       payload.travelHours = getTravelHours();
+      bookingRequestKey ||= crypto.randomUUID();
       bookingSubmit.disabled = true;
       bookingSubmit.textContent = "Redirecting...";
       setBookingStatus("Betaling voorbereiden...");
@@ -1129,7 +1134,7 @@
       try {
         const response = await fetch("/api/booking/create", {
           method: "POST",
-          headers: { "content-type": "application/json" },
+          headers: { "content-type": "application/json", "idempotency-key": bookingRequestKey },
           body: JSON.stringify(payload)
         });
         const result = await response.json();
