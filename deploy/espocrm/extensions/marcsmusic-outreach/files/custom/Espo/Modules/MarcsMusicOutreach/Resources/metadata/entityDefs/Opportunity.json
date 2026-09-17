@@ -1,0 +1,120 @@
+{
+  "fields": {
+    "amount": {
+      "required": false
+    },
+    "closeDate": {
+      "required": false
+    },
+    "outreachProjectionKey": {
+      "type": "varchar",
+      "maxLength": 128,
+      "readOnlyAfterCreate": true,
+      "audited": true
+    },
+    "outreachMatch": {
+      "type": "link",
+      "readOnlyAfterCreate": true,
+      "audited": true,
+      "isPersonalData": true
+    },
+    "musicRelease": {
+      "type": "link",
+      "readOnlyAfterCreate": true,
+      "audited": true
+    },
+    "mediaContact": {
+      "type": "link",
+      "readOnlyAfterCreate": true,
+      "audited": true,
+      "isPersonalData": true
+    },
+    "mediaOutlet": {
+      "type": "link",
+      "readOnlyAfterCreate": true,
+      "audited": true
+    },
+    "sourceOutreachEvent": {
+      "type": "link",
+      "readOnlyAfterCreate": true,
+      "audited": true,
+      "isPersonalData": true
+    },
+    "latestOutreachEvent": {
+      "type": "link",
+      "audited": true,
+      "isPersonalData": true
+    },
+    "outreachInterestStatus": {
+      "type": "enum",
+      "options": ["Warm", "Interested", "Asset Requested", "Placement Confirmed"],
+      "audited": true,
+      "displayAsLabel": true
+    },
+    "outreachInterestAt": {
+      "type": "datetime",
+      "audited": true
+    },
+    "outreachRevenueState": {
+      "type": "enum",
+      "options": ["Unspecified", "Human Confirmed"],
+      "default": "Unspecified",
+      "audited": true,
+      "displayAsLabel": true
+    }
+  },
+  "links": {
+    "outreachMatch": {
+      "type": "belongsTo",
+      "entity": "OutreachMatch",
+      "foreign": "opportunities"
+    },
+    "musicRelease": {
+      "type": "belongsTo",
+      "entity": "MusicRelease",
+      "foreign": "opportunities"
+    },
+    "mediaContact": {
+      "type": "belongsTo",
+      "entity": "MediaContact",
+      "foreign": "opportunities"
+    },
+    "mediaOutlet": {
+      "type": "belongsTo",
+      "entity": "MediaOutlet",
+      "foreign": "opportunities"
+    },
+    "sourceOutreachEvent": {
+      "type": "belongsTo",
+      "entity": "OutreachEvent",
+      "foreign": "opportunities"
+    },
+    "latestOutreachEvent": {
+      "type": "belongsTo",
+      "entity": "OutreachEvent",
+      "foreign": "latestInterestOpportunities"
+    }
+  },
+  "indexes": {
+    "outreachProjectionKey": {
+      "columns": ["outreachProjectionKey"],
+      "unique": true
+    },
+    "outreachMatch": {
+      "columns": ["outreachMatchId"],
+      "unique": true
+    },
+    "sourceOutreachEvent": {
+      "columns": ["sourceOutreachEventId"],
+      "unique": true
+    },
+    "latestOutreachEvent": {
+      "columns": ["latestOutreachEventId", "deleted"]
+    },
+    "contactInterest": {
+      "columns": ["mediaContactId", "outreachInterestAt", "deleted"]
+    }
+  },
+  "optimisticConcurrencyControl": true,
+  "transactionalSave": true
+}

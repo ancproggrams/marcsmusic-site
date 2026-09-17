@@ -1,0 +1,46 @@
+{
+  "contractVersion": "1.0",
+  "limits": {
+    "maximumCharacters": 512
+  },
+  "valid": [
+    {
+      "name": "host port dot segments tracking and functional token",
+      "input": "https://EXAMPLE.COM.:443/catalog/./summer/../submit?utm_source=newsletter&token=AbC%2B123%2F%3D&b=2&fbclid=click&a=z&a=a&gclid=google&msclkid=bing&utm_campaign=launch",
+      "output": "https://example.com/catalog/submit?a=a&a=z&b=2&token=AbC%2B123%2F%3D"
+    },
+    {
+      "name": "only allowlisted tracking keys are removed",
+      "input": "https://Source.Example:8443/proof/%7eitem?z=last&UTM_Medium=email&access_token=a%2Fb%2Bc%3D&mc_cid=keep&affiliate_id=42&ref=press&flag&x=~*",
+      "output": "https://source.example:8443/proof/%7Eitem?access_token=a%2Fb%2Bc%3D&affiliate_id=42&flag=&mc_cid=keep&ref=press&x=%7E*&z=last"
+    },
+    {
+      "name": "encoded tracking names are recognized and duplicate functional values remain",
+      "input": "https://source.example/a/%2e%2e/b?token=b&u%74m_source=drop&token=%252F&f%62clid=drop&token=a",
+      "output": "https://source.example/b?token=%252F&token=a&token=b"
+    },
+    {
+      "name": "reserved path escape remains encoded with canonical hex case",
+      "input": "https://source.example/assets%2fmaster.wav?download=1",
+      "output": "https://source.example/assets%2Fmaster.wav?download=1"
+    },
+    {
+      "name": "IDNA and UTF-8 path and query normalization",
+      "input": "https://BÜCHER.example.:443/café/./mix?token=naïve&label=~*",
+      "output": "https://xn--bcher-kva.example/caf%C3%A9/mix?label=%7E*&token=na%C3%AFve"
+    }
+  ],
+  "invalid": [
+    { "name": "non HTTPS", "input": "http://source.example/path" },
+    { "name": "missing authority delimiter", "input": "https:source.example/path" },
+    { "name": "credentials", "input": "https://user:secret@source.example/path" },
+    { "name": "empty userinfo", "input": "https://@source.example/path" },
+    { "name": "fragment", "input": "https://source.example/path#section" },
+    { "name": "empty fragment", "input": "https://source.example/path#" },
+    { "name": "malformed percent escape", "input": "https://source.example/%" },
+    { "name": "invalid UTF-8 escape", "input": "https://source.example/%C3%28" },
+    { "name": "encoded controls", "input": "https://source.example/path?token=%0d%0aheader" },
+    { "name": "raw whitespace", "input": "https://source.example/a b" },
+    { "name": "backslash authority ambiguity", "input": "https://source.example\\@attacker.example/path" }
+  ]
+}

@@ -1,0 +1,13 @@
+[
+    "outreachMatch",
+    "eventType",
+    "eventDate",
+    "responseClassification",
+    "templateVersion",
+    "aiPromptVersion",
+    "errorCode",
+    "assignedUser",
+    "teams",
+    "createdAt",
+    "modifiedAt"
+]

@@ -152,7 +152,7 @@ test('HTTP client enforces deadlines', async (t) => {
 test('invalid zero slot step fails before the server starts', async () => {
   const child = spawn(process.execPath, ['server.js'], {
     cwd: new URL('../', import.meta.url),
-    env: { ...process.env, BOOKING_SLOT_STEP_MINUTES: '0', TRANSPARANTE_BROKER_SYNC_ENABLED: 'false' },
+    env: { ...process.env, NODE_ENV: 'test', BOOKING_SLOT_STEP_MINUTES: '0', TRANSPARANTE_BROKER_SYNC_ENABLED: 'false' },
     stdio: ['ignore', 'pipe', 'pipe']
   });
   let stderr = '';

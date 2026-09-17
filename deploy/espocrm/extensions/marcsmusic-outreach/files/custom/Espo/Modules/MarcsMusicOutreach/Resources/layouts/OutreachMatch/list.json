@@ -1,0 +1,12 @@
+[
+    {"name": "name", "link": true},
+    {"name": "musicRelease"},
+    {"name": "mediaContact"},
+    {"name": "mediaOutlet"},
+    {"name": "matchScore"},
+    {"name": "eligibilityStatus"},
+    {"name": "campaignStatus"},
+    {"name": "currentSequenceStep"},
+    {"name": "nextActionAt"},
+    {"name": "cooldownUntil"}
+]

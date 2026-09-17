@@ -1,0 +1,19 @@
+[
+    "type",
+    "country",
+    "language",
+    "genres",
+    "subGenres",
+    "formatGenres",
+    "submissionPolicy",
+    "acceptsEmail",
+    "acceptsForms",
+    "acceptsUnreleased",
+    "activityStatus",
+    "qualityScore",
+    "lastValidatedAt",
+    "assignedUser",
+    "teams",
+    "createdAt",
+    "modifiedAt"
+]

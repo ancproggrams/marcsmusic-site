@@ -1,0 +1,288 @@
+{
+    "fields": {
+        "name": {
+            "type": "varchar",
+            "required": true,
+            "maxLength": 180,
+            "pattern": "$noBadCharacters",
+            "audited": true
+        },
+        "artistName": {
+            "type": "varchar",
+            "required": true,
+            "maxLength": 180,
+            "audited": true
+        },
+        "description": {
+            "type": "text",
+            "audited": true
+        },
+        "releaseDate": {
+            "type": "date",
+            "audited": true
+        },
+        "campaignStartDate": {
+            "type": "date",
+            "audited": true
+        },
+        "campaignEndDate": {
+            "type": "date",
+            "audited": true
+        },
+        "status": {
+            "type": "enum",
+            "options": ["Draft", "Ready", "Active", "Paused", "Completed"],
+            "default": "Draft",
+            "style": {
+                "Draft": "info",
+                "Ready": "warning",
+                "Active": "success",
+                "Paused": "warning",
+                "Completed": "primary"
+            },
+            "displayAsLabel": true,
+            "labelType": "state",
+            "required": true,
+            "audited": true
+        },
+        "genres": {
+            "type": "multiEnum",
+            "options": ["Ambient", "Dance", "Electronic", "Hip Hop", "Indie", "Latin", "Pop", "Reggae", "Rock", "World", "Other"],
+            "audited": true
+        },
+        "subGenres": {
+            "type": "multiEnum",
+            "options": ["Afro", "Caribbean", "Club", "Downtempo", "Indie Dance", "Melodic", "Reggaeton", "Tropical", "World Fusion", "Other"],
+            "audited": true
+        },
+        "languages": {
+            "type": "multiEnum",
+            "options": ["nl", "en", "de", "fr", "es", "pt", "instrumental", "other"],
+            "audited": true
+        },
+        "moods": {
+            "type": "multiEnum",
+            "options": ["Dark", "Energetic", "Feel Good", "Melancholic", "Romantic", "Summer", "Uplifting", "Other"],
+            "audited": true
+        },
+        "bpm": {
+            "type": "int",
+            "min": 1,
+            "max": 400,
+            "audited": true
+        },
+        "instrumental": {
+            "type": "bool",
+            "default": false,
+            "audited": true
+        },
+        "explicitLyrics": {
+            "type": "bool",
+            "default": false,
+            "audited": true
+        },
+        "spotifyUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true
+        },
+        "websiteUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true
+        },
+        "epkUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true
+        },
+        "privateStreamUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true
+        },
+        "downloadUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true
+        },
+        "artworkUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true
+        },
+        "radioEditUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true
+        },
+        "isrc": {
+            "type": "varchar",
+            "maxLength": 15,
+            "readOnlyAfterCreate": true,
+            "audited": true
+        },
+        "sourceEvidenceCapturedAt": {
+            "type": "datetime",
+            "audited": true
+        },
+        "sourceEvidenceDigest": {
+            "type": "varchar",
+            "maxLength": 64,
+            "audited": true
+        },
+        "sourceEvidenceReference": {
+            "type": "varchar",
+            "maxLength": 512,
+            "audited": true
+        },
+    "epkAttestationState": {
+      "type": "enum",
+            "options": ["Unverified", "Verified", "Invalidated", "Failed"],
+      "default": "Unverified",
+      "required": true,
+            "displayAsLabel": true,
+            "audited": true
+        },
+        "epkManifestSha256": {
+            "type": "varchar",
+            "maxLength": 64,
+            "audited": true
+        },
+        "epkVerifiedAt": {
+            "type": "datetime",
+            "audited": true
+        },
+        "epkEvidenceReference": {
+            "type": "varchar",
+            "maxLength": 512,
+            "audited": true
+        },
+        "territories": {
+            "type": "array",
+            "audited": true
+        },
+        "priority": {
+            "type": "int",
+            "default": 50,
+            "min": 0,
+            "max": 100,
+            "required": true,
+            "audited": true
+        },
+        "dailySendLimit": {
+            "type": "int",
+            "default": 20,
+            "min": 1,
+            "max": 1000,
+            "required": true,
+            "audited": true
+        },
+        "assignedUser": {
+            "type": "link",
+            "view": "views/fields/assigned-user",
+            "audited": true
+        },
+        "teams": {
+            "type": "linkMultiple",
+            "view": "views/fields/teams",
+            "audited": true
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "createdBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "modifiedBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        }
+    },
+    "links": {
+        "outreachMatches": {
+            "type": "hasMany",
+            "entity": "OutreachMatch",
+            "foreign": "musicRelease"
+        },
+        "campaigns": {
+            "type": "hasMany",
+            "entity": "Campaign",
+            "foreign": "musicRelease"
+        },
+        "targetLists": {
+            "type": "hasMany",
+            "entity": "TargetList",
+            "foreign": "musicRelease"
+        },
+        "emails": {
+            "type": "hasMany",
+            "entity": "Email",
+            "foreign": "musicRelease"
+        },
+        "opportunities": {
+            "type": "hasMany",
+            "entity": "Opportunity",
+            "foreign": "musicRelease"
+        },
+        "assignedUser": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "teams": {
+            "type": "hasMany",
+            "entity": "Team",
+            "relationName": "entityTeam",
+            "layoutRelationshipsDisabled": true
+        },
+        "createdBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "modifiedBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        }
+    },
+    "indexes": {
+        "statusCampaignWindow": {
+            "columns": ["status", "campaignStartDate", "campaignEndDate", "deleted"]
+        },
+        "releaseDate": {
+            "columns": ["releaseDate", "deleted"]
+        },
+        "isrc": {
+            "columns": ["isrc"],
+            "unique": true
+        },
+        "sourceEvidenceRevision": {
+            "columns": ["sourceEvidenceCapturedAt", "sourceEvidenceDigest", "deleted"]
+        },
+        "modifiedAtCursor": {
+            "columns": ["modifiedAt", "id"]
+        }
+    },
+    "collection": {
+        "textFilterFields": ["name", "artistName", "description", "isrc"],
+        "orderBy": "releaseDate",
+        "order": "desc"
+    },
+    "optimisticConcurrencyControl": true,
+    "transactionalSave": true,
+    "entityClassName": "Espo\\Modules\\MarcsMusicOutreach\\Entities\\MusicRelease"
+}

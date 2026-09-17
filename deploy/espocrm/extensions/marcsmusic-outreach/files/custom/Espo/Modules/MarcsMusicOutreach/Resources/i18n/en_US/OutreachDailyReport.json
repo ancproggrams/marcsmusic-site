@@ -1,0 +1,27 @@
+{
+    "fields": {
+        "name": "Report",
+        "reportDate": "Report Date",
+        "status": "Status",
+        "generatedAt": "Generated At",
+        "newContacts": "New Contacts",
+        "validatedContacts": "Validated Contacts",
+        "duplicateContacts": "Duplicate Contacts",
+        "eligibleContacts": "Eligible Contacts",
+        "blockedContacts": "Blocked Contacts",
+        "matchesCreated": "Matches Created",
+        "initialEmailsSent": "Initial Emails Sent",
+        "followUpsSent": "Follow-ups Sent",
+        "repliesReceived": "Replies Received",
+        "positiveReplies": "Positive Replies",
+        "hardBounces": "Hard Bounces",
+        "softBounces": "Soft Bounces",
+        "optOuts": "Opt-outs",
+        "placements": "Placements",
+        "failedJobs": "Failed Jobs",
+        "summary": "Summary"
+    },
+    "labels": {
+        "Create OutreachDailyReport": "Create Outreach Daily Report"
+    }
+}

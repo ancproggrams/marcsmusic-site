@@ -1,0 +1,9 @@
+{
+  "targetLinkList": [
+    "accounts",
+    "contacts",
+    "leads",
+    "users",
+    "mediaContacts"
+  ]
+}

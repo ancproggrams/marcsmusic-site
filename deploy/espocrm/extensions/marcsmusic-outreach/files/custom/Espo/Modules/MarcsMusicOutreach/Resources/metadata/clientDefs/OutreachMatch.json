@@ -1,0 +1,10 @@
+{
+    "controller": "controllers/record",
+    "relationshipPanels": {
+        "outreachEvents": {"create": false}
+    },
+    "filterList": [{"name": "recentlyCreated"}],
+    "boolFilterList": ["onlyMy"],
+    "color": "#f4a261",
+    "iconClass": "fas fa-bullseye"
+}

@@ -1,0 +1,46 @@
+{
+    "fields": {
+        "name": "Release",
+        "artistName": "Artist Name",
+        "description": "Description",
+        "releaseDate": "Release Date",
+        "campaignStartDate": "Campaign Start Date",
+        "campaignEndDate": "Campaign End Date",
+        "status": "Status",
+        "genres": "Genres",
+        "subGenres": "Subgenres",
+        "languages": "Languages",
+        "moods": "Moods",
+        "bpm": "BPM",
+        "instrumental": "Instrumental",
+        "explicitLyrics": "Explicit Lyrics",
+        "spotifyUrl": "Spotify URL",
+        "websiteUrl": "Website URL",
+        "epkUrl": "EPK URL",
+        "privateStreamUrl": "Private Stream URL",
+        "downloadUrl": "Download URL",
+        "artworkUrl": "Artwork URL",
+        "radioEditUrl": "Radio Edit URL",
+        "isrc": "ISRC",
+        "sourceEvidenceCapturedAt": "Source Evidence Captured At",
+        "sourceEvidenceDigest": "Source Evidence Digest",
+        "sourceEvidenceReference": "Source Evidence Reference",
+        "epkAttestationState": "EPK Attestation State",
+        "epkManifestSha256": "EPK Manifest SHA-256",
+        "epkVerifiedAt": "EPK Verified At",
+        "epkEvidenceReference": "EPK Evidence Reference",
+        "territories": "Territories",
+        "priority": "Priority",
+        "dailySendLimit": "Daily Send Limit"
+    },
+    "links": {
+        "outreachMatches": "Outreach Matches",
+        "campaigns": "Campaigns",
+        "emails": "Outreach Emails",
+        "opportunities": "Opportunities",
+        "targetLists": "Outreach Target Lists"
+    },
+    "labels": {
+        "Create MusicRelease": "Create Music Release"
+    }
+}

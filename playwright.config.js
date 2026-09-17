@@ -11,8 +11,8 @@ export default defineConfig({
     trace: 'retain-on-failure'
   },
   webServer: {
-    command: 'env PORT=31891 BOOKING_SQLITE_PATH=.tmp/e2e.sqlite TRANSPARANTE_BROKER_SYNC_ENABLED=false node server.js',
-    url: 'http://127.0.0.1:31891/api/health/live',
+    command: 'env PORT=31891 BOOKING_DB_PATH=.tmp/e2e.json TRANSPARANTE_BROKER_SYNC_ENABLED=false node server.js',
+    url: 'http://127.0.0.1:31891/api/health',
     reuseExistingServer: false,
     timeout: 15_000
   }

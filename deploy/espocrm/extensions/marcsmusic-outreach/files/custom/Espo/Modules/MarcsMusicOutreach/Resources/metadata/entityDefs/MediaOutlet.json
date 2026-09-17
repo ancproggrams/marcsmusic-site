@@ -1,0 +1,240 @@
+{
+    "fields": {
+        "name": {
+            "type": "varchar",
+            "required": true,
+            "maxLength": 180,
+            "pattern": "$noBadCharacters",
+            "audited": true
+        },
+        "type": {
+            "type": "enum",
+            "options": ["Radio Station", "Radio Show", "DJ", "Music Blog", "Playlist Curator", "Label", "Submission Platform"],
+            "required": true,
+            "audited": true
+        },
+        "website": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true
+        },
+        "normalizedDomain": {
+            "type": "varchar",
+            "maxLength": 255,
+            "audited": true
+        },
+        "fingerprint": {
+            "type": "varchar",
+            "maxLength": 64,
+            "readOnlyAfterCreate": true
+        },
+        "country": {
+            "type": "varchar",
+            "maxLength": 100,
+            "audited": true
+        },
+        "language": {
+            "type": "enum",
+            "options": ["nl", "en", "de", "fr", "es", "pt", "other"],
+            "audited": true
+        },
+        "timezone": {
+            "type": "varchar",
+            "maxLength": 80,
+            "default": "Europe/Amsterdam",
+            "audited": true
+        },
+        "genres": {
+            "type": "multiEnum",
+            "options": ["Ambient", "Dance", "Electronic", "Hip Hop", "Indie", "Latin", "Pop", "Reggae", "Rock", "World", "Other"],
+            "audited": true
+        },
+        "subGenres": {
+            "type": "multiEnum",
+            "options": ["Afro", "Caribbean", "Club", "Downtempo", "Indie Dance", "Melodic", "Reggaeton", "Tropical", "World Fusion", "Other"],
+            "audited": true
+        },
+        "formatGenres": {
+            "type": "multiEnum",
+            "options": ["CHR", "College", "Community", "Dance", "Electronic", "Indie", "Latin", "Mainstream", "Specialist", "Urban", "World", "Other"],
+            "audited": true
+        },
+        "submissionPolicy": {
+            "type": "enum",
+            "options": ["Unknown", "Explicit", "Promo Contact", "Press Contact", "General Contact", "No Submissions", "Blocked"],
+            "default": "Unknown",
+            "style": {
+                "Explicit": "success",
+                "Promo Contact": "success",
+                "Press Contact": "primary",
+                "General Contact": "warning",
+                "Unknown": "warning",
+                "No Submissions": "danger",
+                "Blocked": "danger"
+            },
+            "displayAsLabel": true,
+            "audited": true
+        },
+        "submissionUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true
+        },
+        "submissionEvidence": {
+            "type": "text",
+            "audited": true
+        },
+        "acceptsEmail": {
+            "type": "bool",
+            "default": false,
+            "audited": true
+        },
+        "acceptsForms": {
+            "type": "bool",
+            "default": false,
+            "audited": true
+        },
+        "acceptsUnreleased": {
+            "type": "bool",
+            "default": false,
+            "audited": true
+        },
+        "activityStatus": {
+            "type": "enum",
+            "options": ["Needs Validation", "Active", "Inactive", "Blocked"],
+            "default": "Needs Validation",
+            "style": {
+                "Needs Validation": "warning",
+                "Active": "success",
+                "Inactive": "info",
+                "Blocked": "danger"
+            },
+            "displayAsLabel": true,
+            "labelType": "state",
+            "required": true,
+            "audited": true
+        },
+        "lastValidatedAt": {
+            "type": "datetime",
+            "audited": true
+        },
+        "sourceUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true
+        },
+        "qualityScore": {
+            "type": "int",
+            "default": 0,
+            "min": 0,
+            "max": 100,
+            "audited": true
+        },
+        "description": {
+            "type": "text",
+            "audited": true
+        },
+        "assignedUser": {
+            "type": "link",
+            "view": "views/fields/assigned-user",
+            "audited": true
+        },
+        "teams": {
+            "type": "linkMultiple",
+            "view": "views/fields/teams",
+            "audited": true
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "createdBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "modifiedBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        }
+    },
+    "links": {
+        "mediaContacts": {
+            "type": "hasMany",
+            "entity": "MediaContact",
+            "foreign": "mediaOutlet"
+        },
+        "outreachMatches": {
+            "type": "hasMany",
+            "entity": "OutreachMatch",
+            "foreign": "mediaOutlet"
+        },
+        "emails": {
+            "type": "hasMany",
+            "entity": "Email",
+            "foreign": "mediaOutlet"
+        },
+        "opportunities": {
+            "type": "hasMany",
+            "entity": "Opportunity",
+            "foreign": "mediaOutlet"
+        },
+        "suppressionEntries": {
+            "type": "hasMany",
+            "entity": "OutreachSuppression",
+            "foreign": "mediaOutlet"
+        },
+        "assignedUser": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "teams": {
+            "type": "hasMany",
+            "entity": "Team",
+            "relationName": "entityTeam",
+            "layoutRelationshipsDisabled": true
+        },
+        "createdBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "modifiedBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        }
+    },
+    "indexes": {
+        "fingerprint": {
+            "columns": ["fingerprint"],
+            "unique": true
+        },
+        "normalizedDomain": {
+            "columns": ["normalizedDomain", "deleted"]
+        },
+        "typeCountry": {
+            "columns": ["type", "country", "deleted"]
+        },
+        "activityValidation": {
+            "columns": ["activityStatus", "lastValidatedAt", "deleted"]
+        },
+        "modifiedAtCursor": {
+            "columns": ["modifiedAt", "id"]
+        }
+    },
+    "collection": {
+        "textFilterFields": ["name", "normalizedDomain", "fingerprint", "country", "submissionEvidence", "description"],
+        "orderBy": "qualityScore",
+        "order": "desc"
+    },
+    "optimisticConcurrencyControl": true,
+    "transactionalSave": true,
+    "entityClassName": "Espo\\Modules\\MarcsMusicOutreach\\Entities\\MediaOutlet"
+}

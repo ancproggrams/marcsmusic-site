@@ -1,0 +1,31 @@
+# Railway staging deploys use this directory as the archive root. Deny every
+# top-level path unless it is an explicit build or verification input.
+/*
+!/.railwayignore
+!/Dockerfile
+!/assert-outreach-schema.php
+!/build-extension-package.php
+!/build-runtime-contract.php
+!/database-state.php
+!/deployment-contract.json
+!/docker-compose.yml
+!/install-outreach-extension.sh
+!/railway.json
+!/readyz.php
+!/run-railway-processes.sh
+!/run-runtime-watchdog.sh
+!/run-shared-daemon.sh
+!/runtime-attestation.php
+!/runtime.php
+!/start-railway.sh
+!/validate-deployment-attestation.php
+!/validate-runtime-config.php
+!/verify-api-contract.sh
+!/verify-deployment.sh
+!/with-mysql-advisory-lock.php
+
+# Only the pinned MarcsMusic extension subtree may enter the build context.
+!/extensions/
+/extensions/*
+!/extensions/marcsmusic-outreach/
+!/extensions/marcsmusic-outreach/**

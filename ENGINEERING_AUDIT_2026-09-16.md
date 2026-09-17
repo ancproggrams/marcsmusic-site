@@ -390,17 +390,17 @@ addresses F01–F20 as follows:
 | F03 | Paid failure states continue reserving the slot and durable confirmation jobs retry |
 | F04 | Leased durable jobs, deterministic event UID, existing-event verification and duplicate-webhook regression |
 | F05/F06 | Standards-based iCalendar parser with recurrence, exceptions, TZID, all-day and duration support |
-| F07 | Payment creation uses an idempotency key; CRM projection is an independent durable job |
+| F07 | Payment creation uses a stable provider idempotency key; CRM failure preserves the existing checkout and reservation for recovery |
 | F08 | Indexed SQL store supports SQLite locally and Postgres with cross-process transaction locking |
 | F09 | Cancellation remains `cancel_requested` until calendar deletion succeeds; retry is visible |
 | F10 | Booking patches omit consent fields and blank signup data does not erase known contact fields |
-| F11 | Newsletter synchronization uses a durable retry job and exposes exhausted work through health/admin APIs |
+| F11 | Newsletter synchronization persists `pending_retry`, is recovered by the bounded recovery loop, and is exposed as readiness backlog |
 | F12/F13 | Import requires a proven completion signal and stable total, rejects duplicate IDs, and merges in O(N+M) |
 | F14 | Bounded TTL rate limiter with an explicit trusted-proxy boundary and separate endpoint budgets |
 | F15 | Deadlines, response-size/concurrency bounds and durable retry semantics for integrations |
 | F16 | Startup validation rejects invalid ranges, time zones, workdays and production secrets |
 | F17 | Raw stored intervals receive one candidate-side buffer; exact-boundary regression included |
-| F18 | Separate liveness/readiness endpoints, writable-store probe, dead-job and import-freshness reporting, structured request IDs |
+| F18 | Separate liveness/readiness endpoints report writable storage, integration configuration, recovery backlog and import freshness |
 | F19 | Required deployment secrets and exact EspoCRM, MariaDB, Radicale and bcrypt versions |
 | F20 | Browser request sequencing ignores stale availability responses and booking create is idempotent |
 

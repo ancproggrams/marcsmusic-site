@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0",
+  "exampleOnly": true,
+  "generatedAt": "2026-01-01T12:00:00.000Z",
+  "releases": [
+    {
+      "slug": "fictional-example-release",
+      "artist": "Fictional Example Artist",
+      "title": "Fictional Example Release",
+      "releaseDate": "2026-02-01",
+      "genres": [
+        "Example Genre"
+      ],
+      "moods": [
+        "Example Mood"
+      ],
+      "instrumental": false,
+      "tempo": {
+        "kind": "bpm",
+        "bpm": 120
+      },
+      "isrc": "XXAAA0000000",
+      "artistBio": {
+        "text": "This is reserved example content for validating the EPK contract. It does not describe a real artist or release.",
+        "rights": "owned"
+      },
+      "artwork": {
+        "url": "https://media.example.test/fictional-example-release.jpg",
+        "alt": "Reserved placeholder artwork for a fictional example release"
+      },
+      "publicStream": {
+        "url": "https://media.example.test/fictional-example-release",
+        "provider": "Example Public Stream",
+        "access": "public"
+      },
+      "spotifyUrl": "https://media.example.test/fictional-example-release-on-spotify",
+      "downloads": {
+        "mp3": {
+          "url": "https://media.example.test/fictional-example-release.mp3",
+          "format": "mp3",
+          "label": "Fictional example MP3"
+        },
+        "wav": {
+          "url": "https://media.example.test/fictional-example-release.wav",
+          "format": "wav",
+          "label": "Fictional example WAV"
+        }
+      },
+      "downloadRights": {
+        "owner": "Fictional Example Rights Owner",
+        "grant": "promotional-use",
+        "allowedUses": [
+          "editorial-review",
+          "radio-evaluation"
+        ],
+        "restrictions": "Reserved example only. Replace this text with the approved public usage grant before activation."
+      },
+      "label": {
+        "name": "Fictional Example Label",
+        "website": "https://evidence.example.test/fictional-label"
+      },
+      "contact": {
+        "name": "Fictional Press Contact",
+        "role": "Example-only press contact",
+        "email": "press@example.test"
+      },
+      "evidence": {
+        "sourceUrl": "https://evidence.example.test/fictional-release-evidence",
+        "capturedAt": "2026-01-01T11:00:00.000Z",
+        "statement": "Reserved example evidence. Replace with an owned authoritative source and current capture timestamp."
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+    "controller": "controllers/record",
+    "filterList": [{"name": "recentlyCreated"}],
+    "boolFilterList": ["onlyMy"],
+    "color": "#b23a48",
+    "iconClass": "fas fa-ban"
+}

@@ -1,0 +1,19 @@
+[
+    {
+        "label": "Report",
+        "rows": [
+            [{"name": "name"}, {"name": "reportDate"}],
+            [{"name": "status"}, {"name": "generatedAt"}],
+            [{"name": "newContacts"}, {"name": "validatedContacts"}],
+            [{"name": "duplicateContacts"}, {"name": "eligibleContacts"}],
+            [{"name": "blockedContacts"}, {"name": "matchesCreated"}],
+            [{"name": "initialEmailsSent"}, {"name": "followUpsSent"}],
+            [{"name": "repliesReceived"}, {"name": "positiveReplies"}],
+            [{"name": "hardBounces"}, {"name": "softBounces"}],
+            [{"name": "optOuts"}, {"name": "placements"}],
+            [{"name": "failedJobs"}, {"name": "assignedUser"}],
+            [{"name": "summary", "fullWidth": true}],
+            [{"name": "teams", "fullWidth": true}]
+        ]
+    }
+]

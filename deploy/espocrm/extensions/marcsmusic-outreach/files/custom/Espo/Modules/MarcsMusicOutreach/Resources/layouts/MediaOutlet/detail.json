@@ -1,0 +1,26 @@
+[
+    {
+        "label": "Overview",
+        "rows": [
+            [{"name": "name"}, {"name": "type"}],
+            [{"name": "website"}, {"name": "normalizedDomain"}],
+            [{"name": "fingerprint"}, false],
+            [{"name": "country"}, {"name": "language"}],
+            [{"name": "timezone"}, {"name": "activityStatus"}],
+            [{"name": "description", "fullWidth": true}]
+        ]
+    },
+    {
+        "label": "Submission",
+        "rows": [
+            [{"name": "genres"}, {"name": "subGenres"}],
+            [{"name": "formatGenres"}, {"name": "submissionPolicy"}],
+            [{"name": "submissionUrl"}, {"name": "sourceUrl"}],
+            [{"name": "acceptsEmail"}, {"name": "acceptsForms"}],
+            [{"name": "acceptsUnreleased"}, {"name": "lastValidatedAt"}],
+            [{"name": "qualityScore"}, {"name": "assignedUser"}],
+            [{"name": "submissionEvidence", "fullWidth": true}],
+            [{"name": "teams", "fullWidth": true}]
+        ]
+    }
+]

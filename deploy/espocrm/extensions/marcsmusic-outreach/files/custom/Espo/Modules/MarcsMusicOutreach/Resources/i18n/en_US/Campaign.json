@@ -1,0 +1,14 @@
+{
+  "fields": {
+    "musicRelease": "Music Release",
+    "outreachProjectionKey": "Outreach Projection Key",
+    "outreachManaged": "Outreach Managed",
+    "outreachTargetList": "Outreach Target List",
+    "targetMembershipProjectionState": "Target Membership Projection",
+    "targetMembershipReasonCode": "Target Membership Reason",
+    "targetMembershipReviewId": "Target Membership Review ID",
+    "targetMembershipCheckedAt": "Target Membership Checked At",
+    "targetMembershipProjectedAt": "Target Membership Projected At",
+    "targetMembershipCount": "Target Membership Count"
+  }
+}

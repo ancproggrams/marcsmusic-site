@@ -1,0 +1,10 @@
+[
+    {"name": "name", "link": true},
+    {"name": "artistName"},
+    {"name": "status"},
+    {"name": "releaseDate"},
+    {"name": "priority"},
+    {"name": "campaignStartDate"},
+    {"name": "campaignEndDate"},
+    {"name": "assignedUser"}
+]

@@ -1,0 +1,11 @@
+[
+    {"name": "name", "link": true},
+    {"name": "subjectType"},
+    {"name": "emailAddress"},
+    {"name": "domain"},
+    {"name": "reason"},
+    {"name": "source"},
+    {"name": "active"},
+    {"name": "suppressedAt"},
+    {"name": "expiresAt"}
+]

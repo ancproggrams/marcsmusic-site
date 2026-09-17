@@ -11,7 +11,7 @@ import { fileURLToPath } from "node:url";
 
 const repoRoot = resolve(fileURLToPath(new URL("../", import.meta.url)));
 const evidencePath = join(repoRoot, "test", "scenario-evidence.json");
-const adminToken = "scenario-admin-token";
+const adminToken = "scenario-admin-token-32-bytes-minimum";
 
 const scenarioDefinitions = [
   {
@@ -106,7 +106,7 @@ const scenarioRunners = {
 
       const booking = await requestText(harness.baseUrl, "/booking");
       check.equal("booking alias status", booking.status, 200, { path: "/booking" });
-      check.ok("booking page contains form title", booking.text.includes("Book MarcsMusic"), {
+      check.ok("booking page contains booking interface", booking.text.includes("booking-form"), {
         snippet: booking.text.slice(0, 120)
       });
 
@@ -116,7 +116,7 @@ const scenarioRunners = {
 
       const config = await requestJson(harness.baseUrl, "/api/booking/config");
       check.equal("config status code", config.status, 200, { path: "/api/booking/config" });
-      check.equal("integration readiness", config.body.integrations.ready, true, config.body.integrations);
+      check.ok("integration readiness", Object.values(config.body.integrations).every(Boolean), config.body.integrations);
       check.ok("booking types include dj", config.body.bookingTypes.some((type) => type.id === "dj"), {
         bookingTypes: config.body.bookingTypes.map((type) => type.id)
       });
@@ -173,7 +173,7 @@ const scenarioRunners = {
       const create = await createBooking(harness, date, 10);
       check.equal("create status code", create.status, 201, create.body);
       check.equal("booking status", create.body.status, "pending_payment", create.body);
-      check.ok("checkout URL uses local stub", create.body.checkoutUrl.startsWith(`${harness.mock.mollieUrl}/checkout/`), {
+      check.ok("checkout URL is an HTTPS Mollie link", create.body.checkoutUrl.startsWith("https://checkout.example.test/"), {
         checkoutUrl: create.body.checkoutUrl
       });
 
@@ -342,7 +342,7 @@ async function withHarness(options, work) {
   const mock = await startMockServices(options.mock || {});
   const tempDir = await mkdtemp(join(tmpdir(), "marcsmusic-scenario-"));
   const legacyDbPath = join(tempDir, "bookings.json");
-  const dbPath = join(tempDir, "bookings.sqlite");
+  const dbPath = legacyDbPath;
   const port = await getFreePort();
   const baseUrl = `http://127.0.0.1:${port}`;
   const logs = { stdout: "", stderr: "" };
@@ -358,7 +358,6 @@ async function withHarness(options, work) {
       PORT: String(port),
       APP_BASE_URL: baseUrl,
       BOOKING_DB_PATH: legacyDbPath,
-      BOOKING_SQLITE_PATH: dbPath,
       BOOKING_TIMEZONE: "UTC",
       BOOKING_WORKDAY_START: "10:00",
       BOOKING_WORKDAY_END: "18:00",
@@ -381,12 +380,15 @@ async function withHarness(options, work) {
       CRM_BOOKING_ENTITY: "DJBooking",
       CRM_NEWSLETTER_LIST: "MarcsMusic Newsletter",
       CRM_SOURCE_WEBSITE: "scenario-suite",
-      MOLLIE_API_KEY: "scenario-mollie-key",
+      MOLLIE_API_KEY: "test_scenario-mollie-key",
+      MOLLIE_PROFILE_ID: "pfl_scenario",
+      MOLLIE_MODE: "test",
       MOLLIE_API_BASE_URL: mock.mollieUrl,
       ADMIN_TOKEN: adminToken,
       PRIVACY_HASH_SALT: "scenario-privacy-salt",
       NEWSLETTER_FROM_EMAIL: "noreply@example.test",
       NEWSLETTER_FROM_NAME: "MarcsMusic Test",
+      NODE_ENV: "test",
       RAILWAY_ENVIRONMENT: ""
     },
     stdio: ["ignore", "pipe", "pipe"]
@@ -542,15 +544,21 @@ async function handleMollieRequest(request, response, state) {
       id,
       status: "open",
       amount: body.amount,
+      profileId: "pfl_scenario",
+      mode: "test",
       metadata: body.metadata || {}
     };
     state.payments.set(id, payment);
     sendJson(response, 201, {
       id,
       status: payment.status,
+      amount: payment.amount,
+      profileId: payment.profileId,
+      mode: payment.mode,
+      metadata: payment.metadata,
       _links: {
         checkout: {
-          href: `${state.mollieUrl || ""}/checkout/${id}`
+          href: `https://checkout.example.test/${id}`
         }
       }
     });
@@ -706,14 +714,7 @@ async function requestText(baseUrl, path, options = {}) {
 }
 
 async function readDb(dbPath) {
-  const db = new DatabaseSync(dbPath, { readOnly: true });
-  try {
-    const read = (table) => db.prepare(`SELECT payload FROM ${table}`).all().map((row) => JSON.parse(row.payload));
-    return { bookings: read("bookings"), payments: read("payments"), newsletterSubscriptions: read("subscriptions"),
-      assignments: read("assignments"), audit: read("audit_events") };
-  } finally {
-    db.close();
-  }
+  return JSON.parse(await readFile(dbPath, "utf8"));
 }
 
 async function waitForServer(child, logs, baseUrl) {
@@ -723,11 +724,9 @@ async function waitForServer(child, logs, baseUrl) {
       throw new Error(`server exited before readiness\nstdout:\n${logs.stdout}\nstderr:\n${logs.stderr}`);
     }
 
-    if (logs.stdout.includes('"event":"server.started"')) {
-      const health = await fetch(`${baseUrl}/api/health`).catch(() => null);
-      if (health?.ok) {
-        return;
-      }
+    const health = await fetch(`${baseUrl}/api/health`).catch(() => null);
+    if (health?.ok) {
+      return;
     }
 
     await delay(50);

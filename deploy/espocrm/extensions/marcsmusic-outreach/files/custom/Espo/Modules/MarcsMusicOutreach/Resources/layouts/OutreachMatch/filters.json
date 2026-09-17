@@ -1,0 +1,17 @@
+[
+    "musicRelease",
+    "mediaContact",
+    "mediaOutlet",
+    "matchScore",
+    "eligibilityStatus",
+    "campaignStatus",
+    "currentSequenceStep",
+    "activeSequence",
+    "replyStatus",
+    "nextActionAt",
+    "lastSentAt",
+    "assignedUser",
+    "teams",
+    "createdAt",
+    "modifiedAt"
+]

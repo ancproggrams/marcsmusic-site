@@ -1,0 +1,20 @@
+[
+    "mediaOutlet",
+    "showName",
+    "status",
+    "contactPurpose",
+    "contactBasis",
+    "emailValidationStatus",
+    "smtpValidationStatus",
+    "doNotContact",
+    "optedOut",
+    "hardBounced",
+    "previousPositiveReply",
+    "preferredLanguage",
+    "rejectedGenres",
+    "lastValidatedAt",
+    "assignedUser",
+    "teams",
+    "createdAt",
+    "modifiedAt"
+]

@@ -1,0 +1,11 @@
+.next/
+node_modules/
+coverage/
+reports/*.md
+*.log
+*.tmp
+*.temp
+*.tsbuildinfo
+.env
+.env.*
+!.env.example

@@ -1,0 +1,34 @@
+{
+    "fields": {
+        "name": "Match",
+        "musicRelease": "Music Release",
+        "mediaContact": "Media Contact",
+        "mediaOutlet": "Media Outlet",
+        "campaign": "Campaign",
+        "matchScore": "Match Score",
+        "matchReasons": "Match Reasons",
+        "eligibilityStatus": "Eligibility Status",
+        "campaignStatus": "Campaign Status",
+        "currentSequenceStep": "Current Sequence Step",
+        "nextActionAt": "Next Action At",
+        "lastSentAt": "Last Sent At",
+        "cooldownUntil": "Cooldown Until",
+        "lastProviderMessageId": "Last Provider Message ID",
+        "replyStatus": "Reply Status",
+        "stopReason": "Stop Reason",
+        "idempotencyKey": "Idempotency Key",
+        "activeSequence": "Active Sequence"
+    },
+    "links": {
+        "musicRelease": "Music Release",
+        "mediaContact": "Media Contact",
+        "mediaOutlet": "Media Outlet",
+        "campaign": "Campaign",
+        "outreachEvents": "Outreach Events",
+        "emails": "Emails",
+        "opportunities": "Opportunities"
+    },
+    "labels": {
+        "Create OutreachMatch": "Create Outreach Match"
+    }
+}

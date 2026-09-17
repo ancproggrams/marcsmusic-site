@@ -1,0 +1,32 @@
+[
+    {
+        "label": "Overview",
+        "rows": [
+            [{"name": "name"}, {"name": "role"}],
+            [{"name": "showName"}, false],
+            [{"name": "emailAddress"}, {"name": "mediaOutlet"}],
+            [{"name": "status"}, {"name": "preferredLanguage"}],
+            [{"name": "timezone"}, {"name": "lastValidatedAt"}],
+            [{"name": "instagramUrl"}, {"name": "linkedinUrl"}],
+            [{"name": "soundcloudUrl"}, {"name": "contactSourceUrl"}]
+        ]
+    },
+    {
+        "label": "Consent and validation",
+        "rows": [
+            [{"name": "contactPurpose"}, {"name": "contactBasis"}],
+            [{"name": "emailValidationStatus"}, {"name": "smtpValidationStatus"}],
+            [{"name": "proofUrl"}, {"name": "proofCapturedAt"}],
+            [{"name": "doNotContact"}, {"name": "optedOut"}],
+            [{"name": "hardBounced"}, {"name": "previousPositiveReply"}],
+            [{"name": "rejectedGenres"}, {"name": "rejectedGenresUpdatedAt"}],
+            [{"name": "rejectedGenresSourceEvent"}, {"name": "fingerprint"}],
+            [{"name": "futureReleaseInterest"}, {"name": "futureReleaseInterestAt"}],
+            [{"name": "futureReleaseGenres"}, {"name": "futureReleaseInterestEvent"}],
+            [{"name": "duplicateOf"}, false],
+            [{"name": "contactEvidence", "fullWidth": true}],
+            [{"name": "proofText", "fullWidth": true}],
+            [{"name": "assignedUser"}, {"name": "teams"}]
+        ]
+    }
+]

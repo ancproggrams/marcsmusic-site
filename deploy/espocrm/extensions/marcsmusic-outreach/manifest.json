@@ -1,0 +1,13 @@
+{
+    "name": "MarcsMusic Outreach",
+    "version": "1.2.2",
+    "acceptableVersions": [
+        ">=10.0.0 <11.0.0"
+    ],
+    "php": [
+        ">=8.3"
+    ],
+    "releaseDate": "2026-07-15",
+    "author": "MarcsMusic",
+    "description": "Versioned CRM entities and guarded standard-entity projections for compliant, auditable MarcsMusic outreach operations."
+}

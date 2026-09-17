@@ -1,0 +1,4 @@
+*
+!Dockerfile
+!patches/
+!patches/0001-mxroute-native-starttls.patch

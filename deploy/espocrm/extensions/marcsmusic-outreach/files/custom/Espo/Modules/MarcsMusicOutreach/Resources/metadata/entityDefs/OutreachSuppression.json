@@ -1,0 +1,174 @@
+{
+    "fields": {
+        "name": {
+            "type": "varchar",
+            "required": true,
+            "maxLength": 180,
+            "pattern": "$noBadCharacters"
+        },
+        "subjectHash": {
+            "type": "varchar",
+            "maxLength": 64,
+            "required": true,
+            "readOnlyAfterCreate": true
+        },
+        "subjectType": {
+            "type": "enum",
+            "options": ["email", "domain", "contact", "outlet"],
+            "required": true,
+            "audited": true,
+            "readOnlyAfterCreate": true
+        },
+        "emailAddress": {
+            "type": "email",
+            "audited": true,
+            "isPersonalData": true,
+            "readOnlyAfterCreate": true
+        },
+        "domain": {
+            "type": "varchar",
+            "maxLength": 255,
+            "audited": true,
+            "readOnlyAfterCreate": true
+        },
+        "reason": {
+            "type": "varchar",
+            "maxLength": 80,
+            "required": true,
+            "audited": true
+        },
+        "source": {
+            "type": "varchar",
+            "maxLength": 80,
+            "required": true,
+            "audited": true
+        },
+        "active": {
+            "type": "bool",
+            "default": true,
+            "required": true,
+            "audited": true
+        },
+        "suppressedAt": {
+            "type": "datetime",
+            "required": true,
+            "audited": true
+        },
+        "expiresAt": {
+            "type": "datetime",
+            "audited": true
+        },
+        "evidenceUrl": {
+            "type": "url",
+            "maxLength": 512,
+            "protocolRequired": true,
+            "audited": true,
+            "isPersonalData": true
+        },
+        "evidenceText": {
+            "type": "text",
+            "audited": true,
+            "isPersonalData": true
+        },
+        "providerEventId": {
+            "type": "varchar",
+            "maxLength": 255,
+            "audited": true
+        },
+        "mediaContact": {
+            "type": "link",
+            "audited": true,
+            "isPersonalData": true,
+            "readOnlyAfterCreate": true
+        },
+        "mediaOutlet": {
+            "type": "link",
+            "audited": true,
+            "readOnlyAfterCreate": true
+        },
+        "assignedUser": {
+            "type": "link",
+            "view": "views/fields/assigned-user",
+            "audited": true
+        },
+        "teams": {
+            "type": "linkMultiple",
+            "view": "views/fields/teams",
+            "audited": true
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "createdBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        },
+        "modifiedBy": {
+            "type": "link",
+            "readOnly": true,
+            "view": "views/fields/user"
+        }
+    },
+    "links": {
+        "mediaContact": {
+            "type": "belongsTo",
+            "entity": "MediaContact",
+            "foreign": "suppressionEntries"
+        },
+        "mediaOutlet": {
+            "type": "belongsTo",
+            "entity": "MediaOutlet",
+            "foreign": "suppressionEntries"
+        },
+        "assignedUser": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "teams": {
+            "type": "hasMany",
+            "entity": "Team",
+            "relationName": "entityTeam",
+            "layoutRelationshipsDisabled": true
+        },
+        "createdBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        },
+        "modifiedBy": {
+            "type": "belongsTo",
+            "entity": "User"
+        }
+    },
+    "indexes": {
+        "subjectHash": {
+            "columns": ["subjectType", "subjectHash"],
+            "unique": true
+        },
+        "domainActive": {
+            "columns": ["domain", "active", "deleted"]
+        },
+        "contactActive": {
+            "columns": ["mediaContactId", "active", "deleted"]
+        },
+        "providerEvent": {
+            "columns": ["providerEventId", "deleted"]
+        },
+        "modifiedAtCursor": {
+            "columns": ["modifiedAt", "id"]
+        }
+    },
+    "collection": {
+        "textFilterFields": ["name", "subjectHash", "emailAddress", "domain", "evidenceText", "providerEventId"],
+        "orderBy": "suppressedAt",
+        "order": "desc"
+    },
+    "optimisticConcurrencyControl": true,
+    "transactionalSave": true,
+    "entityClassName": "Espo\\Modules\\MarcsMusicOutreach\\Entities\\OutreachSuppression"
+}

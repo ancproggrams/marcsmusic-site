@@ -1,0 +1,125 @@
+{
+  "fields": {
+    "parent": {
+      "entityList": ["Account", "Lead", "Contact", "Opportunity", "Case", "OutreachMatch"]
+    },
+    "outreachProjectionKey": {
+      "type": "varchar",
+      "maxLength": 128,
+      "readOnlyAfterCreate": true,
+      "audited": true
+    },
+    "outreachCorrelationId": {
+      "type": "varchar",
+      "maxLength": 128,
+      "readOnlyAfterCreate": true,
+      "audited": true,
+      "isPersonalData": true
+    },
+    "outreachProviderMessageId": {
+      "type": "varchar",
+      "maxLength": 255,
+      "readOnlyAfterCreate": true,
+      "audited": true,
+      "isPersonalData": true
+    },
+    "outreachDeterministicMessageId": {
+      "type": "varchar",
+      "maxLength": 255,
+      "readOnlyAfterCreate": true,
+      "audited": true,
+      "isPersonalData": true
+    },
+    "outreachAcceptedAt": {
+      "type": "datetime",
+      "readOnlyAfterCreate": true,
+      "audited": true
+    },
+    "outreachAutomaticResponse": {
+      "type": "bool",
+      "default": false,
+      "readOnlyAfterCreate": true,
+      "audited": true
+    },
+    "outreachMatch": {
+      "type": "link",
+      "readOnlyAfterCreate": true,
+      "audited": true,
+      "isPersonalData": true
+    },
+    "outreachCampaign": {
+      "type": "link",
+      "readOnlyAfterCreate": true,
+      "audited": true
+    },
+    "musicRelease": {
+      "type": "link",
+      "readOnlyAfterCreate": true,
+      "audited": true
+    },
+    "mediaContact": {
+      "type": "link",
+      "readOnlyAfterCreate": true,
+      "audited": true,
+      "isPersonalData": true
+    },
+    "mediaOutlet": {
+      "type": "link",
+      "readOnlyAfterCreate": true,
+      "audited": true
+    }
+  },
+  "links": {
+    "outreachMatch": {
+      "type": "belongsTo",
+      "entity": "OutreachMatch",
+      "foreign": "emails"
+    },
+    "outreachCampaign": {
+      "type": "belongsTo",
+      "entity": "Campaign",
+      "foreign": "outreachEmails"
+    },
+    "musicRelease": {
+      "type": "belongsTo",
+      "entity": "MusicRelease",
+      "foreign": "emails"
+    },
+    "mediaContact": {
+      "type": "belongsTo",
+      "entity": "MediaContact",
+      "foreign": "emails"
+    },
+    "mediaOutlet": {
+      "type": "belongsTo",
+      "entity": "MediaOutlet",
+      "foreign": "emails"
+    },
+    "outreachEvents": {
+      "type": "hasMany",
+      "entity": "OutreachEvent",
+      "foreign": "email"
+    }
+  },
+  "indexes": {
+    "outreachProjectionKey": {
+      "columns": ["outreachProjectionKey"],
+      "unique": true
+    },
+    "outreachCorrelationId": {
+      "columns": ["outreachCorrelationId"],
+      "unique": true
+    },
+    "outreachProviderMessage": {
+      "columns": ["outreachProviderMessageId", "deleted"]
+    },
+    "outreachMatchDate": {
+      "columns": ["outreachMatchId", "dateSent", "deleted"]
+    },
+    "outreachCampaignDate": {
+      "columns": ["outreachCampaignId", "dateSent", "deleted"]
+    }
+  },
+  "optimisticConcurrencyControl": true,
+  "transactionalSave": true
+}
