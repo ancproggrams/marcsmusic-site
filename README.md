@@ -12,6 +12,7 @@ This project serves the MarcsMusic site and a server-side booking flow with a se
 - Newsletter endpoint at `/api/newsletter/subscribe`
 - Periodic, idempotent import of public assignments from De Transparante Broker
 - Admin page at `/admin`
+- SEO/AEO baseline: canonical pages, structured data, `/robots.txt`, `/sitemap.xml` and `/llms.txt`
 - Optional manifest-backed public EPK at `/epk/:slug` with JSON at `/api/epk/:slug`
 - Deployment starter files for EspoCRM and Radicale
 
@@ -223,6 +224,25 @@ Validate discovery only:
 ```text
 npm run search:discover-film-directors -- --dry-run
 ```
+
+## SEO and AEO
+
+All search and answer-engine data lives in `src/seo/site-seo.mjs`: the artist
+entity, the canonical pages, the bookable services and the FAQ answer blocks.
+The head metadata, JSON-LD graph and visible FAQ blocks in `index.html` and
+`booking.html` are generated regions; `/robots.txt`, `/sitemap.xml` and
+`/llms.txt` are rendered by the server from `APP_BASE_URL`.
+
+```text
+npm run seo:check   # fail on drift between the pages and the entity data
+npm run seo:sync    # rewrite the generated regions after a content change
+```
+
+`/index.html`, `/booking.html` and `/admin.html` answer with `301` to their
+canonical paths. The admin page, the JSON API and the Mollie return routes are
+excluded from every index. See [the SEO/AEO programme and runbook](docs/seo-aeo.md)
+for the keyword and question matrix, the rules for answer blocks and the next
+steps.
 
 ## Newsletter sender
 
