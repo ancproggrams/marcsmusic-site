@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { request as httpRequest } from "node:http";
 import { createServer as createNetServer } from "node:net";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -11,12 +12,14 @@ import { XMLParser } from "fast-xml-parser";
 import { TRACKS } from "../app.js";
 import { buildLlmsTxt, buildRobotsTxt, buildSitemapXml } from "../src/seo/seo-documents.mjs";
 import { FAQ_REGION, HEAD_REGION, readRegion } from "../src/seo/page-markup.mjs";
+import { buildBookingOfferGraph, verificationMetaTags } from "../src/seo/runtime-seo.mjs";
 import {
   BOOKING_SERVICES,
   buildJsonLdGraph,
   canonicalUrl,
   FAQ_ENTRIES,
   isoDuration,
+  serviceForBookingType,
   SITE_ENTITY,
   SITE_PAGES
 } from "../src/seo/site-seo.mjs";
@@ -64,6 +67,23 @@ test("each public page carries one canonical URL, sharing metadata and a parsabl
     assert.equal(webPage.url, canonical);
     assert.equal(webPage.description, page.description);
     assert.equal(webPage.inLanguage, "nl-NL");
+  }
+});
+
+test("the share image exists as a real landscape asset with matching metadata", async () => {
+  const share = SITE_ENTITY.shareImage;
+  const bytes = await readFile(join(process.cwd(), share.path.slice(1)));
+  const dimensions = jpegDimensions(bytes);
+
+  assert.deepEqual(dimensions, { width: share.width, height: share.height });
+  assert.equal(share.width / share.height > 1.9, true, "a share image must be landscape");
+  assert.ok(bytes.byteLength < 400_000, "a share image must stay small enough to preview quickly");
+
+  for (const page of SITE_PAGES) {
+    const html = await readFile(join(process.cwd(), page.file), "utf8");
+    assert.match(html, new RegExp(`<meta property="og:image" content="[^"]*${escapeRegExp(share.path)}">`, "u"));
+    assert.match(html, new RegExp(`<meta property="og:image:width" content="${share.width}">`, "u"));
+    assert.match(html, new RegExp(`<meta property="og:image:height" content="${share.height}">`, "u"));
   }
 });
 
@@ -192,6 +212,78 @@ test("crawl documents refuse an unsafe site origin", () => {
   }
 });
 
+test("the offer graph publishes the live booking prices and links them to the services", () => {
+  const bookingConfig = {
+    bookingTypes: [
+      { id: "dj", label: "DJ / muziek event", durationMinutes: 90, priceCents: 25_000 },
+      { id: "studio", label: "Studio sessie", durationMinutes: 60, priceCents: 7_500 }
+    ],
+    currency: "EUR",
+    travelRateCentsPerHour: 7_500,
+    pricesExcludeVat: true
+  };
+  const { graph, skippedTypeIds } = buildBookingOfferGraph({ siteOrigin: TEST_ORIGIN, bookingConfig });
+  const offers = graph["@graph"];
+
+  assert.deepEqual(skippedTypeIds, []);
+  assert.equal(offers.length, 2);
+  assert.deepEqual(
+    offers.map((offer) => offer.price),
+    ["250.00", "75.00"]
+  );
+  for (const [index, offer] of offers.entries()) {
+    const service = serviceForBookingType(bookingConfig.bookingTypes[index].id);
+    assert.equal(offer["@type"], "Offer");
+    assert.equal(offer.priceCurrency, "EUR");
+    assert.equal(offer.valueAddedTaxIncluded, false);
+    assert.equal(offer.itemOffered["@id"], `${TEST_ORIGIN}/booking#${service.id}`);
+    assert.equal(offer.offeredBy["@id"], `${TEST_ORIGIN}/#artist`);
+    assert.equal(offer.priceSpecification.referenceQuantity.value, bookingConfig.bookingTypes[index].durationMinutes);
+    assert.equal(offer.priceSpecification.referenceQuantity.unitCode, "MIN");
+    assert.equal(offer.addOn.price, "75.00");
+    assert.equal(offer.addOn.priceSpecification.referenceQuantity.unitCode, "HUR");
+  }
+});
+
+test("the offer graph omits unmapped booking types and rejects unusable configuration", () => {
+  const unmapped = buildBookingOfferGraph({
+    siteOrigin: TEST_ORIGIN,
+    bookingConfig: {
+      bookingTypes: [{ id: "workshop", durationMinutes: 60, priceCents: 5_000 }],
+      currency: "EUR"
+    }
+  });
+  assert.equal(unmapped.graph, null);
+  assert.deepEqual(unmapped.skippedTypeIds, ["workshop"]);
+
+  const withoutTravel = buildBookingOfferGraph({
+    siteOrigin: TEST_ORIGIN,
+    bookingConfig: { bookingTypes: [{ id: "dj", durationMinutes: 60, priceCents: 0 }], currency: "EUR" }
+  });
+  assert.equal(withoutTravel.graph["@graph"][0].price, "0.00");
+  assert.equal(withoutTravel.graph["@graph"][0].addOn, undefined);
+  assert.equal(withoutTravel.graph["@graph"][0].valueAddedTaxIncluded, undefined);
+
+  for (const bookingConfig of [
+    { bookingTypes: [{ id: "dj", durationMinutes: 60, priceCents: 1.5 }], currency: "EUR" },
+    { bookingTypes: [{ id: "dj", durationMinutes: 0, priceCents: 100 }], currency: "EUR" },
+    { bookingTypes: [{ id: "dj", durationMinutes: 60, priceCents: 100 }], currency: "euro" }
+  ]) {
+    assert.throws(() => buildBookingOfferGraph({ siteOrigin: TEST_ORIGIN, bookingConfig }), Error);
+  }
+});
+
+test("search console verification only accepts a strict token", () => {
+  assert.deepEqual(verificationMetaTags({}), []);
+  assert.deepEqual(verificationMetaTags({ google: "abcd1234efgh", bing: "0123456789ABCDEF" }), [
+    '<meta name="google-site-verification" content="abcd1234efgh">',
+    '<meta name="msvalidate.01" content="0123456789ABCDEF">'
+  ]);
+  for (const token of ["short", 'x" foo="bar', "token with spaces", "a".repeat(129)]) {
+    assert.throws(() => verificationMetaTags({ google: token }), Error, token);
+  }
+});
+
 test("the running site serves the crawl documents, canonical redirects and noindex admin", async (t) => {
   const site = await startSiteProcess(t);
 
@@ -233,6 +325,89 @@ test("the running site serves the crawl documents, canonical redirects and noind
   assert.match(await homepage.text(), /<link rel="canonical" href="https:\/\/www\.marcsmusic\.nl\/">/u);
 });
 
+test("the booking page publishes the live prices and the configured ownership proofs", async (t) => {
+  const site = await startSiteProcess(t, {
+    BOOKING_PRICE_DJ_CENTS: "25000",
+    BOOKING_DURATION_DJ_MINUTES: "90",
+    BOOKING_TRAVEL_RATE_CENTS_PER_HOUR: "8000",
+    GOOGLE_SITE_VERIFICATION: "googletoken12345",
+    BING_SITE_VERIFICATION: "bingtoken12345"
+  });
+  const html = await (await fetch(`${site.baseUrl}/booking`)).text();
+  const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gu)].map((match) =>
+    JSON.parse(match[1])
+  );
+
+  assert.equal(blocks.length, 2);
+  const offers = blocks[1]["@graph"];
+  const djOffer = offers.find((offer) => offer["@id"].endsWith("#aanbod-dj-set"));
+  assert.equal(djOffer.price, "250.00");
+  assert.equal(djOffer.priceSpecification.referenceQuantity.value, 90);
+  assert.equal(djOffer.addOn.price, "80.00");
+  assert.equal(offers.length, BOOKING_SERVICES.length);
+
+  assert.match(html, /<meta name="google-site-verification" content="googletoken12345">/u);
+  assert.match(html, /<meta name="msvalidate.01" content="bingtoken12345">/u);
+  assert.doesNotMatch(html, /<!-- seo:runtime -->/u);
+
+  const homepage = await (await fetch(`${site.baseUrl}/`)).text();
+  assert.match(homepage, /<meta name="google-site-verification" content="googletoken12345">/u);
+  assert.equal((homepage.match(/application\/ld\+json/gu) || []).length, 1);
+});
+
+test("the site refuses to start with an unusable verification token", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "marcsmusic-seo-"));
+  temporaryDirectories.push(directory);
+  const failure = await new Promise((resolve) => {
+    const child = spawn(process.execPath, ["server.js"], {
+      cwd: process.cwd(),
+      env: { ...baseEnvironment(directory, 3_999), GOOGLE_SITE_VERIFICATION: 'broken" content="x' },
+      stdio: ["ignore", "pipe", "pipe"]
+    });
+    let output = "";
+    child.stdout.on("data", (chunk) => { output += chunk.toString("utf8"); });
+    child.stderr.on("data", (chunk) => { output += chunk.toString("utf8"); });
+    child.once("exit", (code) => resolve({ code, output }));
+  });
+
+  assert.notEqual(failure.code, 0);
+  assert.match(failure.output, /GOOGLE_SITE_VERIFICATION must be 8-128 characters/u);
+});
+
+test("critical text responses are compressed, negotiated and cached deliberately", async (t) => {
+  const site = await startSiteProcess(t);
+
+  const brotli = await rawRequest(site.baseUrl, "/styles.css", { "accept-encoding": "br, gzip" });
+  const gzip = await rawRequest(site.baseUrl, "/styles.css", { "accept-encoding": "gzip" });
+  const plain = await rawRequest(site.baseUrl, "/styles.css", { "accept-encoding": "identity" });
+  const rejected = await rawRequest(site.baseUrl, "/styles.css", { "accept-encoding": "br;q=0, gzip;q=0" });
+
+  assert.equal(brotli.headers["content-encoding"], "br");
+  assert.equal(gzip.headers["content-encoding"], "gzip");
+  assert.equal(plain.headers["content-encoding"], undefined);
+  assert.equal(rejected.headers["content-encoding"], undefined);
+  assert.equal(brotli.headers.vary, "accept-encoding");
+  assert.ok(brotli.body.byteLength < plain.body.byteLength / 3, "brotli must be far smaller than the source");
+  assert.ok(gzip.body.byteLength < plain.body.byteLength / 3, "gzip must be far smaller than the source");
+  assert.equal(Number(brotli.headers["content-length"]), brotli.body.byteLength);
+
+  const page = await rawRequest(site.baseUrl, "/booking", { "accept-encoding": "br" });
+  assert.equal(page.headers["content-encoding"], "br");
+
+  const font = await rawRequest(site.baseUrl, "/assets/fonts/roboto-flex.ttf", {});
+  assert.equal(font.headers["cache-control"], "public, max-age=2592000");
+  assert.equal(font.headers["content-encoding"], undefined);
+
+  const audio = await rawRequest(site.baseUrl, "/soundcloud-growth-os/outreach-mp3/06%20Carnival/Carnival.mp3", {
+    range: "bytes=0-99",
+    "accept-encoding": "br"
+  });
+  assert.equal(audio.status, 206);
+  assert.equal(audio.headers["content-encoding"], undefined);
+  assert.equal(audio.body.byteLength, 100);
+  assert.equal(audio.headers["cache-control"], "public, max-age=2592000");
+});
+
 function readJsonLd(html) {
   const match = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/u);
   assert.ok(match, "the page must contain exactly one JSON-LD block");
@@ -244,25 +419,64 @@ function escapeRegExp(value) {
   return String(value).replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
 }
 
-async function startSiteProcess(t) {
+function jpegDimensions(bytes) {
+  assert.equal(bytes.readUInt16BE(0), 0xffd8, "the share image must be a JPEG");
+  let offset = 2;
+  while (offset < bytes.byteLength - 9) {
+    assert.equal(bytes[offset], 0xff, "unexpected JPEG structure");
+    const marker = bytes[offset + 1];
+    const length = bytes.readUInt16BE(offset + 2);
+    if (marker >= 0xc0 && marker <= 0xcf && ![0xc4, 0xc8, 0xcc].includes(marker)) {
+      return { height: bytes.readUInt16BE(offset + 5), width: bytes.readUInt16BE(offset + 7) };
+    }
+    offset += 2 + length;
+  }
+  throw new Error("the share image has no readable frame header");
+}
+
+function rawRequest(baseUrl, path, headers) {
+  const url = new URL(path, baseUrl);
+  return new Promise((resolve, reject) => {
+    const clientRequest = httpRequest(
+      { hostname: url.hostname, port: url.port, path: url.pathname + url.search, headers },
+      (response) => {
+        const chunks = [];
+        response.on("data", (chunk) => chunks.push(chunk));
+        response.on("end", () =>
+          resolve({ status: response.statusCode, headers: response.headers, body: Buffer.concat(chunks) })
+        );
+      }
+    );
+    clientRequest.once("error", reject);
+    clientRequest.end();
+  });
+}
+
+function baseEnvironment(directory, port) {
+  return {
+    ...process.env,
+    PORT: String(port),
+    APP_BASE_URL: TEST_ORIGIN,
+    RAILWAY_ENVIRONMENT: "",
+    PRIVACY_HASH_SALT: "seo-test-privacy-salt",
+    BOOKING_DB_PATH: join(directory, "bookings.json"),
+    BOOKING_SQLITE_PATH: "",
+    DATABASE_URL: "",
+    EPK_MANIFEST_ROOT: "",
+    EPK_MANIFEST_PATH: "",
+    TRANSPARANTE_BROKER_SYNC_ENABLED: "false",
+    GOOGLE_SITE_VERIFICATION: "",
+    BING_SITE_VERIFICATION: ""
+  };
+}
+
+async function startSiteProcess(t, environment = {}) {
   const directory = await mkdtemp(join(tmpdir(), "marcsmusic-seo-"));
   temporaryDirectories.push(directory);
   const port = await reservePort();
   const child = spawn(process.execPath, ["server.js"], {
     cwd: process.cwd(),
-    env: {
-      ...process.env,
-      PORT: String(port),
-      APP_BASE_URL: TEST_ORIGIN,
-      RAILWAY_ENVIRONMENT: "",
-      PRIVACY_HASH_SALT: "seo-test-privacy-salt",
-      BOOKING_DB_PATH: join(directory, "bookings.json"),
-      BOOKING_SQLITE_PATH: "",
-      DATABASE_URL: "",
-      EPK_MANIFEST_ROOT: "",
-      EPK_MANIFEST_PATH: "",
-      TRANSPARANTE_BROKER_SYNC_ENABLED: "false"
-    },
+    env: { ...baseEnvironment(directory, port), ...environment },
     stdio: ["ignore", "pipe", "pipe"]
   });
   let output = "";
