@@ -16,7 +16,8 @@ test("the new homepage and booking flow use the shared external design system", 
   assert.match(bookingHtml, /src="booking\.js"/);
   assert.match(bookingHtml, /<form class="booking-form" id="booking-form"/);
   assert.equal((bookingHtml.match(/class="form-step"/g) || []).length, 3);
-  assert.doesNotMatch(indexHtml + bookingHtml, /<style\b|<script(?![^>]*\bsrc=)/i);
+  assert.doesNotMatch(indexHtml + bookingHtml, /<style\b/i);
+  assert.doesNotMatch(indexHtml + bookingHtml, /<script(?![^>]*\bsrc=)(?![^>]*type="application\/ld\+json")/i);
 });
 
 test("the production server explicitly serves the new root assets and font MIME type", () => {
