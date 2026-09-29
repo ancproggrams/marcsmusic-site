@@ -30,6 +30,7 @@ import {
   verifyCalendarEventIdentity
 } from "./src/booking/calendar-fulfillment.mjs";
 import { parseCalendarResponse } from "./lib/calendar.js";
+import { buildLlmsTxt, buildRobotsTxt, buildSitemapXml } from "./src/seo/seo-documents.mjs";
 
 const root = resolve(".");
 const port = Number.parseInt(process.env.PORT || "3000", 10);
@@ -125,6 +126,35 @@ const contentTypes = {
 };
 
 const downloadableAudioExtensions = new Set([".mp3", ".m4a", ".wav", ".ogg", ".flac"]);
+
+const publicResponseSecurityHeaders = {
+  "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.instagram.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; frame-src https://www.instagram.com; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
+  "permissions-policy": "camera=(), microphone=(), geolocation=()",
+  "referrer-policy": "strict-origin-when-cross-origin",
+  "x-content-type-options": "nosniff",
+  "x-frame-options": "DENY"
+};
+
+const NO_INDEX_DIRECTIVES = "noindex, nofollow, noarchive";
+
+/**
+ * Crawl and answer-engine documents are rendered from APP_BASE_URL and never
+ * from the request host, so a forged Host header cannot publish a sitemap or
+ * canonical origin that MarcsMusic does not control.
+ */
+const seoDocuments = new Map([
+  ["/robots.txt", seoDocument("text/plain; charset=utf-8", buildRobotsTxt({ siteOrigin: appBaseUrl }))],
+  ["/sitemap.xml", seoDocument("application/xml; charset=utf-8", buildSitemapXml({ siteOrigin: appBaseUrl }))],
+  ["/llms.txt", seoDocument("text/plain; charset=utf-8", buildLlmsTxt({ siteOrigin: appBaseUrl }))]
+]);
+
+const canonicalPathRedirects = new Map([
+  ["/index.html", "/"],
+  ["/booking.html", "/booking"],
+  ["/admin.html", "/admin"]
+]);
+
+const noIndexPaths = new Set(["/admin", "/admin.html", "/booking/success", "/booking/cancelled"]);
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 30;
 const RATE_LIMIT_RAILWAY_FALLBACK_MAX_REQUESTS = Math.max(
@@ -508,6 +538,7 @@ function sendJson(response, status, payload, extraHeaders = {}) {
   response.writeHead(status, {
     "content-type": "application/json; charset=utf-8",
     "cache-control": "no-store",
+    "x-robots-tag": NO_INDEX_DIRECTIVES,
     ...extraHeaders
   });
   response.end(JSON.stringify(payload));
@@ -2488,6 +2519,47 @@ function downloadHeaders(url, filePath) {
   };
 }
 
+function seoDocument(contentType, text) {
+  return { contentType, body: Buffer.from(text, "utf8") };
+}
+
+function serveSeoDocument(request, response, url) {
+  const document = seoDocuments.get(url.pathname);
+  if (!document) {
+    return false;
+  }
+
+  response.writeHead(200, {
+    "content-type": document.contentType,
+    "cache-control": "public, max-age=3600",
+    "content-length": document.body.byteLength,
+    ...publicResponseSecurityHeaders
+  });
+  response.end(request.method === "HEAD" ? undefined : document.body);
+  return true;
+}
+
+/**
+ * The repository filenames stay reachable, but only as a permanent redirect to
+ * the canonical path, so search engines and answer engines consolidate one URL
+ * per page instead of indexing both variants.
+ */
+function redirectToCanonicalPath(response, url) {
+  const target = canonicalPathRedirects.get(url.pathname);
+  if (!target) {
+    return false;
+  }
+
+  const query = /^\?[\w\-.~!$&'()*+,;=:@%/?]*$/u.test(url.search) ? url.search : "";
+  response.writeHead(301, {
+    location: `${target}${query}`,
+    "cache-control": "public, max-age=3600",
+    ...publicResponseSecurityHeaders
+  });
+  response.end();
+  return true;
+}
+
 function serveStatic(request, response) {
   const url = new URL(request.url || "/", request.headers.host ? `http://${request.headers.host}` : appBaseUrl);
   const filePath = getFilePath(url.pathname);
@@ -2505,11 +2577,8 @@ function serveStatic(request, response) {
   const headers = {
     "content-type": contentTypes[extname(filePath)] || "application/octet-stream",
     "cache-control": "public, max-age=300",
-    "content-security-policy": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.instagram.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; frame-src https://www.instagram.com; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'",
-    "permissions-policy": "camera=(), microphone=(), geolocation=()",
-    "referrer-policy": "strict-origin-when-cross-origin",
-    "x-content-type-options": "nosniff",
-    "x-frame-options": "DENY",
+    ...publicResponseSecurityHeaders,
+    ...(noIndexPaths.has(url.pathname) ? { "x-robots-tag": NO_INDEX_DIRECTIVES } : {}),
     ...downloadHeaders(url, filePath)
   };
 
@@ -2595,6 +2664,10 @@ const server = createServer(async (request, response) => {
 
     if (!["GET", "HEAD"].includes(request.method || "")) {
       sendText(response, 405, "Method not allowed");
+      return;
+    }
+
+    if (redirectToCanonicalPath(response, url) || serveSeoDocument(request, response, url)) {
       return;
     }
 
