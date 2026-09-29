@@ -1,8 +1,9 @@
-import { createReadStream, existsSync, statSync } from "node:fs";
+import { createReadStream, existsSync, readFileSync, statSync } from "node:fs";
 import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import { createServer } from "node:http";
 import { createHash, randomUUID, timingSafeEqual } from "node:crypto";
 import { BlockList, isIP } from "node:net";
+import { brotliCompressSync, constants as zlibConstants, gzipSync } from "node:zlib";
 import { basename, dirname, extname, join, normalize, resolve, sep } from "node:path";
 import { createEpkService } from "./src/epk/epk-service.mjs";
 import { fetchTransparanteBrokerAssignments, mergeAssignments } from "./lib/transparante-broker.js";
@@ -31,6 +32,7 @@ import {
 } from "./src/booking/calendar-fulfillment.mjs";
 import { parseCalendarResponse } from "./lib/calendar.js";
 import { buildLlmsTxt, buildRobotsTxt, buildSitemapXml } from "./src/seo/seo-documents.mjs";
+import { renderRuntimeHead, RUNTIME_MARKER } from "./src/seo/runtime-seo.mjs";
 
 const root = resolve(".");
 const port = Number.parseInt(process.env.PORT || "3000", 10);
@@ -155,6 +157,21 @@ const canonicalPathRedirects = new Map([
 ]);
 
 const noIndexPaths = new Set(["/admin", "/admin.html", "/booking/success", "/booking/cancelled"]);
+
+/**
+ * Stylesheet and script bytes are on the critical rendering path, so they are
+ * held in memory with precompressed variants instead of being streamed
+ * uncompressed on every request.
+ */
+const compressedTextFiles = ["styles.css", "app.js", "booking.js"];
+
+/**
+ * Fonts and master audio keep stable filenames, so they may be cached for a
+ * long time. The stylesheet and scripts stay on a short lifetime because they
+ * carry no fingerprint in their URL and must be replaceable by a deploy.
+ */
+const LONG_LIVED_CACHE_CONTROL = "public, max-age=2592000";
+const longLivedCachePrefixes = ["/assets/fonts/", "/soundcloud-growth-os/outreach-mp3/"];
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 30;
 const RATE_LIMIT_RAILWAY_FALLBACK_MAX_REQUESTS = Math.max(
@@ -219,6 +236,17 @@ const validationDay = "2030-01-15";
 if (localDateTimeToUtc(validationDay, workdayStart, bookingTimeZone) >= localDateTimeToUtc(validationDay, workdayEnd, bookingTimeZone)) {
   throw new Error("BOOKING_WORKDAY_END must be later than BOOKING_WORKDAY_START.");
 }
+
+/**
+ * Search-console ownership proofs stay configuration: the token is deployment
+ * specific and may not be committed with the page.
+ */
+const siteVerification = {
+  google: process.env.GOOGLE_SITE_VERIFICATION || "",
+  bing: process.env.BING_SITE_VERIFICATION || ""
+};
+
+const memoryServedFiles = new Map([...renderPublicPages(), ...readCompressibleFiles()]);
 
 let dbQueue = Promise.resolve();
 let bookingStore = null;
@@ -2523,6 +2551,82 @@ function seoDocument(contentType, text) {
   return { contentType, body: Buffer.from(text, "utf8") };
 }
 
+/**
+ * The public pages are rendered once at startup: their request-time SEO data is
+ * the live booking configuration and the verification tokens, and both are fixed
+ * for the lifetime of the process. A missing hook fails closed, because a page
+ * that silently loses it would publish prices that nobody maintains.
+ */
+function renderPublicPages() {
+  const pages = new Map();
+
+  for (const [pageId, file] of [["home", "index.html"], ["booking", "booking.html"]]) {
+    const filePath = join(root, file);
+    const template = readFileSync(filePath, "utf8");
+    if (!template.includes(RUNTIME_MARKER)) {
+      throw new Error(`${file} must contain the ${RUNTIME_MARKER} hook for request-time SEO data.`);
+    }
+
+    const markup = renderRuntimeHead({
+      pageId,
+      siteOrigin: appBaseUrl,
+      bookingConfig: getPublicConfig(),
+      verification: siteVerification
+    });
+    const rendered = markup.trim() ? template.replace(RUNTIME_MARKER, markup.trimStart()) : template;
+    pages.set(filePath, compressibleBody(Buffer.from(rendered, "utf8")));
+  }
+
+  return pages;
+}
+
+function readCompressibleFiles() {
+  return compressedTextFiles.map((file) => {
+    const filePath = join(root, file);
+    return [filePath, compressibleBody(readFileSync(filePath))];
+  });
+}
+
+function compressibleBody(identity) {
+  return {
+    identity,
+    gzip: gzipSync(identity, { level: 9 }),
+    br: brotliCompressSync(identity, {
+      params: {
+        [zlibConstants.BROTLI_PARAM_QUALITY]: 11,
+        [zlibConstants.BROTLI_PARAM_SIZE_HINT]: identity.byteLength
+      }
+    })
+  };
+}
+
+/**
+ * Returns the best encoding the client actually accepts. An explicit `q=0`
+ * rejects that encoding, so a client that cannot decode Brotli is never sent
+ * Brotli.
+ */
+function negotiateContentEncoding(acceptEncoding) {
+  const accepted = new Map();
+  for (const part of String(acceptEncoding || "").toLowerCase().split(",")) {
+    const [rawToken, ...parameters] = part.trim().split(";");
+    const token = rawToken.trim();
+    if (!token) continue;
+    const quality = parameters
+      .map((parameter) => parameter.trim().match(/^q=([\d.]+)$/u))
+      .find(Boolean);
+    accepted.set(token, quality ? Number(quality[1]) : 1);
+  }
+
+  for (const encoding of ["br", "gzip"]) {
+    const quality = accepted.get(encoding) ?? accepted.get("*");
+    if (Number.isFinite(quality) && quality > 0) {
+      return encoding;
+    }
+  }
+
+  return null;
+}
+
 function serveSeoDocument(request, response, url) {
   const document = seoDocuments.get(url.pathname);
   if (!document) {
@@ -2576,11 +2680,27 @@ function serveStatic(request, response) {
     : null;
   const headers = {
     "content-type": contentTypes[extname(filePath)] || "application/octet-stream",
-    "cache-control": "public, max-age=300",
+    "cache-control": longLivedCachePrefixes.some((prefix) => url.pathname.startsWith(prefix))
+      ? LONG_LIVED_CACHE_CONTROL
+      : "public, max-age=300",
     ...publicResponseSecurityHeaders,
     ...(noIndexPaths.has(url.pathname) ? { "x-robots-tag": NO_INDEX_DIRECTIVES } : {}),
     ...downloadHeaders(url, filePath)
   };
+
+  const inMemory = memoryServedFiles.get(filePath);
+  if (inMemory) {
+    const encoding = negotiateContentEncoding(request.headers["accept-encoding"]);
+    const body = encoding ? inMemory[encoding] : inMemory.identity;
+    response.writeHead(200, {
+      ...headers,
+      "content-length": body.byteLength,
+      vary: "accept-encoding",
+      ...(encoding ? { "content-encoding": encoding } : {})
+    });
+    response.end(request.method === "HEAD" ? undefined : body);
+    return;
+  }
 
   if (request.headers.range && !range && downloadableAudioExtensions.has(extension)) {
     response.writeHead(416, { ...headers, "content-range": `bytes */${fileStats.size}` });
