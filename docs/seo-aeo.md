@@ -133,6 +133,10 @@ Controleren zonder te schrijven kan met `npm run seo:check`.
   tweede taalversie voegt niets toe.
 - **Geen beoordelingen of sterren.** `AggregateRating` mag alleen met echte,
   verifieerbare beoordelingen en is daarom nog niet aanwezig.
+- **De canonical in de pagina's verwijst altijd naar productie.** De HTML is
+  statisch, dus een testomgeving verwijst naar `https://www.marcsmusic.nl`. Dat is
+  gewenst: een omgeving die niet het publieke domein is, moet geen eigen index
+  opbouwen. De crawl-documenten volgen wel `APP_BASE_URL` van de omgeving.
 
 ## 9. Volgende stappen
 
