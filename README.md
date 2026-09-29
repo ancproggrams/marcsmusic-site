@@ -240,9 +240,18 @@ npm run seo:sync    # rewrite the generated regions after a content change
 
 `/index.html`, `/booking.html` and `/admin.html` answer with `301` to their
 canonical paths. The admin page, the JSON API and the Mollie return routes are
-excluded from every index. See [the SEO/AEO programme and runbook](docs/seo-aeo.md)
-for the keyword and question matrix, the rules for answer blocks and the next
-steps.
+excluded from every index.
+
+The booking page also carries an `Offer` graph with the live prices, durations
+and travel rate, rendered at startup from the same configuration as
+`/api/booking/config`. Set `GOOGLE_SITE_VERIFICATION` or
+`BING_SITE_VERIFICATION` to publish a search-console ownership proof; an invalid
+token fails startup instead of disappearing silently. The pages, `styles.css`,
+`app.js` and `booking.js` are served from memory with precompressed Brotli and
+gzip variants.
+
+See [the SEO/AEO programme and runbook](docs/seo-aeo.md) for the keyword and
+question matrix, the rules for answer blocks and the next steps.
 
 ## Newsletter sender
 

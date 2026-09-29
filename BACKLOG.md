@@ -4,15 +4,15 @@
 
 Status: eerste fase live
 
-De basis staat: canonieke pagina's, structured data, antwoordblokken,
-`robots.txt`, `sitemap.xml` en `llms.txt`. De vervolgstappen staan met
-motivatie in [`docs/seo-aeo.md`](docs/seo-aeo.md), paragraaf 9. Eerst aan de
-beurt:
+De basis staat: canonieke pagina's, structured data met live prijzen,
+antwoordblokken, een eigen deelafbeelding, `robots.txt`, `sitemap.xml` en
+`llms.txt`. De vervolgstappen staan met motivatie in
+[`docs/seo-aeo.md`](docs/seo-aeo.md), paragraaf 9. Eerst aan de beurt:
 
-- Search Console en Bing Webmaster inrichten en de sitemap indienen;
-- Open Graph-afbeelding op maat (1200 x 630) in plaats van het vierkante portret;
-- prijzen en duur als structured data uit de live boekingsconfiguratie serveren;
-- eigen pagina per track met `MusicRecording` en interne link naar `/booking`.
+- Search Console en Bing Webmaster verifiëren met `GOOGLE_SITE_VERIFICATION` en
+  `BING_SITE_VERIFICATION`, daarna de sitemap indienen;
+- eigen pagina per track met `MusicRecording`, songtekst en verhaal;
+- vingerafdruk in de URL van `styles.css` en de scripts voor lange caching.
 
 ## Donaties via Mollie opnieuw introduceren
 
