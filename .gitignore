@@ -12,6 +12,7 @@
 !docs/outreach/
 !docs/outreach/**
 !docs/plunk-mxroute-runbook.md
+!docs/seo-aeo.md
 !index.html
 !booking.html
 !admin.html
@@ -44,12 +45,15 @@
 !src/epk/epk-service.mjs
 !src/film-leads/
 !src/film-leads/*.mjs
+!src/seo/
+!src/seo/*.mjs
 !tests/
 !tests/booking-payment-calendar.test.mjs
 !tests/epk.test.mjs
 !tests/film-lead-security.test.mjs
 !tests/trusted-proxy-rate-limit.test.mjs
 !tests/frontend-static.test.mjs
+!tests/seo-aeo.test.mjs
 !examples/
 !examples/epk-manifest.example.json
 !soundcloud-growth-os/
