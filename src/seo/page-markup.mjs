@@ -23,7 +23,8 @@ const ROBOTS_DIRECTIVES = "index, follow, max-snippet:-1, max-image-preview:larg
 export function buildHeadMarkup({ pageId, siteOrigin, indent = "    " }) {
   const page = getPage(pageId);
   const canonical = canonicalUrl(siteOrigin, page);
-  const imageUrl = absoluteUrl(siteOrigin, page.imagePath);
+  const share = SITE_ENTITY.shareImage;
+  const imageUrl = absoluteUrl(siteOrigin, share.path);
   const tags = [
     `<title>${escapeHtml(page.title)}</title>`,
     meta("name", "description", page.description),
@@ -36,13 +37,15 @@ export function buildHeadMarkup({ pageId, siteOrigin, indent = "    " }) {
     meta("property", "og:description", page.description),
     meta("property", "og:url", canonical),
     meta("property", "og:image", imageUrl),
-    meta("property", "og:image:alt", page.imageAlt),
+    meta("property", "og:image:width", String(share.width)),
+    meta("property", "og:image:height", String(share.height)),
+    meta("property", "og:image:alt", share.alt),
     meta("name", "twitter:card", "summary_large_image"),
     meta("name", "twitter:site", TWITTER_HANDLE),
     meta("name", "twitter:title", page.title),
     meta("name", "twitter:description", page.description),
     meta("name", "twitter:image", imageUrl),
-    meta("name", "twitter:image:alt", page.imageAlt)
+    meta("name", "twitter:image:alt", share.alt)
   ];
 
   const jsonLd = JSON.stringify(buildJsonLdGraph({ pageId, siteOrigin }), null, 2)

@@ -10,6 +10,17 @@ export const SITE_ENTITY = Object.freeze({
     "MarcsMusic is het muziekproject van Marc: eigen Nederlandse tracks om te beluisteren en een online boeking voor een DJ-set, event of studiosessie.",
   logoPath: "/assets/logo-black-transparent.png",
   portraitPath: "/assets/portrait-full.png",
+  /**
+   * Dedicated 1200 x 630 share image. Social and chat previews crop a square
+   * portrait unpredictably, so sharing uses this landscape variant while the
+   * pages keep the portrait as their primary image.
+   */
+  shareImage: Object.freeze({
+    path: "/assets/og-marcsmusic.jpg",
+    width: 1200,
+    height: 630,
+    alt: "MarcsMusic: eigen muziek van Marc, luisteren en boeken op marcsmusic.nl"
+  }),
   countryCode: "NL",
   countryName: "Nederland",
   timeZone: "Europe/Amsterdam",
@@ -54,9 +65,15 @@ export const SITE_PAGES = Object.freeze([
   })
 ]);
 
+/**
+ * `bookingTypeId` binds a service to the booking type in the server
+ * configuration, so the runtime offer graph can publish the live price and
+ * duration of exactly that service.
+ */
 export const BOOKING_SERVICES = Object.freeze([
   Object.freeze({
     id: "dj-set",
+    bookingTypeId: "dj",
     name: "DJ-set door MarcsMusic",
     serviceType: "DJ-set",
     description:
@@ -64,6 +81,7 @@ export const BOOKING_SERVICES = Object.freeze([
   }),
   Object.freeze({
     id: "event-muziek",
+    bookingTypeId: "other",
     name: "Eventmuziek door MarcsMusic",
     serviceType: "Muziek voor events",
     description:
@@ -71,12 +89,17 @@ export const BOOKING_SERVICES = Object.freeze([
   }),
   Object.freeze({
     id: "studiosessie",
+    bookingTypeId: "studio",
     name: "Studiosessie met MarcsMusic",
     serviceType: "Studiosessie",
     description:
       "Een studiosessie om samen aan muziek, ideeën en een concrete opname te werken, met ruimte voor eigen inbreng."
   })
 ]);
+
+export function serviceForBookingType(bookingTypeId) {
+  return BOOKING_SERVICES.find((service) => service.bookingTypeId === bookingTypeId);
+}
 
 /**
  * Answer-engine blocks. Every answer must stay self-contained, name the entity
