@@ -13,6 +13,8 @@
 !docs/outreach/**
 !docs/plunk-mxroute-runbook.md
 !docs/seo-aeo.md
+!docs/toetsenbord/
+!docs/toetsenbord/**
 !index.html
 !booking.html
 !admin.html
