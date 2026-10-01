@@ -1,5 +1,7 @@
 # Toetsenbordkaarten
 
+Twee skills laden deze kaarten: `.cursor/skills/masterdisaster-keyboard` voor LUNA, FL Studio en de controller, en `.cursor/skills/meta-business-suite` voor de planner. Beide gaan vanzelf aan wanneer de taak daarbij hoort.
+
 Vier kaarten. De eerste drie zijn de MasterDisaster-set van 29 september 2026, overgenomen uit de music-production skill. De vierde is de Meta Business Suite-kaart uit de plannersessie van 30 september 2026.
 
 Verzin geen sneltoets die niet in het bijbehorende bestand staat.

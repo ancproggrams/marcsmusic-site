@@ -1,5 +1,11 @@
 *
 !.gitignore
+!.cursor/
+!.cursor/skills/
+!.cursor/skills/masterdisaster-keyboard/
+!.cursor/skills/masterdisaster-keyboard/**
+!.cursor/skills/meta-business-suite/
+!.cursor/skills/meta-business-suite/**
 !.env.example
 !.gitleaks.toml
 !.github/
