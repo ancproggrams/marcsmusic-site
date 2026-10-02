@@ -446,7 +446,7 @@ test("a release trigger evaluates every active release and ignores its stale rel
     metrics: { increment() {} }
   });
 
-  const result = await service.processContact(contact.id, { releaseId: "release-stale-paused" });
+  const result = await service.processContact(contact.id, { releaseId: "release-stale-paused", now: NOW });
 
   assert.equal(result.matched, 2);
   assert.equal(attempted.length, 1);
@@ -567,16 +567,16 @@ test("copy failures retain transient allocations but release an exact permanent 
     metrics: { increment() {} }
   });
 
-  await assert.rejects(service.processContact("contact-a"), (error) => error === transientFailure);
+  await assert.rejects(service.processContact("contact-a", { now: NOW }), (error) => error === transientFailure);
   assert.equal(activeMatchId, "match-contact-a");
   assert.deepEqual(releases, []);
 
-  await service.processContact("contact-b");
+  await service.processContact("contact-b", { now: NOW });
   assert.equal(activeMatchId, "match-contact-a");
   assert.equal(copyCalls, 1, "another match cannot consume or duplicate a retained transient allocation");
   assert.equal(queue.length, 0);
 
-  await assert.rejects(service.processContact("contact-a"), (error) => error === permanentFailure);
+  await assert.rejects(service.processContact("contact-a", { now: NOW }), (error) => error === permanentFailure);
   assert.equal(activeMatchId, undefined);
   assert.deepEqual(releases, [{
     matchId: "match-contact-a",
@@ -584,7 +584,7 @@ test("copy failures retain transient allocations but release an exact permanent 
     reason: "copy_preparation_permanent_failure"
   }]);
 
-  const result = await service.processContact("contact-b");
+  const result = await service.processContact("contact-b", { now: NOW });
 
   assert.equal(result.allocated, 1);
   assert.equal(activeMatchId, "match-contact-b");

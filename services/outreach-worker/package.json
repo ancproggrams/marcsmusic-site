@@ -36,10 +36,22 @@
     "@fastify/formbody": "^8.0.0",
     "@fastify/multipart": "^9.0.0",
     "dotenv": "^17.0.0",
-    "fastify": "^5.0.0",
+    "fastify": "^5.12.5",
     "luxon": "^3.0.0",
     "pg": "^8.0.0",
     "pino": "^9.0.0",
     "zod": "^4.0.0"
+  },
+  "overrides": {
+    "fast-json-stringify": {
+      "fast-uri": "4.2.1"
+    },
+    "ajv": {
+      "fast-uri": "3.1.8"
+    },
+    "@fastify/ajv-compiler": {
+      "fast-uri": "3.1.8"
+    },
+    "find-my-way": "9.9.0"
   }
 }

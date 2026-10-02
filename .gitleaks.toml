@@ -9,10 +9,39 @@ condition = "AND"
 targetRules = ["generic-api-key"]
 regexTarget = "secret"
 paths = [
-  '''^services/outreach-worker/tests/(?:adversarial-contracts|key-rotation|replies-and-security|source-ingestion)\.test\.mjs$'''
+  '''^services/outreach-worker/tests/(?:adversarial-contracts|copy-service-link-gate|key-rotation|release-link-reachability|replies-and-security|source-ingestion)\.test\.mjs$'''
 ]
 regexes = [
   '''^unsubscribe-key-for-tests-at-least-32-characters$''',
   '''^unsubscribe-signing-key-for-tests-32-chars$''',
-  '''^unsubscribe-signing-key-1234567890$'''
+  '''^unsubscribe-signing-key-1234567890$''',
+  '''^legacy-unsubscribe-key-for-tests-at-least-32-characters$''',
+  '''^historical-unsubscribe-key-for-tests-32-chars$''',
+  '''^legacy-unsubscribe-key-for-tests-32-chars$'''
+]
+
+[[allowlists]]
+description = "Named test key-version labels, not credentials"
+condition = "AND"
+targetRules = ["generic-api-key"]
+regexTarget = "secret"
+paths = [
+  '''^services/outreach-worker/tests/outcome-reconciliation\.integration\.mjs$''',
+  '''^services/outreach-worker/tests/privacy-governance\.integration\.mjs$'''
+]
+regexes = [
+  '''^outcome-reconcile-test-v1$''',
+  '''^privacy-ledger-v1$'''
+]
+
+[[allowlists]]
+description = "Empty legacy unsubscribe assignment is read together with the next variable name"
+condition = "AND"
+targetRules = ["generic-api-key"]
+regexTarget = "secret"
+paths = [
+  '''^services/outreach-worker/\.env\.example$'''
+]
+regexes = [
+  '''^OUTREACH_UNSUBSCRIBE_LEGACY_V1_VERIFY_UNTIL=$'''
 ]
