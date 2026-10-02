@@ -7,6 +7,8 @@ import { calculateMatchScore, classifyMatch } from "../src/domain/match-score.mj
 import { evaluateContactEvidence, evaluateOutletEvidence } from "../src/domain/evidence-policy.mjs";
 
 const NOW = new Date("2026-07-15T12:00:00.000Z");
+const ALLOCATION_NOW = new Date();
+const ALLOCATION_CAPTURED_AT = new Date(ALLOCATION_NOW.getTime() - 86_400_000).toISOString();
 
 function scoreInput(overrides = {}) {
   return {
@@ -610,7 +612,7 @@ function contactRecord(id, emailAddress) {
     contactPurpose: "Explicit Music Submission",
     contactBasis: "Explicit Submission Address",
     emailValidationStatus: "Valid",
-    lastValidatedAt: "2026-07-01T00:00:00.000Z",
+    lastValidatedAt: ALLOCATION_CAPTURED_AT,
     doNotContact: false,
     optedOut: false,
     hardBounced: false,
@@ -619,7 +621,7 @@ function contactRecord(id, emailAddress) {
 }
 
 function fakeContactIntakeService(espocrm) {
-  const capturedAt = "2026-07-01T00:00:00.000Z";
+  const capturedAt = ALLOCATION_CAPTURED_AT;
   return {
     async processContact(id) {
       const raw = await espocrm.get("MediaContact", id);
@@ -637,7 +639,7 @@ function fakeContactIntakeService(espocrm) {
         sourceUrl: record.contactSourceUrl,
         evidenceText: record.contactEvidence,
         capturedAt: record.proofCapturedAt,
-        now: NOW,
+        now: ALLOCATION_NOW,
         sourceKind: "signed_source"
       });
       return { canonicalId: record.id, record, attestation: fakeAttestation(evaluation), attested: evaluation.allowed };
@@ -658,7 +660,7 @@ function fakeContactIntakeService(espocrm) {
         sourceUrl: record.sourceUrl,
         evidenceText: record.submissionEvidence,
         capturedAt: record.lastValidatedAt,
-        now: NOW,
+        now: ALLOCATION_NOW,
         sourceKind: "signed_source"
       });
       return { canonicalId: record.id, record, attestation: fakeAttestation(evaluation), attested: evaluation.allowed };
