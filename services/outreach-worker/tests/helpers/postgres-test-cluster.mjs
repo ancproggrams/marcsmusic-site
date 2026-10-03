@@ -30,7 +30,7 @@ export async function startPostgresTestCluster() {
     await run("pg_ctl", [
       "--pgdata", dataDirectory,
       "--log", logFile,
-      "--options", `-p ${port} -h 127.0.0.1 -F -c fsync=off -c synchronous_commit=off -c full_page_writes=off`,
+      "--options", `-p ${port} -h 127.0.0.1 -k ${rootDirectory} -F -c fsync=off -c synchronous_commit=off -c full_page_writes=off`,
       "--wait",
       "start"
     ]);

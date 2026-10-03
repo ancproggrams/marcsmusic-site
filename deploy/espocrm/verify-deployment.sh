@@ -17,14 +17,27 @@ temporary_root=''
 declare -a compose_command=()
 
 cleanup() {
-  docker rm --volumes --force "$APPLICATION_CONTAINER" >/dev/null 2>&1 || true
-  docker rm --volumes --force "$DATABASE_CONTAINER" >/dev/null 2>&1 || true
-  docker network rm "$NETWORK" >/dev/null 2>&1 || true
-  docker image rm "$IMAGE_TAG" >/dev/null 2>&1 || true
+  local status=$?
 
-  if [ -n "$temporary_root" ]; then
+  set +e
+  docker rm --volumes --force "$APPLICATION_CONTAINER" >/dev/null 2>&1
+  docker rm --volumes --force "$DATABASE_CONTAINER" >/dev/null 2>&1
+  docker network rm "$NETWORK" >/dev/null 2>&1
+  docker image rm "$IMAGE_TAG" >/dev/null 2>&1
+
+  if [ -n "$temporary_root" ] && [ -d "$temporary_root" ]; then
     rm -rf "$temporary_root"
+    if [ -d "$temporary_root" ]; then
+      docker run --rm \
+        --mount "type=bind,source=${temporary_root},target=/cleanup" \
+        --entrypoint /bin/sh \
+        "$DATABASE_IMAGE" \
+        -c 'find /cleanup -mindepth 1 -delete'
+      rm -rf "$temporary_root"
+    fi
   fi
+
+  return "$status"
 }
 
 trap cleanup EXIT
