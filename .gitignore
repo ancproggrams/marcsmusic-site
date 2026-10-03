@@ -1,5 +1,11 @@
 *
 !.gitignore
+!.cursor/
+!.cursor/skills/
+!.cursor/skills/masterdisaster-keyboard/
+!.cursor/skills/masterdisaster-keyboard/**
+!.cursor/skills/meta-business-suite/
+!.cursor/skills/meta-business-suite/**
 !.env.example
 !.gitleaks.toml
 !.github/
@@ -14,6 +20,8 @@
 !docs/plunk-mxroute-runbook.md
 !docs/seo-aeo.md
 !docs/meta-business-suite-toetsenbord.md
+!docs/toetsenbord/
+!docs/toetsenbord/**
 !index.html
 !booking.html
 !admin.html

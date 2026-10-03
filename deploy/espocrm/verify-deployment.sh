@@ -17,13 +17,17 @@ temporary_root=''
 declare -a compose_command=()
 
 cleanup() {
-  docker rm --volumes --force "$APPLICATION_CONTAINER" >/dev/null 2>&1 || true
-  docker rm --volumes --force "$DATABASE_CONTAINER" >/dev/null 2>&1 || true
-  docker network rm "$NETWORK" >/dev/null 2>&1 || true
-  docker image rm "$IMAGE_TAG" >/dev/null 2>&1 || true
+  local status=$?
+
+  set +e
+  docker rm --volumes --force "$APPLICATION_CONTAINER" >/dev/null 2>&1
+  docker rm --volumes --force "$DATABASE_CONTAINER" >/dev/null 2>&1
+  docker network rm "$NETWORK" >/dev/null 2>&1
+  docker image rm "$IMAGE_TAG" >/dev/null 2>&1
 
   if [ -n "$temporary_root" ] && [ -d "$temporary_root" ]; then
-    if ! rm -rf "$temporary_root" 2>/dev/null; then
+    rm -rf "$temporary_root"
+    if [ -d "$temporary_root" ]; then
       # Disposable MySQL and EspoCRM bind mounts are root-owned. The runner
       # cannot delete them, and a failing EXIT trap would hide a passed contract.
       local temporary_parent
@@ -38,6 +42,8 @@ cleanup() {
         -rf "/cleanup/${temporary_name}"
     fi
   fi
+
+  return "$status"
 }
 
 trap cleanup EXIT
