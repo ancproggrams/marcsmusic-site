@@ -28,12 +28,18 @@ cleanup() {
   if [ -n "$temporary_root" ] && [ -d "$temporary_root" ]; then
     rm -rf "$temporary_root"
     if [ -d "$temporary_root" ]; then
-      docker run --rm \
-        --mount "type=bind,source=${temporary_root},target=/cleanup" \
-        --entrypoint /bin/sh \
+      # Disposable MySQL and EspoCRM bind mounts are root-owned. The runner
+      # cannot delete them, and a failing EXIT trap would hide a passed contract.
+      local temporary_parent
+      local temporary_name
+
+      temporary_parent="$(dirname "$temporary_root")"
+      temporary_name="$(basename "$temporary_root")"
+      docker run --rm --user 0 \
+        --mount "type=bind,source=${temporary_parent},target=/cleanup" \
+        --entrypoint rm \
         "$DATABASE_IMAGE" \
-        -c 'find /cleanup -mindepth 1 -delete'
-      rm -rf "$temporary_root"
+        -rf "/cleanup/${temporary_name}"
     fi
   fi
 
