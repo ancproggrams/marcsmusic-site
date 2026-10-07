@@ -29,6 +29,9 @@ export function createMatchService({ espocrm, repository, contactIntakeService, 
   }
 
   async function processContactFenced(intake, options = {}) {
+    const now = options.now instanceof Date && !Number.isNaN(options.now.getTime())
+      ? options.now
+      : new Date();
     const contactId = intake.canonicalId;
     const contactRecord = { ...intake.record, evidenceAttestation: intake.attestation };
     const contact = normalizeContact(contactRecord);
@@ -66,7 +69,7 @@ export function createMatchService({ espocrm, repository, contactIntakeService, 
     const recentOutletMatches = await espocrm.list("OutreachMatch", {
       where: [
         { type: "equals", attribute: "mediaOutletId", value: outlet.id },
-        { type: "greaterThanOrEquals", attribute: "lastSentAt", value: toEspoDateTime(subtractDays(new Date(), config.policy.outletCooldownDays)) }
+        { type: "greaterThanOrEquals", attribute: "lastSentAt", value: toEspoDateTime(subtractDays(now, config.policy.outletCooldownDays)) }
       ],
       maxRecords: 1_000
     });
@@ -88,7 +91,8 @@ export function createMatchService({ espocrm, repository, contactIntakeService, 
         cooldownUntil: existing?.cooldownUntil,
         suppressed,
         genreDenied: release.genres.some((genre) => persistedGenreDenialSet.has(genre)),
-        maxEvidenceAgeSeconds: config.sourceIngestion?.maxEvidenceAgeSeconds
+        maxEvidenceAgeSeconds: config.sourceIngestion?.maxEvidenceAgeSeconds,
+        now
       });
       const scoring = calculateMatchScore({ release, contact, outlet });
       const scoreState = classifyMatch(scoring.score, {
